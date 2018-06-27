@@ -29,7 +29,8 @@ CSTANDARD = -std=gnu11
 
 # Compiler options here.
 ifeq ($(USE_OPT),)
-  USE_OPT = -O$(OPTIMIZE) -g$(DEBUG) 
+  USE_OPT = -O$(OPTIMIZE) 
+#-g$(DEBUG) 
   USE_OPT += -fsigned-char -fshort-enums 
 endif
 

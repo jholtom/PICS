@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cc2KlwXD.s 			page 1
+GAS LISTING /tmp/ccvbbSxz.s 			page 1
 
 
    1               	# 1 ".//core/bootloader/bootloader.S"
@@ -13,8 +13,8 @@ GAS LISTING /tmp/cc2KlwXD.s 			page 1
    7               	.global __bootloader_start
    8               	_bootloader_start:
    9 0000 1442 0000 	  mov.w &bootloader, r4 ; read bootloader flag
-  10 0004 0493      	  tst r4 ; is r4 zero?
-  11 0006 0020      	  jnz _main ; if not, continue
+  10 0004 1493      	  cmp #1, r4 ; is r4 one?
+  11 0006 0024      	  jz _main ; if so, continue
   12 0008 B012 0000 	  call #__crt0_start ; we continue by jumping to the TI crt0 - this can't move
   13               	_main:
   14               	  ; now we're in the bootloader proper
@@ -58,7 +58,7 @@ GAS LISTING /tmp/cc2KlwXD.s 			page 1
   39               	  ; STATW is read-only
   40               	  ; not using TBCNT
   41               	  ; 7-bit slave address for upper half
-GAS LISTING /tmp/cc2KlwXD.s 			page 2
+GAS LISTING /tmp/ccvbbSxz.s 			page 2
 
 
   42 005a B240 5100 	  mov.w #0x51, &UCB0I2CSA
@@ -118,7 +118,7 @@ GAS LISTING /tmp/cc2KlwXD.s 			page 1
   90               	
   91               	  ; nack/stop
   92 00ae A2D2 0000 	  bis #0x0004, &UCB0CTLW0
-GAS LISTING /tmp/cc2KlwXD.s 			page 3
+GAS LISTING /tmp/ccvbbSxz.s 			page 3
 
 
   93               	
@@ -135,7 +135,7 @@ GAS LISTING /tmp/cc2KlwXD.s 			page 1
  103               	  ; reset
  104 00c2 B240 48A5 	  mov.w #0xA548, &PMMCTL0
  104      0000 
-GAS LISTING /tmp/cc2KlwXD.s 			page 4
+GAS LISTING /tmp/ccvbbSxz.s 			page 4
 
 
 DEFINED SYMBOLS
