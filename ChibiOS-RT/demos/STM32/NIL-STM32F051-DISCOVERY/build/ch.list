@@ -1,0 +1,3999 @@
+
+build/ch.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+08000100 <Reset_Handler>:
+ 8000100:	b672      	cpsid	i
+ 8000102:	4824      	ldr	r0, [pc, #144]	; (8000194 <endfiniloop+0x6>)
+ 8000104:	f380 8808 	msr	MSP, r0
+ 8000108:	4823      	ldr	r0, [pc, #140]	; (8000198 <endfiniloop+0xa>)
+ 800010a:	f380 8809 	msr	PSP, r0
+ 800010e:	2002      	movs	r0, #2
+ 8000110:	f380 8814 	msr	CONTROL, r0
+ 8000114:	f3bf 8f6f 	isb	sy
+ 8000118:	f000 feba 	bl	8000e90 <__core_init>
+ 800011c:	f000 fe10 	bl	8000d40 <__early_init>
+ 8000120:	481e      	ldr	r0, [pc, #120]	; (800019c <endfiniloop+0xe>)
+ 8000122:	491f      	ldr	r1, [pc, #124]	; (80001a0 <endfiniloop+0x12>)
+ 8000124:	4a1b      	ldr	r2, [pc, #108]	; (8000194 <endfiniloop+0x6>)
+
+08000126 <msloop>:
+ 8000126:	4291      	cmp	r1, r2
+ 8000128:	da02      	bge.n	8000130 <endmsloop>
+ 800012a:	6008      	str	r0, [r1, #0]
+ 800012c:	3104      	adds	r1, #4
+ 800012e:	e7fa      	b.n	8000126 <msloop>
+
+08000130 <endmsloop>:
+ 8000130:	491c      	ldr	r1, [pc, #112]	; (80001a4 <endfiniloop+0x16>)
+ 8000132:	4a19      	ldr	r2, [pc, #100]	; (8000198 <endfiniloop+0xa>)
+
+08000134 <psloop>:
+ 8000134:	4291      	cmp	r1, r2
+ 8000136:	da02      	bge.n	800013e <endpsloop>
+ 8000138:	6008      	str	r0, [r1, #0]
+ 800013a:	3104      	adds	r1, #4
+ 800013c:	e7fa      	b.n	8000134 <psloop>
+
+0800013e <endpsloop>:
+ 800013e:	491a      	ldr	r1, [pc, #104]	; (80001a8 <endfiniloop+0x1a>)
+ 8000140:	4a1a      	ldr	r2, [pc, #104]	; (80001ac <endfiniloop+0x1e>)
+ 8000142:	4b1b      	ldr	r3, [pc, #108]	; (80001b0 <endfiniloop+0x22>)
+
+08000144 <dloop>:
+ 8000144:	429a      	cmp	r2, r3
+ 8000146:	da04      	bge.n	8000152 <enddloop>
+ 8000148:	6808      	ldr	r0, [r1, #0]
+ 800014a:	6010      	str	r0, [r2, #0]
+ 800014c:	3104      	adds	r1, #4
+ 800014e:	3204      	adds	r2, #4
+ 8000150:	e7f8      	b.n	8000144 <dloop>
+
+08000152 <enddloop>:
+ 8000152:	2000      	movs	r0, #0
+ 8000154:	4917      	ldr	r1, [pc, #92]	; (80001b4 <endfiniloop+0x26>)
+ 8000156:	4a18      	ldr	r2, [pc, #96]	; (80001b8 <endfiniloop+0x2a>)
+
+08000158 <bloop>:
+ 8000158:	4291      	cmp	r1, r2
+ 800015a:	da02      	bge.n	8000162 <endbloop>
+ 800015c:	6008      	str	r0, [r1, #0]
+ 800015e:	3104      	adds	r1, #4
+ 8000160:	e7fa      	b.n	8000158 <bloop>
+
+08000162 <endbloop>:
+ 8000162:	f000 fe5d 	bl	8000e20 <__init_ram_areas>
+ 8000166:	f000 fe8b 	bl	8000e80 <__late_init>
+ 800016a:	4c14      	ldr	r4, [pc, #80]	; (80001bc <endfiniloop+0x2e>)
+ 800016c:	4d14      	ldr	r5, [pc, #80]	; (80001c0 <endfiniloop+0x32>)
+
+0800016e <initloop>:
+ 800016e:	42ac      	cmp	r4, r5
+ 8000170:	da03      	bge.n	800017a <endinitloop>
+ 8000172:	6821      	ldr	r1, [r4, #0]
+ 8000174:	4788      	blx	r1
+ 8000176:	3404      	adds	r4, #4
+ 8000178:	e7f9      	b.n	800016e <initloop>
+
+0800017a <endinitloop>:
+ 800017a:	f000 fcb1 	bl	8000ae0 <main>
+ 800017e:	4c11      	ldr	r4, [pc, #68]	; (80001c4 <endfiniloop+0x36>)
+ 8000180:	4d11      	ldr	r5, [pc, #68]	; (80001c8 <endfiniloop+0x3a>)
+
+08000182 <finiloop>:
+ 8000182:	42ac      	cmp	r4, r5
+ 8000184:	da03      	bge.n	800018e <endfiniloop>
+ 8000186:	6821      	ldr	r1, [r4, #0]
+ 8000188:	4788      	blx	r1
+ 800018a:	3404      	adds	r4, #4
+ 800018c:	e7f9      	b.n	8000182 <finiloop>
+
+0800018e <endfiniloop>:
+ 800018e:	490f      	ldr	r1, [pc, #60]	; (80001cc <endfiniloop+0x3e>)
+ 8000190:	4708      	bx	r1
+ 8000192:	0000      	.short	0x0000
+ 8000194:	20000400 	.word	0x20000400
+ 8000198:	20000500 	.word	0x20000500
+ 800019c:	55555555 	.word	0x55555555
+ 80001a0:	20000000 	.word	0x20000000
+ 80001a4:	20000400 	.word	0x20000400
+ 80001a8:	08000fc8 	.word	0x08000fc8
+ 80001ac:	20000500 	.word	0x20000500
+ 80001b0:	20000500 	.word	0x20000500
+ 80001b4:	20000500 	.word	0x20000500
+ 80001b8:	20000918 	.word	0x20000918
+ 80001bc:	08000100 	.word	0x08000100
+ 80001c0:	08000100 	.word	0x08000100
+ 80001c4:	08000100 	.word	0x08000100
+ 80001c8:	08000100 	.word	0x08000100
+ 80001cc:	08000e71 	.word	0x08000e71
+
+080001d0 <_port_switch>:
+ 80001d0:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 80001d2:	4644      	mov	r4, r8
+ 80001d4:	464d      	mov	r5, r9
+ 80001d6:	4656      	mov	r6, sl
+ 80001d8:	465f      	mov	r7, fp
+ 80001da:	b4f0      	push	{r4, r5, r6, r7}
+ 80001dc:	466b      	mov	r3, sp
+ 80001de:	600b      	str	r3, [r1, #0]
+ 80001e0:	6803      	ldr	r3, [r0, #0]
+ 80001e2:	469d      	mov	sp, r3
+ 80001e4:	bcf0      	pop	{r4, r5, r6, r7}
+ 80001e6:	46a0      	mov	r8, r4
+ 80001e8:	46a9      	mov	r9, r5
+ 80001ea:	46b2      	mov	sl, r6
+ 80001ec:	46bb      	mov	fp, r7
+ 80001ee:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+080001f0 <_port_thread_start>:
+ 80001f0:	b662      	cpsie	i
+ 80001f2:	1c28      	adds	r0, r5, #0
+ 80001f4:	47a0      	blx	r4
+ 80001f6:	2300      	movs	r3, #0
+ 80001f8:	f000 fe0a 	bl	8000e10 <chSysHalt>
+
+080001fc <_port_switch_from_isr>:
+ 80001fc:	f000 fdf8 	bl	8000df0 <chSchDoReschedule>
+
+08000200 <_port_exit_from_isr>:
+ 8000200:	4a01      	ldr	r2, [pc, #4]	; (8000208 <_port_exit_from_isr+0x8>)
+ 8000202:	4b02      	ldr	r3, [pc, #8]	; (800020c <_port_exit_from_isr+0xc>)
+ 8000204:	6013      	str	r3, [r2, #0]
+ 8000206:	e7fe      	b.n	8000206 <_port_exit_from_isr+0x6>
+ 8000208:	e000ed04 	.word	0xe000ed04
+ 800020c:	80000000 	.word	0x80000000
+
+08000210 <__aeabi_uidiv>:
+ 8000210:	2900      	cmp	r1, #0
+ 8000212:	d034      	beq.n	800027e <.udivsi3_skip_div0_test+0x6a>
+
+08000214 <.udivsi3_skip_div0_test>:
+ 8000214:	2301      	movs	r3, #1
+ 8000216:	2200      	movs	r2, #0
+ 8000218:	b410      	push	{r4}
+ 800021a:	4288      	cmp	r0, r1
+ 800021c:	d32c      	bcc.n	8000278 <.udivsi3_skip_div0_test+0x64>
+ 800021e:	2401      	movs	r4, #1
+ 8000220:	0724      	lsls	r4, r4, #28
+ 8000222:	42a1      	cmp	r1, r4
+ 8000224:	d204      	bcs.n	8000230 <.udivsi3_skip_div0_test+0x1c>
+ 8000226:	4281      	cmp	r1, r0
+ 8000228:	d202      	bcs.n	8000230 <.udivsi3_skip_div0_test+0x1c>
+ 800022a:	0109      	lsls	r1, r1, #4
+ 800022c:	011b      	lsls	r3, r3, #4
+ 800022e:	e7f8      	b.n	8000222 <.udivsi3_skip_div0_test+0xe>
+ 8000230:	00e4      	lsls	r4, r4, #3
+ 8000232:	42a1      	cmp	r1, r4
+ 8000234:	d204      	bcs.n	8000240 <.udivsi3_skip_div0_test+0x2c>
+ 8000236:	4281      	cmp	r1, r0
+ 8000238:	d202      	bcs.n	8000240 <.udivsi3_skip_div0_test+0x2c>
+ 800023a:	0049      	lsls	r1, r1, #1
+ 800023c:	005b      	lsls	r3, r3, #1
+ 800023e:	e7f8      	b.n	8000232 <.udivsi3_skip_div0_test+0x1e>
+ 8000240:	4288      	cmp	r0, r1
+ 8000242:	d301      	bcc.n	8000248 <.udivsi3_skip_div0_test+0x34>
+ 8000244:	1a40      	subs	r0, r0, r1
+ 8000246:	431a      	orrs	r2, r3
+ 8000248:	084c      	lsrs	r4, r1, #1
+ 800024a:	42a0      	cmp	r0, r4
+ 800024c:	d302      	bcc.n	8000254 <.udivsi3_skip_div0_test+0x40>
+ 800024e:	1b00      	subs	r0, r0, r4
+ 8000250:	085c      	lsrs	r4, r3, #1
+ 8000252:	4322      	orrs	r2, r4
+ 8000254:	088c      	lsrs	r4, r1, #2
+ 8000256:	42a0      	cmp	r0, r4
+ 8000258:	d302      	bcc.n	8000260 <.udivsi3_skip_div0_test+0x4c>
+ 800025a:	1b00      	subs	r0, r0, r4
+ 800025c:	089c      	lsrs	r4, r3, #2
+ 800025e:	4322      	orrs	r2, r4
+ 8000260:	08cc      	lsrs	r4, r1, #3
+ 8000262:	42a0      	cmp	r0, r4
+ 8000264:	d302      	bcc.n	800026c <.udivsi3_skip_div0_test+0x58>
+ 8000266:	1b00      	subs	r0, r0, r4
+ 8000268:	08dc      	lsrs	r4, r3, #3
+ 800026a:	4322      	orrs	r2, r4
+ 800026c:	2800      	cmp	r0, #0
+ 800026e:	d003      	beq.n	8000278 <.udivsi3_skip_div0_test+0x64>
+ 8000270:	091b      	lsrs	r3, r3, #4
+ 8000272:	d001      	beq.n	8000278 <.udivsi3_skip_div0_test+0x64>
+ 8000274:	0909      	lsrs	r1, r1, #4
+ 8000276:	e7e3      	b.n	8000240 <.udivsi3_skip_div0_test+0x2c>
+ 8000278:	1c10      	adds	r0, r2, #0
+ 800027a:	bc10      	pop	{r4}
+ 800027c:	4770      	bx	lr
+ 800027e:	2800      	cmp	r0, #0
+ 8000280:	d001      	beq.n	8000286 <.udivsi3_skip_div0_test+0x72>
+ 8000282:	2000      	movs	r0, #0
+ 8000284:	43c0      	mvns	r0, r0
+ 8000286:	b407      	push	{r0, r1, r2}
+ 8000288:	4802      	ldr	r0, [pc, #8]	; (8000294 <.udivsi3_skip_div0_test+0x80>)
+ 800028a:	a102      	add	r1, pc, #8	; (adr r1, 8000294 <.udivsi3_skip_div0_test+0x80>)
+ 800028c:	1840      	adds	r0, r0, r1
+ 800028e:	9002      	str	r0, [sp, #8]
+ 8000290:	bd03      	pop	{r0, r1, pc}
+ 8000292:	46c0      	nop			; (mov r8, r8)
+ 8000294:	0000001d 	.word	0x0000001d
+
+08000298 <__aeabi_uidivmod>:
+ 8000298:	2900      	cmp	r1, #0
+ 800029a:	d0f0      	beq.n	800027e <.udivsi3_skip_div0_test+0x6a>
+ 800029c:	b503      	push	{r0, r1, lr}
+ 800029e:	f7ff ffb9 	bl	8000214 <.udivsi3_skip_div0_test>
+ 80002a2:	bc0e      	pop	{r1, r2, r3}
+ 80002a4:	4342      	muls	r2, r0
+ 80002a6:	1a89      	subs	r1, r1, r2
+ 80002a8:	4718      	bx	r3
+ 80002aa:	46c0      	nop			; (mov r8, r8)
+ 80002ac:	0000      	movs	r0, r0
+	...
+
+080002b0 <__aeabi_idiv0>:
+ 80002b0:	4770      	bx	lr
+ 80002b2:	46c0      	nop			; (mov r8, r8)
+	...
+
+080002c0 <chCoreAllocAligned.4158>:
+ * @return              A pointer to the allocated memory block.
+ * @retval NULL         allocation failed, core memory exhausted.
+ *
+ * @api
+ */
+void *chCoreAllocAligned(size_t size, unsigned align) {
+ 80002c0:	b510      	push	{r4, lr}
+ 80002c2:	b082      	sub	sp, #8
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 80002c4:	b672      	cpsid	i
+  uint8_t *p;
+
+  chDbgCheckClassI();
+  chDbgCheck(MEM_IS_VALID_ALIGNMENT(align));
+
+  size = MEM_ALIGN_NEXT(size, align);
+ 80002c6:	1e4a      	subs	r2, r1, #1
+ 80002c8:	1810      	adds	r0, r2, r0
+  p = (uint8_t *)MEM_ALIGN_NEXT(nextmem, align);
+ 80002ca:	4a0a      	ldr	r2, [pc, #40]	; (80002f4 <chCoreAllocAligned.4158+0x34>)
+  uint8_t *p;
+
+  chDbgCheckClassI();
+  chDbgCheck(MEM_IS_VALID_ALIGNMENT(align));
+
+  size = MEM_ALIGN_NEXT(size, align);
+ 80002cc:	424b      	negs	r3, r1
+  p = (uint8_t *)MEM_ALIGN_NEXT(nextmem, align);
+ 80002ce:	6814      	ldr	r4, [r2, #0]
+  uint8_t *p;
+
+  chDbgCheckClassI();
+  chDbgCheck(MEM_IS_VALID_ALIGNMENT(align));
+
+  size = MEM_ALIGN_NEXT(size, align);
+ 80002d0:	4018      	ands	r0, r3
+  p = (uint8_t *)MEM_ALIGN_NEXT(nextmem, align);
+ 80002d2:	3c01      	subs	r4, #1
+ 80002d4:	1861      	adds	r1, r4, r1
+ 80002d6:	4019      	ands	r1, r3
+
+  if (((size_t)endmem - (size_t)p) < size) {
+ 80002d8:	4b07      	ldr	r3, [pc, #28]	; (80002f8 <chCoreAllocAligned.4158+0x38>)
+ 80002da:	681b      	ldr	r3, [r3, #0]
+ 80002dc:	9301      	str	r3, [sp, #4]
+ 80002de:	1a5b      	subs	r3, r3, r1
+ 80002e0:	4298      	cmp	r0, r3
+ 80002e2:	d805      	bhi.n	80002f0 <chCoreAllocAligned.4158+0x30>
+    return NULL;
+  }
+  nextmem = p + size;
+ 80002e4:	1808      	adds	r0, r1, r0
+ 80002e6:	6010      	str	r0, [r2, #0]
+
+  return p;
+ 80002e8:	1c08      	adds	r0, r1, #0
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 80002ea:	b662      	cpsie	i
+  chSysLock();
+  p = chCoreAllocAlignedI(size, align);
+  chSysUnlock();
+
+  return p;
+}
+ 80002ec:	b002      	add	sp, #8
+ 80002ee:	bd10      	pop	{r4, pc}
+
+  size = MEM_ALIGN_NEXT(size, align);
+  p = (uint8_t *)MEM_ALIGN_NEXT(nextmem, align);
+
+  if (((size_t)endmem - (size_t)p) < size) {
+    return NULL;
+ 80002f0:	2000      	movs	r0, #0
+ 80002f2:	e7fa      	b.n	80002ea <chCoreAllocAligned.4158+0x2a>
+ 80002f4:	200006a4 	.word	0x200006a4
+ 80002f8:	200006a0 	.word	0x200006a0
+ 80002fc:	46c0      	nop			; (mov r8, r8)
+ 80002fe:	46c0      	nop			; (mov r8, r8)
+
+08000300 <notify1.5756.4140>:
+
+#if STM32_SERIAL_USE_USART1 || defined(__DOXYGEN__)
+static void notify1(io_queue_t *qp) {
+
+  (void)qp;
+  USART1->CR1 |= USART_CR1_TXEIE;
+ 8000300:	4b02      	ldr	r3, [pc, #8]	; (800030c <notify1.5756.4140+0xc>)
+ 8000302:	2280      	movs	r2, #128	; 0x80
+ 8000304:	6819      	ldr	r1, [r3, #0]
+ 8000306:	430a      	orrs	r2, r1
+ 8000308:	601a      	str	r2, [r3, #0]
+}
+ 800030a:	4770      	bx	lr
+ 800030c:	40013800 	.word	0x40013800
+
+08000310 <osalThreadDequeueNextI.constprop.8.4366>:
+ * @iclass
+ */
+void osalThreadDequeueNextI(threads_queue_t *tqp, msg_t msg) {
+  semaphore_t *sp = &tqp->sem;
+
+  if (chSemGetCounterI(&tqp->sem) < (cnt_t)0) {
+ 8000310:	6803      	ldr	r3, [r0, #0]
+ 8000312:	2b00      	cmp	r3, #0
+ 8000314:	db00      	blt.n	8000318 <osalThreadDequeueNextI.constprop.8.4366+0x8>
+
+      chDbgAssert(tp < &nil.threads[CH_CFG_NUM_THREADS],
+                  "pointer out of range");
+    }
+  }
+}
+ 8000316:	4770      	bx	lr
+
+  if (chSemGetCounterI(&tqp->sem) < (cnt_t)0) {
+    thread_t *tp = nil.threads;
+    while (true) {
+      /* Is this thread waiting on this semaphore?*/
+      if (tp->u1.semp == sp) {
+ 8000318:	4a0a      	ldr	r2, [pc, #40]	; (8000344 <osalThreadDequeueNextI.constprop.8.4366+0x34>)
+ 800031a:	6991      	ldr	r1, [r2, #24]
+ 800031c:	1c13      	adds	r3, r2, #0
+ 800031e:	3310      	adds	r3, #16
+ 8000320:	4288      	cmp	r0, r1
+ 8000322:	d003      	beq.n	800032c <osalThreadDequeueNextI.constprop.8.4366+0x1c>
+        chDbgAssert(NIL_THD_IS_WTSEM(tp), "not waiting");
+
+        (void) chSchReadyI(tp, msg);
+        return;
+      }
+      tp++;
+ 8000324:	3314      	adds	r3, #20
+
+  if (chSemGetCounterI(&tqp->sem) < (cnt_t)0) {
+    thread_t *tp = nil.threads;
+    while (true) {
+      /* Is this thread waiting on this semaphore?*/
+      if (tp->u1.semp == sp) {
+ 8000326:	6899      	ldr	r1, [r3, #8]
+ 8000328:	4288      	cmp	r0, r1
+ 800032a:	d1fb      	bne.n	8000324 <osalThreadDequeueNextI.constprop.8.4366+0x14>
+        sp->cnt++;
+ 800032c:	6801      	ldr	r1, [r0, #0]
+ 800032e:	3101      	adds	r1, #1
+ 8000330:	6001      	str	r1, [r0, #0]
+  chDbgCheckClassI();
+  chDbgCheck((tp >= nil.threads) && (tp < &nil.threads[CH_CFG_NUM_THREADS]));
+  chDbgAssert(!NIL_THD_IS_READY(tp), "already ready");
+  chDbgAssert(nil.next <= nil.current, "priority ordering");
+
+  tp->u1.msg = msg;
+ 8000332:	2100      	movs	r1, #0
+  tp->state = NIL_STATE_READY;
+ 8000334:	7119      	strb	r1, [r3, #4]
+  chDbgCheckClassI();
+  chDbgCheck((tp >= nil.threads) && (tp < &nil.threads[CH_CFG_NUM_THREADS]));
+  chDbgAssert(!NIL_THD_IS_READY(tp), "already ready");
+  chDbgAssert(nil.next <= nil.current, "priority ordering");
+
+  tp->u1.msg = msg;
+ 8000336:	6099      	str	r1, [r3, #8]
+  tp->state = NIL_STATE_READY;
+  tp->timeout = (systime_t)0;
+ 8000338:	60d9      	str	r1, [r3, #12]
+  if (tp < nil.next) {
+ 800033a:	6851      	ldr	r1, [r2, #4]
+ 800033c:	428b      	cmp	r3, r1
+ 800033e:	d2ea      	bcs.n	8000316 <osalThreadDequeueNextI.constprop.8.4366+0x6>
+    nil.next = tp;
+ 8000340:	6053      	str	r3, [r2, #4]
+ 8000342:	e7e8      	b.n	8000316 <osalThreadDequeueNextI.constprop.8.4366+0x6>
+ 8000344:	20000520 	.word	0x20000520
+ 8000348:	46c0      	nop			; (mov r8, r8)
+ 800034a:	46c0      	nop			; (mov r8, r8)
+ 800034c:	46c0      	nop			; (mov r8, r8)
+ 800034e:	46c0      	nop			; (mov r8, r8)
+
+08000350 <_pal_lld_setgroupmode.constprop.2.4407>:
+ * @param[in] mask      the group mask
+ * @param[in] mode      the mode
+ *
+ * @notapi
+ */
+void _pal_lld_setgroupmode(ioportid_t port,
+ 8000350:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 8000352:	4656      	mov	r6, sl
+ 8000354:	464d      	mov	r5, r9
+ 8000356:	4644      	mov	r4, r8
+ 8000358:	465f      	mov	r7, fp
+ 800035a:	b4f0      	push	{r4, r5, r6, r7}
+  uint32_t bit     = 0;
+  while (true) {
+    if ((mask & 1) != 0) {
+      uint32_t altrmask, m1, m2, m4;
+
+      altrmask = altr << ((bit & 7) * 4);
+ 800035c:	2307      	movs	r3, #7
+ */
+void _pal_lld_setgroupmode(ioportid_t port,
+                           ioportmask_t mask,
+                           iomode_t mode) {
+
+  uint32_t moder   = (mode & PAL_STM32_MODE_MASK) >> 0;
+ 800035e:	2102      	movs	r1, #2
+  uint32_t bit     = 0;
+  while (true) {
+    if ((mask & 1) != 0) {
+      uint32_t altrmask, m1, m2, m4;
+
+      altrmask = altr << ((bit & 7) * 4);
+ 8000360:	4699      	mov	r9, r3
+      m1 = 1 << bit;
+      m2 = 3 << (bit * 2);
+      m4 = 15 << ((bit & 7) * 4);
+ 8000362:	250f      	movs	r5, #15
+      port->OTYPER  = (port->OTYPER & ~m1) | otyper;
+ 8000364:	2390      	movs	r3, #144	; 0x90
+    if ((mask & 1) != 0) {
+      uint32_t altrmask, m1, m2, m4;
+
+      altrmask = altr << ((bit & 7) * 4);
+      m1 = 1 << bit;
+      m2 = 3 << (bit * 2);
+ 8000366:	2603      	movs	r6, #3
+ * @param[in] mask      the group mask
+ * @param[in] mode      the mode
+ *
+ * @notapi
+ */
+void _pal_lld_setgroupmode(ioportid_t port,
+ 8000368:	b083      	sub	sp, #12
+  uint32_t moder   = (mode & PAL_STM32_MODE_MASK) >> 0;
+  uint32_t otyper  = (mode & PAL_STM32_OTYPE_MASK) >> 2;
+  uint32_t ospeedr = (mode & PAL_STM32_OSPEED_MASK) >> 3;
+  uint32_t pupdr   = (mode & PAL_STM32_PUPDR_MASK) >> 5;
+  uint32_t altr    = (mode & PAL_STM32_ALTERNATE_MASK) >> 7;
+  uint32_t bit     = 0;
+ 800036a:	2200      	movs	r2, #0
+  while (true) {
+    if ((mask & 1) != 0) {
+ 800036c:	2401      	movs	r4, #1
+      uint32_t altrmask, m1, m2, m4;
+
+      altrmask = altr << ((bit & 7) * 4);
+      m1 = 1 << bit;
+      m2 = 3 << (bit * 2);
+      m4 = 15 << ((bit & 7) * 4);
+ 800036e:	46a8      	mov	r8, r5
+      port->OTYPER  = (port->OTYPER & ~m1) | otyper;
+ 8000370:	05db      	lsls	r3, r3, #23
+    if ((mask & 1) != 0) {
+      uint32_t altrmask, m1, m2, m4;
+
+      altrmask = altr << ((bit & 7) * 4);
+      m1 = 1 << bit;
+      m2 = 3 << (bit * 2);
+ 8000372:	46b4      	mov	ip, r6
+           before switching mode in order to avoid glitches.*/
+        if (bit < 8)
+          port->AFRL = (port->AFRL & ~m4) | altrmask;
+        else
+          port->AFRH = (port->AFRH & ~m4) | altrmask;
+        port->MODER   = (port->MODER & ~m2) | moder;
+ 8000374:	468a      	mov	sl, r1
+ 8000376:	e008      	b.n	800038a <_pal_lld_setgroupmode.constprop.2.4407+0x3a>
+      else {
+        /* If going into a non-alternate mode then the mode is switched
+           before setting the alternate mode in order to avoid glitches.*/
+        port->MODER   = (port->MODER & ~m2) | moder;
+        if (bit < 8)
+          port->AFRL = (port->AFRL & ~m4) | altrmask;
+ 8000378:	6a1d      	ldr	r5, [r3, #32]
+ 800037a:	9e01      	ldr	r6, [sp, #4]
+ 800037c:	43bd      	bics	r5, r7
+ 800037e:	432e      	orrs	r6, r5
+ 8000380:	621e      	str	r6, [r3, #32]
+        else
+          port->AFRH = (port->AFRH & ~m4) | altrmask;
+      }
+    }
+    mask >>= 1;
+ 8000382:	0840      	lsrs	r0, r0, #1
+    if (!mask)
+ 8000384:	d02b      	beq.n	80003de <_pal_lld_setgroupmode.constprop.2.4407+0x8e>
+      return;
+    otyper <<= 1;
+    ospeedr <<= 2;
+    pupdr <<= 2;
+    moder <<= 2;
+ 8000386:	0089      	lsls	r1, r1, #2
+    bit++;
+ 8000388:	3201      	adds	r2, #1
+  uint32_t ospeedr = (mode & PAL_STM32_OSPEED_MASK) >> 3;
+  uint32_t pupdr   = (mode & PAL_STM32_PUPDR_MASK) >> 5;
+  uint32_t altr    = (mode & PAL_STM32_ALTERNATE_MASK) >> 7;
+  uint32_t bit     = 0;
+  while (true) {
+    if ((mask & 1) != 0) {
+ 800038a:	4204      	tst	r4, r0
+ 800038c:	d0f9      	beq.n	8000382 <_pal_lld_setgroupmode.constprop.2.4407+0x32>
+      uint32_t altrmask, m1, m2, m4;
+
+      altrmask = altr << ((bit & 7) * 4);
+ 800038e:	464d      	mov	r5, r9
+ 8000390:	4015      	ands	r5, r2
+ 8000392:	00ad      	lsls	r5, r5, #2
+ 8000394:	1c26      	adds	r6, r4, #0
+ 8000396:	40ae      	lsls	r6, r5
+      m1 = 1 << bit;
+      m2 = 3 << (bit * 2);
+      m4 = 15 << ((bit & 7) * 4);
+ 8000398:	4647      	mov	r7, r8
+  uint32_t bit     = 0;
+  while (true) {
+    if ((mask & 1) != 0) {
+      uint32_t altrmask, m1, m2, m4;
+
+      altrmask = altr << ((bit & 7) * 4);
+ 800039a:	9601      	str	r6, [sp, #4]
+      m1 = 1 << bit;
+      m2 = 3 << (bit * 2);
+      m4 = 15 << ((bit & 7) * 4);
+ 800039c:	40af      	lsls	r7, r5
+      port->OTYPER  = (port->OTYPER & ~m1) | otyper;
+ 800039e:	685e      	ldr	r6, [r3, #4]
+  while (true) {
+    if ((mask & 1) != 0) {
+      uint32_t altrmask, m1, m2, m4;
+
+      altrmask = altr << ((bit & 7) * 4);
+      m1 = 1 << bit;
+ 80003a0:	1c25      	adds	r5, r4, #0
+ 80003a2:	4095      	lsls	r5, r2
+      m2 = 3 << (bit * 2);
+      m4 = 15 << ((bit & 7) * 4);
+      port->OTYPER  = (port->OTYPER & ~m1) | otyper;
+ 80003a4:	43ae      	bics	r6, r5
+ 80003a6:	605e      	str	r6, [r3, #4]
+      port->OSPEEDR = (port->OSPEEDR & ~m2) | ospeedr;
+ 80003a8:	689e      	ldr	r6, [r3, #8]
+    if ((mask & 1) != 0) {
+      uint32_t altrmask, m1, m2, m4;
+
+      altrmask = altr << ((bit & 7) * 4);
+      m1 = 1 << bit;
+      m2 = 3 << (bit * 2);
+ 80003aa:	4665      	mov	r5, ip
+      m4 = 15 << ((bit & 7) * 4);
+      port->OTYPER  = (port->OTYPER & ~m1) | otyper;
+      port->OSPEEDR = (port->OSPEEDR & ~m2) | ospeedr;
+ 80003ac:	46b3      	mov	fp, r6
+ 80003ae:	0056      	lsls	r6, r2, #1
+    if ((mask & 1) != 0) {
+      uint32_t altrmask, m1, m2, m4;
+
+      altrmask = altr << ((bit & 7) * 4);
+      m1 = 1 << bit;
+      m2 = 3 << (bit * 2);
+ 80003b0:	40b5      	lsls	r5, r6
+      m4 = 15 << ((bit & 7) * 4);
+      port->OTYPER  = (port->OTYPER & ~m1) | otyper;
+      port->OSPEEDR = (port->OSPEEDR & ~m2) | ospeedr;
+ 80003b2:	43ed      	mvns	r5, r5
+ 80003b4:	465e      	mov	r6, fp
+ 80003b6:	402e      	ands	r6, r5
+ 80003b8:	609e      	str	r6, [r3, #8]
+      port->PUPDR   = (port->PUPDR & ~m2) | pupdr;
+ 80003ba:	68de      	ldr	r6, [r3, #12]
+ 80003bc:	402e      	ands	r6, r5
+ 80003be:	60de      	str	r6, [r3, #12]
+      if (moder == PAL_STM32_MODE_ALTERNATE) {
+ 80003c0:	2902      	cmp	r1, #2
+ 80003c2:	d013      	beq.n	80003ec <_pal_lld_setgroupmode.constprop.2.4407+0x9c>
+        port->MODER   = (port->MODER & ~m2) | moder;
+      }
+      else {
+        /* If going into a non-alternate mode then the mode is switched
+           before setting the alternate mode in order to avoid glitches.*/
+        port->MODER   = (port->MODER & ~m2) | moder;
+ 80003c4:	681e      	ldr	r6, [r3, #0]
+ 80003c6:	4035      	ands	r5, r6
+ 80003c8:	430d      	orrs	r5, r1
+ 80003ca:	601d      	str	r5, [r3, #0]
+        if (bit < 8)
+ 80003cc:	2a07      	cmp	r2, #7
+ 80003ce:	d9d3      	bls.n	8000378 <_pal_lld_setgroupmode.constprop.2.4407+0x28>
+          port->AFRL = (port->AFRL & ~m4) | altrmask;
+        else
+          port->AFRH = (port->AFRH & ~m4) | altrmask;
+ 80003d0:	6a5d      	ldr	r5, [r3, #36]	; 0x24
+ 80003d2:	9e01      	ldr	r6, [sp, #4]
+ 80003d4:	43bd      	bics	r5, r7
+ 80003d6:	432e      	orrs	r6, r5
+ 80003d8:	625e      	str	r6, [r3, #36]	; 0x24
+      }
+    }
+    mask >>= 1;
+ 80003da:	0840      	lsrs	r0, r0, #1
+    if (!mask)
+ 80003dc:	d1d3      	bne.n	8000386 <_pal_lld_setgroupmode.constprop.2.4407+0x36>
+    ospeedr <<= 2;
+    pupdr <<= 2;
+    moder <<= 2;
+    bit++;
+  }
+}
+ 80003de:	b003      	add	sp, #12
+ 80003e0:	bc3c      	pop	{r2, r3, r4, r5}
+ 80003e2:	4690      	mov	r8, r2
+ 80003e4:	4699      	mov	r9, r3
+ 80003e6:	46a2      	mov	sl, r4
+ 80003e8:	46ab      	mov	fp, r5
+ 80003ea:	bdf0      	pop	{r4, r5, r6, r7, pc}
+      port->OSPEEDR = (port->OSPEEDR & ~m2) | ospeedr;
+      port->PUPDR   = (port->PUPDR & ~m2) | pupdr;
+      if (moder == PAL_STM32_MODE_ALTERNATE) {
+        /* If going in alternate mode then the alternate number is set
+           before switching mode in order to avoid glitches.*/
+        if (bit < 8)
+ 80003ec:	2a07      	cmp	r2, #7
+ 80003ee:	d80b      	bhi.n	8000408 <_pal_lld_setgroupmode.constprop.2.4407+0xb8>
+          port->AFRL = (port->AFRL & ~m4) | altrmask;
+ 80003f0:	6a1e      	ldr	r6, [r3, #32]
+ 80003f2:	43be      	bics	r6, r7
+ 80003f4:	1c37      	adds	r7, r6, #0
+ 80003f6:	9e01      	ldr	r6, [sp, #4]
+ 80003f8:	433e      	orrs	r6, r7
+ 80003fa:	621e      	str	r6, [r3, #32]
+        else
+          port->AFRH = (port->AFRH & ~m4) | altrmask;
+        port->MODER   = (port->MODER & ~m2) | moder;
+ 80003fc:	681e      	ldr	r6, [r3, #0]
+ 80003fe:	4035      	ands	r5, r6
+ 8000400:	4656      	mov	r6, sl
+ 8000402:	4335      	orrs	r5, r6
+ 8000404:	601d      	str	r5, [r3, #0]
+ 8000406:	e7bc      	b.n	8000382 <_pal_lld_setgroupmode.constprop.2.4407+0x32>
+        /* If going in alternate mode then the alternate number is set
+           before switching mode in order to avoid glitches.*/
+        if (bit < 8)
+          port->AFRL = (port->AFRL & ~m4) | altrmask;
+        else
+          port->AFRH = (port->AFRH & ~m4) | altrmask;
+ 8000408:	6a5e      	ldr	r6, [r3, #36]	; 0x24
+ 800040a:	43be      	bics	r6, r7
+ 800040c:	1c37      	adds	r7, r6, #0
+ 800040e:	9e01      	ldr	r6, [sp, #4]
+ 8000410:	433e      	orrs	r6, r7
+ 8000412:	625e      	str	r6, [r3, #36]	; 0x24
+ 8000414:	e7f2      	b.n	80003fc <_pal_lld_setgroupmode.constprop.2.4407+0xac>
+ 8000416:	46c0      	nop			; (mov r8, r8)
+ 8000418:	46c0      	nop			; (mov r8, r8)
+ 800041a:	46c0      	nop			; (mov r8, r8)
+ 800041c:	46c0      	nop			; (mov r8, r8)
+ 800041e:	46c0      	nop			; (mov r8, r8)
+
+08000420 <_port_irq_epilogue.4414>:
+ *
+ * @param[in] lr        value of the @p LR register on ISR entry
+ */
+void _port_irq_epilogue(regarm_t lr) {
+
+  if (lr != (regarm_t)0xFFFFFFF1U) {
+ 8000420:	300f      	adds	r0, #15
+ 8000422:	d010      	beq.n	8000446 <_port_irq_epilogue.4414+0x26>
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 8000424:	b672      	cpsid	i
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_PSP(void)
+{
+  register uint32_t result;
+
+  __ASM volatile ("MRS %0, psp\n"  : "=r" (result) );
+ 8000426:	f3ef 8309 	mrs	r3, PSP
+    /* The extctx structure is pointed by the PSP register.*/
+    ctxp = (struct port_extctx *)__get_PSP();
+
+    /* Adding an artificial exception return context, there is no need to
+       populate it fully.*/
+    ctxp--;
+ 800042a:	1c1a      	adds	r2, r3, #0
+ 800042c:	3a20      	subs	r2, #32
+  \details Assigns the given value to the Process Stack Pointer (PSP).
+  \param [in]    topOfProcStack  Process Stack Pointer value to set
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __set_PSP(uint32_t topOfProcStack)
+{
+  __ASM volatile ("MSR psp, %0\n" : : "r" (topOfProcStack) : "sp");
+ 800042e:	f382 8809 	msr	PSP, r2
+
+    /* Writing back the modified PSP value.*/
+    __set_PSP((uint32_t)ctxp);
+
+    /* Setting up a fake XPSR register value.*/
+    ctxp->xpsr = (regarm_t)0x01000000;
+ 8000432:	2380      	movs	r3, #128	; 0x80
+ 8000434:	045b      	lsls	r3, r3, #17
+ 8000436:	61d3      	str	r3, [r2, #28]
+ *
+ * @special
+ */
+bool chSchIsPreemptionRequired(void) {
+
+  return chSchIsRescRequiredI();
+ 8000438:	4b05      	ldr	r3, [pc, #20]	; (8000450 <_port_irq_epilogue.4414+0x30>)
+
+    /* The exit sequence is different depending on if a preemption is
+       required or not.*/
+    if (chSchIsPreemptionRequired()) {
+ 800043a:	6819      	ldr	r1, [r3, #0]
+ 800043c:	685b      	ldr	r3, [r3, #4]
+ 800043e:	4299      	cmp	r1, r3
+ 8000440:	d102      	bne.n	8000448 <_port_irq_epilogue.4414+0x28>
+      ctxp->pc = (regarm_t)_port_switch_from_isr;
+    }
+    else {
+      /* Preemption not required, we just need to exit the exception
+         atomically.*/
+      ctxp->pc = (regarm_t)_port_exit_from_isr;
+ 8000442:	4b04      	ldr	r3, [pc, #16]	; (8000454 <_port_irq_epilogue.4414+0x34>)
+ 8000444:	6193      	str	r3, [r2, #24]
+    }
+
+    /* Note, returning without unlocking is intentional, this is done in
+       order to keep the rest of the context switch atomic.*/
+  }
+}
+ 8000446:	4770      	bx	lr
+
+    /* The exit sequence is different depending on if a preemption is
+       required or not.*/
+    if (chSchIsPreemptionRequired()) {
+      /* Preemption is required we need to enforce a context switch.*/
+      ctxp->pc = (regarm_t)_port_switch_from_isr;
+ 8000448:	4b03      	ldr	r3, [pc, #12]	; (8000458 <_port_irq_epilogue.4414+0x38>)
+ 800044a:	6193      	str	r3, [r2, #24]
+ 800044c:	e7fb      	b.n	8000446 <_port_irq_epilogue.4414+0x26>
+ 800044e:	46c0      	nop			; (mov r8, r8)
+ 8000450:	20000520 	.word	0x20000520
+ 8000454:	08000200 	.word	0x08000200
+ 8000458:	080001fd 	.word	0x080001fd
+ 800045c:	46c0      	nop			; (mov r8, r8)
+ 800045e:	46c0      	nop			; (mov r8, r8)
+
+08000460 <NMI_Handler.4423>:
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_PSP(void)
+{
+  register uint32_t result;
+
+  __ASM volatile ("MRS %0, psp\n"  : "=r" (result) );
+ 8000460:	f3ef 8309 	mrs	r3, PSP
+  /* The port_extctx structure is pointed by the PSP register.*/
+  struct port_extctx *ctxp = (struct port_extctx *)__get_PSP();
+
+  /* Discarding the current exception context and positioning the stack to
+     point to the real one.*/
+  ctxp++;
+ 8000464:	3320      	adds	r3, #32
+  \details Assigns the given value to the Process Stack Pointer (PSP).
+  \param [in]    topOfProcStack  Process Stack Pointer value to set
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __set_PSP(uint32_t topOfProcStack)
+{
+  __ASM volatile ("MSR psp, %0\n" : : "r" (topOfProcStack) : "sp");
+ 8000466:	f383 8809 	msr	PSP, r3
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 800046a:	b662      	cpsie	i
+  /* Writing back the modified PSP value.*/
+  __set_PSP((uint32_t)ctxp);
+
+  /* Restoring the normal interrupts status.*/
+  port_unlock_from_isr();
+}
+ 800046c:	4770      	bx	lr
+ 800046e:	46c0      	nop			; (mov r8, r8)
+
+08000470 <BusFault_Handler.4431>:
+ *          This function simply stops the system into an infinite loop.
+ *
+ * @notapi
+ */
+/*lint -save -e9075 [8.4] All symbols are invoked from asm context.*/
+void _unhandled_exception(void) {
+ 8000470:	e7fe      	b.n	8000470 <BusFault_Handler.4431>
+ 8000472:	46c0      	nop			; (mov r8, r8)
+ 8000474:	46c0      	nop			; (mov r8, r8)
+ 8000476:	46c0      	nop			; (mov r8, r8)
+ 8000478:	46c0      	nop			; (mov r8, r8)
+ 800047a:	46c0      	nop			; (mov r8, r8)
+ 800047c:	46c0      	nop			; (mov r8, r8)
+ 800047e:	46c0      	nop			; (mov r8, r8)
+
+08000480 <chSchGoSleepTimeoutS.4326>:
+ * @return              The wakeup message.
+ * @retval NIL_MSG_TMO  if a timeout occurred.
+ *
+ * @sclass
+ */
+msg_t chSchGoSleepTimeoutS(tstate_t newstate, systime_t timeout) {
+ 8000480:	b570      	push	{r4, r5, r6, lr}
+  thread_t *ntp, *otp = nil.current;
+ 8000482:	4c1e      	ldr	r4, [pc, #120]	; (80004fc <chSchGoSleepTimeoutS.4326+0x7c>)
+ 8000484:	6822      	ldr	r2, [r4, #0]
+
+  chDbgAssert(otp != &nil.threads[CH_CFG_NUM_THREADS],
+               "idle cannot sleep");
+
+  /* Storing the wait object for the current thread.*/
+  otp->state = newstate;
+ 8000486:	7110      	strb	r0, [r2, #4]
+
+#if CH_CFG_ST_TIMEDELTA > 0
+  if (timeout != TIME_INFINITE) {
+ 8000488:	2900      	cmp	r1, #0
+ 800048a:	d00e      	beq.n	80004aa <chSchGoSleepTimeoutS.4326+0x2a>
+    systime_t abstime;
+
+    /* TIMEDELTA makes sure to have enough time to reprogram the timer
+       before the free-running timer counter reaches the selected timeout.*/
+    if (timeout < (systime_t)CH_CFG_ST_TIMEDELTA) {
+ 800048c:	2901      	cmp	r1, #1
+ 800048e:	d91d      	bls.n	80004cc <chSchGoSleepTimeoutS.4326+0x4c>
+ *
+ * @notapi
+ */
+static inline systime_t st_lld_get_counter(void) {
+
+  return (systime_t)STM32_ST_TIM->CNT;
+ 8000490:	2680      	movs	r6, #128	; 0x80
+ 8000492:	05f6      	lsls	r6, r6, #23
+ 8000494:	6a73      	ldr	r3, [r6, #36]	; 0x24
+    }
+
+    /* Absolute time of the timeout event.*/
+    abstime = chVTGetSystemTimeX() + timeout;
+
+    if (nil.lasttime == nil.nexttime) {
+ 8000496:	68e0      	ldr	r0, [r4, #12]
+    if (timeout < (systime_t)CH_CFG_ST_TIMEDELTA) {
+      timeout = (systime_t)CH_CFG_ST_TIMEDELTA;
+    }
+
+    /* Absolute time of the timeout event.*/
+    abstime = chVTGetSystemTimeX() + timeout;
+ 8000498:	18c9      	adds	r1, r1, r3
+
+    if (nil.lasttime == nil.nexttime) {
+ 800049a:	68a3      	ldr	r3, [r4, #8]
+ 800049c:	4283      	cmp	r3, r0
+ 800049e:	d023      	beq.n	80004e8 <chSchGoSleepTimeoutS.4326+0x68>
+      nil.nexttime = abstime;
+    }
+    else {
+      /* Special case, there are already other threads with a timeout
+         activated, evaluating the order.*/
+      if (chVTIsTimeWithinX(abstime, nil.lasttime, nil.nexttime)) {
+ 80004a0:	1acd      	subs	r5, r1, r3
+ 80004a2:	1ac3      	subs	r3, r0, r3
+ 80004a4:	429d      	cmp	r5, r3
+ 80004a6:	d31b      	bcc.n	80004e0 <chSchGoSleepTimeoutS.4326+0x60>
+        nil.nexttime = abstime;
+      }
+    }
+
+    /* Timeout settings.*/
+    otp->timeout = abstime - nil.lasttime;
+ 80004a8:	60d5      	str	r5, [r2, #12]
+
+  /* Scanning the whole threads array.*/
+  ntp = nil.threads;
+  while (true) {
+    /* Is this thread ready to execute?*/
+    if (NIL_THD_IS_READY(ntp)) {
+ 80004aa:	7d23      	ldrb	r3, [r4, #20]
+  /* Timeout settings.*/
+  otp->timeout = timeout;
+#endif
+
+  /* Scanning the whole threads array.*/
+  ntp = nil.threads;
+ 80004ac:	1c20      	adds	r0, r4, #0
+ 80004ae:	3010      	adds	r0, #16
+  while (true) {
+    /* Is this thread ready to execute?*/
+    if (NIL_THD_IS_READY(ntp)) {
+ 80004b0:	2b00      	cmp	r3, #0
+ 80004b2:	d003      	beq.n	80004bc <chSchGoSleepTimeoutS.4326+0x3c>
+      port_switch(ntp, otp);
+      return nil.current->u1.msg;
+    }
+
+    /* Points to the next thread in lowering priority order.*/
+    ntp++;
+ 80004b4:	3014      	adds	r0, #20
+
+  /* Scanning the whole threads array.*/
+  ntp = nil.threads;
+  while (true) {
+    /* Is this thread ready to execute?*/
+    if (NIL_THD_IS_READY(ntp)) {
+ 80004b6:	7903      	ldrb	r3, [r0, #4]
+ 80004b8:	2b00      	cmp	r3, #0
+ 80004ba:	d1fb      	bne.n	80004b4 <chSchGoSleepTimeoutS.4326+0x34>
+      nil.current = nil.next = ntp;
+      if (ntp == &nil.threads[CH_CFG_NUM_THREADS]) {
+        CH_CFG_IDLE_ENTER_HOOK();
+      }
+      port_switch(ntp, otp);
+ 80004bc:	1c11      	adds	r1, r2, #0
+  /* Scanning the whole threads array.*/
+  ntp = nil.threads;
+  while (true) {
+    /* Is this thread ready to execute?*/
+    if (NIL_THD_IS_READY(ntp)) {
+      nil.current = nil.next = ntp;
+ 80004be:	6060      	str	r0, [r4, #4]
+ 80004c0:	6020      	str	r0, [r4, #0]
+      if (ntp == &nil.threads[CH_CFG_NUM_THREADS]) {
+        CH_CFG_IDLE_ENTER_HOOK();
+      }
+      port_switch(ntp, otp);
+ 80004c2:	f7ff fe85 	bl	80001d0 <_port_switch>
+      return nil.current->u1.msg;
+ 80004c6:	6823      	ldr	r3, [r4, #0]
+ 80004c8:	6898      	ldr	r0, [r3, #8]
+    /* Points to the next thread in lowering priority order.*/
+    ntp++;
+    chDbgAssert(ntp <= &nil.threads[CH_CFG_NUM_THREADS],
+                "pointer out of range");
+  }
+}
+ 80004ca:	bd70      	pop	{r4, r5, r6, pc}
+ 80004cc:	2680      	movs	r6, #128	; 0x80
+ 80004ce:	05f6      	lsls	r6, r6, #23
+ 80004d0:	6a73      	ldr	r3, [r6, #36]	; 0x24
+    systime_t abstime;
+
+    /* TIMEDELTA makes sure to have enough time to reprogram the timer
+       before the free-running timer counter reaches the selected timeout.*/
+    if (timeout < (systime_t)CH_CFG_ST_TIMEDELTA) {
+      timeout = (systime_t)CH_CFG_ST_TIMEDELTA;
+ 80004d2:	2102      	movs	r1, #2
+    }
+
+    /* Absolute time of the timeout event.*/
+    abstime = chVTGetSystemTimeX() + timeout;
+ 80004d4:	18c9      	adds	r1, r1, r3
+
+    if (nil.lasttime == nil.nexttime) {
+ 80004d6:	68e0      	ldr	r0, [r4, #12]
+ 80004d8:	68a3      	ldr	r3, [r4, #8]
+ 80004da:	4283      	cmp	r3, r0
+ 80004dc:	d1e0      	bne.n	80004a0 <chSchGoSleepTimeoutS.4326+0x20>
+ 80004de:	e003      	b.n	80004e8 <chSchGoSleepTimeoutS.4326+0x68>
+ *
+ * @notapi
+ */
+static inline void st_lld_set_alarm(systime_t time) {
+
+  STM32_ST_TIM->CCR[0] = (uint32_t)time;
+ 80004e0:	6371      	str	r1, [r6, #52]	; 0x34
+    else {
+      /* Special case, there are already other threads with a timeout
+         activated, evaluating the order.*/
+      if (chVTIsTimeWithinX(abstime, nil.lasttime, nil.nexttime)) {
+        port_timer_set_alarm(abstime);
+        nil.nexttime = abstime;
+ 80004e2:	60e1      	str	r1, [r4, #12]
+      }
+    }
+
+    /* Timeout settings.*/
+    otp->timeout = abstime - nil.lasttime;
+ 80004e4:	60d5      	str	r5, [r2, #12]
+ 80004e6:	e7e0      	b.n	80004aa <chSchGoSleepTimeoutS.4326+0x2a>
+ * @notapi
+ */
+static inline void st_lld_start_alarm(systime_t time) {
+
+  STM32_ST_TIM->CCR[0] = (uint32_t)time;
+  STM32_ST_TIM->SR     = 0;
+ 80004e8:	2000      	movs	r0, #0
+ *
+ * @notapi
+ */
+static inline void st_lld_start_alarm(systime_t time) {
+
+  STM32_ST_TIM->CCR[0] = (uint32_t)time;
+ 80004ea:	6371      	str	r1, [r6, #52]	; 0x34
+ 80004ec:	1acd      	subs	r5, r1, r3
+  STM32_ST_TIM->SR     = 0;
+ 80004ee:	6130      	str	r0, [r6, #16]
+  STM32_ST_TIM->DIER   = STM32_TIM_DIER_CC1IE;
+ 80004f0:	2002      	movs	r0, #2
+ 80004f2:	60f0      	str	r0, [r6, #12]
+    abstime = chVTGetSystemTimeX() + timeout;
+
+    if (nil.lasttime == nil.nexttime) {
+      /* Special case, first thread asking for a timeout.*/
+      port_timer_start_alarm(abstime);
+      nil.nexttime = abstime;
+ 80004f4:	60e1      	str	r1, [r4, #12]
+        nil.nexttime = abstime;
+      }
+    }
+
+    /* Timeout settings.*/
+    otp->timeout = abstime - nil.lasttime;
+ 80004f6:	60d5      	str	r5, [r2, #12]
+ 80004f8:	e7d7      	b.n	80004aa <chSchGoSleepTimeoutS.4326+0x2a>
+ 80004fa:	46c0      	nop			; (mov r8, r8)
+ 80004fc:	20000520 	.word	0x20000520
+
+08000500 <chSemWaitTimeoutS.4297>:
+ * @retval NIL_MSG_TMO  if the semaphore has not been signaled or reset within
+ *                      the specified timeout.
+ *
+ * @sclass
+ */
+msg_t chSemWaitTimeoutS(semaphore_t *sp, systime_t timeout) {
+ 8000500:	b508      	push	{r3, lr}
+  chDbgCheckClassS();
+  chDbgCheck(sp != NULL);
+
+  /* Note, the semaphore counter is a volatile variable so accesses are
+     manually optimized.*/
+  cnt_t cnt = sp->cnt;
+ 8000502:	6803      	ldr	r3, [r0, #0]
+  if (cnt <= (cnt_t)0) {
+ 8000504:	2b00      	cmp	r3, #0
+ 8000506:	dd03      	ble.n	8000510 <chSemWaitTimeoutS.4297+0x10>
+    }
+    sp->cnt = cnt - (cnt_t)1;
+    nil.current->u1.semp = sp;
+    return chSchGoSleepTimeoutS(NIL_STATE_WTSEM, timeout);
+  }
+  sp->cnt = cnt - (cnt_t)1;
+ 8000508:	3b01      	subs	r3, #1
+ 800050a:	6003      	str	r3, [r0, #0]
+  return MSG_OK;
+ 800050c:	2000      	movs	r0, #0
+}
+ 800050e:	bd08      	pop	{r3, pc}
+
+  /* Note, the semaphore counter is a volatile variable so accesses are
+     manually optimized.*/
+  cnt_t cnt = sp->cnt;
+  if (cnt <= (cnt_t)0) {
+    if (TIME_IMMEDIATE == timeout) {
+ 8000510:	1c4a      	adds	r2, r1, #1
+ 8000512:	d008      	beq.n	8000526 <chSemWaitTimeoutS.4297+0x26>
+      return MSG_TIMEOUT;
+    }
+    sp->cnt = cnt - (cnt_t)1;
+ 8000514:	3b01      	subs	r3, #1
+ 8000516:	6003      	str	r3, [r0, #0]
+    nil.current->u1.semp = sp;
+ 8000518:	4b04      	ldr	r3, [pc, #16]	; (800052c <chSemWaitTimeoutS.4297+0x2c>)
+ 800051a:	681b      	ldr	r3, [r3, #0]
+ 800051c:	6098      	str	r0, [r3, #8]
+    return chSchGoSleepTimeoutS(NIL_STATE_WTSEM, timeout);
+ 800051e:	2003      	movs	r0, #3
+ 8000520:	f7ff ffae 	bl	8000480 <chSchGoSleepTimeoutS.4326>
+ 8000524:	e7f3      	b.n	800050e <chSemWaitTimeoutS.4297+0xe>
+  /* Note, the semaphore counter is a volatile variable so accesses are
+     manually optimized.*/
+  cnt_t cnt = sp->cnt;
+  if (cnt <= (cnt_t)0) {
+    if (TIME_IMMEDIATE == timeout) {
+      return MSG_TIMEOUT;
+ 8000526:	1c08      	adds	r0, r1, #0
+ 8000528:	e7f1      	b.n	800050e <chSemWaitTimeoutS.4297+0xe>
+ 800052a:	46c0      	nop			; (mov r8, r8)
+ 800052c:	20000520 	.word	0x20000520
+
+08000530 <iqGetTimeout.4238>:
+ * @retval MSG_TIMEOUT  if the specified time expired.
+ * @retval MSG_RESET    if the queue has been reset.
+ *
+ * @api
+ */
+msg_t iqGetTimeout(input_queue_t *iqp, systime_t timeout) {
+ 8000530:	b538      	push	{r3, r4, r5, lr}
+ 8000532:	1c04      	adds	r4, r0, #0
+ 8000534:	1c0d      	adds	r5, r1, #0
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 8000536:	b672      	cpsid	i
+ 8000538:	e005      	b.n	8000546 <iqGetTimeout.4238+0x16>
+ * @sclass
+ */
+static inline msg_t osalThreadEnqueueTimeoutS(threads_queue_t *tqp,
+                                              systime_t time) {
+
+  return chSemWaitTimeoutS(&tqp->sem, time);
+ 800053a:	1c20      	adds	r0, r4, #0
+ 800053c:	1c29      	adds	r1, r5, #0
+ 800053e:	f7ff ffdf 	bl	8000500 <chSemWaitTimeoutS.4297>
+  osalSysLock();
+
+  /* Waiting until there is a character available or a timeout occurs.*/
+  while (iqIsEmptyI(iqp)) {
+    msg_t msg = osalThreadEnqueueTimeoutS(&iqp->q_waiting, timeout);
+    if (msg < MSG_OK) {
+ 8000542:	2800      	cmp	r0, #0
+ 8000544:	db16      	blt.n	8000574 <iqGetTimeout.4238+0x44>
+  uint8_t b;
+
+  osalSysLock();
+
+  /* Waiting until there is a character available or a timeout occurs.*/
+  while (iqIsEmptyI(iqp)) {
+ 8000546:	6863      	ldr	r3, [r4, #4]
+ 8000548:	2b00      	cmp	r3, #0
+ 800054a:	d0f6      	beq.n	800053a <iqGetTimeout.4238+0xa>
+      return msg;
+    }
+  }
+
+  /* Getting the character from the queue.*/
+  iqp->q_counter--;
+ 800054c:	6863      	ldr	r3, [r4, #4]
+  b = *iqp->q_rdptr++;
+ 800054e:	6962      	ldr	r2, [r4, #20]
+      return msg;
+    }
+  }
+
+  /* Getting the character from the queue.*/
+  iqp->q_counter--;
+ 8000550:	3b01      	subs	r3, #1
+ 8000552:	6063      	str	r3, [r4, #4]
+  b = *iqp->q_rdptr++;
+ 8000554:	1c53      	adds	r3, r2, #1
+ 8000556:	6163      	str	r3, [r4, #20]
+ 8000558:	7815      	ldrb	r5, [r2, #0]
+  if (iqp->q_rdptr >= iqp->q_top) {
+ 800055a:	68e2      	ldr	r2, [r4, #12]
+ 800055c:	4293      	cmp	r3, r2
+ 800055e:	d301      	bcc.n	8000564 <iqGetTimeout.4238+0x34>
+    iqp->q_rdptr = iqp->q_buffer;
+ 8000560:	68a3      	ldr	r3, [r4, #8]
+ 8000562:	6163      	str	r3, [r4, #20]
+  }
+
+  /* Inform the low side that the queue has at least one slot available.*/
+  if (iqp->q_notify != NULL) {
+ 8000564:	69a3      	ldr	r3, [r4, #24]
+ 8000566:	2b00      	cmp	r3, #0
+ 8000568:	d001      	beq.n	800056e <iqGetTimeout.4238+0x3e>
+    iqp->q_notify(iqp);
+ 800056a:	1c20      	adds	r0, r4, #0
+ 800056c:	4798      	blx	r3
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 800056e:	b662      	cpsie	i
+  }
+
+  osalSysUnlock();
+
+  return (msg_t)b;
+ 8000570:	1c28      	adds	r0, r5, #0
+}
+ 8000572:	bd38      	pop	{r3, r4, r5, pc}
+ 8000574:	b662      	cpsie	i
+ 8000576:	e7fc      	b.n	8000572 <iqGetTimeout.4238+0x42>
+ 8000578:	46c0      	nop			; (mov r8, r8)
+ 800057a:	46c0      	nop			; (mov r8, r8)
+ 800057c:	46c0      	nop			; (mov r8, r8)
+ 800057e:	46c0      	nop			; (mov r8, r8)
+
+08000580 <gett.5316.4231>:
+static msg_t putt(void *ip, uint8_t b, systime_t timeout) {
+
+  return oqPutTimeout(&((SerialDriver *)ip)->oqueue, b, timeout);
+}
+
+static msg_t gett(void *ip, systime_t timeout) {
+ 8000580:	b508      	push	{r3, lr}
+
+  return iqGetTimeout(&((SerialDriver *)ip)->iqueue, timeout);
+ 8000582:	3014      	adds	r0, #20
+ 8000584:	f7ff ffd4 	bl	8000530 <iqGetTimeout.4238>
+}
+ 8000588:	bd08      	pop	{r3, pc}
+ 800058a:	46c0      	nop			; (mov r8, r8)
+ 800058c:	46c0      	nop			; (mov r8, r8)
+ 800058e:	46c0      	nop			; (mov r8, r8)
+
+08000590 <get.5321.4235>:
+static msg_t put(void *ip, uint8_t b) {
+
+  return oqPutTimeout(&((SerialDriver *)ip)->oqueue, b, TIME_INFINITE);
+}
+
+static msg_t get(void *ip) {
+ 8000590:	b508      	push	{r3, lr}
+
+  return iqGetTimeout(&((SerialDriver *)ip)->iqueue, TIME_INFINITE);
+ 8000592:	3014      	adds	r0, #20
+ 8000594:	2100      	movs	r1, #0
+ 8000596:	f7ff ffcb 	bl	8000530 <iqGetTimeout.4238>
+}
+ 800059a:	bd08      	pop	{r3, pc}
+ 800059c:	46c0      	nop			; (mov r8, r8)
+ 800059e:	46c0      	nop			; (mov r8, r8)
+
+080005a0 <iqReadTimeout.4256>:
+ * @return              The number of bytes effectively transferred.
+ *
+ * @api
+ */
+size_t iqReadTimeout(input_queue_t *iqp, uint8_t *bp,
+                     size_t n, systime_t timeout) {
+ 80005a0:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 80005a2:	4656      	mov	r6, sl
+ 80005a4:	464d      	mov	r5, r9
+ 80005a6:	4644      	mov	r4, r8
+ 80005a8:	465f      	mov	r7, fp
+ 80005aa:	b4f0      	push	{r4, r5, r6, r7}
+ 80005ac:	1c0e      	adds	r6, r1, #0
+  systime_t deadline;
+  qnotify_t nfy = iqp->q_notify;
+ 80005ae:	6981      	ldr	r1, [r0, #24]
+ * @return              The number of bytes effectively transferred.
+ *
+ * @api
+ */
+size_t iqReadTimeout(input_queue_t *iqp, uint8_t *bp,
+                     size_t n, systime_t timeout) {
+ 80005b0:	b083      	sub	sp, #12
+ 80005b2:	1c04      	adds	r4, r0, #0
+ 80005b4:	1c15      	adds	r5, r2, #0
+ 80005b6:	469a      	mov	sl, r3
+  systime_t deadline;
+  qnotify_t nfy = iqp->q_notify;
+ 80005b8:	4689      	mov	r9, r1
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 80005ba:	b672      	cpsid	i
+ *
+ * @notapi
+ */
+static inline systime_t st_lld_get_counter(void) {
+
+  return (systime_t)STM32_ST_TIM->CNT;
+ 80005bc:	2380      	movs	r3, #128	; 0x80
+ 80005be:	05db      	lsls	r3, r3, #23
+ 80005c0:	6a5a      	ldr	r2, [r3, #36]	; 0x24
+  size_t r = 0;
+ 80005c2:	2700      	movs	r7, #0
+  osalSysLock();
+
+  /* Time deadline for the whole operation, note the result is invalid
+     when timeout is TIME_INFINITE or TIME_IMMEDIATE but in that case
+     the deadline is not used.*/
+  deadline = osalOsGetSystemTimeX() + timeout;
+ 80005c4:	4452      	add	r2, sl
+ 80005c6:	9201      	str	r2, [sp, #4]
+    while (iqIsEmptyI(iqp)) {
+      msg_t msg;
+
+      /* TIME_INFINITE and TIME_IMMEDIATE are handled differently, no
+         deadline.*/
+      if ((timeout == TIME_INFINITE) || (timeout == TIME_IMMEDIATE)) {
+ 80005c8:	4652      	mov	r2, sl
+ 80005ca:	3a01      	subs	r2, #1
+ 80005cc:	9200      	str	r2, [sp, #0]
+ 80005ce:	469b      	mov	fp, r3
+     the deadline is not used.*/
+  deadline = osalOsGetSystemTimeX() + timeout;
+
+  while (true) {
+    /* Waiting until there is a character available or a timeout occurs.*/
+    while (iqIsEmptyI(iqp)) {
+ 80005d0:	6863      	ldr	r3, [r4, #4]
+ 80005d2:	2b00      	cmp	r3, #0
+ 80005d4:	d01e      	beq.n	8000614 <iqReadTimeout.4256+0x74>
+        return r;
+      }
+    }
+
+    /* Getting the character from the queue.*/
+    iqp->q_counter--;
+ 80005d6:	6863      	ldr	r3, [r4, #4]
+    *bp++ = *iqp->q_rdptr++;
+ 80005d8:	1c71      	adds	r1, r6, #1
+        return r;
+      }
+    }
+
+    /* Getting the character from the queue.*/
+    iqp->q_counter--;
+ 80005da:	3b01      	subs	r3, #1
+ 80005dc:	6063      	str	r3, [r4, #4]
+    *bp++ = *iqp->q_rdptr++;
+ 80005de:	6963      	ldr	r3, [r4, #20]
+ 80005e0:	4688      	mov	r8, r1
+ 80005e2:	1c5a      	adds	r2, r3, #1
+ 80005e4:	6162      	str	r2, [r4, #20]
+ 80005e6:	781b      	ldrb	r3, [r3, #0]
+ 80005e8:	7033      	strb	r3, [r6, #0]
+    if (iqp->q_rdptr >= iqp->q_top) {
+ 80005ea:	6962      	ldr	r2, [r4, #20]
+ 80005ec:	68e3      	ldr	r3, [r4, #12]
+ 80005ee:	429a      	cmp	r2, r3
+ 80005f0:	d301      	bcc.n	80005f6 <iqReadTimeout.4256+0x56>
+      iqp->q_rdptr = iqp->q_buffer;
+ 80005f2:	68a1      	ldr	r1, [r4, #8]
+ 80005f4:	6161      	str	r1, [r4, #20]
+    }
+
+    /* Inform the low side that the queue has at least one slot available.*/
+    if (nfy != NULL) {
+ 80005f6:	464a      	mov	r2, r9
+ 80005f8:	2a00      	cmp	r2, #0
+ 80005fa:	d001      	beq.n	8000600 <iqReadTimeout.4256+0x60>
+      nfy(iqp);
+ 80005fc:	1c20      	adds	r0, r4, #0
+ 80005fe:	47c8      	blx	r9
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 8000600:	b662      	cpsie	i
+
+    /* Giving a preemption chance in a controlled point.*/
+    osalSysUnlock();
+
+    r++;
+    if (--n == 0U) {
+ 8000602:	3d01      	subs	r5, #1
+    }
+
+    /* Giving a preemption chance in a controlled point.*/
+    osalSysUnlock();
+
+    r++;
+ 8000604:	3701      	adds	r7, #1
+    if (--n == 0U) {
+ 8000606:	2d00      	cmp	r5, #0
+ 8000608:	d013      	beq.n	8000632 <iqReadTimeout.4256+0x92>
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 800060a:	b672      	cpsid	i
+     the deadline is not used.*/
+  deadline = osalOsGetSystemTimeX() + timeout;
+
+  while (true) {
+    /* Waiting until there is a character available or a timeout occurs.*/
+    while (iqIsEmptyI(iqp)) {
+ 800060c:	6863      	ldr	r3, [r4, #4]
+      }
+    }
+
+    /* Getting the character from the queue.*/
+    iqp->q_counter--;
+    *bp++ = *iqp->q_rdptr++;
+ 800060e:	4646      	mov	r6, r8
+     the deadline is not used.*/
+  deadline = osalOsGetSystemTimeX() + timeout;
+
+  while (true) {
+    /* Waiting until there is a character available or a timeout occurs.*/
+    while (iqIsEmptyI(iqp)) {
+ 8000610:	2b00      	cmp	r3, #0
+ 8000612:	d1e0      	bne.n	80005d6 <iqReadTimeout.4256+0x36>
+      msg_t msg;
+
+      /* TIME_INFINITE and TIME_IMMEDIATE are handled differently, no
+         deadline.*/
+      if ((timeout == TIME_INFINITE) || (timeout == TIME_IMMEDIATE)) {
+ 8000614:	9b00      	ldr	r3, [sp, #0]
+ 8000616:	3303      	adds	r3, #3
+ 8000618:	d813      	bhi.n	8000642 <iqReadTimeout.4256+0xa2>
+ 800061a:	465a      	mov	r2, fp
+ 800061c:	6a51      	ldr	r1, [r2, #36]	; 0x24
+        msg = osalThreadEnqueueTimeoutS(&iqp->q_waiting, timeout);
+      }
+      else {
+        systime_t next_timeout = deadline - osalOsGetSystemTimeX();
+ 800061e:	9b01      	ldr	r3, [sp, #4]
+ 8000620:	1a59      	subs	r1, r3, r1
+
+        /* Handling the case where the system time went past the deadline,
+           in this case next becomes a very high number because the system
+           time is an unsigned type.*/
+        if (next_timeout > timeout) {
+ 8000622:	458a      	cmp	sl, r1
+ 8000624:	d304      	bcc.n	8000630 <iqReadTimeout.4256+0x90>
+ 8000626:	1c20      	adds	r0, r4, #0
+ 8000628:	f7ff ff6a 	bl	8000500 <chSemWaitTimeoutS.4297>
+
+        msg = osalThreadEnqueueTimeoutS(&iqp->q_waiting, next_timeout);
+      }
+
+      /* Anything except MSG_OK causes the operation to stop.*/
+      if (msg != MSG_OK) {
+ 800062c:	2800      	cmp	r0, #0
+ 800062e:	d0cf      	beq.n	80005d0 <iqReadTimeout.4256+0x30>
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 8000630:	b662      	cpsie	i
+      return r;
+    }
+
+    osalSysLock();
+  }
+}
+ 8000632:	1c38      	adds	r0, r7, #0
+ 8000634:	b003      	add	sp, #12
+ 8000636:	bc3c      	pop	{r2, r3, r4, r5}
+ 8000638:	4690      	mov	r8, r2
+ 800063a:	4699      	mov	r9, r3
+ 800063c:	46a2      	mov	sl, r4
+ 800063e:	46ab      	mov	fp, r5
+ 8000640:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 8000642:	1c20      	adds	r0, r4, #0
+ 8000644:	4651      	mov	r1, sl
+ 8000646:	f7ff ff5b 	bl	8000500 <chSemWaitTimeoutS.4297>
+ 800064a:	e7ef      	b.n	800062c <iqReadTimeout.4256+0x8c>
+ 800064c:	46c0      	nop			; (mov r8, r8)
+ 800064e:	46c0      	nop			; (mov r8, r8)
+
+08000650 <readt.5293.4245>:
+static size_t writet(void *ip, const uint8_t *bp, size_t n, systime_t timeout) {
+
+  return oqWriteTimeout(&((SerialDriver *)ip)->oqueue, bp, n, timeout);
+}
+
+static size_t readt(void *ip, uint8_t *bp, size_t n, systime_t timeout) {
+ 8000650:	b508      	push	{r3, lr}
+
+  return iqReadTimeout(&((SerialDriver *)ip)->iqueue, bp, n, timeout);
+ 8000652:	3014      	adds	r0, #20
+ 8000654:	f7ff ffa4 	bl	80005a0 <iqReadTimeout.4256>
+}
+ 8000658:	bd08      	pop	{r3, pc}
+ 800065a:	46c0      	nop			; (mov r8, r8)
+ 800065c:	46c0      	nop			; (mov r8, r8)
+ 800065e:	46c0      	nop			; (mov r8, r8)
+
+08000660 <read.5300.4251>:
+
+  return oqWriteTimeout(&((SerialDriver *)ip)->oqueue, bp,
+                        n, TIME_INFINITE);
+}
+
+static size_t read(void *ip, uint8_t *bp, size_t n) {
+ 8000660:	b508      	push	{r3, lr}
+
+  return iqReadTimeout(&((SerialDriver *)ip)->iqueue, bp,
+ 8000662:	3014      	adds	r0, #20
+ 8000664:	2300      	movs	r3, #0
+ 8000666:	f7ff ff9b 	bl	80005a0 <iqReadTimeout.4256>
+                       n, TIME_INFINITE);
+}
+ 800066a:	bd08      	pop	{r3, pc}
+ 800066c:	46c0      	nop			; (mov r8, r8)
+ 800066e:	46c0      	nop			; (mov r8, r8)
+
+08000670 <oqPutTimeout.4271>:
+ * @retval MSG_TIMEOUT  if the specified time expired.
+ * @retval MSG_RESET    if the queue has been reset.
+ *
+ * @api
+ */
+msg_t oqPutTimeout(output_queue_t *oqp, uint8_t b, systime_t timeout) {
+ 8000670:	b570      	push	{r4, r5, r6, lr}
+ 8000672:	1c04      	adds	r4, r0, #0
+ 8000674:	1c0e      	adds	r6, r1, #0
+ 8000676:	1c15      	adds	r5, r2, #0
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 8000678:	b672      	cpsid	i
+ 800067a:	e005      	b.n	8000688 <oqPutTimeout.4271+0x18>
+ 800067c:	1c20      	adds	r0, r4, #0
+ 800067e:	1c29      	adds	r1, r5, #0
+ 8000680:	f7ff ff3e 	bl	8000500 <chSemWaitTimeoutS.4297>
+  osalSysLock();
+
+  /* Waiting until there is a slot available or a timeout occurs.*/
+  while (oqIsFullI(oqp)) {
+    msg_t msg = osalThreadEnqueueTimeoutS(&oqp->q_waiting, timeout);
+    if (msg < MSG_OK) {
+ 8000684:	2800      	cmp	r0, #0
+ 8000686:	db17      	blt.n	80006b8 <oqPutTimeout.4271+0x48>
+msg_t oqPutTimeout(output_queue_t *oqp, uint8_t b, systime_t timeout) {
+
+  osalSysLock();
+
+  /* Waiting until there is a slot available or a timeout occurs.*/
+  while (oqIsFullI(oqp)) {
+ 8000688:	6863      	ldr	r3, [r4, #4]
+ 800068a:	2b00      	cmp	r3, #0
+ 800068c:	d0f6      	beq.n	800067c <oqPutTimeout.4271+0xc>
+      return msg;
+    }
+  }
+
+  /* Putting the character into the queue.*/
+  oqp->q_counter--;
+ 800068e:	6863      	ldr	r3, [r4, #4]
+ 8000690:	3b01      	subs	r3, #1
+ 8000692:	6063      	str	r3, [r4, #4]
+  *oqp->q_wrptr++ = b;
+ 8000694:	6923      	ldr	r3, [r4, #16]
+ 8000696:	1c5a      	adds	r2, r3, #1
+ 8000698:	6122      	str	r2, [r4, #16]
+ 800069a:	701e      	strb	r6, [r3, #0]
+  if (oqp->q_wrptr >= oqp->q_top) {
+ 800069c:	6922      	ldr	r2, [r4, #16]
+ 800069e:	68e3      	ldr	r3, [r4, #12]
+ 80006a0:	429a      	cmp	r2, r3
+ 80006a2:	d301      	bcc.n	80006a8 <oqPutTimeout.4271+0x38>
+    oqp->q_wrptr = oqp->q_buffer;
+ 80006a4:	68a2      	ldr	r2, [r4, #8]
+ 80006a6:	6122      	str	r2, [r4, #16]
+  }
+
+  /* Inform the low side that the queue has at least one character available.*/
+  if (oqp->q_notify != NULL) {
+ 80006a8:	69a3      	ldr	r3, [r4, #24]
+ 80006aa:	2b00      	cmp	r3, #0
+ 80006ac:	d001      	beq.n	80006b2 <oqPutTimeout.4271+0x42>
+    oqp->q_notify(oqp);
+ 80006ae:	1c20      	adds	r0, r4, #0
+ 80006b0:	4798      	blx	r3
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 80006b2:	b662      	cpsie	i
+ 80006b4:	2000      	movs	r0, #0
+  }
+
+  osalSysUnlock();
+
+  return MSG_OK;
+}
+ 80006b6:	bd70      	pop	{r4, r5, r6, pc}
+ 80006b8:	b662      	cpsie	i
+ 80006ba:	e7fc      	b.n	80006b6 <oqPutTimeout.4271+0x46>
+ 80006bc:	46c0      	nop			; (mov r8, r8)
+ 80006be:	46c0      	nop			; (mov r8, r8)
+
+080006c0 <putt.5324.4262>:
+static msg_t get(void *ip) {
+
+  return iqGetTimeout(&((SerialDriver *)ip)->iqueue, TIME_INFINITE);
+}
+
+static msg_t putt(void *ip, uint8_t b, systime_t timeout) {
+ 80006c0:	b508      	push	{r3, lr}
+
+  return oqPutTimeout(&((SerialDriver *)ip)->oqueue, b, timeout);
+ 80006c2:	3034      	adds	r0, #52	; 0x34
+ 80006c4:	f7ff ffd4 	bl	8000670 <oqPutTimeout.4271>
+}
+ 80006c8:	bd08      	pop	{r3, pc}
+ 80006ca:	46c0      	nop			; (mov r8, r8)
+ 80006cc:	46c0      	nop			; (mov r8, r8)
+ 80006ce:	46c0      	nop			; (mov r8, r8)
+
+080006d0 <put.5329.4267>:
+
+  return iqReadTimeout(&((SerialDriver *)ip)->iqueue, bp,
+                       n, TIME_INFINITE);
+}
+
+static msg_t put(void *ip, uint8_t b) {
+ 80006d0:	b508      	push	{r3, lr}
+
+  return oqPutTimeout(&((SerialDriver *)ip)->oqueue, b, TIME_INFINITE);
+ 80006d2:	3034      	adds	r0, #52	; 0x34
+ 80006d4:	2200      	movs	r2, #0
+ 80006d6:	f7ff ffcb 	bl	8000670 <oqPutTimeout.4271>
+}
+ 80006da:	bd08      	pop	{r3, pc}
+ 80006dc:	46c0      	nop			; (mov r8, r8)
+ 80006de:	46c0      	nop			; (mov r8, r8)
+
+080006e0 <oqWriteTimeout.4291>:
+ * @return              The number of bytes effectively transferred.
+ *
+ * @api
+ */
+size_t oqWriteTimeout(output_queue_t *oqp, const uint8_t *bp,
+                      size_t n, systime_t timeout) {
+ 80006e0:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 80006e2:	4656      	mov	r6, sl
+ 80006e4:	464d      	mov	r5, r9
+ 80006e6:	4644      	mov	r4, r8
+ 80006e8:	465f      	mov	r7, fp
+ 80006ea:	b4f0      	push	{r4, r5, r6, r7}
+ 80006ec:	1c0e      	adds	r6, r1, #0
+  systime_t deadline;
+  qnotify_t nfy = oqp->q_notify;
+ 80006ee:	6981      	ldr	r1, [r0, #24]
+ * @return              The number of bytes effectively transferred.
+ *
+ * @api
+ */
+size_t oqWriteTimeout(output_queue_t *oqp, const uint8_t *bp,
+                      size_t n, systime_t timeout) {
+ 80006f0:	b083      	sub	sp, #12
+ 80006f2:	1c04      	adds	r4, r0, #0
+ 80006f4:	1c15      	adds	r5, r2, #0
+ 80006f6:	469a      	mov	sl, r3
+  systime_t deadline;
+  qnotify_t nfy = oqp->q_notify;
+ 80006f8:	4689      	mov	r9, r1
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 80006fa:	b672      	cpsid	i
+ 80006fc:	2380      	movs	r3, #128	; 0x80
+ 80006fe:	05db      	lsls	r3, r3, #23
+ 8000700:	6a5a      	ldr	r2, [r3, #36]	; 0x24
+  size_t w = 0;
+ 8000702:	2700      	movs	r7, #0
+  osalSysLock();
+
+  /* Time deadline for the whole operation, note the result is invalid
+     when timeout is TIME_INFINITE or TIME_IMMEDIATE but in that case
+     the deadline is not used.*/
+  deadline = osalOsGetSystemTimeX() + timeout;
+ 8000704:	4452      	add	r2, sl
+ 8000706:	9201      	str	r2, [sp, #4]
+    msg_t msg;
+
+    while (oqIsFullI(oqp)) {
+      /* TIME_INFINITE and TIME_IMMEDIATE are handled differently, no
+         deadline.*/
+      if ((timeout == TIME_INFINITE) || (timeout == TIME_IMMEDIATE)) {
+ 8000708:	4652      	mov	r2, sl
+ 800070a:	3a01      	subs	r2, #1
+ 800070c:	9200      	str	r2, [sp, #0]
+ 800070e:	469b      	mov	fp, r3
+  deadline = osalOsGetSystemTimeX() + timeout;
+
+  while (true) {
+    msg_t msg;
+
+    while (oqIsFullI(oqp)) {
+ 8000710:	6863      	ldr	r3, [r4, #4]
+ 8000712:	2b00      	cmp	r3, #0
+ 8000714:	d01e      	beq.n	8000754 <oqWriteTimeout.4291+0x74>
+        return w;
+      }
+    }
+
+    /* Putting the character into the queue.*/
+    oqp->q_counter--;
+ 8000716:	6863      	ldr	r3, [r4, #4]
+    *oqp->q_wrptr++ = *bp++;
+ 8000718:	1c71      	adds	r1, r6, #1
+        return w;
+      }
+    }
+
+    /* Putting the character into the queue.*/
+    oqp->q_counter--;
+ 800071a:	3b01      	subs	r3, #1
+ 800071c:	6063      	str	r3, [r4, #4]
+    *oqp->q_wrptr++ = *bp++;
+ 800071e:	6923      	ldr	r3, [r4, #16]
+ 8000720:	4688      	mov	r8, r1
+ 8000722:	1c5a      	adds	r2, r3, #1
+ 8000724:	6122      	str	r2, [r4, #16]
+ 8000726:	7832      	ldrb	r2, [r6, #0]
+ 8000728:	701a      	strb	r2, [r3, #0]
+    if (oqp->q_wrptr >= oqp->q_top) {
+ 800072a:	6922      	ldr	r2, [r4, #16]
+ 800072c:	68e3      	ldr	r3, [r4, #12]
+ 800072e:	429a      	cmp	r2, r3
+ 8000730:	d301      	bcc.n	8000736 <oqWriteTimeout.4291+0x56>
+      oqp->q_wrptr = oqp->q_buffer;
+ 8000732:	68a1      	ldr	r1, [r4, #8]
+ 8000734:	6121      	str	r1, [r4, #16]
+    }
+
+    /* Inform the low side that the queue has at least one character available.*/
+    if (nfy != NULL) {
+ 8000736:	464a      	mov	r2, r9
+ 8000738:	2a00      	cmp	r2, #0
+ 800073a:	d001      	beq.n	8000740 <oqWriteTimeout.4291+0x60>
+      nfy(oqp);
+ 800073c:	1c20      	adds	r0, r4, #0
+ 800073e:	47c8      	blx	r9
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 8000740:	b662      	cpsie	i
+
+    /* Giving a preemption chance in a controlled point.*/
+    osalSysUnlock();
+
+    w++;
+    if (--n == 0U) {
+ 8000742:	3d01      	subs	r5, #1
+    }
+
+    /* Giving a preemption chance in a controlled point.*/
+    osalSysUnlock();
+
+    w++;
+ 8000744:	3701      	adds	r7, #1
+    if (--n == 0U) {
+ 8000746:	2d00      	cmp	r5, #0
+ 8000748:	d013      	beq.n	8000772 <oqWriteTimeout.4291+0x92>
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 800074a:	b672      	cpsid	i
+  deadline = osalOsGetSystemTimeX() + timeout;
+
+  while (true) {
+    msg_t msg;
+
+    while (oqIsFullI(oqp)) {
+ 800074c:	6863      	ldr	r3, [r4, #4]
+      }
+    }
+
+    /* Putting the character into the queue.*/
+    oqp->q_counter--;
+    *oqp->q_wrptr++ = *bp++;
+ 800074e:	4646      	mov	r6, r8
+  deadline = osalOsGetSystemTimeX() + timeout;
+
+  while (true) {
+    msg_t msg;
+
+    while (oqIsFullI(oqp)) {
+ 8000750:	2b00      	cmp	r3, #0
+ 8000752:	d1e0      	bne.n	8000716 <oqWriteTimeout.4291+0x36>
+      /* TIME_INFINITE and TIME_IMMEDIATE are handled differently, no
+         deadline.*/
+      if ((timeout == TIME_INFINITE) || (timeout == TIME_IMMEDIATE)) {
+ 8000754:	9b00      	ldr	r3, [sp, #0]
+ 8000756:	3303      	adds	r3, #3
+ 8000758:	d813      	bhi.n	8000782 <oqWriteTimeout.4291+0xa2>
+ 800075a:	465a      	mov	r2, fp
+ 800075c:	6a51      	ldr	r1, [r2, #36]	; 0x24
+        msg = osalThreadEnqueueTimeoutS(&oqp->q_waiting, timeout);
+      }
+      else {
+        systime_t next_timeout = deadline - osalOsGetSystemTimeX();
+ 800075e:	9b01      	ldr	r3, [sp, #4]
+ 8000760:	1a59      	subs	r1, r3, r1
+
+        /* Handling the case where the system time went past the deadline,
+           in this case next becomes a very high number because the system
+           time is an unsigned type.*/
+        if (next_timeout > timeout) {
+ 8000762:	458a      	cmp	sl, r1
+ 8000764:	d304      	bcc.n	8000770 <oqWriteTimeout.4291+0x90>
+ 8000766:	1c20      	adds	r0, r4, #0
+ 8000768:	f7ff feca 	bl	8000500 <chSemWaitTimeoutS.4297>
+
+        msg = osalThreadEnqueueTimeoutS(&oqp->q_waiting, next_timeout);
+      }
+
+      /* Anything except MSG_OK causes the operation to stop.*/
+      if (msg != MSG_OK) {
+ 800076c:	2800      	cmp	r0, #0
+ 800076e:	d0cf      	beq.n	8000710 <oqWriteTimeout.4291+0x30>
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 8000770:	b662      	cpsie	i
+      return w;
+    }
+
+    osalSysLock();
+  }
+}
+ 8000772:	1c38      	adds	r0, r7, #0
+ 8000774:	b003      	add	sp, #12
+ 8000776:	bc3c      	pop	{r2, r3, r4, r5}
+ 8000778:	4690      	mov	r8, r2
+ 800077a:	4699      	mov	r9, r3
+ 800077c:	46a2      	mov	sl, r4
+ 800077e:	46ab      	mov	fp, r5
+ 8000780:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 8000782:	1c20      	adds	r0, r4, #0
+ 8000784:	4651      	mov	r1, sl
+ 8000786:	f7ff febb 	bl	8000500 <chSemWaitTimeoutS.4297>
+ 800078a:	e7ef      	b.n	800076c <oqWriteTimeout.4291+0x8c>
+ 800078c:	46c0      	nop			; (mov r8, r8)
+ 800078e:	46c0      	nop			; (mov r8, r8)
+
+08000790 <writet.5305.4280>:
+static msg_t gett(void *ip, systime_t timeout) {
+
+  return iqGetTimeout(&((SerialDriver *)ip)->iqueue, timeout);
+}
+
+static size_t writet(void *ip, const uint8_t *bp, size_t n, systime_t timeout) {
+ 8000790:	b508      	push	{r3, lr}
+
+  return oqWriteTimeout(&((SerialDriver *)ip)->oqueue, bp, n, timeout);
+ 8000792:	3034      	adds	r0, #52	; 0x34
+ 8000794:	f7ff ffa4 	bl	80006e0 <oqWriteTimeout.4291>
+}
+ 8000798:	bd08      	pop	{r3, pc}
+ 800079a:	46c0      	nop			; (mov r8, r8)
+ 800079c:	46c0      	nop			; (mov r8, r8)
+ 800079e:	46c0      	nop			; (mov r8, r8)
+
+080007a0 <write.5311.4286>:
+/*
+ * Interface implementation, the following functions just invoke the equivalent
+ * queue-level function or macro.
+ */
+
+static size_t write(void *ip, const uint8_t *bp, size_t n) {
+ 80007a0:	b508      	push	{r3, lr}
+
+  return oqWriteTimeout(&((SerialDriver *)ip)->oqueue, bp,
+ 80007a2:	3034      	adds	r0, #52	; 0x34
+ 80007a4:	2300      	movs	r3, #0
+ 80007a6:	f7ff ff9b 	bl	80006e0 <oqWriteTimeout.4291>
+                        n, TIME_INFINITE);
+}
+ 80007aa:	bd08      	pop	{r3, pc}
+ 80007ac:	46c0      	nop			; (mov r8, r8)
+ 80007ae:	46c0      	nop			; (mov r8, r8)
+
+080007b0 <chThdSleep.4323>:
+ *
+ * @param[in] timeout   the delay in system ticks
+ *
+ * @api
+ */
+void chThdSleep(systime_t timeout) {
+ 80007b0:	b508      	push	{r3, lr}
+ 80007b2:	1c01      	adds	r1, r0, #0
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 80007b4:	b672      	cpsid	i
+
+  chSysLock();
+  chThdSleepS(timeout);
+ 80007b6:	2001      	movs	r0, #1
+ 80007b8:	f7ff fe62 	bl	8000480 <chSchGoSleepTimeoutS.4326>
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 80007bc:	b662      	cpsie	i
+  chSysUnlock();
+}
+ 80007be:	bd08      	pop	{r3, pc}
+
+080007c0 <Thread1.4301>:
+
+/*
+ * Thread 1.
+ */
+THD_WORKING_AREA(waThread1, 128);
+THD_FUNCTION(Thread1, arg) {
+ 80007c0:	b570      	push	{r4, r5, r6, lr}
+
+  (void)arg;
+
+  while (true) {
+    palSetPad(GPIOC, GPIOC_LED4);
+ 80007c2:	2580      	movs	r5, #128	; 0x80
+ 80007c4:	006d      	lsls	r5, r5, #1
+ 80007c6:	4c06      	ldr	r4, [pc, #24]	; (80007e0 <Thread1.4301+0x20>)
+ 80007c8:	1c2e      	adds	r6, r5, #0
+    chThdSleepMilliseconds(500);
+ 80007ca:	20fa      	movs	r0, #250	; 0xfa
+THD_FUNCTION(Thread1, arg) {
+
+  (void)arg;
+
+  while (true) {
+    palSetPad(GPIOC, GPIOC_LED4);
+ 80007cc:	8326      	strh	r6, [r4, #24]
+    chThdSleepMilliseconds(500);
+ 80007ce:	0040      	lsls	r0, r0, #1
+ 80007d0:	f7ff ffee 	bl	80007b0 <chThdSleep.4323>
+    palClearPad(GPIOC, GPIOC_LED4);
+    chThdSleepMilliseconds(500);
+ 80007d4:	20fa      	movs	r0, #250	; 0xfa
+  (void)arg;
+
+  while (true) {
+    palSetPad(GPIOC, GPIOC_LED4);
+    chThdSleepMilliseconds(500);
+    palClearPad(GPIOC, GPIOC_LED4);
+ 80007d6:	8365      	strh	r5, [r4, #26]
+    chThdSleepMilliseconds(500);
+ 80007d8:	0040      	lsls	r0, r0, #1
+ 80007da:	f7ff ffe9 	bl	80007b0 <chThdSleep.4323>
+ 80007de:	e7f4      	b.n	80007ca <Thread1.4301+0xa>
+ 80007e0:	48000800 	.word	0x48000800
+ 80007e4:	46c0      	nop			; (mov r8, r8)
+ 80007e6:	46c0      	nop			; (mov r8, r8)
+ 80007e8:	46c0      	nop			; (mov r8, r8)
+ 80007ea:	46c0      	nop			; (mov r8, r8)
+ 80007ec:	46c0      	nop			; (mov r8, r8)
+ 80007ee:	46c0      	nop			; (mov r8, r8)
+
+080007f0 <Thread2.4304>:
+
+/*
+ * Thread 2.
+ */
+THD_WORKING_AREA(waThread2, 128);
+THD_FUNCTION(Thread2, arg) {
+ 80007f0:	b570      	push	{r4, r5, r6, lr}
+
+  (void)arg;
+
+  while (true) {
+    palSetPad(GPIOC, GPIOC_LED3);
+ 80007f2:	2580      	movs	r5, #128	; 0x80
+ 80007f4:	00ad      	lsls	r5, r5, #2
+ 80007f6:	4c05      	ldr	r4, [pc, #20]	; (800080c <Thread2.4304+0x1c>)
+ 80007f8:	1c2e      	adds	r6, r5, #0
+ 80007fa:	8326      	strh	r6, [r4, #24]
+    chThdSleepMilliseconds(250);
+ 80007fc:	20fa      	movs	r0, #250	; 0xfa
+ 80007fe:	f7ff ffd7 	bl	80007b0 <chThdSleep.4323>
+    palClearPad(GPIOC, GPIOC_LED3);
+ 8000802:	8365      	strh	r5, [r4, #26]
+    chThdSleepMilliseconds(250);
+ 8000804:	20fa      	movs	r0, #250	; 0xfa
+ 8000806:	f7ff ffd3 	bl	80007b0 <chThdSleep.4323>
+ 800080a:	e7f6      	b.n	80007fa <Thread2.4304+0xa>
+ 800080c:	48000800 	.word	0x48000800
+
+08000810 <Thread3.4307>:
+
+/*
+ * Thread 3.
+ */
+THD_WORKING_AREA(waThread3, 128);
+THD_FUNCTION(Thread3, arg) {
+ 8000810:	b538      	push	{r3, r4, r5, lr}
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 8000812:	b672      	cpsid	i
+void sd_lld_start(SerialDriver *sdp, const SerialConfig *config) {
+
+  if (config == NULL)
+    config = &default_config;
+
+  if (sdp->state == SD_STOP) {
+ 8000814:	4c1a      	ldr	r4, [pc, #104]	; (8000880 <Thread3.4307+0x70>)
+ 8000816:	7c23      	ldrb	r3, [r4, #16]
+ 8000818:	2b01      	cmp	r3, #1
+ 800081a:	d029      	beq.n	8000870 <Thread3.4307+0x60>
+  {
+      u->BRR = (uint32_t)( ( (uint64_t)sdp->clock * 256 ) / config->speed);
+  }
+  else
+#endif
+  u->BRR = (uint32_t)(sdp->clock / config->speed);
+ 800081c:	2196      	movs	r1, #150	; 0x96
+ 800081e:	6da0      	ldr	r0, [r4, #88]	; 0x58
+ 8000820:	0209      	lsls	r1, r1, #8
+ 8000822:	f7ff fcf5 	bl	8000210 <__aeabi_uidiv>
+ *
+ * @param[in] sdp       pointer to a @p SerialDriver object
+ * @param[in] config    the architecture-dependent serial driver configuration
+ */
+static void usart_init(SerialDriver *sdp, const SerialConfig *config) {
+  USART_TypeDef *u = sdp->usart;
+ 8000826:	6d65      	ldr	r5, [r4, #84]	; 0x54
+  else
+#endif
+  u->BRR = (uint32_t)(sdp->clock / config->speed);
+
+  /* Note that some bits are enforced.*/
+  u->CR2 = config->cr2 | USART_CR2_LBDIE;
+ 8000828:	2340      	movs	r3, #64	; 0x40
+  {
+      u->BRR = (uint32_t)( ( (uint64_t)sdp->clock * 256 ) / config->speed);
+  }
+  else
+#endif
+  u->BRR = (uint32_t)(sdp->clock / config->speed);
+ 800082a:	60e8      	str	r0, [r5, #12]
+
+  /* Note that some bits are enforced.*/
+  u->CR2 = config->cr2 | USART_CR2_LBDIE;
+ 800082c:	606b      	str	r3, [r5, #4]
+  u->CR3 = config->cr3 | USART_CR3_EIE;
+ 800082e:	2301      	movs	r3, #1
+ 8000830:	60ab      	str	r3, [r5, #8]
+  u->CR1 = config->cr1 | USART_CR1_UE | USART_CR1_PEIE |
+ 8000832:	232e      	movs	r3, #46	; 0x2e
+ 8000834:	33ff      	adds	r3, #255	; 0xff
+ 8000836:	602b      	str	r3, [r5, #0]
+                         USART_CR1_RXNEIE | USART_CR1_TE |
+                         USART_CR1_RE;
+  u->ICR = 0xFFFFFFFFU;
+ 8000838:	2301      	movs	r3, #1
+ 800083a:	425b      	negs	r3, r3
+    default:
+      sdp->rxmask = 0xFF;
+    }
+  }
+  else {
+    sdp->rxmask = 0xFF;
+ 800083c:	225c      	movs	r2, #92	; 0x5c
+  u->CR2 = config->cr2 | USART_CR2_LBDIE;
+  u->CR3 = config->cr3 | USART_CR3_EIE;
+  u->CR1 = config->cr1 | USART_CR1_UE | USART_CR1_PEIE |
+                         USART_CR1_RXNEIE | USART_CR1_TE |
+                         USART_CR1_RE;
+  u->ICR = 0xFFFFFFFFU;
+ 800083e:	622b      	str	r3, [r5, #32]
+    default:
+      sdp->rxmask = 0xFF;
+    }
+  }
+  else {
+    sdp->rxmask = 0xFF;
+ 8000840:	54a3      	strb	r3, [r4, r2]
+
+  osalSysLock();
+  osalDbgAssert((sdp->state == SD_STOP) || (sdp->state == SD_READY),
+                "invalid state");
+  sd_lld_start(sdp, config);
+  sdp->state = SD_READY;
+ 8000842:	2302      	movs	r3, #2
+ 8000844:	7423      	strb	r3, [r4, #16]
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 8000846:	b662      	cpsie	i
+  /*
+   * Activates the serial driver 1 using the driver default configuration.
+   * PA9 and PA10 are routed to USART1.
+   */
+  sdStart(&SD1, NULL);
+  palSetPadMode(GPIOA, 9, PAL_MODE_ALTERNATE(1));       /* USART1 TX.       */
+ 8000848:	2080      	movs	r0, #128	; 0x80
+ 800084a:	0080      	lsls	r0, r0, #2
+ 800084c:	f7ff fd80 	bl	8000350 <_pal_lld_setgroupmode.constprop.2.4407>
+  palSetPadMode(GPIOA, 10, PAL_MODE_ALTERNATE(1));      /* USART1 RX.       */
+ 8000850:	2080      	movs	r0, #128	; 0x80
+ 8000852:	00c0      	lsls	r0, r0, #3
+ 8000854:	f7ff fd7c 	bl	8000350 <_pal_lld_setgroupmode.constprop.2.4407>
+ 8000858:	4d0a      	ldr	r5, [pc, #40]	; (8000884 <Thread3.4307+0x74>)
+
+  while (true) {
+    chnWrite(&SD1, (const uint8_t *)"Hello World!\r\n", 14);
+ 800085a:	6823      	ldr	r3, [r4, #0]
+ 800085c:	1c20      	adds	r0, r4, #0
+ 800085e:	681b      	ldr	r3, [r3, #0]
+ 8000860:	1c29      	adds	r1, r5, #0
+ 8000862:	220e      	movs	r2, #14
+ 8000864:	4798      	blx	r3
+    chThdSleepMilliseconds(2000);
+ 8000866:	20fa      	movs	r0, #250	; 0xfa
+ 8000868:	00c0      	lsls	r0, r0, #3
+ 800086a:	f7ff ffa1 	bl	80007b0 <chThdSleep.4323>
+ 800086e:	e7f4      	b.n	800085a <Thread3.4307+0x4a>
+    config = &default_config;
+
+  if (sdp->state == SD_STOP) {
+#if STM32_SERIAL_USE_USART1
+    if (&SD1 == sdp) {
+      rccEnableUSART1(FALSE);
+ 8000870:	4b05      	ldr	r3, [pc, #20]	; (8000888 <Thread3.4307+0x78>)
+ 8000872:	2280      	movs	r2, #128	; 0x80
+ 8000874:	6999      	ldr	r1, [r3, #24]
+ 8000876:	01d2      	lsls	r2, r2, #7
+ 8000878:	430a      	orrs	r2, r1
+ 800087a:	619a      	str	r2, [r3, #24]
+ 800087c:	e7ce      	b.n	800081c <Thread3.4307+0xc>
+ 800087e:	46c0      	nop			; (mov r8, r8)
+ 8000880:	200008b8 	.word	0x200008b8
+ 8000884:	08000f10 	.word	0x08000f10
+ 8000888:	40021000 	.word	0x40021000
+ 800088c:	46c0      	nop			; (mov r8, r8)
+ 800088e:	46c0      	nop			; (mov r8, r8)
+
+08000890 <VectorAC.4337>:
+/**
+ * @brief   USART1 interrupt handler.
+ *
+ * @isr
+ */
+OSAL_IRQ_HANDLER(STM32_USART1_HANDLER) {
+ 8000890:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ * @brief   Common IRQ handler.
+ *
+ * @param[in] sdp       communication channel associated to the USART
+ */
+static void serve_interrupt(SerialDriver *sdp) {
+  USART_TypeDef *u = sdp->usart;
+ 8000892:	4c60      	ldr	r4, [pc, #384]	; (8000a14 <VectorAC.4337+0x184>)
+/**
+ * @brief   USART1 interrupt handler.
+ *
+ * @isr
+ */
+OSAL_IRQ_HANDLER(STM32_USART1_HANDLER) {
+ 8000894:	4646      	mov	r6, r8
+ 8000896:	464f      	mov	r7, r9
+ 8000898:	b4c0      	push	{r6, r7}
+ * @brief   Common IRQ handler.
+ *
+ * @param[in] sdp       communication channel associated to the USART
+ */
+static void serve_interrupt(SerialDriver *sdp) {
+  USART_TypeDef *u = sdp->usart;
+ 800089a:	6d66      	ldr	r6, [r4, #84]	; 0x54
+ *
+ * @isr
+ */
+OSAL_IRQ_HANDLER(STM32_USART1_HANDLER) {
+
+  OSAL_IRQ_PROLOGUE();
+ 800089c:	46f0      	mov	r8, lr
+ *
+ * @param[in] sdp       communication channel associated to the USART
+ */
+static void serve_interrupt(SerialDriver *sdp) {
+  USART_TypeDef *u = sdp->usart;
+  uint32_t cr1 = u->CR1;
+ 800089e:	6837      	ldr	r7, [r6, #0]
+  uint32_t isr;
+
+  /* Reading and clearing status.*/
+  isr = u->ISR;
+ 80008a0:	69f5      	ldr	r5, [r6, #28]
+  u->ICR = isr;
+ 80008a2:	6235      	str	r5, [r6, #32]
+
+  /* Error condition detection.*/
+  if (isr & (USART_ISR_ORE | USART_ISR_NE | USART_ISR_FE  | USART_ISR_PE))
+ 80008a4:	072a      	lsls	r2, r5, #28
+ 80008a6:	d14e      	bne.n	8000946 <VectorAC.4337+0xb6>
+    set_error(sdp, isr);
+
+  /* Special case, LIN break detection.*/
+  if (isr & USART_ISR_LBDF) {
+ 80008a8:	05eb      	lsls	r3, r5, #23
+ 80008aa:	d50b      	bpl.n	80008c4 <VectorAC.4337+0x34>
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 80008ac:	b672      	cpsid	i
+static inline void osalEventBroadcastFlagsI(event_source_t *esp,
+                                            eventflags_t flags) {
+
+  osalDbgCheck(esp != NULL);
+
+  esp->flags |= flags;
+ 80008ae:	2380      	movs	r3, #128	; 0x80
+ 80008b0:	6862      	ldr	r2, [r4, #4]
+ 80008b2:	009b      	lsls	r3, r3, #2
+ 80008b4:	4313      	orrs	r3, r2
+ 80008b6:	6063      	str	r3, [r4, #4]
+  if (esp->cb != NULL) {
+ 80008b8:	68a3      	ldr	r3, [r4, #8]
+ 80008ba:	2b00      	cmp	r3, #0
+ 80008bc:	d001      	beq.n	80008c2 <VectorAC.4337+0x32>
+    esp->cb(esp);
+ 80008be:	1d20      	adds	r0, r4, #4
+ 80008c0:	4798      	blx	r3
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 80008c2:	b662      	cpsie	i
+    chnAddFlagsI(sdp, SD_BREAK_DETECTED);
+    osalSysUnlockFromISR();
+  }
+
+  /* Data available.*/
+  if (isr & USART_ISR_RXNE) {
+ 80008c4:	06aa      	lsls	r2, r5, #26
+ 80008c6:	d417      	bmi.n	80008f8 <VectorAC.4337+0x68>
+    sdIncomingDataI(sdp, (uint8_t)u->RDR & sdp->rxmask);
+    osalSysUnlockFromISR();
+  }
+
+  /* Transmission buffer empty.*/
+  if ((cr1 & USART_CR1_TXEIE) && (isr & USART_ISR_TXE)) {
+ 80008c8:	2380      	movs	r3, #128	; 0x80
+ 80008ca:	423b      	tst	r3, r7
+ 80008cc:	d001      	beq.n	80008d2 <VectorAC.4337+0x42>
+ 80008ce:	422b      	tst	r3, r5
+ 80008d0:	d155      	bne.n	800097e <VectorAC.4337+0xee>
+      u->TDR = b;
+    osalSysUnlockFromISR();
+  }
+
+  /* Physical transmission end.*/
+  if (isr & USART_ISR_TC) {
+ 80008d2:	066b      	lsls	r3, r5, #25
+ 80008d4:	d509      	bpl.n	80008ea <VectorAC.4337+0x5a>
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 80008d6:	b672      	cpsid	i
+    osalSysLockFromISR();
+    if (oqIsEmptyI(&sdp->oqueue))
+ 80008d8:	6c62      	ldr	r2, [r4, #68]	; 0x44
+ 80008da:	6ca3      	ldr	r3, [r4, #72]	; 0x48
+ 80008dc:	429a      	cmp	r2, r3
+ 80008de:	d100      	bne.n	80008e2 <VectorAC.4337+0x52>
+ 80008e0:	e069      	b.n	80009b6 <VectorAC.4337+0x126>
+      chnAddFlagsI(sdp, CHN_TRANSMISSION_END);
+    u->CR1 = cr1 & ~USART_CR1_TCIE;
+ 80008e2:	2340      	movs	r3, #64	; 0x40
+ 80008e4:	439f      	bics	r7, r3
+ 80008e6:	6037      	str	r7, [r6, #0]
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 80008e8:	b662      	cpsie	i
+
+  OSAL_IRQ_PROLOGUE();
+
+  serve_interrupt(&SD1);
+
+  OSAL_IRQ_EPILOGUE();
+ 80008ea:	4640      	mov	r0, r8
+ 80008ec:	f7ff fd98 	bl	8000420 <_port_irq_epilogue.4414>
+}
+ 80008f0:	bc0c      	pop	{r2, r3}
+ 80008f2:	4690      	mov	r8, r2
+ 80008f4:	4699      	mov	r9, r3
+ 80008f6:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 80008f8:	b672      	cpsid	i
+  }
+
+  /* Data available.*/
+  if (isr & USART_ISR_RXNE) {
+    osalSysLockFromISR();
+    sdIncomingDataI(sdp, (uint8_t)u->RDR & sdp->rxmask);
+ 80008fa:	235c      	movs	r3, #92	; 0x5c
+ 80008fc:	6a72      	ldr	r2, [r6, #36]	; 0x24
+ 80008fe:	5ce3      	ldrb	r3, [r4, r3]
+ 8000900:	401a      	ands	r2, r3
+void sdIncomingDataI(SerialDriver *sdp, uint8_t b) {
+
+  osalDbgCheckClassI();
+  osalDbgCheck(sdp != NULL);
+
+  if (iqIsEmptyI(&sdp->iqueue))
+ 8000902:	69a3      	ldr	r3, [r4, #24]
+ 8000904:	4691      	mov	r9, r2
+ 8000906:	2b00      	cmp	r3, #0
+ 8000908:	d108      	bne.n	800091c <VectorAC.4337+0x8c>
+static inline void osalEventBroadcastFlagsI(event_source_t *esp,
+                                            eventflags_t flags) {
+
+  osalDbgCheck(esp != NULL);
+
+  esp->flags |= flags;
+ 800090a:	6862      	ldr	r2, [r4, #4]
+ 800090c:	2304      	movs	r3, #4
+ 800090e:	4313      	orrs	r3, r2
+ 8000910:	6063      	str	r3, [r4, #4]
+  if (esp->cb != NULL) {
+ 8000912:	68a3      	ldr	r3, [r4, #8]
+ 8000914:	2b00      	cmp	r3, #0
+ 8000916:	d001      	beq.n	800091c <VectorAC.4337+0x8c>
+    esp->cb(esp);
+ 8000918:	1d20      	adds	r0, r4, #4
+ 800091a:	4798      	blx	r3
+ */
+msg_t iqPutI(input_queue_t *iqp, uint8_t b) {
+
+  osalDbgCheckClassI();
+
+  if (iqIsFullI(iqp)) {
+ 800091c:	6a63      	ldr	r3, [r4, #36]	; 0x24
+ 800091e:	6aa2      	ldr	r2, [r4, #40]	; 0x28
+ 8000920:	4293      	cmp	r3, r2
+ 8000922:	d057      	beq.n	80009d4 <VectorAC.4337+0x144>
+    return MSG_TIMEOUT;
+  }
+
+  iqp->q_counter++;
+ 8000924:	69a2      	ldr	r2, [r4, #24]
+ 8000926:	3201      	adds	r2, #1
+ 8000928:	61a2      	str	r2, [r4, #24]
+  *iqp->q_wrptr++ = b;
+ 800092a:	1c5a      	adds	r2, r3, #1
+ 800092c:	6262      	str	r2, [r4, #36]	; 0x24
+ 800092e:	464a      	mov	r2, r9
+ 8000930:	701a      	strb	r2, [r3, #0]
+  if (iqp->q_wrptr >= iqp->q_top) {
+ 8000932:	6a63      	ldr	r3, [r4, #36]	; 0x24
+ 8000934:	6a22      	ldr	r2, [r4, #32]
+ 8000936:	4293      	cmp	r3, r2
+ 8000938:	d23a      	bcs.n	80009b0 <VectorAC.4337+0x120>
+    iqp->q_wrptr = iqp->q_buffer;
+  }
+
+  osalThreadDequeueNextI(&iqp->q_waiting, MSG_OK);
+ 800093a:	1c20      	adds	r0, r4, #0
+ 800093c:	3014      	adds	r0, #20
+ 800093e:	f7ff fce7 	bl	8000310 <osalThreadDequeueNextI.constprop.8.4366>
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 8000942:	b662      	cpsie	i
+ 8000944:	e7c0      	b.n	80008c8 <VectorAC.4337+0x38>
+ * @param[in] isr       USART ISR register value
+ */
+static void set_error(SerialDriver *sdp, uint32_t isr) {
+  eventflags_t sts = 0;
+
+  if (isr & USART_ISR_ORE)
+ 8000946:	072b      	lsls	r3, r5, #28
+ *
+ * @param[in] sdp       pointer to a @p SerialDriver object
+ * @param[in] isr       USART ISR register value
+ */
+static void set_error(SerialDriver *sdp, uint32_t isr) {
+  eventflags_t sts = 0;
+ 8000948:	0fdb      	lsrs	r3, r3, #31
+ 800094a:	01db      	lsls	r3, r3, #7
+
+  if (isr & USART_ISR_ORE)
+    sts |= SD_OVERRUN_ERROR;
+  if (isr & USART_ISR_PE)
+ 800094c:	07ea      	lsls	r2, r5, #31
+ 800094e:	d501      	bpl.n	8000954 <VectorAC.4337+0xc4>
+    sts |= SD_PARITY_ERROR;
+ 8000950:	2220      	movs	r2, #32
+ 8000952:	4313      	orrs	r3, r2
+  if (isr & USART_ISR_FE)
+ 8000954:	07aa      	lsls	r2, r5, #30
+ 8000956:	d501      	bpl.n	800095c <VectorAC.4337+0xcc>
+    sts |= SD_FRAMING_ERROR;
+ 8000958:	2240      	movs	r2, #64	; 0x40
+ 800095a:	4313      	orrs	r3, r2
+  if (isr & USART_ISR_NE)
+ 800095c:	076a      	lsls	r2, r5, #29
+ 800095e:	d40a      	bmi.n	8000976 <VectorAC.4337+0xe6>
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 8000960:	b672      	cpsid	i
+static inline void osalEventBroadcastFlagsI(event_source_t *esp,
+                                            eventflags_t flags) {
+
+  osalDbgCheck(esp != NULL);
+
+  esp->flags |= flags;
+ 8000962:	6862      	ldr	r2, [r4, #4]
+ 8000964:	4313      	orrs	r3, r2
+ 8000966:	6063      	str	r3, [r4, #4]
+  if (esp->cb != NULL) {
+ 8000968:	68a3      	ldr	r3, [r4, #8]
+ 800096a:	2b00      	cmp	r3, #0
+ 800096c:	d001      	beq.n	8000972 <VectorAC.4337+0xe2>
+    esp->cb(esp);
+ 800096e:	1d20      	adds	r0, r4, #4
+ 8000970:	4798      	blx	r3
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 8000972:	b662      	cpsie	i
+ 8000974:	e798      	b.n	80008a8 <VectorAC.4337+0x18>
+    sts |= SD_NOISE_ERROR;
+ 8000976:	2280      	movs	r2, #128	; 0x80
+ 8000978:	0052      	lsls	r2, r2, #1
+ 800097a:	4313      	orrs	r3, r2
+ 800097c:	e7f0      	b.n	8000960 <VectorAC.4337+0xd0>
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 800097e:	b672      	cpsid	i
+msg_t oqGetI(output_queue_t *oqp) {
+  uint8_t b;
+
+  osalDbgCheckClassI();
+
+  if (oqIsEmptyI(oqp)) {
+ 8000980:	6ca3      	ldr	r3, [r4, #72]	; 0x48
+ 8000982:	6c62      	ldr	r2, [r4, #68]	; 0x44
+ 8000984:	429a      	cmp	r2, r3
+ 8000986:	d032      	beq.n	80009ee <VectorAC.4337+0x15e>
+    return MSG_TIMEOUT;
+  }
+
+  oqp->q_counter++;
+ 8000988:	6ba2      	ldr	r2, [r4, #56]	; 0x38
+ 800098a:	3201      	adds	r2, #1
+ 800098c:	63a2      	str	r2, [r4, #56]	; 0x38
+  b = *oqp->q_rdptr++;
+ 800098e:	1c5a      	adds	r2, r3, #1
+ 8000990:	64a2      	str	r2, [r4, #72]	; 0x48
+ 8000992:	781b      	ldrb	r3, [r3, #0]
+ 8000994:	4699      	mov	r9, r3
+  if (oqp->q_rdptr >= oqp->q_top) {
+ 8000996:	6c23      	ldr	r3, [r4, #64]	; 0x40
+ 8000998:	429a      	cmp	r2, r3
+ 800099a:	d301      	bcc.n	80009a0 <VectorAC.4337+0x110>
+    oqp->q_rdptr = oqp->q_buffer;
+ 800099c:	6be3      	ldr	r3, [r4, #60]	; 0x3c
+ 800099e:	64a3      	str	r3, [r4, #72]	; 0x48
+  }
+
+  osalThreadDequeueNextI(&oqp->q_waiting, MSG_OK);
+ 80009a0:	1c20      	adds	r0, r4, #0
+ 80009a2:	3034      	adds	r0, #52	; 0x34
+ 80009a4:	f7ff fcb4 	bl	8000310 <osalThreadDequeueNextI.constprop.8.4366>
+    if (b < MSG_OK) {
+      chnAddFlagsI(sdp, CHN_OUTPUT_EMPTY);
+      u->CR1 = (cr1 & ~USART_CR1_TXEIE) | USART_CR1_TCIE;
+    }
+    else
+      u->TDR = b;
+ 80009a8:	464a      	mov	r2, r9
+ 80009aa:	8532      	strh	r2, [r6, #40]	; 0x28
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 80009ac:	b662      	cpsie	i
+ 80009ae:	e790      	b.n	80008d2 <VectorAC.4337+0x42>
+  }
+
+  iqp->q_counter++;
+  *iqp->q_wrptr++ = b;
+  if (iqp->q_wrptr >= iqp->q_top) {
+    iqp->q_wrptr = iqp->q_buffer;
+ 80009b0:	69e3      	ldr	r3, [r4, #28]
+ 80009b2:	6263      	str	r3, [r4, #36]	; 0x24
+ 80009b4:	e7c1      	b.n	800093a <VectorAC.4337+0xaa>
+  }
+
+  /* Physical transmission end.*/
+  if (isr & USART_ISR_TC) {
+    osalSysLockFromISR();
+    if (oqIsEmptyI(&sdp->oqueue))
+ 80009b6:	6ba3      	ldr	r3, [r4, #56]	; 0x38
+ 80009b8:	2b00      	cmp	r3, #0
+ 80009ba:	d100      	bne.n	80009be <VectorAC.4337+0x12e>
+ 80009bc:	e791      	b.n	80008e2 <VectorAC.4337+0x52>
+static inline void osalEventBroadcastFlagsI(event_source_t *esp,
+                                            eventflags_t flags) {
+
+  osalDbgCheck(esp != NULL);
+
+  esp->flags |= flags;
+ 80009be:	6862      	ldr	r2, [r4, #4]
+ 80009c0:	2310      	movs	r3, #16
+ 80009c2:	4313      	orrs	r3, r2
+ 80009c4:	6063      	str	r3, [r4, #4]
+  if (esp->cb != NULL) {
+ 80009c6:	68a3      	ldr	r3, [r4, #8]
+ 80009c8:	2b00      	cmp	r3, #0
+ 80009ca:	d100      	bne.n	80009ce <VectorAC.4337+0x13e>
+ 80009cc:	e789      	b.n	80008e2 <VectorAC.4337+0x52>
+    esp->cb(esp);
+ 80009ce:	1d20      	adds	r0, r4, #4
+ 80009d0:	4798      	blx	r3
+ 80009d2:	e786      	b.n	80008e2 <VectorAC.4337+0x52>
+ */
+msg_t iqPutI(input_queue_t *iqp, uint8_t b) {
+
+  osalDbgCheckClassI();
+
+  if (iqIsFullI(iqp)) {
+ 80009d4:	69a2      	ldr	r2, [r4, #24]
+ 80009d6:	2a00      	cmp	r2, #0
+ 80009d8:	d0a4      	beq.n	8000924 <VectorAC.4337+0x94>
+static inline void osalEventBroadcastFlagsI(event_source_t *esp,
+                                            eventflags_t flags) {
+
+  osalDbgCheck(esp != NULL);
+
+  esp->flags |= flags;
+ 80009da:	6862      	ldr	r2, [r4, #4]
+ 80009dc:	2380      	movs	r3, #128	; 0x80
+ 80009de:	4313      	orrs	r3, r2
+ 80009e0:	6063      	str	r3, [r4, #4]
+  if (esp->cb != NULL) {
+ 80009e2:	68a3      	ldr	r3, [r4, #8]
+ 80009e4:	2b00      	cmp	r3, #0
+ 80009e6:	d0ac      	beq.n	8000942 <VectorAC.4337+0xb2>
+    esp->cb(esp);
+ 80009e8:	1d20      	adds	r0, r4, #4
+ 80009ea:	4798      	blx	r3
+ 80009ec:	e7a9      	b.n	8000942 <VectorAC.4337+0xb2>
+msg_t oqGetI(output_queue_t *oqp) {
+  uint8_t b;
+
+  osalDbgCheckClassI();
+
+  if (oqIsEmptyI(oqp)) {
+ 80009ee:	6ba2      	ldr	r2, [r4, #56]	; 0x38
+ 80009f0:	2a00      	cmp	r2, #0
+ 80009f2:	d0c9      	beq.n	8000988 <VectorAC.4337+0xf8>
+static inline void osalEventBroadcastFlagsI(event_source_t *esp,
+                                            eventflags_t flags) {
+
+  osalDbgCheck(esp != NULL);
+
+  esp->flags |= flags;
+ 80009f4:	6862      	ldr	r2, [r4, #4]
+ 80009f6:	2308      	movs	r3, #8
+ 80009f8:	4313      	orrs	r3, r2
+ 80009fa:	6063      	str	r3, [r4, #4]
+  if (esp->cb != NULL) {
+ 80009fc:	68a3      	ldr	r3, [r4, #8]
+ 80009fe:	2b00      	cmp	r3, #0
+ 8000a00:	d001      	beq.n	8000a06 <VectorAC.4337+0x176>
+    esp->cb(esp);
+ 8000a02:	1d20      	adds	r0, r4, #4
+ 8000a04:	4798      	blx	r3
+    msg_t b;
+    osalSysLockFromISR();
+    b = oqGetI(&sdp->oqueue);
+    if (b < MSG_OK) {
+      chnAddFlagsI(sdp, CHN_OUTPUT_EMPTY);
+      u->CR1 = (cr1 & ~USART_CR1_TXEIE) | USART_CR1_TCIE;
+ 8000a06:	23c0      	movs	r3, #192	; 0xc0
+ 8000a08:	1c3a      	adds	r2, r7, #0
+ 8000a0a:	439a      	bics	r2, r3
+ 8000a0c:	2340      	movs	r3, #64	; 0x40
+ 8000a0e:	4313      	orrs	r3, r2
+ 8000a10:	6033      	str	r3, [r6, #0]
+ 8000a12:	e7cb      	b.n	80009ac <VectorAC.4337+0x11c>
+ 8000a14:	200008b8 	.word	0x200008b8
+ 8000a18:	46c0      	nop			; (mov r8, r8)
+ 8000a1a:	46c0      	nop			; (mov r8, r8)
+ 8000a1c:	46c0      	nop			; (mov r8, r8)
+ 8000a1e:	46c0      	nop			; (mov r8, r8)
+
+08000a20 <Vector7C.4408>:
+ * @brief   TIM2 interrupt handler.
+ * @details This interrupt is used for system tick in free running mode.
+ *
+ * @isr
+ */
+OSAL_IRQ_HANDLER(ST_HANDLER) {
+ 8000a20:	b5f0      	push	{r4, r5, r6, r7, lr}
+  OSAL_IRQ_PROLOGUE();
+
+  /* Note, under rare circumstances an interrupt can remain latched even if
+     the timer SR register has been cleared, in those cases the interrupt
+     is simply ignored.*/
+  if ((STM32_ST_TIM->SR & TIM_SR_CC1IF) != 0U) {
+ 8000a22:	2380      	movs	r3, #128	; 0x80
+ 8000a24:	05db      	lsls	r3, r3, #23
+ 8000a26:	691a      	ldr	r2, [r3, #16]
+ * @brief   TIM2 interrupt handler.
+ * @details This interrupt is used for system tick in free running mode.
+ *
+ * @isr
+ */
+OSAL_IRQ_HANDLER(ST_HANDLER) {
+ 8000a28:	4647      	mov	r7, r8
+ 8000a2a:	b480      	push	{r7}
+
+  OSAL_IRQ_PROLOGUE();
+ 8000a2c:	4670      	mov	r0, lr
+
+  /* Note, under rare circumstances an interrupt can remain latched even if
+     the timer SR register has been cleared, in those cases the interrupt
+     is simply ignored.*/
+  if ((STM32_ST_TIM->SR & TIM_SR_CC1IF) != 0U) {
+ 8000a2e:	0791      	lsls	r1, r2, #30
+ 8000a30:	d404      	bmi.n	8000a3c <Vector7C.4408+0x1c>
+    osalSysLockFromISR();
+    osalOsTimerHandlerI();
+    osalSysUnlockFromISR();
+  }
+
+  OSAL_IRQ_EPILOGUE();
+ 8000a32:	f7ff fcf5 	bl	8000420 <_port_irq_epilogue.4414>
+}
+ 8000a36:	bc04      	pop	{r2}
+ 8000a38:	4690      	mov	r8, r2
+ 8000a3a:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+  /* Note, under rare circumstances an interrupt can remain latched even if
+     the timer SR register has been cleared, in those cases the interrupt
+     is simply ignored.*/
+  if ((STM32_ST_TIM->SR & TIM_SR_CC1IF) != 0U) {
+    STM32_ST_TIM->SR = 0U;
+ 8000a3c:	2200      	movs	r2, #0
+ 8000a3e:	611a      	str	r2, [r3, #16]
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 8000a40:	b672      	cpsid	i
+ 8000a42:	4a25      	ldr	r2, [pc, #148]	; (8000ad8 <Vector7C.4408+0xb8>)
+  chDbgCheckClassI();
+  chDbgCheck((tp >= nil.threads) && (tp < &nil.threads[CH_CFG_NUM_THREADS]));
+  chDbgAssert(!NIL_THD_IS_READY(tp), "already ready");
+  chDbgAssert(nil.next <= nil.current, "priority ordering");
+
+  tp->u1.msg = msg;
+ 8000a44:	2401      	movs	r4, #1
+ 8000a46:	1c11      	adds	r1, r2, #0
+    tp++;
+    chSysLockFromISR();
+  } while (tp < &nil.threads[CH_CFG_NUM_THREADS]);
+#else
+  thread_t *tp = &nil.threads[0];
+  systime_t next = (systime_t)0;
+ 8000a48:	2500      	movs	r5, #0
+    chSysUnlockFromISR();
+    tp++;
+    chSysLockFromISR();
+  } while (tp < &nil.threads[CH_CFG_NUM_THREADS]);
+#else
+  thread_t *tp = &nil.threads[0];
+ 8000a4a:	1c13      	adds	r3, r2, #0
+  chDbgCheckClassI();
+  chDbgCheck((tp >= nil.threads) && (tp < &nil.threads[CH_CFG_NUM_THREADS]));
+  chDbgAssert(!NIL_THD_IS_READY(tp), "already ready");
+  chDbgAssert(nil.next <= nil.current, "priority ordering");
+
+  tp->u1.msg = msg;
+ 8000a4c:	4264      	negs	r4, r4
+    /* Lock released in order to give a preemption chance on those
+       architectures supporting IRQ preemption.*/
+    chSysUnlockFromISR();
+    tp++;
+    chSysLockFromISR();
+  } while (tp < &nil.threads[CH_CFG_NUM_THREADS]);
+ 8000a4e:	1c16      	adds	r6, r2, #0
+ 8000a50:	3118      	adds	r1, #24
+    chSysUnlockFromISR();
+    tp++;
+    chSysLockFromISR();
+  } while (tp < &nil.threads[CH_CFG_NUM_THREADS]);
+#else
+  thread_t *tp = &nil.threads[0];
+ 8000a52:	3310      	adds	r3, #16
+  chDbgCheckClassI();
+  chDbgCheck((tp >= nil.threads) && (tp < &nil.threads[CH_CFG_NUM_THREADS]));
+  chDbgAssert(!NIL_THD_IS_READY(tp), "already ready");
+  chDbgAssert(nil.next <= nil.current, "priority ordering");
+
+  tp->u1.msg = msg;
+ 8000a54:	46a0      	mov	r8, r4
+  tp->state = NIL_STATE_READY;
+ 8000a56:	46ac      	mov	ip, r5
+    /* Lock released in order to give a preemption chance on those
+       architectures supporting IRQ preemption.*/
+    chSysUnlockFromISR();
+    tp++;
+    chSysLockFromISR();
+  } while (tp < &nil.threads[CH_CFG_NUM_THREADS]);
+ 8000a58:	364c      	adds	r6, #76	; 0x4c
+
+  chDbgAssert(nil.nexttime == port_timer_get_alarm(), "time mismatch");
+
+  do {
+    /* Is the thread in a wait state with timeout?.*/
+    if (tp->timeout > (systime_t)0) {
+ 8000a5a:	68dc      	ldr	r4, [r3, #12]
+ 8000a5c:	2c00      	cmp	r4, #0
+ 8000a5e:	d016      	beq.n	8000a8e <Vector7C.4408+0x6e>
+
+      chDbgAssert(!NIL_THD_IS_READY(tp), "is ready");
+      chDbgAssert(tp->timeout >= (nil.nexttime - nil.lasttime), "skipped one");
+
+      tp->timeout -= nil.nexttime - nil.lasttime;
+ 8000a60:	68dc      	ldr	r4, [r3, #12]
+ 8000a62:	6897      	ldr	r7, [r2, #8]
+ 8000a64:	19e4      	adds	r4, r4, r7
+ 8000a66:	68d7      	ldr	r7, [r2, #12]
+ 8000a68:	1be4      	subs	r4, r4, r7
+ 8000a6a:	60dc      	str	r4, [r3, #12]
+      if (tp->timeout == (systime_t)0) {
+ 8000a6c:	68dc      	ldr	r4, [r3, #12]
+ 8000a6e:	2c00      	cmp	r4, #0
+ 8000a70:	d11c      	bne.n	8000aac <Vector7C.4408+0x8c>
+#if CH_CFG_USE_SEMAPHORES == TRUE
+        /* Timeout on semaphores requires a special handling because the
+           semaphore counter must be incremented.*/
+        if (NIL_THD_IS_WTSEM(tp)) {
+ 8000a72:	791f      	ldrb	r7, [r3, #4]
+ 8000a74:	2f03      	cmp	r7, #3
+ 8000a76:	d02a      	beq.n	8000ace <Vector7C.4408+0xae>
+          tp->u1.semp->cnt++;
+        }
+        else {
+#endif
+          if (NIL_THD_IS_SUSP(tp)) {
+ 8000a78:	2f02      	cmp	r7, #2
+ 8000a7a:	d01f      	beq.n	8000abc <Vector7C.4408+0x9c>
+  chDbgCheckClassI();
+  chDbgCheck((tp >= nil.threads) && (tp < &nil.threads[CH_CFG_NUM_THREADS]));
+  chDbgAssert(!NIL_THD_IS_READY(tp), "already ready");
+  chDbgAssert(nil.next <= nil.current, "priority ordering");
+
+  tp->u1.msg = msg;
+ 8000a7c:	4644      	mov	r4, r8
+  tp->state = NIL_STATE_READY;
+ 8000a7e:	4667      	mov	r7, ip
+  chDbgCheckClassI();
+  chDbgCheck((tp >= nil.threads) && (tp < &nil.threads[CH_CFG_NUM_THREADS]));
+  chDbgAssert(!NIL_THD_IS_READY(tp), "already ready");
+  chDbgAssert(nil.next <= nil.current, "priority ordering");
+
+  tp->u1.msg = msg;
+ 8000a80:	600c      	str	r4, [r1, #0]
+  tp->state = NIL_STATE_READY;
+ 8000a82:	711f      	strb	r7, [r3, #4]
+  tp->timeout = (systime_t)0;
+  if (tp < nil.next) {
+ 8000a84:	6857      	ldr	r7, [r2, #4]
+  chDbgAssert(!NIL_THD_IS_READY(tp), "already ready");
+  chDbgAssert(nil.next <= nil.current, "priority ordering");
+
+  tp->u1.msg = msg;
+  tp->state = NIL_STATE_READY;
+  tp->timeout = (systime_t)0;
+ 8000a86:	4664      	mov	r4, ip
+ 8000a88:	60dc      	str	r4, [r3, #12]
+  if (tp < nil.next) {
+ 8000a8a:	42bb      	cmp	r3, r7
+ 8000a8c:	d314      	bcc.n	8000ab8 <Vector7C.4408+0x98>
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 8000a8e:	b662      	cpsie	i
+      }
+    }
+    /* Lock released in order to give a preemption chance on those
+       architectures supporting IRQ preemption.*/
+    chSysUnlockFromISR();
+    tp++;
+ 8000a90:	3314      	adds	r3, #20
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 8000a92:	b672      	cpsid	i
+ 8000a94:	3114      	adds	r1, #20
+    chSysLockFromISR();
+  } while (tp < &nil.threads[CH_CFG_NUM_THREADS]);
+ 8000a96:	42b3      	cmp	r3, r6
+ 8000a98:	d1df      	bne.n	8000a5a <Vector7C.4408+0x3a>
+  nil.lasttime = nil.nexttime;
+ 8000a9a:	68d3      	ldr	r3, [r2, #12]
+ 8000a9c:	6093      	str	r3, [r2, #8]
+  if (next > (systime_t)0) {
+ 8000a9e:	2d00      	cmp	r5, #0
+ 8000aa0:	d10f      	bne.n	8000ac2 <Vector7C.4408+0xa2>
+ *
+ * @notapi
+ */
+static inline void st_lld_stop_alarm(void) {
+
+  STM32_ST_TIM->DIER = 0;
+ 8000aa2:	2380      	movs	r3, #128	; 0x80
+ 8000aa4:	05db      	lsls	r3, r3, #23
+ 8000aa6:	60dd      	str	r5, [r3, #12]
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 8000aa8:	b662      	cpsie	i
+ 8000aaa:	e7c2      	b.n	8000a32 <Vector7C.4408+0x12>
+        }
+#endif
+        (void) chSchReadyI(tp, MSG_TIMEOUT);
+      }
+      else {
+        if (tp->timeout <= (systime_t)(next - (systime_t)1)) {
+ 8000aac:	68df      	ldr	r7, [r3, #12]
+ 8000aae:	1e6c      	subs	r4, r5, #1
+ 8000ab0:	42a7      	cmp	r7, r4
+ 8000ab2:	d8ec      	bhi.n	8000a8e <Vector7C.4408+0x6e>
+          next = tp->timeout;
+ 8000ab4:	68dd      	ldr	r5, [r3, #12]
+ 8000ab6:	e7ea      	b.n	8000a8e <Vector7C.4408+0x6e>
+
+  tp->u1.msg = msg;
+  tp->state = NIL_STATE_READY;
+  tp->timeout = (systime_t)0;
+  if (tp < nil.next) {
+    nil.next = tp;
+ 8000ab8:	6053      	str	r3, [r2, #4]
+ 8000aba:	e7e8      	b.n	8000a8e <Vector7C.4408+0x6e>
+          tp->u1.semp->cnt++;
+        }
+        else {
+#endif
+          if (NIL_THD_IS_SUSP(tp)) {
+            *tp->u1.trp = NULL;
+ 8000abc:	680f      	ldr	r7, [r1, #0]
+ 8000abe:	603c      	str	r4, [r7, #0]
+ 8000ac0:	e7dc      	b.n	8000a7c <Vector7C.4408+0x5c>
+    tp++;
+    chSysLockFromISR();
+  } while (tp < &nil.threads[CH_CFG_NUM_THREADS]);
+  nil.lasttime = nil.nexttime;
+  if (next > (systime_t)0) {
+    nil.nexttime += next;
+ 8000ac2:	18ed      	adds	r5, r5, r3
+ *
+ * @notapi
+ */
+static inline void st_lld_set_alarm(systime_t time) {
+
+  STM32_ST_TIM->CCR[0] = (uint32_t)time;
+ 8000ac4:	2380      	movs	r3, #128	; 0x80
+ 8000ac6:	05db      	lsls	r3, r3, #23
+ 8000ac8:	60d5      	str	r5, [r2, #12]
+ 8000aca:	635d      	str	r5, [r3, #52]	; 0x34
+ 8000acc:	e7ec      	b.n	8000aa8 <Vector7C.4408+0x88>
+      if (tp->timeout == (systime_t)0) {
+#if CH_CFG_USE_SEMAPHORES == TRUE
+        /* Timeout on semaphores requires a special handling because the
+           semaphore counter must be incremented.*/
+        if (NIL_THD_IS_WTSEM(tp)) {
+          tp->u1.semp->cnt++;
+ 8000ace:	680c      	ldr	r4, [r1, #0]
+ 8000ad0:	6827      	ldr	r7, [r4, #0]
+ 8000ad2:	3701      	adds	r7, #1
+ 8000ad4:	6027      	str	r7, [r4, #0]
+ 8000ad6:	e7d1      	b.n	8000a7c <Vector7C.4408+0x5c>
+ 8000ad8:	20000520 	.word	0x20000520
+ 8000adc:	46c0      	nop			; (mov r8, r8)
+ 8000ade:	46c0      	nop			; (mov r8, r8)
+
+08000ae0 <main>:
+ * @notapi
+ */
+void hal_lld_init(void) {
+
+  /* Reset of all peripherals.*/
+  rccResetAHB(0xFFFFFFFF);
+ 8000ae0:	4b77      	ldr	r3, [pc, #476]	; (8000cc0 <main+0x1e0>)
+ 8000ae2:	2101      	movs	r1, #1
+ 8000ae4:	6a9a      	ldr	r2, [r3, #40]	; 0x28
+ 8000ae6:	4249      	negs	r1, r1
+ 8000ae8:	2200      	movs	r2, #0
+THD_TABLE_END
+
+/*
+ * Application entry point.
+ */
+int main(void) {
+ 8000aea:	b570      	push	{r4, r5, r6, lr}
+ 8000aec:	6299      	str	r1, [r3, #40]	; 0x28
+ 8000aee:	629a      	str	r2, [r3, #40]	; 0x28
+  rccResetAPB1(0xFFFFFFFF);
+ 8000af0:	6918      	ldr	r0, [r3, #16]
+ 8000af2:	6119      	str	r1, [r3, #16]
+ 8000af4:	611a      	str	r2, [r3, #16]
+  rccResetAPB2(~RCC_APB2RSTR_DBGMCURST);
+ 8000af6:	68d9      	ldr	r1, [r3, #12]
+ 8000af8:	4872      	ldr	r0, [pc, #456]	; (8000cc4 <main+0x1e4>)
+ 8000afa:	4301      	orrs	r1, r0
+ 8000afc:	60d9      	str	r1, [r3, #12]
+ 8000afe:	60da      	str	r2, [r3, #12]
+
+  /* PWR clock enabled.*/
+  rccEnablePWRInterface(FALSE);
+ 8000b00:	69d8      	ldr	r0, [r3, #28]
+ 8000b02:	2180      	movs	r1, #128	; 0x80
+ 8000b04:	0549      	lsls	r1, r1, #21
+ 8000b06:	4301      	orrs	r1, r0
+ 8000b08:	61d9      	str	r1, [r3, #28]
+ *          of the whole BKP domain.
+ */
+static void hal_lld_backup_domain_init(void) {
+
+  /* Backup domain access enabled and left open.*/
+  PWR->CR |= PWR_CR_DBP;
+ 8000b0a:	496f      	ldr	r1, [pc, #444]	; (8000cc8 <main+0x1e8>)
+ 8000b0c:	2080      	movs	r0, #128	; 0x80
+ 8000b0e:	680c      	ldr	r4, [r1, #0]
+ 8000b10:	0040      	lsls	r0, r0, #1
+ 8000b12:	4320      	orrs	r0, r4
+ 8000b14:	6008      	str	r0, [r1, #0]
+
+  /* Reset BKP domain if different clock source selected.*/
+  if ((RCC->BDCR & STM32_RTCSEL_MASK) != STM32_RTCSEL){
+ 8000b16:	6a18      	ldr	r0, [r3, #32]
+ 8000b18:	21c0      	movs	r1, #192	; 0xc0
+ 8000b1a:	0089      	lsls	r1, r1, #2
+ 8000b1c:	4008      	ands	r0, r1
+ 8000b1e:	2180      	movs	r1, #128	; 0x80
+ 8000b20:	0089      	lsls	r1, r1, #2
+ 8000b22:	4288      	cmp	r0, r1
+ 8000b24:	d003      	beq.n	8000b2e <main+0x4e>
+    /* Backup domain reset.*/
+    RCC->BDCR = RCC_BDCR_BDRST;
+ 8000b26:	2180      	movs	r1, #128	; 0x80
+ 8000b28:	0249      	lsls	r1, r1, #9
+ 8000b2a:	6219      	str	r1, [r3, #32]
+    RCC->BDCR = 0;
+ 8000b2c:	621a      	str	r2, [r3, #32]
+#endif
+
+#if STM32_RTCSEL != STM32_RTCSEL_NOCLOCK
+  /* If the backup domain hasn't been initialized yet then proceed with
+     initialization.*/
+  if ((RCC->BDCR & RCC_BDCR_RTCEN) == 0) {
+ 8000b2e:	4b64      	ldr	r3, [pc, #400]	; (8000cc0 <main+0x1e0>)
+ 8000b30:	2280      	movs	r2, #128	; 0x80
+ 8000b32:	6a19      	ldr	r1, [r3, #32]
+ 8000b34:	0212      	lsls	r2, r2, #8
+ 8000b36:	4211      	tst	r1, r2
+ 8000b38:	d107      	bne.n	8000b4a <main+0x6a>
+    /* Selects clock source.*/
+    RCC->BDCR |= STM32_RTCSEL;
+ 8000b3a:	6a18      	ldr	r0, [r3, #32]
+ 8000b3c:	2180      	movs	r1, #128	; 0x80
+ 8000b3e:	0089      	lsls	r1, r1, #2
+ 8000b40:	4301      	orrs	r1, r0
+ 8000b42:	6219      	str	r1, [r3, #32]
+
+    /* RTC clock enabled.*/
+    RCC->BDCR |= RCC_BDCR_RTCEN;
+ 8000b44:	6a19      	ldr	r1, [r3, #32]
+ 8000b46:	430a      	orrs	r2, r1
+ 8000b48:	621a      	str	r2, [r3, #32]
+  RCC->IOPSMENR |= AHB_LPEN_MASK;
+#elif defined(STM32L1XX)
+  rccEnableAHB(AHB_EN_MASK, TRUE);
+  RCC->AHBLPENR |= AHB_LPEN_MASK;
+#elif defined(STM32F0XX)
+  rccEnableAHB(AHB_EN_MASK, TRUE);
+ 8000b4a:	495d      	ldr	r1, [pc, #372]	; (8000cc0 <main+0x1e0>)
+ 8000b4c:	23bc      	movs	r3, #188	; 0xbc
+ 8000b4e:	694a      	ldr	r2, [r1, #20]
+ 8000b50:	03db      	lsls	r3, r3, #15
+ 8000b52:	4313      	orrs	r3, r2
+/*===========================================================================*/
+
+static void initgpio(stm32_gpio_t *gpiop, const stm32_gpio_setup_t *config) {
+
+  gpiop->OTYPER  = config->otyper;
+  gpiop->OSPEEDR = config->ospeedr;
+ 8000b54:	20fc      	movs	r0, #252	; 0xfc
+/* Driver local functions.                                                   */
+/*===========================================================================*/
+
+static void initgpio(stm32_gpio_t *gpiop, const stm32_gpio_setup_t *config) {
+
+  gpiop->OTYPER  = config->otyper;
+ 8000b56:	2290      	movs	r2, #144	; 0x90
+  RCC->IOPSMENR |= AHB_LPEN_MASK;
+#elif defined(STM32L1XX)
+  rccEnableAHB(AHB_EN_MASK, TRUE);
+  RCC->AHBLPENR |= AHB_LPEN_MASK;
+#elif defined(STM32F0XX)
+  rccEnableAHB(AHB_EN_MASK, TRUE);
+ 8000b58:	614b      	str	r3, [r1, #20]
+/* Driver local functions.                                                   */
+/*===========================================================================*/
+
+static void initgpio(stm32_gpio_t *gpiop, const stm32_gpio_setup_t *config) {
+
+  gpiop->OTYPER  = config->otyper;
+ 8000b5a:	05d2      	lsls	r2, r2, #23
+ 8000b5c:	2300      	movs	r3, #0
+  gpiop->OSPEEDR = config->ospeedr;
+ 8000b5e:	0600      	lsls	r0, r0, #24
+/* Driver local functions.                                                   */
+/*===========================================================================*/
+
+static void initgpio(stm32_gpio_t *gpiop, const stm32_gpio_setup_t *config) {
+
+  gpiop->OTYPER  = config->otyper;
+ 8000b60:	6053      	str	r3, [r2, #4]
+  gpiop->OSPEEDR = config->ospeedr;
+ 8000b62:	6090      	str	r0, [r2, #8]
+  gpiop->PUPDR   = config->pupdr;
+ 8000b64:	4859      	ldr	r0, [pc, #356]	; (8000ccc <main+0x1ec>)
+  gpiop->ODR     = config->odr;
+  gpiop->AFRL    = config->afrl;
+  gpiop->AFRH    = config->afrh;
+  gpiop->MODER   = config->moder;
+ 8000b66:	24a0      	movs	r4, #160	; 0xa0
+
+static void initgpio(stm32_gpio_t *gpiop, const stm32_gpio_setup_t *config) {
+
+  gpiop->OTYPER  = config->otyper;
+  gpiop->OSPEEDR = config->ospeedr;
+  gpiop->PUPDR   = config->pupdr;
+ 8000b68:	60d0      	str	r0, [r2, #12]
+  gpiop->ODR     = config->odr;
+ 8000b6a:	4859      	ldr	r0, [pc, #356]	; (8000cd0 <main+0x1f0>)
+  gpiop->AFRL    = config->afrl;
+  gpiop->AFRH    = config->afrh;
+  gpiop->MODER   = config->moder;
+ 8000b6c:	05a4      	lsls	r4, r4, #22
+static void initgpio(stm32_gpio_t *gpiop, const stm32_gpio_setup_t *config) {
+
+  gpiop->OTYPER  = config->otyper;
+  gpiop->OSPEEDR = config->ospeedr;
+  gpiop->PUPDR   = config->pupdr;
+  gpiop->ODR     = config->odr;
+ 8000b6e:	6150      	str	r0, [r2, #20]
+  gpiop->AFRL    = config->afrl;
+ 8000b70:	6213      	str	r3, [r2, #32]
+  gpiop->AFRH    = config->afrh;
+ 8000b72:	6253      	str	r3, [r2, #36]	; 0x24
+  gpiop->MODER   = config->moder;
+ 8000b74:	6014      	str	r4, [r2, #0]
+/* Driver local functions.                                                   */
+/*===========================================================================*/
+
+static void initgpio(stm32_gpio_t *gpiop, const stm32_gpio_setup_t *config) {
+
+  gpiop->OTYPER  = config->otyper;
+ 8000b76:	4a57      	ldr	r2, [pc, #348]	; (8000cd4 <main+0x1f4>)
+  gpiop->OSPEEDR = config->ospeedr;
+ 8000b78:	24fc      	movs	r4, #252	; 0xfc
+ 8000b7a:	00a4      	lsls	r4, r4, #2
+/* Driver local functions.                                                   */
+/*===========================================================================*/
+
+static void initgpio(stm32_gpio_t *gpiop, const stm32_gpio_setup_t *config) {
+
+  gpiop->OTYPER  = config->otyper;
+ 8000b7c:	6053      	str	r3, [r2, #4]
+  gpiop->OSPEEDR = config->ospeedr;
+ 8000b7e:	6094      	str	r4, [r2, #8]
+  gpiop->PUPDR   = config->pupdr;
+ 8000b80:	4c55      	ldr	r4, [pc, #340]	; (8000cd8 <main+0x1f8>)
+/*===========================================================================*/
+
+static void initgpio(stm32_gpio_t *gpiop, const stm32_gpio_setup_t *config) {
+
+  gpiop->OTYPER  = config->otyper;
+  gpiop->OSPEEDR = config->ospeedr;
+ 8000b82:	4d56      	ldr	r5, [pc, #344]	; (8000cdc <main+0x1fc>)
+  gpiop->PUPDR   = config->pupdr;
+ 8000b84:	60d4      	str	r4, [r2, #12]
+  gpiop->ODR     = config->odr;
+ 8000b86:	6150      	str	r0, [r2, #20]
+  gpiop->AFRL    = config->afrl;
+ 8000b88:	6213      	str	r3, [r2, #32]
+  gpiop->AFRH    = config->afrh;
+ 8000b8a:	6253      	str	r3, [r2, #36]	; 0x24
+  gpiop->MODER   = config->moder;
+ 8000b8c:	6013      	str	r3, [r2, #0]
+/* Driver local functions.                                                   */
+/*===========================================================================*/
+
+static void initgpio(stm32_gpio_t *gpiop, const stm32_gpio_setup_t *config) {
+
+  gpiop->OTYPER  = config->otyper;
+ 8000b8e:	4a54      	ldr	r2, [pc, #336]	; (8000ce0 <main+0x200>)
+ 8000b90:	6053      	str	r3, [r2, #4]
+  gpiop->OSPEEDR = config->ospeedr;
+ 8000b92:	6095      	str	r5, [r2, #8]
+  gpiop->PUPDR   = config->pupdr;
+ 8000b94:	4d53      	ldr	r5, [pc, #332]	; (8000ce4 <main+0x204>)
+ 8000b96:	60d5      	str	r5, [r2, #12]
+  gpiop->ODR     = config->odr;
+ 8000b98:	4d53      	ldr	r5, [pc, #332]	; (8000ce8 <main+0x208>)
+ 8000b9a:	6155      	str	r5, [r2, #20]
+  gpiop->AFRL    = config->afrl;
+  gpiop->AFRH    = config->afrh;
+  gpiop->MODER   = config->moder;
+ 8000b9c:	25a0      	movs	r5, #160	; 0xa0
+ 8000b9e:	02ed      	lsls	r5, r5, #11
+
+  gpiop->OTYPER  = config->otyper;
+  gpiop->OSPEEDR = config->ospeedr;
+  gpiop->PUPDR   = config->pupdr;
+  gpiop->ODR     = config->odr;
+  gpiop->AFRL    = config->afrl;
+ 8000ba0:	6213      	str	r3, [r2, #32]
+  gpiop->AFRH    = config->afrh;
+ 8000ba2:	6253      	str	r3, [r2, #36]	; 0x24
+  gpiop->MODER   = config->moder;
+ 8000ba4:	6015      	str	r5, [r2, #0]
+/* Driver local functions.                                                   */
+/*===========================================================================*/
+
+static void initgpio(stm32_gpio_t *gpiop, const stm32_gpio_setup_t *config) {
+
+  gpiop->OTYPER  = config->otyper;
+ 8000ba6:	4a51      	ldr	r2, [pc, #324]	; (8000cec <main+0x20c>)
+ * @param[in] prio      the interrupt priority
+ */
+void nvicEnableVector(uint32_t n, uint32_t prio) {
+
+#if defined(__CORE_CM0_H_GENERIC)
+  NVIC->IP[_IP_IDX(n)] = (NVIC->IP[_IP_IDX(n)] & ~(0xFFU << _BIT_SHIFT(n))) |
+ 8000ba8:	25c0      	movs	r5, #192	; 0xc0
+ 8000baa:	6053      	str	r3, [r2, #4]
+  gpiop->OSPEEDR = config->ospeedr;
+ 8000bac:	6093      	str	r3, [r2, #8]
+  gpiop->PUPDR   = config->pupdr;
+ 8000bae:	60d4      	str	r4, [r2, #12]
+  gpiop->ODR     = config->odr;
+ 8000bb0:	6150      	str	r0, [r2, #20]
+
+static void initgpio(stm32_gpio_t *gpiop, const stm32_gpio_setup_t *config) {
+
+  gpiop->OTYPER  = config->otyper;
+  gpiop->OSPEEDR = config->ospeedr;
+  gpiop->PUPDR   = config->pupdr;
+ 8000bb2:	4c4f      	ldr	r4, [pc, #316]	; (8000cf0 <main+0x210>)
+  gpiop->ODR     = config->odr;
+  gpiop->AFRL    = config->afrl;
+ 8000bb4:	6213      	str	r3, [r2, #32]
+  gpiop->AFRH    = config->afrh;
+ 8000bb6:	6253      	str	r3, [r2, #36]	; 0x24
+  gpiop->MODER   = config->moder;
+ 8000bb8:	6013      	str	r3, [r2, #0]
+/* Driver local functions.                                                   */
+/*===========================================================================*/
+
+static void initgpio(stm32_gpio_t *gpiop, const stm32_gpio_setup_t *config) {
+
+  gpiop->OTYPER  = config->otyper;
+ 8000bba:	4a4e      	ldr	r2, [pc, #312]	; (8000cf4 <main+0x214>)
+ 8000bbc:	062d      	lsls	r5, r5, #24
+ 8000bbe:	6053      	str	r3, [r2, #4]
+  gpiop->OSPEEDR = config->ospeedr;
+ 8000bc0:	6093      	str	r3, [r2, #8]
+  gpiop->PUPDR   = config->pupdr;
+ 8000bc2:	60d4      	str	r4, [r2, #12]
+  gpiop->ODR     = config->odr;
+ 8000bc4:	6150      	str	r0, [r2, #20]
+  gpiop->AFRL    = config->afrl;
+ 8000bc6:	6213      	str	r3, [r2, #32]
+void iqObjectInit(input_queue_t *iqp, uint8_t *bp, size_t size,
+                  qnotify_t infy, void *link) {
+
+  osalThreadQueueObjectInit(&iqp->q_waiting);
+  iqp->q_counter = 0;
+  iqp->q_buffer  = bp;
+ 8000bc8:	4c4b      	ldr	r4, [pc, #300]	; (8000cf8 <main+0x218>)
+  gpiop->AFRH    = config->afrh;
+ 8000bca:	6253      	str	r3, [r2, #36]	; 0x24
+  gpiop->MODER   = config->moder;
+ 8000bcc:	6013      	str	r3, [r2, #0]
+  oqObjectInit(&sdp->oqueue, sdp->ob, SERIAL_BUFFERS_SIZE, onotify, sdp);
+}
+#else
+void sdObjectInit(SerialDriver *sdp) {
+
+  sdp->vmt = &vmt;
+ 8000bce:	4a4b      	ldr	r2, [pc, #300]	; (8000cfc <main+0x21c>)
+ 8000bd0:	484b      	ldr	r0, [pc, #300]	; (8000d00 <main+0x220>)
+ 8000bd2:	61d4      	str	r4, [r2, #28]
+  iqp->q_rdptr   = bp;
+ 8000bd4:	6294      	str	r4, [r2, #40]	; 0x28
+  iqp->q_wrptr   = bp;
+ 8000bd6:	6254      	str	r4, [r2, #36]	; 0x24
+  iqp->q_top     = bp + size;
+ 8000bd8:	3410      	adds	r4, #16
+ 8000bda:	6214      	str	r4, [r2, #32]
+ */
+void oqObjectInit(output_queue_t *oqp, uint8_t *bp, size_t size,
+                  qnotify_t onfy, void *link) {
+
+  osalThreadQueueObjectInit(&oqp->q_waiting);
+  oqp->q_counter = size;
+ 8000bdc:	2410      	movs	r4, #16
+ */
+static inline void osalEventObjectInit(event_source_t *esp) {
+
+  osalDbgCheck(esp != NULL);
+
+  esp->flags = 0;
+ 8000bde:	6053      	str	r3, [r2, #4]
+ *
+ * @init
+ */
+static inline void osalThreadQueueObjectInit(threads_queue_t *tqp) {
+
+  chSemObjectInit(&tqp->sem, (cnt_t)0);
+ 8000be0:	6153      	str	r3, [r2, #20]
+ */
+void iqObjectInit(input_queue_t *iqp, uint8_t *bp, size_t size,
+                  qnotify_t infy, void *link) {
+
+  osalThreadQueueObjectInit(&iqp->q_waiting);
+  iqp->q_counter = 0;
+ 8000be2:	6193      	str	r3, [r2, #24]
+ 8000be4:	6353      	str	r3, [r2, #52]	; 0x34
+ */
+void oqObjectInit(output_queue_t *oqp, uint8_t *bp, size_t size,
+                  qnotify_t onfy, void *link) {
+
+  osalThreadQueueObjectInit(&oqp->q_waiting);
+  oqp->q_counter = size;
+ 8000be6:	6394      	str	r4, [r2, #56]	; 0x38
+  oqp->q_buffer  = bp;
+ 8000be8:	4c46      	ldr	r4, [pc, #280]	; (8000d04 <main+0x224>)
+ 8000bea:	6010      	str	r0, [r2, #0]
+ 8000bec:	63d4      	str	r4, [r2, #60]	; 0x3c
+  oqp->q_rdptr   = bp;
+ 8000bee:	6494      	str	r4, [r2, #72]	; 0x48
+  oqp->q_wrptr   = bp;
+ 8000bf0:	6454      	str	r4, [r2, #68]	; 0x44
+  oqp->q_top     = bp + size;
+ 8000bf2:	3410      	adds	r4, #16
+ 8000bf4:	6414      	str	r4, [r2, #64]	; 0x40
+  oqp->q_notify  = onfy;
+ 8000bf6:	4c44      	ldr	r4, [pc, #272]	; (8000d08 <main+0x228>)
+  osalEventObjectInit(&sdp->event);
+  sdp->state = SD_STOP;
+ 8000bf8:	2001      	movs	r0, #1
+ 8000bfa:	64d4      	str	r4, [r2, #76]	; 0x4c
+
+#if STM32_SERIAL_USE_USART1
+  sdObjectInit(&SD1);
+  iqObjectInit(&SD1.iqueue, sd_in_buf1, sizeof sd_in_buf1, NULL, &SD1);
+  oqObjectInit(&SD1.oqueue, sd_out_buf1, sizeof sd_out_buf1, notify1, &SD1);
+  SD1.usart = USART1;
+ 8000bfc:	4c43      	ldr	r4, [pc, #268]	; (8000d0c <main+0x22c>)
+static inline void osalEventObjectInit(event_source_t *esp) {
+
+  osalDbgCheck(esp != NULL);
+
+  esp->flags = 0;
+  esp->cb    = NULL;
+ 8000bfe:	6093      	str	r3, [r2, #8]
+ 8000c00:	6554      	str	r4, [r2, #84]	; 0x54
+  SD1.clock = STM32_USART1CLK;
+ 8000c02:	4c43      	ldr	r4, [pc, #268]	; (8000d10 <main+0x230>)
+  esp->param = NULL;
+ 8000c04:	60d3      	str	r3, [r2, #12]
+ 8000c06:	6594      	str	r4, [r2, #88]	; 0x58
+ 8000c08:	7410      	strb	r0, [r2, #16]
+  iqp->q_counter = 0;
+  iqp->q_buffer  = bp;
+  iqp->q_rdptr   = bp;
+  iqp->q_wrptr   = bp;
+  iqp->q_top     = bp + size;
+  iqp->q_notify  = infy;
+ 8000c0a:	62d3      	str	r3, [r2, #44]	; 0x2c
+  iqp->q_link    = link;
+ 8000c0c:	6312      	str	r2, [r2, #48]	; 0x30
+  oqp->q_buffer  = bp;
+  oqp->q_rdptr   = bp;
+  oqp->q_wrptr   = bp;
+  oqp->q_top     = bp + size;
+  oqp->q_notify  = onfy;
+  oqp->q_link    = link;
+ 8000c0e:	6512      	str	r2, [r2, #80]	; 0x50
+ 8000c10:	24c6      	movs	r4, #198	; 0xc6
+ 8000c12:	4a40      	ldr	r2, [pc, #256]	; (8000d14 <main+0x234>)
+ 8000c14:	00a4      	lsls	r4, r4, #2
+ 8000c16:	5916      	ldr	r6, [r2, r4]
+ 8000c18:	0236      	lsls	r6, r6, #8
+ 8000c1a:	0a36      	lsrs	r6, r6, #8
+ 8000c1c:	4335      	orrs	r5, r6
+ 8000c1e:	5115      	str	r5, [r2, r4]
+                         (NVIC_PRIORITY_MASK(prio) << _BIT_SHIFT(n));
+#else
+  NVIC->IP[n] = NVIC_PRIORITY_MASK(prio);
+#endif
+  NVIC->ICPR[n >> 5U] = 1U << (n & 0x1FU);
+ 8000c20:	24c0      	movs	r4, #192	; 0xc0
+ 8000c22:	2580      	movs	r5, #128	; 0x80
+ 8000c24:	0064      	lsls	r4, r4, #1
+ 8000c26:	052d      	lsls	r5, r5, #20
+ 8000c28:	5115      	str	r5, [r2, r4]
+  NVIC->ISER[n >> 5U] = 1U << (n & 0x1FU);
+ 8000c2a:	6015      	str	r5, [r2, #0]
+
+#if OSAL_ST_MODE == OSAL_ST_MODE_FREERUNNING
+  /* Free running counter mode.*/
+
+  /* Enabling timer clock.*/
+  ST_ENABLE_CLOCK();
+ 8000c2c:	69cd      	ldr	r5, [r1, #28]
+ 8000c2e:	4305      	orrs	r5, r0
+ 8000c30:	61cd      	str	r5, [r1, #28]
+
+  /* Enabling the stop mode during debug for this timer.*/
+  ST_ENABLE_STOP();
+ 8000c32:	4939      	ldr	r1, [pc, #228]	; (8000d18 <main+0x238>)
+ 8000c34:	688d      	ldr	r5, [r1, #8]
+ 8000c36:	4305      	orrs	r5, r0
+ 8000c38:	608d      	str	r5, [r1, #8]
+
+  /* Initializing the counter in free running mode.*/
+  STM32_ST_TIM->PSC    = (ST_CLOCK_SRC / OSAL_ST_FREQUENCY) - 1;
+ 8000c3a:	4d38      	ldr	r5, [pc, #224]	; (8000d1c <main+0x23c>)
+ 8000c3c:	2180      	movs	r1, #128	; 0x80
+ 8000c3e:	05c9      	lsls	r1, r1, #23
+ 8000c40:	628d      	str	r5, [r1, #40]	; 0x28
+  STM32_ST_TIM->ARR    = ST_ARR_INIT;
+ 8000c42:	2501      	movs	r5, #1
+ 8000c44:	426d      	negs	r5, r5
+ 8000c46:	62cd      	str	r5, [r1, #44]	; 0x2c
+  STM32_ST_TIM->CCMR1  = 0;
+ 8000c48:	618b      	str	r3, [r1, #24]
+  STM32_ST_TIM->CCR[0] = 0;
+ 8000c4a:	634b      	str	r3, [r1, #52]	; 0x34
+  STM32_ST_TIM->DIER   = 0;
+ 8000c4c:	60cb      	str	r3, [r1, #12]
+  STM32_ST_TIM->CR2    = 0;
+ 8000c4e:	604b      	str	r3, [r1, #4]
+ * @param[in] prio      the interrupt priority
+ */
+void nvicEnableVector(uint32_t n, uint32_t prio) {
+
+#if defined(__CORE_CM0_H_GENERIC)
+  NVIC->IP[_IP_IDX(n)] = (NVIC->IP[_IP_IDX(n)] & ~(0xFFU << _BIT_SHIFT(n))) |
+ 8000c50:	23c3      	movs	r3, #195	; 0xc3
+  STM32_ST_TIM->EGR    = TIM_EGR_UG;
+ 8000c52:	6148      	str	r0, [r1, #20]
+ 8000c54:	009b      	lsls	r3, r3, #2
+  STM32_ST_TIM->CR1    = TIM_CR1_CEN;
+ 8000c56:	6008      	str	r0, [r1, #0]
+ 8000c58:	58d0      	ldr	r0, [r2, r3]
+ 8000c5a:	2180      	movs	r1, #128	; 0x80
+ 8000c5c:	0200      	lsls	r0, r0, #8
+ 8000c5e:	0a00      	lsrs	r0, r0, #8
+ 8000c60:	0609      	lsls	r1, r1, #24
+ 8000c62:	4301      	orrs	r1, r0
+ 8000c64:	50d1      	str	r1, [r2, r3]
+                         (NVIC_PRIORITY_MASK(prio) << _BIT_SHIFT(n));
+#else
+  NVIC->IP[n] = NVIC_PRIORITY_MASK(prio);
+#endif
+  NVIC->ICPR[n >> 5U] = 1U << (n & 0x1FU);
+ 8000c66:	2380      	movs	r3, #128	; 0x80
+ 8000c68:	021b      	lsls	r3, r3, #8
+ 8000c6a:	5113      	str	r3, [r2, r4]
+ 8000c6c:	4d2c      	ldr	r5, [pc, #176]	; (8000d20 <main+0x240>)
+ 8000c6e:	492d      	ldr	r1, [pc, #180]	; (8000d24 <main+0x244>)
+ 8000c70:	4c2d      	ldr	r4, [pc, #180]	; (8000d28 <main+0x248>)
+  NVIC->ISER[n >> 5U] = 1U << (n & 0x1FU);
+ 8000c72:	6013      	str	r3, [r2, #0]
+ 8000c74:	2300      	movs	r3, #0
+ 8000c76:	18e8      	adds	r0, r5, r3
+#if CH_DBG_ENABLE_STACK_CHECK
+    tp->wabase  = (stkalign_t *)tcp->wbase;
+#endif
+
+    /* Port dependent thread initialization.*/
+    PORT_SETUP_CONTEXT(tp, tcp->wbase, tcp->wend, tcp->funcp, tcp->arg);
+ 8000c78:	6842      	ldr	r2, [r0, #4]
+ 8000c7a:	18ce      	adds	r6, r1, r3
+ 8000c7c:	3a24      	subs	r2, #36	; 0x24
+ 8000c7e:	6132      	str	r2, [r6, #16]
+ 8000c80:	68c6      	ldr	r6, [r0, #12]
+ 8000c82:	6900      	ldr	r0, [r0, #16]
+ 8000c84:	3314      	adds	r3, #20
+ 8000c86:	6116      	str	r6, [r2, #16]
+ 8000c88:	6150      	str	r0, [r2, #20]
+ 8000c8a:	6214      	str	r4, [r2, #32]
+  CH_CFG_SYSTEM_INIT_HOOK();
+
+  /* Iterates through the list of defined threads.*/
+  tp = &nil.threads[0];
+  tcp = nil_thd_configs;
+  while (tp < &nil.threads[CH_CFG_NUM_THREADS]) {
+ 8000c8c:	2b3c      	cmp	r3, #60	; 0x3c
+ 8000c8e:	d1f2      	bne.n	8000c76 <main+0x196>
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 8000c90:	b672      	cpsid	i
+ *
+ * @notapi
+ */
+void _heap_init(void) {
+
+  default_heap.provider = chCoreAllocAligned;
+ 8000c92:	4b26      	ldr	r3, [pc, #152]	; (8000d2c <main+0x24c>)
+ 8000c94:	4a26      	ldr	r2, [pc, #152]	; (8000d30 <main+0x250>)
+ 8000c96:	601a      	str	r2, [r3, #0]
+  H_NEXT(&default_heap.header) = NULL;
+ 8000c98:	2200      	movs	r2, #0
+ 8000c9a:	609a      	str	r2, [r3, #8]
+  H_PAGES(&default_heap.header) = 0;
+ 8000c9c:	60da      	str	r2, [r3, #12]
+#if (CH_CFG_USE_MUTEXES == TRUE) || defined(__DOXYGEN__)
+  chMtxObjectInit(&default_heap.mtx);
+#else
+  chSemObjectInit(&default_heap.sem, (cnt_t)1);
+ 8000c9e:	2201      	movs	r2, #1
+ 8000ca0:	611a      	str	r2, [r3, #16]
+ */
+__STATIC_INLINE void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
+{
+  if ((int32_t)(IRQn) < 0)
+  {
+    SCB->SHP[_SHP_IDX(IRQn)] = ((uint32_t)(SCB->SHP[_SHP_IDX(IRQn)] & ~(0xFFUL << _BIT_SHIFT(IRQn))) |
+ 8000ca2:	4b24      	ldr	r3, [pc, #144]	; (8000d34 <main+0x254>)
+ 8000ca4:	4a24      	ldr	r2, [pc, #144]	; (8000d38 <main+0x258>)
+ 8000ca6:	6a18      	ldr	r0, [r3, #32]
+ 8000ca8:	4002      	ands	r2, r0
+     initializations performed before.*/
+  port_init();
+
+  /* Runs the highest priority thread, the current one becomes the idle
+     thread.*/
+  nil.current = nil.next = nil.threads;
+ 8000caa:	1c08      	adds	r0, r1, #0
+ 8000cac:	3010      	adds	r0, #16
+ 8000cae:	621a      	str	r2, [r3, #32]
+ 8000cb0:	6048      	str	r0, [r1, #4]
+ 8000cb2:	6008      	str	r0, [r1, #0]
+  port_switch(nil.current, tp);
+ 8000cb4:	314c      	adds	r1, #76	; 0x4c
+ 8000cb6:	f7ff fa8b 	bl	80001d0 <_port_switch>
+  \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+           Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+{
+  __ASM volatile ("cpsie i" : : : "memory");
+ 8000cba:	b662      	cpsie	i
+ 8000cbc:	e7fe      	b.n	8000cbc <main+0x1dc>
+ 8000cbe:	46c0      	nop			; (mov r8, r8)
+ 8000cc0:	40021000 	.word	0x40021000
+ 8000cc4:	ffbfffff 	.word	0xffbfffff
+ 8000cc8:	40007000 	.word	0x40007000
+ 8000ccc:	65555554 	.word	0x65555554
+ 8000cd0:	0000ffff 	.word	0x0000ffff
+ 8000cd4:	48000400 	.word	0x48000400
+ 8000cd8:	55555555 	.word	0x55555555
+ 8000cdc:	f00f0000 	.word	0xf00f0000
+ 8000ce0:	48000800 	.word	0x48000800
+ 8000ce4:	05505555 	.word	0x05505555
+ 8000ce8:	0000fcff 	.word	0x0000fcff
+ 8000cec:	48000c00 	.word	0x48000c00
+ 8000cf0:	55555550 	.word	0x55555550
+ 8000cf4:	48001400 	.word	0x48001400
+ 8000cf8:	20000500 	.word	0x20000500
+ 8000cfc:	200008b8 	.word	0x200008b8
+ 8000d00:	08000ea0 	.word	0x08000ea0
+ 8000d04:	20000510 	.word	0x20000510
+ 8000d08:	08000301 	.word	0x08000301
+ 8000d0c:	40013800 	.word	0x40013800
+ 8000d10:	02dc6c00 	.word	0x02dc6c00
+ 8000d14:	e000e100 	.word	0xe000e100
+ 8000d18:	40015800 	.word	0x40015800
+ 8000d1c:	0000bb7f 	.word	0x0000bb7f
+ 8000d20:	08000ec0 	.word	0x08000ec0
+ 8000d24:	20000520 	.word	0x20000520
+ 8000d28:	080001f1 	.word	0x080001f1
+ 8000d2c:	20000688 	.word	0x20000688
+ 8000d30:	080002c1 	.word	0x080002c1
+ 8000d34:	e000ed00 	.word	0xe000ed00
+ 8000d38:	ff00ffff 	.word	0xff00ffff
+ 8000d3c:	46c0      	nop			; (mov r8, r8)
+ 8000d3e:	46c0      	nop			; (mov r8, r8)
+
+08000d40 <__early_init>:
+void stm32_clock_init(void) {
+
+#if !STM32_NO_INIT
+  /* HSI setup, it enforces the reset situation in order to handle possible
+     problems with JTAG probes and re-initializations.*/
+  RCC->CR |= RCC_CR_HSION;                  /* Make sure HSI is ON.         */
+ 8000d40:	4827      	ldr	r0, [pc, #156]	; (8000de0 <__early_init+0xa0>)
+ 8000d42:	2301      	movs	r3, #1
+ 8000d44:	6802      	ldr	r2, [r0, #0]
+  while (!(RCC->CR & RCC_CR_HSIRDY))
+ 8000d46:	2102      	movs	r1, #2
+void stm32_clock_init(void) {
+
+#if !STM32_NO_INIT
+  /* HSI setup, it enforces the reset situation in order to handle possible
+     problems with JTAG probes and re-initializations.*/
+  RCC->CR |= RCC_CR_HSION;                  /* Make sure HSI is ON.         */
+ 8000d48:	4313      	orrs	r3, r2
+ 8000d4a:	6003      	str	r3, [r0, #0]
+  while (!(RCC->CR & RCC_CR_HSIRDY))
+ 8000d4c:	6803      	ldr	r3, [r0, #0]
+ 8000d4e:	4a24      	ldr	r2, [pc, #144]	; (8000de0 <__early_init+0xa0>)
+ 8000d50:	4219      	tst	r1, r3
+ 8000d52:	d0fb      	beq.n	8000d4c <__early_init+0xc>
+    ;                                       /* Wait until HSI is stable.    */
+
+  /* HSI is selected as new source without touching the other fields in
+     CFGR. Clearing the register has to be postponed after HSI is the
+     new source.*/
+  RCC->CFGR &= ~RCC_CFGR_SW;                /* Reset SW */
+ 8000d54:	6853      	ldr	r3, [r2, #4]
+ 8000d56:	2103      	movs	r1, #3
+ 8000d58:	438b      	bics	r3, r1
+ 8000d5a:	6053      	str	r3, [r2, #4]
+  RCC->CFGR |= RCC_CFGR_SWS_HSI;            /* Select HSI as internal*/
+ 8000d5c:	6853      	ldr	r3, [r2, #4]
+  while ((RCC->CFGR & RCC_CFGR_SWS) != RCC_CFGR_SWS_HSI)
+ 8000d5e:	1c10      	adds	r0, r2, #0
+
+  /* HSI is selected as new source without touching the other fields in
+     CFGR. Clearing the register has to be postponed after HSI is the
+     new source.*/
+  RCC->CFGR &= ~RCC_CFGR_SW;                /* Reset SW */
+  RCC->CFGR |= RCC_CFGR_SWS_HSI;            /* Select HSI as internal*/
+ 8000d60:	6053      	str	r3, [r2, #4]
+  while ((RCC->CFGR & RCC_CFGR_SWS) != RCC_CFGR_SWS_HSI)
+ 8000d62:	210c      	movs	r1, #12
+ 8000d64:	6843      	ldr	r3, [r0, #4]
+ 8000d66:	4a1e      	ldr	r2, [pc, #120]	; (8000de0 <__early_init+0xa0>)
+ 8000d68:	400b      	ands	r3, r1
+ 8000d6a:	d1fb      	bne.n	8000d64 <__early_init+0x24>
+    ;                                       /* Wait until HSI is selected.  */
+
+  /* Registers finally cleared to reset values.*/
+  RCC->CR &= RCC_CR_HSITRIM | RCC_CR_HSION; /* CR Reset value.              */
+ 8000d6c:	6811      	ldr	r1, [r2, #0]
+ 8000d6e:	20f9      	movs	r0, #249	; 0xf9
+ 8000d70:	4001      	ands	r1, r0
+ 8000d72:	6011      	str	r1, [r2, #0]
+  RCC->CFGR = 0;                            /* CFGR reset value.            */
+ 8000d74:	6053      	str	r3, [r2, #4]
+    ;                                       /* Waits until HSE is stable.   */
+#endif
+
+#if STM32_HSI14_ENABLED
+  /* HSI14 activation.*/
+  RCC->CR2 |= RCC_CR2_HSI14ON;
+ 8000d76:	6b51      	ldr	r1, [r2, #52]	; 0x34
+ 8000d78:	2301      	movs	r3, #1
+ 8000d7a:	430b      	orrs	r3, r1
+ 8000d7c:	6353      	str	r3, [r2, #52]	; 0x34
+  while (!(RCC->CR2 & RCC_CR2_HSI14RDY))
+ 8000d7e:	2002      	movs	r0, #2
+ 8000d80:	6b53      	ldr	r3, [r2, #52]	; 0x34
+ 8000d82:	4917      	ldr	r1, [pc, #92]	; (8000de0 <__early_init+0xa0>)
+ 8000d84:	4218      	tst	r0, r3
+ 8000d86:	d0fb      	beq.n	8000d80 <__early_init+0x40>
+    ;                                       /* Waits until HSI48 is stable. */
+#endif
+
+#if STM32_LSI_ENABLED
+  /* LSI activation.*/
+  RCC->CSR |= RCC_CSR_LSION;
+ 8000d88:	6a4a      	ldr	r2, [r1, #36]	; 0x24
+ 8000d8a:	2301      	movs	r3, #1
+ 8000d8c:	4313      	orrs	r3, r2
+ 8000d8e:	624b      	str	r3, [r1, #36]	; 0x24
+  while ((RCC->CSR & RCC_CSR_LSIRDY) == 0)
+ 8000d90:	2002      	movs	r0, #2
+ 8000d92:	6a4b      	ldr	r3, [r1, #36]	; 0x24
+ 8000d94:	4a12      	ldr	r2, [pc, #72]	; (8000de0 <__early_init+0xa0>)
+ 8000d96:	4218      	tst	r0, r3
+ 8000d98:	d0fb      	beq.n	8000d92 <__early_init+0x52>
+    ;                                       /* Waits until LSI is stable.   */
+#endif
+
+  /* Clock settings.*/
+  RCC->CFGR  = STM32_PLLNODIV | STM32_MCOPRE | STM32_MCOSEL | STM32_PLLMUL |
+ 8000d9a:	23a0      	movs	r3, #160	; 0xa0
+ 8000d9c:	039b      	lsls	r3, r3, #14
+ 8000d9e:	6053      	str	r3, [r2, #4]
+               STM32_PLLSRC   | STM32_PPRE   | STM32_HPRE;
+  RCC->CFGR2 = STM32_PREDIV;
+ 8000da0:	2300      	movs	r3, #0
+ 8000da2:	62d3      	str	r3, [r2, #44]	; 0x2c
+#if STM32_CECSW == STM32_CECSW_OFF
+  RCC->CFGR3 = STM32_USBSW  | STM32_I2C1SW | STM32_USART1SW;
+#else
+  RCC->CFGR3 = STM32_USBSW  | STM32_CECSW  | STM32_I2C1SW | STM32_USART1SW;
+ 8000da4:	6313      	str	r3, [r2, #48]	; 0x30
+#endif
+
+#if STM32_ACTIVATE_PLL
+  /* PLL activation.*/
+  RCC->CR   |= RCC_CR_PLLON;
+ 8000da6:	6811      	ldr	r1, [r2, #0]
+ 8000da8:	2380      	movs	r3, #128	; 0x80
+ 8000daa:	045b      	lsls	r3, r3, #17
+ 8000dac:	430b      	orrs	r3, r1
+  while (!(RCC->CR & RCC_CR_PLLRDY))
+ 8000dae:	2080      	movs	r0, #128	; 0x80
+  RCC->CFGR3 = STM32_USBSW  | STM32_CECSW  | STM32_I2C1SW | STM32_USART1SW;
+#endif
+
+#if STM32_ACTIVATE_PLL
+  /* PLL activation.*/
+  RCC->CR   |= RCC_CR_PLLON;
+ 8000db0:	6013      	str	r3, [r2, #0]
+  while (!(RCC->CR & RCC_CR_PLLRDY))
+ 8000db2:	0480      	lsls	r0, r0, #18
+ 8000db4:	6813      	ldr	r3, [r2, #0]
+ 8000db6:	490a      	ldr	r1, [pc, #40]	; (8000de0 <__early_init+0xa0>)
+ 8000db8:	4203      	tst	r3, r0
+ 8000dba:	d0fb      	beq.n	8000db4 <__early_init+0x74>
+    ;                                       /* Waits until PLL is stable.   */
+#endif
+
+  /* Flash setup and final clock selection.   */
+  FLASH->ACR = STM32_FLASHBITS;
+ 8000dbc:	4b09      	ldr	r3, [pc, #36]	; (8000de4 <__early_init+0xa4>)
+ 8000dbe:	2211      	movs	r2, #17
+ 8000dc0:	601a      	str	r2, [r3, #0]
+
+  /* Switching to the configured clock source if it is different from HSI.*/
+#if (STM32_SW != STM32_SW_HSI)
+  /* Switches clock source.*/
+  RCC->CFGR |= STM32_SW;
+ 8000dc2:	684a      	ldr	r2, [r1, #4]
+ 8000dc4:	2302      	movs	r3, #2
+ 8000dc6:	4313      	orrs	r3, r2
+ 8000dc8:	604b      	str	r3, [r1, #4]
+  while ((RCC->CFGR & RCC_CFGR_SWS) != (STM32_SW << 2))
+ 8000dca:	200c      	movs	r0, #12
+ 8000dcc:	684b      	ldr	r3, [r1, #4]
+ 8000dce:	4a04      	ldr	r2, [pc, #16]	; (8000de0 <__early_init+0xa0>)
+ 8000dd0:	4003      	ands	r3, r0
+ 8000dd2:	2b08      	cmp	r3, #8
+ 8000dd4:	d1fa      	bne.n	8000dcc <__early_init+0x8c>
+    ;                                       /* Waits selection complete.    */
+#endif
+
+  /* SYSCFG clock enabled here because it is a multi-functional unit shared
+     among multiple drivers.*/
+  rccEnableAPB2(RCC_APB2ENR_SYSCFGEN, TRUE);
+ 8000dd6:	6991      	ldr	r1, [r2, #24]
+ 8000dd8:	2301      	movs	r3, #1
+ 8000dda:	430b      	orrs	r3, r1
+ 8000ddc:	6193      	str	r3, [r2, #24]
+ *          and before any other initialization.
+ */
+void __early_init(void) {
+
+  stm32_clock_init();
+}
+ 8000dde:	4770      	bx	lr
+ 8000de0:	40021000 	.word	0x40021000
+ 8000de4:	40022000 	.word	0x40022000
+ 8000de8:	46c0      	nop			; (mov r8, r8)
+ 8000dea:	46c0      	nop			; (mov r8, r8)
+ 8000dec:	46c0      	nop			; (mov r8, r8)
+ 8000dee:	46c0      	nop			; (mov r8, r8)
+
+08000df0 <chSchDoReschedule>:
+ * @note    Not a user function, it is meant to be invoked by the scheduler
+ *          itself or from within the port layer.
+ *
+ * @special
+ */
+void chSchDoReschedule(void) {
+ 8000df0:	b508      	push	{r3, lr}
+  thread_t *otp = nil.current;
+ 8000df2:	4b03      	ldr	r3, [pc, #12]	; (8000e00 <chSchDoReschedule+0x10>)
+
+  nil.current = nil.next;
+ 8000df4:	6858      	ldr	r0, [r3, #4]
+ *          itself or from within the port layer.
+ *
+ * @special
+ */
+void chSchDoReschedule(void) {
+  thread_t *otp = nil.current;
+ 8000df6:	6819      	ldr	r1, [r3, #0]
+
+  nil.current = nil.next;
+ 8000df8:	6018      	str	r0, [r3, #0]
+  if (otp == &nil.threads[CH_CFG_NUM_THREADS]) {
+    CH_CFG_IDLE_LEAVE_HOOK();
+  }
+  port_switch(nil.next, otp);
+ 8000dfa:	f7ff f9e9 	bl	80001d0 <_port_switch>
+}
+ 8000dfe:	bd08      	pop	{r3, pc}
+ 8000e00:	20000520 	.word	0x20000520
+ 8000e04:	46c0      	nop			; (mov r8, r8)
+ 8000e06:	46c0      	nop			; (mov r8, r8)
+ 8000e08:	46c0      	nop			; (mov r8, r8)
+ 8000e0a:	46c0      	nop			; (mov r8, r8)
+ 8000e0c:	46c0      	nop			; (mov r8, r8)
+ 8000e0e:	46c0      	nop			; (mov r8, r8)
+
+08000e10 <chSysHalt>:
+  \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  Can only be executed in Privileged modes.
+ */
+__attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+{
+  __ASM volatile ("cpsid i" : : : "memory");
+ 8000e10:	b672      	cpsid	i
+ 8000e12:	e7fe      	b.n	8000e12 <chSysHalt+0x2>
+ 8000e14:	46c0      	nop			; (mov r8, r8)
+ 8000e16:	46c0      	nop			; (mov r8, r8)
+ 8000e18:	46c0      	nop			; (mov r8, r8)
+ 8000e1a:	46c0      	nop			; (mov r8, r8)
+ 8000e1c:	46c0      	nop			; (mov r8, r8)
+ 8000e1e:	46c0      	nop			; (mov r8, r8)
+
+08000e20 <__init_ram_areas>:
+}
+
+/**
+ * @brief   Performs the initialization of the various RAM areas.
+ */
+void __init_ram_areas(void) {
+ 8000e20:	b5f0      	push	{r4, r5, r6, r7, lr}
+#if CRT1_AREAS_NUMBER > 0
+  const ram_init_area_t *rap = ram_areas;
+ 8000e22:	4e0f      	ldr	r6, [pc, #60]	; (8000e60 <__init_ram_areas+0x40>)
+      tp++;
+    }
+
+    /* Zeroing clear area.*/
+    while (p < rap->no_init_area) {
+      *p = 0;
+ 8000e24:	2500      	movs	r5, #0
+      p++;
+    }
+    rap++;
+  }
+  while (rap < &ram_areas[CRT1_AREAS_NUMBER]);
+ 8000e26:	1c37      	adds	r7, r6, #0
+ 8000e28:	3780      	adds	r7, #128	; 0x80
+#if CRT1_AREAS_NUMBER > 0
+  const ram_init_area_t *rap = ram_areas;
+
+  do {
+    uint32_t *tp = rap->init_text_area;
+    uint32_t *p = rap->init_area;
+ 8000e2a:	6873      	ldr	r3, [r6, #4]
+
+    /* Copying initialization data.*/
+    while (p < rap->clear_area) {
+ 8000e2c:	68b4      	ldr	r4, [r6, #8]
+void __init_ram_areas(void) {
+#if CRT1_AREAS_NUMBER > 0
+  const ram_init_area_t *rap = ram_areas;
+
+  do {
+    uint32_t *tp = rap->init_text_area;
+ 8000e2e:	6831      	ldr	r1, [r6, #0]
+    uint32_t *p = rap->init_area;
+
+    /* Copying initialization data.*/
+    while (p < rap->clear_area) {
+ 8000e30:	42a3      	cmp	r3, r4
+ 8000e32:	d20a      	bcs.n	8000e4a <__init_ram_areas+0x2a>
+ 8000e34:	1c1a      	adds	r2, r3, #0
+      *p = *tp;
+ 8000e36:	c901      	ldmia	r1!, {r0}
+ 8000e38:	c201      	stmia	r2!, {r0}
+  do {
+    uint32_t *tp = rap->init_text_area;
+    uint32_t *p = rap->init_area;
+
+    /* Copying initialization data.*/
+    while (p < rap->clear_area) {
+ 8000e3a:	42a2      	cmp	r2, r4
+ 8000e3c:	d3fb      	bcc.n	8000e36 <__init_ram_areas+0x16>
+ 8000e3e:	43da      	mvns	r2, r3
+ 8000e40:	1912      	adds	r2, r2, r4
+ 8000e42:	0892      	lsrs	r2, r2, #2
+ 8000e44:	3201      	adds	r2, #1
+ 8000e46:	0092      	lsls	r2, r2, #2
+ 8000e48:	189b      	adds	r3, r3, r2
+      p++;
+      tp++;
+    }
+
+    /* Zeroing clear area.*/
+    while (p < rap->no_init_area) {
+ 8000e4a:	68f2      	ldr	r2, [r6, #12]
+ 8000e4c:	4293      	cmp	r3, r2
+ 8000e4e:	d202      	bcs.n	8000e56 <__init_ram_areas+0x36>
+      *p = 0;
+ 8000e50:	c320      	stmia	r3!, {r5}
+      p++;
+      tp++;
+    }
+
+    /* Zeroing clear area.*/
+    while (p < rap->no_init_area) {
+ 8000e52:	4293      	cmp	r3, r2
+ 8000e54:	d3fc      	bcc.n	8000e50 <__init_ram_areas+0x30>
+      *p = 0;
+      p++;
+    }
+    rap++;
+ 8000e56:	3610      	adds	r6, #16
+  }
+  while (rap < &ram_areas[CRT1_AREAS_NUMBER]);
+ 8000e58:	42be      	cmp	r6, r7
+ 8000e5a:	d3e6      	bcc.n	8000e2a <__init_ram_areas+0xa>
+#endif
+}
+ 8000e5c:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 8000e5e:	46c0      	nop			; (mov r8, r8)
+ 8000e60:	08000f48 	.word	0x08000f48
+ 8000e64:	46c0      	nop			; (mov r8, r8)
+ 8000e66:	46c0      	nop			; (mov r8, r8)
+ 8000e68:	46c0      	nop			; (mov r8, r8)
+ 8000e6a:	46c0      	nop			; (mov r8, r8)
+ 8000e6c:	46c0      	nop			; (mov r8, r8)
+ 8000e6e:	46c0      	nop			; (mov r8, r8)
+
+08000e70 <__default_exit>:
+ */
+#if !defined(__DOXYGEN__)
+__attribute__((noreturn, weak))
+#endif
+/*lint -save -e9075 [8.4] All symbols are invoked from asm context.*/
+void __default_exit(void) {
+ 8000e70:	e7fe      	b.n	8000e70 <__default_exit>
+ 8000e72:	46c0      	nop			; (mov r8, r8)
+ 8000e74:	46c0      	nop			; (mov r8, r8)
+ 8000e76:	46c0      	nop			; (mov r8, r8)
+ 8000e78:	46c0      	nop			; (mov r8, r8)
+ 8000e7a:	46c0      	nop			; (mov r8, r8)
+ 8000e7c:	46c0      	nop			; (mov r8, r8)
+ 8000e7e:	46c0      	nop			; (mov r8, r8)
+
+08000e80 <__late_init>:
+ */
+#if !defined(__DOXYGEN__)
+__attribute__((weak))
+#endif
+/*lint -save -e9075 [8.4] All symbols are invoked from asm context.*/
+void __late_init(void) {}
+ 8000e80:	4770      	bx	lr
+ 8000e82:	46c0      	nop			; (mov r8, r8)
+ 8000e84:	46c0      	nop			; (mov r8, r8)
+ 8000e86:	46c0      	nop			; (mov r8, r8)
+ 8000e88:	46c0      	nop			; (mov r8, r8)
+ 8000e8a:	46c0      	nop			; (mov r8, r8)
+ 8000e8c:	46c0      	nop			; (mov r8, r8)
+ 8000e8e:	46c0      	nop			; (mov r8, r8)
+
+08000e90 <__core_init>:
+
+#if __CORTEX_M == 7
+  SCB_EnableICache();
+  SCB_EnableDCache();
+#endif
+}
+ 8000e90:	4770      	bx	lr
+ 8000e92:	46c0      	nop			; (mov r8, r8)
+ 8000e94:	46c0      	nop			; (mov r8, r8)
+ 8000e96:	46c0      	nop			; (mov r8, r8)
+ 8000e98:	46c0      	nop			; (mov r8, r8)
+ 8000e9a:	46c0      	nop			; (mov r8, r8)
+ 8000e9c:	46c0      	nop			; (mov r8, r8)
+ 8000e9e:	46c0      	nop			; (mov r8, r8)

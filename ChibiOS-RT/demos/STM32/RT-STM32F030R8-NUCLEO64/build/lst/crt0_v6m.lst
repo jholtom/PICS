@@ -1,0 +1,331 @@
+ARM GAS  /tmp/ccuEsNW7.s 			page 1
+
+
+   1              	# 1 "../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S"
+   1              	/*
+   0              	
+   0              	
+   2              	    ChibiOS - Copyright (C) 2006..2016 Giovanni Di Sirio
+   3              	
+   4              	    Licensed under the Apache License, Version 2.0 (the "License");
+   5              	    you may not use this file except in compliance with the License.
+   6              	    You may obtain a copy of the License at
+   7              	
+   8              	        http://www.apache.org/licenses/LICENSE-2.0
+   9              	
+  10              	    Unless required by applicable law or agreed to in writing, software
+  11              	    distributed under the License is distributed on an "AS IS" BASIS,
+  12              	    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  13              	    See the License for the specific language governing permissions and
+  14              	    limitations under the License.
+  15              	*/
+  16              	
+  17              	/**
+  18              	 * @file    crt0_v6m.s
+  19              	 * @brief   Generic ARMv6-M (Cortex-M0/M1) startup file for ChibiOS.
+  20              	 *
+  21              	 * @addtogroup ARMCMx_GCC_STARTUP_V6M
+  22              	 * @{
+  23              	 */
+  24              	
+  25              	/*===========================================================================*/
+  26              	/* Module constants.                                                         */
+  27              	/*===========================================================================*/
+  28              	
+  29              	#if !defined(FALSE) || defined(__DOXYGEN__)
+  30              	#define FALSE                               0
+  31              	#endif
+  32              	
+  33              	#if !defined(TRUE) || defined(__DOXYGEN__)
+  34              	#define TRUE                                1
+  35              	#endif
+  36              	
+  37              	#define CONTROL_MODE_PRIVILEGED             0
+  38              	#define CONTROL_MODE_UNPRIVILEGED           1
+  39              	#define CONTROL_USE_MSP                     0
+  40              	#define CONTROL_USE_PSP                     2
+  41              	
+  42              	#define SCB_VTOR                            0xE000ED08
+  43              	
+  44              	/*===========================================================================*/
+  45              	/* Module pre-compile time settings.                                         */
+  46              	/*===========================================================================*/
+  47              	
+  48              	/**
+  49              	 * @brief   VTOR special register initialization.
+  50              	 * @details VTOR is initialized to point to the vectors table.
+  51              	 * @note    This option can only be enabled on Cortex-M0+ cores.
+  52              	 */
+  53              	#if !defined(CRT0_VTOR_INIT) || defined(__DOXYGEN__)
+  54              	#define CRT0_VTOR_INIT                      FALSE
+ARM GAS  /tmp/ccuEsNW7.s 			page 2
+
+
+  55              	#endif
+  56              	
+  57              	/**
+  58              	 * @brief   Control special register initialization value.
+  59              	 * @details The system is setup to run in privileged mode using the PSP
+  60              	 *          stack (dual stack mode).
+  61              	 */
+  62              	#if !defined(CRT0_CONTROL_INIT) || defined(__DOXYGEN__)
+  63              	#define CRT0_CONTROL_INIT                   (CONTROL_USE_PSP |              \
+  64              	                                             CONTROL_MODE_PRIVILEGED)
+  65              	#endif
+  66              	
+  67              	/**
+  68              	 * @brief   Core initialization switch.
+  69              	 */
+  70              	#if !defined(CRT0_INIT_CORE) || defined(__DOXYGEN__)
+  71              	#define CRT0_INIT_CORE                      TRUE
+  72              	#endif
+  73              	
+  74              	/**
+  75              	 * @brief   Stack segments initialization switch.
+  76              	 */
+  77              	#if !defined(CRT0_STACKS_FILL_PATTERN) || defined(__DOXYGEN__)
+  78              	#define CRT0_STACKS_FILL_PATTERN            0x55555555
+  79              	#endif
+  80              	
+  81              	/**
+  82              	 * @brief   Stack segments initialization switch.
+  83              	 */
+  84              	#if !defined(CRT0_INIT_STACKS) || defined(__DOXYGEN__)
+  85              	#define CRT0_INIT_STACKS                    TRUE
+  86              	#endif
+  87              	
+  88              	/**
+  89              	 * @brief   DATA segment initialization switch.
+  90              	 */
+  91              	#if !defined(CRT0_INIT_DATA) || defined(__DOXYGEN__)
+  92              	#define CRT0_INIT_DATA                      TRUE
+  93              	#endif
+  94              	
+  95              	/**
+  96              	 * @brief   BSS segment initialization switch.
+  97              	 */
+  98              	#if !defined(CRT0_INIT_BSS) || defined(__DOXYGEN__)
+  99              	#define CRT0_INIT_BSS                       TRUE
+ 100              	#endif
+ 101              	
+ 102              	/**
+ 103              	 * @brief   RAM areas initialization switch.
+ 104              	 */
+ 105              	#if !defined(CRT0_INIT_RAM_AREAS) || defined(__DOXYGEN__)
+ 106              	#define CRT0_INIT_RAM_AREAS                 TRUE
+ 107              	#endif
+ 108              	
+ 109              	/**
+ 110              	 * @brief   Constructors invocation switch.
+ 111              	 */
+ARM GAS  /tmp/ccuEsNW7.s 			page 3
+
+
+ 112              	#if !defined(CRT0_CALL_CONSTRUCTORS) || defined(__DOXYGEN__)
+ 113              	#define CRT0_CALL_CONSTRUCTORS              TRUE
+ 114              	#endif
+ 115              	
+ 116              	/**
+ 117              	 * @brief   Destructors invocation switch.
+ 118              	 */
+ 119              	#if !defined(CRT0_CALL_DESTRUCTORS) || defined(__DOXYGEN__)
+ 120              	#define CRT0_CALL_DESTRUCTORS               TRUE
+ 121              	#endif
+ 122              	
+ 123              	/*===========================================================================*/
+ 124              	/* Code section.                                                             */
+ 125              	/*===========================================================================*/
+ 126              	
+ 127              	#if !defined(__DOXYGEN__)
+ 128              	
+ 129              	                .cpu    cortex-m0
+ 130              	                .fpu    softvfp
+ 131              	
+ 132              	                .thumb
+ 133              	                .text
+ 134              	
+ 135              	/*
+ 136              	 * Reset handler.
+ 137              	 */
+ 138              	                .align  2
+ 139              	                .thumb_func
+ 140              	                .global Reset_Handler
+ 141              	Reset_Handler:
+ 142              	                /* Interrupts are globally masked initially.*/
+ 143 0000 72B6     	                cpsid   i
+ 144              	
+ 145              	                /* PSP stack pointers initialization.*/
+ 146 0002 2248     	                ldr     r0, =__process_stack_end__
+ 147 0004 80F30988 	                msr     PSP, r0
+ 148              	
+ 149              	                /* CPU mode initialization as configured.*/
+ 150 0008 0220     	                movs    r0, #CRT0_CONTROL_INIT
+ 151 000a 80F31488 	                msr     CONTROL, r0
+ 152 000e BFF36F8F 	                isb
+ 153              	
+ 154              	#if CRT0_VTOR_INIT == TRUE
+ 155              	                ldr     r0, =_vectors
+ 156              	                ldr     r1, =SCB_VTOR
+ 157              	                str     r0, [r1]
+ 158              	#endif
+ 159              	
+ 160              	#if CRT0_INIT_CORE == TRUE
+ 161              	                /* Core initialization.*/
+ 162 0012 FFF7FEFF 	                bl      __core_init
+ 163              	#endif
+ 164              	
+ 165              	                /* Early initialization..*/
+ 166 0016 FFF7FEFF 	                bl      __early_init
+ 167              	
+ 168              	#if CRT0_INIT_STACKS == TRUE
+ARM GAS  /tmp/ccuEsNW7.s 			page 4
+
+
+ 169 001a 1D48     	                ldr     r0, =CRT0_STACKS_FILL_PATTERN
+ 170              	                /* Main Stack initialization. Note, it assumes that the
+ 171              	                   stack size is a multiple of 4 so the linker file must
+ 172              	                   ensure this.*/
+ 173 001c 1D49     	                ldr     r1, =__main_stack_base__
+ 174 001e 1E4A     	                ldr     r2, =__main_stack_end__
+ 175              	msloop:
+ 176 0020 9142     	                cmp     r1, r2
+ 177 0022 02DA     	                bge     endmsloop
+ 178 0024 0860     	                str     r0, [r1]
+ 179 0026 0431     	                add     r1, r1, #4
+ 180 0028 FAE7     	                b       msloop
+ 181              	endmsloop:
+ 182              	                /* Process Stack initialization. Note, it assumes that the
+ 183              	                   stack size is a multiple of 4 so the linker file must
+ 184              	                   ensure this.*/
+ 185 002a 1C49     	                ldr     r1, =__process_stack_base__
+ 186 002c 174A     	                ldr     r2, =__process_stack_end__
+ 187              	psloop:
+ 188 002e 9142     	                cmp     r1, r2
+ 189 0030 02DA     	                bge     endpsloop
+ 190 0032 0860     	                str     r0, [r1]
+ 191 0034 0431     	                add     r1, r1, #4
+ 192 0036 FAE7     	                b       psloop
+ 193              	endpsloop:
+ 194              	#endif
+ 195              	
+ 196              	#if CRT0_INIT_DATA == TRUE
+ 197              	                /* Data initialization. Note, it assumes that the DATA size
+ 198              	                  is a multiple of 4 so the linker file must ensure this.*/
+ 199 0038 1949     	                ldr     r1, =_textdata
+ 200 003a 1A4A     	                ldr     r2, =_data
+ 201 003c 1A4B     	                ldr     r3, =_edata
+ 202              	dloop:
+ 203 003e 9A42     	                cmp     r2, r3
+ 204 0040 04DA     	                bge     enddloop
+ 205 0042 0868     	                ldr     r0, [r1]
+ 206 0044 1060     	                str     r0, [r2]
+ 207 0046 0431     	                add     r1, r1, #4
+ 208 0048 0432     	                add     r2, r2, #4
+ 209 004a F8E7     	                b       dloop
+ 210              	enddloop:
+ 211              	#endif
+ 212              	
+ 213              	#if CRT0_INIT_BSS == TRUE
+ 214              	                /* BSS initialization. Note, it assumes that the DATA size
+ 215              	                  is a multiple of 4 so the linker file must ensure this.*/
+ 216 004c 0020     	                movs    r0, #0
+ 217 004e 1749     	                ldr     r1, =_bss_start
+ 218 0050 174A     	                ldr     r2, =_bss_end
+ 219              	bloop:
+ 220 0052 9142     	                cmp     r1, r2
+ 221 0054 02DA     	                bge     endbloop
+ 222 0056 0860     	                str     r0, [r1]
+ 223 0058 0431     	                add     r1, r1, #4
+ 224 005a FAE7     	                b       bloop
+ 225              	endbloop:
+ARM GAS  /tmp/ccuEsNW7.s 			page 5
+
+
+ 226              	#endif
+ 227              	
+ 228              	#if CRT0_INIT_RAM_AREAS == TRUE
+ 229              	                /* RAM areas initialization.*/
+ 230 005c FFF7FEFF 	                bl      __init_ram_areas
+ 231              	#endif
+ 232              	
+ 233              	                /* Late initialization..*/
+ 234 0060 FFF7FEFF 	                bl      __late_init
+ 235              	
+ 236              	#if CRT0_CALL_CONSTRUCTORS == TRUE
+ 237              	                /* Constructors invocation.*/
+ 238 0064 134C     	                ldr     r4, =__init_array_start
+ 239 0066 144D     	                ldr     r5, =__init_array_end
+ 240              	initloop:
+ 241 0068 AC42     	                cmp     r4, r5
+ 242 006a 03DA     	                bge     endinitloop
+ 243 006c 2168     	                ldr     r1, [r4]
+ 244 006e 8847     	                blx     r1
+ 245 0070 0434     	                add     r4, r4, #4
+ 246 0072 F9E7     	                b       initloop
+ 247              	endinitloop:
+ 248              	#endif
+ 249              	
+ 250              	                /* Main program invocation, r0 contains the returned value.*/
+ 251 0074 FFF7FEFF 	                bl      main
+ 252              	
+ 253              	#if CRT0_CALL_DESTRUCTORS == TRUE
+ 254              	                /* Destructors invocation.*/
+ 255 0078 104C     	                ldr     r4, =__fini_array_start
+ 256 007a 114D     	                ldr     r5, =__fini_array_end
+ 257              	finiloop:
+ 258 007c AC42     	                cmp     r4, r5
+ 259 007e 03DA     	                bge     endfiniloop
+ 260 0080 2168     	                ldr     r1, [r4]
+ 261 0082 8847     	                blx     r1
+ 262 0084 0434     	                add     r4, r4, #4
+ 263 0086 F9E7     	                b       finiloop
+ 264              	endfiniloop:
+ 265              	#endif
+ 266              	
+ 267              	                /* Branching to the defined exit handler.*/
+ 268 0088 0E49     	                ldr     r1, =__default_exit
+ 269 008a 08470000 	                bx      r1
+ 269      00005555 
+ 269      55550000 
+ 269      00000000 
+ 269      00000000 
+ARM GAS  /tmp/ccuEsNW7.s 			page 6
+
+
+DEFINED SYMBOLS
+../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S:138    .text:0000000000000000 $t
+../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S:141    .text:0000000000000000 Reset_Handler
+../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S:175    .text:0000000000000020 msloop
+../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S:181    .text:000000000000002a endmsloop
+../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S:187    .text:000000000000002e psloop
+../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S:193    .text:0000000000000038 endpsloop
+../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S:202    .text:000000000000003e dloop
+../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S:210    .text:000000000000004c enddloop
+../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S:219    .text:0000000000000052 bloop
+../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S:225    .text:000000000000005c endbloop
+../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S:240    .text:0000000000000068 initloop
+../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S:247    .text:0000000000000074 endinitloop
+../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S:257    .text:000000000000007c finiloop
+../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S:264    .text:0000000000000088 endfiniloop
+../../../os/common/startup/ARMCMx/compilers/GCC/crt0_v6m.S:269    .text:000000000000008c $d
+
+UNDEFINED SYMBOLS
+__process_stack_end__
+__core_init
+__early_init
+__main_stack_base__
+__main_stack_end__
+__process_stack_base__
+_textdata
+_data
+_edata
+_bss_start
+_bss_end
+__init_ram_areas
+__late_init
+__init_array_start
+__init_array_end
+main
+__fini_array_start
+__fini_array_end
+__default_exit
