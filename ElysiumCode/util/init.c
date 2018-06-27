@@ -20,7 +20,11 @@
 #include "errors.h"
 
 /* Disable watchdog because of lousy startup code in newlib */
+#ifdef __FUZZ__
+static void
+#else
 static void __attribute__((naked, section(".crt_0042disable_watchdog"), used))
+#endif
 disable_watchdog(void) {
   WDTCTL = WDTPW | WDTHOLD;
 }
@@ -133,9 +137,9 @@ void elyChanReset() {
 static PERSIST uint8_t * last_buffer;
 static PERSIST size_t last_n; 
 static PERSIST telem_cfg_t telem_cfg;
-void elyTelemPostBufferS(uint8_t * buffer, size_t n, telemcallback_t cb) {
+void elyTelemPostBufferS(uint8_t * buffer, /* size_t n, */ telemcallback_t cb) {
   last_buffer = buffer;
-  last_n = n;
+  // last_n = n;
   cb(buffer);
 }
 
