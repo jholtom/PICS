@@ -1,0 +1,48 @@
+
+#ifndef _ELYSIUM_UART_H_
+#define _ELYSIUM_UART_H_
+
+#define uart_gpt GPTDA1
+
+#include "ch.h"
+#include "hal.h"
+#include "core.h"
+#include "registers.h"
+#include "nl.h"
+#include "main.h"
+#include "uart_dll.h"
+
+#if ELY_REVISION == B
+#define ELY_UART SD1
+#else
+#define ELY_UART SD0
+#endif
+
+typedef enum {
+  UARTConfigUpdated = 0x01,
+  UARTBufferPosted = 0x02,
+  UARTRxBufferReady = 0x04
+} uart_events_t;
+
+typedef enum {
+  UARTIdle = 2,
+  UARTTXActive = 4,
+  UARTCfg = 6
+} uart_states_t;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+  void elyUARTCfgMarkDirty(void);
+  void elyUARTCfgMarkDirtyI(void);
+  msg_t elyUARTPost(uint8_t * buffer, systime_t timeout);
+  msg_t elyUARTPostI(uint8_t * buffer);
+  void elyUARTRxBufReadyI(void);
+  THD_FUNCTION(UARTThd, arg);
+#ifdef __cplusplus
+}
+#endif
+  
+extern THD_WORKING_AREA(waUARTThd, 512);
+  
+#endif

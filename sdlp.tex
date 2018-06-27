@@ -1,0 +1,1530 @@
+\documentclass{hitec}
+
+\author{Andrew Wygle}
+\title{Elysium Radio Data Link Layer - Space Data Link Protocols}
+\company{Adamant Aerospace}
+\confidential{\textbf{Unlimited Distribution}}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{pdfpages}
+\usepackage{gensymb}
+\usepackage{siunitx}
+\usepackage{bytefield}
+\usepackage[hyperref=true]{register}
+\usepackage{rotating}
+\usepackage{titlesec}
+\usepackage{subcaption}
+\usepackage{fmtcount}
+\usepackage{parskip}
+\usepackage{caption}
+\usepackage[autostyle, english = american]{csquotes}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage[colorlinks=true, linktoc=all]{hyperref}
+\usepackage{etoolbox}
+
+\MakeOuterQuote{"}
+
+\settextfraction{1}
+
+\newcommand{\chref}[1]{\hyperref[ch:#1]{Section~\ref{ch:#1}}}
+\newcommand{\figref}[1]{\hyperref[fig:#1]{Figure~\ref{fig:#1}}}
+\newcommand{\tabref}[1]{\hyperref[tab:#1]{Table~\ref{tab:#1}}}
+\makeatletter
+\newcommand*{\textoverline}[1]{$\overline{\hbox{#1}}\m@th$}
+\makeatother
+
+\newcommand{\bitlabel}[2]{%
+	\bitbox[]{#1}{%
+		\raisebox{0pt}[4ex][0pt]{%
+			\turnbox{45}{\fontsize{7}{7}\selectfont#2}%
+		}%
+	}%
+}
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\subsubsection}
+	{\normalfont\fontsize{12}{15}\bfseries}{\thesubsubsection}{1em}{}
+
+
+\newcounter{regaddr}
+\newcounter{regsize}
+\newcommand*{\elyregaddr}[1][1]{0x\padzeroes[2]\Hexadecimal{regaddr}\addtocounter{regaddr}{#1}\setcounter{regsize}{#1}}
+
+\newcommand*{\curreg}[1][0]{%
+		\addtocounter{regaddr}{\the\numexpr#1-\value{regsize}\relax}%
+		0x\padzeroes[2]\Hexadecimal{regaddr}%
+		\addtocounter{regaddr}{\the\numexpr\value{regsize}-#1\relax}%
+}
+
+\newcounter{idval}
+\newcommand*{\elyid}[0]{0x\padzeroes[2]\Hexadecimal{idval}\addtocounter{idval}{1}}
+
+\newcommand*{\currid}[0]{%
+		\addtocounter{idval}{-1}%
+		0x\padzeroes[2]\Hexadecimal{idval}%
+		\addtocounter{idval}{1}%
+}
+
+\newtoggle{inTableHeader}
+\toggletrue{inTableHeader}
+\newcommand*{\StartTableHeader}{\global\toggletrue{inTableHeader}}
+\newcommand*{\EndTableHeader}{\global\togglefalse{inTableHeader}}
+\let\OldLongtable\longtable%
+\let\OldEndLongtable\endlongtable%
+\renewenvironment{longtable}{\StartTableHeader\OldLongtable}{\OldEndLongtable\StartTableHeader}%
+
+\newcommand*{\setlabref}[1]{\gdef\currlabref{#1}}
+\newcommand*{\labref}[1]{\iftoggle{inTableHeader}{}{\hyperref[\currlabref]{#1}}}
+\newcolumntype{W}{>{\global\let\currlabref\relax}l<{\labref{\elyid}}}
+\newcolumntype{R}{>{\global\let\currlabref\relax}l<{\labref{\elyregaddr}}}
+
+\let\oldaddcontentsline\addcontentsline
+\newcommand{\stoptocentries}{\renewcommand{\addcontentsline}[3]{}}
+\newcommand{\starttocentries}{\let\addcontentsline\oldaddcontentsline}
+
+\begin{document}
+
+% NOTE page numbering is controlled by scrreprt for the initial stuff - look into this later
+
+\maketitle
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Upon testing, we're going to use Chapters and Sections but not Parts
+\section{Overview}
+\label{ch:overview}
+
+The Space Data Link Protocols (SDLP) are a group of CCSDS Recommended Standards
+defining the Data Link Layer services of a space link. They are used by many
+NASA and ESA missions. Four different SDLP standards exist - TM (Telemetry), TC
+(Telecommand), AOS (Advanced Orbiting Systems), and Prox-1 (Proximity-1 Space
+Link Protocol). The Elysium radio supports the TM and TC protocols, using TM
+for downlink (transmission) and TC for uplink (reception).
+
+The Elysium does not currently support the Space data Link Security Protocol.
+If your mission requires the SDLS protocol, please contact Adamant to discuss
+adding suport.
+
+Registers associated with the SDLP Data Link Layer subsystem can be found in
+\hyperref[sec:sdlpregs]{Section \ref{sec:sdlpregs}}. Channels, Errors, and
+Events associated with the SDLP Data Link Layer subsystem can be found in
+\hyperref[sec:sdlpchan]{Section \ref{sec:sdlpchan}},
+\hyperref[sec:sdlperrs]{Section \ref{sec:sdlperrs}}, and
+\hyperref[sec:sdlpevts]{Section \ref{sec:sdlpevts}}, respectively.
+
+
+\subsection{TM Protocol}
+
+The TM protocol makes use of either one Master Channel or one or more
+multiplexed Virtual Channels to transfer fixed-length Transfer Frames over a
+Physical Channel. A Synchronization and Channel Coding Sublayer optionally
+encodes the TF using one of several types of FEC. 
+
+The Elysium makes use of 2 independent Virtual Channels, referred to as VC0 and
+VC1. Lower numbered VCs are treated as higher-priority channels. "Live" data
+(data coming in over the UART interface) uses VC0, while "logged" data being
+read out of on board storage uses VC1.
+
+When used with the Space Packet Protocol Networking Layer, the Virtual Channel
+Packet service is used to transfer the Live packets over Virtual Channel 0.
+When used with other Networking Layer protocols, either the Virtual Channel
+Packet service with the Encapsulation packet standard or the Virtual Channel
+Access service may be used. The Virtual Channel Access service is always used
+to transfer "logged" telemetry on VC1. See the Standard for more details.
+
+TM Transfer Frames are transmitted sequentially in order and without gaps. The
+timing of release is "mission-specific" according to the standard. The Elysium
+takes the approach that Transfer Frames are sent as quickly as possible for as
+long as there is data available to be sent.  When all available data has been
+sent, the radio will cease transmission to conserve power. When data is being
+downlinked due to a GetTelem command, a single OID
+frame will be sent at the end of the Duration specified in the GetTelem command
+to signify the end of telemetry data.
+
+OID frames will also be generated to serve as beacon frames in certain fault
+scenarios. 
+
+The TM Synchronization and Channel Coding Sublayer standard
+(\href{https://public.ccsds.org/Pubs/131x0b2ec1.pdf}{CCSDS Recommended Standard
+131.0-B-2}) defines a large number of FEC encodings for use with TM space
+links. At present, only the rate 1/2 convolutional coding is supported.
+However, additional encodings are constantly under development. If your mission
+requires a particular FEC encoding, please contact Adamant to discuss adding
+support for it.
+
+The data randomizer specified in the Synchronization and Channel Coding
+Sublayer is also optionally supported.
+
+\subsection{TC Protocol}
+
+The TC protocol makes use of either one Master Channel or one or more
+multiplexed Virtual Channels to transfer variable-length Transfer Frames over a
+Physical Channel. A Synchronization and Channel Coding Sublayer optionally
+encodes the TF using a modified BCH code for either error detection or error
+correction.
+
+The TC protocol also specifies the optional use of Multiplexer Access Points
+(MAPs). The Elysium does not support the use of MAPs.
+
+The Elysium makes use of a single Virtual Channel, referred to as VC0, for
+uplink data under the TC protocol. 
+
+When used with the Space Packet Protocol Networking Layer, the Virtual Channel
+Packet service is used to transfer the packets over the Virtual Channels. When
+used with other Networking Layer protocols, either the Virtual Channel Packet
+service with the Encapsulation packet standard or the Virtual Channel Access
+service may be used. See the Standard for more details.
+
+The TC standard also makes reference to the COP-1 standard
+(\href{https://public.ccsds.org/Pubs/232x1b2.pdf}{CCSDS 232.1-B-2}) which
+provides an ARQ functionality for TC frames by using the OCF field of the
+returning TM packets to serve as an acknowledgement function. The Frame
+Acceptance and Reporting Mechanism from COP-1 is optionally available on the
+Elyisum radio. The returned information occupies 8 bytes of each TM transfer
+frame. See the Standards for more details.
+
+The TC Synchronization and Channel Coding Sublayer standard
+(\href{https://public.ccsds.org/Pubs/231x0b2c1.pdf}{CCSDS 231.0-B-2}) specifies
+a modified BCH code for either error detection or error correction. The Elysium
+supports decoding of BCH-coded data in either error detection or error
+correction modes.
+
+The data randomizer specified in the Synchronization and Channel Coding
+Sublayer is also optionally supported.
+
+\section{Registers}
+\label{sec:sdlpregs}
+
+This section defines the registers in \tabref{sdlpregs}, which apply to the
+SDLP Data Link Layer.
+
+\setcounter{regaddr}{192}
+\begin{longtable}{Rcr}
+		\caption{SDLP Registers}\\
+		\label{tab:sdlpregs}\\
+		\toprule
+		\em Address & \em Name & \em Description\\
+		\midrule
+		\endhead\EndTableHeader
+		\setlabref{reg:tflength} & \labref{TFLength0} & \labref{Transfer Frame
+			Length LSB}\\
+		\setlabref{reg:tflength} & \labref{TFLength1} & \labref{Transfer Frame
+			Length MSB}\\
+		\setlabref{reg:tmfec} & \labref{TMFEC} & \labref{Telemetry FEC
+			Configuration Bitfields}\\
+		\setlabref{reg:tcfec} & \labref{TCFEC} & \labref{Telecommand FEC
+			Configuration Bitfields}\\
+		\setlabref{reg:sdlpoptions} & \labref{Options} & \labref{General
+			Configuration Bitfields}\\
+		\setlabref{reg:maxpacketlength} & \labref{MaxPacketLength0} & 
+			\labref{Maximum Packet Size LSB}\\
+		\setlabref{reg:maxpacketlength} & \labref{MaxPacketLength1} & 
+			\labref{Maximum Packet Size MSB}\\
+		\setlabref{reg:windowlength} & \labref{WindowLength} & 
+			\labref{FARM Sliding Window Length}\\
+		\setlabref{reg:maximuminterval} & \labref{MaximumInterval} & 
+			\labref{FARM Maximum Reporting Interval}\\
+		\setlabref{reg:ids} & \labref{IDs0} & 
+			\labref{Spacecraft and Virtual Channel IDs LSB}\\
+		\setlabref{reg:ids} & \labref{IDs1} & 
+			\labref{Spacecraft and Virtual Channel IDs MSB}\\
+		\setlabref{reg:feclvl} & \labref{FECLvl} & 
+			\labref{FEC Error Reporting Level}\\
+		\setlabref{reg:fecflvl} & \labref{FECFLvl} & 
+			\labref{FECF Error Reporting Level}\\
+		\setlabref{reg:missedframelvl} & \labref{MissedFrameLvl} & 
+			\labref{Missed Frame Error Reporting Level}\\
+		\setlabref{reg:lockoutlvl} & \labref{LockoutLvl} & 
+			\labref{Lockout Error Reporting Level}\\
+		\setlabref{reg:doubleframelvl} & \labref{DoubleFrameLvl} & 
+			\labref{Duplicate Frame Error Reporting Level}\\
+		\setlabref{reg:invalididlvl} & \labref{InvalidIDLvl} & 
+			\labref{Invalid ID Error Reporting Level}\\
+		\setlabref{reg:shortframelvl} & \labref{ShortFrameLvl} & 
+			\labref{Short Frame Error Reporting Level}\\
+		\setlabref{reg:longframelvl} & \labref{LongFrameLvl} & 
+			\labref{Long Frame Error Reporting Level}\\
+		\setlabref{reg:waitlvl} & \labref{WaitLvl} & 
+			\labref{Wait State Error Reporting Level}\\
+		\setlabref{reg:sdlperrrpt} & \labref{SDLPErrRpt} & 
+			\labref{SDLP Error Reporting Bitfields}\\
+		\bottomrule
+\end{longtable}
+\setcounter{regaddr}{192}
+
+\stoptocentries
+
+\subsection{TFLength[0-1]}
+
+\noindent \textbf{Address:} \elyregaddr[2]
+
+\noindent \textbf{Data Type:} uint16\_t
+
+\noindent \textbf{Description:} The TFLength register contains the length of a
+downlink (TM) transfer frame as a 16-bit unsigned integer in bytes.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{TFLength}{\curreg}
+		\label{reg:tflength}
+		\regfield{TFLength1}{8}{8}{0000_1000}
+		\regfield{TFLength0}{8}{0}{0000_0000}
+		\reglabel{2048 Bytes}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item TFLength1 - MSB - \curreg[1]
+		\item TFLength0 - LSB - \curreg[0]
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} 1024 bytes, unless required by FEC.
+
+\noindent \textbf{Notes:} The valid range for this register is from 7 to 2048
+bytes. Other restrictions may be imposed by the choice of error correction
+coding for the TM link.
+
+\subsection{TMFEC}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Bitfields
+
+\noindent \textbf{Description:} The TMFEC register contains the settings for
+Forward Error Correction coding for the TM link.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{TMFEC}{\curreg}
+		\label{reg:tmfec}
+		\regfield{FECF}{1}{7}{0}
+		\regfield{RS Errors}{1}{6}{0000}
+		\regfield{RS Interleave}{3}{3}{0000}
+		\regfield{Conv. Rate}{3}{0}{000}
+		\reglabel{No Error Control}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item FECF - Frame Error Control Field - \curreg.7
+		\item RS Errors - Reed-Solomon Error Correction - \curreg.6
+		\item RS Interleave - Reed-Solomon Interleaving - \curreg.3
+		\item Conv. Rate - Convolutional Coding Rate - \curreg.0
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} Rate 1/2 Convolutional coding, without
+Frame Error Control Field.
+
+\noindent \textbf{Notes:} When the FECF bit is set, the Frame Error Control
+Field is used to detect errors in Transfer Frames on the TM channel. This
+setting is independent of other FEC settings.
+
+The RS Errors bit controls the level of error correction provided by the
+Reed-Solomon encoding schemes. When the RS Errors bit is set, the RS code used
+can correct 16 symbol errors. When the RS Errors bit is not set, the RS code
+used can correct 8 symbol errors.
+
+The RS Intervleave bitfield controls the level of interleaving being performed
+by the Reed-Solomon encoder. The values of this bitfield are as shown below.
+
+\begin{itemize}
+		\item[000 -] RS encoding is entirely disabled.
+		\item[001 -] Interleave depth of 1
+		\item[010 -] Interleave depth of 2
+		\item[011 -] Interleave depth of 3
+		\item[100 -] Interleave depth of 4
+		\item[101 -] Interleave depth of 5
+		\item[110 -] Interleave depth of 8
+		\item[111 -] Invalid - clipped to 110
+\end{itemize}
+
+The Conv. Rate bitfield specifies the rate used for the (possibly punctured)
+convolutional coding applied to TM frames. The values of this bitfield are as
+shown below.
+
+\begin{itemize}
+		\item[000 -] Convolutional coding is entirely disabled
+		\item[001 -] Coding is punctured to rate 7/8 
+		\item[010 -] Coding is punctured to rate 5/6
+		\item[011 -] Coding is punctured to rate 3/4
+		\item[100 -] Coding is punctured to rate 2/3
+		\item[101 -] Unpunctured rate 1/2 coding is used
+		\item[110 -] Invalid - clipped to 101
+		\item[111 -] Invalid - clipped to 101
+\end{itemize}
+
+Both the convolutional and Reed-Solomon codes may be used simultaneously
+(concatenated coding). In this case, the Reed-Solomon code is the
+\textsl{outer} code, while the convolutional code is the \textsl{inner} code
+
+See \href{https://public.ccsds.org/Pubs/131x0b2ec1.pdf}{the TM
+Synchronization and Channel Coding standard} for more details of the specific
+codes used.
+
+Only rate 1/2 convolutional coding is supported at the time of this writer.
+Contact Adamant if you require support for punctured or Reed-Solomon coding.
+
+\subsection{TCFEC}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Bitfields
+
+\noindent \textbf{Description:} The TCFEC register contains the settings for
+Forward Error Correction coding for the TC link.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{TCFEC}{\curreg}
+		\label{reg:tcfec}
+		\regfield{FECF}{1}{7}{0}
+		\regfield{Reserved}{5}{3}{00000}
+		\regfield{BCH Mode}{2}{0}{00}
+		\reglabel{No Error Control}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item FECF - Frame Error Control Field - \curreg.7
+		\item Res. - Reserved. These bits are ignored. - \curreg.3
+		\item BCH Mode - BCH decoding mode - \curreg.0
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} Error correcting BCH coding, without
+Frame Error Control Field.
+
+\noindent \textbf{Notes:} When the FECF bit is set, the Frame Error Control
+Field is used to detect errors in Transfer Frames on the TC channel. This
+setting is independent of other FEC settings.
+
+The reserved bits are ignored - they may be safely set to any value.
+
+The BCH Mode bitfield controls the operating mode of the BCH decoder. The
+values of this bitfield are as shown below.
+
+\begin{itemize}
+		\item[00 -] BCH encoding is not used, BCH decoder is entirely disabled
+		\item[01 -] BCH decoder operates in Triple Error Detection (TED) mode
+		\item[10 -] BCH decoder operates in Single Error Correction (SEC) mode
+		\item[11 -] Invalid - clipped to 11
+\end{itemize}
+
+See \href{https://public.ccsds.org/Pubs/231x0b2c1.pdf}{the TC
+Synchronization and Channel Coding standard} for more details of the specific
+codes used.
+
+\subsection{Options}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Bitfields
+
+\noindent \textbf{Description:} The Options register contains the settings for
+optional components of both the TM and TC links, other than FEC.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{Options}{\curreg}
+		\label{reg:sdlpoptions}
+		\regfield{Reserved}{2}{6}{00}
+		\regfield{Timestamp Frames}{1}{5}{0}
+		\regfield{COP-1/FARM}{1}{4}{0}
+		\regfield{Compliant CTLU Start Sequence}{1}{3}{1}
+		\regfield{Compliant ASM}{1}{2}{1}
+		\regfield{TC Data Whitening}{1}{1}{0}
+		\regfield{TM Data Whitening}{1}{0}{0}
+		\reglabel{0x0C}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item Res. - Reserved. These bits are ignored. - \curreg.6
+		\item Timestamp Frames - Optional packet timestamping - \curreg.5
+		\item COP-1/FARM - Enable uplink delivery assurance - \curreg.4
+		\item Compliant CTLU Start Sequence - Standard uplink sync word -
+				\curreg.3
+		\item Compliant ASM - Standard downlink sync word - \curreg.2
+		\item TC Data Whitening - Data whitening on uplink - \curreg.1
+		\item TM Data Whitening - Data whitening on downlink - \curreg.0
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} Data whitening on uplink and downlink,
+compliant sync words, FARM active, no timestamp.
+
+\noindent \textbf{Notes:} The reserved bits are ignored - they may be safely
+set to any value.
+
+When the Timestamp Packets bit is set, all TM frames sent by the Elysium will
+use the MC\_FSH service to include a 4-byte timestamp of the Mission Time at
+which the frame was sent.
+
+When the COP-1/FARM bit is set, the Frame Acceptance and Reporting Mechanism
+(FARM) specified in \href{https://public.ccsds.org/Pubs/232x1b2.pdf}{the COP-1
+standard} is used to allow for ARQ functionality on the uplink Virtual Channel.
+Note that the Communications Link Control Words (CLCWs) required by COP-1 are
+transmitted using the VC\_OCF service on downlink Virtual Channel 0.
+
+When the Compliant CTLU Start Sequence bit is set, the sync word used by the
+receiver to detect uplinked frames will be set to the standard value of 0xEB90
+specified in \href{https://public.ccsds.org/Pubs/231x0b2c1.pdf}{the TC
+Synchronization and Channel Coding standard}, regardless of the setting in
+the RXSync register.
+
+When the Compliant ASM bit is set, the sync word added by the transmitter to
+allow the ground station to detect downlinked frames will be set to the
+value specified in \href{https://public.ccsds.org/Pubs/131x0b2ec1.pdf}{the TM
+Synchronization and Channel Coding standard} for the current FEC configuration,
+regardless of the setting in the TXSync register.
+
+When the TC Data Whitening bit is set, the data dewhitening procedure specified
+in the TC Synchronization and Channel Coding standard will be applied to all
+received TC frames.
+
+When the TM Data Whitening bit is set, the data whitening procedure specified
+in the TM Synchronization and Channel Coding standard will be applied to all
+transmitted TM frames.
+
+See the relevant standards for more details.
+
+\subsection{MaxPacketLength[0-1]}
+
+\noindent \textbf{Address:} \elyregaddr[2]
+
+\noindent \textbf{Data Type:} uint16\_t
+
+\noindent \textbf{Description:} The MaxPacketLength register contains the
+maximum length of a packet transferred over the SDLP Data Link Layer as a
+16-bit unsigned integer in bytes, minus one.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{MaxPacketLength}{\curreg}
+		\label{reg:maxpacketlength}
+		\regfield{MaxPacketLength1}{8}{8}{1111_1111}
+		\regfield{MaxPacketLength0}{8}{0}{1111_1111}
+		\reglabel{65536 Bytes}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item MaxPacketLength1 - MSB - \curreg[1]
+		\item MaxPacketLength0 - LSB - \curreg[0]
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} Depends on Network Layer protocol - at
+least 1500 bytes for IP-based protocols, 8192 bytes for the Space Packet
+Protocol.
+
+\noindent \textbf{Notes:} This register contains the maximum length of a packet
+\textsl{minus one}. That is, a value of 127 in this register allows a packet of
+length 128.
+
+The valid range for this register is from 0 to 65535, or from 1 to 65536 bytes.
+Other restrictions may be imposed by the choice of Network Layer.
+
+\subsection{WindowLength}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} uint8\_t
+
+\noindent \textbf{Description:} The WindowLength register contains the
+length of the sliding window used by the FARM mechanism for ARQ functionality.
+It must be an even number.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{WindowLength}{\curreg}
+		\label{reg:windowlength}
+		\regfield{WindowLength}{8}{0}{1111_1110}
+		\reglabel{254 Frames}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item WindowLength - Window length - \curreg[0]
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} Depends on mission requirements - 16 is
+often appropriate.
+
+\noindent \textbf{Notes:} This is the total window length used by the FARM. The
+window is divided into a positive and a negative region, with sequence numbers
+falling outside the window being in the Lockout region. Because of this, the
+length of the window must be an even number of bytes.
+
+See \href{https://public.ccsds.org/Pubs/232x1b2.pdf}{the COP-1 standard} for
+more details.
+
+\subsection{MaximumInterval}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} uint8\_t (s)
+
+\noindent \textbf{Description:} The MaximumInterval register contains the
+maximum length of time which the FARM may go without reporting back to the
+ground station through the Communications Link Control Word (CLCW).
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{MaximumInterval}{\curreg}
+		\label{reg:maximuminterval}
+		\regfield{MaximumInterval}{8}{0}{1111_1111}
+		\reglabel{255 Seconds}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item MaximumInterval - Maximum FARM reporting interval - \curreg[0]
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} Depends on mission requirements - 16 is
+often appropriate.
+
+\noindent \textbf{Notes:} If an uplink frame has been received and no downlink
+frame has been sent for the duration specified in this register, an Only Idle
+Data (OID) frame will be transmitted containing the required CLCW.
+
+See the TC and COP-1 standards for more details.
+
+\subsection{IDs[0-1]}
+
+\noindent \textbf{Address:} \elyregaddr[2]
+
+\noindent \textbf{Data Type:} Bitfields
+
+\noindent \textbf{Description:} The IDs register contains the
+Spacecraft ID and the Virtual Channel IDs used by the SDLP Data Link Layer.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{IDs}{\curreg}
+		\label{reg:ids}
+		\regfield{VCID1}{3}{13}{011}
+		\regfield{VCID0}{3}{10}{111}
+		\regfield{SCID Bits 8-9}{2}{8}{00}
+		\regfield{SCID Bits 0-7}{8}{0}{0010_1111}
+		\reglabel{SCID 0x2F VCID0 0x07 VCID1 0x03}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item VCID1 - 3-bit Virtual Channel ID for VC1 - \curreg[1].5
+		\item VCID0 - 3-bit Virtual Channel ID for VC0 - \curreg[1].2
+		\item SCID - 10-bit Spacecraft ID - \curreg[0]
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} N/A.
+
+\noindent \textbf{Notes:} The same Spacecraft ID is used for both uplink and
+downlink.
+
+The downlink Data Link Layer uses two Virtual Channels, identified by two 3-bit
+VCIDs, VCID0 and VCID1. The uplink Data Link Layer uses only one Virtual
+Channel, identified by one 6-bit VCID formed by concatenating VCID0 and VCID1
+so that the most significant bit of VCID1 becomes the most significant bit of
+the new VCID and the least significant bit of VCID0 becomes the least
+significant bit of the new VCID.
+
+\subsection{FECLvl}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Priority Enumeration
+
+\noindent \textbf{Description:} The FECLvl register controls the priority
+level of FEC error correction or detection events, if enabled by the FECRpt
+bit of the \hyperref[reg:sdlperrrpt]{SDLPErrRpt register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{FECLvl}{\curreg}
+		\label{reg:feclvl}
+		\regfield{FECLvl}{8}{0}{00000100}
+		\reglabel{WARNING}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item FECLvl - Priority level of FEC error correction or detection
+				errors - \curreg
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} WARNING
+
+\noindent \textbf{Notes:} The acceptable values for this register are the valid
+values of the Priority Enumeration data type, a one-hot encoding using bits 0
+through 4.
+
+\subsection{FECFLvl}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Priority Enumeration
+
+\noindent \textbf{Description:} The FECFLvl register controls the priority
+level of FECF error detection events, if enabled by the FECFRpt bit of the
+\hyperref[reg:sdlperrrpt]{SDLPErrRpt register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{FECFLvl}{\curreg}
+		\label{reg:fecflvl}
+		\regfield{FECFLvl}{8}{0}{00001000}
+		\reglabel{ERROR}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item FECFLvl - Priority level of FECF error detection errors - \curreg
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} ERROR
+
+\noindent \textbf{Notes:} The acceptable values for this register are the valid
+values of the Priority Enumeration data type, a one-hot encoding using bits 0
+through 4.
+
+\subsection{MissedFrameLvl}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Priority Enumeration
+
+\noindent \textbf{Description:} The MissedFrameLvl register controls the
+priority level of FARM missed frame detection events, if enabled by the
+MissedFrameRpt bit of the \hyperref[reg:sdlperrrpt]{SDLPErrRpt register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{MissedFrameLvl}{\curreg}
+		\label{reg:missedframelvl}
+		\regfield{MissedFrameLvl}{8}{0}{00001000}
+		\reglabel{ERROR}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item MissedFrameLvl - Priority level of FARM missed frame detection 
+				errors - \curreg
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} ERROR
+
+\noindent \textbf{Notes:} The acceptable values for this register are the valid
+values of the Priority Enumeration data type, a one-hot encoding using bits 0
+through 4.
+
+\subsection{LockoutLvl}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Priority Enumeration
+
+\noindent \textbf{Description:} The LockoutLvl register controls the priority
+level of FARM lockout events, if enabled by the LockoutRpt bit of the
+\hyperref[reg:sdlperrrpt]{SDLPErrRpt register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{LockoutLvl}{\curreg}
+		\label{reg:lockoutlvl}
+		\regfield{LockoutLvl}{8}{0}{00001000}
+		\reglabel{ERROR}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item LockoutLvl - Priority level of FARM lockout errors - \curreg
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} ERROR
+
+\noindent \textbf{Notes:} The acceptable values for this register are the valid
+values of the Priority Enumeration data type, a one-hot encoding using bits 0
+through 4.
+
+\subsection{DoubleFrameLvl}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Priority Enumeration
+
+\noindent \textbf{Description:} The DoubleFrameLvl register controls the
+priority level of FARM multiple reception events, if enabled by the
+DoubleFrameLvl bit of the \hyperref[reg:sdlperrrpt]{SDLPErrRpt register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{DoubleFrameLvl}{\curreg}
+		\label{reg:doubleframelvl}
+		\regfield{DoubleFrameLvl}{8}{0}{00000010}
+		\reglabel{INFO}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item DoubleFrameLvl - Priority level of duplicate frame reception 
+				errors - \curreg
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} INFO
+
+\noindent \textbf{Notes:} The acceptable values for this register are the valid
+values of the Priority Enumeration data type, a one-hot encoding using bits 0
+through 4.
+
+\subsection{InvalidIDLvl}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Priority Enumeration
+
+\noindent \textbf{Description:} The InvalidIDLvl register controls the
+priority level of invalid Transfer Frame ID reception events, if enabled by the
+InvalidIDRpt bit of the \hyperref[reg:sdlperrrpt]{SDLPErrRpt register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{InvalidIDLvl}{\curreg}
+		\label{reg:invalididlvl}
+		\regfield{InvalidIDLvl}{8}{0}{00001000}
+		\reglabel{ERROR}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item InvalidIDLvl - Priority level of invalid Transfer Frame ID 
+				reception errors - \curreg
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} ERROR
+
+\noindent \textbf{Notes:} The acceptable values for this register are the valid
+values of the Priority Enumeration data type, a one-hot encoding using bits 0
+through 4.
+
+\subsection{ShortFrameLvl}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Priority Enumeration
+
+\noindent \textbf{Description:} The ShortFrameLvl register controls the
+priority level of invalid Transfer Frame length events where fewer bytes are
+received than indicated by the Transfer Frame Length field, if enabled by the
+LengthRpt bit of the \hyperref[reg:sdlperrrpt]{SDLPErrRpt register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{ShortFrameLvl}{\curreg}
+		\label{reg:shortframelvl}
+		\regfield{ShortFrameLvl}{8}{0}{00001000}
+		\reglabel{ERROR}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item ShortFrameLvl - Priority level of short Transfer Frame reception
+				errors - \curreg
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} ERROR
+
+\noindent \textbf{Notes:} The acceptable values for this register are the valid
+values of the Priority Enumeration data type, a one-hot encoding using bits 0
+through 4.
+
+\subsection{LongFrameLvl}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Priority Enumeration
+
+\noindent \textbf{Description:} The LongFrameLvl register controls the
+priority level of invalid Transfer Frame length events where more bytes are
+received than indicated by the Transfer Frame Length field, if enabled by the
+LengthRpt bit of the \hyperref[reg:sdlperrrpt]{SDLPErrRpt register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{LongFrameLvl}{\curreg}
+		\label{reg:longframelvl}
+		\regfield{LongFrameLvl}{8}{0}{00000100}
+		\reglabel{WARNING}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item LongFrameLvl - Priority level of long Transfer Frame reception
+				errors - \curreg
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} WARNING
+
+\noindent \textbf{Notes:} The acceptable values for this register are the valid
+values of the Priority Enumeration data type, a one-hot encoding using bits 0
+through 4.
+
+\subsection{WaitLvl}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Priority Enumeration
+
+\noindent \textbf{Description:} The WaitLvl register controls the priority
+level of FARM insufficient buffer events, if enabled by the WaitRpt bit of the
+\hyperref[reg:sdlperrrpt]{SDLPErrRpt register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{WaitLvl}{\curreg}
+		\label{reg:waitlvl}
+		\regfield{WaitLvl}{8}{0}{00001000}
+		\reglabel{ERROR}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item WaitLvl - Priority level of FARM insufficient buffer errors - 
+				\curreg
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} ERROR
+
+\noindent \textbf{Notes:} The acceptable values for this register are the valid
+values of the Priority Enumeration data type, a one-hot encoding using bits 0
+through 4.
+
+\subsection{SDLPErrRpt}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Bitfields
+
+\noindent \textbf{Description:} The SDLPErrRpt register contains a number of
+bitfields controlling the reporting of errors within the SDLP Data Link Layer.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{SDLPErrRpt}{\curreg}
+		\label{reg:sdlperrrpt}
+		\regfield{FECRpt}{1}{7}{1}
+		\regfield{FECFRpt}{1}{6}{1}
+		\regfield{MissedFrameRpt}{1}{5}{1}
+		\regfield{LockoutRpt}{1}{4}{1}
+		\regfield{DoubleFrameRpt}{1}{3}{1}
+		\regfield{InvalidIDRpt}{1}{2}{1}
+		\regfield{LengthRpt}{1}{1}{1}
+		\regfield{WaitRpt}{1}{0}{1}
+		\reglabel{All Errors Reported}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item FECRpt - Enables reporting of FEC error correction or detection 
+				- \curreg[0].7
+		\item FECFRpt - Enables reporting of FECF error detection - 
+				\curreg[0].6
+		\item MissedFrameRpt - Enables reporting of missed frame errors - 
+				\curreg[0].5
+		\item LockoutRpt - Enables reporting of FARM lockout errors - 
+				\curreg[0].4
+		\item DoubleFrameRpt - Enables reporting of repeat frame reception 
+				errors - \curreg[0].3
+		\item InvalidIDRpt - Enables reporting of invalid Transfer Frame ID
+				errors - \curreg[0].2
+		\item LengthRpt - Enables reporting of incorrect Transfer Frame Length
+				errors - \curreg[0].1
+		\item WaitRpt - Enables reporting of FARM insufficient buffer errors - 
+				\curreg[0].0
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} If the spacecraft contains a flight
+computer which is capable of taking action to correct errors, in general all
+errors should be reported.
+
+\noindent \textbf{Notes:} When the FECRpt bit is set, anytime the FEC decoder
+decoding the binary BCH coding on the uplink channel corrects or detects an
+error, the decoder will report an error with the priority level defined in the
+\hyperref[reg:feclvl]{FECLvl register}.
+
+When the FECFRpt bit is set, anytime the Frame Error Control Field check on the
+uplink channel detects an error, an error will be reported with the priority
+level defined in the \hyperref[reg:fecflvl]{FECFLvl register}.
+
+When the MissedFrameRpt bit is set, anytime the FARM on the uplink channel
+detects a missed frame, an error will be reported with the priority
+level defined in the \hyperref[reg:missedframelvl]{MissedFrameLvl register}.
+
+When the LockoutRpt bit is set, anytime the FARM on the uplink channel receives
+a Transfer Frame which sends it into the Lockout state, an error will be
+reported with the priority level defined in the
+\hyperref[reg:lockoutlvl]{LockoutLvl register}.
+
+When the DoubleFrameRpt bit is set, anytime the FARM on the uplink channel
+detects a repeat frame, an error will be reported with the priority
+level defined in the \hyperref[reg:doubleframelvl]{DoubleFrameLvl register}.
+
+When the InvalidIDRpt bit is set, anytime a Transfer Frame is received on the
+uplink channel which has an invalid SCID or VCID, an error will be reported
+with the priority level defined in the \hyperref[reg:invalididlvl]{InvalidIDLvl
+register}.
+
+When the LengthRpt bit is set, anytime a Transfer Frame is received on the
+uplink channel which contains a number of bytes different than the number
+specified in the Transfer Frame Length field, an error will be reported.
+The error will have the priority level defined in the
+\hyperref[reg:shortframelvl]{ShortFrameLvl register} if fewer bytes are
+received than expected, or the priority level defined in the
+\hyperref[reg:longframelvl]{LongFrameLvl register} if more bytes are received
+than expected.
+
+When the WaitRpt bit is set, when the FARM on the uplink channel receives a
+Transfer Frame for which no buffer is available, sending the FARM state machine
+into the Wait state, an error will be reported with the priority level defined
+in the \hyperref[reg:waitlvl]{WaitLvl register}.
+
+\starttocentries
+
+\section{Channels}
+\label{sec:sdlpchan}
+
+\setcounter{idval}{112}
+\begin{longtable}{Wcr}
+		\caption{Channels}\\
+		\label{tab:channels}\\
+		\toprule
+		\em ID & \em Name  & \em Data Type\\
+		\midrule
+		\endhead\EndTableHeader
+		\setlabref{chan:sdlpfec} & \labref{FEC Corrections/Detections} & 
+			\labref{uint8\_t}\\
+		\setlabref{chan:sdlpcrc} & \labref{FECF Detections} & 
+			\labref{uint8\_t}\\
+		\setlabref{chan:sdlpvr} & \labref{Receiver Frame Sequence Number V(R)} & 
+			\labref{uint8\_t}\\
+		\setlabref{chan:sdlpmissed} & \labref{Missed Frames} & 
+			\labref{uint8\_t}\\
+		\setlabref{chan:sdlpdouble} & \labref{Double Receptions} & 
+			\labref{uint8\_t}\\
+		\setlabref{chan:sdlpas} & \labref{Type-A Frames Received} & 
+			\labref{uint8\_t}\\
+		\setlabref{chan:sdlpbs} & \labref{Type-B Frames Received} & 
+			\labref{uint8\_t}\\
+		\bottomrule
+\end{longtable}
+\setcounter{idval}{112}
+
+\stoptocentries
+
+\subsection{FEC Corrections/Detections}
+\label{chan:sdlpfec}
+
+\noindent \textbf{Channel ID:} \elyid 
+
+\noindent \textbf{Data Type:} uint8\_t
+
+\noindent \textbf{Description:} The FEC Corrections/Detections Channel reports
+the number of FEC corrections or detections (depending on the value of the
+BCH Mode field of the \hyperref[reg:tcfec]{TCFEC register}). 
+
+\noindent \textbf{Format:}
+\newline
+\newline
+\begin{center}
+\begin{bytefield}[endianness=big,bitwidth=2.25em]{8}
+		\bitheader{0-7}\\
+		\begin{rightwordgroup}{ID}
+				\bitbox{8}{\currid}
+		\end{rightwordgroup}\\
+		\begin{rightwordgroup}{FEC Corrections}
+				\bitbox{8}{Value}
+		\end{rightwordgroup}
+\end{bytefield}
+\end{center}
+
+\noindent \textbf{Notes:} This counter increases monotonically until it rolls
+over from 255 to 0.
+
+\subsection{FECF Detections}
+\label{chan:sdlpcrc}
+
+\noindent \textbf{Channel ID:} \elyid 
+
+\noindent \textbf{Data Type:} uint8\_t
+
+\noindent \textbf{Description:} The FECF Detections Channel reports the number
+of errors detected by the CRC value stored in the Frame Error Control Field of
+uplink frames, if enabled by the FECF field of the \hyperref[reg:tcfec]{TCFEC
+register}.
+
+\noindent \textbf{Format:}
+\newline
+\newline
+\begin{center}
+\begin{bytefield}[endianness=big,bitwidth=2.25em]{8}
+		\bitheader{0-7}\\
+		\begin{rightwordgroup}{ID}
+				\bitbox{8}{\currid}
+		\end{rightwordgroup}\\
+		\begin{rightwordgroup}{FECF Detections}
+				\bitbox{8}{Value}
+		\end{rightwordgroup}
+\end{bytefield}
+		\end{center}
+
+\noindent \textbf{Notes:} This counter increases monotonically until it rolls
+over from 255 to 0.
+
+\subsection{Receiver Frame Sequence Number V(R)}
+\label{chan:sdlpvr}
+
+\noindent \textbf{Channel ID:} \elyid 
+
+\noindent \textbf{Data Type:} uint8\_t
+
+\noindent \textbf{Description:} The Receiver Frame Sequence Number Channel
+contains the Receiver Frame Sequence Number, called V(R) in the TC and COP-1
+standards. This is the value of Frame Sequence Number, or N(S), expected to be
+seen in the next Type-AD Transfer Frame on the uplink Virtual Channel.
+
+\noindent \textbf{Format:}
+\newline
+\newline
+\begin{center}
+\begin{bytefield}[endianness=big,bitwidth=2.25em]{8}
+		\bitheader{0-7}\\
+		\begin{rightwordgroup}{ID}
+				\bitbox{8}{\currid}
+		\end{rightwordgroup}\\
+		\begin{rightwordgroup}{V(R)}
+				\bitbox{8}{Value}
+		\end{rightwordgroup}
+\end{bytefield}
+				\end{center}
+
+\noindent \textbf{Notes:} This counter increases monotonically as Transfer
+Framse are accepted until it rolls over from 255 to 0 or is modified by a "Set
+V(R)" command as defined in the COP-1 standard.
+
+\subsection{Missed Frames}
+\label{chan:sdlpmissed}
+
+\noindent \textbf{Channel ID:} \elyid 
+
+\noindent \textbf{Data Type:} uint8\_t
+
+\noindent \textbf{Description:} The Missed Frames Channel contains the number
+of frames that have been missed on the uplink channel as detected by the FARM.
+
+\noindent \textbf{Format:}
+\newline
+\newline
+\begin{center}
+\begin{bytefield}[endianness=big,bitwidth=2.25em]{8}
+		\bitheader{0-7}\\
+		\begin{rightwordgroup}{ID}
+				\bitbox{8}{\currid}
+		\end{rightwordgroup}\\
+		\begin{rightwordgroup}{Missed Frames}
+				\bitbox{8}{Value}
+		\end{rightwordgroup}
+\end{bytefield}
+						\end{center}
+
+\noindent \textbf{Notes:} When a Transfer Frame is received which has a
+sequence number greater than the current value of V(R), this counter is
+increased by the difference between the received sequence number N(S) and the
+current value of V(R).
+
+This counter increases monotonically until it rolls over from 255 to 0.
+
+\subsection{Double Receptions}
+\label{chan:sdlpdouble}
+
+\noindent \textbf{Channel ID:} \elyid 
+
+\noindent \textbf{Data Type:} uint8\_t
+
+\noindent \textbf{Description:} The Double Receptions Channel contains the
+number of frames that have been received twice on the uplink channel as
+detected by the FARM.
+
+\noindent \textbf{Format:}
+\newline
+\newline
+\begin{center}
+\begin{bytefield}[endianness=big,bitwidth=2.25em]{8}
+		\bitheader{0-7}\\
+		\begin{rightwordgroup}{ID}
+				\bitbox{8}{\currid}
+		\end{rightwordgroup}\\
+		\begin{rightwordgroup}{Double Receptions}
+				\bitbox{8}{Value}
+		\end{rightwordgroup}
+\end{bytefield}
+								\end{center}
+
+\noindent \textbf{Notes:} When a Transfer Frame is received which has a
+sequence number less than the current value of V(R), this counter is
+increased by one.
+
+This counter increases monotonically until it rolls over from 255 to 0.
+
+\subsection{Type-A Frames Received}
+\label{chan:sdlpas}
+
+\noindent \textbf{Channel ID:} \elyid 
+
+\noindent \textbf{Data Type:} uint8\_t
+
+\noindent \textbf{Description:} The Type A Frames Received Channel contains the
+number of Type-A frames that have been received on the uplink channel.
+
+\noindent \textbf{Format:}
+\newline
+\newline
+\begin{center}
+\begin{bytefield}[endianness=big,bitwidth=2.25em]{8}
+		\bitheader{0-7}\\
+		\begin{rightwordgroup}{ID}
+				\bitbox{8}{\currid}
+		\end{rightwordgroup}\\
+		\begin{rightwordgroup}{Type-A Frames}
+				\bitbox{8}{Value}
+		\end{rightwordgroup}
+\end{bytefield}
+										\end{center}
+
+\noindent \textbf{Notes:} This counter is incremented only when a Type-A frame
+is fully accepted (i.e., has passed all frame validation checks).
+
+This counter increases monotonically until it rolls over from 255 to 0.
+
+\subsection{Type-B Frames Received}
+\label{chan:sdlpbs}
+
+\noindent \textbf{Channel ID:} \elyid 
+
+\noindent \textbf{Data Type:} uint8\_t
+
+\noindent \textbf{Description:} The Type B Frames Received Channel contains the
+number of Type-B frames that have been received on the uplink channel.
+
+\noindent \textbf{Format:}
+\newline
+\newline
+\begin{center}
+\begin{bytefield}[endianness=big,bitwidth=2.25em]{8}
+		\bitheader{0-7}\\
+		\begin{rightwordgroup}{ID}
+				\bitbox{8}{\currid}
+		\end{rightwordgroup}\\
+		\begin{rightwordgroup}{Type-B Frames}
+				\bitbox{8}{Value}
+		\end{rightwordgroup}
+\end{bytefield}
+												\end{center}
+
+\noindent \textbf{Notes:} This counter is incremented only when a Type-B frame
+is fully accepted (i.e., has passed the Frame Error Control Field check, if
+enabled).
+
+This counter increases monotonically until it rolls over from 255 to 0.
+
+\starttocentries
+
+\section{Errors}
+\label{sec:sdlperrs}
+
+\setcounter{idval}{176}
+\begin{longtable}{Wr}
+		\caption{Errors}\\
+		\label{tab:errs}\\
+		\toprule
+		\em ID & \em Error\\
+		\midrule
+		\endhead\EndTableHeader
+		\setlabref{err:sdlpfec} & \labref{FEC Correct/Detect}\\
+		\setlabref{err:sdlpcrc} & \labref{FECF Detect}\\
+		\setlabref{err:sdlpmissed} & \labref{Missed Frame}\\
+		\setlabref{err:sdlplockout} & \labref{Lockout}\\
+		\setlabref{err:sdlpdouble} & \labref{Double Reception}\\
+		\setlabref{err:sdlpids} & \labref{Invalid Frame ID}\\
+		\setlabref{err:sdlpshort} & \labref{Frame Too Short}\\
+		\setlabref{err:sdlplong} & \labref{Frame Too Long}\\
+		\setlabref{err:sdlpwait} & \labref{Wait}\\
+		\bottomrule
+\end{longtable}
+\setcounter{idval}{176}
+
+\stoptocentries
+
+\subsection{FEC Correct/Detect}
+\label{err:sdlpfec}
+
+\noindent \textbf{Error ID:} \elyid 
+
+\noindent \textbf{Description:} The FEC Correct/Detect error indicates that the
+Forward Error Correction decoder on the uplink channel has corrected or
+detected an error (depending on the value of the BCH Mode field of the
+\hyperref[reg:tcfec]{TCFEC register}). 
+
+\noindent \textbf{Fault Response?} Transfer Frame discarded.
+
+\noindent \textbf{Recommended Priority:} WARNING for correction, ERROR for
+detection.
+
+\noindent \textbf{Priority Register:} \hyperref[reg:feclvl]{FECLvl}
+
+\subsection{FECF Detect}
+\label{err:sdlpcrc}
+
+\noindent \textbf{Error ID:} \elyid 
+
+\noindent \textbf{Description:} The FECF Detect error indicates that the
+Frame Error Control Field check on the uplink channel has 
+detected an error.
+
+\noindent \textbf{Fault Response?} Transfer Frame discarded.
+
+\noindent \textbf{Recommended Priority:} ERROR 
+
+\noindent \textbf{Priority Register:} \hyperref[reg:fecflvl]{FECFLvl}
+
+\subsection{Missed Frame}
+\label{err:sdlpmissed}
+
+\noindent \textbf{Error ID:} \elyid 
+
+\noindent \textbf{Description:} The Missed Frame error indicates that the FARM
+on the uplink channel has detected one or more missing frames.
+
+\noindent \textbf{Fault Response?} None.
+
+\noindent \textbf{Recommended Priority:} ERROR
+
+\noindent \textbf{Priority Register:}
+\hyperref[reg:missedframelvl]{MissedFrameLvl}
+
+\subsection{Lockout}
+\label{err:sdlplockout}
+
+\noindent \textbf{Error ID:} \elyid 
+
+\noindent \textbf{Description:} The Lockout error indicates that the FARM
+on the uplink channel has received a Transfer Frame with a sequence number
+outside of the sliding window and gone in the Lockout mode.
+
+\noindent \textbf{Fault Response?} Transfer Frame discarded. No further
+Transfer Frames are accepted until the Unlock command described in the COP-1
+standard is received.
+
+\noindent \textbf{Recommended Priority:} ERROR
+
+\noindent \textbf{Priority Register:} \hyperref[reg:lockoutlvl]{LockoutLvl}
+
+\subsection{Double Reception}
+\label{err:sdlpdouble}
+
+\noindent \textbf{Error ID:} \elyid 
+
+\noindent \textbf{Description:} The Double Reception error indicates that the
+FARM on the uplink channel has received a Transfer Frame with a sequence number
+less than the expected sequence number - that is, a Transfer Frame which has
+already been received.
+
+\noindent \textbf{Fault Response?} Transfer Frame discarded.
+
+\noindent \textbf{Recommended Priority:} INFO
+
+\noindent \textbf{Priority Register:}
+\hyperref[reg:doubleframelvl]{DoubleFrameLvl}
+
+\subsection{Invalid Frame ID}
+\label{err:sdlpids}
+
+\noindent \textbf{Error ID:} \elyid 
+
+\noindent \textbf{Description:} The Invalid Frame ID error indicates that the 
+radio has received a Transfer Frame with an invalid Spacecraft ID (SCID),
+Master Channel ID (MCID), or Virtual Channel ID (VCID).
+
+\noindent \textbf{Fault Response?} Transfer Frame discarded.
+
+\noindent \textbf{Recommended Priority:} ERROR
+
+\noindent \textbf{Priority Register:} \hyperref[reg:invalididlvl]{InvalidIDLvl}
+
+\subsection{Frame Too Short}
+\label{err:sdlpshort}
+
+\noindent \textbf{Error ID:} \elyid 
+
+\noindent \textbf{Description:} The Frame Too Short error indicates that the 
+radio has received a Transfer Frame whose Length field contains a value larger
+than the number of received bytes.
+
+\noindent \textbf{Fault Response?} Transfer Frame discarded.
+
+\noindent \textbf{Recommended Priority:} ERROR
+
+\noindent \textbf{Priority Register:}
+\hyperref[reg:shortframelvl]{ShortFrameLvl}
+
+\subsection{Frame Too Long}
+\label{err:sdlplong}
+
+\noindent \textbf{Error ID:} \elyid 
+
+\noindent \textbf{Description:} The Frame Too Long error indicates that the 
+radio has received a Transfer Frame whose Length field contains a value smaller
+than the number of received bytes.
+
+\noindent \textbf{Fault Response?} Excess bytes discarded.
+
+\noindent \textbf{Recommended Priority:} WARNING
+
+\noindent \textbf{Priority Register:} \hyperref[reg:longframelvl]{LongFrameLvl}
+
+\subsection{Wait}
+\label{err:sdlpwait}
+
+\noindent \textbf{Error ID:} \elyid 
+
+\noindent \textbf{Description:} The Wait error indicates that the 
+radio has received a valid Transfer Frame, but no buffer space is available to
+store the Transfer Frame. If the FARM is active, the FARM state machine
+transitions to the Wait state.
+
+\noindent \textbf{Fault Response?} Transfer Frame discarded
+
+\noindent \textbf{Recommended Priority:} ERROR
+
+\noindent \textbf{Priority Register:} \hyperref[reg:waitlvl]{WaitLvl}
+
+\starttocentries
+
+\section{Events}
+\label{sec:sdlpevts}
+
+\setcounter{idval}{240}
+\begin{longtable}{Wr}
+		\caption{Events}\\
+		\label{tab:events}\\
+		\toprule
+		\em ID & \em Event\\
+		\midrule
+		\endhead\EndTableHeader
+		\setlabref{evt:sdlpvr} & \labref{Receiver Sequence Number V(R) Changed}\\
+		\setlabref{evt:sdlpunlock} & \labref{Unlock}\\
+		\setlabref{evt:sdlpunwait} & \labref{Buffer Release}\\
+\end{longtable}
+\setcounter{idval}{240}
+
+\stoptocentries
+
+\subsection{Receiver Sequence Number V(R) Changed}
+\label{evt:sdlpvr}
+
+\noindent \textbf{Event ID:} \elyid 
+
+\noindent \textbf{Description:} The Receiver Sequence Number V(R) Changed Event
+indicates that the current value of the Receiver Sequence Number - V(R) as
+defined in the COP-1 standard -  has changed in a discontinuous way due to a
+"Set V(R)" command as defined in the COP-1 standard.
+
+\noindent \textbf{Notes:} The new value of V(R) can be retrieved from the
+\hyperref[chan:sdlpvr]{Receiver Frame Seuqence Number V(R)} channel.
+
+\subsection{Unlock}
+\label{evt:sdlpunlock}
+
+\noindent \textbf{Event ID:} \elyid 
+
+\noindent \textbf{Description:} The Unlock Event indicates that the FARM state
+machine has received the "Unlock" command as defined in the COP-1 standard and
+exited the Lock state, if required.
+
+\noindent \textbf{Notes:} This event is reported whenever the Unlock command is
+received, regardless of whether the FARM state machine is in the Lock state.
+
+\subsection{Buffer Release}
+\label{evt:sdlpunwait}
+
+\noindent \textbf{Event ID:} \elyid 
+
+\noindent \textbf{Description:} The Buffer Release Event corresponds to the
+Buffer Release Signal defined in the COP-1 standard and indicates that buffer
+space is now available for new Transfer Frames to arrive. The FARM state
+machine has also exited the Wait state.
+
+\noindent \textbf{Notes:} This event is reported only when the FARM state
+machine is active.
+
+\starttocentries
+
+\appendix
+
+\section{Revision History}
+
+\begin{enumerate}
+		\item Initial release
+\end{enumerate}
+
+\end{document}

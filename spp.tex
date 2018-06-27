@@ -1,0 +1,729 @@
+\documentclass{hitec}
+
+\author{Andrew Wygle}
+\title{Elysium Radio Networking Layer - Space Packet Protocol}
+\company{Adamant Aerospace}
+\confidential{\textbf{Unlimited Distribution}}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{pdfpages}
+\usepackage{gensymb}
+\usepackage{siunitx}
+\usepackage{bytefield}
+\usepackage[hyperref=true]{register}
+\usepackage{rotating}
+\usepackage{titlesec}
+\usepackage{subcaption}
+\usepackage{fmtcount}
+\usepackage{parskip}
+\usepackage{caption}
+\usepackage[autostyle, english = american]{csquotes}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage[colorlinks=true, linktoc=all]{hyperref}
+\usepackage{etoolbox}
+
+\MakeOuterQuote{"}
+
+\settextfraction{1}
+
+\newcommand{\chref}[1]{\hyperref[ch:#1]{Section~\ref{ch:#1}}}
+\newcommand{\figref}[1]{\hyperref[fig:#1]{Figure~\ref{fig:#1}}}
+\newcommand{\tabref}[1]{\hyperref[tab:#1]{Table~\ref{tab:#1}}}
+\makeatletter
+\newcommand*{\textoverline}[1]{$\overline{\hbox{#1}}\m@th$}
+\makeatother
+
+\newcommand{\bitlabel}[2]{%
+	\bitbox[]{#1}{%
+		\raisebox{0pt}[4ex][0pt]{%
+			\turnbox{45}{\fontsize{7}{7}\selectfont#2}%
+		}%
+	}%
+}
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\subsubsection}
+	{\normalfont\fontsize{12}{15}\bfseries}{\thesubsubsection}{1em}{}
+
+
+\newcounter{regaddr}
+\newcounter{regsize}
+\newcommand*{\elyregaddr}[1][1]{0x\padzeroes[2]\Hexadecimal{regaddr}\addtocounter{regaddr}{#1}\setcounter{regsize}{#1}}
+
+\newcommand*{\curreg}[1][0]{%
+		\addtocounter{regaddr}{\the\numexpr#1-\value{regsize}\relax}%
+		0x\padzeroes[2]\Hexadecimal{regaddr}%
+		\addtocounter{regaddr}{\the\numexpr\value{regsize}-#1\relax}%
+}
+
+\newcounter{idval}
+\newcommand*{\elyid}[0]{0x\padzeroes[2]\Hexadecimal{idval}\addtocounter{idval}{1}}
+
+\newcommand*{\currid}[0]{%
+		\addtocounter{idval}{-1}%
+		0x\padzeroes[2]\Hexadecimal{idval}%
+		\addtocounter{idval}{1}%
+}
+
+\newtoggle{inTableHeader}
+\toggletrue{inTableHeader}
+\newcommand*{\StartTableHeader}{\global\toggletrue{inTableHeader}}
+\newcommand*{\EndTableHeader}{\global\togglefalse{inTableHeader}}
+\let\OldLongtable\longtable%
+\let\OldEndLongtable\endlongtable%
+\renewenvironment{longtable}{\StartTableHeader\OldLongtable}{\OldEndLongtable\StartTableHeader}%
+
+\newcommand*{\setlabref}[1]{\gdef\currlabref{#1}}
+\newcommand*{\labref}[1]{\iftoggle{inTableHeader}{}{\hyperref[\currlabref]{#1}}}
+\newcolumntype{W}{>{\global\let\currlabref\relax}l<{\labref{\elyid}}}
+\newcolumntype{R}{>{\global\let\currlabref\relax}l<{\labref{\elyregaddr}}}
+
+\let\oldaddcontentsline\addcontentsline
+\newcommand{\stoptocentries}{\renewcommand{\addcontentsline}[3]{}}
+\newcommand{\starttocentries}{\let\addcontentsline\oldaddcontentsline}
+
+\begin{document}
+
+% NOTE page numbering is controlled by scrreprt for the initial stuff - look into this later
+
+\maketitle
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Upon testing, we're going to use Chapters and Sections but not Parts
+\section{Overview}
+\label{ch:overview}
+
+The Space Packet Protocol
+(\href{https://public.ccsds.org/Pubs/133x0b1c2.pdf}{CCSDS Recommended Standard
+133.0-B-1}) is a network layer standard used by many NASA and ESA missions.
+
+Packets of the Space Packet Protocol are routed using Application Process
+Identifiers (APIDs). The SrcAddr register will be interpreted as an APID
+assigned to the Elyisum radio. All packets containing this APID will be routed
+to the Elysium radio.
+
+The Space Packet Protocol also makes a distinction between telemetry (or
+reporting) packets and telecommand (or requesting) packets. With the exception
+of packets containing the APID of the Elysium radio, all telemetry packets are
+routed over the radio link, while all telecommand packets are routed over the
+UART interface.
+
+More details of address translation and routing can be found in
+\hyperref[sec:spproute]{Section \ref{sec:spproute}}.
+
+Registers associated with the SPP Network Layer subsystem can be found in
+\hyperref[sec:sppregs]{Section \ref{sec:sppregs}}. Channels, Errors, and Events
+associated with the SPP Network Layer subsystem can be found in
+\hyperref[sec:sppchan]{Section \ref{sec:sppchan}},
+\hyperref[sec:spperrs]{Section \ref{sec:spperrs}}, and
+\hyperref[sec:sppevts]{Section \ref{sec:sppevts}}, respectively.
+
+\section{Routing}
+\label{sec:spproute}
+
+In order to receive Space Packets, the Elysium must have a valid APID. 
+This APID is derived from the value of the SrcAddr register by taking the least
+significant 11 bits. Translations of APIDs into Reply Addresses is performed by
+left-padding the APID into a 16-bit value.
+
+Routing decisions are made by examining the Packet Type and APID of the Packet
+Primary Header. If the Packet Type is Telecommand and the APID does not match
+the Elysium APID, the packet is routed out the UART interface. If the Packet
+Type is Telemetry and the source of the packet is not the Elysium, the packet
+is passed to the Data Link Layer for transmission over the RF interface.
+
+When Packet Type is Telemetry and the source of the packet is the Elysium,
+the packet must be inspected further in
+order to determine its destination. If the APID matches the value stored in the
+\hyperref[reg:groundapid]{GroundAPID} register, the packet is passed to the
+Data Link Layer for transmission over the RF interface - otherwise the packet
+is routed out the UART interface.
+
+As a small amount of framing is required to transmit Space Packets over the
+UART link, the END and ESC bytes from the
+\href{https://tools.ietf.org/html/rfc1055}{Serial Line Internet Protocol} are
+used. An END byte (0xC0) indicates the end of a Space Packet (and thus the
+start of a new one). An ESC byte is used to escape an END byte (with the
+sequence 0xDB 0xDC) or an ESC byte (with the sequence 0xDB 0xDD) found in the
+Packet.
+
+\section{Registers}
+\label{sec:sppregs}
+
+This section defines the registers in \tabref{sppregs}, which apply to the
+Space Packet Protocol Network Layer.
+
+\setcounter{regaddr}{128}
+\begin{longtable}{Rcr}
+		\caption{SPP Registers}\\
+		\label{tab:sppregs}\\
+		\toprule
+		\em Address & \em Name & \em Description\\
+		\midrule
+		\endhead\EndTableHeader
+		\setlabref{reg:maxpktlength} & \labref{MaxPktLength0} & \labref{Maximum
+			Packet Length LSB}\\
+		\setlabref{reg:maxpktlength} & \labref{MaxPktLength1} & \labref{Maximum
+			Packet Length MSB}\\
+		\setlabref{reg:groundapid} & \labref{GroundAPID0} & \labref{Ground APID
+			LSB}\\
+		\setlabref{reg:groundapid} & \labref{GroundAPID1} & \labref{Ground APID
+			MSB}\\
+		\setlabref{reg:pktname} & \labref{PktName0} & \labref{Packet Name
+			LSB}\\
+		\setlabref{reg:pktname} & \labref{PktName1} & \labref{Packet Name
+			MSB}\\
+		\setlabref{reg:sppoptions} & \labref{Options} & \labref{General
+			Configuration Bitfields}\\
+		\setlabref{reg:pvnerrlvl} & \labref{PVNErrLvl} & 
+			\labref{Invalid PVN Error Reporting Level}\\
+		\setlabref{reg:pktlengthlvl} & \labref{PktLengthLvl} & 
+			\labref{Packet Length Mismatch Error Reporting Level}\\
+		\setlabref{reg:spperrrpt} & \labref{SPPErrRpt} & 
+			\labref{SPP Error Reporting Bitfields}\\
+		\bottomrule
+\end{longtable}
+\setcounter{regaddr}{128}
+
+\stoptocentries
+
+\subsection{MaxPktLength[0-1]}
+
+\noindent \textbf{Address:} \elyregaddr[2]
+
+\noindent \textbf{Data Type:} uint16\_t
+
+\noindent \textbf{Description:} The MaxPktLength register contains the maximum
+length of a Space Packet as a 16-bit unsigned integer in bytes. 
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{MaxPktLength}{\curreg}
+		\label{reg:maxpktlength}
+		\regfield{MaxPktLength1}{8}{8}{0001_0000}
+		\regfield{MaxPktLength0}{8}{0}{0000_0000}
+		\reglabel{4096 Bytes}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item MaxPktLength1 - MSB - \curreg[1]
+		\item MaxPktLength0 - LSB - \curreg[0]
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} 2048 bytes
+
+\noindent \textbf{Notes:} The valid range for this register is from 7 to 4096
+bytes. 
+
+The number of packets capable of being stored in the on-board buffer is
+directly proportional to this value. The buffer is 8192 bytes deep and is
+divided into slots of length MaxPktLength, with excess bytes remaining unused.
+
+\subsection{GroundAPID[0-1]}
+
+\noindent \textbf{Address:} \elyregaddr[2]
+
+\noindent \textbf{Data Type:} uint16\_t
+
+\noindent \textbf{Description:} The GroundAPID register contains the APID used 
+to identify the ground station when sending Telemetry packets from the Elysium
+itself.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{GroundAPID}{\curreg}
+		\label{reg:groundapid}
+		\regfield{GroundAPID1}{8}{8}{0000_0101}
+		\regfield{GroundAPID0}{8}{0}{1001_1011}
+		\reglabel{0x59B}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item GroundAPID1 - MSB - \curreg[1]
+		\item GroundAPID0 - LSB - \curreg[0]
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} N/A
+
+\noindent \textbf{Notes:} The valid range for this register is from 0 to 2047
+(0x000 to 0x7FF). A value over 0x7FF will be masked with 0x7FF to produce a
+legal value.
+
+This value will be used to determine when Elysium responses should be routed
+over the radio to the ground station. Because all Elyisum response packets are
+Telemetry packets, this APID is required to determine the routing destination
+for such packets. All other packets are routed in a pass-through fashion as
+described in \hyperref[sec:spproute]{Section \ref{sec:spproute}}.
+
+\subsection{PktName[0-1]}
+
+\noindent \textbf{Address:} \elyregaddr[2]
+
+\noindent \textbf{Data Type:} uint16\_t
+
+\noindent \textbf{Description:} The PktName register contains the Packet Name
+used in place of the Packet Sequence Count if configured in the Packet Name
+field of the \hyperref[reg:sppoptions]{Options register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{PktName}{\curreg}
+		\label{reg:pktname}
+		\regfield{PktName1}{8}{8}{0001_1010}
+		\regfield{PktName0}{8}{0}{0101_1100}
+		\reglabel{0x1A5C}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item PktName1 - MSB - \curreg[1]
+		\item PktName0 - LSB - \curreg[0]
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} Use of this option is not recommended.
+
+\noindent \textbf{Notes:} The valid range for this register is from 0 to 16383
+(0x000 to 0x3FFF). A value over 0x3FFF will be clipped to 0x3FFF.
+
+\subsection{Options}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Bitfields
+
+\noindent \textbf{Description:} The Options register contains a number of
+bitfields which configure the use of optional features of the Space Packet
+Protocol.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{Options}{\curreg}
+		\label{reg:sppoptions}
+		\regfield{Res.}{5}{3}{1111_1}
+		\regfield{Packet Name}{1}{2}{0}
+		\regfield{Timestamp}{1}{1}{0}
+		\regfield{P-field}{1}{0}{0}
+		\reglabel{No Options Enabled}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item Res. - Reserved. These bits are ignored. - \curreg.3
+		\item Packet Name - Packet Name enable field - \curreg.2
+		\item Timestamp - Timestamp enable field - \curreg.1
+		\item P-Field - P-Field enable field - \curreg.1
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} In general, none of these options are
+needed, however if the Timestamp option is used the P-field option should also
+be used.
+
+\noindent \textbf{Notes:} The reserved bits are ignored and may be safely set
+to any value.
+
+The Packet Name field enables the use of the optional Packet Name function of
+the Space Packet Protocol, which replaces the Packet Sequence Count with a
+user-specified identifier (specified in the \hyperref[reg:pktname]{Packet Name 
+register}).
+
+The Timestamp field enables the use of the optional Time Code Field of the
+Space Packet Protocol. The Time Code Field is an optional field in the Packet
+Secondary Header which describes the time at which a packet was sent in one of
+several formats. When this bit is set, all Telemetry packets sent by the
+Elysium will contain in the Time Code Field the current Mission Time as a
+32-bit signed integer. See the Elysium User Manual for more information.
+
+The P-Field field enables the use of the optional P-Field portion of the Time
+Code Field of the Space Packet Protocol. When this bit is set, a P-Field is
+prepended to the 4-byte timestamp value to describe it as using an unsegmented
+time code with an 
+Agency-defined epoch and using 4 bytes for the basic time unit and 0 bytes
+for the fractional time unit. This corresponds to a P-field value of 00101100
+or 0x2C.
+
+The Ancillary Data Field of the Space Packet Protocol is not supported by the
+Elysium.
+
+\subsection{PVNErrLvl}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Priority Enumeration
+
+\noindent \textbf{Description:} The PVNErrLvl register controls the
+priority level of invalid PVN errors, if enabled by the
+PVNErrRpt bit of the \hyperref[reg:spperrrpt]{SPPErrRpt register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{PVNErrLvl}{\curreg}
+		\label{reg:pvnerrlvl}
+		\regfield{PVNErrLvl}{8}{0}{00001000}
+		\reglabel{ERROR}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item PVNErrLvl - Priority level of invalid PVN errors - \curreg
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} ERROR
+
+\noindent \textbf{Notes:} The acceptable values for this register are the valid
+values of the Priority Enumeration data type, a one-hot encoding using bits 0
+through 4.
+
+\subsection{PktLengthLvl}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Priority Enumeration
+
+\noindent \textbf{Description:} The PktLengthLvl register controls the
+priority level of packet length mismatch errors, if enabled by the
+PktLengthRpt bit of the \hyperref[reg:spperrrpt]{SPPErrRpt register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{PktLengthLvl}{\curreg}
+		\label{reg:pktlengthlvl}
+		\regfield{PktLengthLvl}{8}{0}{00001000}
+		\reglabel{ERROR}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item PktLengthLvl - Priority level of invalid PVN errors - \curreg
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} ERROR
+
+\noindent \textbf{Notes:} The acceptable values for this register are the valid
+values of the Priority Enumeration data type, a one-hot encoding using bits 0
+through 4.
+
+\subsection{SPPErrRpt}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Bitfields
+
+\noindent \textbf{Description:} The SPPErrRpt register contains a number of
+bitfields controlling the reporting of errors within the SPP Networking Layer.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{SPPErrRpt}{\curreg}
+		\label{reg:spperrrpt}
+		\regfield{Res.}{6}{2}{11_1111}
+		\regfield{PVNErrRpt}{1}{1}{1}
+		\regfield{PktLengthRpt}{1}{0}{1}
+		\reglabel{All Errors Reported}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item Res. - Reserved. These bits are ignored. - \curreg.6
+		\item PVNErrRpt - Enables reporting of invalid PVN errors - 
+				\curreg[0].1
+		\item PktLengthRpt - Enables reporting of packet length mismatch errors
+				- \curreg[0].0
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} If the spacecraft contains a flight
+computer which is capable of taking action to correct errors, in general all
+errors should be reported.
+
+\noindent \textbf{Notes:} The reserved bits are ignored and may be safely set
+to any value.
+
+When the PVNErrRpt bit is set, anytime a Space Packet is received with an
+invalid Packet Version Number, an error will be reported with the priority
+level defined in the \hyperref[reg:pvnerrlvl]{PVNErrLvl register}.
+
+When the PktLengthRpt bit is set, anytime a Space Packet is received which
+consists of a different number of bytes than that specified in the Packet Data
+Length field, an error will be reported with the priority
+level defined in the \hyperref[reg:pktlengthlvl]{PktLengthLvl register}.
+
+\starttocentries
+
+\section{Channels}
+\label{sec:sppchan}
+
+\setcounter{idval}{96}
+\begin{longtable}{Wcr}
+		\caption{Channels}\\
+		\label{tab:channels}\\
+		\toprule
+		\em ID & \em Name  & \em Data Type\\
+		\midrule
+		\endhead\EndTableHeader
+		\setlabref{chan:spppktrecv} & \labref{Packets Received} & 
+			\labref{uint8\_t}\\
+		\setlabref{chan:spppktsend} & \labref{Packets Sent} & 
+			\labref{uint16\_t}\\
+		\setlabref{chan:spppktrelay} & \labref{Packets Relayed} & 
+			\labref{uint8\_t}\\
+		\bottomrule
+\end{longtable}
+\setcounter{idval}{96}
+
+\stoptocentries
+
+\subsection{Packets Receieved}
+\label{chan:spppktrecv}
+
+\noindent \textbf{Channel ID:} \elyid 
+
+\noindent \textbf{Data Type:} uint8\_t
+
+\noindent \textbf{Description:} The Packets Received Channel reports the number
+of Telecommand packets received by the Elysium firmware.
+
+\noindent \textbf{Format:}
+\newline
+\newline
+\begin{center}
+\begin{bytefield}[endianness=big,bitwidth=2.25em]{8}
+		\bitheader{0-7}\\
+		\begin{rightwordgroup}{ID}
+				\bitbox{8}{}
+		\end{rightwordgroup}\\
+		\begin{rightwordgroup}{Packets Received}
+				\bitbox{8}{Value}
+		\end{rightwordgroup}
+\end{bytefield}
+\end{center}
+
+\noindent \textbf{Notes:} This counter increases monotonically until it rolls
+over from 255 to 0.
+
+\subsection{Packets Sent}
+\label{chan:spppktsend}
+
+\noindent \textbf{Channel ID:} \elyid 
+
+\noindent \textbf{Data Type:} uint16\_t
+
+\noindent \textbf{Description:} The Packets Sent Channel reports the number of
+Telemetry packets sent by the Elysium firmware.
+
+\noindent \textbf{Format:}
+\newline
+\newline
+\begin{center}
+\begin{bytefield}[endianness=big,bitwidth=2.25em]{8}
+		\bitheader{0-7}\\
+		\begin{rightwordgroup}{ID}
+				\bitbox{8}{}
+		\end{rightwordgroup}\\
+		\begin{rightwordgroup}{Packets Sent}
+				\bitbox{8}{Value Byte 1}\\
+				\bitbox{8}{Value Byte 0}
+		\end{rightwordgroup}
+\end{bytefield}
+\end{center}
+
+\noindent \textbf{Notes:} This value corresponds with the value to be placed in
+the Packet Sequence Count field of the next Space Packet sent by the Elysium
+(or the value that would be placed there if the Packet Name bit of the
+\hyperref[reg:sppoptions]{Options register} were not set). As such, it is
+limited to 14 bits, or the range from 0 to 16383.
+
+This counter increases monotonically until it rolls over from 16383 to 0.
+
+\subsection{Packets Relayed}
+\label{chan:spppktrelay}
+
+\noindent \textbf{Channel ID:} \elyid 
+
+\noindent \textbf{Data Type:} uint8\_t
+
+\noindent \textbf{Description:} The Packets Relayed Channel reports the number
+of both Telemetry and Telecommand packets relayed through the Elysium, without
+being received by or sent from the Elysium firmware.
+
+\noindent \textbf{Format:}
+\newline
+\newline
+\begin{center}
+\begin{bytefield}[endianness=big,bitwidth=2.25em]{8}
+		\bitheader{0-7}\\
+		\begin{rightwordgroup}{ID}
+				\bitbox{8}{}
+		\end{rightwordgroup}\\
+		\begin{rightwordgroup}{Packets Relayed}
+				\bitbox{8}{Value}
+		\end{rightwordgroup}
+\end{bytefield}
+\end{center}
+
+\noindent \textbf{Notes:} This value is incremented whenever a packet is passed
+through the Elysium without interacting with the Elysium firmware, in either
+direction.
+
+This counter increases monotonically until it rolls over from 255 to 0.
+
+\starttocentries
+
+\section{Errors}
+\label{sec:spperrs}
+
+\setcounter{idval}{160}
+\begin{longtable}{Wr}
+		\caption{Errors}\\
+		\label{tab:errs}\\
+		\toprule
+		\em ID & \em Error\\
+		\midrule
+		\endhead\EndTableHeader
+		\setlabref{err:spppvn} & \labref{PVN Mismatch}\\
+		\setlabref{err:spplength} & \labref{Packet Length Mismatch}\\
+		\bottomrule
+\end{longtable}
+\setcounter{idval}{160}
+
+\stoptocentries
+
+\subsection{PVN Mismatch}
+\label{err:spppvn}
+
+\noindent \textbf{Error ID:} \elyid 
+
+\noindent \textbf{Description:} The PVN Mismatch error indicates that the
+Elysium firwmare has received a Space Packet with a Packet Version Number (PVN)
+other than '000'.
+
+\noindent \textbf{Fault Response?} Packet discarded.
+
+\noindent \textbf{Recommended Priority:} ERROR 
+
+\noindent \textbf{Priority Register:} \hyperref[reg:pvnerrlvl]{PVNErrLvl}
+
+\subsection{Packet Length Mismatch}
+\label{err:spplength}
+
+\noindent \textbf{Error ID:} \elyid 
+
+\noindent \textbf{Description:} The Packet Length Mismatch error indicates that
+the Elysium firwmare has received a Space Packet with a Packet Data Length
+field which indicates either more or fewer bytes than the number of bytes
+available in the packet.
+
+\noindent \textbf{Fault Response?} Packet discarded.
+
+\noindent \textbf{Recommended Priority:} ERROR 
+
+\noindent \textbf{Priority Register:} \hyperref[reg:pktlengthlvl]{PktLengthLvl}
+
+\starttocentries
+
+\section{Events}
+\label{sec:sppevts}
+
+\setcounter{idval}{224}
+\begin{longtable}{Wr}
+		\caption{Events}\\
+		\label{tab:events}\\
+		\toprule
+		\em ID & \em Event\\
+		\midrule
+		\endhead\EndTableHeader
+		\setlabref{evt:spprecv} & \labref{Packet Received}\\
+		\setlabref{evt:sppsent} & \labref{Packet Sent}\\
+		\setlabref{evt:spprelay} & \labref{Packet Relayed}\\
+\end{longtable}
+\setcounter{idval}{224}
+
+\stoptocentries
+
+\subsection{Packet Received}
+\label{evt:spprecv}
+
+\noindent \textbf{Event ID:} \elyid 
+
+\noindent \textbf{Description:} The Packet Received Event indicates that the
+Elysium firmware has received a Telecommand packet.
+
+\noindent \textbf{Notes:} The total number of received packets can be retrieved
+from the \hyperref[chan:spppktrecv]{Packets Received} channel.
+
+\subsection{Packet Sent}
+\label{evt:sppsent}
+
+\noindent \textbf{Event ID:} \elyid 
+
+\noindent \textbf{Description:} The Packet Transmitted Event indicates that the
+Elysium firmware has sent out a Telemetry packet.
+
+\noindent \textbf{Notes:} The total number of sent packets can be retrieved
+from the \hyperref[chan:spppktsend]{Packets Sent} channel.
+
+\subsection{Packet Relayed}
+\label{evt:spprelay}
+
+\noindent \textbf{Event ID:} \elyid 
+
+\noindent \textbf{Description:} The Packet Relayed Event indicates that the
+Elysium has relayed a Space Packet.
+
+\noindent \textbf{Notes:} The total number of relayed packets can be retrieved
+from the \hyperref[chan:spppktrelay]{Packets Relayed} channel.
+
+\starttocentries
+
+\appendix
+
+\section{Revision History}
+
+\begin{enumerate}
+		\item Initial release
+\end{enumerate}
+
+\end{document}

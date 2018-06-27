@@ -1,0 +1,178 @@
+GAS LISTING /tmp/ccEHLCz2.s 			page 1
+
+
+   1               	# 1 "../..//core/bootloader/bootloader.S"
+   1               	
+   0               	
+   0               	
+   2               	.section ".bootloader", "a"
+   3               	__msp430_resetvec_hook:
+   4 0000 0000      	.word _bootloader_start
+   5               	
+   6               	.section ".info", "a"
+   7               	.global __bootloader_start
+   8               	_bootloader_start:
+   9 0000 1442 0000 	  mov.w &bootloader, r4 ; read bootloader flag
+  10 0004 0493      	  tst r4 ; is r4 zero?
+  11 0006 0020      	  jnz _main ; if not, continue
+  12 0008 B012 0000 	  call #__crt0_start ; we continue by jumping to the TI crt0 - this can't move
+  13               	_main:
+  14               	  ; now we're in the bootloader proper
+  15               	
+  16               	  ; disable the watchdog
+  17 000c B240 845A 	  mov.w #0x5A84, &WDTCTL
+  17      0000 
+  18               	
+  19               	  ; initialize the clocks
+  20 0012 B240 00A5 	  mov.w #0xA500, &CSCTL0
+  20      0000 
+  21 0018 B240 0600 	  mov.w #0x0006, &CSCTL1
+  21      0000 
+  22 001e B240 3300 	  mov.w #0x0033, &CSCTL2
+  22      0000 
+  23 0024 B240 3300 	  mov.w #0x0033, &CSCTL3
+  23      0000 
+  24 002a F240 FF00 	  mov.b #0xFF, &CSCTL0_H
+  24      0000 
+  25               	
+  26               	  ; dma
+  27 0030 B240 1200 	  mov.w #0x0012, &DMACTL0
+  27      0000 
+  28 0036 B240 FFFB 	  mov.w #0xFBFF, &DMA0SZ
+  28      0000 
+  29 003c B240 0044 	  mov.w #0x4400, &DMA0DA
+  29      0000 
+  30 0042 B240 4C06 	  mov.w #0x064C, &DMA0SA
+  30      0000 
+  31 0048 B240 D00C 	  mov.w #0x0CD0, &DMA0CTL
+  31      0000 
+  32               	
+  33               	  ; initialize the I2C module
+  34               	  ; master mode, i2c mode, smclk (8 MHz DCO), transmit, start
+  35 004e B240 930F 	  mov.w #0x0F93, &UCB0CTLW0
+  35      0000 
+  36               	  ; defaults are fine for UCB0CTLW1
+  37               	  ; BR of 20 gives 400 kHz
+  38 0054 B240 0A00 	  mov.w #10, &UCB0BRW
+  38      0000 
+  39               	  ; STATW is read-only
+  40               	  ; not using TBCNT
+  41               	  ; 7-bit slave address for upper half
+GAS LISTING /tmp/ccEHLCz2.s 			page 2
+
+
+  42 005a B240 5100 	  mov.w #0x51, &UCB0I2CSA
+  42      0000 
+  43               	
+  44               	  ; initialize the pins
+  45 0060 F240 D000 	  mov.b #0xD0, &PAOUT_L
+  45      0000 
+  46 0066 C243 0000 	  mov.b #0x00, &PADIR_L
+  47 006a F240 D800 	  mov.b #0xD8, &PAREN_L
+  47      0000 
+  48 0070 F240 2700 	  mov.b #0x27, &PASEL0_L
+  48      0000 
+  49 0076 F240 C700 	  mov.b #0xC7, &PASEL1_L
+  49      0000 
+  50 007c 92C3 0000 	  bic #0x0001, &PM5CTL0
+  51               	
+  52               	  ; enable i2c
+  53 0080 92C3 0000 	  bic #0x0001, &UCB0CTLW0
+  54               	  ; wait until TXIFG triggers
+  55               	  addr_loop_1:
+  56 0084 A2B3 0000 	    bit.w #0x0002, &UCB0IFG
+  57 0088 0024      	    jz addr_loop_1
+  58               	  ; transmit base address
+  59 008a E242 0000 	  mov.b #0x04, &UCB0TXBUF
+  60               	  ; wait until TXIFG triggers
+  61               	  addr_loop_2:
+  62 008e A2B3 0000 	    bit.w #0x0002, &UCB0IFG
+  63 0092 0024      	    jz addr_loop_2
+  64 0094 C243 0000 	  mov.b #0x00, &UCB0TXBUF
+  65               	  ; wait until TXIFG triggers
+  66               	  addr_loop_3:
+  67 0098 A2B3 0000 	    bit.w #0x0002, &UCB0IFG
+  68 009c 0024      	    jz addr_loop_3
+  69 009e C243 0000 	  mov.b #0x00, &UCB0TXBUF
+  70               	
+  71               	  ; restart as receiver
+  72 00a2 B240 820F 	  mov.w #0X0F82, &UCB0CTLW0
+  72      0000 
+  73               	  ; initialize address register
+  74               	  ;mov.a #0x4400, r4 
+  75               	  ;main_loop:
+  76               	  ;  rx_loop:
+  77               	  ;    ; wait until RXIFG triggers
+  78               	  ;    bit.w #0x0001, &UCB0IFG
+  79               	  ;    jz rx_loop
+  80               	  ;  ; move value from RXBUF to appropriate memory slot
+  81               	  ;  mov.b &UCB0RXBUF_L, 0(r4)
+  82               	  ;  incx.a r4 ; next address
+  83               	  ;  cmpx.a #0x13FFF, r4 ; are we done?
+  84               	  ;  jne main_loop ; if not, do it again
+  85               	
+  86               	  dma_loop:
+  87               	    ; wait until DMAIFG triggers
+  88 00a8 B2B2 0000 	    bit.w #0x0008, &DMA0CTL
+  89 00ac 0024      	    jz dma_loop
+  90               	
+  91               	  ; nack/stop
+  92 00ae A2D2 0000 	  bis #0x0004, &UCB0CTLW0
+GAS LISTING /tmp/ccEHLCz2.s 			page 3
+
+
+  93               	
+  94               	  ; last byte
+  95 00b2 D442 0000 	  mov.b &UCB0RXBUF_L, 0(r4)
+  95      0000 
+  96               	
+  97               	  stop_loop:
+  98 00b8 A2B2 0000 	    bit.w #0x004, &UCB0CTLW0
+  99 00bc 0020      	    jnz stop_loop
+ 100               	
+ 101               	  ; done programming - clear the bootloader flag
+ 102 00be C243 0000 	  mov.b #0, &bootloader
+ 103               	  ; reset
+ 104 00c2 B240 48A5 	  mov.w #0xA548, &PMMCTL0
+ 104      0000 
+GAS LISTING /tmp/ccEHLCz2.s 			page 4
+
+
+DEFINED SYMBOLS
+../..//core/bootloader/bootloader.S:3      .bootloader:0000000000000000 __msp430_resetvec_hook
+../..//core/bootloader/bootloader.S:8      .info:0000000000000000 _bootloader_start
+../..//core/bootloader/bootloader.S:13     .info:000000000000000c _main
+../..//core/bootloader/bootloader.S:55     .info:0000000000000084 addr_loop_1
+../..//core/bootloader/bootloader.S:61     .info:000000000000008e addr_loop_2
+../..//core/bootloader/bootloader.S:66     .info:0000000000000098 addr_loop_3
+../..//core/bootloader/bootloader.S:86     .info:00000000000000a8 dma_loop
+../..//core/bootloader/bootloader.S:97     .info:00000000000000b8 stop_loop
+
+UNDEFINED SYMBOLS
+__bootloader_start
+bootloader
+__crt0_start
+WDTCTL
+CSCTL0
+CSCTL1
+CSCTL2
+CSCTL3
+CSCTL0_H
+DMACTL0
+DMA0SZ
+DMA0DA
+DMA0SA
+DMA0CTL
+UCB0CTLW0
+UCB0BRW
+UCB0I2CSA
+PAOUT_L
+PADIR_L
+PAREN_L
+PASEL0_L
+PASEL1_L
+PM5CTL0
+UCB0IFG
+UCB0TXBUF
+UCB0RXBUF_L
+PMMCTL0

@@ -1,0 +1,8 @@
+
+#ifndef _ELYSIUM_DLL_CONSTANTS_H_
+#define _ELYSIUM_DLL_CONSTANTS_H_
+
+#define DATALINK_LAYER_ID 0U
+
+#endif
+

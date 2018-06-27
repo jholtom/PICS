@@ -1,0 +1,990 @@
+\documentclass{hitec}
+
+\author{Andrew Wygle}
+\title{Elysium Radio Networking Layer - Serial Line Internet Protocol}
+\company{Adamant Aerospace}
+\confidential{\textbf{Unlimited Distribution}}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{pdfpages}
+\usepackage{gensymb}
+\usepackage{siunitx}
+\usepackage{bytefield}
+\usepackage[hyperref=true]{register}
+\usepackage{rotating}
+\usepackage{titlesec}
+\usepackage{subcaption}
+\usepackage{fmtcount}
+\usepackage{parskip}
+\usepackage{caption}
+\usepackage[autostyle, english = american]{csquotes}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage[colorlinks=true, linktoc=all]{hyperref}
+\usepackage{etoolbox}
+
+\MakeOuterQuote{"}
+
+\settextfraction{1}
+
+\newcommand{\chref}[1]{\hyperref[ch:#1]{Section~\ref{ch:#1}}}
+\newcommand{\figref}[1]{\hyperref[fig:#1]{Figure~\ref{fig:#1}}}
+\newcommand{\tabref}[1]{\hyperref[tab:#1]{Table~\ref{tab:#1}}}
+\makeatletter
+\newcommand*{\textoverline}[1]{$\overline{\hbox{#1}}\m@th$}
+\makeatother
+
+\newcommand{\bitlabel}[2]{%
+	\bitbox[]{#1}{%
+		\raisebox{0pt}[4ex][0pt]{%
+			\turnbox{45}{\fontsize{7}{7}\selectfont#2}%
+		}%
+	}%
+}
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\titleformat{\subsubsection}
+	{\normalfont\fontsize{12}{15}\bfseries}{\thesubsubsection}{1em}{}
+
+
+\newcounter{regaddr}
+\newcounter{regsize}
+\newcommand*{\elyregaddr}[1][1]{0x\padzeroes[2]\Hexadecimal{regaddr}\addtocounter{regaddr}{#1}\setcounter{regsize}{#1}}
+
+\newcommand*{\curreg}[1][0]{%
+		\addtocounter{regaddr}{\the\numexpr#1-\value{regsize}\relax}%
+		0x\padzeroes[2]\Hexadecimal{regaddr}%
+		\addtocounter{regaddr}{\the\numexpr\value{regsize}-#1\relax}%
+}
+
+\newcounter{idval}
+\newcommand*{\elyid}[0]{0x\padzeroes[2]\Hexadecimal{idval}\addtocounter{idval}{1}}
+
+\newcommand*{\currid}[0]{%
+		\addtocounter{idval}{-1}%
+		0x\padzeroes[2]\Hexadecimal{idval}%
+		\addtocounter{idval}{1}%
+}
+
+\newtoggle{inTableHeader}
+\toggletrue{inTableHeader}
+\newcommand*{\StartTableHeader}{\global\toggletrue{inTableHeader}}
+\newcommand*{\EndTableHeader}{\global\togglefalse{inTableHeader}}
+\let\OldLongtable\longtable%
+\let\OldEndLongtable\endlongtable%
+\renewenvironment{longtable}{\StartTableHeader\OldLongtable}{\OldEndLongtable\StartTableHeader}%
+
+\newcommand*{\setlabref}[1]{\gdef\currlabref{#1}}
+\newcommand*{\labref}[1]{\iftoggle{inTableHeader}{}{\hyperref[\currlabref]{#1}}}
+\newcolumntype{W}{>{\global\let\currlabref\relax}l<{\labref{\elyid}}}
+\newcolumntype{R}{>{\global\let\currlabref\relax}l<{\labref{\elyregaddr}}}
+
+\let\oldaddcontentsline\addcontentsline
+\newcommand{\stoptocentries}{\renewcommand{\addcontentsline}[3]{}}
+\newcommand{\starttocentries}{\let\addcontentsline\oldaddcontentsline}
+
+\begin{document}
+
+% NOTE page numbering is controlled by scrreprt for the initial stuff - look into this later
+
+\maketitle
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\section{Overview}
+\label{ch:overview}
+
+The Serial Line Internet Protocol
+(\href{https://tools.ietf.org/html/rfc1055}{RFC1055}), or SLIP,  is an
+encapsulation of Internet Protocol (IP) datagrams for serial links. It provides
+the bare minimum of encapsulation necessary to delimit the start and end of an
+IP datagram on a serial link.
+
+Because SLIP packets are simply thinly-encoded IP packets, routing is performed
+using the standard IP address. The SLIP version of the Network Layer subsystem
+interprets the SrcAddr register as the Host ID for the Elysium radio and
+defines registers for both a Network ID and Subnet Mask for the Ground and
+Spacecraft networks. From these components, a full IP address for the Elysium
+on both the Ground and Spacecraft networks can be constructed and all valid
+routing decisions can be made. More details of address translation and routing
+can be found in \hyperref[sec:sliproute]{Section \ref{sec:sliproute}}.
+
+The checksum protecting the IP packet header will be calculated for packets
+sent to the Elysium firmware. Incorrect checksum values will result in the
+packet being discarded. The checksum may optionally be checked on every packet,
+even those which are routed by pass-through. This may have an effect on
+throughput.
+
+By default, the Elysium does not modify the TTL field of packets which are
+routed by pass-through. The Elysium may optionally be configured to reduce the
+TTL field by 1 when packets are routed through it. If both the checksum check
+and the TTL reduction are configured, two checksum calculations per packet are
+required - otherwise, a single checksum calculation per packet is required.
+This may have an effect on throughput.
+
+The Elysium implementation of the SLIP protocol can support packets larger than
+the suggested 1006-byte packets mentioned in the RFC. The maximum packet size
+can be set to between 40 and 9000 bytes at programming time or by modifying a
+register value in-system.
+
+Registers associated with the SLIP Network Layer subsystem can be found in
+\hyperref[sec:slipregs]{Section \ref{sec:slipregs}}. Channels, Errors, and
+Events associated with the SLIP Network Layer subsystem can be found in
+\hyperref[sec:slipchan]{Section \ref{sec:slipchan}},
+\hyperref[sec:sliperrs]{Section \ref{sec:sliperrs}}, and
+\hyperref[sec:slipevts]{Section \ref{sec:slipevts}}, respectively.
+
+\section{Routing}
+\label{sec:sliproute}
+
+In order to receive IP datagrams, the Elysium must have a valid IP address. In
+fact, the Elysium has two valid IP addresses, one for the UART interface on the
+Spacecraft network and one for the RF interface on the Ground network.
+These addresses are derived from the values of the SrcAddr register, the
+\hyperref[reg:scnetid]{SCNetID} and \hyperref[reg:gndnetid]{GndNetID}
+registers, and the SCSubnet and GndSubnet fields of the
+\hyperref[reg:subnets]{Subnets} register.
+
+To construct the Elysium IP address on the Spacecraft network, the 32-bit value
+of the SCNetID register is masked using the SCSubnet value to produce a Network
+ID for the Spacecraft network. The 16-bit value of the SrcAddr register is also
+masked using the SCSubnet value to produce a Host ID for the Elysium on the
+Spacecraft network. The full Elysium IP address is then obtained by
+concatenating the Network and Host IDs. For example, if the SCNetID is
+192.168.0.0, the SCSubnet is /16, and the SrcAddr register is 0x6464
+(0.0.100.100), then the Network ID becomes 192.168.0.0, the Host ID becomes
+0.0.100.100, and the combined IP address becomes 192.168.100.100. To construct
+the Ground network address, simply use the GndNetID and GndSubnet values. A
+similar procedure can translate Reply Addresses into IP addresses.
+
+Translations of IP addresses into Reply Addresses is performed by applying the
+Subnet Mask of the source network to the IP address and taking the two
+rightmost octects of the result.
+
+Routing decisions are made by examining the Destination Address in the IP
+header. If the Destination Address matches either of the Elysium IP addresses,
+the header is removed and the data payload is routed to the Elysium firmware.
+If the Destination Address falls within the Spacecraft network (its Network ID
+matches the Spacecraft Network ID), the packet is routed out the UART interface
+as a SLIP-encoded packet. If the Destination Address falls within the Ground
+network, the packet is passed to the Data Link Layer for transmission over the
+RF interface. Finally, if the Destination Address meets none of these criteria,
+it is discarded and an error may be reported.
+
+\section{Registers}
+\label{sec:slipregs}
+\setcounter{regaddr}{128}
+
+This section defines the registers in \tabref{slipregs}, which apply to the
+Serial Line Internet Protocol Network Layer.
+
+\setcounter{regaddr}{128}
+\begin{longtable}{Rcr}
+		\caption{SLIP Registers}\\
+		\label{tab:slipregs}\\
+		\toprule
+		\em Address & \em Name & \em Description\\
+		\midrule
+		\endhead\EndTableHeader
+		\setlabref{reg:maxpktlength} & \labref{MaxPktLength0} & \labref{Maximum
+			Packet Length LSB}\\
+		\setlabref{reg:maxpktlength} & \labref{MaxPktLength1} & \labref{Maximum
+			Packet Length MSB}\\
+		\setlabref{reg:scnetid} & \labref{SCNetID0} & \labref{Spacecraft
+			Network ID LSB}\\
+		\setlabref{reg:scnetid} & \labref{SCNetID1} & \labref{Spacecraft
+			Network ID Low Middle Byte}\\
+		\setlabref{reg:scnetid} & \labref{SCNetID2} & \labref{Spacecraft
+			Network ID High Middle Byte}\\
+		\setlabref{reg:scnetid} & \labref{SCNetID3} & \labref{Spacecraft
+			Network ID MSB}\\
+		\setlabref{reg:gndnetid} & \labref{GndNetID0} & \labref{Ground
+			Network ID LSB}\\
+		\setlabref{reg:gndnetid} & \labref{GndNetID1} & \labref{Ground
+			Network ID Low Middle Byte}\\
+		\setlabref{reg:gndnetid} & \labref{GndNetID2} & \labref{Ground
+			Network ID High Middle Byte}\\
+		\setlabref{reg:gndnetid} & \labref{GndNetID3} & \labref{Ground
+			Network ID MSB}\\
+		\setlabref{reg:subnets} & \labref{Subnets} & \labref{Spacecraft and
+			Ground network Subnets}\\
+		\setlabref{reg:slipoptions} & \labref{Options} & \labref{General
+			Configuration Bitfields}\\
+		\setlabref{reg:elysiumport} & \labref{ElysiumPort0} & \labref{Elysium
+			UDP Port LSB}\\
+		\setlabref{reg:elysiumport} & \labref{ElysiumPort1} & \labref{Elysium
+			UDP Port MSB}\\
+		\setlabref{reg:checksumerrlvl} & \labref{ChecksumErrLvl} & 
+			\labref{Invalid Header Checksum Error Reporting Level}\\
+		\setlabref{reg:subneterrlvl} & \labref{SubnetErrLvl} & 
+			\labref{Incorrect Subnet Error Reporting Level}\\
+		\setlabref{reg:porterrlvl} & \labref{PortErrLvl} & 
+			\labref{Incorrect Port Error Reporting Level}\\
+		\setlabref{reg:mtuerrlvl} & \labref{MTUErrLvl} & 
+			\labref{Datagram Too Big Error Reporting Level}\\
+		\setlabref{reg:sliperrrpt} & \labref{SLIPErrRpt} & 
+			\labref{SLIP Error Reporting Bitfields}\\
+		\bottomrule
+\end{longtable}
+\setcounter{regaddr}{128}
+
+\stoptocentries
+
+\subsection{MaxPktLength[0-1]}
+
+\noindent \textbf{Address:} \elyregaddr[2]
+
+\noindent \textbf{Data Type:} uint16\_t
+
+\noindent \textbf{Description:} The MaxPktLength register contains the maximum
+length of an IP packet as a 16-bit unsigned integer in bytes.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{MaxPktLength}{\curreg}
+		\label{reg:maxpktlength}
+		\regfield{MaxPktLength1}{8}{8}{0000_0101}
+		\regfield{MaxPktLength0}{8}{0}{1101_1100}
+		\reglabel{1500 Bytes}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item MaxPktLength1 - MSB - \curreg[1]
+		\item MaxPktLength0 - LSB - \curreg[0]
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} 1500 bytes (Ethernet MTU)
+
+\noindent \textbf{Notes:} The valid range for this register is from 20 to 9000
+bytes. 
+
+The number of packets capable of being stored in the on-board buffer is
+directly proportional to this value. The buffer is 9000 bytes deep and is
+divided into slots of length MaxPktLength, with excess bytes remaining unused.
+
+This value is also known as the Maximum Transmission Unit, or MTU, in IP
+networking terminology.
+
+The Elysium does not support fragmentation of IP datagrams which exceed the
+MTU at this time.
+
+\subsection{SCNetID[0-3]}
+
+\noindent \textbf{Address:} \elyregaddr[4]
+
+\noindent \textbf{Data Type:} uint32\_t
+
+\noindent \textbf{Description:} The SCNetID register contains the Network ID
+portion of the Elysium radio's spacecraft-facing IP interface. 
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{SCNetID}{\curreg}
+		\label{reg:scnetid}
+		\regfield{SCNetID3}{8}{32}{1100_0000}
+		\regfield{SCNetID2}{8}{16}{1010_1000}
+		\regfield{SCNetID1}{8}{8}{0000_0000}
+		\regfield{SCNetID0}{8}{0}{0000_0000}
+		\reglabel{192.168.0.0}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item SCNetID3 - MSB - \curreg[1]
+		\item SCNetID2 - High middle byte - \curreg[0]
+		\item SCNetID1 - Low middle byte - \curreg[1]
+		\item SCNetID0 - LSB - \curreg[0]
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} 192.168.0.0
+
+\noindent \textbf{Notes:} This register contains only the Network ID of the
+spacecraft-facing IP interface. The Network ID of the ground-facing (RF)
+interface is configured in the \hyperref[reg:gndnetid]{GndNetID register} . The
+Host ID of the Elysium (used on both networks) is configured in the SrcAddr
+register. The \hyperref[reg:subnets]{Subnets register} contains both the ground
+and space subnet masks to fully disambiguate the address.
+
+\subsection{GndNetID}
+
+\noindent \textbf{Address:} \elyregaddr[4]
+
+\noindent \textbf{Data Type:} uint32\_t
+
+\noindent \textbf{Description:} The GndNetID register contains the Network ID
+portion of the Elysium radio's ground-facing IP interface. 
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{GndNetID}{\curreg}
+		\label{reg:gndnetid}
+		\regfield{GndNetID3}{8}{32}{1100_0000}
+		\regfield{GndNetID2}{8}{16}{1010_1000}
+		\regfield{GndNetID1}{8}{8}{0000_0000}
+		\regfield{GndNetID0}{8}{0}{0000_0000}
+		\reglabel{192.168.0.0}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item GndNetID3 - MSB - \curreg[1]
+		\item GndNetID2 - High middle byte - \curreg[0]
+		\item GndNetID1 - Low middle byte - \curreg[1]
+		\item GndNetID0 - LSB - \curreg[0]
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} 192.168.0.0
+
+\noindent \textbf{Notes:} This register contains only the Network ID of the
+ground-facing IP interface. The Network ID of the spacecraft-facing (UART)
+interface is configured in the \hyperref[reg:scnetid]{SCNetID register} . The
+Host ID of the Elysium (used on both networks) is configured in the
+SrcAddr register. The
+\hyperref[reg:subnets]{Subnets register} contains both the ground and space
+subnet masks to fully disambiguate the address.
+
+\subsection{Subnets}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} uint8\_t
+
+\noindent \textbf{Description:} The Subnets register contains the CIDR subnet
+designators for the Elysiums ground- and spacecraft-facing IP interfaces.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{Subnets}{\curreg}
+		\label{reg:subnets}
+		\regfield{SCSubnet}{4}{4}{0000}
+		\regfield{GndSubnet}{4}{0}{0000}
+		\reglabel{Both /16}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item SCSubnet - Spacecraft subnet CIDR designator - \curreg[0].4
+		\item GndSubnet - Ground subnet CIDR designator - \curreg[0].0
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} /16, /16
+
+\noindent \textbf{Notes:} The two fields of this register encode CIDR subnet
+designators for the ground- and spacecraft-facing IP interfaces. These
+designators are encoded as the standard CIDR designator, minus 16. That is, a
+value in the SCSubnet field of 0000 results in a CIDR designator of /16 for the
+spacecraft link, while a value in the GndSubnet field of 1000 results in a CIDR
+designator of /24 for the ground link. In this way we efficiently encode the
+supported subnet masks of /16 through /31. Larger blocks, such as /12 or /8
+subnets, are not supported by the Elysium.
+
+This register contains the subnet masks for both the ground- and
+spacecraft-facing IP interfaces.  The Network IDs of the ground-facing (RF) and
+spacecraft-facing (UART) interfaces are configured in the
+\hyperref[reg:gndnetid]{GndNetID register} and the
+\hyperref[reg:scnetid]{SCNetID register}, respectively. The Host ID of the
+Elysium (used on both networks) is configured in the
+SrcAddr register.
+
+\subsection{Options}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Bitfields
+
+\noindent \textbf{Description:} The Options register contains a number of
+bitfields which configure the use of optional features of the Serial Line
+Internet Protocol.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{Options}{\curreg}
+		\label{reg:slipoptions}
+		\regfield{Res.}{3}{5}{111}
+		\regfield{TTL Decrease}{1}{4}{0}
+		\regfield{Checksum All Headers}{1}{3}{0}
+		\regfield{UDP}{1}{2}{0}
+		\regfield{Header Compression}{2}{0}{00}
+		\reglabel{No Options Enabled}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item Res. - Reserved. These bits are ignored. - \curreg.5
+		\item TTL Decrease - TTL decrease enable field - \curreg.4
+		\item Checksum All Headers - Calculate checksum for all packet headers 
+				enable field - \curreg.3
+		\item UDP - UDP enable field - \curreg.2
+		\item Header Compression - Header Compression bitfield - \curreg.0
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} Header compression (RoHC) should always
+be used.  UDP should be used if it is required to interact with host software.
+
+\noindent \textbf{Notes:} The reserved bits are ignored and may be safely set
+to any value.
+
+The TTL Decrease field, when set, causes the Elysium to decrease the TTL value
+of every packet which is relayed between the two IP interfaces. This requires
+that the checksum be recalculated as well.
+
+The Checksum All Headers field, when set, causes the Elysium to calculate the
+IPv4 header checksum of every packet which is relayed between the two IP
+interfaces. Checksums are always calculated on packets addressed to the Elysium
+firmware.
+
+The UDP field, when set, causes the Elysium firmware to listen for commands on
+a UDP port specified in the \hyperref[reg:elysiumport]{ElysiumPort register},
+rather than interpreting the entire payload of all IP datagrams addressed to
+the Elysium as commands. This port will also be set as the Source and
+Destination ports of all packets sent by the Elysium firmware.
+
+The Header Compression bitfield specifies the level and type of compression to
+be performed on the headers of IP packets sent by the Elysium firmware, and to
+be expected on the headers of IP packets set to the Elysium firmware. The
+values of this bitfield are as shown below.
+
+\begin{itemize}
+		\item[00 -] Header compression is entirely disabled.
+		\item[00 -] Header compression as specified in RFC 2507 (IPHC) is used.
+		\item[01 -] Header compression as specified in RFC 2508 (CRTP) is used.
+		\item[11 -] Header compression as specified in RFC 3095 (RoHC) is used.
+\end{itemize}
+
+The above list specifies the original standard for all types of header
+compression - however, the most recent version of the standards is used.
+
+\subsection{ElysiumPort[0-1]}
+
+\noindent \textbf{Address:} \elyregaddr[2]
+
+\noindent \textbf{Data Type:} uint16\_t
+
+\noindent \textbf{Description:} The ElysiumPort register contains the UDP port
+used by the Elysium firmware when the UDP bit of the
+\hyperref[reg:slipoptions]{Options register} is set.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{ElysiumPort}{\curreg}
+		\label{reg:elysiumport}
+		\regfield{ElysiumPort1}{8}{8}{1101_1111}
+		\regfield{ElysiumPort0}{8}{0}{0000_0000}
+		\reglabel{Port 57088}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item ElysiumPort1 - MSB - \curreg[1]
+		\item ElysiumPort0 - LSB - \curreg[0]
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} Any port in the range [49152-65535].
+
+\noindent \textbf{Notes:} The ports in the range [49152-65535] are not reserved
+or registered with IANA and are available for private use.
+
+The Elysium will look for this port value in the Destination Port field of the
+UDP header of incoming packets, and will set this port value as both the Source
+and Destination Port fields of outgoing packets.
+
+This register is only used if the UDP bit of the Options register is set.
+
+\subsection{ChecksumErrLvl}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Priority Enumeration
+
+\noindent \textbf{Description:} The ChecksumErrLvl register controls the
+priority level of incorrect header checksum errors, if enabled by the
+ChecksumErrRpt bit of the \hyperref[reg:sliperrrpt]{SLIPErrRpt register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{ChecksumErrLvl}{\curreg}
+		\label{reg:checksumerrlvl}
+		\regfield{ChecksumErrLvl}{8}{0}{00001000}
+		\reglabel{ERROR}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item ChecksumErrLvl - Priority level of incorrect checksum errors - 
+				\curreg
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} ERROR
+
+\noindent \textbf{Notes:} The acceptable values for this register are the valid
+values of the Priority Enumeration data type, a one-hot encoding using bits 0
+through 4.
+
+\subsection{SubnetErrLvl}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Priority Enumeration
+
+\noindent \textbf{Description:} The SubnetErrLvl register controls the
+priority level of incorrect subnet errors, if enabled by the
+SubnetErrRpt bit of the \hyperref[reg:sliperrrpt]{SLIPErrRpt register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{SubnetErrLvl}{\curreg}
+		\label{reg:subneterrlvl}
+		\regfield{SubnetErrLvl}{8}{0}{00001000}
+		\reglabel{ERROR}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item SubnetErrLvl - Priority level of incorrect subnet errors - 
+				\curreg
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} ERROR
+
+\noindent \textbf{Notes:} The acceptable values for this register are the valid
+values of the Priority Enumeration data type, a one-hot encoding using bits 0
+through 4.
+
+\subsection{PortErrLvl}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Priority Enumeration
+
+\noindent \textbf{Description:} The PortErrLvl register controls the
+priority level of incorrect UDP port errors, if enabled by the
+PortErrRpt bit of the \hyperref[reg:sliperrrpt]{SLIPErrRpt register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{PortErrLvl}{\curreg}
+		\label{reg:porterrlvl}
+		\regfield{PortErrLvl}{8}{0}{00001000}
+		\reglabel{ERROR}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item PortErrLvl - Priority level of incorrect UDP port errors - 
+				\curreg
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} ERROR
+
+\noindent \textbf{Notes:} The acceptable values for this register are the valid
+values of the Priority Enumeration data type, a one-hot encoding using bits 0
+through 4.
+
+\subsection{MTUErrLvl}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Priority Enumeration
+
+\noindent \textbf{Description:} The MTUErrLvl register controls the
+priority level of Datagram Too Big errors, if enabled by the
+MTUErrRpt bit of the \hyperref[reg:sliperrrpt]{SLIPErrRpt register}.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{MTUErrLvl}{\curreg}
+		\label{reg:mtuerrlvl}
+		\regfield{MTUErrLvl}{8}{0}{00001000}
+		\reglabel{ERROR}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item MTUErrLvl - Priority level of Datagram Too Big errors - 
+				\curreg
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} ERROR
+
+\noindent \textbf{Notes:} The acceptable values for this register are the valid
+values of the Priority Enumeration data type, a one-hot encoding using bits 0
+through 4.
+
+\subsection{SLIPErrRpt}
+
+\noindent \textbf{Address:} \elyregaddr
+
+\noindent \textbf{Data Type:} Bitfields
+
+\noindent \textbf{Description:} The SLIPErrRpt register contains a number of
+bitfields controlling the reporting of errors within the SLIP Networking Layer.
+
+\noindent \textbf{Diagram:}
+
+\begin{register}{H}{SLIPErrRpt}{\curreg}
+		\label{reg:sliperrrpt}
+		\regfield{Res.}{4}{4}{1111}
+		\regfield{ChecksumErrRpt}{1}{1}{1}
+		\regfield{SubnetErrRpt}{1}{1}{1}
+		\regfield{PortErrRpt}{1}{1}{1}
+		\regfield{MTUErrRpt}{1}{0}{1}
+		\reglabel{All Errors Reported}
+\end{register}
+
+\noindent \textbf{Fields:}
+
+\begin{itemize}
+		\item Res. - Reserved. These bits are ignored. - \curreg.4
+		\item ChecksumErrRpt - Enables reporting of incorrect header checksum 
+				errors - \curreg[0].3
+		\item SubnetErrRpt - Enables reporting of incorrect subnet errors - 
+				\curreg[0].2
+		\item PortErrRpt - Enables reporting of incorrect UDP port errors - 
+				\curreg[0].1
+		\item MTUErrLvl - Enables reporting of Datagram Too Big errors -
+				- \curreg[0].0
+\end{itemize}
+
+\noindent \textbf{Recommended Value:} If the spacecraft contains a flight
+computer which is capable of taking action to correct errors, in general all
+errors should be reported.
+
+\noindent \textbf{Notes:} The reserved bits are ignored and may be safely set
+to any value.
+
+When the ChecksumErrRpt bit is set, anytime an IP packet is received by the
+Elysium firmware (or is received for routing if the Checksum All Packets bit is
+set in the \hyperref[reg:slipoptions]{Options register}) with an incorrect
+header checksum, an error will be reported with the priority level defined in
+the \hyperref[reg:checksumerrlvl]{ChecksumErrLvl register}.
+
+When the SubnetErrRpt bit is set, anytime an IP packet is received for routing
+with a Network ID not matching either the Ground or Spacecraft networks, an
+error will be reported with the priority level defined in the
+\hyperref[reg:subneterrlvl]{SubnetErrLvl register}.
+
+When the PortErrRpt bit is set, anytime the UDP bit is set in the
+\hyperref[reg:slipoptions]{Options register} and an IP packet is received by
+the Elysium firmware with a UDP port not matching the
+\hyperref[reg:elysiumport]{ElysiumPort register}, an error will be reported
+with the priority level defined in the \hyperref[reg:subneterrlvl]{SubnetErrLvl
+register}.
+
+When the MTUErrRpt bit is set, anytime an IP packet is received for routing
+with a Total Length field indicating that the packet is larger than the maximum
+packet size specified in the \hyperref[reg:maxpktlength]{MaxPktLength
+register}, an error will be reported with the priority level defined in the
+\hyperref[reg:mtuerrlvl]{MTUErrLvl register}.
+
+\starttocentries
+
+\section{Channels}
+\label{sec:slipchan}
+
+\setcounter{idval}{96}
+\begin{longtable}{Wcr}
+		\caption{Channels}\\
+		\label{tab:channels}\\
+		\toprule
+		\em ID & \em Name  & \em Data Type\\
+		\midrule
+		\endhead\EndTableHeader
+		\setlabref{chan:slippktrecv} & \labref{Packets Received} & 
+			\labref{uint8\_t}\\
+		\setlabref{chan:slippktsend} & \labref{Packets Sent} & 
+			\labref{uint16\_t}\\
+		\setlabref{chan:slippktrelay} & \labref{Packets Relayed} & 
+			\labref{uint8\_t}\\
+		\bottomrule
+\end{longtable}
+\setcounter{idval}{96}
+
+\stoptocentries
+
+\subsection{Packets Receieved}
+\label{chan:slippktrecv}
+
+\noindent \textbf{Channel ID:} \elyid 
+
+\noindent \textbf{Data Type:} uint8\_t
+
+\noindent \textbf{Description:} The Packets Received Channel reports the number
+of packets received by the Elysium firmware.
+
+\noindent \textbf{Format:}
+\newline
+\newline
+\begin{center}
+\begin{bytefield}[endianness=big,bitwidth=2.25em]{8}
+		\bitheader{0-7}\\
+		\begin{rightwordgroup}{ID}
+				\bitbox{8}{}
+		\end{rightwordgroup}\\
+		\begin{rightwordgroup}{Packets Received}
+				\bitbox{8}{Value}
+		\end{rightwordgroup}
+\end{bytefield}
+\end{center}
+
+\noindent \textbf{Notes:} This counter increases monotonically until it rolls
+over from 255 to 0.
+
+\subsection{Packets Sent}
+\label{chan:slippktsend}
+
+\noindent \textbf{Channel ID:} \elyid 
+
+\noindent \textbf{Data Type:} uint16\_t
+
+\noindent \textbf{Description:} The Packets Sent Channel reports the number of
+packets sent by the Elysium firmware.
+
+\noindent \textbf{Format:}
+\newline
+\newline
+\begin{center}
+\begin{bytefield}[endianness=big,bitwidth=2.25em]{8}
+		\bitheader{0-7}\\
+		\begin{rightwordgroup}{ID}
+				\bitbox{8}{}
+		\end{rightwordgroup}\\
+		\begin{rightwordgroup}{Packets Sent}
+				\bitbox{8}{Value}
+		\end{rightwordgroup}
+\end{bytefield}
+\end{center}
+
+\noindent \textbf{Notes:} This counter increases monotonically until it rolls
+over from 255 to 0.
+
+\subsection{Packets Relayed}
+\label{chan:slippktrelay}
+
+\noindent \textbf{Channel ID:} \elyid 
+
+\noindent \textbf{Data Type:} uint8\_t
+
+\noindent \textbf{Description:} The Packets Relayed Channel reports the number
+of packets relayed through the Elysium, without being received by or sent from
+the Elysium firmware.
+
+\noindent \textbf{Format:}
+\newline
+\newline
+\begin{center}
+\begin{bytefield}[endianness=big,bitwidth=2.25em]{8}
+		\bitheader{0-7}\\
+		\begin{rightwordgroup}{ID}
+				\bitbox{8}{}
+		\end{rightwordgroup}\\
+		\begin{rightwordgroup}{Packets Relayed}
+				\bitbox{8}{Value}
+		\end{rightwordgroup}
+\end{bytefield}
+\end{center}
+
+\noindent \textbf{Notes:} This value is incremented whenever a packet is passed
+through the Elysium without interacting with the Elysium firmware, in either
+direction.
+
+This counter increases monotonically until it rolls over from 255 to 0.
+
+\starttocentries
+
+\begin{samepage}
+\section{Errors}
+\label{sec:sliperrs}
+
+\setcounter{idval}{160}
+\begin{longtable}[htbp]{Wr}
+		\caption{Errors}\\
+		\label{tab:errs}\\
+		\toprule
+		\em ID & \em Error\\
+		\midrule
+		\endhead\EndTableHeader
+		\setlabref{err:slipsubnet} & \labref{Incorrect Subnet}\\
+		\setlabref{err:slipmtu} & \labref{Datagram Too Big}\\
+		\setlabref{err:slipchecksum} & \labref{Checksum Error}\\
+		\setlabref{err:slipport} & \labref{Incorrect Port}\\
+		\bottomrule
+\end{longtable}
+\setcounter{idval}{160}
+\end{samepage}
+
+\stoptocentries
+
+\subsection{Incorrect Subnet}
+\label{err:slipsubnet}
+
+\noindent \textbf{Error ID:} \elyid 
+
+\noindent \textbf{Description:} The Incorrect Subnet error indicates that a
+packet to be routed has a Destination Address on an incorrect Subnet (i.e.,
+neither the Spacecraft nor Ground subnets).
+
+\noindent \textbf{Fault Response?} Packet discarded.
+
+\noindent \textbf{Recommended Priority:} ERROR 
+
+\noindent \textbf{Priority Register:} \hyperref[reg:subneterrlvl]{SubnetErrLvl}
+
+\subsection{Datagram Too Big}
+\label{err:slipmtu}
+
+\noindent \textbf{Error ID:} \elyid 
+
+\noindent \textbf{Description:} The Datagram Too Big error indicates that a
+packet to be routed has a Total Length field which indicates a larger packet
+than the MTU specified in the \hyperref[reg:maxpktlength]{MaxPktLength
+register}.
+
+\noindent \textbf{Fault Response?} Packet discarded.
+
+\noindent \textbf{Recommended Priority:} ERROR 
+
+\noindent \textbf{Priority Register:} \hyperref[reg:mtuerrlvl]{MTUErrLvl}
+
+\subsection{Checksum Error}
+\label{err:slipchecksum}
+
+\noindent \textbf{Error ID:} \elyid 
+
+\noindent \textbf{Description:} The Checksum Error error indicates that the
+Elysium firmware has received a packet with an invalid Header Checksum, or that
+the Checksum All Headers bit of the \hyperref[reg:slipoptions]{Options
+register} is set and a packet to be routed has an invalid Header Checksum.
+
+\noindent \textbf{Fault Response?} Packet discarded.
+
+\noindent \textbf{Recommended Priority:} ERROR 
+
+\noindent \textbf{Priority Register:}
+\hyperref[reg:checksumerrlvl]{ChecksumErrLvl}
+
+\subsection{Incorrect Port}
+\label{err:slipport}
+
+\noindent \textbf{Error ID:} \elyid 
+
+\noindent \textbf{Description:} The Incorrect Port error indicates that the UDP
+bit of the \hyperref[reg:slipoptions]{Options register} is set and the Elysium
+firmware has received a packet with an incorrect Destination Port in its UDP
+header.
+
+\noindent \textbf{Fault Response?} Packet discarded.
+
+\noindent \textbf{Recommended Priority:} ERROR 
+
+\noindent \textbf{Priority Register:} \hyperref[reg:porterrlvl]{PortErrLvl}
+
+\starttocentries
+
+\section{Events}
+\label{sec:slipevts}
+
+\setcounter{idval}{224}
+\begin{longtable}{Wr}
+		\caption{Events}\\
+		\label{tab:events}\\
+		\toprule
+		\em ID & \em Event\\
+		\midrule
+		\endhead\EndTableHeader
+		\setlabref{evt:sliprecv} & \labref{Packet Received}\\
+		\setlabref{evt:slipsent} & \labref{Packet Sent}\\
+		\setlabref{evt:sliprelay} & \labref{Packet Relayed}\\
+\end{longtable}
+\setcounter{idval}{224}
+
+\stoptocentries
+
+\subsection{Packet Received}
+\label{evt:sliprecv}
+
+\noindent \textbf{Event ID:} \elyid 
+
+\noindent \textbf{Description:} The Packet Received Event indicates that the
+Elysium firmware has received a packet.
+
+\noindent \textbf{Notes:} The total number of received packets can be retrieved
+from the \hyperref[chan:slippktrecv]{Packets Received} channel.
+
+\subsection{Packet Sent}
+\label{evt:slipsent}
+
+\noindent \textbf{Event ID:} \elyid 
+
+\noindent \textbf{Description:} The Packet Transmitted Event indicates that the
+Elysium firmware has sent out a packet.
+
+\noindent \textbf{Notes:} The total number of sent packets can be retrieved
+from the \hyperref[chan:slippktsend]{Packets Sent} channel.
+
+\subsection{Packet Relayed}
+\label{evt:sliprelay}
+
+\noindent \textbf{Event ID:} \elyid 
+
+\noindent \textbf{Description:} The Packet Relayed Event indicates that the
+Elysium has relayed a packet.
+
+\noindent \textbf{Notes:} The total number of relayed packets can be retrieved
+from the \hyperref[chan:slippktrelay]{Packets Relayed} channel.
+
+\starttocentries
+
+\appendix
+
+\section{Revision History}
+
+\begin{enumerate}
+		\item Initial release
+\end{enumerate}
+
+\end{document}
