@@ -31,14 +31,9 @@
 /*===========================================================================*/
 
 /**
- * @brief   VIO1 simulated port.
+ * @brief   VIO simulated ports.
  */
-sim_vio_port_t vio_port_1;
-
-/**
- * @brief   VIO2 simulated port.
- */
-sim_vio_port_t vio_port_2;
+sim_vio_port_t vio_ports[2];
 
 /*===========================================================================*/
 /* Driver local variables and types.                                         */
@@ -78,13 +73,15 @@ void _pal_lld_setgroupmode(ioportid_t port,
 
   switch (mode) {
   case PAL_MODE_RESET:
+  case PAL_MODE_INPUT_PULLDOWN:
   case PAL_MODE_INPUT:
-    port->dir &= ~mask;
+    vio_ports[(PAL_PORT(port) >> 5) - 1].dir &= ~mask;
     break;
   case PAL_MODE_UNCONNECTED:
-    port->latch |= mask;
+    vio_ports[(PAL_PORT(port) >> 5) - 1].latch |= mask;
+    /* fall through */
   case PAL_MODE_OUTPUT_PUSHPULL:
-    port->dir |= mask;
+    vio_ports[(PAL_PORT(port) >> 5) - 1].dir |= mask;
     break;
   }
 }

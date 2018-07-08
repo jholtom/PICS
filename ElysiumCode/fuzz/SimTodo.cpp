@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <assert.h>
+#include <iostream>
 
 extern "C" {
 #include "hal.h"
@@ -31,36 +32,26 @@ extern "C" {
   void _disable_interrupts() {}
 
   /********************************************************************************\
-   *  SX1278 functions                                                            *
-  \********************************************************************************/
-  void sx1278SetSync(SX1278Driver *devp, SX1278_SYNC_TYPE sync) {}
-
-  /********************************************************************************\
-   *  SX1212 functions                                                            *
-  \********************************************************************************/
-  void sx1212FifoRead(SX1212Driver * devp, size_t n, uint8_t * buffer) {}
-  void sx1212StopReceive(SX1212Driver * devp) {}
-  msg_t sx1212StartReceive(SX1212Driver *devp, size_t n, palcallback_t callback) { return 0; }
-  void sx1212ReceiveI(SX1212Driver * devp, size_t n, palcallback_t callback) {}
-
-  /********************************************************************************\
    *  ChibiOS functions                                                           *
   \********************************************************************************/
-  void *chPoolAllocI(memory_pool_t *mp) { return NULL; }
+  /*
+  msg_t chSemWaitTimeout(semaphore_t *sp, systime_t time) { return 0; }
+  msg_t chSemWaitTimeoutS(semaphore_t *sp, systime_t timeout) { return 0; }
+  void chEvtSignal(thread_t *tp, eventmask_t events) { std::cout << "chEvtSignal(" << tp << ", " << events << ")" << std::endl; }
+  void chEvtSignalI(thread_t *tp, eventmask_t events) {}
   void chEvtSignalI(thread_t *tp, eventmask_t mask);
-  void chPoolFreeI(memory_pool_t *mp, void *objp) {}
   void chSemSignal(semaphore_t *sp) {}
   void chSemSignalI(semaphore_t *sp) {}
-  msg_t chSemWaitTimeout(semaphore_t *sp, systime_t time) { return 0; }
-  void chEvtSignal(thread_t *tp, eventmask_t events) {}
-  void chEvtSignalI(thread_t *tp, eventmask_t events) {}
   void chSysHalt(const char * reason) { assert(0); }
+  void chSchRescheduleS(void) {}
   void i2cMSP430XContinueTransmitI(I2CDriver *i2cp, i2caddr_t addr, size_t n, uint8_t * txbuf, i2ccallback_t callback) {}
   void i2cStart(I2CDriver *i2cp, const I2CConfig *config) {}
+*/
 
   /********************************************************************************\
    *  ChibiOS mailbox functions                                                   *
   \********************************************************************************/
+/*
   msg_t chMBFetchI(mailbox_t *mbp, msg_t *msgp) { return 0; }
   msg_t chMBFetchS(mailbox_t *mbp, msg_t *msgp, systime_t timeout) { return 0; }
   msg_t chMBPostAheadI(mailbox_t *mbp, msg_t msg) { return 0; }
@@ -68,6 +59,7 @@ extern "C" {
   msg_t chMBPostAheadS(mailbox_t *mbp, msg_t msg, systime_t timeout) { return 0; }
   msg_t chMBPostI(mailbox_t *mbp, msg_t msg) { return 0; }
   msg_t chMBPostS(mailbox_t *mbp, msg_t msg, systime_t timeout) { return 0; }
+*/
   
   /*
   void crcStartCalc(CRCDriver *crcp, size_t n, const void *buf) {}

@@ -2,8 +2,6 @@
 #ifndef _ELYSIUM_UART_H_
 #define _ELYSIUM_UART_H_
 
-#define uart_gpt GPTDA1
-
 #include "ch.h"
 #include "hal.h"
 #include "core.h"
@@ -12,10 +10,18 @@
 #include "main.h"
 #include "uart_dll.h"
 
-#if ELY_REVISION == B
-#define ELY_UART UARTDA1
+#if defined(POSIX_MCUCONF)
+# define ELY_UART UARTD1
+# define uart_gpt GPTD1
+#elif defined(MSP430X_MCUCONF)
+# if ELY_REVISION == B
+#  define ELY_UART UARTDA1
+# else
+#  define ELY_UART UARTDA0
+# endif
+# define uart_gpt GPTDA1
 #else
-#define ELY_UART UARTDA0
+# error "Unsupported MCU"
 #endif
 
 typedef enum {

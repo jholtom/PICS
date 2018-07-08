@@ -24,5 +24,5 @@ FWASM := ${PROJECT_ROOT}/core/bootloader/bootloader.S
 FWINC := ${PROJECT_ROOT}/core/ \
 				 ${PROJECT_ROOT}/slip/ \
 				 ${PROJECT_ROOT}/spp/ \
-				 ${PROJECT_ROOT}/ccsds/ 
+				 ${PROJECT_ROOT}/ccsds/
 

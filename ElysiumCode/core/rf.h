@@ -12,10 +12,14 @@
 extern sx1278_packet_config_t DLLTxPktCfg;
 extern sx1212_packet_config_t DLLRxPktCfg;
 
-#if ELY_REVISION == B
-#define rf_spi SPIDA0
-#else
-#define rf_spi SPIDA1
+#if defined(MSP430X_MCUCONF)
+# if ELY_REVISION == B
+#  define rf_spi SPIDA0
+# else
+#  define rf_spi SPIDA1
+# endif
+#elif defined(POSIX_MCUCONF)
+#  define rf_spi SPID1
 #endif
 
 typedef enum {

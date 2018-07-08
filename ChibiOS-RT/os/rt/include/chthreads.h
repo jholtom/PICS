@@ -379,7 +379,6 @@ static inline thread_t *chThdStartI(thread_t *tp) {
  * @sclass
  */
 static inline void chThdSleepS(systime_t time) {
-
   chDbgCheck(time != TIME_IMMEDIATE);
 
   (void) chSchGoSleepTimeoutS(CH_STATE_SLEEPING, time);

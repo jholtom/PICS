@@ -26,6 +26,14 @@ typedef struct {
 #define FRAM_REG_BASE 0x00010000UL
 #define FRAM_FW_SIZE (0x20000UL - FRAM_FW_BASE)
 
+#if defined(MSP430X_MCUCONF)
+#define ELY_I2C I2CDB0
+#elif defined (POSIX_MCUCONF)
+#define ELY_I2C I2CD1
+#else
+#error "Unsupported MCU"
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif

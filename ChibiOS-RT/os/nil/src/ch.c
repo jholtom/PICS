@@ -27,6 +27,12 @@
 
 #include "ch.h"
 
+#if defined(__FUZZ__)
+#include "mcuconf.h"
+#include "fuzz_core.h"
+#include <stdio.h>
+#endif
+
 /*===========================================================================*/
 /* Module local definitions.                                                 */
 /*===========================================================================*/
@@ -239,6 +245,9 @@ __attribute__((optimize(0))) void chSysInit(void) {
 
     /* Port dependent thread initialization.*/
     PORT_SETUP_CONTEXT(tp, tcp->wbase, tcp->wend, tcp->funcp, tcp->arg);
+#if CH_DBG_THREAD_NAMES == TRUE
+    tp->namep = tcp->namep;
+#endif
 
     /* Initialization hook.*/
     CH_CFG_THREAD_EXT_INIT_HOOK(tp);
@@ -246,6 +255,9 @@ __attribute__((optimize(0))) void chSysInit(void) {
     tp++;
     tcp++;
   }
+#if CH_DBG_THREAD_NAMES == TRUE
+  tp->namep = tcp->namep; // idle thread
+#endif
 
 #if CH_DBG_ENABLE_STACK_CHECK
   /* The idle thread is a special case because its stack is set up by the
@@ -301,9 +313,15 @@ void chSysHalt(const char *reason) {
   /* Halt hook code, usually empty.*/
   CH_CFG_SYSTEM_HALT_HOOK(reason);
 
+#if defined(__FUZZ__)
+  /* Something has gone wrong */
+  fprintf(stderr, "crash in: %s\n", nil.dbg_panic_msg);
+  exit(1);
+#else
   /* Harmless infinite loop.*/
   while (true) {
   }
+#endif
 }
 
 /**
@@ -618,6 +636,8 @@ msg_t chSchGoSleepTimeoutS(tstate_t newstate, systime_t timeout) {
 
   chDbgCheckClassS();
 
+  chDbgAssert(newstate != NIL_STATE_SLEEPING || timeout != 0,
+              "Can't sleep thread forever");
   chDbgAssert(otp != &nil.threads[CH_CFG_NUM_THREADS],
                "idle cannot sleep");
 
@@ -654,11 +674,11 @@ msg_t chSchGoSleepTimeoutS(tstate_t newstate, systime_t timeout) {
     /* Timeout settings.*/
     otp->timeout = abstime - nil.lasttime;
   }
-#else
+#endif
 
   /* Timeout settings.*/
   otp->timeout = timeout;
-#endif
+  fprintf(stderr, "Sleeping thread %s in state %d for %d\n", otp->namep, newstate, otp->timeout);
 
   /* Scanning the whole threads array.*/
   ntp = nil.threads;

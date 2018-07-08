@@ -73,6 +73,7 @@ UARTConfig __attribute__((section(".persistent"))) A1_cfg = {
   elyUARTDLLRxCB, /* RX callback - DMA complete  - SLIP DLL responsibility */
   elyUARTDLLRxCharCB, /* RX single-char callback - SLIP DLL responsibility */
   NULL, /* Error callback */
+#if defined(MSP430X_MCUCONF) /* The following fields only make sense for MSP430s */
   UART_BAUD, /* Baud rate */
   MSP430X_UART_PARITY_NONE, /* Parity */
   MSP430X_UART_BO_LSB, /* Bit order */
@@ -81,6 +82,7 @@ UARTConfig __attribute__((section(".persistent"))) A1_cfg = {
   0, /* Autobaud */
   8,
   8
+#endif
 };
 
 static const GPTConfig uart_timer_cfg = {
@@ -119,6 +121,7 @@ THD_FUNCTION(UARTThd, arg) {
     if (events & UARTConfigUpdated) {
       /* Update config based on register values */
       chSysLock();
+#if defined (MSP430X_MCUCONF)
       /* Parity */
       A1_cfg.parity = bank0p[RegUARTParams] & 0x03;
       /* Stop bits */
@@ -130,7 +133,8 @@ THD_FUNCTION(UARTThd, arg) {
                       ((uint32_t)(bank0p[RegUARTBaudLmb]) << 8) |
                       ((uint32_t)(bank0p[RegUARTBaudHmb]) << 16) |
                       ((uint32_t)(bank0p[RegUARTBaudMsb]) << 24) );
-      
+#endif
+
       chSysUnlock();
       /* Re-initialize the UART */
       uartStart(&ELY_UART, &A1_cfg);

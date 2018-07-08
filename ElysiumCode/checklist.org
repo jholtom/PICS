@@ -1,0 +1,4 @@
+* Go through threads to make sure shutdown actually happens
+** TODO T1
+** TODO T2
+** TODO T3

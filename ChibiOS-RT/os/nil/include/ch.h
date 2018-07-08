@@ -520,6 +520,9 @@ typedef thread_t * thread_reference_t;
 struct nil_thread {
   struct port_context   ctx;        /**< @brief Processor context.          */
   tstate_t              state;      /**< @brief Thread state.               */
+#if (CH_DBG_THREAD_NAMES == TRUE) || defined(__DOXYGEN__)
+  char *namep;                      /**< @brief Thread name, debugging only */
+#endif
   /* Note, the following union contains a pointer while the thread is in a
      sleeping state (!NIL_THD_IS_READY()) else contains the wake-up message.*/
   union {
@@ -533,8 +536,10 @@ struct nil_thread {
     eventmask_t         ewmask;     /**< @brief Enabled events mask.        */
 #endif
   } u1;
+  // #if !defined(__FUZZ__)
   volatile systime_t    timeout;    /**< @brief Timeout counter, zero
                                             if disabled.                    */
+  // #endif
 #if (CH_CFG_USE_EVENTS == TRUE) || defined(__DOXYGEN__)
   eventmask_t           epmask;     /**< @brief Pending events mask.        */
 #endif

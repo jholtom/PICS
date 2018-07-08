@@ -36,6 +36,7 @@ static fram_req_t * active_req;
 
 void fram_handle_request(fram_req_t * req);
   
+#if !defined(__FUZZ__)
 void end_cb(I2CDriver * i2cp, uint8_t * buffer, uint16_t n) {
   (void)(n);
   /* End the transfer */
@@ -102,10 +103,15 @@ void fram_handle_request(fram_req_t * req) {
     (req->address >> 16));
   
   /* Issue a write to set the address */
-  i2cMSP430XStartTransmitMSBI(&I2CDB0, req->device_id, 2, 
+  i2cMSP430XStartTransmitMSBI(&ELY_I2C, req->device_id, 2, 
       (uint8_t *)(&(req->address)), 
       addr_cb);
 }
+#else
+void fram_handle_request(fram_req_t *req) {
+  chDbgAssert(!req->special, "Fuzzing doesn't support special reads");
+}
+#endif
 
 void elyFramPostRequestI(fram_req_t * req) {
   chDbgCheckClassI();
@@ -168,6 +174,8 @@ static I2CConfig cfg = {
 void elyFramInit() {
   chDbgAssert((FRAM_QUEUE_LEN & (FRAM_QUEUE_LEN -1)) == 0, 
       "queue length must be power of 2");
-  i2cStart(&I2CDB0, &cfg);
+#if !defined(__FUZZ__)
+  i2cStart(&ELY_I2C, &cfg);
+#endif
 }
 

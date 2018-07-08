@@ -272,12 +272,14 @@ void __attribute__((weak)) elyRFChangeRxFilterParamsS(SX1212Config * rx_cfg) {
 
 SPIConfig __attribute__((section(".persistent"))) rf_spi_cfg = {
   NULL, /* TODO end_cb */
+#if defined(MSP430X_MCUCONF)
   LINE_SS_CONFIG_B, /* slave select */
   SPI_BR, /* bit rate */
   MSP430X_SPI_BO_MSB, /* MSB first - required by SX1278 */
   MSP430X_SPI_DS_EIGHT,
   0 /* mode 0 for SX1278 */
     /* currently no SPI exclusive DMA - may need later */
+#endif
 };
 
 static SX1278Config __attribute__((section(".persistent"))) tx_cfg = {

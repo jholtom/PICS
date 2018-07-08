@@ -25,8 +25,6 @@
  * @{
  */
 
-#include <windows.h>
-
 #include "ch.h"
 
 /*===========================================================================*/
@@ -61,8 +59,8 @@ syssts_t port_irq_sts;
  * @param otp the thread to be switched out
  * @param ntp the thread to be switched in
  */
-__attribute__((used))
-static void __dummy(thread_t *ntp, thread_t *otp) {
+__attribute__((used,fastcall))
+void __dummy(thread_t *ntp, thread_t *otp) {
   (void)ntp; (void)otp;
 
   asm volatile (
@@ -76,17 +74,29 @@ static void __dummy(thread_t *ntp, thread_t *otp) {
                 ".globl port_switch                             \n\t"
                 "port_switch:"
 #endif
-                "push    %ebp                                   \n\t"
-                "push    %esi                                   \n\t"
-                "push    %edi                                   \n\t"
-                "push    %ebx                                   \n\t"
+                "pushl   %ebp                                  \n\t"
+                "pushl   %ebx                                  \n\t"
+                "pushl   %ecx                                  \n\t"
+                "pushl   %edx                                  \n\t"
+                "pushl   %esi                                  \n\t"
+                "pushl   %edi                                  \n\t"
+#ifdef _CHIBIOS_NIL_CONF_
+                "movl    %esp, 0(%edx)                         \n\t"
+                "movl    0(%ecx), %esp                         \n\t"
+#elif _CHIBIOS_RT_CONF_
                 "movl    %esp, 12(%edx)                         \n\t"
                 "movl    12(%ecx), %esp                         \n\t"
-                "pop     %ebx                                   \n\t"
-                "pop     %edi                                   \n\t"
-                "pop     %esi                                   \n\t"
-                "pop     %ebp                                   \n\t"
-                "ret");
+#else
+#error "Unsupported CHIBIOS"
+#endif
+                "popl    %edi                                  \n\t"
+                "popl    %esi                                  \n\t"
+                "popl    %edx                                  \n\t"
+                "popl    %ecx                                  \n\t"
+                "popl    %ebx                                  \n\t"
+                "popl    %ebp                                  \n\t"
+                "ret                                            \n\t"
+                );
 }
 
 /**
@@ -94,12 +104,13 @@ static void __dummy(thread_t *ntp, thread_t *otp) {
  * @details If the work function returns @p chThdExit() is automatically
  *          invoked.
  */
-__attribute__((cdecl, noreturn))
+CH_CDECL_NORETURN
 void _port_thread_start(msg_t (*pf)(void *), void *p) {
-
   chSysUnlock();
   pf(p);
+#ifndef _CHIBIOS_NIL_CONF_
   chThdExit(0);
+#endif
   while(1);
 }
 
@@ -109,6 +120,17 @@ void _port_thread_start(msg_t (*pf)(void *), void *p) {
  *
  * @return              The realtime counter value.
  */
+#ifdef CH_POSIX
+# include <time.h>
+# if !defined(__FUZZ__)
+rtcnt_t port_rt_get_counter_value(void) {
+  struct timespec t;
+  clock_gettime(CLOCK_MONOTONIC, &t);
+  return (rtcnt_t)(t.tv_sec * 1000000 + t.tv_nsec / 1000);
+}
+# endif // defined(__FUZZ__)
+#else
+#include <windows.h>
 rtcnt_t port_rt_get_counter_value(void) {
   LARGE_INTEGER n;
 
@@ -116,5 +138,6 @@ rtcnt_t port_rt_get_counter_value(void) {
 
   return (rtcnt_t)(n.QuadPart / 1000LL);
 }
+#endif
 
 /** @} */

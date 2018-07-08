@@ -29,6 +29,17 @@
 #define CHCORE_H
 
 /*===========================================================================*/
+/* Attribute macros                                                          */
+/*===========================================================================*/
+#ifdef CH_POSIX
+# define CH_FASTCALL __attribute__((fastcall))
+# define CH_CDECL_NORETURN __attribute__((noreturn))
+#else
+# define CH_FASTCALL __attribute__((fastcall))
+# define CH_CDECL_NORETURN __attribute__((cdecl, noreturn))
+#endif
+
+/*===========================================================================*/
 /* Module constants.                                                         */
 /*===========================================================================*/
 
@@ -164,10 +175,12 @@ struct port_extctx {
  * @details This structure represents the inner stack frame during a context
  *          switch.
  */
-struct port_intctx {
-  regx86  ebx;
+struct __attribute__((packed)) port_intctx {
   regx86  edi;
   regx86  esi;
+  regx86  edx;
+  regx86  ecx;
+  regx86  ebx;
   regx86  ebp;
   regx86  eip;
 };
@@ -204,24 +217,27 @@ struct port_context {
  * @details This code usually setup the context switching frame represented
  *          by an @p port_intctx structure.
  */
-#define PORT_SETUP_CONTEXT(tp, wbase, wtop, pf, arg) {                      \
-  /*lint -save -e611 -e9033 -e9074 -e9087 [10.8, 11.1, 11.3] Valid casts.*/ \
-  uint8_t *esp = (uint8_t *)wtop;                                           \
-  APUSH(esp, 0);                                                            \
-  uint8_t *savebp = esp;                                                    \
-  AALIGN(esp, 15, 8);                                                       \
-  APUSH(esp, arg);                                                          \
-  APUSH(esp, pf);                                                           \
-  APUSH(esp, 0);                                                            \
-  esp -= sizeof(struct port_intctx);                                        \
-  ((struct port_intctx *)esp)->eip = (void *)_port_thread_start;            \
-  ((struct port_intctx *)esp)->ebx = NULL;                                  \
-  ((struct port_intctx *)esp)->edi = NULL;                                  \
-  ((struct port_intctx *)esp)->esi = NULL;                                  \
-  ((struct port_intctx *)esp)->ebp = (void *)savebp;                        \
-  (tp)->ctx.sp = (struct port_intctx *)esp;                                 \
-  /*lint -restore*/                                                         \
-}
+#define PORT_SETUP_CONTEXT(tp, wbase, wtop, pf, arg) {                  \
+    /*lint -save -e611 -e9033 -e9074 -e9087 [10.8, 11.1, 11.3] Valid casts.*/ \
+    uint8_t *esp = (uint8_t *)wtop;                                     \
+    APUSH(esp, 0);                                                      \
+    uint8_t *savebp = esp;                                              \
+    AALIGN(esp, 15, 8);                                                 \
+    APUSH(esp, arg);                                                    \
+    APUSH(esp, pf);                                                     \
+    APUSH(esp, 0);                                                      \
+    esp -= sizeof(struct port_intctx);                                  \
+    ((struct port_intctx *)esp)->edi = NULL;                            \
+    ((struct port_intctx *)esp)->esi = NULL;                            \
+    ((struct port_intctx *)esp)->edx = NULL;                            \
+    ((struct port_intctx *)esp)->ebx = NULL;                            \
+    ((struct port_intctx *)esp)->ecx = NULL;                            \
+    ((struct port_intctx *)esp)->ebx = NULL;                            \
+    ((struct port_intctx *)esp)->ebp = (void *)savebp;                  \
+    ((struct port_intctx *)esp)->eip = (void *)_port_thread_start;      \
+    (tp)->ctx.sp = (struct port_intctx *)esp;                           \
+    /*lint -restore*/                                                   \
+  }
 
  /**
  * @brief   Computes the thread working area global size.
@@ -290,9 +306,8 @@ extern syssts_t port_irq_sts;
 extern "C" {
 #endif
   /*lint -save -e950 [Dir-2.1] Non-ANSI keywords are fine in the port layer.*/
-  __attribute__((fastcall)) void port_switch(thread_t *ntp, thread_t *otp);
-  __attribute__((cdecl, noreturn)) void _port_thread_start(msg_t (*pf)(void *p),
-                                                           void *p);
+  CH_FASTCALL void port_switch(thread_t *ntp, thread_t *otp);
+  CH_CDECL_NORETURN void _port_thread_start(msg_t (*pf)(void *p), void *p);
   /*lint -restore*/
   rtcnt_t port_rt_get_counter_value(void);
   void _sim_check_for_interrupts(void);

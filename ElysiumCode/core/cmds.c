@@ -4,6 +4,10 @@
 #include "regs_admin.h"
 #include "errors.h"
 
+#if defined(POSIX_MCUCONF)
+#include <stdlib.h>
+#endif
+
 static msg_t main_buffer[elyNLMaxSlots + elyFWMaxSlots];
 static MAILBOX_DECL(main_mbox, main_buffer, elyNLMaxSlots + elyFWMaxSlots);
 static uint8_t * active_buffer = NULL;
@@ -165,7 +169,13 @@ static void reset(uint8_t* buffer, elysium_cmd_hdr_t hdr) {
   (void)(hdr);
   elyNLFreeBuffer(elyNLFromFW(buffer));
   active_buffer = NULL; /* have to null before reset */
+#if defined(MSP430X_MCUCONF)
   PMMCTL0 = PMMPW | SVSHE | PMMSWPOR; /* SW POR */
+#elif defined(POSIX_MCUCONF)
+  exit(0);
+#else
+#error "Unsupported MCU"
+#endif
 }
 
 static void get_gpo(uint8_t* buffer, elysium_cmd_hdr_t hdr) {
@@ -679,7 +689,13 @@ static void reload_config(uint8_t * buffer, elysium_cmd_hdr_t hdr) {
   
   /* Reboot the Elysium to re-assert config */
   /* TODO go through all the threads and make sure this really happens */
+#if defined(MSP430X_MCUCONF)
   PMMCTL0 = PMMPW | SVSHE | PMMSWPOR; /* SW POR */
+#elif defined(POSIX_MCUCONF)
+  exit(0);
+#else
+#error "Unsupported MCU"
+#endif
 }
 
 static void channel_sub(uint8_t* buffer, elysium_cmd_hdr_t hdr) {
@@ -1428,9 +1444,6 @@ static void cancel_fw(uint8_t * buffer, elysium_cmd_hdr_t hdr) {
 }
 
 static void install_fw(uint8_t * buffer, elysium_cmd_hdr_t hdr) {
-  (void)(hdr);
-  (void)(buffer);
-  
   elyNLFreeBuffer(elyNLFromFW(buffer));
   
   /* ENH you should make verification un-inhibit this command */
@@ -1441,10 +1454,15 @@ static void install_fw(uint8_t * buffer, elysium_cmd_hdr_t hdr) {
     elyNLFreeBuffer(elyNLFromFW(buffer));
   }
   
+#if defined(MSP430X_MCUCONF)
   /* Mark the bootloader as active and reset */
   bootloader = 1;
   PMMCTL0 = PMMPW | SVSHE | PMMSWPOR; /* SW POR */
-  
+#elif defined(POSIX_MCUCONF)
+  exit(0);
+#else
+#error "Unsupported MCU"
+#endif
 }
 
 static void store_telem_reply_cb(uint8_t * buff) {

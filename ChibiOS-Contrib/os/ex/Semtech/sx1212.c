@@ -63,12 +63,22 @@ static void spi_end_cb(SPIDriver * spip) {
 
 void spi_mode_config(SX1212Driver * devp) {
   devp->config->spicfgp->end_cb = NULL;
+#if defined(MSP430X_MCUCONF)
   devp->config->spip->regs->ctlw0 &= ~UCMODE1;
+#elif defined(POSIX_MCUCONF)
+#else
+#error "Unsupported MCU"
+#endif
 }
 
 void spi_mode_data(SX1212Driver * devp) {
   devp->config->spicfgp->end_cb = spi_end_cb;
+#if defined(MSP430X_MCUCONF)
   devp->config->spip->regs->ctlw0 |= UCMODE1;
+#elif defined(POSIX_MCUCONF)
+#else
+#error "Unsupported MCU"
+#endif
 }
 
 /*===========================================================================*/

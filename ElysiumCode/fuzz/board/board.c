@@ -14,36 +14,21 @@
     limitations under the License.
 */
 
-#include <string.h>
-#include <stdio.h>
-
-#include "ch.h"
 #include "hal.h"
-#include "ch_test.h"
-#include "console.h"
+
+/**
+ * @brief PAL setup.
+ * @details Digital I/O ports static configuration as defined in @p board.h.
+ */
+#if HAL_USE_PAL || defined(__DOXYGEN__)
+const PALConfig pal_default_config = {
+ {0, 0, 0},
+ {0, 0, 0}
+};
+#endif
 
 /*
- * Simulator main.
+ * Board-specific initialization code.
  */
-int main(int argc, char *argv[]) {
-
-  (void)argc;
-  (void)argv;
-
-  /*
-   * System initializations.
-   * - HAL initialization, this also initializes the configured device drivers
-   *   and performs the board-specific initializations.
-   * - Kernel initialization, the main() function becomes a thread and the
-   *   RTOS is active.
-   */
-  halInit();
-  conInit();
-  chSysInit();
-
-  test_execute((BaseSequentialStream *)&CD1);
-  if (test_global_fail)
-    exit(1);
-  else
-    exit(0);
+void boardInit(void) {
 }

@@ -2,7 +2,9 @@
 #ifndef _ELYSIUM_CMDS_H_
 #define _ELYSIUM_CMDS_H_
 
+#ifndef __FUZZ__
 #include "msp430.h"
+#endif
 #include "core.h"
 #include "crc_x25.h"
 #include "events.h"

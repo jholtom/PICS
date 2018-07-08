@@ -43,7 +43,7 @@ BaseChannel CD1;
 /* Driver local functions.                                                   */
 /*===========================================================================*/
 
-static size_t write(void *ip, const uint8_t *bp, size_t n) {
+static size_t console_write(void *ip, const uint8_t *bp, size_t n) {
   size_t ret;
 
   (void)ip;
@@ -53,7 +53,7 @@ static size_t write(void *ip, const uint8_t *bp, size_t n) {
   return ret;
 }
 
-static size_t read(void *ip, uint8_t *bp, size_t n) {
+static size_t console_read(void *ip, uint8_t *bp, size_t n) {
 
   (void)ip;
 
@@ -114,7 +114,7 @@ static size_t readt(void *ip, uint8_t *bp, size_t n, systime_t time) {
 }
 
 static const struct BaseChannelVMT vmt = {
-  write, read, put, get,
+  console_write, console_read, put, get,
   putt, gett, writet, readt
 };
 

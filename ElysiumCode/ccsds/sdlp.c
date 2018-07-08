@@ -157,7 +157,6 @@ uint8_t elyRFDLLClampReg(uint8_t addr, uint8_t value) {
   return value;
 }
 
-#ifndef __FUZZ__
 /* TODO learn how to deal with non-SPP packets */
 void elyRFDLLBuildFrame(void) {
   static ely_framebuilder_state_t state = FB_STATE_UNINIT;
@@ -284,7 +283,6 @@ void elyRFDLLBuildFrame(void) {
   /* Frame is ready */
   chEvtSignal(rf_thd, RFTxFrameReady);
 }
-#endif
 
 void rxfifothresh_callback(void) {
   chSysLockFromISR();
@@ -292,7 +290,6 @@ void rxfifothresh_callback(void) {
   chSysUnlockFromISR();
 }
 
-#ifndef __FUZZ__
 void packet_callback(SX1212Driver * devp, size_t n, uint8_t *rxbuf) {
   (void)(rxbuf);
   /* TODO run FARM checks and free the buffer if it fails */
@@ -342,7 +339,6 @@ void header_callback(SX1212Driver * devp, size_t n, uint8_t *rxbuf) {
   dll_state = DLL_STATE_PKT;
   chSysUnlockFromISR();
 }
-#endif
 
 void elyRFDLLRxInit(SX1212Driver * devp) {
   /* End the packet */
@@ -443,8 +439,6 @@ void elyRFDLLHandleRxFifo(SX1212Driver * devp) {
   
 }
 
-#ifndef __FUZZ__
-
 void txlvl_callback(void) {
   chSysLockFromISR();
   chEvtSignalI(rf_thd, RFTxFifoLevel);
@@ -507,8 +501,3 @@ void elyRFDLLHandleTxFifo(SX1278Driver * devp) {
   tf_idx += to_transmit;
   chSysUnlock();
 }
-
-
-
-
-#endif

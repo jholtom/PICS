@@ -28,7 +28,8 @@ void crcGenSDLP(uint8_t * message, size_t n) {
    * of 0xFFFF and no inversion */
    
   chDbgAssert(n >= 2, "message too small to CRC");
-   
+
+#if defined(MSP430X_MCUCONF)
   /* Initialize the register to 0xFFFF */
   CRCINIRES = 0xFFFF;
    
@@ -53,6 +54,12 @@ void crcGenSDLP(uint8_t * message, size_t n) {
   /* MSB comes first because of how things are transmitted */
   *(message+n-2) = (CRCINIRES_H);
   *(message+n-1) = (CRCINIRES_L);
+#elif defined(POSIX_MCUCONF) && defined(__FUZZ__)
+  *(message+n-2) = 0xBE;
+  *(message+n-1) = 0xEF;
+#else
+#error "Unsupported MCU"
+#endif
 }
 
 /** @brief    Checks the CRC value for a message according to SDLP rules
@@ -62,7 +69,7 @@ void crcGenSDLP(uint8_t * message, size_t n) {
  * @return  @p true if the signature is valid, @p false if not
  */
 bool crcCheckSDLP(uint8_t * message, size_t n) {
-  
+#if defined(MSP430X_MCUCONF)
   /* Initialize the register to 0xFFFF */
   CRCINIRES = 0xFFFF;
 
@@ -85,4 +92,13 @@ bool crcCheckSDLP(uint8_t * message, size_t n) {
    
   /* Final result should equal the saved checksum */
   return ((CRCINIRES_H == message[n-2]) && (CRCINIRES_L == message[n-1])) ;
+#elif defined(POSIX_MCUCONF) && defined(__FUZZ__)
+  // XXX(Reed): for fuzzing, we always assume the CRC is correct because the
+  // ground could always be sending us garbage.
+  (void) message;
+  (void) n;
+  return true;
+#else
+#error "Unsupported MCU"
+#endif
 }

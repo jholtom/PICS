@@ -37,6 +37,9 @@ endif
 OUTFILES = $(BUILDDIR)/$(PROJECT).exe
            
 
+$(BUILDDIR)/$(PROJECT): $(BUILDDIR)/$(PROJECT).exe
+	cp $< $@
+
 # Source files groups and paths
 SRC	      = $(CSRC)$(CPPSRC)
 SRCPATHS  = $(sort $(dir $(ASMXSRC)) $(dir $(ASMSRC)) $(dir $(SRC)))

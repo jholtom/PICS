@@ -14,7 +14,6 @@ uint16_t PERSIST packets_sent = 1;
 uint8_t PERSIST packets_relayed;
 static size_t sh_len;
 
-#ifndef __FUZZ__
 void * nl_allocator(size_t size, unsigned align) {
   (void)(align);
   /* Provides memory blocks for the pool */
@@ -31,7 +30,6 @@ void * nl_allocator(size_t size, unsigned align) {
 }
 
 static PERSIST MEMORYPOOL_DECL(main_mpool, elyNLDefaultMaxLen, nl_allocator);
-#endif
 
 static uint8_t clamp(uint8_t value, uint8_t min, uint8_t max) {
   if (value < min) {
@@ -99,7 +97,6 @@ uint8_t elyNLClampReg(uint8_t addr, uint8_t value) {
   return value;
 }
 
-#ifndef __FUZZ__
 void elyNLChangeMaxLengthS(size_t len) {
   chDbgCheckClassS();
   /* We assume the register changes have already been made */
@@ -394,5 +391,3 @@ uint8_t * elyNLToFW(uint8_t * buffer) {
 uint8_t * elyNLFromFW(uint8_t * buffer) {
   return buffer - sh_len - 6;
 }
-
-#endif

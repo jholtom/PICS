@@ -32,7 +32,6 @@
 /*===========================================================================*/
 
 #undef PAL_MODE_INPUT_PULLUP
-#undef PAL_MODE_INPUT_PULLDOWN
 #undef PAL_MODE_OUTPUT_OPENDRAIN
 #undef PAL_MODE_INPUT_ANALOG
 
@@ -92,6 +91,37 @@ typedef struct {
 #define PAL_WHOLE_PORT ((ioportmask_t)0xFFFFFFFF)
 
 /**
+ * @name    Line handling macros
+ * @{
+ */
+/**
+ * @brief   Forms a line identifier.
+ * @details A port/pad pair are encoded into an @p ioline_t type. The encoding
+ *          of this type is platform-dependent.
+ */
+#define PAL_LINE(port, pad)                           \
+  ((ioline_t)((uint32_t)(port)) | ((uint32_t)(pad)))
+
+/**
+ * @brief   Decodes a port identifier from a line identifier.
+ */
+#define PAL_PORT(line)                                  \
+  ((ioportid_t)(((uint32_t)(line)) & 0xFFFFFF70U))
+
+/**
+ * @brief   Decodes a pad identifier from a line identifier.
+ */
+#define PAL_PAD(line)                           \
+  ((uint32_t)((uint32_t)(line) & 0x0000001FU))
+
+/**
+ * @brief   Value identifying an invalid line.
+ */
+#define PAL_NOLINE                      0U
+/** @} */
+
+
+/**
  * @brief   Digital I/O port sized unsigned type.
  */
 typedef uint32_t ioportmask_t;
@@ -102,9 +132,14 @@ typedef uint32_t ioportmask_t;
 typedef uint32_t iomode_t;
 
 /**
+ * @brief   Type of an I/O line.
+ */
+typedef uint32_t ioline_t;
+
+/**
  * @brief   Port Identifier.
  */
-typedef sim_vio_port_t *ioportid_t;
+typedef uint32_t ioportid_t;
 
 /*===========================================================================*/
 /* I/O Ports Identifiers.                                                    */
@@ -113,12 +148,12 @@ typedef sim_vio_port_t *ioportid_t;
 /**
  * @brief   VIO port 1 identifier.
  */
-#define IOPORT1         (&vio_port_1)
+#define IOPORT1         (1 << 5)
 
 /**
  * @brief   VIO port 2 identifier.
  */
-#define IOPORT2         (&vio_port_2)
+#define IOPORT2         (2 << 5)
 
 /*===========================================================================*/
 /* Implementation, some of the following macros could be implemented as      */
@@ -132,9 +167,9 @@ typedef sim_vio_port_t *ioportid_t;
  *
  * @notapi
  */
-#define pal_lld_init(config)                                                \
-  (vio_port_1 = (config)->VP1Data,                                          \
-   vio_port_2 = (config)->VP2Data)
+#define pal_lld_init(config)                                            \
+  (vio_ports[0] = (config)->VP1Data,                                    \
+   vio_ports[1] = (config)->VP2Data)
 
 /**
  * @brief   Reads the physical I/O port states.
@@ -144,7 +179,7 @@ typedef sim_vio_port_t *ioportid_t;
  *
  * @notapi
  */
-#define pal_lld_readport(port) ((port)->pin)
+#define pal_lld_readport(port) (vio_ports[(PAL_PORT(port) >> 5) - 1].pin)
 
 /**
  * @brief   Reads the output latch.
@@ -156,7 +191,7 @@ typedef sim_vio_port_t *ioportid_t;
  *
  * @notapi
  */
-#define pal_lld_readlatch(port) ((port)->latch)
+#define pal_lld_readlatch(port) (vio_ports[(PAL_PORT(port) >> 5) - 1].latch)
 
 /**
  * @brief   Writes a bits mask on a I/O port.
@@ -166,7 +201,7 @@ typedef sim_vio_port_t *ioportid_t;
  *
  * @notapi
  */
-#define pal_lld_writeport(port, bits) ((port)->latch = (bits))
+#define pal_lld_writeport(port, bits) (vio_ports[(PAL_PORT(port) >> 5) - 1].latch = (bits))
 
 /**
  * @brief   Pads group mode setup.
@@ -184,8 +219,7 @@ typedef sim_vio_port_t *ioportid_t;
   _pal_lld_setgroupmode(port, mask << offset, mode)
 
 #if !defined(__DOXYGEN__)
-extern sim_vio_port_t vio_port_1;
-extern sim_vio_port_t vio_port_2;
+extern sim_vio_port_t vio_ports[2];
 extern const PALConfig pal_default_config;
 #endif
 
