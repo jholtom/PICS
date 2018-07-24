@@ -17,7 +17,7 @@
 /**
  * @file    sx1212.h
  * @brief   SX1212 RF transceiver module header.
- * 
+ *
  * @{
  */
 #ifndef _SX1212_H_
@@ -264,7 +264,7 @@ typedef struct {
    */
   SPIDriver       *spip;
   /**
-   * @brief SPI configuration associated with the Config interface 
+   * @brief SPI configuration associated with the Config interface
    */
   SPIConfig *spicfgp;
   /**
@@ -300,7 +300,7 @@ typedef struct {
    * @brief Reset line
    */
   ioline_t reset_line;
-  /** 
+  /**
    * @brief Packet handling configuration settings
    */
   sx1212_packet_config_t *packet_config;
@@ -389,7 +389,7 @@ extern "C" {
   void sx1212ObjectInit(SX1212Driver *devp);
   void sx1212Start(SX1212Driver *devp, const SX1212Config *config);
   void sx1212Stop(SX1212Driver *devp);
-  msg_t sx1212ReceiveTimeout(SX1212Driver *devp, size_t n, uint8_t *buffer, 
+  msg_t sx1212ReceiveTimeout(SX1212Driver *devp, size_t n, uint8_t *buffer,
       systime_t timeout);
   int8_t sx1212RSSI(SX1212Driver *devp);
   msg_t sx1212StartReceive(SX1212Driver *devp, size_t n, palcallback_t callback);
