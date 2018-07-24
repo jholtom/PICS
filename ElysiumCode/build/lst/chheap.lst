@@ -1,1688 +1,663 @@
-GAS LISTING /tmp/ccVpF9jF.s 			page 1
+GAS LISTING /tmp/cc4GlsXv.s 			page 1
 
 
    1               		.file	"chheap.c"
-   2               		.section	.gnu.lto_.profile.5753bf5bd9dab7a4,"",@progbits
-   3 0000 789C 6365 		.string	"x\234ce`d`c`"
-   3      6064 6063 
-   3      6000 
-   4 000a 9247 992E 		.string	"\222G\231.2\002"
-   4      3202 00
-   5 0011 055F 01A7 		.ascii	"\005_\001\247"
-   6               	.text
-   7               		.section	.gnu.lto_.icf.5753bf5bd9dab7a4,"",@progbits
-   8 0000 789C 6365 		.string	"x\234ce`d0g@"
-   8      6064 3067 
-   8      4000 
-   9 000a 4E86 AEBD 		.string	"N\206\256\275{^s2\036{{h*7\363\232\227}\313xXV\\\330\361\201\221\365\303\221\2633x\330:\3
-   9      7B5E 7332 
-   9      1E7B 7B68 
-   9      2A37 F39A 
-   9      977D CB78 
-  10 0046 01AA 1B80 		.ascii	"\001\252\033\200"
-  11               	.text
-  12               		.section	.gnu.lto_.jmpfuncs.5753bf5bd9dab7a4,"",@progbits
-  13 0000 789C 6365 		.string	"x\234ce`d\270\307\200"
-  13      6064 B8C7 
-  13      8000 
-  14 000a AC40 CCCC 		.string	"\254@\314\314\314\310\310\310^__\317\3048\235\231\261\371\327\376\317|\365\177\033$\34633
-  14      CCC8 C8C8 
-  14      5E5F 5FCF 
-  14      C438 9D99 
-  14      B1F9 D7FE 
-  15 004c 65D1 8C61 		.string	"e\321\214aZ\314\314\bT\273\022d\f\013\304\332z\001v\240q\020\263\320T3/f\006\n3\256\202\2
-  15      5ACC CC08 
-  15      54BB 1264 
-  15      0C0B C4DA 
-  15      7A01 76A0 
-  16 007e 00        		.string	""
-  17 007f 227C 2FDA 		.ascii	"\"|/\332"
-  18               	.text
-  19               		.section	.gnu.lto_.inline.5753bf5bd9dab7a4,"",@progbits
-  20 0000 789C 5D91 		.ascii	"x\234]\221\275J\003A\020\307\377\263{\271\275|\b\213&\nA\311"
-  20      BD4A 0341 
-  20      10C7 FFB3 
-  20      7BB9 BD7C 
-  20      088B 260A 
-  21 0016 F642 1E41 		.ascii	"\366B\036A\362\004\021\354\364\005\224\\\347\023\034B,\004\345"
-  21      F204 11EC 
-  21      F405 945C 
-  21      E713 1C42 
-  21      2C04 E5
-  22 0029 8AA0 9DA6 		.ascii	"\212\240\235\246\363+hm\247b\257X\331ii\221\302B\"v\316\316F"
-  22      F32B 686D 
-  22      A762 AF58 
-  22      D969 6991 
-  22      C242 2276 
-  23 0040 49BC 62FE 		.ascii	"I\274b\3767\037;\363\233\335\002\b\253\n\177_\00101A%\267+\210"
-  23      371F 3BF3 
-  23      9BDD 0208 
-  23      AB0A 7F5F 
-GAS LISTING /tmp/ccVpF9jF.s 			page 2
+   2               		.section	.text._heap_init,"ax",@progbits
+   3               		.balign 2
+   4               		.global	_heap_init
+   5               		.type	_heap_init, @function
+   6               	_heap_init:
+   7               	; start of function
+   8               	; framesize_regs:     0
+   9               	; framesize_locals:   0
+  10               	; framesize_outgoing: 0
+  11               	; framesize:          0
+  12               	; elim ap -> fp       4
+  13               	; elim fp -> sp       0
+  14               	; saved regs:(none)
+  15               		; start of prologue
+  16               		; end of prologue
+  17 0000 8C00 0000 		MOVA	#default_heap, R12
+  18 0004 0018 FC40 		MOVX.A	#chCoreAllocAligned, @R12
+  18      0000 0000 
+  19 000c 0018 CC43 		MOVX.A	#0, 4(R12)
+  19      0400 
+  20 0012 8C43 0800 		MOV.W	#0, 8(R12)
+  21 0016 FCF0 F0FF 		AND.B	#-16, 10(R12)
+  21      0A00 
+  22 001c 9C43 0C00 		MOV.W	#1, 12(R12)
+  23               		; start of epilogue
+  24 0020 1001      		RETA
+  25               		.size	_heap_init, .-_heap_init
+  26               		.section	.text.chHeapObjectInit,"ax",@progbits
+  27               		.balign 2
+  28               		.global	chHeapObjectInit
+  29               		.type	chHeapObjectInit, @function
+  30               	chHeapObjectInit:
+  31               	; start of function
+  32               	; framesize_regs:     12
+  33               	; framesize_locals:   4
+  34               	; framesize_outgoing: 0
+  35               	; framesize:          16
+  36               	; elim ap -> fp       16
+  37               	; elim fp -> sp       4
+  38               	; saved regs: R6 R8 R10
+  39               		; start of prologue
+  40 0000 0A14      		PUSHM.A	#1, R10
+  41 0002 0814      		PUSHM.A	#1, R8
+  42 0004 0614      		PUSHM.A	#1, R6
+  43 0006 B100 0400 		SUBA	#4, R1
+  44               		; end of prologue
+  45 000a CA0C      		MOVA	R12, R10
+  46 000c C80D      		MOVA	R13, R8
+  47 000e C60E      		MOVA	R14, R6
+  48 0010 9C00 0000 		CMPA	#0, R12 { JEQ	.L3
+  48      0024 
+  49 0016 9E00 0000 		CMPA	#0, R14 { JEQ	.L3
+  49      0024 
+  50 001c CC0D      		MOVA	R13, R12
+  51 001e 0018 4CDE 		BISX.A	R14, R12
+  52 0022 4018 7CF0 		ANDX.B	#7, R12
+GAS LISTING /tmp/cc4GlsXv.s 			page 2
 
 
-  23      0130 3141 
-  24 0058 FB0D C968 		.ascii	"\373\r\311h,\324\311\300u\2164\035v\357\037\315\201>\321\021"
-  24      2CD4 C9C0 
-  24      758E 341D 
-  24      76EF 1FCD 
-  24      813E D111 
-  25 006c 814E 6911 		.ascii	"\201Ni\021p\251\250\252N\245\013\234>\223p*\nG`\207\r\371?\023"
-  25      70A9 A8AA 
-  25      4EA5 0B9C 
-  25      3E93 702A 
-  25      0A47 6087 
-  26 0084 7F34 51C9 		.ascii	"\1774Q\311\333\nQ\277\321B\224/e\224 \036\3262\345XG\245\214"
-  26      DB0A 51BF 
-  26      D142 942F 
-  26      6594 201E 
-  26      D632 E558 
-  27 009b 5839 9791 		.ascii	"X9\227\221'Pe>\307l\257\270ST\246jGz\322\270\267\262~\364\365"
-  27      2750 653E 
-  27      C76C AFB8 
-  27      5354 A66A 
-  27      477A D2B8 
-  28 00b4 F0E6 7BC6 		.ascii	"\360\346{\306\217f|:\227p*\312\340\323\244v\223\313?\367\272"
-  28      8F66 7C3A 
-  28      9770 2ACA 
-  28      E0D3 A476 
-  28      93CB 3FF7 
-  29 00c9 5F3A 941B 		.ascii	"_:\224\033\272\220\360\226(yHe\375\\!\335\356\355\273p\025\325"
-  29      BA90 F096 
-  29      2879 4865 
-  29      FD5C 21DD 
-  29      EEED BB70 
-  30 00df C17A C650 		.ascii	"\301z\306P\275\371\314&Hr\2261\243\023k\377Hy\257 \272\302\221"
-  30      BDF9 CC26 
-  30      4872 9631 
-  30      A313 6BFF 
-  30      4879 AF20 
-  31 00f6 BC3D E68F 		.ascii	"\274=\346\217g\305\313\333\006\017xR\244=Y3\2005\307W\024m\\"
-  31      67C5 CBDB 
-  31      060F 7852 
-  31      A43D 5933 
-  31      8035 C757 
-  32 010d 0D1C ECFB 		.ascii	"\r\034\354\373\232\002_\221E\374\262\314\303&\033\363v\230\356"
-  32      9A02 5F91 
-  32      45FC B2CC 
-  32      C326 1BF3 
-  32      7698 EE
-  33 0120 5B44 7D04 		.ascii	"[D}\004*\376\337\223\\:\371\"\206\017^J\270#\252\270,h\360e\274"
-  33      2AFE DF93 
-  33      5C3A F922 
-  33      860F 5E4A 
-  33      B823 AAB8 
-  34 0139 3C8E F2A6 		.ascii	"<\216\362\246h\337\216Kao\277\\\260\021\364h\316\202\236c\033"
-  34      68DF 8E4B 
-  34      616F BF5C 
-  34      B011 F468 
-  34      CE82 9E63 
-  35 014e 0209 F46E 		.ascii	"\002\t\364n\255\005\3321-5A\371\313\207\037\247\"c%"
-GAS LISTING /tmp/ccVpF9jF.s 			page 3
+  52      0700 
+  53 0028 9C00 0000 		CMPA	#0, R12 { JEQ	.L4
+  53      0024 
+  54               	.L3:
+  55 002e 8C00 0000 		MOVA	#__func__.2600, R12
+  56 0032 B013 0000 		CALLA	#chSysHalt
+  57               	.L4:
+  58 0036 0018 CA43 		MOVX.A	#0, @R10
+  58      0000 
+  59 003c 7A08 0400 		MOVA	R8, 4(R10)
+  60 0040 8A43 0800 		MOV.W	#0, 8(R10)
+  61 0044 FAF0 F0FF 		AND.B	#-16, 10(R10)
+  61      0A00 
+  62 004a 0018 C843 		MOVX.A	#0, @R8
+  62      0000 
+  63 0050 A60F F8FF 		ADDA	#-8, R6
+  64 0054 0614 4018 		PUSHM.A	#1, R6 { POPX.W	R12 { POPX.W	R13 ; move pointer in R6 into reg-pair R12:R13
+  64      3C41 4018 
+  64      3D41 
+  65 005e B013 0000 		CALLA	#__mspabi_srll_3
+  66 0062 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R14
+  66      0E16 
+  67 0068 710E 0000 		MOVA	R14, @R1
+  68 006c 884E 0400 		MOV.W	R14, 4(R8)
+  69 0070 0E14 0C17 		PUSHM.A	#1,R14 { POPM.W	#1,R12 { POPM.W	#1,R12
+  69      0C17 
+  70 0076 7CF0 0F00 		AND.B	#15, R12
+  71 007a 5D48 0600 		MOV.B	6(R8), R13
+  72 007e 7DF0 F0FF 		AND.B	#-16, R13
+  73 0082 4DDC      		BIS.B	R12, R13
+  74 0084 C84D 0600 		MOV.B	R13, 6(R8)
+  75 0088 9A43 0C00 		MOV.W	#1, 12(R10)
+  76               		; start of epilogue
+  77 008c A100 0400 		ADDA	#4, R1
+  78 0090 0616      		POPM.A	#1, r6
+  79 0092 0816      		POPM.A	#1, r8
+  80 0094 0A16      		POPM.A	#1, r10
+  81 0096 1001      		RETA
+  82               		.size	chHeapObjectInit, .-chHeapObjectInit
+  83               		.section	.text.chHeapAllocAligned,"ax",@progbits
+  84               		.balign 2
+  85               		.global	chHeapAllocAligned
+  86               		.type	chHeapAllocAligned, @function
+  87               	chHeapAllocAligned:
+  88               	; start of function
+  89               	; framesize_regs:     28
+  90               	; framesize_locals:   32
+  91               	; framesize_outgoing: 0
+  92               	; framesize:          60
+  93               	; elim ap -> fp       32
+  94               	; elim fp -> sp       32
+  95               	; saved regs: R4 R5 R6 R7 R8 R9 R10
+  96               		; start of prologue
+  97 0000 6A14      		PUSHM.A	#7, R10
+  98 0002 B100 2000 		SUBA	#32, R1
+  99               		; end of prologue
+ 100 0006 C50C      		MOVA	R12, R5
+GAS LISTING /tmp/cc4GlsXv.s 			page 3
 
 
-  35      AD05 DA31 
-  35      2D35 41F9 
-  35      CB87 1FA7 
-  35      2263 25
-  36               	.text
-  37               		.section	.gnu.lto_.pureconst.5753bf5bd9dab7a4,"",@progbits
-  38 0000 789C 6365 		.string	"x\234ce`d\340f```e\220b\226b\225b\227\342\224\002"
-  38      6064 E066 
-  38      6060 6065 
-  38      9062 9662 
-  38      9562 97E2 
-  39 0017 044D 00   		.string	"\004M"
-  40 001a B1        		.ascii	"\261"
-  41               	.text
-  42               		.section	.gnu.lto__heap_init.5753bf5bd9dab7a4,"",@progbits
-  43 0000 789C 8D92 		.ascii	"x\234\215\222\313K[A\024\306\317w'\271\367j\251\213\256\n\272"
-  43      CB4B 5B41 
-  43      14C6 CF77 
-  43      27B9 F76A 
-  43      A98B AE0A 
-  44 0015 702B 622E 		.ascii	"p+b.\364_\350\302\245\240\375\007j\020\022\250\246\350\336\\"
-  44      F45F E8C2 
-  44      A5A0 FD07 
-  44      6A10 12A8 
-  44      A6E8 DE5C 
-  45 0029 6D4D AC8A 		.ascii	"mM\254\212\2721\211\213rE\005\0375>\3523\276\b\301\322M\251("
-  45      BA31 898B 
-  45      7245 051F 
-  45      353E EA33 
-  45      BE08 C1D2 
-  46 0040 7451      		.ascii	"tQ"
-  47 0042 425B 90D0 		.string	"B[\220\320\372v\343J4\366\314$\210\202\257\201a\206\363\3159\337\357\f\307M\240\237\032Q\
-  47      FA76 E34A 
-  47      34F6 CC24 
-  47      8882 AF81 
-  47      6186 F3CD 
-  48 0143 6196 DD14 		.string	"a\226\335\024\345\237\241GS\316\335G9\177\037\345\302]\224&\026\245\344\222\224K7)yn\220P
-  48      E59F A147 
-  48      53CE DD47 
-  48      397F 1FE5 
-  48      C25D 9426 
-  49 0171 2B8A D19D 		.string	"+\212\321\235\313\212\3043.\326\336\267H\255\020\253\222C\227\034k\212cn\343k\310\224\034
-  49      CB8A C433 
-  49      2ED6 DEB7 
-  49      48AD 10AB 
-  49      9243 971C 
-  50 0190 AC73 C123 		.ascii	"\254s\301#\264\016,\366\250\321R\263\332\301\315\362\320qW\345"
-  50      B40E 2CF6 
-  50      A8D1 52B3 
-  50      DAC1 CDF2 
-  50      D071 57E5 
-  51 01a4 1E8F F5D2 		.ascii	"\036\217\365\322\347\257\365W\325TT\277\262\002M\2267P_\037h"
-  51      E7AF F557 
-  51      D554 54BF 
-  51      B202 4D96 
-  51      3750 5F1F 
-  52 01b9 E0DB 1B7F 		.ascii	"\340\333\033\177\255\325\324\350\265\274>_\335\353\267\036/\375"
-GAS LISTING /tmp/ccVpF9jF.s 			page 4
+ 101 0008 710D 0400 		MOVA	R13, 4(R1)
+ 102 000c 094E      		MOV.W	R14, R9
+ 103 000e 9D00 0000 		CMPA	#0, R13 { JEQ	.L13
+ 103      0024 
+ 104 0014 0E93 0024 		CMP.W	#0, R14 { JEQ	.L13
+ 105 0018 4018 0C4E 		MOVX	R14, R12
+ 106 001c CE0C      		MOVA	R12, R14
+ 107 001e AE0F FFFF 		ADDA	#-1, R14
+ 108 0022 0018 4EBC 		BITX.A	R12, R14 { JEQ	.L14
+ 108      0024 
+ 109               	.L13:
+ 110 0028 8C00 0000 		MOVA	#__func__.2609, R12
+ 111 002c B013 0000 		CALLA	#chSysHalt
+ 112               	.L14:
+ 113 0030 9500 0000 		CMPA	#0, R5 { JNE	.L15
+ 113      0020 
+ 114 0036 8500 0000 		MOVA	#default_heap, R5
+ 115               	.L15:
+ 116 003a 3992 002C 		CMP.W	#8, R9 { JHS	.L16
+ 117 003e 7942      		MOV.B	#8, R9
+ 118               	.L16:
+ 119 0040 3C01 0400 		MOVA	4(R1), R12
+ 120 0044 AC00 0700 		ADDA	#7, R12
+ 121 0048 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 121      3C41 4018 
+ 121      3D41 
+ 122 0052 B013 0000 		CALLA	#__mspabi_srll_3
+ 123 0056 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R7
+ 123      0716 
+ 124 005c CE05      		MOVA	R5, R14
+ 125 005e AE00 0C00 		ADDA	#12, R14
+ 126 0062 710E 0800 		MOVA	R14, 8(R1)
+ 127 0066 4D43      		MOV.B	#0, R13
+ 128 0068 CC0E      		MOVA	R14, R12
+ 129 006a B013 0000 		CALLA	#chSemWaitTimeout
+ 130 006e CE05      		MOVA	R5, R14
+ 131 0070 AE00 0400 		ADDA	#4, R14
+ 132 0074 710E 0000 		MOVA	R14, @R1
+ 133 0078 4018 0C49 		MOVX	R9, R12
+ 134 007c CE0C      		MOVA	R12, R14
+ 135 007e AE0F FFFF 		ADDA	#-1, R14
+ 136 0082 710E 1800 		MOVA	R14, 24(R1)
+ 137 0086 4E43      		MOV.B	#0, R14
+ 138 0088 FE0C      		SUBA	R12, R14
+ 139 008a 710E 1C00 		MOVA	R14, 28(R1)
+ 140               	.L17:
+ 141 008e 0C01      		MOVA	@R1, R12
+ 142 0090 080C      		MOVA	@R12, R8
+ 143 0092 9800 0000 		CMPA	#0, R8 { JNE	.L23
+ 143      0020 
+ 144 0098 3C01 0800 		MOVA	8(R1), R12
+ 145 009c B013 0000 		CALLA	#chSemSignal
+ 146 00a0 0A05      		MOVA	@R5, R10
+ 147 00a2 9A00 0000 		CMPA	#0, R10 { JNE	.L24
+ 147      0020 
+ 148               	.L25:
+ 149 00a8 4C43      		MOV.B	#0, R12
+GAS LISTING /tmp/cc4GlsXv.s 			page 4
 
 
-  52      ADD5 D4E8 
-  52      B5BC 3E5F 
-  52      DDEB B71E 
-  52      2FFD 
-  53 01cb 0774 A3FE 		.ascii	"\007t\243\376\334"
-  53      DC
-  54               	.text
-  55               		.section	.gnu.lto_chHeapObjectInit.5753bf5bd9dab7a4,"",@progbits
-  56 0000 789C 9D53 		.ascii	"x\234\235S[OTW\024\336\337\331\34768\027KL\352\203iy0!\246)\347"
-  56      5B4F 5457 
-  56      14DE DFD9 
-  56      E736 3817 
-  56      4B4C EA83 
-  57 001b A50F 7D68 		.ascii	"\245\017}h\342\203?\240I\365\017t\210\r\244\265\030I_\3722\207"
-  57      E283 3FA0 
-  57      49F5 0F74 
-  57      880D A4B5 
-  57      1849 5FFA 
-  58 0031 0106 8B89 		.ascii	"\001\006\213\211\365A`@\350!m\214\b\345\242\322\352T\254S\224"
-  58      F541 6040 
-  58      E821 6D8C 
-  58      08E5 A2D2 
-  58      EA54 AC53 
-  59 0046 9B88 17D4 		.ascii	"\233\210\027\324\230\224\366\245\325\246X4J'j\t\212k\355=N&\004"
-  59      9894 F6A5 
-  59      D5A6 5834 
-  59      4A27 6A09 
-  59      8A6B ED3D 
-  60 005d 78E8 49CE 		.ascii	"x\350I\316>g\355\365\255o}{\255\265-\001\361\246-\304\007B"
-  60      3E67 EDF5 
-  60      AD6F 7D7B 
-  60      ADB5 2D01 
-  60      F1A6 2DC4 
-  61 0073 8838 BD70 		.string	"\2108\275p\005\214#\327\204\250s\r\303\356\266\204_\"\037O\n\341\207\245a\037,'\323\3445l
-  61      058C 23D7 
-  61      84A8 730D 
-  61      C3EE B684 
-  61      5F22 1F4F 
-  62 0174 A7A7 3A90 		.ascii	"\247\247:\220~\023L`\021\225m\363\342\360\022\345%\306\213\020"
-  62      7E13 4C60 
-  62      1195 6DF3 
-  62      E2F0 12E5 
-  62      25C6 8B10 
-  63 0188 CD44 C675 		.ascii	"\315D\306u?$\r\376\312{h\370\365\322\243\036\233\371\273$\227"
-  63      3F24 0DFE 
-  63      CA7B 68F8 
-  63      F5D2 A31E 
-  63      9BF9 BB24 
-  64 019d BFB5 71F4 		.ascii	"\277\265q\364\272\303\207\220\0208M\262\3709D\365\241V+\370."
-  64      BAC3 8790 
-  64      1038 4DB2 
-  64      F839 44F5 
-  64      A156 2BF8 
-  65 01b2 8D35 8BB1 		.ascii	"\2155\213\261\026a\317\024\260\2468\267]\316#\271\330\004\215"
-  65      1661 CF14 
-  65      B0A6 38B7 
-  65      5DCE 23B9 
-GAS LISTING /tmp/ccVpF9jF.s 			page 5
+ 150               	.L12:
+ 151               		; start of epilogue
+ 152 00aa A100 2000 		ADDA	#32, R1
+ 153 00ae 6416      		POPM.A	#7, r10
+ 154 00b0 1001      		RETA
+ 155               	.L23:
+ 156 00b2 CE08      		MOVA	R8, R14
+ 157 00b4 AE00 0800 		ADDA	#8, R14
+ 158 00b8 710E 0C00 		MOVA	R14, 12(R1)
+ 159 00bc C60E      		MOVA	R14, R6
+ 160 00be 0018 5651 		ADDX.A	24(R1), R6
+ 160      1800 
+ 161 00c4 0018 56F1 		ANDX.A	28(R1), R6
+ 161      1C00 
+ 162 00ca CA06      		MOVA	R6, R10
+ 163 00cc AA0F F8FF 		ADDA	#-8, R10
+ 164 00d0 0018 D148 		MOVX.A	4(R8), 16(R1)
+ 164      0400 1000 
+ 165 00d8 3C01 1000 		MOVA	16(R1), R12
+ 166 00dc AC00 0100 		ADDA	#1, R12
+ 167 00e0 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 167      3C41 4018 
+ 167      3D41 
+ 168 00ea B013 0000 		CALLA	#__mspabi_slll_3
+ 169 00ee 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R4
+ 169      0416 
+ 170 00f4 E408      		ADDA	R8, R4
+ 171 00f6 DA04 002C 		CMPA	R4, R10 { JHS	.L18
+ 172 00fa 0018 4C44 		MOVX.A	R4, R12 { SUBX.A	R6, R12
+ 172      0018 4C86 
+ 173 0102 0018 4D4C 		MOVX.A	R12, R13 { MOV.W	R12, R12 { RPT	#16 { RRAX.A	R13 ; sign extend pointer in R12 into R12:R13
+ 173      0C4C 0F18 
+ 173      4D11 
+ 174 010c B013 0000 		CALLA	#__mspabi_sral_3
+ 175 0110 814C 1400 		MOV.W	R12, 20(R1)
+ 176 0114 814D 1600 		MOV.W	R13, 22(R1)
+ 177 0118 3601 1400 		MOVA	20(R1), R6
+ 178 011c D607 0028 		CMPA	R7, R6 { JLO	.L18
+ 179 0120 D80A 002C 		CMPA	R10, R8 { JHS	.L19
+ 180 0124 0018 4C4A 		MOVX.A	R10, R12 { SUBX.A	12(R1), R12
+ 180      0018 5C81 
+ 180      0C00 
+ 181 012e 0018 4D4C 		MOVX.A	R12, R13 { MOV.W	R12, R12 { RPT	#16 { RRAX.A	R13 ; sign extend pointer in R12 into R12:R13
+ 181      0C4C 0F18 
+ 181      4D11 
+ 182 0138 B013 0000 		CALLA	#__mspabi_sral_3
+ 183 013c 884C 0400 		MOV.W	R12, 4(R8)
+ 184 0140 7DF0 0F00 		AND.B	#15, R13
+ 185 0144 5C48 0600 		MOV.B	6(R8), R12
+ 186 0148 7CF0 F0FF 		AND.B	#-16, R12
+ 187 014c 4CDD      		BIS.B	R13, R12
+ 188 014e C84C 0600 		MOV.B	R12, 6(R8)
+ 189 0152 D706 002C 		CMPA	R6, R7 { JHS	.L20
+ 190 0156 CC07      		MOVA	R7, R12
+ 191 0158 AC00 0100 		ADDA	#1, R12
+ 192 015c 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 192      3C41 4018 
+GAS LISTING /tmp/cc4GlsXv.s 			page 5
 
 
-  65      D804 8D
-  66 01c5 B5BA 28DD 		.ascii	"\265\272(\335<\352\227S\371\r\336\243\370\\s\3433\325D\032\013"
-  66      3CEA 9753 
-  66      F90D DEA3 
-  66      F85C 73E3 
-  66      33D5 441A 
-  67 01da 0C53 3CF1 		.ascii	"\fS<\361\317\345\371m\362\017.d\376\213h\277\300\017\005~Kt\226"
-  67      CFE5 F96D 
-  67      F20F 2E64 
-  67      FE8B 68BF 
-  67      C00F 057E 
-  68 01f1 CA62 3A87 		.ascii	"\312b:\207\344\254\216w\212\002lQ?!\344?h(c\037\3277\223Y\230"
-  68      E4AC 8E77 
-  68      8A02 6C51 
-  68      3F21 E43F 
-  68      6828 631F 
-  69 020a 7312 2F7C 		.ascii	"s\022/|7\220N\273\344\312\376\210\204(>\222\253\372V\277t\361"
-  69      3790 4EBB 
-  69      E4CA FE88 
-  69      8428 3E92 
-  69      ABFA 56BF 
-  70 0220 DF28 E168 		.ascii	"\337(\341h\004]n\006\357Mu\364}\032\240\253ns C8Gc{\226\023\221"
-  70      045D 6E06 
-  70      EF4D 75F4 
-  70      7D1A A0AB 
-  70      6E73 2043 
-  71 023b 63E5 C1E9 		.ascii	"c\345\301\351\201\020\201\323\276_\306\004\031\004J\240\300O"
-  71      8110 81D3 
-  71      BE5F C604 
-  71      1904 4AA0 
-  71      C04F 
-  72 024d 4804 B244 		.ascii	"H\004\262DiqT\335\251:\271\277\333\357\227\260\233\"\237M\\9"
-  72      6971 54DD 
-  72      A93A B9BF 
-  72      DBEF 97B0 
-  72      9B22 9F4D 
-  73 0263 1866 4E1A 		.ascii	"\030fN\032\372"
-  73      FA
-  74 0268 EE38 B56A 		.string	"\3568\265j\0235CW\237\274\307\357%\007\034\257\237o\004\361\206q\236x\323\352:`\004^\261\
-  74      1335 4357 
-  74      9FBC C7EF 
-  74      2507 1CAF 
-  74      9F6F 04F1 
-  75 0369 6689 F121 		.ascii	"f\211\361!\222\335\203-\372\306\360\323L\355\247\273B\262\337"
-  75      92DD 832D 
-  75      FAC6 F0D3 
-  75      4CED A7BB 
-  75      42B2 DF
-  76 037c A9A8 F076 		.ascii	"\251\250\360vUU\307\253?\334\375\356G{\274\232Z\257\262f\337"
-  76      5555 C7AB 
-  76      3FDC FDEE 
-  76      477B BC9A 
-  76      5AAF B266 
-  77 0391 BE9A CFE9 		.ascii	"\276\232\317\351\357\263\352\270W{\240\322\253\254\252\332\373"
-  77      EFB3 EAB8 
-  77      577B A0D2 
-  77      ABAC AADA 
-GAS LISTING /tmp/ccVpF9jF.s 			page 6
+ 192      3D41 
+ 193 0166 B013 0000 		CALLA	#__mspabi_slll_3
+ 194 016a 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 194      0C16 
+ 195 0170 EC0A      		ADDA	R10, R12
+ 196 0172 CE07      		MOVA	R7, R14
+ 197 0174 0018 7EE3 		INVX.A	R14
+ 198 0178 EE06      		ADDA	R6, R14
+ 199 017a 710E 0000 		MOVA	R14, @R1
+ 200 017e 8C4E 0400 		MOV.W	R14, 4(R12)
+ 201 0182 0E14 0D17 		PUSHM.A	#1,R14 { POPM.W	#1,R13 { POPM.W	#1,R13
+ 201      0D17 
+ 202 0188 7DF0 0F00 		AND.B	#15, R13
+ 203 018c 5E4C 0600 		MOV.B	6(R12), R14
+ 204 0190 7EF0 F0FF 		AND.B	#-16, R14
+ 205 0194 4EDD      		BIS.B	R13, R14
+ 206 0196 CC4E 0600 		MOV.B	R14, 6(R12)
+ 207 019a 0018 EC48 		MOVX.A	@R8, @R12
+ 207      0000 
+ 208 01a0 780C 0000 		MOVA	R12, @R8
+ 209               	.L20:
+ 210 01a4 9A41 0400 		MOV.W	4(R1), 4(R10)
+ 210      0400 
+ 211 01aa 3E01 0400 		MOVA	4(R1), R14
+ 212 01ae 0E14 0C17 		PUSHM.A	#1,R14 { POPM.W	#1,R12 { POPM.W	#1,R12
+ 212      0C17 
+ 213 01b4 7CF0 0F00 		AND.B	#15, R12
+ 214 01b8 5D4A 0600 		MOV.B	6(R10), R13
+ 215 01bc 7DF0 F0FF 		AND.B	#-16, R13
+ 216 01c0 4DDC      		BIS.B	R12, R13
+ 217 01c2 CA4D 0600 		MOV.B	R13, 6(R10)
+ 218 01c6 7A05 0000 		MOVA	R5, @R10
+ 219 01ca 3C01 0800 		MOVA	8(R1), R12
+ 220 01ce B013 0000 		CALLA	#chSemSignal
+ 221 01d2 CC0A      		MOVA	R10, R12
+ 222               	.L38:
+ 223 01d4 AC00 0800 		ADDA	#8, R12
+ 224 01d8 8000 0000 		BRA	#.L12
+ 225               	.L19:
+ 226 01dc 0A08      		MOVA	@R8, R10
+ 227 01de 0018 5791 		CMPX.A	16(R1), R7 { JNE	.L21
+ 227      1000 0020 
+ 228 01e6 0C01      		MOVA	@R1, R12
+ 229 01e8 7C0A 0000 		MOVA	R10, @R12
+ 230               	.L37:
+ 231 01ec CA08      		MOVA	R8, R10
+ 232 01ee 8000 0000 		BRA	#.L20
+ 233               	.L21:
+ 234 01f2 CE07      		MOVA	R7, R14
+ 235 01f4 AE00 0100 		ADDA	#1, R14
+ 236 01f8 0E14 4018 		PUSHM.A	#1, R14 { POPX.W	R12 { POPX.W	R13 ; move pointer in R14 into reg-pair R12:R13
+ 236      3C41 4018 
+ 236      3D41 
+ 237 0202 B013 0000 		CALLA	#__mspabi_slll_3
+ 238 0206 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R6
+ 238      0616 
+ 239 020c E608      		ADDA	R8, R6
+GAS LISTING /tmp/cc4GlsXv.s 			page 6
 
 
-  77      FB
-  78 03a2 F1FE 8A4A 		.ascii	"\361\376\212Ja\361w\277\214\177\361\211Y[\375\345\336W81\002"
-  78      61F1 77BF 
-  78      8C7F F189 
-  78      595B FDE5 
-  78      DE57 3831 
-  79 03b7 AB        		.ascii	"\253"
-  80               	.text
-  81               		.section	.gnu.lto_chHeapAllocAligned.5753bf5bd9dab7a4,"",@progbits
-  82 0000 789C 9D57 		.string	"x\234\235W{PT\327\031?\337=\373\336e\021X\036\002\"&\022|\262\3655Z'\352\250q\246\035':\2
-  82      7B50 54D7 
-  82      193F DF3D 
-  82      FBDE 6511 
-  82      581E 0222 
-  83 0048 0DD1 F8C6 		.ascii	"\r\321\370\306\304X[\024\215\022\320\b\b\375\276\357\334]\026"
-  83      C458 5B14 
-  83      8D12 D008 
-  83      08FD BEEF 
-  83      DC5D 16
-  84 005b 64B7 A3CC 		.ascii	"d\267\243\314\360\355=\277\363\275\037\347\334k\026 \352<B\314"
-  84      F0ED 3DBF 
-  84      F3BD 1FE7 
-  84      DC6B 1620 
-  84      EA3C 42CC 
-  85 006f 1342 CC01 		.ascii	"\023B\314\001! Y\200\266\261^\210\034\233\246\231/\304\t\335"
-  85      2120 5980 
-  85      B6B1 5E88 
-  85      1C9B A699 
-  85      2FC4 09DD 
-  86 0083 218F 4E14 		.ascii	"!\217N\024\272Kj\346U\351\2702\021u\231\214\225\205Wf\260(\021"
-  86      BA4B 6AE6 
-  86      55E9 B832 
-  86      1175 998C 
-  86      9585 5766 
-  87 009a 8B66 BDEE 		.ascii	"\213f\275\356D\330v\250J n\005\233\302m\232\235\331\035\314n"
-  87      44D8 76A8 
-  87      4A20 6E05 
-  87      9BC2 6D9A 
-  87      9DD9 1DCC 
-  88 00af 0787 821D 		.ascii	"\007\207\202\035\220\244\036\234\232\213\367cy\337\245ETIZ\325"
-  88      90A4 1E9C 
-  88      9A8B F763 
-  88      79DF A545 
-  88      5449 5AD5 
-  89 00c3 D790 9608 		.ascii	"\327\220\226\b\315\315\233Q\274\351\326"
-  89      CDCD 9B51 
-  89      BCE9 D6
-  90 00ce 222F 7871 		.string	"\"/xq\3459\232\202\253H\360(\rQZ\364\303X\204cJ'!\034\355\207c\374\017\036HT\017\261\312\
-  90      E539 9A82 
-  90      AB48 F028 
-  90      0D51 5AF4 
-  90      C358 8463 
-  91 01cf 971B 3B9E 		.string	"\227\033;\236}o\225\277f\305{k|;\300P\334\232\220\257Wj>i\206\203J\363\001\324\\\316\232\
-  91      7D6F 95BF 
-  91      66C5 7B6B 
-  91      7C3B C050 
-  91      DC9A 90AF 
-GAS LISTING /tmp/ccVpF9jF.s 			page 7
+ 240 020e 760A 0000 		MOVA	R10, @R6
+ 241 0212 CE06      		MOVA	R6, R14
+ 242 0214 AE00 0800 		ADDA	#8, R14
+ 243 0218 0018 4C44 		MOVX.A	R4, R12 { SUBX.A	R14, R12
+ 243      0018 4C8E 
+ 244 0220 0018 4D4C 		MOVX.A	R12, R13 { MOV.W	R12, R12 { RPT	#16 { RRAX.A	R13 ; sign extend pointer in R12 into R12:R13
+ 244      0C4C 0F18 
+ 244      4D11 
+ 245 022a B013 0000 		CALLA	#__mspabi_sral_3
+ 246 022e 864C 0400 		MOV.W	R12, 4(R6)
+ 247 0232 7DF0 0F00 		AND.B	#15, R13
+ 248 0236 5C46 0600 		MOV.B	6(R6), R12
+ 249 023a 7CF0 F0FF 		AND.B	#-16, R12
+ 250 023e 4CDD      		BIS.B	R13, R12
+ 251 0240 C64C 0600 		MOV.B	R12, 6(R6)
+ 252 0244 0D01      		MOVA	@R1, R13
+ 253 0246 7D06 0000 		MOVA	R6, @R13
+ 254 024a 8000 0000 		BRA	#.L37
+ 255               	.L18:
+ 256 024e 7108 0000 		MOVA	R8, @R1
+ 257 0252 8000 0000 		BRA	#.L17
+ 258               	.L24:
+ 259 0256 CE07      		MOVA	R7, R14
+ 260 0258 AE00 0100 		ADDA	#1, R14
+ 261 025c 0E14 4018 		PUSHM.A	#1, R14 { POPX.W	R12 { POPX.W	R13 ; move pointer in R14 into reg-pair R12:R13
+ 261      3C41 4018 
+ 261      3D41 
+ 262 0266 B013 0000 		CALLA	#__mspabi_slll_3
+ 263 026a 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 263      0C16 
+ 264 0270 0D49      		MOV.W	R9, R13
+ 265 0272 4A13      		CALLA	R10
+ 266 0274 9C00 0000 		CMPA	#0, R12 { JEQ	.L25
+ 266      0024 
+ 267 027a 7C05 0000 		MOVA	R5, @R12
+ 268 027e 9C41 0400 		MOV.W	4(R1), 4(R12)
+ 268      0400 
+ 269 0284 3E01 0400 		MOVA	4(R1), R14
+ 270 0288 0E14 0D17 		PUSHM.A	#1,R14 { POPM.W	#1,R13 { POPM.W	#1,R13
+ 270      0D17 
+ 271 028e 7DF0 0F00 		AND.B	#15, R13
+ 272 0292 5E4C 0600 		MOV.B	6(R12), R14
+ 273 0296 7EF0 F0FF 		AND.B	#-16, R14
+ 274 029a 4EDD      		BIS.B	R13, R14
+ 275 029c CC4E 0600 		MOV.B	R14, 6(R12)
+ 276 02a0 8000 0000 		BRA	#.L38
+ 277               		.size	chHeapAllocAligned, .-chHeapAllocAligned
+ 278               		.section	.text.chHeapFree,"ax",@progbits
+ 279               		.balign 2
+ 280               		.global	chHeapFree
+ 281               		.type	chHeapFree, @function
+ 282               	chHeapFree:
+ 283               	; start of function
+ 284               	; framesize_regs:     28
+ 285               	; framesize_locals:   4
+ 286               	; framesize_outgoing: 0
+ 287               	; framesize:          32
+GAS LISTING /tmp/cc4GlsXv.s 			page 7
 
 
-  92 02b6 957A 5777 		.string	"\225zWw\201^\371xTI\365\235\032\355\017\300\r\245q\311P"
-  92      815E F978 
-  92      5449 F59D 
-  92      1AED 0FC0 
-  92      0DA5 71C9 
-  93 02cc A3C3 C6C0 		.string	"\243\303\306\300\370\314XH\315\312\200\003\250S\234@,.\204\255\021D\334D\242\200\244\243\
-  93      F8CC 5848 
-  93      CDCA 8003 
-  93      A853 9C40 
-  93      2C2E 84AD 
-  94 03b0 14AF 0BD9 		.string	"\024\257\013\331E\023\254(\\i"
-  94      4513 AC28 
-  94      5C69 00
-  95 03bb 1188 A1FC 		.string	"\021\210\241\374\203\256\313Oy\210\255\320\335=\rN\240\006\344\352\364s\271Y2B\240\325k\2
-  95      83AE CB4F 
-  95      7988 ADD0 
-  95      DD3D 0D4E 
-  95      A006 E4EA 
-  96 041b 9F8C 8093 		.string	"\237\214\200\223\220\r_\221\035\334\350\276\373\331~;2\027\351z*)8\005>\366V\300i\310\366
-  96      900D 5F91 
-  96      1DDC E8BE 
-  96      FBD9 7E3B 
-  96      3217 E97A 
-  97 04ca A8C5 1C15 		.string	"\250\305\034\025I\343\364\272\266\353\304.'z\2546mP\007^\364\267\036+s\017\362\373\253]\3
-  97      49E3 F4BA 
-  97      B6EB C42E 
-  97      277A AC36 
-  97      6D50 075E 
-  98 052d C9F6 F68A 		.ascii	"\311\366\366\212+\200\325w\n\274\341)\331;V\336x\364\020\202"
-  98      2B80 D577 
-  98      0ABC E129 
-  98      D93B 56DE 
-  98      78F4 1082 
-  99 0541 4E6C 3C3B 		.ascii	"Nl<;\370\204Fe\027\311\317\204\022\031\037\254H\240\242\357\270"
-  99      F884 4665 
-  99      17C9 CF84 
-  99      1219 1FAC 
-  99      48A0 A2EF 
- 100 0556 063C 3BCC 		.ascii	"\006<;\3143\020\331z\001\211%\230\017c\230\030Hb\246\304^X2\302"
- 100      3310 D97A 
- 100      0189 2598 
- 100      0F63 9818 
- 100      4862 A6C4 
- 101 056e C63C E55E 		.ascii	"\306<\345^\366\203\203\f\256N?\220\302\214\203\224\344\323H\005"
- 101      F683 830C 
- 101      AE4E 3F90 
- 101      C28C 8394 
- 101      E4D3 4805 
- 102 0582 0E46 1C9D 		.ascii	"\016F\034\235\332\364\341\252\003n\345\324/8\233\227\374nak0"
- 102      DAF4 E1AA 
- 102      036E E5D4 
- 102      2F38 9B97 
- 102      FC6E 616B 
- 103 0597 5B2A 7212 		.ascii	"[*r\022R\321\264\241\300\241\240!\301=n\341\331\352\323&\036"
- 103      52D1 B4A1 
- 103      C0A1 A021 
- 103      C13D 6EE1 
-GAS LISTING /tmp/ccVpF9jF.s 			page 8
+ 288               	; elim ap -> fp       32
+ 289               	; elim fp -> sp       4
+ 290               	; saved regs: R4 R5 R6 R7 R8 R9 R10
+ 291               		; start of prologue
+ 292 0000 6A14      		PUSHM.A	#7, R10
+ 293 0002 B100 0400 		SUBA	#4, R1
+ 294               		; end of prologue
+ 295 0006 CA0C      		MOVA	R12, R10
+ 296 0008 9C00 0000 		CMPA	#0, R12 { JEQ	.L40
+ 296      0024 
+ 297 000e 4018 7CF0 		ANDX.B	#7, R12
+ 297      0700 
+ 298 0014 9C00 0000 		CMPA	#0, R12 { JEQ	.L41
+ 298      0024 
+ 299               	.L40:
+ 300 001a 8C00 0000 		MOVA	#__func__.2623, R12
+ 301 001e B013 0000 		CALLA	#chSysHalt
+ 302               	.L41:
+ 303 0022 C80A      		MOVA	R10, R8
+ 304 0024 A80F F8FF 		ADDA	#-8, R8
+ 305 0028 340A F8FF 		MOVA	-8(R10), R4
+ 306 002c C604      		MOVA	R4, R6
+ 307 002e A600 0400 		ADDA	#4, R6
+ 308 0032 3C0A FCFF 		MOVA	-4(R10), R12
+ 309 0036 AC00 0700 		ADDA	#7, R12
+ 310 003a 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 310      3C41 4018 
+ 310      3D41 
+ 311 0044 B013 0000 		CALLA	#__mspabi_srll_3
+ 312 0048 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R14
+ 312      0E16 
+ 313 004e 710E 0000 		MOVA	R14, @R1
+ 314 0052 8A4E FCFF 		MOV.W	R14, -4(R10)
+ 315 0056 0E14 0C17 		PUSHM.A	#1,R14 { POPM.W	#1,R12 { POPM.W	#1,R12
+ 315      0C17 
+ 316 005c 7CF0 0F00 		AND.B	#15, R12
+ 317 0060 5D4A FEFF 		MOV.B	-2(R10), R13
+ 318 0064 7DF0 F0FF 		AND.B	#-16, R13
+ 319 0068 4DDC      		BIS.B	R12, R13
+ 320 006a CA4D FEFF 		MOV.B	R13, -2(R10)
+ 321 006e C504      		MOVA	R4, R5
+ 322 0070 A500 0C00 		ADDA	#12, R5
+ 323 0074 4D43      		MOV.B	#0, R13
+ 324 0076 CC05      		MOVA	R5, R12
+ 325 0078 B013 0000 		CALLA	#chSemWaitTimeout
+ 326 007c C406      		MOVA	R6, R4
+ 327 007e 8900 0000 		MOVA	#chSysHalt, R9
+ 328 0082 8700 0000 		MOVA	#__func__.2623, R7
+ 329               	.L48:
+ 330 0086 D804 0028 		CMPA	R4, R8 { JLO	.L42
+ 331 008a 3C04 0400 		MOVA	4(R4), R12
+ 332 008e AC00 0100 		ADDA	#1, R12
+ 333 0092 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 333      3C41 4018 
+ 333      3D41 
+ 334 009c B013 0000 		CALLA	#__mspabi_slll_3
+ 335 00a0 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+GAS LISTING /tmp/cc4GlsXv.s 			page 8
 
 
- 103      D9EA D326 
- 104 05ac 0C18 2EF7 		.ascii	"\f\030.\367[\203X\270\3025\320T\r\276\335\250\027A`\323\004W"
- 104      5B83 58B8 
- 104      C235 D054 
- 104      0DBE DDA8 
- 104      1741 60D3 
- 105 05c2 C15B 24F9 		.ascii	"\301[$\371\206\273\206\305\b\016\365\0254\f\277\342\306-\366"
- 105      86BB 86C5 
- 105      080E F515 
- 105      340C BFE2 
- 105      C62D F6
- 106 05d5 63AF 226C 		.ascii	"c\257\"ld\022\253`\200C\3218n\321qR_\375\025\004\302\030j\034"
- 106      6412 AB60 
- 106      8043 D138 
- 106      6ED1 7152 
- 106      5FFD 1504 
- 107 05ed 202E B127 		.ascii	" .\261'M\035[\037;\325f\032m\006\253x\r\005\236\253P:\342\304"
- 107      4D1D 5B1F 
- 107      3BD5 661A 
- 107      6D06 AB78 
- 107      0D05 9EAB 
- 108 0605 55E4 E71A 		.ascii	"U\344\347\032\306\222\351\2045\370\261\341\bcXk\332/\255\267"
- 108      C692 E984 
- 108      35F8 B1E1 
- 108      0863 586B 
- 108      DA2F ADB7 
- 109 0619 517A EC58 		.ascii	"Qz\354X\352\353}\024\215@6\301'@\263\221d\234\277\021\206w\021"
- 109      EAEB 7D14 
- 109      8D40 36C1 
- 109      2740 B391 
- 109      649C BF11 
- 110 0630 E212 4876 		.ascii	"\342\022Hv\275\361\360x\265\213\321\244\032\273nqO(\337\327\265"
- 110      BDF1 F078 
- 110      B58B D1A4 
- 110      1ABB 6E71 
- 110      4F28 DFD7 
- 111 0645 1D0D 6A39 		.ascii	"\035\rj9n4L\332\r\342\037i\224\214\f20J\365\026{\316\300hf\032"
- 111      6E34 4CDA 
- 111      0DE2 1F69 
- 111      948C 0C32 
- 111      304A F516 
- 112 065f E5F7 9CB1 		.ascii	"\345\367\234\261\f\204\203]e\320\2138\001\205gG\023\320w\336"
- 112      0C84 835D 
- 112      65D0 8B38 
- 112      0185 6747 
- 112      13D0 77DE 
- 113 0673 DE12 FFA7 		.ascii	"\336\022\377\247\326\215\341j}3P\353\357\001\ryU\305\352+&)\333"
- 113      D68D E16A 
- 113      7D33 50EB 
- 113      EF01 0D79 
- 113      55C5 EA2B 
- 114 068a 4149 8914 		.ascii	"AI\211\024UB\035k\367\333Z\203'\355\030M\332\r\016\375\007\222"
- 114      5542 1D6B 
- 114      F7DB 5A83 
- 114      27ED 184D 
- 114      DA0D 0EFD 
- 115 06a0 1983 6241 		.ascii	"\031\203bAM\302\330X\204{\232\244I*t\034\367\304X\225\226gm\273"
-GAS LISTING /tmp/ccVpF9jF.s 			page 9
+ 335      0C16 
+ 336 00a6 EC04      		ADDA	R4, R12
+ 337 00a8 D80C 002C 		CMPA	R12, R8 { JHS	.L42
+ 338 00ac CC07      		MOVA	R7, R12
+ 339 00ae 4913      		CALLA	R9
+ 340               	.L42:
+ 341 00b0 0C04      		MOVA	@R4, R12
+ 342 00b2 D406 0024 		CMPA	R6, R4 { JEQ	.L43
+ 343 00b6 D408 002C 		CMPA	R8, R4 { JHS	.L44
+ 344               	.L43:
+ 345 00ba 9C00 0000 		CMPA	#0, R12 { JEQ	.L45
+ 345      0024 
+ 346 00c0 D80C 002C 		CMPA	R12, R8 { JHS	.L44
+ 347               	.L45:
+ 348 00c4 7A0C F8FF 		MOVA	R12, -8(R10)
+ 349 00c8 7408 0000 		MOVA	R8, @R4
+ 350 00cc 360A FCFF 		MOVA	-4(R10), R6
+ 351 00d0 A600 0100 		ADDA	#1, R6
+ 352 00d4 0614 4018 		PUSHM.A	#1, R6 { POPX.W	R12 { POPX.W	R13 ; move pointer in R6 into reg-pair R12:R13
+ 352      3C41 4018 
+ 352      3D41 
+ 353 00de B013 0000 		CALLA	#__mspabi_slll_3
+ 354 00e2 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 354      0C16 
+ 355 00e8 EC08      		ADDA	R8, R12
+ 356 00ea 801F 5C9A 		CMPX.A	-8(R10), R12 { JNE	.L46
+ 356      F8FF 0020 
+ 357 00f2 0018 565C 		ADDX.A	4(R12), R6
+ 357      0400 
+ 358 00f8 7106 0000 		MOVA	R6, @R1
+ 359 00fc AA41 FCFF 		MOV.W	@R1, -4(R10)
+ 360 0100 0614 0D17 		PUSHM.A	#1,R6 { POPM.W	#1,R13 { POPM.W	#1,R13
+ 360      0D17 
+ 361 0106 7DF0 0F00 		AND.B	#15, R13
+ 362 010a 5E4A FEFF 		MOV.B	-2(R10), R14
+ 363 010e 7EF0 F0FF 		AND.B	#-16, R14
+ 364 0112 4EDD      		BIS.B	R13, R14
+ 365 0114 CA4E FEFF 		MOV.B	R14, -2(R10)
+ 366 0118 0F18 EA4C 		MOVX.A	@R12, -8(R10)
+ 366      F8FF 
+ 367               	.L46:
+ 368 011e 3604 0400 		MOVA	4(R4), R6
+ 369 0122 CC06      		MOVA	R6, R12
+ 370 0124 AC00 0100 		ADDA	#1, R12
+ 371 0128 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 371      3C41 4018 
+ 371      3D41 
+ 372 0132 B013 0000 		CALLA	#__mspabi_slll_3
+ 373 0136 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 373      0C16 
+ 374 013c EC04      		ADDA	R4, R12
+ 375 013e D80C 0020 		CMPA	R12, R8 { JNE	.L47
+ 376 0142 3C0A FCFF 		MOVA	-4(R10), R12
+ 377 0146 AC00 0100 		ADDA	#1, R12
+ 378 014a EC06      		ADDA	R6, R12
+ 379 014c 710C 0000 		MOVA	R12, @R1
+ 380 0150 A441 0400 		MOV.W	@R1, 4(R4)
+GAS LISTING /tmp/cc4GlsXv.s 			page 9
 
 
- 115      4DC2 D858 
- 115      847B 9AA4 
- 115      492A 741C 
- 115      F7C4 5895 
- 116 06b8 3405 8FE7 		.ascii	"4\005\217\347\362\304\250\316\303\376`p\002\342h\364\374\235"
- 116      F2C4 A8CE 
- 116      C3FE 6070 
- 116      02E2 68F4 
- 116      FC9D 
- 117 06ca 4DB7 3475 		.ascii	"M\2674uc\3225vK\345\252\360\254\227\270\372\246f\251J\315\270"
- 117      63D2 3576 
- 117      4BE5 AAF0 
- 117      AC97 B8FA 
- 117      A666 A94A 
- 118 06e0 90A9 F931 		.ascii	"\220\251\3711\\jn\007R\363oJ\315\0045\201\025\005n\345\320\304"
- 118      5C6A 6E07 
- 118      52F3 6F4A 
- 118      CD04 3581 
- 118      1505 6EE5 
- 119 06f6 171C B93B 		.ascii	"\027\034\271;\241mY\340?d\313D\266\376\313#\207\021e\274TDM\341"
- 119      A16D 59E0 
- 119      3F64 CB44 
- 119      B6FE CB23 
- 119      8711 65BC 
- 120 070e ACDC 0D58 		.ascii	"\254\334\rX\271G\021MdCMGN;\303\230\n\035Ps8S\367\003\246\036"
- 120      B947 114D 
- 120      6443 4D47 
- 120      4E3B C398 
- 120      0A1D 5073 
- 121 0728 90A9 71DC 		.ascii	"\220\251q\334BQ49|W7\036\235\024\230\272!F\203E\213\024\311)"
- 121      4251 3439 
- 121      7C57 371E 
- 121      9D14 98BA 
- 121      2146 8345 
- 122 0740 AEC3 14F3 		.ascii	"\256\303\024\363\346\344\027L\361O\341<z\030\360\350QO\212/\206"
- 122      E6E4 174C 
- 122      F14F E13C 
- 122      7A18 F0E8 
- 122      514F 8A2F 
- 123 0755 8C5B 86B4 		.ascii	"\214[\206\264\322\022\316\312\317\001+\255\024\367d\216,F\324"
- 123      D212 CECA 
- 123      CF01 2BAD 
- 123      14F7 648E 
- 123      2C46 D4
- 124 0768 19A3 73AC 		.ascii	"\031\243s\254\243\327%\365%\215\216:5\332(\340\327{\217\016c"
- 124      A3D7 25F5 
- 124      258D 8E3A 
- 124      35DA 28E0 
- 124      D77B 8F0E 
- 125 077d 5310 EE35 		.ascii	"S\020\3565:\214N\345#i\212\352\311\353\2300F\247\275`\302\036"
- 125      3A8C 4EE5 
- 125      2369 8AEA 
- 125      C9EB 9830 
- 125      46A7 BD60 
- 126 0793 870B E549 		.ascii	"\207\013\345I \224_z\022\326\0262aSCZy\032\316J{\300J\007%l\232"
- 126      2094 5F7A 
- 126      12D6 1632 
-GAS LISTING /tmp/ccVpF9jF.s 			page 10
+ 381 0154 0C14 0C17 		PUSHM.A	#1,R12 { POPM.W	#1,R12 { POPM.W	#1,R12
+ 381      0C17 
+ 382 015a 7CF0 0F00 		AND.B	#15, R12
+ 383 015e 5D44 0600 		MOV.B	6(R4), R13
+ 384 0162 7DF0 F0FF 		AND.B	#-16, R13
+ 385 0166 4DDC      		BIS.B	R12, R13
+ 386 0168 C44D 0600 		MOV.B	R13, 6(R4)
+ 387 016c 801F D44A 		MOVX.A	-8(R10), @R4
+ 387      F8FF 0000 
+ 388               	.L47:
+ 389 0174 CC05      		MOVA	R5, R12
+ 390 0176 B013 0000 		CALLA	#chSemSignal
+ 391               		; start of epilogue
+ 392 017a A100 0400 		ADDA	#4, R1
+ 393 017e 6416      		POPM.A	#7, r10
+ 394 0180 1001      		RETA
+ 395               	.L44:
+ 396 0182 C40C      		MOVA	R12, R4
+ 397 0184 8000 0000 		BRA	#.L48
+ 398               		.size	chHeapFree, .-chHeapFree
+ 399               		.section	.text.chHeapStatus,"ax",@progbits
+ 400               		.balign 2
+ 401               		.global	chHeapStatus
+ 402               		.type	chHeapStatus, @function
+ 403               	chHeapStatus:
+ 404               	; start of function
+ 405               	; framesize_regs:     24
+ 406               	; framesize_locals:   0
+ 407               	; framesize_outgoing: 0
+ 408               	; framesize:          24
+ 409               	; elim ap -> fp       28
+ 410               	; elim fp -> sp       0
+ 411               	; saved regs: R4 R6 R7 R8 R9 R10
+ 412               		; start of prologue
+ 413 0000 4A14      		PUSHM.A	#5, R10
+ 414 0002 0414      		PUSHM.A	#1, R4
+ 415               		; end of prologue
+ 416 0004 C80C      		MOVA	R12, R8
+ 417 0006 C90D      		MOVA	R13, R9
+ 418 0008 C70E      		MOVA	R14, R7
+ 419 000a 9C00 0000 		CMPA	#0, R12 { JNE	.L58
+ 419      0020 
+ 420 0010 8800 0000 		MOVA	#default_heap, R8
+ 421               	.L58:
+ 422 0014 CA08      		MOVA	R8, R10
+ 423 0016 AA00 0C00 		ADDA	#12, R10
+ 424 001a 4D43      		MOV.B	#0, R13
+ 425 001c CC0A      		MOVA	R10, R12
+ 426 001e B013 0000 		CALLA	#chSemWaitTimeout
+ 427 0022 CC08      		MOVA	R8, R12
+ 428 0024 AC00 0400 		ADDA	#4, R12
+ 429 0028 4843      		MOV.B	#0, R8
+ 430 002a C408      		MOVA	R8, R4
+ 431 002c C608      		MOVA	R8, R6
+ 432               	.L59:
+ 433 002e 0C0C      		MOVA	@R12, R12
+ 434 0030 9C00 0000 		CMPA	#0, R12 { JNE	.L61
+GAS LISTING /tmp/cc4GlsXv.s 			page 10
 
 
- 126      6153 435A 
- 126      791A CE4A 
- 127 07ae 0AF3 46C7 		.ascii	"\n\363F\307m#\374\351\2449\350\032`p\006\342\376\303\224\201"
- 127      6D23 FCE9 
- 127      A439 E81A 
- 127      6070 06E2 
- 127      FEC3 9481 
- 128 07c2 997C 0DCC 		.ascii	"\231|\r\314\360\037\246\214\275\201p\360a\312"
- 128      F01F A68C 
- 128      BD81 70F0 
- 128      61CA 
- 129 07d0 E02C C4FD 		.ascii	"\340,\304\375'\306\313\304\322\031\356\304x\02681\272(\226Yj"
- 129      27C6 CBC4 
- 129      D219 EEC4 
- 129      7816 3831 
- 129      BA28 9659 
- 130 07e5 BE1A 71BE 		.ascii	"\276\032q\276B\233\n\335g\335\341\322\246k\376\264\345hhj*\367"
- 130      429B 0ADD 
- 130      67DD E1D2 
- 130      A66B FEB4 
- 130      E568 686A 
- 131 07fb 9987 EE2D 		.ascii	"\231\207\356-\264Y\334t\357\264\243\277\336Na\223\246\020&\343"
- 131      B459 DC74 
- 131      EFB4 A3BF 
- 131      DE4E 6193 
- 131      A610 26E3 
- 132 080f 2057 2393 		.ascii	" W#\223\346\376\243[A&-d2\217L:\004[j~9K\371\241-IXI\226\254"
- 132      E6FE A35B 
- 132      4126 2D64 
- 132      328F 4C3A 
- 132      045B 6A7E 
- 133 082d 64A9 802C 		.ascii	"d\251\200,\001\276\256\346\225\036\033\314\223\322\373\2055~"
- 133      01BE AEE6 
- 133      951E 1BCC 
- 133      93D2 FB85 
- 133      357E 
- 134 083f 3BE5 1B56 		.ascii	";\345\033Vi\374\302\352SW\354\216\225e\335\177U'\310l\362\201"
- 134      69FC C2EA 
- 134      5357 EC8E 
- 134      9565 DD7F 
- 134      5527 C86C 
- 135 0855 BA07 5F26 		.ascii	"\272\007_&Mx"
- 135      4D78 
- 136 085b DB44 5EFD 		.string	"\333D^\375\351\007|\241\217\217\276z\353\004\375\306\340\033f\252\233@L_\254xrFH\344\264\
- 136      E907 7CA1 
- 136      8F8F BE7A 
- 136      EB04 FDC6 
- 136      E01B 66AA 
- 137 095c 62AF DFDF 		.string	"b\257\337\337\3627\025\362|R\314\275\2161'\322G\350}\3200?f\356\0353\016\203\247\246\013[
- 137      F237 15F2 
- 137      7C52 CCBD 
- 137      8E31 27D2 
- 137      47E8 7DD0 
- 138 0989 FEC6 69F8 		.ascii	"\376\306i\370\355\n\310\217\27592#\303;sI\346\302\314\271\277"
- 138      ED0A C88F 
- 138      BD39 3223 
- 138      C33B 7349 
-GAS LISTING /tmp/ccVpF9jF.s 			page 11
+ 434      0020 
+ 435 0036 9900 0000 		CMPA	#0, R9 { JEQ	.L62
+ 435      0024 
+ 436 003c 0414 4018 		PUSHM.A	#1, R4 { POPX.W	R12 { POPX.W	R13 ; move pointer in R4 into reg-pair R12:R13
+ 436      3C41 4018 
+ 436      3D41 
+ 437 0046 B013 0000 		CALLA	#__mspabi_slll_3
+ 438 004a 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 438      0C16 
+ 439 0050 790C 0000 		MOVA	R12, @R9
+ 440               	.L62:
+ 441 0054 9700 0000 		CMPA	#0, R7 { JEQ	.L63
+ 441      0024 
+ 442 005a 0814 4018 		PUSHM.A	#1, R8 { POPX.W	R12 { POPX.W	R13 ; move pointer in R8 into reg-pair R12:R13
+ 442      3C41 4018 
+ 442      3D41 
+ 443 0064 B013 0000 		CALLA	#__mspabi_slll_3
+ 444 0068 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 444      0C16 
+ 445 006e 770C 0000 		MOVA	R12, @R7
+ 446               	.L63:
+ 447 0072 CC0A      		MOVA	R10, R12
+ 448 0074 B013 0000 		CALLA	#chSemSignal
+ 449 0078 CC06      		MOVA	R6, R12
+ 450               		; start of epilogue
+ 451 007a 0416      		POPM.A	#1, r4
+ 452 007c 4616      		POPM.A	#5, r10
+ 453 007e 1001      		RETA
+ 454               	.L61:
+ 455 0080 3E0C 0400 		MOVA	4(R12), R14
+ 456 0084 A600 0100 		ADDA	#1, R6
+ 457 0088 E40E      		ADDA	R14, R4
+ 458 008a D80E 002C 		CMPA	R14, R8 { JHS	.L59
+ 459 008e C80E      		MOVA	R14, R8
+ 460 0090 8000 0000 		BRA	#.L59
+ 461               		.size	chHeapStatus, .-chHeapStatus
+ 462               		.section	.upper.rodata,"a",@progbits
+ 463               		.type	__func__.2623, @object
+ 464               		.size	__func__.2623, 11
+ 465               	__func__.2623:
+ 466 0000 6368 4865 		.string	"chHeapFree"
+ 466      6170 4672 
+ 466      6565 00
+ 467               		.type	__func__.2609, @object
+ 468               		.size	__func__.2609, 19
+ 469               	__func__.2609:
+ 470 000b 6368 4865 		.string	"chHeapAllocAligned"
+ 470      6170 416C 
+ 470      6C6F 6341 
+ 470      6C69 676E 
+ 470      6564 00
+ 471               		.type	__func__.2600, @object
+ 472               		.size	__func__.2600, 17
+ 473               	__func__.2600:
+ 474 001e 6368 4865 		.string	"chHeapObjectInit"
+ 474      6170 4F62 
+ 474      6A65 6374 
+GAS LISTING /tmp/cc4GlsXv.s 			page 11
 
 
- 138      E6C2 CCB9 
- 139 099e 1FFD BBF9 		.ascii	"\037\375\273\371\336e\313\275\213\226\275\373\356\262\245\370"
- 139      DE65 CBBD 
- 139      8B96 BDFB 
- 139      EEB2 A5F8 
- 140 09ae F44E E642 		.ascii	"\364N\346B\357\362\277,\362.Z\262d\361\202\254\214E\302L\277"
- 140      EFF2 BF2C 
- 140      F22E 5AB2 
- 140      64F1 82AC 
- 140      8C45 C24C 
- 141 09c3 59A6 E599 		.ascii	"Y\246\345\231\357-6/x'\363\355\245\346\254\005o/^\256-\311\322"
- 141      EF2D 362F 
- 141      7827 F3ED 
- 141      A5E6 AC05 
- 141      6F2F 5EAE 
- 142 09da FE9C 2517 		.ascii	"\376\234%\027\340\317[Y\377\003\205R\262<"
- 142      E0CF 5B59 
- 142      FF03 8552 
- 142      B23C 
- 143               	.text
- 144               		.section	.gnu.lto_chHeapFree.5753bf5bd9dab7a4,"",@progbits
- 145 0000 789C 9556 		.string	"x\234\225V\351OTW\024\277\347\335y\263\257\250H\305\340\210\022\242\300\2146M\233\266\037
- 145      E94F 5457 
- 145      14BF E7DD 
- 145      79B3 AFA8 
- 145      48C5 E088 
- 146 00e4 D046 B302 		.ascii	"\320F\263\002+T\270I5[\2546\273\303\351r{\274\276\024(T\314L"
- 146      2B54 B849 
- 146      355B AC36 
- 146      BBC3 E972 
- 146      7BBC BE14 
- 147 00fc 3EDF F3F5 		.ascii	">\337\363\365\034\232Ko4(3\266k\3704\255\217\246,\323J\322B\234"
- 147      1C9A 4B6F 
- 147      3428 33B6 
- 147      6BF8 34AD 
- 147      8FA6 2CD3 
- 148 0114 B14A 2E65 		.ascii	"\261J.e`;\314@\251\223K\367l\342\253x\210\003\230\360x\277s\303"
- 148      603B CC40 
- 148      A993 4BF7 
- 148      6CE2 AB78 
- 148      8803 98F0 
- 149 012c 5537      		.ascii	"U7"
- 150 012e 1D15 F0E3 		.string	"\035\025\360\343\261\243iy\235\235\007\200\341\276\357l\313>k\3666M+\326\232\372\327\2026
- 150      B1A3 6979 
- 150      9D9D 0780 
- 150      E1BE EF6C 
- 150      CB3E 6BF6 
- 151 022f 2D41 5A66 		.ascii	"-AZf\023\215\261\025\030^\224\263\225\\\301?~\r\226v\267\204"
- 151      138D B115 
- 151      185E 94B3 
- 151      955C C13F 
- 151      7E0D 9676 
- 152 0245 3BCC 14EF 		.ascii	";\314\024\357fn\201\200Dg%f\365\034\347\021(\356+\005\311\263"
- 152      666E 8180 
- 152      4467 2566 
- 152      F51C E711 
- 152      28EE 2B05 
-GAS LISTING /tmp/ccVpF9jF.s 			page 12
-
-
- 153 025b 229B 4560 		.ascii	"\"\233E`I\3772\235`C\032\301\277\242\344\211('3X`\037\242\213"
- 153      49FF 329D 
- 153      6043 1AC1 
- 153      BFA2 E489 
- 153      2827 3358 
- 154 0273 575E 98A3 		.ascii	"W^\230\243\213 \277\256\247\341\231K\362\031\324C\354~\023[\245"
- 154      8B20 BFAE 
- 154      A7E1 994B 
- 154      F219 D443 
- 154      EC7E 135B 
- 155 0288 F0DB B0D4 		.ascii	"\360\333\260\324O\222\224\215\206\206\236\013\226\302\027\232"
- 155      4F92 948D 
- 155      8686 9E0B 
- 155      96C2 179A 
- 156 0298 35C4 AD95 		.ascii	"5\304\255\225\034\261\207\375PH\214\362\222\346.\013]`\023)^"
- 156      1CB1 87FD 
- 156      5048 8CF2 
- 156      92E6 2E0B 
- 156      5D60 1329 
- 157 02ad 123D F2C0 		.ascii	"\022=\362\300\215rX\3326J\027\321Z7\354\372\"\004\233\213\274"
- 157      8D72 58DA 
- 157      364A 17D1 
- 157      5A37 ECFA 
- 157      2204 9B8B 
- 158 02c2 216E 875F 		.ascii	"!n\207_\240\020~&;\310\030\274\365S\255\r\205+4\315O\027\374"
- 158      A010 7E26 
- 158      3BC8 18BC 
- 158      F553 AD0D 
- 158      852B 34CD 
- 159 02d9 0A21 E13D 		.ascii	"\n!\341=\203\006(\fq\207pE% 0\262M\313:+_\223\216;1XT_\363c\331"
- 159      8306 280C 
- 159      7187 7045 
- 159      2520 30B2 
- 159      4DCB 3A2B 
- 160 02f8 1EB7 6C95 		.ascii	"\036\267l\225\247\203\357A#\336\212\2204F\302\325:`.\024:\320"
- 160      A783 EF41 
- 160      23DE 8A90 
- 160      3446 C2D5 
- 160      3A60 2E14 
- 161 030e 57D3 EA21 		.ascii	"W\323\352!!\225\204\220\360\350@i\263\207\334\301>\254Z\210\250"
- 161      2195 8490 
- 161      F0E8 4069 
- 161      B387 DCC1 
- 161      3EAC 5A88 
- 162 0323 D36D 7040 		.ascii	"\323mp@w)r\250\241\337\023\254\241&E\227\\p\020]\252\340zI\356"
- 162      7729 72A8 
- 162      A1DF 13AC 
- 162      A126 4597 
- 162      5C70 105D 
- 163 033c DFB3 ADD6 		.ascii	"\337\263\255\326a0Mp\b\202\025\204\005\203\303\020$\333\321\322"
- 163      6130 4D70 
- 163      0882 1584 
- 163      0583 C310 
- 163      24DB D1D2 
- 164 0350 1731 1FDD 		.ascii	"\0271\037\335\257bc\022\330<9\326V\346\214Y\376\006-\273\321"
- 164      AF62 6312 
- 164      D83C 39D6 
-GAS LISTING /tmp/ccVpF9jF.s 			page 13
-
-
- 164      56E6 8C59 
- 164      FE06 2DBB 
- 165 0365 4538 A25B 		.ascii	"E8\242[\336v\255\270\326b\\\356\204&aY\221\226/l=\272\325\201"
- 165      DE76 ADB8 
- 165      D662 5CEE 
- 165      8426 6159 
- 165      9196 2F6C 
- 166 037d 4891 E65C 		.ascii	"H\221\346\\\212\345(\032d\320\2149\020!wW\333\245YO\\\204\376"
- 166      8AE5 281A 
- 166      64D0 8C39 
- 166      1021 7757 
- 166      DBA5 594F 
- 167 0394 51E2 6B19 		.ascii	"Q\342k\0319>\017\374F\361\211~\373]\304\267\244<V]^\264$\312"
- 167      393E 0FFC 
- 167      46F1 897E 
- 167      FB5D C4B7 
- 167      A43C 565D 
- 168 03ac 0989 7DCB 		.ascii	"\t\211}\313\016m\254\341\222\356C\026\344\212<\224G\272#\026"
- 168      0E6D ACE1 
- 168      92EE 4316 
- 168      E48A 3C94 
- 168      47BA 2316 
- 169 03c0 A2C6 63EE 		.ascii	"\242\306c\356N\352\222\027\376\020.\231\022\273t\214\\R\311\245"
- 169      4EEA 9217 
- 169      FE10 2E99 
- 169      12BB 748C 
- 169      5C52 C9A5 
- 170 03d4 E310 447B 		.ascii	"\343\020D{\022\365\353\033u\277\306\305\301\354O\n\262\017Z\205"
- 170      12F5 EB1B 
- 170      75BF C6C5 
- 170      C1EC 4F0A 
- 170      B20F 5A85 
- 171 03e8 2DF3 3090 		.ascii	"-\3630\220\221i\2016\201q;b|\033J\022uBJ%\345\007:PB\2326\272"
- 171      9169 8136 
- 171      8171 3B62 
- 171      7C1B 4A12 
- 171      7542 4A25 
- 172 0404 691C 7653 		.ascii	"i\034vS'L\016\361\361\242\206\315\f_\023\324\315]-\341\260\236"
- 172      274C 0EF1 
- 172      F1A2 86CD 
- 172      0C5F 13D4 
- 172      CD5D 2DE1 
- 173 041a 29C0 3A26 		.ascii	")\300:&\334\037\001\356&\371\032\2576\343\277[\215\356{\035\025"
- 173      DC1F 01EE 
- 173      26F9 1AAF 
- 173      36E3 BF5B 
- 173      8DEE 7B1D 
- 174 042f 2CAC 2C9B 		.ascii	",\254,\233\213\314F\252\365\320&\274ZP\352\260\202\222\211\006"
- 174      8BCC 46AA 
- 174      F5D0 26BC 
- 174      5A50 EAB0 
- 174      8292 8906 
- 175 0443 0827 8CD4 		.ascii	"\b'\214\324\013]\257\242zz\265V\001\257\240z\302@\365d\\\242"
- 175      0B5D AFA2 
- 175      7A7A B556 
- 175      01AF A07A 
- 175      C240 F564 
-GAS LISTING /tmp/ccVpF9jF.s 			page 14
-
-
- 176 0459 53D1 30CC 		.ascii	"S\3210\314\022y\336\020\243MD2^\262\341\300\3036U\266\237\025"
- 176      1279 DE10 
- 176      A34D 4432 
- 176      5EB2 E1C0 
- 176      C336 55B6 
- 177 046f 4EC9 5AD8 		.ascii	"N\311Z\330\024\223I\023\001N\244q\023\236ctm\232>^\254l\247c"
- 177      1493 4913 
- 177      014E A471 
- 177      139E 6374 
- 177      6D9A 3E5E 
- 178 0487 94        		.ascii	"\224"
- 179 0488 F172 5A8E 		.string	"\361rZ\216\227Q\347\311\231$\363\344Oc\236\374\365r\236\330b\271\350n\271\024\236e\344\30
- 179      9751 E7C9 
- 179      9924 F3E4 
- 179      4F63 9EFC 
- 179      F572 9ED8 
- 180 0589 22F2 5D5D 		.ascii	"\"\362]]nKP\234\211\021\312#\267n\r\007'\217.\274mx\324Cu\222"
- 180      6E4B 509C 
- 180      8911 CA23 
- 180      B76E 0D07 
- 180      278F 2EBC 
- 181 05a3 25EB A4BF 		.ascii	"%\353\244\277\325!=\310\036c\364w\222\325d\257\221\203\273\362"
- 181      D521 3DC8 
- 181      1E63 F477 
- 181      92D5 64AF 
- 181      9183 BBF2 
- 182 05b7 A55F DE9A 		.ascii	"\245_\336\232\233\250\305>K\376i\341\205{\3112}\337\260\322G"
- 182      9BA8 C53E 
- 182      4BFE 69E1 
- 182      857B C932 
- 182      7DDF B0D2 
- 183 05cc 1165 8BC4 		.ascii	"\021e\213\304z\364\266n\214\f,\267\310\320f\214q\372<H\226\330"
- 183      7AF4 B66E 
- 183      8C0C 2CB7 
- 183      C8D0 668C 
- 183      71FA 3C48 
- 184 05e2 8706 8C8F 		.ascii	"\207\006\214\217\342Z`&Z\212o\201\034$\017k\201\\1.s\206\326"
- 184      E25A 6026 
- 184      5A8A 6F81 
- 184      1C24 0F6B 
- 184      815C 312E 
- 185 05f9 267A 94AB 		.ascii	"&z\224\253\327\246\327\250\315\262\225zm\346\215\261C\036'\353"
- 185      D7A6 D7A8 
- 185      CDB2 957A 
- 185      6DE6 8DB1 
- 185      431E 27EB 
- 186 060d E227 4608 		.ascii	"\342'F\bO\343k3\2001\240\265!q!\264\201a\3058:\236\242\030\237"
- 186      4FE3 6B33 
- 186      8031 A0B5 
- 186      2171 21B4 
- 186      8161 C538 
- 187 0626 0D87 5214 		.ascii	"\r\207R\024c\324p\3419\245.(\213qy\273^\214\263\307\030n\177"
- 187      63D4 70E1 
- 187      39A5 2E28 
- 187      8B71 79BB 
- 187      5E8C B3C7 
- 188 063d B232 7961 		.ascii	"\2622ya\224\311@|1\016\231\302z1\216\\\027\203\311J^SbV\212\024"
-GAS LISTING /tmp/ccVpF9jF.s 			page 15
-
-
- 188      94C9 407C 
- 188      310E 99C2 
- 188      7A31 8E5C 
- 188      1783 C94A 
- 189 0657 8C68 B6C8 		.ascii	"\214h\266\310\244\217\225\267\351\251\374n\245>\220'\305\333"
- 189      A48F 95B7 
- 189      E9A9 FC6E 
- 189      A53E 9027 
- 189      C5DB 
- 190 0669 FD7C 34BB 		.ascii	"\375|4\273\305J\022\273K\f\273K\225\2400\232B\035\200\037\016"
- 190      C54A 12BB 
- 190      4B0C BB4B 
- 190      95A0 309A 
- 190      421D 801F 
- 191 067e 5537 77F3 		.ascii	"U7w\363\004\337\016\023*\351s\025J\024\361A\026\342\251\354\016"
- 191      04DF 0E13 
- 191      2AE9 7315 
- 191      4A14 F141 
- 191      16E2 A9EC 
- 192 0693 1457 DD11 		.ascii	"\024W\335\021\220\210\002\\\201\337\026Q\372h\313\t\004\202s"
- 192      9088 025C 
- 192      81DF 1651 
- 192      FA68 CB09 
- 192      0482 73
- 193 06a6 E6CD 9F3B 		.ascii	"\346\315\237;\377\203\217\362>\3748\270hq0\177\321\202\005\213"
- 193      FF83 8FF2 
- 193      3EFC 38B8 
- 193      6871 307F 
- 193      D182 058B 
- 194 06ba 16E2 EECB 		.ascii	"\026\342\356\313\371s\203\213\277\316\017\346\317\233\367\351"
- 194      F973 838B 
- 194      BFCE 0FE6 
- 194      CF9B F7E9 
- 195 06ca 2705 817C 		.ascii	"'\005\201|\006\005*\355\n\224y\005\312W\005\377\003/K\t\257"
- 195      0605 2AED 
- 195      0A94 7905 
- 195      CA57 05FF 
- 195      032F 4B09 
- 196               	.text
- 197               		.section	.gnu.lto_chHeapStatus.5753bf5bd9dab7a4,"",@progbits
- 198 0000 789C 7D54 		.string	"x\234}T[L\\U\024=\373\234{\357\334y\334\201\002m\221\320Hb\b\251F\3064\376\371e\364\317\0
- 198      5B4C 5C55 
- 198      143D FB9C 
- 198      7BEF DC79 
- 198      DC81 026D 
- 199 00c6 7C60 EA40 		.string	"|`\352@r(STMw\333\035N\227\0019\324M\344\357\013v\231\301=\337\215\257\3309\026`\004\024\
- 199      7228 5354 
- 199      4D77 DB1D 
- 199      4E97 0139 
- 199      D44D E4EF 
- 200 00f1 5138 CD1B 		.string	"Q8\315\033\356\037t\035\276f\232^\263\375\362\312\201\322\213\303\246\032`\224\224ax5\304
- 200      EE1F 741D 
- 200      BE66 9A5E 
- 200      B3FD F2CA 
- 200      81D2 8BC3 
- 201 018d AF85 622E 		.string	"\257\205b.\346\232\325\246\202g\207F\211\337<>\341\341_?\363\216j\354\035\001\255\252\037
- 201      E69A D5A6 
-GAS LISTING /tmp/ccVpF9jF.s 			page 16
-
-
- 201      8267 8746 
- 201      89DF 3C3E 
- 201      E1E1 5F3F 
- 202 01c0 9FF9 563F 		.string	"\237\371V?\266p\0176q\267v\305\375\371\350K/e\307\004nbx\345\322:\341R(j]\253\n\315\317\2
- 202      B670 0F36 
- 202      71B7 76C5 
- 202      FDF9 E84B 
- 202      2F65 C704 
- 203 02aa 7FAE 699A 		.string	"\177\256i\232q\001\246\373\361\n\b,7\303\224\267\336\346\2513\345\226\035~\200"
- 203      7101 A6FB 
- 203      F10A 082C 
- 203      37C3 94B7 
- 203      DEE6 A933 
- 204 02c4 9432 AB13 		.string	"\2242\253\023\241+\035W\2349\253\326\246\006?\202\007\313\325\0069d\006\316\304q\002\036\
- 204      A12B 1D57 
- 204      9C39 ABD6 
- 204      A606 3F82 
- 204      07CB D506 
- 205 038e DC41 1211 		.ascii	"\334A\022\021\265\332zJFE\370\231\2022\t\232g\250\253{\3425\271"
- 205      B5DA 7A4A 
- 205      4645 F899 
- 205      8232 099A 
- 205      67A8 AB7B 
- 206 03a5 CA95 5B66 		.ascii	"\312\225[f\321H\367Kh\026]\234\030\213\244\242X"
- 206      D148 F74B 
- 206      6816 5D9C 
- 206      188B A4A2 
- 206      58
- 207 03b6 B5F0 6F8A 		.string	"\265\360o\212/\215.B\030\022\251c\313G\360\305\247\221\230Q]Y~\214\245\214\340\363\030\31
- 207      2F8D 2E42 
- 207      1812 A963 
- 207      CB47 F0C5 
- 207      A791 9851 
- 208 04b7 5A6B 0EBC 		.ascii	"Zk\016\274\025\265M1\222\232I\243\001&\301\260W\022\023=o\245"
- 208      15B5 4D31 
- 208      929A 49A3 
- 208      0126 C1B0 
- 208      5712 133D 
- 209 04cd A625 A7BD 		.ascii	"\246%\247\275\373\336\253G\217y2\262<)\031'Nd\234\304QzZ\262"
- 209      FBDE AB47 
- 209      8F79 32B2 
- 209      3C29 1927 
- 209      4E64 9CC4 
- 210 04e5 27EB 748A 		.ascii	"'\353t\212'%5\365xRfb\nQ\371;S\313\316\310NJ\317\324\323\223"
- 210      2725 35F5 
- 210      7852 6662 
- 210      0A51 F93B 
- 210      53CB CEC8 
- 211 04ff 4E7F 743C 		.ascii	"N\177t<+;SK\317L\302\201\226-^p\222\236\312T\305\360?\fR\226"
- 211      2B3B 534B 
- 211      CF4C C281 
- 211      962D 5E70 
- 211      929E CA54 
- 212 0519 FC        		.ascii	"\374"
- 213               	.text
- 214               		.section	.gnu.lto_.symbol_nodes.5753bf5bd9dab7a4,"",@progbits
- 215 0000 789C 558D 		.string	"x\234U\215\275\016\301`\024\206\337\323\323O\265z\003\365W\212\373\340.\f\356\345t\220\33
-GAS LISTING /tmp/ccVpF9jF.s 			page 17
-
-
- 215      BD0E C160 
- 215      1486 DFD3 
- 215      D34F B57A 
- 215      03F5 578A 
- 216 003d 5659 80C9 		.string	"VY\200\311\001\320\263\211{\200\n8\216"
- 216      01D0 B389 
- 216      7B80 0A38 
- 216      8E00 
- 217 004b A650 E82B 		.ascii	"\246P\350+\200x\336\325aE,3l\342\033ZUaSD\224\213\232\330\246"
- 217      8078 DED5 
- 217      6145 2C33 
- 217      6CE2 1B5A 
- 217      5561 5344 
- 218 0064 E858 B9A8 		.ascii	"\350X\271\250\2132\0045\244\360\373\212\365\027\265\3051\270"
- 218      8B32 0435 
- 218      A4F0 FB8A 
- 218      F517 B5C5 
- 218      31B8 
- 219 0076 25C5 7F66 		.ascii	"%\305\177f\3660\334\035\352\254<d\353+\261\362\221\215\036!\253"
- 219      F630 DC1D 
- 219      EAAC 3C64 
- 219      EB2B B1F2 
- 219      918D 1E21 
- 220 008b 1292 CBB1 		.ascii	"\022\222\313\261\377\331\354zZ\262\2550\275\337\026\fv<$\253"
- 220      FFD9 EC7A 
- 220      5AB2 AD30 
- 220      BDDF 160C 
- 220      763C 24AB 
- 221 009f 2DB1 E323 		.ascii	"-\261\343#\375\224\232\323\375s\300N\t\351L\263\353cx~\021\273"
- 221      FD94 9AD3 
- 221      FD73 C04E 
- 221      09E9 4CB3 
- 221      EB63 787E 
- 222 00b5 9AC7 8F10 		.ascii	"\232\307\217\020o\023aD\027"
- 222      6F13 6144 
- 222      17
- 223               	.text
- 224               		.section	.gnu.lto_.refs.5753bf5bd9dab7a4,"",@progbits
- 225 0000 789C 15C6 		.string	"x\234\025\306\301\021\300 \f\004\261\333\005\007\323"
- 225      C111 C020 
- 225      0C04 B1DB 
- 225      0507 D300 
- 226 0010 55D0 7F7D 		.string	"U\320\177}I>\032U\310MR\001\364\007\006L\206\263-\237%\333e\227}\276a^\023\364"
- 226      493E 1A55 
- 226      C84D 5201 
- 226      F407 064C 
- 226      86B3 2D9F 
- 227 002f CA        		.ascii	"\312"
- 228               	.text
- 229               		.section	.gnu.lto_.decls.5753bf5bd9dab7a4,"",@progbits
- 230 0000 789C AD58 		.string	"x\234\255X\013PT\327\031\276\347\236]X\226]0@\023\223\222\214Z\3420ie\3258N\323\3114uL\22
- 230      0B50 54D7 
- 230      19BE E79E 
- 230      5D58 965D 
- 230      3040 1393 
- 231 009c 65F2 F303 		.string	"e\362\363\003\231\002\3450\220\227@\246\203\314\002\371\025\310k \257\203\274\017\002\020
- 231      9902 E530 
-GAS LISTING /tmp/ccVpF9jF.s 			page 18
-
-
- 231      9097 40A6 
- 231      83CC 02F9 
- 231      15C8 6B20 
- 232 00f8 1482 396E 		.string	"\024\2029n\020H\b\307_ 0\254y K\020\213E)\310\2575\334\264\274~,\247\227x|\020\217\213\36
- 232      1048 08C7 
- 232      5F20 30AC 
- 232      7920 4B10 
- 232      8B45 29C8 
- 233 01cb 5443 8C68 		.string	"TC\214h\022T\033\372\277\334\342\317z'\220\336\341-\207\375Xo\bT\373w\273$c\272\f\277\314
- 233      1254 1BFA 
- 233      BFDC E2CF 
- 233      7A27 90DE 
- 233      E12D 87FD 
- 234 0251 9D2B 13B5 		.ascii	"\235+\023\265\013\2106\323J\377k\264\f\240\207\322S\363\rA\231"
- 234      0B88 36D3 
- 234      4AFF 6BB4 
- 234      0CA0 87D2 
- 234      53F3 0D41 
- 235 0266 D403 599E 		.ascii	"\324\003Y\236Du\320n\030XB]8\200\202\024G\210\366\335\373=\351"
- 235      4475 D06E 
- 235      1858 425D 
- 235      3880 8214 
- 235      4788 F6DD 
- 236 027d BE46 0E9A 		.ascii	"\276F\016\232\376DP\320>\332\374]\257\207\355\203O\262\275ee"
- 236      FE44 50D0 
- 236      3EDA FC5D 
- 236      AF87 ED83 
- 236      4FB2 BD65 
- 237 0292 57A6 DEB4 		.ascii	"W\246\336\264\\\226\223y,KQ\020*t\007\363\020\"[\026}\202\362"
- 237      5C96 9379 
- 237      2C4B 5110 
- 237      2A74 07F3 
- 237      1022 5B16 
- 238 02a9 BE8E E10A 		.ascii	"\276\216\341\n\035\013e\020T;WV\244\032\274\316C\2312\017\207"
- 238      1D0B 6510 
- 238      543B 5756 
- 238      A41A BCCE 
- 238      4399 320F 
- 239 02be 19AF 81F2 		.ascii	"\031\257\201\362eC\001lp0T\317&\257\372\314\304\346!\233\314"
- 239      6543 016C 
- 239      7030 54CF 
- 239      26AF FACC 
- 239      C4E6 219B 
- 240 02d3 C3CD 1BEB 		.ascii	"\303\315\033\353\266\372\217\r\311\027`\255\234Z;Bi\227)\264"
- 240      B6FA 8F0D 
- 240      C917 60AD 
- 240      9C5A 3B42 
- 240      6997 29B4 
- 241 02e7 3BF2 B6   		.ascii	";\362\266"
- 242 02ea 35FA 8D75 		.string	"5\372\215u\322\253\366\266\314\366\021\037\255\223\025\036N\036\345N\036\245N>\352\257\17
- 242      D2AB F6B6 
- 242      CCF6 111F 
- 242      AD93 151E 
- 242      4E1E E54E 
- 243 03eb 8FE8 A1F3 		.string	"\217\350\241\363\320X\313\246,\263m\260\302\037\247\"J$\363\341\243\016_\274\234Uv\f=\354
- 243      D058 CBA6 
- 243      2CB3 6DB0 
-GAS LISTING /tmp/ccVpF9jF.s 			page 19
-
-
- 243      C21F A722 
- 243      4A24 F3E1 
- 244 0496 9C85 69E8 		.ascii	"\234\205i\350JN\344\234\363\307\333X%?\251\261\306\214w\262\312"
- 244      4A4E E49C 
- 244      F3C7 DB58 
- 244      253F A9B1 
- 244      C68C 77B2 
- 245 04ab D587 EDA5 		.ascii	"\325\207\355\245\030\027\263J\321\310\300"
- 245      1817 B34A 
- 245      D1C8 C0
- 246 04b6 B940 BC97 		.string	"\271@\274\227UZ?9\325c\302\307X\345\363\222\207{\215:x\235\241\347\215h\241\2164\245<\270
- 246      555A 3F39 
- 246      D563 C2C7 
- 246      58E5 F392 
- 246      877B 8D3A 
- 247 05b7 C3E8 CB2A 		.ascii	"\303\350\313*\tpC4\235\231z\200\346\351\020@|\257B<@^1\006\307"
- 247      0970 4334 
- 247      9D99 7A80 
- 247      E6E9 1040 
- 247      7CAF 423C 
- 248 05d0 C7E8      		.ascii	"\307\350"
- 249 05d2 941F E698 		.string	"\224\037\346\230\360\021\206QVQ\333\253\202\324e\343\345\005kdY\207\036\001\312C\025e\310
- 249      F011 8651 
- 249      5651 DBAB 
- 249      82D4 65E3 
- 249      E505 6B64 
- 250 06d3 A1C6 3BC2 		.string	"\241\306;\302\332q\020\004:\210\230_\013\346W\200\351\345\252\351d\byn\320\372$\271p\022\
- 250      DA71 1004 
- 250      3A88 985F 
- 250      0BE6 5780 
- 250      E9E5 AAE9 
- 251 0738 AF67 A2A3 		.string	"\257g\242\243\315(\326\327\227\3634\315\034\302\360\206\272\252\210\256\242\322\225\353C\
- 251      CD28 D6D7 
- 251      97F3 34CD 
- 251      1CC2 F086 
- 251      BAAA 88AE 
- 252 0760 DAEB 3D68 		.ascii	"\332\353=h_\316\323\004\372\032\240\255{b\240\317\347\361@gA"
- 252      5FCE D304 
- 252      FA1A A0AD 
- 252      7B62 A0CF 
- 252      E7F1 4067 
- 253 0775 A0AF 73F5 		.ascii	"\240\257s\365'\007z\243FC \343\334T3\031\325;\320\331G\206o\006"
- 253      2707 7AA3 
- 253      4643 20E3 
- 253      DC54 3319 
- 253      D53B D0D9 
- 254 078d 86D9 9C6D 		.ascii	"\206\331\234m\036\224s\201m\016\310&\217\254;\265%\350\"\r4Y"
- 254      1E94 7381 
- 254      6D0E C826 
- 254      8FAC 3BB5 
- 254      25E8 220D 
- 255 07a3 59FD 4021 		.ascii	"Y\375@![\273\320\253\221g\336\215\305\370\206\017x2\306\265P"
- 255      5BBB D0AB 
- 255      9167 DE8D 
- 255      C5F8 860F 
- 255      7832 C6B5 
- 256 07b8 96D9 640A 		.ascii	"\226\331d\n\316\361\021\356|x,(\r\241\031T\233\274\244\276\346"
-GAS LISTING /tmp/ccVpF9jF.s 			page 20
-
-
- 256      CEF1 11EE 
- 256      7C78 2C28 
- 256      0DA1 1954 
- 256      9BBC A4BE 
- 257 07cd DAE3 C4   		.ascii	"\332\343\304"
- 258 07d0 84EF 0B9B 		.ascii	"\204\357\013\233\331"
- 258      D9
- 259 07d5 6692 ED39 		.string	"f\222\3559w\254\363T\316D:\365$f\251\352\246\221M7\r\256\222G\247~\235\347p\022Wr*n\333\3
- 259      77AC F354 
- 259      CE44 3AF5 
- 259      2466 A9EA 
- 259      A691 4D37 
- 260 08d6 77A7 2675 		.string	"w\247&u\231?m\203C\332N\221\266uu\236\350f\207:\262v?c\215+N\244_2x\365w\027\365\267P\344
- 260      993F 6D83 
- 260      43DA 4E91 
- 260      B675 759E 
- 260      E866 873A 
- 261 0961 6384 2F67 		.ascii	"c\204/g\344\374\314k\324\016P\026\373\025\026\353\036d\236\305"
- 261      E4FC CC6B 
- 261      D40E 5016 
- 261      FB15 16EB 
- 261      1E64 9EC5 
- 262 0975 3C6A 7D35 		.ascii	"<j}5&7\013PC\373T\026\373\264,\016R\026\365\275{\232u\270\227"
- 262      2637 0B50 
- 262      43FB 5416 
- 262      FBB4 2C0E 
- 262      5216 F5BD 
- 263 098e B128 CDC9 		.ascii	"\261(\315\311\374\314@Y\300\352\3454\362\227u\2551\271\333\016"
- 263      FCCC 4059 
- 263      C0EA E534 
- 263      F297 75AD 
- 263      31B9 DB0E 
- 264 09a2 B110 ED7B 		.ascii	"\261\020\355{\324\267Z\357\216\333a\3268\272\275s\223\257\226"
- 264      D4B7 5AEF 
- 264      8EDB 61D6 
- 264      38BA BD73 
- 264      93AF 96
- 265 09b5 3109 B44A 		.ascii	"1\t\264J\271\234R.s\007.\243\345\201Y\241\334:\201\274\327dr"
- 265      B99C 522E 
- 265      7307 2EA3 
- 265      E581 59A1 
- 265      DC3A 81BC 
- 266 09cc 0A07 3554 		.ascii	"\n\0075T\252R.\325R\376\202Rv\365o\317\306\370{F\271m\351\372"
- 266      AA52 2ED5 
- 266      52FE 8252 
- 266      76F5 6FCF 
- 266      C6F8 7B46 
- 267 09e4 831E 1F0B 		.ascii	"\203\036\037\013\016z\354F\025l7\"\243\262\262\367\262\024\256"
- 267      0E7A EC46 
- 267      156C 3722 
- 267      A3B2 B2F7 
- 267      B214 AE
- 268 09f7 70FB 56DF 		.ascii	"p\373V\337\331\264\302\373J<F\t\037U\b\257\356\313K3\361U\324"
- 268      D9B4 C2FB 
- 268      4A3C 4609 
- 268      1F55 08AF 
- 268      EECB 4B33 
-GAS LISTING /tmp/ccVpF9jF.s 			page 21
-
-
- 269 0a0e 5B88 AFB6 		.ascii	"[\210\257\266\260U\004Z\350\210\312\367\210\262\212*)\327\007"
- 269      B055 045A 
- 269      E888 CAF7 
- 269      88B2 8A2A 
- 269      29D7 07
- 270 0a21 A929 CB8C 		.ascii	"\251)\313\2148\231\335\267\277\274\234s+P\3135\305\343\265u\334"
- 270      3899 DDB7 
- 270      BFBC 9C73 
- 270      2B50 CB35 
- 270      C5E3 B575 
- 271 0a36 CDB5 FA76 		.ascii	"\315\265\372v}#\233\207\343n\256\307\345\372\263\336\271VQ\256"
- 271      7D23 9B87 
- 271      E36E AEC7 
- 271      E5FA B3DE 
- 271      B956 51AE 
- 272 0a4a 2714 AEDF 		.ascii	"'\024\256\337t\rd\004p\256_5\353S\345\023\"QA.\225\250K!z\222"
- 272      740D 6404 
- 272      70AE 5F35 
- 272      EB53 E513 
- 272      2251 412E 
- 273 0a64 124D AB5C 		.ascii	"\022M\253\\q\315\200W3\242kJ[\207\003\361\247\264\"\326\034L"
- 273      71CD 8057 
- 273      33A2 6B4A 
- 273      5B87 03F1 
- 273      A7B4 22D6 
- 274 0a7a 49F1 F776 		.ascii	"I\361\367v\303<#z\273a^\036\nI&\257\231\323p\262>%>~\301,\254"
- 274      C33C 237A 
- 274      BB61 5E1E 
- 274      0A49 26AF 
- 274      99D3 70B2 
- 275 0a95 3EB0 99A5 		.ascii	">\260\231\245\020\321`>\336\332\321\334\023\350\366\373,K\253"
- 275      10D1 603E 
- 275      DEDA D1DC 
- 275      13E8 F6FB 
- 275      2C4B AB
- 276 0aa8 C3CB 5C6B 		.ascii	"\303\313\\k\021\336E\311\3506\364l\331\030@>\367\221\257~\341"
- 276      11DE 45C9 
- 276      E836 F46C 
- 276      D918 403E 
- 276      F791 AF7E 
- 277 0abd EC3B DDE8 		.ascii	"\354;\335\350\350\177\020\252\205\233\215\372\331G\363\035\241"
- 277      E87F 10AA 
- 277      859B 8DFA 
- 277      D947 F31D 
- 277      A1
- 278 0ace 0E18 D62A 		.ascii	"\016\030\326*\247\373\363b(\372RT\276\366\255\315\177\335\207"
- 278      A7FB F362 
- 278      28FA 5254 
- 278      BEF6 ADCD 
- 278      7FDD 87
- 279 0ae1 0ED4 7C3B 		.ascii	"\016\324|;$\2525\242\373\333!\340\367v\f\347\213x\037\013\306"
- 279      24AA 35A2 
- 279      FBDB 21E0 
- 279      F776 0CE7 
- 279      8B78 1F0B 
- 280 0af6 EAFD BB0F 		.ascii	"\352\375\273\017\030X0\036\207j\030\017J\271\217M)\277K\322\373"
- 280      1858 301E 
-GAS LISTING /tmp/ccVpF9jF.s 			page 22
-
-
- 280      876A 180F 
- 280      4AB9 8F4D 
- 280      29BF 4BD2 
- 281 0b0b 02F4 D7AB 		.ascii	"\002\364\327\253\341\250\025y8\266\257\335v\332\200+\030\312"
- 281      E1A8 1579 
- 281      38B6 AFDD 
- 281      76DA 802B 
- 281      18CA 
- 282 0b1d DEC1 EDAD 		.ascii	"\336\301\355\255\376\232\213\326K\325\364\242\325\bc/\252c/\250"
- 282      FE9A 8BD6 
- 282      4BD5 F4A2 
- 282      D508 632F 
- 282      AA63 2FA8 
- 283 0b31 97B9 B14C 		.ascii	"\227\271\261L.\215\307\204|\360Zy\261\325\007W3\224+\253W>\362"
- 283      2E8D C784 
- 283      7CF0 5A79 
- 283      B1D5 0757 
- 283      3394 2BAB 
- 284 0b48 F7E6 4BB3 		.ascii	"\367\346K\263w_\340N62L|i\202\376\313*\237F\305\227\262\266\272"
- 284      775F E04E 
- 284      3632 4C7C 
- 284      6982 FECB 
- 284      2A9F 46C5 
- 285 0b60 6F75 DA54 		.ascii	"ou\332T%\212j\256\266\320\\=\247\344j\356\351G\017|x\256\302"
- 285      258A 6AAE 
- 285      B6D0 5C3D 
- 285      A7E4 6AEE 
- 285      E947 0F7C 
- 286 0b77 1D2B A3F5 		.ascii	"\035+\243\365F\241\234\031B\325P\265j\275Z\311\327\257h\276v"
- 286      46A1 9C19 
- 286      42D5 50B5 
- 286      6ABD 5AC9 
- 286      D7AF 68BE 
- 287 0b8c 5595 3719 		.ascii	"U\2257\031'\327\370~\n\347\224R\024Do\325\3715\311\001\370\n"
- 287      27D7 F87E 
- 287      0AE7 9452 
- 287      1444 6FD5 
- 287      F935 C901 
- 288 0ba2 4BE1 6DB5 		.ascii	"K\341m\265\3676\032q/\253\214\264\334)\321\277X \327\273\350"
- 288      F736 1A71 
- 288      2FAB 8CB4 
- 288      DC29 D1BF 
- 288      5820 D7BB 
- 289 0bb7 4B65 D5D7 		.ascii	"Ke\325\327)r\3222\310M\362\365\364\n@\300\033D\363\315\265\r"
- 289      2972 D232 
- 289      C84D F2F5 
- 289      F40A 40C0 
- 289      1B44 F3CD 
- 290 0bcd 5A5A C5C9 		.ascii	"ZZ\305\311\002j\027_$\211\272-g\267\317\344\001\212T\301\220"
- 290      026A 175F 
- 290      2489 BA2D 
- 290      67B7 CFE4 
- 290      018A 54C1 
- 291 0be2 567D B221 		.ascii	"V}\262!\311\200\323\r\324\370\376\254\332437\3360-i\253+i\022"
- 291      C980 D30D 
- 291      D4F8 FEAC 
- 291      DA34 3337 
-GAS LISTING /tmp/ccVpF9jF.s 			page 23
-
-
- 291      DE30 2D69 
- 292 0bfa FD62 490C 		.ascii	"\375bI\f\303N\257\371\316\331\001-W\211\341NjxmwY\232n\362F\003"
- 292      C34E AFF9 
- 292      CED9 012D 
- 292      5789 E14E 
- 292      6A78 6D77 
- 293 0c14 315C C50C 		.ascii	"1\\\305\f\237\031)^c\306\371\314p\317\371\215\277\340v\317\375"
- 293      9F19 295E 
- 293      63C6 F9CC 
- 293      70CF F98D 
- 293      BFE0 76CF 
- 294 0c29 9ED9 ADE2 		.ascii	"\236\331\255\342va\357\326|[\274\016-\327\210\335\033\324\356"
- 294      7661 EFD6 
- 294      7C5B BC0E 
- 294      2DD7 88DD 
- 294      1BD4 EE
- 295 0c3c E8F5 FEB4 		.ascii	"\350\365\376\264@\274\227\031\251\333\221\\\252\003+.\260\322"
- 295      40BC 9719 
- 295      A9DB 915C 
- 295      AA03 2B2E 
- 295      B0D2 
- 296 0c4e 9517 0A97 		.ascii	"\225\027\n\227\017vZ\376\232E\326}h\025H\013\374\357\242&z\256"
- 296      0F76 5AFE 
- 296      9A45 D67D 
- 296      6815 480B 
- 296      FCEF A226 
- 297 0c64 3454 7A9C 		.ascii	"4Tz\234\361\310.\247\356T7\371\031\357&=\343}\267\371R\231A\253"
- 297      F1C8 2EA7 
- 297      EE54 37F9 
- 297      19EF 263D 
- 297      E37D B7F9 
- 298 0c7c DCE2 A1DC 		.ascii	"\334\342\241\334\315\225\273\251\262\253\267(\313\327\343\303"
- 298      CD95 BBA9 
- 298      B2AB B728 
- 298      CBD7 E3C3 
- 299 0c8c A787 720F 		.ascii	"\247\207r\017W&O\235-*2\301'\312\036\271\310\236\240[\234`\267"
- 299      5726 4F9D 
- 299      2D2A 32C1 
- 299      27CA 1EB9 
- 299      C89E A05B 
- 300 0ca3 EBE3 2397 		.ascii	"\353\343#\227\330\235\2067\377\260`\322\334\0313\004\037\247"
- 300      D89D 8637 
- 300      FFB0 60D2 
- 300      DC19 3304 
- 300      1FA7 
- 301 0cb5 E39F 76AB 		.ascii	"\343\237v\253\364WKB\\\234d\221\034\323\244\270\270h\247%>2A"
- 301      F457 4B42 
- 301      5C9C 6491 
- 301      1CD3 A4B8 
- 301      B868 A725 
- 302 0ccc 9A69 8971 		.ascii	"\232i\211q\306\317zy\372\264%6\333\264\331\0213#fD\314\230m\215"
- 302      C6CF 7A79 
- 302      FAB4 2536 
- 302      DBB4 D911 
- 302      3323 6644 
- 303 0ce4 76C4 267E 		.ascii	"v\304&~4{\226%\332\261\320\002\035\212\216=z\261\205\352X\034"
- 303      347B 9625 
-GAS LISTING /tmp/ccVpF9jF.s 			page 24
-
-
- 303      DAB1 D002 
- 303      1D8A 8E3D 
- 303      7AB1 85EA 
- 304 0cfa B1B6 E8C4 		.ascii	"\261\266\350\304Ev\213SZ\264\310\2768\"J\320\305\332?\222\364"
- 304      4576 8B53 
- 304      5AB4 C8BE 
- 304      3822 4AD0 
- 304      C5DA 3F92 
- 305 0d0f 91D1 8E25 		.ascii	"\221\321\216%\261F\2535\321\021+\201\031\351\203\037\215\250"
- 305      B146 AB35 
- 305      D111 2B81 
- 305      19E9 831F 
- 305      8DA8 
- 306 0d21 4152 3062 		.ascii	"AR0b\"mQ\216X\273\305\nH\221\211\321\222U\3728\336\356\004L\203"
- 306      226D 518E 
- 306      58BB C50A 
- 306      4891 89D1 
- 306      9255 FA38 
- 307 0d3a 02F3 CEFF 		.ascii	"\002\363\316\377\003\306\371\261\323b\005\177\300&\3306:\245"
- 307      03C6 F9B1 
- 307      D362 057F 
- 307      C026 D836 
- 307      3AA5 
- 308 0d4c 7F50 6FAC 		.ascii	"\177Po\254\322\254\210\b\313\334(\307B\307\274\371\323\346\306"
- 308      D2AC 8808 
- 308      CBDC 28C7 
- 308      42C7 BCF9 
- 308      D3E6 C6
- 309 0d5f C54A 0910 		.ascii	"\305J\t\020\2248\247\305\026\027\023\023\027k\211\217K\220\234"
- 309      9438 A7C5 
- 309      1617 1313 
- 309      176B 898F 
- 309      4B90 9C
- 310 0d72 96B7 E7FF 		.ascii	"\226\267\347\377\021\354\375\331b\213\262\305%\330a\274?\314"
- 310      11EC FDD9 
- 310      628B B2C5 
- 310      25D8 61BC 
- 310      3FCC 
- 311 0d84 46BC 954F 		.ascii	"F\274\225OI\242\323\276HG\346@GZ\315\232.\253d\210O\210\373\320"
- 311      49A2 D3BE 
- 311      4847 E640 
- 311      475A CD9A 
- 311      2EAB 6488 
- 312 0d9c 0145 538C 		.ascii	"\001ES\214=f\211]Z\234\030k\263J35\230\357\274\253\201\213s\222"
- 312      3D66 895D 
- 312      5A9C 186B 
- 312      B34A 3335 
- 312      98EF BCAB 
- 313 0db4 3951 38DB 		.ascii	"9Q8\333\242`\220\202\b\305\270\204\217\211\341x\354\264\307\230"
- 313      A260 9082 
- 313      08C5 B884 
- 313      8F89 E178 
- 313      ECB4 C798 
- 314 0dc8 631D D156 		.ascii	"c\035\321VxF\306G\201\002\266\305J~V+\017\230/\177\352\241\325"
- 314      7846 C647 
- 314      8102 B6C5 
- 314      4A7E 562B 
-GAS LISTING /tmp/ccVpF9jF.s 			page 25
-
-
- 314      0F98 2F7F 
- 315 0ddf 2ACD FD31 		.ascii	"*\315\3751\016\306\305\304;\242\355\tN\313\233s\347\002\2762"
- 315      0EC6 C5C4 
- 315      3BA2 ED09 
- 315      4ECB 9B73 
- 315      E702 BE32 
- 316 0df3 1753 1E23 		.ascii	"\027S\036#\f\360\032\236\204\240\233\214U2k\310Z%\313\017\365"
- 316      0CF0 1A9E 
- 316      84A0 9B8C 
- 316      5532 6BC8 
- 316      5A25 CB0F 
- 317 0e08 96A8 93C9 		.ascii	"\226\250\223\311a\343\034\261\016\351\347O\036\352L\260)\303"
- 317      61E3 1CB1 
- 317      0EE9 E74F 
- 317      1EEA 4CB0 
- 317      29C3 
- 318 0e1a 6C42 902D 		.ascii	"lB\220-j.\240\317\211\216\216\263\315!sk_4\301\026\365\026t\316"
- 318      6A2E A0CF 
- 318      898E 8EB3 
- 318      CD21 736B 
- 318      5F34 C116 
- 319 0e32 5BF8 77BB 		.ascii	"[\370w\273M\372\035\330\013b\rZ\035#kz\003\326\225\211\025\347"
- 319      4DFA 1DD8 
- 319      0B62 0D5A 
- 319      1D23 6B7A 
- 319      03D6 9589 
- 320 0e48 4B91 52A2 		.ascii	"K\221R\242\323\317\0265\377c\347[\221\321\222?\224\3541\363A"
- 320      D3CF 1635 
- 320      FF63 E75B 
- 320      91D1 923F 
- 320      94EC 31F3 
- 321 0e5d 3B32 7A02 		.ascii	";2z\002-\377)\322!\275\353\210\261\307%J~\220X\022\024!\3524"
- 321      2DFF 29D2 
- 321      21BD EB88 
- 321      B1C7 254A 
- 321      7E90 5812 
- 322 0e75 FE33 A71B 		.ascii	"\3763\247\033\3513^\"\263\257\024\3641\316%V\351\251\261t\004"
- 322      E933 5E22 
- 322      B3AF 14F4 
- 322      31CE 2556 
- 322      E9A9 B174 
- 323 0e8a B3D5 4A33 		.ascii	"\263\325J3\302\0321s\366\364\351\006\245\026\3748MO\325W\374"
- 323      C21A 3173 
- 323      F6F4 E906 
- 323      A516 FC38 
- 323      4D4F D557 
- 324 0e9f 55D6 1E3D 		.ascii	"U\326\036=3_6)\353\210\204\345\277\001\f|\211"
- 324      335F 3629 
- 324      EB88 84E5 
- 324      BF01 0C7C 
- 324      89
- 325               	.text
- 326               		.section	.gnu.lto_.symtab.5753bf5bd9dab7a4,"",@progbits
- 327 0000 5F68 6561 		.string	"_heap_init"
- 327      705F 696E 
- 327      6974 00
- 328 000b 00        		.string	""
-GAS LISTING /tmp/ccVpF9jF.s 			page 26
-
-
- 329 000c 00        		.string	""
- 330 000d 00        		.string	""
- 331 000e 00        		.string	""
- 332 000f 00        		.string	""
- 333 0010 00        		.string	""
- 334 0011 00        		.string	""
- 335 0012 00        		.string	""
- 336 0013 00        		.string	""
- 337 0014 00        		.string	""
- 338 0015 00        		.string	""
- 339 0016 2201 00   		.string	"\"\001"
- 340 0019 00        		.string	""
- 341 001a 6368 4865 		.string	"chHeapObjectInit"
- 341      6170 4F62 
- 341      6A65 6374 
- 341      496E 6974 
- 341      00
- 342 002b 00        		.string	""
- 343 002c 00        		.string	""
- 344 002d 00        		.string	""
- 345 002e 00        		.string	""
- 346 002f 00        		.string	""
- 347 0030 00        		.string	""
- 348 0031 00        		.string	""
- 349 0032 00        		.string	""
- 350 0033 00        		.string	""
- 351 0034 00        		.string	""
- 352 0035 00        		.string	""
- 353 0036 2A01 00   		.string	"*\001"
- 354 0039 00        		.string	""
- 355 003a 6368 4865 		.string	"chHeapAllocAligned"
- 355      6170 416C 
- 355      6C6F 6341 
- 355      6C69 676E 
- 355      6564 00
- 356 004d 00        		.string	""
- 357 004e 00        		.string	""
- 358 004f 00        		.string	""
- 359 0050 00        		.string	""
- 360 0051 00        		.string	""
- 361 0052 00        		.string	""
- 362 0053 00        		.string	""
- 363 0054 00        		.string	""
- 364 0055 00        		.string	""
- 365 0056 00        		.string	""
- 366 0057 00        		.string	""
- 367 0058 3001 00   		.string	"0\001"
- 368 005b 00        		.string	""
- 369 005c 6368 4865 		.string	"chHeapFree"
- 369      6170 4672 
- 369      6565 00
- 370 0067 00        		.string	""
- 371 0068 00        		.string	""
- 372 0069 00        		.string	""
- 373 006a 00        		.string	""
- 374 006b 00        		.string	""
- 375 006c 00        		.string	""
-GAS LISTING /tmp/ccVpF9jF.s 			page 27
-
-
- 376 006d 00        		.string	""
- 377 006e 00        		.string	""
- 378 006f 00        		.string	""
- 379 0070 00        		.string	""
- 380 0071 00        		.string	""
- 381 0072 3401 00   		.string	"4\001"
- 382 0075 00        		.string	""
- 383 0076 6368 4865 		.string	"chHeapStatus"
- 383      6170 5374 
- 383      6174 7573 
- 383      00
- 384 0083 00        		.string	""
- 385 0084 00        		.string	""
- 386 0085 00        		.string	""
- 387 0086 00        		.string	""
- 388 0087 00        		.string	""
- 389 0088 00        		.string	""
- 390 0089 00        		.string	""
- 391 008a 00        		.string	""
- 392 008b 00        		.string	""
- 393 008c 00        		.string	""
- 394 008d 00        		.string	""
- 395 008e 3A01 00   		.string	":\001"
- 396 0091 00        		.string	""
- 397 0092 6368 436F 		.string	"chCoreAllocAligned"
- 397      7265 416C 
- 397      6C6F 6341 
- 397      6C69 676E 
- 397      6564 00
- 398 00a5 00        		.string	""
- 399 00a6 02        		.ascii	"\002"
- 400 00a7 00        		.string	""
- 401 00a8 00        		.string	""
- 402 00a9 00        		.string	""
- 403 00aa 00        		.string	""
- 404 00ab 00        		.string	""
- 405 00ac 00        		.string	""
- 406 00ad 00        		.string	""
- 407 00ae 00        		.string	""
- 408 00af 00        		.string	""
- 409 00b0 2401 00   		.string	"$\001"
- 410 00b3 00        		.string	""
- 411 00b4 6368 5379 		.string	"chSysHalt"
- 411      7348 616C 
- 411      7400 
- 412 00be 00        		.string	""
- 413 00bf 02        		.ascii	"\002"
- 414 00c0 00        		.string	""
- 415 00c1 00        		.string	""
- 416 00c2 00        		.string	""
- 417 00c3 00        		.string	""
- 418 00c4 00        		.string	""
- 419 00c5 00        		.string	""
- 420 00c6 00        		.string	""
- 421 00c7 00        		.string	""
- 422 00c8 00        		.string	""
- 423 00c9 3F01 00   		.string	"?\001"
-GAS LISTING /tmp/ccVpF9jF.s 			page 28
-
-
- 424 00cc 00        		.string	""
- 425 00cd 6368 5365 		.string	"chSemSignal"
- 425      6D53 6967 
- 425      6E61 6C00 
- 426 00d9 00        		.string	""
- 427 00da 02        		.ascii	"\002"
- 428 00db 00        		.string	""
- 429 00dc 00        		.string	""
- 430 00dd 00        		.string	""
- 431 00de 00        		.string	""
- 432 00df 00        		.string	""
- 433 00e0 00        		.string	""
- 434 00e1 00        		.string	""
- 435 00e2 00        		.string	""
- 436 00e3 00        		.string	""
- 437 00e4 4401 00   		.string	"D\001"
- 438 00e7 00        		.string	""
- 439 00e8 6368 5365 		.string	"chSemWaitTimeout"
- 439      6D57 6169 
- 439      7454 696D 
- 439      656F 7574 
- 439      00
- 440 00f9 00        		.string	""
- 441 00fa 02        		.ascii	"\002"
- 442 00fb 00        		.string	""
- 443 00fc 00        		.string	""
- 444 00fd 00        		.string	""
- 445 00fe 00        		.string	""
- 446 00ff 00        		.string	""
- 447 0100 00        		.string	""
- 448 0101 00        		.string	""
- 449 0102 00        		.string	""
- 450 0103 00        		.string	""
- 451 0104 5A01 00   		.string	"Z\001"
- 452 0107 00        		.string	""
- 453               	.text
- 454               		.section	.gnu.lto_.opts,"",@progbits
- 455 0000 272D 666D 		.ascii	"'-fmath"
- 455      6174 68
- 456 0007 2D65 7272 		.string	"-errno' '-fsigned-zeros' '-ftrapping-math' '-fno-trapv' '-fno-openmp' '-fno-openacc' '-mm
- 456      6E6F 2720 
- 456      272D 6673 
- 456      6967 6E65 
- 456      642D 7A65 
- 457               	.text
- 458               		.section	.upper.bss,"aw",@nobits
- 459               		.global	__gnu_lto_v1
- 460               		.weak	__gnu_lto_v1
- 461               	__gnu_lto_v1:
- 462 0000 00        		.zero	1
- 463               		.global	__gnu_lto_slim
- 464               		.weak	__gnu_lto_slim
- 465               	__gnu_lto_slim:
- 466 0001 00        		.zero	1
- 467               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccVpF9jF.s 			page 29
+ 474      496E 6974 
+ 474      00
+ 475               		.local	default_heap
+ 476               		.comm	default_heap,14,2
+ 477               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/cc4GlsXv.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 chheap.c
-     /tmp/ccVpF9jF.s:461    .upper.bss:0000000000000000 __gnu_lto_v1
-     /tmp/ccVpF9jF.s:465    .upper.bss:0000000000000001 __gnu_lto_slim
+     /tmp/cc4GlsXv.s:6      .text._heap_init:0000000000000000 _heap_init
+     /tmp/cc4GlsXv.s:476    .bss:0000000000000000 default_heap
+     /tmp/cc4GlsXv.s:30     .text.chHeapObjectInit:0000000000000000 chHeapObjectInit
+     /tmp/cc4GlsXv.s:473    .upper.rodata:000000000000001e __func__.2600
+     /tmp/cc4GlsXv.s:87     .text.chHeapAllocAligned:0000000000000000 chHeapAllocAligned
+     /tmp/cc4GlsXv.s:469    .upper.rodata:000000000000000b __func__.2609
+     /tmp/cc4GlsXv.s:282    .text.chHeapFree:0000000000000000 chHeapFree
+     /tmp/cc4GlsXv.s:465    .upper.rodata:0000000000000000 __func__.2623
+     /tmp/cc4GlsXv.s:403    .text.chHeapStatus:0000000000000000 chHeapStatus
+     /tmp/cc4GlsXv.s:54     .text.chHeapObjectInit:000000000000002e .L3
+     /tmp/cc4GlsXv.s:57     .text.chHeapObjectInit:0000000000000036 .L4
+     /tmp/cc4GlsXv.s:109    .text.chHeapAllocAligned:0000000000000028 .L13
+     /tmp/cc4GlsXv.s:112    .text.chHeapAllocAligned:0000000000000030 .L14
+     /tmp/cc4GlsXv.s:115    .text.chHeapAllocAligned:000000000000003a .L15
+     /tmp/cc4GlsXv.s:118    .text.chHeapAllocAligned:0000000000000040 .L16
+     /tmp/cc4GlsXv.s:155    .text.chHeapAllocAligned:00000000000000b2 .L23
+     /tmp/cc4GlsXv.s:258    .text.chHeapAllocAligned:0000000000000256 .L24
+     /tmp/cc4GlsXv.s:255    .text.chHeapAllocAligned:000000000000024e .L18
+     /tmp/cc4GlsXv.s:225    .text.chHeapAllocAligned:00000000000001dc .L19
+     /tmp/cc4GlsXv.s:209    .text.chHeapAllocAligned:00000000000001a4 .L20
+     /tmp/cc4GlsXv.s:150    .text.chHeapAllocAligned:00000000000000aa .L12
+     /tmp/cc4GlsXv.s:233    .text.chHeapAllocAligned:00000000000001f2 .L21
+     /tmp/cc4GlsXv.s:230    .text.chHeapAllocAligned:00000000000001ec .L37
+     /tmp/cc4GlsXv.s:140    .text.chHeapAllocAligned:000000000000008e .L17
+     /tmp/cc4GlsXv.s:148    .text.chHeapAllocAligned:00000000000000a8 .L25
+     /tmp/cc4GlsXv.s:222    .text.chHeapAllocAligned:00000000000001d4 .L38
+     /tmp/cc4GlsXv.s:299    .text.chHeapFree:000000000000001a .L40
+     /tmp/cc4GlsXv.s:302    .text.chHeapFree:0000000000000022 .L41
+     /tmp/cc4GlsXv.s:340    .text.chHeapFree:00000000000000b0 .L42
+     /tmp/cc4GlsXv.s:344    .text.chHeapFree:00000000000000ba .L43
+     /tmp/cc4GlsXv.s:395    .text.chHeapFree:0000000000000182 .L44
+     /tmp/cc4GlsXv.s:347    .text.chHeapFree:00000000000000c4 .L45
+     /tmp/cc4GlsXv.s:367    .text.chHeapFree:000000000000011e .L46
+     /tmp/cc4GlsXv.s:388    .text.chHeapFree:0000000000000174 .L47
+     /tmp/cc4GlsXv.s:329    .text.chHeapFree:0000000000000086 .L48
+     /tmp/cc4GlsXv.s:421    .text.chHeapStatus:0000000000000014 .L58
+     /tmp/cc4GlsXv.s:454    .text.chHeapStatus:0000000000000080 .L61
+     /tmp/cc4GlsXv.s:440    .text.chHeapStatus:0000000000000054 .L62
+     /tmp/cc4GlsXv.s:446    .text.chHeapStatus:0000000000000072 .L63
+     /tmp/cc4GlsXv.s:432    .text.chHeapStatus:000000000000002e .L59
 
 UNDEFINED SYMBOLS
-__crt0_init_highbss
+chCoreAllocAligned
+chSysHalt
+__mspabi_srll_3
+chSemWaitTimeout
+chSemSignal
+__mspabi_slll_3
+__mspabi_sral_3
+__crt0_init_bss

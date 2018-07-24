@@ -1,2194 +1,438 @@
-GAS LISTING /tmp/cc8dRF8W.s 			page 1
+GAS LISTING /tmp/cc40xLpU.s 			page 1
 
 
    1               		.file	"hal_i2c.c"
-   2               		.section	.gnu.lto_.profile.bcc45ddc45e2abd,"",@progbits
-   3 0000 789C 6365 		.string	"x\234ce`d`c`"
-   3      6064 6063 
-   3      6000 
-   4 000a 9217 981A 		.ascii	"\222\027\230\032\031\001\004\353\001b"
-   4      1901 04EB 
-   4      0162 
-   5               	.text
-   6               		.section	.gnu.lto_.icf.bcc45ddc45e2abd,"",@progbits
-   7 0000 789C 6365 		.string	"x\234ce`d\bc@"
-   7      6064 0863 
-   7      4000 
-   8 000a 3E86 657B 		.string	">\206e{N\237\340f\004\223L'\026-\231\305\312|\366\345\3325\314,\347\336\254n\347c\275\264
-   8      4E9F E066 
-   8      0493 4C27 
-   8      162D 99C5 
-   8      CA7C F6E5 
-   9 0064 46F2 2AB9 		.ascii	"F\362*\271"
-  10               	.text
-  11               		.section	.gnu.lto_.jmpfuncs.bcc45ddc45e2abd,"",@progbits
-  12 0000 789C 7D50 		.string	"x\234}PKN\303@\f\365\263'\351\007\3245\213H\275\002\327\313j*U]\260\351\022\204\204\224\3
-  12      4B4E C340 
-  12      0CF5 B327 
-  12      E907 D435 
-  12      8B48 BD02 
-  13 004b DE31 20DE 		.string	"\3361 \336\023s\036y\306\215`\376\361z\232\370\317\331E!\024\304*\356\341{\271\007\343Rk\
-  13      1373 1E79 
-  13      C68D 60FE 
-  13      F17A 9AF8 
-  13      CFD9 4521 
-  14 00e2 23EB 6E7D 		.ascii	"#\353n}"
-  15               	.text
-  16               		.section	.gnu.lto_.inline.bcc45ddc45e2abd,"",@progbits
-  17 0000 789C 7D52 		.string	"x\234}R\315J\303@\020\236\331\335$\233\324j\220\026/J\003\036\304\213 \210\336\244O \276\
-  17      CD4A C340 
-  17      109E D9DD 
-  17      249B D46A 
-  17      9016 2F4A 
-  18 0054 9E41 50A6 		.string	"\236AP\246\323"
-  18      D300 
-  19 005a BFD3 508E 		.ascii	"\277\323P\216\303\337\224\0023\306\024{\203C\021\033\335?\251"
-  19      C3DF 9402 
-  19      33C6 147B 
-  19      8343 111B 
-  19      DD3F A9
-  20 006d 5E26 C07E 		.ascii	"^&\300~-\bo`j\t}HZ\007\032\367\267\356\237\203=}\254\003\004"
-  20      2D08 6F60 
-  20      6A09 7D48 
-  20      5A07 1AF7 
-  20      B7EE 9F83 
-  21 0086 3CC3 6980 		.ascii	"<\303i\200$\025\304b\332r\372\\\350T\020\022\344\006\316\230"
-  21      2415 C462 
-  21      DA72 FA5C 
-  21      E854 1012 
-  21      E406 CE98 
-  22 009a EAD3 2684 		.ascii	"\352\323&\204\335e\356\337i4\301\264g\b\355\240\275\252\260\323"
-GAS LISTING /tmp/cc8dRF8W.s 			page 2
+   2               		.section	.text.i2cInit,"ax",@progbits
+   3               		.balign 2
+   4               		.global	i2cInit
+   5               		.type	i2cInit, @function
+   6               	i2cInit:
+   7               	; start of function
+   8               	; framesize_regs:     0
+   9               	; framesize_locals:   0
+  10               	; framesize_outgoing: 0
+  11               	; framesize:          0
+  12               	; elim ap -> fp       4
+  13               	; elim fp -> sp       0
+  14               	; saved regs:(none)
+  15               		; start of prologue
+  16               		; end of prologue
+  17 0000 B013 0000 		CALLA	#i2c_lld_init
+  18               		; start of epilogue
+  19 0004 1001      		RETA
+  20               		.size	i2cInit, .-i2cInit
+  21               		.section	.text.i2cObjectInit,"ax",@progbits
+  22               		.balign 2
+  23               		.global	i2cObjectInit
+  24               		.type	i2cObjectInit, @function
+  25               	i2cObjectInit:
+  26               	; start of function
+  27               	; framesize_regs:     0
+  28               	; framesize_locals:   0
+  29               	; framesize_outgoing: 0
+  30               	; framesize:          0
+  31               	; elim ap -> fp       4
+  32               	; elim fp -> sp       0
+  33               	; saved regs:(none)
+  34               		; start of prologue
+  35               		; end of prologue
+  36 0000 DC43 0000 		MOV.B	#1, @R12
+  37 0004 0018 CC43 		MOVX.A	#0, 2(R12)
+  37      0200 
+  38               		; start of epilogue
+  39 000a 1001      		RETA
+  40               		.size	i2cObjectInit, .-i2cObjectInit
+  41               		.section	.text.i2cStart,"ax",@progbits
+  42               		.balign 2
+  43               		.global	i2cStart
+  44               		.type	i2cStart, @function
+  45               	i2cStart:
+  46               	; start of function
+  47               	; framesize_regs:     8
+  48               	; framesize_locals:   0
+  49               	; framesize_outgoing: 0
+  50               	; framesize:          8
+  51               	; elim ap -> fp       12
+  52               	; elim fp -> sp       0
+  53               	; saved regs: R8 R10
+  54               		; start of prologue
+  55 0000 0A14      		PUSHM.A	#1, R10
+  56 0002 0814      		PUSHM.A	#1, R8
+GAS LISTING /tmp/cc40xLpU.s 			page 2
 
 
-  22      DD65 EEDF 
-  22      6934 C1B4 
-  22      6708 EDA0 
-  22      BDAA B0D3 
-  23 00ae 5E1B FACE 		.ascii	"^\033\372\316\326\030|\250/\242\346\217(t\225\262\372g\305\270"
-  23      D618 7CA8 
-  23      2FA2 E68F 
-  23      2874 95B2 
-  23      FA67 C5B8 
-  24 00c2 5CAA 5F25 		.ascii	"\\\252_%g\f\373\026\254?\252\024~\006\020l\317\rKew\"\230\177"
-  24      670C FB16 
-  24      AC3F AA14 
-  24      7E06 106C 
-  24      CF0D 4B65 
-  25 00da 04AC 972F 		.ascii	"\004\254\227/\241-\250\016\271\321\205\320\251\240\256\025\322"
-  25      A12D A80E 
-  25      B9D1 85D0 
-  25      A9A0 AE15 
-  25      D2
-  26 00eb 11A7 2F85 		.ascii	"\021\247/\205N\005Uqf\025N_\t\235\nz\3311\257\326\0224\305\343"
-  26      4E05 5571 
-  26      6615 4E5F 
-  26      099D 0A7A 
-  26      D931 AFD6 
-  27 0103 BC3D BC16 		.ascii	"\274=\274\026:\025\364c\227\276\355\276\255\270l\025{=\2157\302"
-  27      3A15 F463 
-  27      97BE EDBE 
-  27      ADB8 6C15 
-  27      7B3D 8D37 
-  28 0118 A782 FD15 		.ascii	"\247\202\375\025X\247\262\306F\271\320s\236q\236\037\263\t\253"
-  28      58A7 B2C6 
-  28      46B9 D073 
-  28      9E71 9E1F 
-  28      B309 AB
-  29 012b 1F1B 50B9 		.ascii	"\037\033P\271[\025\371DF\266C\326\202y\032'\212\023vN\003\242"
-  29      5B15 F944 
-  29      46B6 43D6 
-  29      8279 1A27 
-  29      8A13 764E 
-  30 0141 84D0 B987 		.ascii	"\204\320\271\207>Q\223L?\330\325D\204d\363\370\335\343X\321z"
-  30      3E51 934C 
-  30      3FD8 D544 
-  30      8464 F3F8 
-  30      DDE3 58D1 
-  31 0156 16E7 4B09 		.ascii	"\026\347K\t'\001\202\366\332\317\267\270\353\327\023|\335ae0"
-  31      2701 82F6 
-  31      DACF B7B8 
-  31      EBD7 137C 
-  31      DD61 6530 
-  32 016a 06B3 0F80 		.ascii	"\006\263\017\200\023\177L\274<\342\362Le\032*\233\212\211[\242"
-  32      137F 4CBC 
-  32      3CE2 F24C 
-  32      651A 2A9B 
-  32      8A89 5BA2 
-  33 017e DEFC 3305 		.ascii	"\336\3743\005\343\264\007\005\355\211Hof\3121W\256\206\312MI"
-  33      E3B4 0705 
-  33      ED89 486F 
-GAS LISTING /tmp/cc8dRF8W.s 			page 3
+  57               		; end of prologue
+  58 0004 CA0C      		MOVA	R12, R10
+  59 0006 C80D      		MOVA	R13, R8
+  60 0008 9C00 0000 		CMPA	#0, R12 { JEQ	.L4
+  60      0024 
+  61 000e 9D00 0000 		CMPA	#0, R13 { JNE	.L5
+  61      0020 
+  62               	.L4:
+  63 0014 8C00 0000 		MOVA	#__func__.3703, R12
+  64 0018 B013 0000 		CALLA	#chSysHalt
+  65               	.L5:
+  66 001c 6C4A      		MOV.B	@R10, R12
+  67 001e 4D4C      		MOV.B	R12, R13
+  68 0020 7D53      		ADD.B	#-1, R13
+  69 0022 5E43      		MOV.B	#1, R14
+  70 0024 4E9D 002C 		CMP.B	R13, R14 { JHS	.L6
+  71 0028 3C90 0500 		CMP.W	#5, R12 { JEQ	.L6
+  71      0024 
+  72 002e 8C00 0000 		MOVA	#__func__.3703, R12
+  73 0032 B013 0000 		CALLA	#chSysHalt
+  74               	.L6:
+  75               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+  76 0036 32C2 0343 		dint { nop
+  77               	 ; 0 "" 2
+  78               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+  79 003a 0343      		nop
+  80               	 ; 0 "" 2
+  81 003c 7A08 0200 		MOVA	R8, 2(R10)
+  82 0040 CC0A      		MOVA	R10, R12
+  83 0042 B013 0000 		CALLA	#i2c_lld_start
+  84 0046 EA43 0000 		MOV.B	#2, @R10
+  85               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+  86 004a 0343      		nop
+  87               	 ; 0 "" 2
+  88               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+  89 004c 0343 32D2 		nop { eint { nop
+  89      0343 
+  90               	 ; 0 "" 2
+  91               		; start of epilogue
+  92 0052 0816      		POPM.A	#1, r8
+  93 0054 0A16      		POPM.A	#1, r10
+  94 0056 1001      		RETA
+  95               		.size	i2cStart, .-i2cStart
+  96               		.section	.text.i2cStop,"ax",@progbits
+  97               		.balign 2
+  98               		.global	i2cStop
+  99               		.type	i2cStop, @function
+ 100               	i2cStop:
+ 101               	; start of function
+ 102               	; framesize_regs:     4
+ 103               	; framesize_locals:   0
+ 104               	; framesize_outgoing: 0
+ 105               	; framesize:          4
+ 106               	; elim ap -> fp       8
+ 107               	; elim fp -> sp       0
+ 108               	; saved regs: R10
+ 109               		; start of prologue
+GAS LISTING /tmp/cc40xLpU.s 			page 3
 
 
-  33      66CA 3157 
-  33      AE86 CA4D 
-  34 0193 59C0 BF8B 		.ascii	"Y\300\277\2137RU\304\b\337/\250\224 "
-  34      3752 55C4 
-  34      08DF 2FA8 
-  34      9420 
-  35               	.text
-  36               		.section	.gnu.lto_.pureconst.bcc45ddc45e2abd,"",@progbits
-  37 0000 789C 6365 		.string	"x\234ce`d\020e``\340d\330\305\310\270\213\221I\202Y\212E\212M\212C\222K\212G\n"
-  37      6064 1065 
-  37      6060 E064 
-  37      D8C5 C8B8 
-  37      8B91 4982 
-  38 0021 2316 027C 		.ascii	"#\026\002|"
-  39               	.text
-  40               		.section	.gnu.lto_port_lock.bcc45ddc45e2abd,"",@progbits
-  41 0000 789C 6365 		.string	"x\234ce`d\230\307\300\300\340\016\304\322@\314\310\314\300\3104\341\034\003C#\007\023##\2
-  41      6064 98C7 
-  41      C0C0 E00E 
-  41      C4D2 40CC 
-  41      C8CC C0C8 
-  42 009e 0D60 0469 		.string	"\r`\004i\004\032e\242\247\247\357\234\221\231\224\351\037\254\353\234\237WR\224\231\244\2
-  42      041A 65A2 
-  42      A7A7 EF9C 
-  42      9199 94E9 
-  42      1FAC EB9C 
-  43 00e9 00        		.string	""
-  44 00ea 124B E8   		.ascii	"\022K\350"
-  45               	.text
-  46               		.section	.gnu.lto_port_unlock.bcc45ddc45e2abd,"",@progbits
-  47 0000 789C 6365 		.string	"x\234ce`d\230\307\300\300\340\013\304\322@\314\310\314\300\3104\341\034\003C#\007\023##\2
-  47      6064 98C7 
-  47      C0C0 E00B 
-  47      C4D2 40CC 
-  47      C8CC C0C8 
-  48 009e 0D60 0469 		.string	"\r`\004i\004\032e\242\247\247\357\234\221\231\224\351\037\254\353\234\237WR\224\231\244\2
-  48      041A 65A2 
-  48      A7A7 EF9C 
-  48      9199 94E9 
-  48      1FAC EB9C 
-  49 00ed FD43 4C8D 		.ascii	"\375CL\215"
-  50               	.text
-  51               		.section	.gnu.lto_i2cInit.bcc45ddc45e2abd,"",@progbits
-  52 0000 789C 6365 		.string	"x\234ce`dX\314\300\300\240\n\304\322@\314\310\314\300\3104\341\034\003C#\007\023##\210\32
-  52      6064 58CC 
-  52      C0C0 A00A 
-  52      C4D2 40CC 
-  52      C8CC C0C8 
-  53 00d4 F6DF 42D0 		.ascii	"\366\337B\320"
-  54               	.text
-  55               		.section	.gnu.lto_i2cObjectInit.bcc45ddc45e2abd,"",@progbits
-  56 0000 789C 9550 		.string	"x\234\225P\271JCQ\020\235\363&\211\022\\\032\013\301 \202`\210`\036\370\013\202\255\240\3
-  56      B94A 4351 
-  56      109D F326 
-  56      8912 5C1A 
-  56      0BC1 2082 
-  57 0062 5DA8 7250 		.string	"]\250rP\330@\0303\234`\224b\217\207\206oS\311)&V]\343j\254\326b\242\244\204>\330\204OPW\2
-GAS LISTING /tmp/cc8dRF8W.s 			page 4
+ 110 0000 0A14      		PUSHM.A	#1, R10
+ 111               		; end of prologue
+ 112 0002 CA0C      		MOVA	R12, R10
+ 113 0004 9C00 0000 		CMPA	#0, R12 { JNE	.L14
+ 113      0020 
+ 114 000a 8C00 0000 		MOVA	#__func__.3707, R12
+ 115 000e B013 0000 		CALLA	#chSysHalt
+ 116               	.L14:
+ 117               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 118 0012 32C2 0343 		dint { nop
+ 119               	 ; 0 "" 2
+ 120               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 121 0016 0343      		nop
+ 122               	 ; 0 "" 2
+ 123 0018 6C4A      		MOV.B	@R10, R12
+ 124 001a 4D4C      		MOV.B	R12, R13
+ 125 001c 7D53      		ADD.B	#-1, R13
+ 126 001e 5E43      		MOV.B	#1, R14
+ 127 0020 4E9D 002C 		CMP.B	R13, R14 { JHS	.L15
+ 128 0024 3C90 0500 		CMP.W	#5, R12 { JEQ	.L15
+ 128      0024 
+ 129 002a 8C00 0000 		MOVA	#__func__.3707, R12
+ 130 002e B013 0000 		CALLA	#chSysHalt
+ 131               	.L15:
+ 132 0032 CC0A      		MOVA	R10, R12
+ 133 0034 B013 0000 		CALLA	#i2c_lld_stop
+ 134 0038 0018 CA43 		MOVX.A	#0, 2(R10)
+ 134      0200 
+ 135 003e DA43 0000 		MOV.B	#1, @R10
+ 136               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 137 0042 0343      		nop
+ 138               	 ; 0 "" 2
+ 139               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 140 0044 0343 32D2 		nop { eint { nop
+ 140      0343 
+ 141               	 ; 0 "" 2
+ 142               		; start of epilogue
+ 143 004a 0A16      		POPM.A	#1, r10
+ 144 004c 1001      		RETA
+ 145               		.size	i2cStop, .-i2cStop
+ 146               		.section	.text.i2cGetErrors,"ax",@progbits
+ 147               		.balign 2
+ 148               		.global	i2cGetErrors
+ 149               		.type	i2cGetErrors, @function
+ 150               	i2cGetErrors:
+ 151               	; start of function
+ 152               	; framesize_regs:     4
+ 153               	; framesize_locals:   0
+ 154               	; framesize_outgoing: 0
+ 155               	; framesize:          4
+ 156               	; elim ap -> fp       8
+ 157               	; elim fp -> sp       0
+ 158               	; saved regs: R10
+ 159               		; start of prologue
+ 160 0000 0A14      		PUSHM.A	#1, R10
+ 161               		; end of prologue
+ 162 0002 CA0C      		MOVA	R12, R10
+GAS LISTING /tmp/cc40xLpU.s 			page 4
 
 
-  57      D840 1833 
-  57      9C60 9462 
-  57      8F87 866F 
-  57      53C9 2926 
-  58 0123 85D8 69DE 		.string	"\205\330i\336\255\311\234"
-  58      ADC9 9C00 
-  59 012b 7232 652F 		.ascii	"r2e/[\372[\366\017v\027\3626\273\266\206}\233\375O\252\370\305"
-  59      5BFA 5BF6 
-  59      0F76 17F2 
-  59      36BB B686 
-  59      7D9B FD4F 
-  60 0142 814C BD22 		.ascii	"\201L\275\"\272\226\235\202&\267?>.h\261h\0205\372\375f[\177"
-  60      BA96 9D82 
-  60      26B7 3F3E 
-  60      2E68 B168 
-  60      1035 FAFD 
-  61 0159 B02F D8D1 		.ascii	"\260/\330\321\325\322\331m\016\206\314\376\336\00134\034\320"
-  61      D5D2 D96D 
-  61      0E86 CCFE 
-  61      DE01 3334 
-  61      1CD0 
-  62 016b B927 D81A 		.ascii	"\271'\330\032\360\007\310!i\350\007\302\314\224a"
-  62      F007 C821 
-  62      69E8 07C2 
-  62      CC94 61
-  63               	.text
-  64               		.section	.gnu.lto_i2cStart.bcc45ddc45e2abd,"",@progbits
-  65 0000 789C 9553 		.string	"x\234\225S[KTQ\024^\337\331\347\3468^\036z\350\241B\210\222\210\234\350\017\370\340C\217A
-  65      5B4B 5451 
-  65      145E DFD9 
-  65      E7E6 385E 
-  65      1E7A E8A1 
-  66 00af 0E8B 1681 		.string	"\016\213\026\201\301\375\357\372\224U\355\026\257d\313\224\336h5,\266\005Q\204\037\271\32
-  66      C1FD EFFA 
-  66      9455 ED16 
-  66      AF64 CB94 
-  66      DE68 352C 
-  67 00d6 2A9B 5F1E 		.string	"*\233_\036\266\215\025JSA\t\233)\253)^$V\202\370{\374\361\213+\005\245\347,+h%\237\035\20
-  67      B68D 154A 
-  67      5341 099B 
-  67      29AB 295E 
-  67      2456 82F8 
-  68 0178 6E8B 03AF 		.string	"n\213\003\257p\261\352l\254\312\330\316,V\245\226b\221F}\211D\312\304\373\372>\2764\002?-
-  68      70B1 EA6C 
-  68      ACCA D8CE 
-  68      2C56 A596 
-  68      6291 467D 
-  69 022d 405F 5627 		.ascii	"@_V'\235Z\313\245\244"
-  69      9D5A CBA5 
-  69      A4
-  70 0236 2F2B 7299 		.string	"/+r\231e\322o\322\005\022\352\205\206\376,\324\240\263\245\013Hz\335\225tA\r\007\376\241\
-  70      65D2 6FD2 
-  70      0512 EA85 
-  70      86FE 2CD4 
-  70      A0B3 A50B 
-  71 0337 EE04 B215 		.ascii	"\356\004\262\025"
-  72               	.text
-GAS LISTING /tmp/cc8dRF8W.s 			page 5
+ 163 0004 9C00 0000 		CMPA	#0, R12 { JNE	.L20
+ 163      0020 
+ 164 000a 8C00 0000 		MOVA	#__func__.3711, R12
+ 165 000e B013 0000 		CALLA	#chSysHalt
+ 166               	.L20:
+ 167 0012 1C4A 0600 		MOV.W	6(R10), R12
+ 168               		; start of epilogue
+ 169 0016 0A16      		POPM.A	#1, r10
+ 170 0018 1001      		RETA
+ 171               		.size	i2cGetErrors, .-i2cGetErrors
+ 172               		.section	.text.i2cMasterTransmitTimeout,"ax",@progbits
+ 173               		.balign 2
+ 174               		.global	i2cMasterTransmitTimeout
+ 175               		.type	i2cMasterTransmitTimeout, @function
+ 176               	i2cMasterTransmitTimeout:
+ 177               	; start of function
+ 178               	; framesize_regs:     24
+ 179               	; framesize_locals:   0
+ 180               	; framesize_outgoing: 10
+ 181               	; framesize:          34
+ 182               	; elim ap -> fp       28
+ 183               	; elim fp -> sp       10
+ 184               	; saved regs: R4 R6 R7 R8 R9 R10
+ 185               		; start of prologue
+ 186 0000 4A14      		PUSHM.A	#5, R10
+ 187 0002 0414      		PUSHM.A	#1, R4
+ 188 0004 B100 0A00 		SUBA	#10, R1
+ 189               		; end of prologue
+ 190 0008 CA0C      		MOVA	R12, R10
+ 191 000a 494D      		MOV.B	R13, R9
+ 192 000c C60E      		MOVA	R14, R6
+ 193 000e C80F      		MOVA	R15, R8
+ 194 0010 3401 2A00 		MOVA	42(R1), R4
+ 195 0014 1741 2E00 		MOV.W	46(R1), R7
+ 196 0018 9C00 0000 		CMPA	#0, R12 { JEQ	.L22
+ 196      0024 
+ 197 001e 0993 0024 		CMP.W	#0, R9 { JEQ	.L22
+ 198 0022 9F00 0000 		CMPA	#0, R15 { JEQ	.L22
+ 198      0024 
+ 199 0028 9E00 0000 		CMPA	#0, R14 { JEQ	.L22
+ 199      0024 
+ 200 002e 9400 0000 		CMPA	#0, R4 { JEQ	.L23
+ 200      0024 
+ 201 0034 0018 C193 		CMPX.A	#0, 38(R1) { JEQ	.L22
+ 201      2600 0024 
+ 202               	.L23:
+ 203 003c 3793 0020 		CMP.W	#-1, R7 { JNE	.L24
+ 204               	.L22:
+ 205 0040 8C00 0000 		MOVA	#__func__.3722, R12
+ 206 0044 B013 0000 		CALLA	#chSysHalt
+ 207               	.L24:
+ 208 0048 EA93 0000 		CMP.B	#2, @R10 { JEQ	.L25
+ 208      0024 
+ 209 004e 8C00 0000 		MOVA	#__func__.3722, R12
+ 210 0052 B013 0000 		CALLA	#chSysHalt
+ 211               	.L25:
+ 212               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+GAS LISTING /tmp/cc40xLpU.s 			page 5
 
 
-  73               		.section	.gnu.lto_i2cStop.bcc45ddc45e2abd,"",@progbits
-  74 0000 789C 9D52 		.ascii	"x\234\235R[KTQ\024^\337\331\3472\2323\372\320C\017\026B\224\370"
-  74      5B4B 5451 
-  74      145E DFD9 
-  74      E732 9A33 
-  74      FAD0 430F 
-  75 0018 9013 FD01 		.ascii	"\220\023\375\001\037|\350\261\250^#\312\027\245\310\310\0370"
-  75      1F7C E8B1 
-  75      A85E 23CA 
-  75      17A5 C8C8 
-  75      1F30 
-  76 002a DB99 5143 		.ascii	"\333\231QC!\013I\035\311\316\200\211\231yM+\355\342\244\246S"
-  76      210B 491D 
-  76      C9CE 8089 
-  76      9979 4D2B 
-  76      EDE2 A4A6 
-  77 003f D8CD A750 		.ascii	"\330\315\247P\210.Cd&\026\005E\231\323\332\347x+\305\240\r\347"
-  77      882E 4364 
-  77      2616 0545 
-  77      99D3 DAE7 
-  77      782B C5A0 
-  78 0055 ECDB B7BF 		.ascii	"\354\333\267\277\265\326\367-\203@!"
-  78      B5D6 F72D 
-  78      8340 21
-  79 0060 9D68 3F11 		.string	"\235h?\021\035\346\017\036\202v\356\tQ\251G\323D\324 \231\252\177\212\023\3114\001\335=\3
-  79      1DE6 0F1E 
-  79      8276 EE09 
-  79      51A9 47D3 
-  79      44D4 2099 
-  80 0161 AD26 B09C 		.string	"\255&\260\234\362B?\006\277\370\030\307\"Y*gu\366\260\241\355\270\215\306\322\f[x\320\305
-  80      F242 3F06 
-  80      BFF8 18C7 
-  80      2259 2A67 
-  80      75F6 B0A1 
-  81 0216 FDCB 0618 		.ascii	"\375\313\006\030T\237\247\354\232\312_\311la\346\365\214WA\275"
-  81      549F A7EC 
-  81      9ACA 5FC9 
-  81      6C61 E6F5 
-  81      8C57 41BD 
-  82 022a 3030 B00C 		.ascii	"00\260\f5\351r\366?\274\272\355z\365Os\356l`\316\335es\356\255"
-  82      35E9 72F6 
-  82      3FBC BAED 
-  82      7AF5 4F73 
-  82      EE6C 60CE 
-  83 0243 9863 2D9A 		.ascii	"\230c-\232\023\216N\247\257\023\336\027a\373\b\203\034\236e\264"
-  83      138E 4EA7 
-  83      AF13 DE17 
-  83      61FB 0883 
-  83      1C9E 65B4 
-  84 0257 45BA 92FB 		.ascii	"E\272\222\373\353\373\237\241T\005\376K\354\350\266\r\325\316"
-  84      EBFB 9FA1 
-  84      5405 FE4B 
-  84      ECE8 B60D 
-  84      D5CE 
-  85 0269 40CC 511B 		.ascii	"@\314Q\033J\355\373\360\257\356\275\fn\336!~\345\260\317\377"
-  85      4AED FBF0 
-  85      AFEE BD0C 
-GAS LISTING /tmp/cc8dRF8W.s 			page 6
+ 213 0056 32C2 0343 		dint { nop
+ 214               	 ; 0 "" 2
+ 215               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 216 005a 0343      		nop
+ 217               	 ; 0 "" 2
+ 218 005c 8A43 0600 		MOV.W	#0, 6(R10)
+ 219 0060 FA40 0300 		MOV.B	#3, @R10
+ 219      0000 
+ 220 0066 8147 0800 		MOV.W	R7, 8(R1)
+ 221 006a 7104 0400 		MOVA	R4, 4(R1)
+ 222 006e 0018 D141 		MOVX.A	38(R1), @R1
+ 222      2600 0000 
+ 223 0076 CF08      		MOVA	R8, R15
+ 224 0078 CE06      		MOVA	R6, R14
+ 225 007a 4D49      		MOV.B	R9, R13
+ 226 007c CC0A      		MOVA	R10, R12
+ 227 007e B013 0000 		CALLA	#i2c_lld_master_transmit_timeout
+ 228 0082 9C0F FFFF 		CMPA	#-1, R12 { JNE	.L26
+ 228      0020 
+ 229 0088 FA40 0500 		MOV.B	#5, @R10
+ 229      0000 
+ 230               	.L27:
+ 231               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 232 008e 0343      		nop
+ 233               	 ; 0 "" 2
+ 234               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 235 0090 0343 32D2 		nop { eint { nop
+ 235      0343 
+ 236               	 ; 0 "" 2
+ 237               		; start of epilogue
+ 238 0096 A100 0A00 		ADDA	#10, R1
+ 239 009a 0416      		POPM.A	#1, r4
+ 240 009c 4616      		POPM.A	#5, r10
+ 241 009e 1001      		RETA
+ 242               	.L26:
+ 243 00a0 EA43 0000 		MOV.B	#2, @R10
+ 244 00a4 8000 0000 		BRA	#.L27
+ 245               		.size	i2cMasterTransmitTimeout, .-i2cMasterTransmitTimeout
+ 246               		.section	.text.i2cMasterReceiveTimeout,"ax",@progbits
+ 247               		.balign 2
+ 248               		.global	i2cMasterReceiveTimeout
+ 249               		.type	i2cMasterReceiveTimeout, @function
+ 250               	i2cMasterReceiveTimeout:
+ 251               	; start of function
+ 252               	; framesize_regs:     20
+ 253               	; framesize_locals:   0
+ 254               	; framesize_outgoing: 2
+ 255               	; framesize:          22
+ 256               	; elim ap -> fp       24
+ 257               	; elim fp -> sp       2
+ 258               	; saved regs: R6 R7 R8 R9 R10
+ 259               		; start of prologue
+ 260 0000 4A14      		PUSHM.A	#5, R10
+ 261 0002 B100 0200 		SUBA	#2, R1
+ 262               		; end of prologue
+ 263 0006 CA0C      		MOVA	R12, R10
+ 264 0008 494D      		MOV.B	R13, R9
+GAS LISTING /tmp/cc40xLpU.s 			page 6
 
 
-  85      6EDE 217E 
-  85      E5B0 CFFF 
-  86 027d 0FBB 17C3 		.ascii	"\017\273\027\303+^\2168\354}\025\343\335\251\256\334\300\003"
-  86      2B5E 8E38 
-  86      EC7D 15E3 
-  86      DDA9 AEDC 
-  86      C003 
-  87 028f 7EA5 7A70 		.ascii	"~\245zp\256\347\374\350\232&\234_jB\343\217&\034u\232pl\275&"
-  87      AEE7 FCE8 
-  87      9A26 9C5F 
-  87      6A42 E38F 
-  87      261C 759A 
-  88 02a7 349D 4BC4 		.ascii	"4\235K\304\027\233p\026\301h\262\332\225W\215J\256\222\205\325"
-  88      179B 7016 
-  88      C168 B2DA 
-  88      9557 8D4A 
-  88      AE92 85D5 
-  89 02bb 88B6 E7E6 		.ascii	"\210\266\347\346\372\363\013\213\216\025\355;\270\353\300!\177"
-  89      FAF3 0B8B 
-  89      8E15 ED3B 
-  89      B8EB C021 
-  89      7F
-  90 02cc 7189 BFF0 		.ascii	"q\211\277\360\350\t\177\311\351\0025\037)\332S\220[@:O\247v\254"
-  90      E809 7FC9 
-  90      E902 351F 
-  90      29DA 5390 
-  90      5B40 3A4F 
-  91 02e3 0B2C 2EE1 		.ascii	"\013,.\341\337\311\"w\221[H\277\001a\264\222Y"
-  91      DFC9 2277 
-  91      915B 48BF 
-  91      0161 B492 
-  91      59
-  92               	.text
-  93               		.section	.gnu.lto_i2cGetErrors.bcc45ddc45e2abd,"",@progbits
-  94 0000 789C 4D50 		.ascii	"x\234MPKk\023Q\024>\337\234;3\261\366%\270p\321E@\260T0\003\202"
-  94      4B6B 1351 
-  94      143E DF9C 
-  94      3B33 B1F6 
-  94      25B8 70D1 
-  95 001b BFA0 3B37 		.ascii	"\277\240;7B\353^4\233\006\005\305\376\200\271\215\021%\202\272"
-  95      42EB 5E34 
-  95      9B06 05C5 
-  95      FE80 B98D 
-  95      1125 82BA 
-  96 002f D0BE 6C98 		.ascii	"\320\276l\230\205\204Zk\3234Z\241\202\030\224Z\025\037\265\210"
-  96      8584 5A6B 
-  96      D334 5AA1 
-  96      8218 945A 
-  96      151F B588 
-  97 0043 4805 179A 		.ascii	"H\005\027\232M}\200\"\245 \264\35193]\270\270\234{\316\375\316"
-  97      4D7D 8022 
-  97      A520 B4E9 
-  97      3933 5DB8 
-  97      B89C 7BCE 
-  98 0059 F7B8 2E81 		.ascii	"\367\270.\201\3668D\007\211\350\210\034\270\004\347\372[\242"
-  98      F638 4407 
-  98      89E8 881C 
-GAS LISTING /tmp/cc8dRF8W.s 			page 7
+ 265 000a C60E      		MOVA	R14, R6
+ 266 000c C80F      		MOVA	R15, R8
+ 267 000e 1741 1A00 		MOV.W	26(R1), R7
+ 268 0012 9C00 0000 		CMPA	#0, R12 { JEQ	.L43
+ 268      0024 
+ 269 0018 0993 0024 		CMP.W	#0, R9 { JEQ	.L43
+ 270 001c 9F00 0000 		CMPA	#0, R15 { JEQ	.L43
+ 270      0024 
+ 271 0022 9E00 0000 		CMPA	#0, R14 { JEQ	.L43
+ 271      0024 
+ 272 0028 3793 0020 		CMP.W	#-1, R7 { JNE	.L44
+ 273               	.L43:
+ 274 002c 8C00 0000 		MOVA	#__func__.3731, R12
+ 275 0030 B013 0000 		CALLA	#chSysHalt
+ 276               	.L44:
+ 277 0034 EA93 0000 		CMP.B	#2, @R10 { JEQ	.L45
+ 277      0024 
+ 278 003a 8C00 0000 		MOVA	#__func__.3731, R12
+ 279 003e B013 0000 		CALLA	#chSysHalt
+ 280               	.L45:
+ 281               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 282 0042 32C2 0343 		dint { nop
+ 283               	 ; 0 "" 2
+ 284               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 285 0046 0343      		nop
+ 286               	 ; 0 "" 2
+ 287 0048 8A43 0600 		MOV.W	#0, 6(R10)
+ 288 004c EA42 0000 		MOV.B	#4, @R10
+ 289 0050 8147 0000 		MOV.W	R7, @R1
+ 290 0054 CF08      		MOVA	R8, R15
+ 291 0056 CE06      		MOVA	R6, R14
+ 292 0058 4D49      		MOV.B	R9, R13
+ 293 005a CC0A      		MOVA	R10, R12
+ 294 005c B013 0000 		CALLA	#i2c_lld_master_receive_timeout
+ 295 0060 9C0F FFFF 		CMPA	#-1, R12 { JNE	.L46
+ 295      0020 
+ 296 0066 FA40 0500 		MOV.B	#5, @R10
+ 296      0000 
+ 297               	.L47:
+ 298               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 299 006c 0343      		nop
+ 300               	 ; 0 "" 2
+ 301               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 302 006e 0343 32D2 		nop { eint { nop
+ 302      0343 
+ 303               	 ; 0 "" 2
+ 304               		; start of epilogue
+ 305 0074 A100 0200 		ADDA	#2, R1
+ 306 0078 4616      		POPM.A	#5, r10
+ 307 007a 1001      		RETA
+ 308               	.L46:
+ 309 007c EA43 0000 		MOV.B	#2, @R10
+ 310 0080 8000 0000 		BRA	#.L47
+ 311               		.size	i2cMasterReceiveTimeout, .-i2cMasterReceiveTimeout
+ 312               		.section	.upper.rodata,"a",@progbits
+ 313               		.type	__func__.3731, @object
+ 314               		.size	__func__.3731, 24
+GAS LISTING /tmp/cc40xLpU.s 			page 7
 
 
-  98      B804 E7FA 
-  98      5BA2 
-  99 006b A194 E3F0 		.ascii	"\241\224\343\360\272O\266\305\334zNd[\031&\231\033@/6\005\n\035"
-  99      BA4F B6C5 
-  99      DC7A 4E64 
-  99      5B19 2699 
-  99      1B40 2F36 
- 100 0082 3608 718D 		.ascii	"6\bq\215G\030\213\315\215z\307U\216X\b\244]\371\375\272\264["
- 100      4718 8BCD 
- 100      8D7A C755 
- 100      8E58 08A4 
- 100      5DF9 FDBA 
- 101 0098 5BA0 53DA 		.ascii	"[\240S\332\352\307\245O~\317\244\265y[\037\251\265L\024\227\255"
- 101      EAC7 A54F 
- 101      7ECF A4B5 
- 101      795B 1FA9 
- 101      B54C 1497 
- 102 00ad 1BB1 4363 		.ascii	"\033\261Cc\002\277\203.L\242K\325\247\320#\340\367\205\352\004"
- 102      02BF 832E 
- 102      4CA2 4BD5 
- 102      A7D0 23E0 
- 102      F785 EA04 
- 103 00c1 2754 46DA 		.ascii	"'TF\332?o\306\277\265'Tii_\330b\245\203\017\200\344\336X^\235"
- 103      3F6F C6BF 
- 103      B527 5469 
- 103      695F D862 
- 103      A583 0F80 
- 104 00da 6FEB 2EC7 		.ascii	"o\353.\307\264\215\033\260{#f\334\003+\355\264\320\336\025Z\031"
- 104      B48D 1BB0 
- 104      7B23 66DC 
- 104      032B EDB4 
- 104      D0DE 155A 
- 105 00ef 1166 D0AD 		.ascii	"\021f\320\255\370\257s[7\333<s\233I\225E\260\002\017Rd0\273\202"
- 105      F8AF 735B 
- 105      37DB 3C73 
- 105      9B49 9545 
- 105      B002 0F52 
- 106 0107 BADD 6A5E 		.ascii	"\272\335j^\262\365\017e<>\3529\320%\227\324%\025\005\254\241"
- 106      B2F5 0F65 
- 106      3C3E EA39 
- 106      D025 97D4 
- 106      2515 05AC 
- 107 011c AF48 2395 		.ascii	"\257H#\225\033(\254>\3732\345\351~\2115\357\360\305\247\357|"
- 107      1B28 AC3E 
- 107      FB32 E5E9 
- 107      7E89 35EF 
- 107      F0C5 A7EF 
- 108 0131 35C9 20CC 		.ascii	"5\311 \314\306i\024\316\264\356\363\017\024\322\212T\007\013"
- 108      C669 14CE 
- 108      B4EE F30F 
- 108      14D2 8A54 
- 108      070B 
- 109 0143 0B3F 3FFB 		.ascii	"\013??\373\341\246MEl\306X\265\253\b\351\177\0027Nv\341\337\223"
- 109      E1A6 4D45 
- 109      6CC6 58B5 
- 109      AB08 E97F 
- 109      0237 4E76 
-GAS LISTING /tmp/cc8dRF8W.s 			page 8
-
-
- 110 015a BFED 82DB 		.ascii	"\277\355\202\333'\003\265\253\263\227\343\323\247#\224\206:#"
- 110      2703 B5AB 
- 110      B397 E3D3 
- 110      A723 9486 
- 110      3A23 
- 111 016c F650 938F 		.ascii	"\366P\223\217\237S\035yh~\257Uv\tx\324\332\264\022\334G\204X"
- 111      9F53 1D79 
- 111      687E AF55 
- 111      7609 78D4 
- 111      DAB4 12DC 
- 112 0183 100F 1046 		.ascii	"\020\017\020F\354\307VL\354|\r\371Gk\245\305\035\347\256,o,\275"
- 112      ECC7 564C 
- 112      EC7C 0DF9 
- 112      476B A5C5 
- 112      1DE7 AE2C 
- 113 019a BADC AAB4 		.ascii	"\272\334\252\2646\336NI\236$\200\274\225\033\371\212\037\314"
- 113      36DE 4E49 
- 113      9E24 80BC 
- 113      951B F98A 
- 113      1FCC 
- 114 01ac D8E4 C9C1 		.ascii	"\330\344\311\301\274\020\217\252\033\302C\004\364\013\371\364"
- 114      BC10 8FAA 
- 114      1BC2 4304 
- 114      F40B F9F4 
- 115 01bc 0E91 CE8A 		.ascii	"\016\221\316\212\222G4\344\277\366g2A\357@\356T\356X\377\241"
- 115      9247 34E4 
- 115      BFF6 6732 
- 115      41EF 40EE 
- 115      54EE 58FF 
- 116 01d1 BEE3 C1D9 		.ascii	"\276\343\301\331\301`\340\344\231`\360|V\353\211\334\341l&KF"
- 116      C160 E0E4 
- 116      9960 F07C 
- 116      56EB 89DC 
- 116      E16C 264B 
- 117 01e6 CAB9 6D3A 		.ascii	"\312\271m:Q\2705"
- 117      51B8 35
- 118               	.text
- 119               		.section	.gnu.lto_i2cMasterTransmitTimeout.bcc45ddc45e2abd,"",@progbits
- 120 0000 789C 9D54 		.string	"x\234\235TmPTe\024>\347\276\367s\277.\25549\215c\316\224\242\323\304:5\323\307\037\377\33
- 120      6D50 5465 
- 120      143E E7BE 
- 120      F773 BF2E 
- 120      AD34 398D 
- 121 003d D2AE A8F8 		.string	"\322\256\250\370\205\206\244\"`\202hY\212\204J\330X\250QQX\351\322y\337{\335]\211\321\251
- 121      8586 A422 
- 121      6082 6859 
- 121      8A84 4AD8 
- 121      58A8 5151 
- 122 0070 18A0 3F4C 		.string	"\030\240?L\003\224>\032\004\b\352\222d4(`\271\330d\037\355{\230d\224fP(\363\247Gv\"ED\212
- 122      0394 3E1A 
- 122      0408 EA92 
- 122      6434 2860 
- 122      B9D8 641F 
- 123 0150 3FC3 0C82 		.ascii	"?\303\f\202W\355\213\206"
- 123      57ED 8B86 
- 124 0158 0CF6 ACA0 		.string	"\f\366\254\240\366\\\332\0266\034\352h4\275\307\262\346G\230\214Q\233\374\302\002\\\316\2
- 124      F65C DA16 
-GAS LISTING /tmp/cc8dRF8W.s 			page 9
-
-
- 124      361C EA68 
- 124      34BD C7B2 
- 124      E647 988C 
- 125 0259 92B3 B8FB 		.ascii	"\222\263\270\373<v[\361\231\315t\232\314\211\251\336yO\310\310"
- 125      3C76 5BF1 
- 125      99CD 749A 
- 125      CC89 A9DE 
- 125      794F C8C8 
- 126 026d 2DA0 209F 		.ascii	"-\240 \237\246\212\274\263\032\362\341\350\310k5\220\267\313"
- 126      A68A BCB3 
- 126      1AF2 E1E8 
- 126      C86B 3590 
- 126      B7CB 
- 127 027f 85FC 705E 		.ascii	"\205\374p^:\246\341\007.\004PF\332\334\347\345\344Mz\263q,\031"
- 127      3AA6 E107 
- 127      2E04 5046 
- 127      DADC E7E5 
- 127      E44D 7AB3 
- 128 0296 3E31 1A53 		.ascii	">1\032Sy\272z\306}\275=t\374\254\306\233\302\020\260\3139d9Y"
- 128      79BA 7AC6 
- 128      7DBD 3D74 
- 128      FCAC C69B 
- 128      C210 B0CB 
- 129 02ae 8E6E AF80 		.ascii	"\216n\257\200\257\264\261J*V&\354\261\004V\206C\317\244B\325"
- 129      AFB4 B14A 
- 129      2A56 26EC 
- 129      B104 5686 
- 129      43CF A442 
- 130 02c3 5428 5585 		.ascii	"T(U\205\335\t\250\002u\376T\250\226\nU\b\372E\002\252B\227\311"
- 130      DD09 A802 
- 130      75FE 54A8 
- 130      960A 5508 
- 130      FA45 02AA 
- 131 02da A197 1DA8 		.ascii	"\241\227\035\250\236\"\243\301\025-U\306H\225\321H\346x\002\252"
- 131      9E22 A3C1 
- 131      152D 55C6 
- 131      4895 D148 
- 131      E678 02AA 
- 132 02ee C32E 5F2A 		.ascii	"\303._*\324E\320\316\213\027^\342H\035gf\030\236"
- 132      D445 D0CE 
- 132      8B17 5EE2 
- 132      481D 6766 
- 132      189E 
- 133 0300 4860 0DB8 		.string	"H`\r\270q\002\330\004\226,\342X>\252\303\207o^\326\n\357Yz\204\271\302\324!\300\223X\b\25
- 133      7102 D804 
- 133      962C E258 
- 133      3EAA C387 
- 133      6F5E D60A 
- 134 0401 7EB2 DB05 		.ascii	"~\262\333\005b\t\365\273\327\265\377\256n\3427\311I}+\324?\254"
- 134      6209 F5BB 
- 134      D7B5 FFAE 
- 134      6EE2 37C9 
- 134      497D 2BD4 
- 135 0417 0BB7 69F6 		.ascii	"\013\267i\366p\030^$\326\004\326ZS\361\235\314\236\237\377\301"
- 135      7018 5E24 
- 135      D604 D65A 
- 135      53F1 9DCC 
-GAS LISTING /tmp/cc8dRF8W.s 			page 10
-
-
- 135      9E9F FFC1 
- 136 042b 52E7 85E9 		.ascii	"R\347\205\351\016\002^\242:)\013\335U\272Xt\r\351^\320\265!\313"
- 136      0E02 5EA2 
- 136      3A29 0BDD 
- 136      55BA 5874 
- 136      0DE9 5ED0 
- 137 0442 4758 3A88 		.ascii	"GX:\210\233\037\337\355I\n\314\264\336\356Ty\016\211\3464\234"
- 137      9B1F DFED 
- 137      490A CCB4 
- 137      DEEE 5479 
- 137      0E89 E634 
- 138 0457 3080 177A 		.ascii	"0\200\027zM&\212)m\236\263U\353\340\021\325\\NV3\"\252\211O\\"
- 138      4D26 8A29 
- 138      6D9E B355 
- 138      EBE0 11D5 
- 138      5C4E 5633 
- 139 0470 9BF0 DAD5 		.ascii	"\233\360\332\325(\370\235\310T\316|\320\277\302\316S\376?\363"
- 139      28F8 9DC8 
- 139      54CE 7CD0 
- 139      BFC2 CE53 
- 139      FE3F F3
- 140 0483 8C26 F35C 		.ascii	"\214&\363\\\301\200\343\341rf&\\\364s\345\366\261\371\263mT\353"
- 140      C180 E3E1 
- 140      7266 265C 
- 140      F473 E5F6 
- 140      B1F9 B36D 
- 141 0499 736C A43C 		.ascii	"sl\244<`\243\253\302F\327\346\262\221*6q\314\261\321-,j8R\367"
- 141      60A3 ABC2 
- 141      46D7 E6B2 
- 141      912A 3671 
- 141      CCB1 D12D 
- 142 04b2 A4D3 489E 		.ascii	"\244\323H\236\276\214\214A9%\200\24733\003+sr\327\344\276\376"
- 142      BE8C 8C41 
- 142      3925 80A7 
- 142      3333 032B 
- 142      7372 D7E4 
- 143 04c8 E673 6FAC 		.ascii	"\346so\254\nl\310\017\344\254~7\220\237\227\305\337o\345>\237"
- 143      0A6C C80F 
- 143      E4AC 7E37 
- 143      909F 97C5 
- 143      DF6F E53E 
- 144 04dd 9599 0532 		.ascii	"\225\231\0052\275\336\227Wgg\347)\005\037\254\331\270N\243\347"
- 144      BDDE 9757 
- 144      6767 E729 
- 144      051F ACD9 
- 144      B84E A3E7 
- 145 04f1 A682 B5F9 		.ascii	"\246\202\265\371J\236\210\362\354H+\310]\277v\303\306\0025/{"
- 145      4A9E 88F2 
- 145      EC48 2BC8 
- 145      5DBF 76C3 
- 145      C602 352F 
- 146 0506 D3FA FCB7 		.ascii	"\323\372\374\267\027\317)\274!\237\036\357\345\332\037\2319\360"
- 146      17CF 29BC 
- 146      219F 1EEF 
- 146      E5DA 1F99 
- 146      39F0 
- 147 0518 0FC5 7ADA 		.ascii	"\017\305z\3323"
-GAS LISTING /tmp/cc8dRF8W.s 			page 11
-
-
- 147      33
- 148               	.text
- 149               		.section	.gnu.lto___func__.3722.bcc45ddc45e2abd,"",@progbits
- 150 0000 789C 6365 		.string	"x\234ce`d\020e``\220f\200\200\351\314\214\257.\357\332\310\256\3104\277\201c>3\003\003\34
- 150      6064 1065 
- 150      6060 9066 
- 150      8080 E9CC 
- 150      8CAF 2EEF 
- 151 0040 9309 1073 		.ascii	"\223\t\020s"
- 152               	.text
- 153               		.section	.gnu.lto_i2cMasterReceiveTimeout.bcc45ddc45e2abd,"",@progbits
- 154 0000 789C 9D53 		.string	"x\234\235S[L\\U\024\335\373\236\373\232\367\224\266Ic\210\222(\205\306\3104\232\250\037\2
- 154      5B4C 5C55 
- 154      14DD FB9E 
- 154      FB9A F794 
- 154      B649 6388 
- 155 003b 5628 A5F4 		.string	"V(\245\364\001L\013\245\345U\013\245X\264<j*bl\235Z\251\266\242M\001\3679w:3 )\321I\346\3
- 155      014C 0BA5 
- 155      E555 0BA5 
- 155      58B4 3C6A 
- 155      2A62 6C9D 
- 156 0070 5AE9 8F6E 		.string	"Z\351\217n@\351\323Q"
- 156      40E9 D351 
- 156      00
- 157 0079 BF2E 495A 		.string	"\277.IZ\235\002\206\235\315\017\001\030N&i\373\223(\224\371\323)\207#ED\212\244\3158(R;\3
- 157      9D02 869D 
- 157      CD0F 0118 
- 157      4E26 69FB 
- 157      9328 94F9 
- 158 010a A19B 301E 		.string	"\241\2330\036\0331\236W\335\214\3338u\344\310\217n\213\232@\341\220Q\326\352a[\021\350{nl
- 158      1B31 9E57 
- 158      DD8C DB38 
- 158      75E4 C88F 
- 158      6E8B 9A40 
- 159 01de 4F63 1267 		.ascii	"Oc\022g\224\3765\333\346ao\nvI\305\337~\226X/F\362}0\3563\277"
- 159      94FE 35DB 
- 159      E661 6F0A 
- 159      7649 C5DF 
- 159      7E96 582F 
- 160 01f9 D164 C834 		.ascii	"\321d\3104\024<\263\362h\374G\360\331\023KU.U\306\263\230X\317"
- 160      143C B3F2 
- 160      68FC 47F0 
- 160      D913 4B55 
- 160      2E55 C6B3 
- 161 0210 804F 8E06 		.ascii	"\200O\216\006\326\211*\002H\341\305\343\343\330k,-\227\322i\336"
- 161      D689 2A02 
- 161      48E1 C5E3 
- 161      E3D8 6B2C 
- 161      2D97 D269 
- 162 0225 B8F3 6061 		.ascii	"\270\363`a\343f\031\371 \024\344=U\221\327\247!o\221\216\374"
- 162      E366 19F9 
- 162      2014 E43D 
- 162      5591 D7A7 
- 162      216F 918E 
- 163 023a 400E 3A9A 		.ascii	"@\016:\232\356\005N\006(#=\356\257rr\005\275\331\034\026O]\274"
- 163      EE05 4E06 
- 163      2823 3DEE 
-GAS LISTING /tmp/cc8dRF8W.s 			page 12
-
-
- 163      AF72 7205 
- 163      BDD9 1C16 
- 164 0251 1754 798A 		.ascii	"\027Ty\212Z\306\035u\270\244\357\252\306\033\301\020\260+|\260"
- 164      5AC6 1D75 
- 164      B8A4 EFAA 
- 164      C61B C110 
- 164      B02B 7CB0 
- 165 0265 721A 365D 		.ascii	"r\0326]\f\001O\263\260J,V&lw\004+\303\331\027b\241j,\224*\301"
- 165      0C01 4FB3 
- 165      B04A 2C56 
- 165      266C 7704 
- 165      2BC3 D917 
- 166 0280 6004 AAC0 		.ascii	"`\004\252\300\321\270X\250\026\013U\bz.\002U\341\274'\026\252"
- 166      D1B8 58A8 
- 166      160B 5508 
- 166      7A2E 0255 
- 166      E1BC 2716 
- 167 0295 13B4 EBC6 		.ascii	"\023\264\353\306\304k\034\251\341\3622\303\363\021\254\006\213"
- 167      C46B 1CA9 
- 167      E1F2 32C3 
- 167      F311 AC06 
- 167      8B
- 168 02a6 7DC0 4258 		.ascii	"}\300BX\234\300\261\274\257\235\235w\247\265\202EC7\231-@\245"
- 168      9CC0 B1BC 
- 168      AF9D 9D77 
- 168      A7B5 8245 
- 168      4337 992D 
- 169 02bc 01F6 6001 		.ascii	"\001\366`\001\304f\263\213q\025=\352\371\303M8r\255\235\017\200"
- 169      C466 B38B 
- 169      7115 3DEA 
- 169      F9C3 4D38 
- 169      72AD 9D0F 
- 170 02d1 AF0D 1F39 		.ascii	"\257\r\0379\266\333\304Z\277\327d\016\274@7\261\227'\242\215"
- 170      B6DB C45A 
- 170      BFD7 640E 
- 170      BC40 37B1 
- 170      9727 A28D 
- 171 02e5 E55F DA5B 		.ascii	"\345_\332[m\004\2561\214\004.\320\207&\212\204x\021\013L\346"
- 171      6D04 AE31 
- 171      8C04 2ED0 
- 171      8726 8A84 
- 171      7811 0B4C 
- 172 02fa 1467 D145 		.ascii	"\024g\321E\243\357`aW\363\244f\035\335A\334\205\301\313\373\235"
- 172      A3EF 6061 
- 172      57F3 A466 
- 172      1DDD 41DC 
- 172      85C1 CBFB 
- 173 030f 5CD5 1064 		.ascii	"\\\325\020d\027u\337j7\3555\314\025\266j\276\026\303\332r\343"
- 173      1775 DF6A 
- 173      37ED 35CC 
- 173      15B6 6ABE 
- 173      16C3 DA72 
- 174 0324 25D2 ADE1 		.ascii	"%\322\255\341\207\001\354G\037P\023\246\323\242JA\263\242\331"
- 174      8701 EC47 
- 174      1F50 13A6 
- 174      D3A2 4A41 
- 174      B3A2 D9
-GAS LISTING /tmp/cc8dRF8W.s 			page 13
-
-
- 175 0337 CE2B 70A3 		.ascii	"\316+p\243\204\003\221\036\330\240(y\235\026\fZ-X\267\346\241"
- 175      8403 911E 
- 175      D8A0 2879 
- 175      9D16 0C5A 
- 175      2D58 B7E6 
- 176 034c A7D4 3C1C 		.ascii	"\247\324<\034\251\371r\264f\273\2509\204E\267\036V\314?\027\261"
- 176      A9F9 72B4 
- 176      66BB A839 
- 176      8445 B71E 
- 176      56CC 3F17 
- 177 0361 75B1 B805 		.ascii	"u\261\270\005\207N{\204\245\003\344\301\250\343\001\277&\021"
- 177      874E 7B84 
- 177      A503 E4C1 
- 177      A8E3 01BF 
- 177      2611 
- 178 0373 C02B FF3A 		.ascii	"\300+\377:\254'@^\344\2338B\3475\231\027\250\231\017n\317\224"
- 178      AC27 405E 
- 178      E49B 3842 
- 178      E735 9917 
- 178      A899 0F6E 
- 179 0389 DAB9 CAAA 		.ascii	"\332\271\312\252V\326=\373\324^n\300Q\321K\344\275\274\212\276"
- 179      56D6 3DFB 
- 179      D45E 6EC0 
- 179      51D1 4BE4 
- 179      BDBC 8ABE 
- 180 039d 5803 6C20 		.ascii	"X\003l \273\215\021K\250\337\374Y\373\357\352n\274\026\235\324"
- 180      BB8D 114B 
- 180      A8DF FC59 
- 180      FBEF EA6E 
- 180      BC16 9DD4 
- 181 03b1 B850 BF70 		.ascii	"\270P\277p\253\375\276\303\032\216\214\337\020+\2045F\307o\365"
- 181      ABFD BEC3 
- 181      1A8E 8CDF 
- 181      102B 8435 
- 181      46C7 6FF5 
- 182 03c5 CC9A 9F77 		.ascii	"\314\232\237we\251q\001\272<\200\327\251N\312B\227\214n\004\335"
- 182      65A9 7101 
- 182      BA3C 80D7 
- 182      A94E CA42 
- 182      978C 6E04 
- 183 03da 1F32 BBC9 		.ascii	"\0372\273\3116\202\270\254K\347\234Q\352r\363\275.\225\253K4"
- 183      3682 B8AC 
- 183      4BE7 9C51 
- 183      EA72 F3BD 
- 183      2E95 AB4B 
- 184 03ef A189 C8E8 		.ascii	"\241\211\310\350\0350\350a\242\214\333\215k6)\023\326\251\343"
- 184      1D30 E861 
- 184      A28C DB8D 
- 184      6B36 2913 
- 184      D6A9 E3
- 185 0402 DB68 1DDF 		.ascii	"\333h\035\337\211:\226B?\204\\V\035\n\336\020\231\312i\330\303"
- 185      893A 9642 
- 185      3F84 5C56 
- 185      1D0A DE10 
- 185      99CA 69D8 
- 186 0417 A956 9ED0 		.ascii	"\251V\236\320\377\3143\031\3153\205\276\260{\313\231+\342\237"
- 186      FFCC 3319 
-GAS LISTING /tmp/cc8dRF8W.s 			page 14
-
-
- 186      CD33 85BE 
- 186      B07B CB99 
- 186      2BE2 9F
- 187 042a 858A C3B3 		.ascii	"\205\212\303\263[V\033h\352\211\201\224\025\006\232\026\006\232"
- 187      5B56 1B68 
- 187      EA89 8194 
- 187      1506 9A16 
- 187      069A 
- 188 043c 59CB 40AA 		.ascii	"Y\313@\252\330\304\233a\003\375\212\205u\335\3463\341F\362\364"
- 188      D8C4 9B61 
- 188      03FD 8A85 
- 188      75DD E633 
- 188      E146 F2F4 
- 189 0450 6564 09CA 		.ascii	"ed\t\312)\001<\237\222\342K\313\312\336\231\375\326;/\275\375"
- 189      2901 3C9F 
- 189      92E2 4BCB 
- 189      CADE 99FD 
- 189      D63B 2FBD 
- 190 0465 AE2F 27CF 		.ascii	"\256/'\317\227\265\343\003_^n:\177\277\227\375rzJ:\310\364\372"
- 190      97B5 E303 
- 190      5F5E 6E3A 
- 190      7FBF 97FD 
- 190      727A 4A3A 
- 191 047c 48DE 9191 		.ascii	"H\336\221\221\221\253\344~\274so\246F\317}\371\273\362\264\374"
- 191      91AB E47E 
- 191      BC73 6FA6 
- 191      46CF 7DF9 
- 191      BBF2 B4FC 
- 192 0490 EC3D BB72 		.ascii	"\354=\273r\366\346\253\271\031\373\366\344\275\237\270\246TN"
- 192      F6E6 ABB9 
- 192      19FB F6E4 
- 192      BD9F B8A6 
- 192      544E 
- 193 04a2 1E3D 3ECC 		.ascii	"\036=>\314\266>R\262\340\037\220:\224\031"
- 193      B63E 52B2 
- 193      E01F 903A 
- 193      9419 
- 194               	.text
- 195               		.section	.gnu.lto___func__.3731.bcc45ddc45e2abd,"",@progbits
- 196 0000 789C 6365 		.string	"x\234ce`d\020e``\220b\200\200\351\314\214\017\373\233v\261+2\315o\340\230\317\314\300\300
- 196      6064 1065 
- 196      6060 9062 
- 196      8080 E9CC 
- 196      8C0F FB9B 
- 197 003f 6B78 0F66 		.ascii	"kx\017f"
- 198               	.text
- 199               		.section	.gnu.lto_.symbol_nodes.bcc45ddc45e2abd,"",@progbits
- 200 0000 789C 5D91 		.ascii	"x\234]\221\273J\304@\030F\317d&\263k\214\353\252\215\205\"\370"
- 200      BB4A C440 
- 200      1846 CF64 
- 200      26B3 6B8C 
- 200      EBAA 8D85 
- 201 0016 1C5E 9FEC 		.ascii	"\034^\237\354\017\"\021\254|\206%\245\245\215V\356\032\357\227"
- 201      0F22 11AC 
- 201      7C86 25A5 
- 201      A58D 56EE 
- 201      1AEF 97
-GAS LISTING /tmp/cc8dRF8W.s 			page 15
-
-
- 202 0029 6790 255A 		.ascii	"g\220%Zim#\342?\211\202c\365\3019gf I1L\r\2208\201\243'\3209"
- 202      696D 23E2 
- 202      3F89 8263 
- 202      F5C1 3967 
- 202      6620 4931 
- 203 0046 2DC6 8557 		.ascii	"-\306\205W\224\212\371\2176$\371Eg\305\256\202M\2611\330\022"
- 203      948A F98F 
- 203      3624 F945 
- 203      67C5 AE82 
- 203      4DB1 31D8 
- 204 005b 1781 F412 		.ascii	"\027\201\364\022\212u\260\311\266\244\261\271\306t\346\034\361"
- 204      8A75 B0C9 
- 204      B6A4 B1B9 
- 204      C674 E61C 
- 204      F1
- 205 006c B1BA 25E9 		.ascii	"\261\272%\351\324\030\351\305\352\016\333\251\t\322\217\325\003"
- 205      D418 E9C5 
- 205      EA0E DBA9 
- 205      09D2 8FD5 
- 205      03
- 206 007d AE55 E602 		.ascii	"\256U\346\002\231i\225\276]\354\200\271B\262\b\324\310l\004n"
- 206      9969 95BE 
- 206      5DEC 80B9 
- 206      42B2 08D4 
- 206      C86C 046E 
- 207 0091 903C 02F7 		.ascii	"\220<\002\367\310\\\004\036\221\301_`\223\001\325\363\227\261"
- 207      C85C 041E 
- 207      91C1 5F60 
- 207      9301 D5F3 
- 207      97B1 
- 208 00a3 6E48 F3B9 		.ascii	"nH\363\271\022f\277\374\350Y\007\243\362m\315\272y\232v\r\243"
- 208      1266 BFFC 
- 208      E859 07A3 
- 208      F26D CDBA 
- 208      799A 760D 
- 209 00b8 035D 3FA4 		.ascii	"\003]?\244>\316\255~\306i8\345\177r\277@\0252o\330\013Y_\263"
- 209      3ECE AD7E 
- 209      C669 38E5 
- 209      7F72 BF40 
- 209      1532 6FD8 
- 210 00d0 9381 CD82 		.ascii	"\223\201\315\202~]\r\333\224\365\262\315\350t\266H\323\256\376"
- 210      7E5D 0DDB 
- 210      94F5 B2CD 
- 210      E874 B648 
- 210      D3AE FE
- 211 00e3 B843 DD5C 		.ascii	"\270C\335\\\363\227w\023\266\n]\016\223p]\276D\025\272\\_\327"
- 211      F397 7713 
- 211      B60A 5D0E 
- 211      9370 5DBE 
- 211      4415 BA5C 
- 212 00f9 8E6F 411D 		.ascii	"\216oA\035y\343"
- 212      79E3 
- 213               	.text
- 214               		.section	.gnu.lto_.refs.bcc45ddc45e2abd,"",@progbits
- 215 0000 789C 05C1 		.string	"x\234\005\301\211\001"
- 215      8901 00
- 216 0007 100C 04C1 		.string	"\020\f\004\301\263\344\023\332\320\177\211fLCO\022\013\233X\342\004D\216\244`\323I7\207\3
-GAS LISTING /tmp/cc8dRF8W.s 			page 16
-
-
- 216      B3E4 13DA 
- 216      D07F 8966 
- 216      4C43 4F12 
- 216      0B9B 58E2 
- 217 002b FA        		.ascii	"\372"
- 218               	.text
- 219               		.section	.gnu.lto_.decls.bcc45ddc45e2abd,"",@progbits
- 220 0000 789C BD7B 		.string	"x\234\275{\tXUYv\356\335g\237\013\227\313\005*jW*>R\251\256\266\253H\247\313\261R\335\375
- 220      0958 5559 
- 220      76EE DD67 
- 220      9F0B 97CB 
- 220      052A 6A57 
- 221 008f 7902 1502 		.string	"y\002\025\002\225\001\325"
- 221      9501 D500 
- 222 0097 B501 F502 		.string	"\265\001\365\002\r\001=\003\372\226\240\323\275@:\335\017\340\372>\320_\003\rCY\017D~^@\3
- 222      0D01 3D03 
- 222      FA96 A0D3 
- 222      BD40 3ADD 
- 222      0FE0 FA3E 
- 223 00bb F413 A09F 		.string	"\364\023\240\237\003\255\001\372\007\240\317\200\314@\033\200\002\200~\r\264\005\310\002d
- 223      03AD 01FA 
- 223      07A0 CF80 
- 223      CC40 1B80 
- 223      0280 7E0D 
- 224 00e9 CC44 DD2F 		.string	"\314D\335/y\031q\235\332_\264\003\276\017\034\360\305\003\037\346|\021P\377#\316C.?\341X\
- 224      7919 719D 
- 224      DA5F B403 
- 224      BE0F 1CF0 
- 224      C503 1FE6 
- 225 0111 B488 FB66 		.string	"\264\210\373f\211\300|F|D\232\275\013\377\255\022\230\356\237;\220s\030\344\374\221\0039\
- 225      89C0 7C46 
- 225      7C44 9ABD 
- 225      0BFF AD12 
- 225      98EE 9F3B 
- 226 01f3 6FC7 6881 		.ascii	"o\307h\201\021\211P|r5\345\236'\024\027\031\321\033PL9\373\354"
- 226      1189 507C 
- 226      7235 E59E 
- 226      2714 1719 
- 226      D11B 504C 
- 227 020a 929E D51A 		.ascii	"\222\236\325\032H\355\314\301\"7V\273\b\212U\351\023\005\356"
- 227      48ED CCC1 
- 227      2237 56BB 
- 227      088A 55E9 
- 227      1305 EE
- 228 021d C628 097E 		.ascii	"\306(\t~;B*\365>\204-\013y\243\023\b\002\023e##\374\277\314\033"
- 228      3B42 2AF5 
- 228      3E84 2D0B 
- 228      79A3 1308 
- 228      0213 6523 
- 229 0236 6542 11B8 		.ascii	"eB\021\270\263\013\217\225\"&\313\r\212\261\265\005u\230\311"
- 229      B30B 8F95 
- 229      2226 CB0D 
- 229      8AB1 B505 
- 229      7598 C9
- 230 0249 BA48 AA6F 		.ascii	"\272H\252oN\234\2332a\001\301\275\230\333v\365\252\210|\214\336"
- 230      4E9C 9B32 
- 230      6101 C1BD 
-GAS LISTING /tmp/cc8dRF8W.s 			page 17
-
-
- 230      98DB 76F5 
- 230      AA88 7C8C 
- 231 025e 08A4 A1E3 		.ascii	"\b\244\241\343\022\373\031t\35042\242S\b\313\370\251\352\312"
- 231      12FB 1974 
- 231      E834 32A2 
- 231      5308 CBF8 
- 231      A9EA CA
- 232 0271 5409 BFA6 		.ascii	"T\t\277\246C\253\274\321ro\035\312E>\204\0134"
- 232      43AB BCD1 
- 232      726F 1DCA 
- 232      453E 840B 
- 232      34
- 233 0282 E741 DBAF 		.string	"\347A\333\257@u\212D\330\232\020}L\013#\177C\357Ai\372\301C).\013vP\013$\351\r\312\203r\2
- 233      4075 8A44 
- 233      D89A 107D 
- 233      4C0B 237F 
- 233      43EF 4169 
- 234 0383 CCDB 88E6 		.string	"\314\333\210\346\020)?.\231\364`e\"\253>\275t\306\004\305\217\214H\017\305\352\372\201\33
- 234      1029 3F2E 
- 234      99F4 6065 
- 234      22AB 3EBD 
- 234      74C6 04C5 
- 235 03cb E722 12C9 		.string	"\347\"\022\311\363\202\260]\321z\374\006\345\031\272\321\023Ie^\001\236\357z\243\313\214\
- 235      F382 B05D 
- 235      D17A FC06 
- 235      E519 BAD1 
- 235      1349 655E 
- 236 04c9 D4C2 6B05 		.string	"\324\302k\005w\215\310\350\023E\2406J\222\336G\207\356"
- 236      778D C8E8 
- 236      1345 A036 
- 236      4A92 DE47 
- 236      87EE 00
- 237 04dc 9E2E C083 		.ascii	"\236.\300\203\356\002@\020I \240\333\360\260\303\006\362N\326"
- 237      EE02 4010 
- 237      4920 A0DB 
- 237      F0B0 C306 
- 237      F24E D6
- 238 04ef D25D DB24 		.ascii	"\322]\333$I@\335\020\314\235\n\314\267x\030\227'v\364\032\361"
- 238      4940 DD10 
- 238      CC9D 0ACC 
- 238      B778 1897 
- 238      2776 F41A 
- 239 0504 138A 4068 		.ascii	"\023\212@hM\252}\244w\246\343\276S\035\255\025\337\251\211 :"
- 239      4DAA 7DA4 
- 239      77A6 E3BE 
- 239      531D AD15 
- 239      DFA9 8920 
- 240 0519 EE81 8E1E 		.ascii	"\356\201\216\036EG\267<V\"SSO\352\361U\232\346\205\270G\341\317"
- 240      4547 B73C 
- 240      5622 5353 
- 240      4FEA F155 
- 240      9AE6 85B8 
- 241 0530 0467 4A1E 		.ascii	"\004gJ\036:Ur\241\303\347\342\r\322\243\275\240\344\201\242\344"
- 241      3A55 72A1 
- 241      C3E7 E20D 
- 241      D2A3 BDA0 
- 241      E481 A2E4 
-GAS LISTING /tmp/cc8dRF8W.s 			page 18
-
-
- 242 0544 1E55 429E 		.ascii	"\036UB\236\222\310\016\177\320\355\316\\\370\032\t\317\273\r"
- 242      92C8 0E7F 
- 242      D0ED CE5C 
- 242      F81A 09CF 
- 242      BB0D 
- 243 0556 C9CE A7AA 		.ascii	"\311\316\247\252>9\231<b\311\344\331\236+m\334\377\177\002\305"
- 243      3E39 993C 
- 243      62C9 E4D9 
- 243      9E2B 6DDC 
- 243      FF7F 02C5 
- 244 056a BDE1 CDBD 		.ascii	"\275\341\315\275\002\237\252\310\230\275TQ09/\231\f\200\264~"
- 244      029F AAC8 
- 244      98BD 5451 
- 244      3039 2F99 
- 244      0C80 B47E 
- 245 057e 2AED 314D 		.ascii	"*\3551M\017}\262\311;\356\036\357\237\2271\235r'^\217-1\251\223"
- 245      0F7D B2C9 
- 245      3BEE 1EEF 
- 245      9F97 319D 
- 245      7227 5E8F 
- 246 0596 C9A0 5D32 		.ascii	"\311\240]2\031\342\311d\210&\223\321=\021\321\006\206\363\217"
- 246      19E2 C964 
- 246      8826 93D1 
- 246      3D11 D106 
- 246      86F3 8F
- 247 05a9 C90C 7B61 		.ascii	"\311\f{a\262\301\271\221#\262\221\303\314\310\323e\341\203|\252"
- 247      B2C1 B991 
- 247      23B2 91C3 
- 247      CCC8 D365 
- 247      E183 7CAA 
- 248 05bd AF24 564D 		.ascii	"\257$VMN\016dxi\255z\202\230St\350)\3059\"\343\214\037J\351\363"
- 248      4E0E 6478 
- 248      69AD 7A82 
- 248      9853 74E8 
- 248      29C5 3922 
- 249 05d7 D25A E594 		.ascii	"\322Z\345\224\273\262>,\305n\036\030\265\263\352\031\267\352"
- 249      BBB2 3E2C 
- 249      C56E 1E18 
- 249      B5B3 EA19 
- 249      B7EA 
- 250 05e9 19B5 AAB5 		.ascii	"\031\265\252\265\261\347g\314\250wI\362\031i|abE\322\257\327"
- 250      B1E7 67CC 
- 250      A877 49F2 
- 250      1969 7C61 
- 250      6245 D2AF 
- 251 05fe 7B8F 849B 		.string	"{\217\204\233\030\352F\232\315z\243%\017V\275\022\212e\331)\007\334q\002\246\303(\277r4G\
- 251      18EA 469A 
- 251      CD7A A325 
- 251      0F56 BD12 
- 251      8A65 D929 
- 252 06ff 78BC 02FC 		.string	"x\274\002\374m\233\343\273%\311\r\340\312\001\210\266\003\334\2679\3348\301\033\305\n\254
- 252      6D9B E3BB 
- 252      25C9 0DE0 
- 252      CA01 88B6 
- 252      03DC B739 
- 253 0752 EC02 2D3B 		.string	"\354\002-;\025-I\316\265$;\326rt\307X\252\001\267Q-(#$\177!\356b\367E)\263\225\"~\314\n\3
- 253      152D 49CE 
-GAS LISTING /tmp/cc8dRF8W.s 			page 19
-
-
- 253      B524 3BD6 
- 253      7274 C758 
- 253      AA01 B751 
- 254 07ac 5005 0E35 		.ascii	"P\005\0165\005\240\356cP\013\366^\335\351\211\247\230\216\241"
- 254      05A0 EE63 
- 254      500B F65E 
- 254      DDE9 89A7 
- 254      988E A1
- 255 07bf 5D27 3D55 		.ascii	"]'=UN\177\353\fuz*4;\244\2508\350"
- 255      4E7F EB0C 
- 255      757A 2A34 
- 255      3BA4 A838 
- 255      E8
- 256 07d0 5CC7 61C7 		.string	"\\\307a\307:\356J\323\373L8TOu\024\227]\035\360T;=\346(u\372QhxD\321\222\352\\K\232c-\021
- 256      3AEE 4AD3 
- 256      FB4C 3854 
- 256      4F75 1497 
- 256      5D1D F054 
- 257 0829 891C D50F 		.string	"\211\034\325\017\005\225\222=\234\237\254[N\200\302c\302\022\272\362av\216\317\274\022\"I
- 257      0595 923D 
- 257      9C9F AC5B 
- 257      4E80 C263 
- 257      C212 BAF2 
- 258 08c1 BA3C B953 		.ascii	"\272<\271S\276\202N9-\310\233\307\304\264\017\\hC\325V\224\260"
- 258      BE82 4E39 
- 258      2DC8 9BC7 
- 258      C4B4 0F5C 
- 258      6843 D556 
- 259 08d7 E60A B6AD 		.ascii	"\346\n\266\255(\350\037\350\236I\023\360q\346\267\355_\345\234"
- 259      28E8 1FE8 
- 259      9E49 13F0 
- 259      71E6 B7ED 
- 259      5FE5 9C
- 260 08ea 31B0 A43B 		.ascii	"1\260\244;_U\241#U\3620z\263\204&\257\002\250\317W\\\234'\360"
- 260      5F55 A123 
- 260      55F2 307A 
- 260      B384 26AF 
- 260      02A8 CF57 
- 261 0902 AC9B 9E78 		.ascii	"\254\233\236x\344\202\001\3471-\247'\323;\334U\343\343;\265t"
- 261      E482 01E7 
- 261      312D A727 
- 261      D33B DC55 
- 261      E3E3 3BB5 
- 262 0917 7C94 40DB 		.ascii	"|\224@\333\"\245m\201\022\271Z$\305\216\220\22098\356z\207\013"
- 262      22A5 6D81 
- 262      12B9 5A24 
- 262      C58E 9090 
- 262      3938 EE7A 
- 263 092d 2E65 5A3A 		.ascii	".eZ:\267\307\275pwfK\231s[`(\315\316\020[\316B}\251\202\247D"
- 263      B7C7 BD70 
- 263      7766 4B99 
- 263      735B 6028 
- 263      CDCE 105B 
- 264 0948 B6A5 F3E0 		.ascii	"\266\245\363\340\360\250\210+Y\367\245\327\3446\271\342:\246"
- 264      F0A8 882B 
- 264      59F7 A5D7 
- 264      E436 B9E2 
-GAS LISTING /tmp/cc8dRF8W.s 			page 20
-
-
- 264      3AA6 
- 265 095a 32FF E695 		.ascii	"2\377\346\225\035Jniiu%\353\353J\020S\256\210\231s6\223V\b\016"
- 265      1D4A 6E69 
- 265      6975 25EB 
- 265      EB4A 1053 
- 265      AE88 9973 
- 266 0973 67D2 89BD 		.ascii	"g\322\211\275\365\351\036\370\032\323\226t\262\261\325\005_g"
- 266      F5E9 1EF8 
- 266      1AD3 9674 
- 266      B2B1 D505 
- 266      5F67 
- 267 0985 85E2 7383 		.ascii	"\205\342s\203+\331\264\344M\246\245\222Z\311\200[X\325\320\354"
- 267      2BD9 B4E4 
- 267      4DA6 A592 
- 267      5AC9 805B 
- 267      58D5 D0EC 
- 268 0999 AD49 B28E 		.ascii	"\255I\262\216\\CR\342\337\250\346\2415l\036\332\377\364\3027"
- 268      5C43 52E2 
- 268      DFA8 E6A1 
- 268      356C 1EDA 
- 268      FFF4 C237 
- 269 09ad 701B 033D 		.ascii	"p\033\003=u\250\250\305\266h\326\372\251\036@\255\341\240\352"
- 269      75A8 A8C5 
- 269      B668 D6FA 
- 269      A91E 40AD 
- 269      E1A0 EA
- 270 09c0 C04D B536 		.ascii	"\300M\26567\315"
- 270      37CD 
- 271 09c6 9DC5 FB6B 		.string	"\235\305\373k\267\223\214s\021\f\274\240\030\270\206\273\351\311\320\215\031\017\234\354B
- 271      B793 8C73 
- 271      110C BCA0 
- 271      18B8 86BB 
- 271      E9C9 D08D 
- 272 0ac7 B502 DDE1 		.string	"\265\002\335\341\211\230a\252;\245\352\247\363ZP5\212\t\320\363\251)1\361zu\336\356\262\3
- 272      8998 61AA 
- 272      3BA5 EAA7 
- 272      F35A 5035 
- 272      8A09 D0F3 
- 273 0b6d 8403 6025 		.ascii	"\204\003`%\203\342\204K\247bQ\367m/\364-\211N4\003R\206\270\315"
- 273      83E2 844B 
- 273      A762 51F7 
- 273      6D2F F42D 
- 273      894E 3403 
- 274 0b85 D370 3F05 		.ascii	"\323p?\005}8\t4\0024\f4h\327\237\027&\277\033{t{\230\224\032"
- 274      7D38 0934 
- 274      0234 0C34 
- 274      68D7 9F17 
- 274      26BF 1B7B 
- 275 0b9e 82E8 E2F1 		.ascii	"\202\350\342\361!xlH\rJ\025g\016\325=\340\r~\277\272\3600\251"
- 275      2178 6C48 
- 275      0D4A 1567 
- 275      0ED5 3DE0 
- 275      0D7E BFBA 
- 276 0bb5 B23A 1647 		.ascii	"\262:\026G\320\230\336\006\272\302xS\333\032`\334n\274@\017\315"
- 276      D098 DE06 
- 276      BAC2 7853 
- 276      DB1A 60DC 
-GAS LISTING /tmp/cc8dRF8W.s 			page 21
-
-
- 276      6EBC 400F 
- 277 0bca C6E0 0712 		.ascii	"\306\340\007\022\351\374'\302\"\024\255\205\026\245D[\022a\357"
- 277      E9FC 27C2 
- 277      2214 AD85 
- 277      16A5 445B 
- 277      1261 EF
- 278 0bdd 96EC 7A5F 		.ascii	"\226\354z_G[\021\\\023\200\3539`\031\007z\0064\n\364\324\316"
- 278      475B 115C 
- 278      1380 EB39 
- 278      6019 077A 
- 278      0634 0AF4 
- 279 0bf3 0D43 31B8 		.ascii	"\rC1\270$N\222\"\330\n:\0064\221\266\016\302\214\261\267\304"
- 279      244E 9222 
- 279      D80A 3A06 
- 279      3491 B60E 
- 279      C28C B1B7 
- 280 0c08 E0D2 24CA 		.ascii	"\340\322$\312\016\213\017\264\373\367\261W\307`6\222\307\200"
- 280      0E8B 0FB4 
- 280      FBF7 B157 
- 280      C760 3692 
- 280      C780 
- 281 0c1a FBA4 736E 		.ascii	"\373\244snU\227\367\003\247b\310\030\033*<\371Esi\237\231P\316"
- 281      5597 F703 
- 281      A762 C818 
- 281      1B2A 3CF9 
- 281      4573 699F 
- 282 0c31 4B55 93D5 		.ascii	"KU\223\325[4.aH\311\334z\212\263;H\254lH\fEc\272n\003&\365\220"
- 282      5B34 2E61 
- 282      48C9 DC7A 
- 282      8AB3 3B48 
- 282      AC6C 480C 
- 283 0c4d E056 832C 		.ascii	"\340V\203,\262\213\023\351\004{\216w\007\237KOh\373\356\222\f"
- 283      B28B 13E9 
- 283      047B 8E77 
- 283      079F 4B4F 
- 283      68FB EE92 
- 284 0c62 930C C02A 		.ascii	"\223\f\300*m\337i\025\327E\343\275\222\364\naR+\346\253\311\351"
- 284      6DDF 6915 
- 284      D745 E3BD 
- 284      92F4 0A61 
- 284      522B E6AB 
- 285 0c78 5729 2A32 		.ascii	"W)*2\016\036)\323\336\020]M\362\223\265(|\222\264'~\353SX\006"
- 285      0E1E 29D3 
- 285      DE10 5D4D 
- 285      F293 B528 
- 285      7C92 B427 
- 286 0c91 A8E3 C8A1 		.ascii	"\250\343\310\241\350\303#\311\374t`1YP\354\254:\350\302O\007"
- 286      E8C3 23C9 
- 286      FC74 6031 
- 286      5950 ECAC 
- 286      3AE8 C24F 
- 287 0ca6 C898 3E96 		.ascii	"\310\230>\226Q\325\343\205\237\260a\234\327=S&2\336\005P\314"
- 287      51D5 E385 
- 287      9FB0 619C 
- 287      D73D 5326 
- 287      32DE 0550 
- 288 0cbb CAEF 6F   		.ascii	"\312\357o"
-GAS LISTING /tmp/cc8dRF8W.s 			page 22
-
-
- 289 0cbe 4178 8CD5 		.string	"Ax\214\325\275\270\0352+\260:O(\266\\\274\324\342\216_\360Y5)\377\216+\216e\247\260g\342\
- 289      BDB8 1D32 
- 289      2BB0 3A4F 
- 289      28B6 5CBC 
- 289      D4E2 8E5F 
- 290 0dbf 3B15 A7CA 		.string	";\025\247\312^L\233p\242\201n\035\006\316\267\217\272\220\231\212\257afS\026\261\271\021,
- 290      5E4C 9B70 
- 290      A281 6E1D 
- 290      06CE B78F 
- 290      BA90 998A 
- 291 0e66 1D06 4027 		.ascii	"\035\006@'\200\216\002\035\003J\003:\016t\004(\003\253\263{\357"
- 291      808E 021D 
- 291      034A 033A 
- 291      0E74 0428 
- 291      03AB B37B 
- 292 0e7b 81D7 9AE8 		.ascii	"\201\327\232\3504BN\233C\271N\333\2543oM\327\354\315\346(\302"
- 292      3442 4E9B 
- 292      43B9 4EDB 
- 292      AC33 6F4D 
- 292      D7EC CDE6 
- 293 0e91 1DA1 E53E 		.ascii	"\035\241\345>\207\264\311]\305\275M\313\255Z\001\362~\334\317"
- 293      87B4 C95D 
- 293      C5BD 4DCB 
- 293      AD5A 01F2 
- 293      7EDC CF
- 294 0ea4 FA31 D551 		.ascii	"\3721\325Q?6\250qFje\215k5\267\2534\207k\271\303\260\206{v\377"
- 294      3F36 A871 
- 294      466A 658D 
- 294      6B35 B7AB 
- 294      3487 6BB9 
- 295 0ebe AB2C 4820 		.ascii	"\253,H \003\240(\255\343\347\245\357\241\003\257=\245XH\367\356"
- 295      03A0 28AD 
- 295      E3E7 A5EF 
- 295      A103 AF3D 
- 295      A558 48F7 
- 296 0ed3 E0EC B6E0 		.ascii	"\340\354\266\340\b\301\352\240\272\227\233\226\215\360\t\026"
- 296      08C1 EAA0 
- 296      BA97 9B96 
- 296      8DF0 0916 
- 297 0ee3 5445 4F6A 		.ascii	"TEOjs=\345\240\322t \312\206~\373C\373\220\037C\034\240\301\226"
- 297      733D E5A0 
- 297      D274 20CA 
- 297      867E FB43 
- 297      FB90 1F43 
- 298 0efb 058D 3395 		.ascii	"\005\2153\225`K\345\301\206\302\236\226\246x\341\022\n\001\205"
- 298      604B E5C1 
- 298      86C2 9E96 
- 298      A678 E112 
- 298      0A01 85
- 299 0f0e 1FDC 718D 		.ascii	"\037\334q\215'\351\357\222C\316\314\251\177\303\345\254\352D"
- 299      27E9 EF92 
- 299      43CE CCA9 
- 299      7FC3 E5AC 
- 299      EA44 
- 300 0f20 5372 2C3F 		.ascii	"Sr,?\261\377\016\341\034\350|\035W\263\252\375\243\235}|\303"
- 300      B1FF 0EE1 
- 300      1CE8 7C1D 
-GAS LISTING /tmp/cc8dRF8W.s 			page 23
-
-
- 300      57B3 AAFD 
- 300      A39D 7D7C 
- 301 0f35 E403 C528 		.ascii	"\344\003\305()\245\327\r\327\262\272\361\035!\361\374E\352[P"
- 301      29A5 D70D 
- 301      D7B2 BAF1 
- 301      1D21 F1FC 
- 301      45EA 5B50 
- 302 0f49 DC9E 773F 		.ascii	"\334\236w?\336\025_cu\023eMi\\\333\022(\206\2066_t\307m\254."
- 302      DE15 5F63 
- 302      7513 654D 
- 302      695C DB12 
- 302      2886 8636 
- 303 0f63 697B 5112 		.ascii	"i{Q\022\257{\223\034\364L\354\212\364\302\367X]\345\363\243\027"
- 303      AF7B 931C 
- 303      F44C EC8A 
- 303      F4C2 F758 
- 303      5DE5 F3A3 
- 304 0f78 0D78 9015 		.ascii	"\rx\220\025J\303\262O\363\343\351\327\311yEJ\326\t\003\036eu"
- 304      4AC3 B24F 
- 304      F3E3 E9D7 
- 304      C979 454A 
- 304      D609 031E 
- 305 0f8e 714F 9B8B 		.ascii	"qO\233\213\335\3604+\244\337:\227\353\205C\334h\341"
- 305      DDF0 342B 
- 305      A4DF 3A97 
- 305      EB85 43DC 
- 305      68E1 
- 306 0fa0 7C76 CBA8 		.ascii	"|v\313\250\021G\261\302\330d\314\020\307\377*\024/\317E\344\350"
- 306      1147 B1C2 
- 306      D864 CC10 
- 306      C7FF 2A14 
- 306      2FCF 45E4 
- 307 0fb5 7102 ABDB 		.ascii	"q\002\253\333~}\244\303\035\357f\205\216\322\211z=>\310\ni-\361"
- 307      7E7D A4C3 
- 307      1DEF 6685 
- 307      8ED2 897A 
- 307      3D3E C80A 
- 308 0fcc FB4C F804 		.ascii	"\373L\370\004+dD\214$\271\340<V\250hL\2100\340\"V8\3301\221i"
- 308      2B64 448C 
- 308      24B9 E03C 
- 308      56A8 684C 
- 308      8830 E022 
- 309 0fe6 C0E7 58A1 		.ascii	"\300\347X\2419B\232t\3035\254p\372\306\321\263F\\\317\n\325\273"
- 309      3942 9A74 
- 309      C335 AC70 
- 309      FAC6 D1B3 
- 309      465C CF0A 
- 310 0ffc 0E0F 9BF0 		.ascii	"\016\017\233\360"
- 311 1000 5556 68A8 		.string	"UVh\250H\376\022\267\262\373\260\202\373#\006\334\311\ng\213\312\352\370;\330\345\344\370
- 311      48FE 12B7 
- 311      B2FB B082 
- 311      FB23 06DC 
- 311      C90A 678B 
- 312 107c 7503 3D02 		.ascii	"u\003=\002j\001\352\005\272"
- 312      6A01 EA05 
- 312      BA
- 313 1085 0174 0FE8 		.string	"\001t\017\350\026P\007\320M\240N\240\007@m@w\201\356\003=\004\272\r\324e\227\306zT\230/h1
-GAS LISTING /tmp/cc8dRF8W.s 			page 24
-
-
- 313      1650 07D0 
- 313      4DA0 4EA0 
- 313      0740 6D40 
- 313      7781 EE03 
- 314 1186 64A9 FFEE 		.string	"d\251\377\356\214\305W\210W\350\244\335\017\312\373\224I\273I\236\264\353\357\247\036\027
- 314      8CC5 5788 
- 314      57E8 A4DD 
- 314      0FCA FB94 
- 314      49BB 499E 
- 315 11ab 039C A9A8 		.string	"\003\234\251\250\3757\355\3363<\306\352s\227A\333\006\347t\355\216b\017\272\247!\375\3046
- 315      FD37 EDDE 
- 315      333C C6EA 
- 315      7397 41DB 
- 315      06E7 74ED 
- 316 1219 9877 1032 		.string	"\230w\0202\316{\177\002\274\372\334nN\031\272\272\370\036\035\341\344\375\344\030\364\321
- 316      CE7B 7F02 
- 316      BCFA DC6E 
- 316      4E19 BABA 
- 316      F81E 1DE1 
- 317 1265 A523 C464 		.ascii	"\245#\304d)W62\346\262\220\267\212r\326J\247n\022\021\236\021"
- 317      2957 3632 
- 317      E6B2 90B7 
- 317      8A72 D64A 
- 317      A76E 1211 
- 318 127b 6DF7 D5D5 		.ascii	"m\367\325\325\214]\257\276\260u\314\343\342\233\253\361)\356"
- 318      8C5D AFBE 
- 318      B075 CCE3 
- 318      E29B ABF1 
- 318      29EE 
- 319 128d DC1D E563 		.ascii	"\334\035\345c|\231\370\327d\231x\275=\215\177%6BV(\335}_E\212"
- 319      7C99 F8D7 
- 319      6499 78BD 
- 319      3D8D 7F25 
- 319      3642 5628 
- 320 12a6 B898 F186 		.ascii	"\270\230\361\206\365\325\225\230p\031+\344}52l\300\325\2540\372"
- 320      F5D5 9598 
- 320      7019 2BE4 
- 320      7D35 326C 
- 320      C0D5 AC30 
- 321 12bb 683C CA80 		.ascii	"h<\312\200\257\260\302TT\363m"
- 321      AFB0 C254 
- 321      54F3 6D
- 322 12c6 D1F1 5B70 		.string	"\321\361[pG\337\311\220u\321\201\274{\256\270\211#:\026\021\342\202o\260\302\311\341\302n
- 322      47DF C990 
- 322      75D1 81BC 
- 322      7BAE B889 
- 322      233A 1611 
- 323 13c7 CD48 C75B 		.string	"\315H\307[\355\322\346A\273\001\266On\245\217\313\235;\346J\222\324\222%j\264\317\201\225
- 323      EDD2 E641 
- 323      BB01 B64F 
- 323      6EA5 8FCB 
- 323      9D3B E64A 
- 324 13ea 50F7 03B4 		.string	"P\367\003\264C@\007Eu\272\232\315X\304N\017"
- 324      4340 0745 
- 324      75BA 9ACD 
- 324      58C4 4E0F 
+ 315               	__func__.3731:
+ 316 0000 6932 634D 		.string	"i2cMasterReceiveTimeout"
+ 316      6173 7465 
+ 316      7252 6563 
+ 316      6569 7665 
+ 316      5469 6D65 
+ 317               		.type	__func__.3722, @object
+ 318               		.size	__func__.3722, 25
+ 319               	__func__.3722:
+ 320 0018 6932 634D 		.string	"i2cMasterTransmitTimeout"
+ 320      6173 7465 
+ 320      7254 7261 
+ 320      6E73 6D69 
+ 320      7454 696D 
+ 321               		.type	__func__.3711, @object
+ 322               		.size	__func__.3711, 13
+ 323               	__func__.3711:
+ 324 0031 6932 6347 		.string	"i2cGetErrors"
+ 324      6574 4572 
+ 324      726F 7273 
  324      00
-GAS LISTING /tmp/cc8dRF8W.s 			page 25
-
-
- 325 13fb 0B0A 031F 		.string	"\013\n\003\037\244\210/IW\343\031\254OR\264}B7\333\231\336l?\f"
- 325      A488 2F49 
- 325      57E3 19AC 
- 325      4F52 B47D 
- 325      4237 DB99 
- 326 1414 D15E ADA8 		.string	"\321^\255\250y\033\206\272\314W\253$i\357\0334\257\207r\366\371g\237\340\217\234\202\246\
- 326      791B 86BA 
- 326      CC57 AB24 
- 326      69EF 1B34 
- 326      AF87 72F6 
- 327 149b 3A01 744C 		.ascii	":\001tL\3513\372\031\336\373wn\205\323\275\0311<\004\f'Bm6\216"
- 327      E933 FA19 
- 327      DEFB 776E 
- 327      85D3 BD19 
- 327      313C 040C 
- 328 14b4 39DE 6DD9 		.ascii	"9\336m\331P\314b\374\377\213\002\372\257\353\216\252\377&\021"
- 328      50CC 62FC 
- 328      FF8B 02FA 
- 328      AFEB 8EAA 
- 328      FF26 11
- 329 14c7 13C9 FB6F 		.ascii	"\023\311\373o\202\"X\245ZB\377k\270T\031\302>\311\222\004\007"
- 329      8222 58A5 
- 329      5A42 FF6B 
- 329      B854 19C2 
- 329      3EC9 9204 
- 330 14dc BCAA C0E8 		.ascii	"\274\252\300\350\352\342qD\216\236C9\263-\216B\354\342\210L\241"
- 330      EAE2 7144 
- 330      8E9E 4339 
- 330      B32D 8E42 
- 330      ECE2 884C 
- 331 14f1 9D8B 9368 		.ascii	"\235\213\223h* '\031\0227\315v>2o\371\330\325\371J2\225\016\253"
- 331      2A20 2719 
- 331      1237 CD76 
- 331      3E32 6FF9 
- 331      D8D5 F94A 
- 332 1509 0F74 126B 		.ascii	"\017t\022k\244\317;\272\232\275\275\200\201\311\021\331I\240"
- 332      A4CF 3BBA 
- 332      9ABD BD80 
- 332      81C9 11D9 
- 332      49A0 
- 333 151b 1DBB 2A53 		.ascii	"\035\273*S\253\342!WT\235x\236\006\007\237\022\035\274\203Rs"
- 333      ABE2 2157 
- 333      549D 789E 
- 333      0607 9F12 
- 333      1DBC 8352 
- 334 1530 E954 2CCE 		.ascii	"\351T,\316\316q\201\037\376O\023Ee\361p\353\225P2\032\t\264'"
- 334      CE71 811F 
- 334      FE4F 1345 
- 334      65F1 70EB 
- 334      9550 321A 
- 335 1547 CA42 E014 		.ascii	"\312B\340\024\r@n\355\355\305\354\004\225,\215\236j\341\317\333"
- 335      0D40 6EED 
- 335      EDC5 EC04 
- 335      952C 8D9E 
- 335      6AE1 CFDB 
- 336 155b E2D6 752C 		.ascii	"\342\326u,\276N}I>\360\034\345\354\316\367\374\275\355\336,y"
- 336      BE4E 7D49 
-GAS LISTING /tmp/cc8dRF8W.s 			page 26
-
-
- 336      3EF0 1CE5 
- 336      ECCE F7FC 
- 336      BDED DE2C 
- 337 1570 C09C 8F9E 		.ascii	"\300\234\217\236i\245w\315\223\336\276\270\206F\f\371\\\367\234"
- 337      69A5 77CD 
- 337      93DE BEB8 
- 337      8646 0CF9 
- 337      5CF7 9C
- 338 1583 7D14 6833 		.ascii	"}\024h3Mo\033\377HFt\360\372\242\345\326\"\372\372\202\f\274"
- 338      4D6F 1BFF 
- 338      4846 74F0 
- 338      FAA2 E5D6 
- 338      22FA FA82 
- 339 1599 59C5 F0E3 		.ascii	"Y\305\360\343t\330\223\001\bIc6g\337s\027\034\347N\223\306\355"
- 339      74D8 9301 
- 339      0849 6336 
- 339      67DF 7317 
- 339      1CE7 4E93 
- 340 15af FC23 FB04 		.ascii	"\374#\373\004\333G\r\275\025\257R\277\225\300\334Q$\376\376\257"
- 340      DB47 0DBD 
- 340      15AF 52BF 
- 340      95C0 DC51 
- 340      24FE FEAF 
- 341 15c3 1A8A C5F9 		.ascii	"\032\212\305\371_5\220\306\344\360hr\270\310\204w3-}\265\235"
- 341      5F35 90C6 
- 341      E4F0 6872 
- 341      B8C8 8477 
- 341      332D 7DB5 
- 342 15d8 517A E573 		.ascii	"Qz\345s\246\201o\027?\214%'\344e\240\247T\264\377\270\300\341"
- 342      A681 6F17 
- 342      3F8C 2527 
- 342      E465 A0A7 
- 342      54B4 FFB8 
- 343 15ee 970A 67C5 		.ascii	"\227\ng\305\371_*\220\326\240(\26651\232~\223\037\252\371\013"
- 343      F95F 2A90 
- 343      D6A0 28B6 
- 343      3531 9A7E 
- 343      931F AAF9 
- 344 1603 0827 1F2F 		.ascii	"\b'\037/\016\016\307\024\330}\315zNT\257\236\313Y\222\"W\262"
- 344      0E0E C714 
- 344      D87D CD7A 
- 344      4E54 AF9E 
- 344      CB59 9222 
- 345 1619 92AA C8EA 		.ascii	"\222\252\310\352\021\272`\245$ \035\377\3035\304^X\300\205\020"
- 345      11BA 60A5 
- 345      2420 1DFF 
- 345      C335 C45E 
- 345      58C0 8510 
- 346 162d 2DCE C93F 		.ascii	"-\316\311?\204\350sx*\320\377\031#c\225[\330XXQ\340\"\351?~E"
- 346      84E8 7378 
- 346      2AD0 FF19 
- 346      2363 955B 
- 346      D858 5851 
- 347 1647 2A89 3AF9 		.ascii	"*\211:\371\221Z\006yf\373\333\032$7\204\032\2010\250\341\350"
- 347      915A 0679 
- 347      66FB DB1A 
- 347      2437 841A 
-GAS LISTING /tmp/cc8dRF8W.s 			page 27
-
-
- 347      8130 A8E1 
- 348 165c D4BA EDB1 		.ascii	"\324\272\355\261r\374\366\365H\247\372!y\266>\376|\"\326\023"
- 348      72FC F6F5 
- 348      48A7 FA21 
- 348      79B6 3EFE 
- 348      7C22 D613 
- 349 1670 4FD2 CE44 		.ascii	"O\322\316D\215\2057\007\220\323\227*Ut0\256\345\357T\232\253"
- 349      8D85 3707 
- 349      90D3 972A 
- 349      5574 30AE 
- 349      E5EF 549A 
- 350 1685 0EEC 727B 		.ascii	"\016\354r{3U\252\354\246\337\224\224\304\222\325\035\372\031"
- 350      3355 AAEC 
- 350      A6DF 9494 
- 350      C492 D51D 
- 350      FA19 
- 351 1697 E142 954A 		.ascii	"\341B\225J\307\303-\271T\210]\200\240Z$\347\227\335\207\037\356"
- 351      C7C3 2DB9 
- 351      5488 5D80 
- 351      A05A 24E7 
- 351      97DD 871F 
- 352 16ac F4C0 6126 		.ascii	"\364\300a&\366M\325\271\366+\002\027\323\374\277\311RI\222R\005"
- 352      F64D D5B9 
- 352      F62B 0217 
- 352      D3FC BFC9 
- 352      5249 9252 
- 353 16c1 2AA5 4691 		.ascii	"*\245F\221R\243\226r\236J9\333\322\360\3178\201\t\251\3323\221"
- 353      52A3 9672 
- 353      9E4A 39DB 
- 353      D2F0 CF38 
- 353      8109 A9DA 
- 354 16d7 4F84 A412 		.ascii	"O\204\244\022,1\256\323'\3517p\322\017)fT\253\310\251U\313\251"
- 354      2C31 AED3 
- 354      27E9 3770 
- 354      D20F 2966 
- 354      54AB C8A9 
- 355 16ee A372 A29E 		.ascii	"\243r\242\236\247\326\031\360Y&(\357Rg\035{\317D\246<\266'\353"
- 355      A7D6 19F0 
- 355      5926 28EF 
- 355      5267 1D7B 
- 355      CF44 A63C 
- 356 1705 3D5C 3F63 		.ascii	"=\\?ct\352\224z\352\224\213\"\367\312\303\220\003\3752\222\251"
- 356      74EA 947A 
- 356      EA94 8B22 
- 356      F7CA C390 
- 356      03FD 3292 
- 357 171a D798 3992 		.ascii	"\327\2309\222@\270\320\005\005\306\0055\214K\024\306\370\303"
- 357      40B8 D005 
- 357      05C6 0535 
- 357      8C4B 14C6 
- 357      F8C3 
- 358 172c E17F C2F5 		.ascii	"\341\177\302\365\f\305\213\331\261;\002EAr\fCqn\340L\216\213"
- 358      0CC5 8BD9 
- 358      B13B 0245 
- 358      4172 0C43 
- 358      716E E04C 
- 359 1742 0DD9 1591 		.ascii	"\r\331\025\221>\274=t\261Lp\n\255\201B\273*C;\326\231\370\304"
-GAS LISTING /tmp/cc8dRF8W.s 			page 28
-
-
- 359      3EBC 3D74 
- 359      B14C 700A 
- 359      AD81 42BB 
- 359      2A43 3BD6 
- 360 1759 8543 EBFF 		.ascii	"\205C\353\377\0376h\300\205.+\320.\253\241]\243\320^d\365O\230"
- 360      1F36 68C0 
- 360      852E 2BD0 
- 360      2EAB A15D 
- 360      A3D0 5E64 
- 361 1770 7033 C376 		.ascii	"p3\303vc\272\276\322\310\245\\z\335\316\300FEJ\243ZJ\023\225"
- 361      63BA BED2 
- 361      C8A5 5C7A 
- 361      DDCE C046 
- 361      454A A35A 
- 362 1787 723B 2D33 		.ascii	"r;-3C\304\355\316\375|\354y~\246]\360\221|\254Xs\203Zs]\266\346"
- 362      43C4 EDCE 
- 362      FD7C EC79 
- 362      7EA6 5DF0 
- 362      917C AC58 
- 363 17a2 D483 1D6D 		.ascii	"\324\203\035m\2625\r\231\364\200I\"\037\177\001\033jV\2004\253"
- 363      B235 0D99 
- 363      F480 4922 
- 363      1F7F 011B 
- 363      6A56 8034 
- 364 17b7 81DC A440 		.ascii	"\201\334\244@\"\332\313/\013\370!\003\222Q{\346\200\236\002!"
- 364      22DA CB2F 
- 364      0BF8 2103 
- 364      9251 7BE6 
- 364      809E 0221 
- 365 17cb DF1D 3320 		.ascii	"\337\0353 \305"
- 365      C5
- 366 17d0 1937 6211 		.ascii	"\0317b\021}F\222X+s\365\211\370\3261\301\266\341\276\305\036"
- 366      7D46 9258 
- 366      2B73 F589 
- 366      F8D6 31C1 
- 366      B6E1 BEC5 
- 367 17e5 2684 66CF 		.ascii	"&\204f\317\232l\234m\274S\366\2157\262\2559$\032\324\316\036"
- 367      9A6C 9C6D 
- 367      BC53 F68D 
- 367      37B2 AD39 
- 367      241A D4CE 
- 368 17fa B6EE 8F2D 		.ascii	"\266\356\217-p\245\017I\002\356`\017gc\2566\233l^\270\315\036"
- 368      70A5 0F49 
- 368      02EE 600F 
- 368      6763 AE36 
- 368      9B6C 5EB8 
- 369 1810 F635 4DDF 		.ascii	"\3665M\337tW\273\201\274rW\334\320E\335\320)\273ah\240I\222\335"
- 369      7457 BB81 
- 369      BC72 57DC 
- 369      D045 DDD0 
- 369      29BB 6168 
- 370 1828 D092 E369 		.ascii	"\320\222\343i\353\017`C-\212\033Z\324n\270C\335\220}\376\320"
- 370      EB0F 6043 
- 370      2D8A 1B5A 
- 370      D46E B843 
- 370      DD90 7DFE 
- 371 183d 318C 258F 		.ascii	"1\214%\217\257\351\206\273\216\334\320\303\036\326\234?:\353"
-GAS LISTING /tmp/cc8dRF8W.s 			page 29
-
-
- 371      AFE9 86BB 
- 371      8EDC D0C3 
- 371      1ED6 9C3F 
- 371      3AEB 
- 372 184f 6133 EE1E 		.ascii	"a3\356\036{X\337R\\\216l\306\335g\017\363:\206c\r\316\215\353"
- 372      7B58 DF52 
- 372      5C8E 6CC6 
- 372      DD67 0FF3 
- 372      3A86 630D 
- 373 1866 A5C6 3DB0 		.ascii	"\245\306=\260\365\361\251\272Q\203\034\261\177e\263\r\270P\267"
- 373      F5F1 A9BA 
- 373      5183 1CB1 
- 373      7F65 B30D 
- 373      B850 B7
- 374 1879 625B B7DA 		.ascii	"b[\267\332\266\207\324\266\252\235a\351\036x/\263\255\272\274"
- 374      B687 D4B6 
- 374      AA9D 61E9 
- 374      1E78 2FB3 
- 374      ADBA BC
- 375 188c E0B0 09A4 		.ascii	"\340\260\t\244t\323U\344\362\301\323\311R\224\221e\206G\212\224"
- 375      74D3 55E4 
- 375      F2C1 D3C9 
- 375      5294 9165 
- 375      8647 8A94 
- 376 18a0 4722 7B43 		.ascii	"G\"{C\216\372\250\204\373\307\333*\005|\214I8y\246p\302\235K"
- 376      8EFA A884 
- 376      FBC7 DB2A 
- 376      057C 8C49 
- 376      3879 A670 
- 377 18b7 E8DF 1421 		.ascii	"\350\337\024!U\263x\357WZ\367\313\255\007h\353\312\221\364\275"
- 377      55B3 78EF 
- 377      575A F7CB 
- 377      AD07 68EB 
- 377      CA91 F4BD 
- 378 18cb 189F 61AD 		.ascii	"\030\237a\255o\207\355\314\267\333\017\345\333\235\351\f\332"
- 378      6F87 EDCC 
- 378      B7DB 0FE5 
- 378      DB9D E90C 
- 378      DA
- 379 18dc F643 95BB 		.ascii	"\366C\225\273\366\236f\276\035\264\r\212\306\273\255\261\316"
- 379      F69E 66BE 
- 379      1DB4 0D8A 
- 379      C6BB ADB1 
- 379      CE
- 380 18ed 33F2 30F5 		.ascii	"3\3620\365\327\220\354\257\355C\373\267\311\226\326L\276\177"
- 380      D790 ECAF 
- 380      ED43 FBB7 
- 380      C996 D64C 
- 380      BE7F 
- 381 18ff F558 48E5 		.ascii	"\365XH\345G\224\t=V\240>\226\241\216P\250\261I=_\342s\fi\351"
- 381      4794 093D 
- 381      56A0 3E96 
- 381      A18E 50A8 
- 381      B149 3D5F 
- 382 1918 F984 41D9 		.ascii	"\371\204A\331\316\232\216\357\017\306H\341zj\351\023\245\371"
- 382      CE9A 8EEF 
- 382      0FC6 48E1 
-GAS LISTING /tmp/cc8dRF8W.s 			page 30
-
-
- 382      7A6A E913 
- 382      A5F9 
- 383 192a 13B9 F953 		.ascii	"\023\271\371S\332|*\343\311\005\003\276\304\332O\234\f\213\226"
- 383      DA7C 2AE3 
- 383      C905 03BE 
- 383      C4DA 4F9C 
- 383      0C8B 96
- 384 193d F5CF 0E2E 		.ascii	"\365\317\016.h\222R}h \216*\315G\345\346\317h\363\204\222m\265"
- 384      6892 527D 
- 384      6820 8E2A 
- 384      CD47 E5E6 
- 384      CF68 F384 
- 385 1954 5EB8 9F35 		.ascii	"^\270\2375\317\037\221F\004\336\274}3u3\351\3521\245\365\230"
- 385      CF1F 9146 
- 385      04DE BC7D 
- 385      3375 33E9 
- 385      EA31 A5F5 
- 386 1969 DC7A 9CB6 		.ascii	"\334z\234\266\036N\353\331"
- 386      1E4E EBD9 
- 387 1971 61F8 66B4 		.string	"a\370f\264\347a\330\r\025\240\005t\364\344\017\266\213x\247'\025x\344\352\350n#>\302\ncEu
- 387      E761 D80D 
- 387      15A0 0574 
- 387      F4E4 0FB6 
- 387      8B78 A727 
- 388 1a72 724B FCDA 		.ascii	"rK\374\332\331\\aw\3226l\307\037\251g\213\270H\312|\343z\306"
- 388      D95C 6177 
- 388      D236 6CC7 
- 388      1FA9 678B 
- 388      B848 CA7C 
- 389 1a89 4FD4 BCF5 		.ascii	"O\324\274\365v\274\3338\3576\312\373<\254\373\272+\236d\326\034"
- 389      76BC DB38 
- 389      EF36 CAFB 
- 389      3CAC FBBA 
- 389      2B9E 64D6 
- 390 1a9e DE1B 97E1 		.ascii	"\336\033\227\341\301\227\035\303\217\\\207\022\350\331\224\364"
- 390      C197 1DC3 
- 390      8F5C 8712 
- 390      E8D9 94F4 
- 391 1aae 43B6 7E89 		.ascii	"C\266~\211\322\333B\016n\225\354\022\255'a\327\226u\367\201\013"
- 391      D2DB 420E 
- 391      6E95 EC12 
- 391      AD27 61D7 
- 391      9675 F781 
- 392 1ac3 CEF6 A282 		.ascii	"\316\366\242\202\256u\r\024\312\202.Ea\226\244\216\260\005L\214"
- 392      AE75 0D14 
- 392      CA82 2E45 
- 392      6196 A48E 
- 392      B005 4C8C 
- 393 1ad7 2226 462D 		.ascii	"\"&F-&\226\212\211\237\350|hw\326\333e\007>\216\203\217\243\340"
- 393      2696 8A89 
- 393      9FE8 7C68 
- 393      77D6 DB65 
- 393      073E 8E83 
- 394 1aee DB5B F232 		.ascii	"\333[\3622\260\232\271\327\2169\2363\223\253\350\267\321\327"
- 394      B09A B9D7 
- 394      8E39 9E33 
- 394      93AB E8B7 
-GAS LISTING /tmp/cc8dRF8W.s 			page 31
-
-
- 394      D1D7 
- 395 1b00 62FC 70E5 		.ascii	"b\374p\345j\363\337\255Y\375\267?\376\300\203\334\376h"
- 395      6AF3 DFAD 
- 395      59FD B73F 
- 395      FEC0 83DC 
- 395      FE68 
- 396 1b12 F5A7 1FFE 		.string	"\365\247\037\376\362\307\346\217\177\245.}\372+7R\372\370\307?\372\340\237\f\344\356\223O
- 396      F2C7 E68F 
- 396      7FA5 2E7D 
- 396      FA2B 3752 
- 396      FAF8 C73F 
- 397 1c13 EB06 37E6 		.string	"\353\0067\346\215\357\233\255\256\374\352b\245\025.\326\215\026\177\337u\256\326\200M\376
- 397      8DEF 9BAD 
- 397      AEFC EA62 
- 397      A515 2ED6 
- 397      8D16 7FDF 
- 398 1c3c C5E5 7E1B 		.string	"\305\345~\033A\266\260u\205\213\377o6\371\006\377\232;{\325J\263\325 \337\270\373\177\356
- 398      41B6 B075 
- 398      858B FF6F 
- 398      36F9 06FF 
- 398      9A3B 7BD5 
- 399 1cb1 966F F450 		.ascii	"\226o\364P\017\377\323\3701Xy\030a?\353\027B\360\026\301\262"
- 399      0FFF D3F8 
- 399      3158 7918 
- 399      613F EB17 
- 399      42F0 16C1 
- 400 1cc6 5C6F F187 		.ascii	"\\o\361\207\352w\377\020K6\372\201z\200\216-+\226\013\226\037"
- 400      EA77 FF10 
- 400      4B36 FA81 
- 400      7A80 8E2D 
- 400      2B96 0B96 
- 401 1cdb 0896 EF0B 		.ascii	"\b\226\357\013\226\357\t\226\367\004\313_\n\226w\335\t7\201\001"
- 401      96EF 0996 
- 401      F704 CB5F 
- 401      0A96 77DD 
- 401      0937 8101 
- 402 1cef 2A4C F4DE 		.ascii	"*L\364\336\017\004\372\177a5\022#Y\277\270\370o!\0364\260\222"
- 402      0F04 FA7F 
- 402      6135 1223 
- 402      59BF B8F8 
- 402      6F21 1E34 
- 403 1d05 D9BA 80DF 		.ascii	"\331\272\200\337X\374\327\373[\3747\373\021\204\026\377\177w"
- 403      58FC D7FB 
- 403      5BFC 37FB 
- 403      1184 16FF 
- 403      7F77 
- 404 1d17 255D B9C1 		.ascii	"%]\271\301\337\342a\265\370n\016\206*\363\246\240u\376n\353|"
- 404      DFE2 61B5 
- 404      F86E 0E86 
- 404      2AF3 A6A0 
- 404      75FE 6EEB 
- 405 1d2c ADBE ECCE 		.ascii	"\255\276\354\316w\335:\366L\f\016\370\022*\374\203\255f\362"
- 405      77DD 3AF6 
- 405      4C0C 0EF8 
- 405      122A FC83 
- 405      AD66 F2
- 406 1d3f 4CFC 3C28 		.string	"L\374<(`\235{p\320V\013\210\"\017\f~\276\201\201k}\375~\375G,8\2770\257\333\344k\366[\273
-GAS LISTING /tmp/cc8dRF8W.s 			page 32
-
-
- 406      609D 7B70 
- 406      D056 0B88 
- 406      220F 0C7E 
- 406      BE81 816B 
- 407 1e40 13ED 79AB 		.ascii	"\023\355y\253\013\351v\263\365\237\377\340\024\025\b\235\f\025"
- 407      0BE9 76B3 
- 407      F59F FFE0 
- 407      1415 089D 
- 407      0C15 
- 408 1e52 EA54 4579 		.ascii	"\352TEy\224\204e]\007\031\021\372\331\215\206p`\220\337\257Y"
- 408      9484 655D 
- 408      0719 11FA 
- 408      D98D 8670 
- 408      6090 DFAF 
- 409 1e67 606F DD4C 		.ascii	"`o\335L\356]\001\302\207\233\003\254\337r\230\301\203-~\266\354"
- 409      EE5D 01C2 
- 409      879B 03AC 
- 409      DF72 98C1 
- 409      832D 7EB6 
- 410 1e7c EDA7 232E 		.ascii	"\355\247#.\\\263\366\377\370\373YI\013\003\224>\261\002@Wz\023"
- 410      5CB3 F6FF 
- 410      F8FB 5949 
- 410      0B03 943E 
- 410      B102 4057 
- 411 1e92 B4C5 04D7 		.ascii	"\264\305\004\327\237\372[\177L]\372\032\024\376\336\227x\351"
- 411      9FFA 5B7F 
- 411      4C5D FA1A 
- 411      14FE DE97 
- 411      78E9 
- 412 1ea4 5312 F29B 		.ascii	"S\022\362\233\002\254\237\262\f\366\307\266\212\217\375\375\374"
- 412      02AC 9FB2 
- 412      0CF6 C7B6 
- 412      8A8F FDFD 
- 412      FC
- 413 1eb5 C1B3 FCB9 		.ascii	"\301\263\374\271\211\347D\030p\001\264\263h!\230(p\363\333\370"
- 413      89E7 4418 
- 413      7001 B4B3 
- 413      6821 9828 
- 413      70F3 DBF8 
- 414 1ec9 C96F 837F 		.ascii	"\311o\203\177\346\033\2500\005\203\276?\223\013\233\2508\263"
- 414      E61B A830 
- 414      0583 BE3F 
- 414      930B 9BA8 
- 414      38B3 
- 415 1edb 952B 32F3 		.ascii	"\225+2\363\\\371\272\246\336\302\364\311\325n2~\235\207\331\274"
- 415      5CF9 BAA6 
- 415      DEC2 F4C9 
- 415      D56E 327E 
- 415      9D87 D9BC 
- 416 1eef 7EEB 663F 		.ascii	"~\353f?\263y\351\252\357-_e\220K\006n\227}\375\367<\324f\332"
- 416      B379 E9AA 
- 416      EF2D 5F65 
- 416      904B 066E 
- 416      977D FDF7 
- 417 1f07 D5AD 58A1 		.ascii	"\325\255X\241.\255\\\251.\255Z\341\036\024\354\033\bv\374\035"
- 417      2EAD 5CA9 
- 417      2EAD 5AE1 
-GAS LISTING /tmp/cc8dRF8W.s 			page 33
-
-
- 417      1E14 EC1B 
- 417      0876 FC1D 
- 418 1f1b 78FD DB0E 		.ascii	"x\375\333\016\275M\030h\026'7\320c\036\274\305g\264\247\376\023"
- 418      BD4D 1868 
- 418      1627 37D0 
- 418      631E BCC5 
- 418      67B4 A7FE 
- 419 1f30 EE74 33AC 		.ascii	"\356t3\254"
- 420               	.text
- 421               		.section	.gnu.lto_.symtab.bcc45ddc45e2abd,"",@progbits
- 422 0000 6932 6349 		.string	"i2cInit"
- 422      6E69 7400 
- 423 0008 00        		.string	""
- 424 0009 00        		.string	""
- 425 000a 00        		.string	""
- 426 000b 00        		.string	""
- 427 000c 00        		.string	""
- 428 000d 00        		.string	""
- 429 000e 00        		.string	""
- 430 000f 00        		.string	""
- 431 0010 00        		.string	""
- 432 0011 00        		.string	""
- 433 0012 00        		.string	""
- 434 0013 4602 00   		.string	"F\002"
- 435 0016 00        		.string	""
- 436 0017 6932 634F 		.string	"i2cObjectInit"
- 436      626A 6563 
- 436      7449 6E69 
- 436      7400 
- 437 0025 00        		.string	""
- 438 0026 00        		.string	""
- 439 0027 00        		.string	""
- 440 0028 00        		.string	""
- 441 0029 00        		.string	""
- 442 002a 00        		.string	""
- 443 002b 00        		.string	""
- 444 002c 00        		.string	""
- 445 002d 00        		.string	""
- 446 002e 00        		.string	""
- 447 002f 00        		.string	""
- 448 0030 4A02 00   		.string	"J\002"
- 449 0033 00        		.string	""
- 450 0034 6932 6353 		.string	"i2cStart"
- 450      7461 7274 
- 450      00
- 451 003d 00        		.string	""
- 452 003e 00        		.string	""
- 453 003f 00        		.string	""
- 454 0040 00        		.string	""
- 455 0041 00        		.string	""
- 456 0042 00        		.string	""
- 457 0043 00        		.string	""
- 458 0044 00        		.string	""
- 459 0045 00        		.string	""
- 460 0046 00        		.string	""
- 461 0047 00        		.string	""
- 462 0048 4F02 00   		.string	"O\002"
-GAS LISTING /tmp/cc8dRF8W.s 			page 34
-
-
- 463 004b 00        		.string	""
- 464 004c 6932 6353 		.string	"i2cStop"
- 464      746F 7000 
- 465 0054 00        		.string	""
- 466 0055 00        		.string	""
- 467 0056 00        		.string	""
- 468 0057 00        		.string	""
- 469 0058 00        		.string	""
- 470 0059 00        		.string	""
- 471 005a 00        		.string	""
- 472 005b 00        		.string	""
- 473 005c 00        		.string	""
- 474 005d 00        		.string	""
- 475 005e 00        		.string	""
- 476 005f 5102 00   		.string	"Q\002"
- 477 0062 00        		.string	""
- 478 0063 6932 6347 		.string	"i2cGetErrors"
- 478      6574 4572 
- 478      726F 7273 
- 478      00
- 479 0070 00        		.string	""
- 480 0071 00        		.string	""
- 481 0072 00        		.string	""
- 482 0073 00        		.string	""
- 483 0074 00        		.string	""
- 484 0075 00        		.string	""
- 485 0076 00        		.string	""
- 486 0077 00        		.string	""
- 487 0078 00        		.string	""
- 488 0079 00        		.string	""
- 489 007a 00        		.string	""
- 490 007b 5502 00   		.string	"U\002"
- 491 007e 00        		.string	""
- 492 007f 6932 634D 		.string	"i2cMasterTransmitTimeout"
- 492      6173 7465 
- 492      7254 7261 
- 492      6E73 6D69 
- 492      7454 696D 
- 493 0098 00        		.string	""
- 494 0099 00        		.string	""
- 495 009a 00        		.string	""
- 496 009b 00        		.string	""
- 497 009c 00        		.string	""
- 498 009d 00        		.string	""
- 499 009e 00        		.string	""
- 500 009f 00        		.string	""
- 501 00a0 00        		.string	""
- 502 00a1 00        		.string	""
- 503 00a2 00        		.string	""
- 504 00a3 5F02 00   		.string	"_\002"
- 505 00a6 00        		.string	""
- 506 00a7 6932 634D 		.string	"i2cMasterReceiveTimeout"
- 506      6173 7465 
- 506      7252 6563 
- 506      6569 7665 
- 506      5469 6D65 
- 507 00bf 00        		.string	""
-GAS LISTING /tmp/cc8dRF8W.s 			page 35
-
-
- 508 00c0 00        		.string	""
- 509 00c1 00        		.string	""
- 510 00c2 00        		.string	""
- 511 00c3 00        		.string	""
- 512 00c4 00        		.string	""
- 513 00c5 00        		.string	""
- 514 00c6 00        		.string	""
- 515 00c7 00        		.string	""
- 516 00c8 00        		.string	""
- 517 00c9 00        		.string	""
- 518 00ca 6702 00   		.string	"g\002"
- 519 00cd 00        		.string	""
- 520 00ce 6932 635F 		.string	"i2c_lld_init"
- 520      6C6C 645F 
- 520      696E 6974 
- 520      00
- 521 00db 00        		.string	""
- 522 00dc 02        		.ascii	"\002"
- 523 00dd 00        		.string	""
- 524 00de 00        		.string	""
- 525 00df 00        		.string	""
- 526 00e0 00        		.string	""
- 527 00e1 00        		.string	""
- 528 00e2 00        		.string	""
- 529 00e3 00        		.string	""
- 530 00e4 00        		.string	""
- 531 00e5 00        		.string	""
- 532 00e6 6902 00   		.string	"i\002"
- 533 00e9 00        		.string	""
- 534 00ea 6932 635F 		.string	"i2c_lld_start"
- 534      6C6C 645F 
- 534      7374 6172 
- 534      7400 
- 535 00f8 00        		.string	""
- 536 00f9 02        		.ascii	"\002"
- 537 00fa 00        		.string	""
- 538 00fb 00        		.string	""
- 539 00fc 00        		.string	""
- 540 00fd 00        		.string	""
- 541 00fe 00        		.string	""
- 542 00ff 00        		.string	""
- 543 0100 00        		.string	""
- 544 0101 00        		.string	""
- 545 0102 00        		.string	""
- 546 0103 6B02 00   		.string	"k\002"
- 547 0106 00        		.string	""
- 548 0107 6368 5379 		.string	"chSysHalt"
- 548      7348 616C 
- 548      7400 
- 549 0111 00        		.string	""
- 550 0112 02        		.ascii	"\002"
- 551 0113 00        		.string	""
- 552 0114 00        		.string	""
- 553 0115 00        		.string	""
- 554 0116 00        		.string	""
- 555 0117 00        		.string	""
- 556 0118 00        		.string	""
-GAS LISTING /tmp/cc8dRF8W.s 			page 36
-
-
- 557 0119 00        		.string	""
- 558 011a 00        		.string	""
- 559 011b 00        		.string	""
- 560 011c 7002 00   		.string	"p\002"
- 561 011f 00        		.string	""
- 562 0120 6932 635F 		.string	"i2c_lld_stop"
- 562      6C6C 645F 
- 562      7374 6F70 
- 562      00
- 563 012d 00        		.string	""
- 564 012e 02        		.ascii	"\002"
- 565 012f 00        		.string	""
- 566 0130 00        		.string	""
- 567 0131 00        		.string	""
- 568 0132 00        		.string	""
- 569 0133 00        		.string	""
- 570 0134 00        		.string	""
- 571 0135 00        		.string	""
- 572 0136 00        		.string	""
- 573 0137 00        		.string	""
- 574 0138 7202 00   		.string	"r\002"
- 575 013b 00        		.string	""
- 576 013c 6932 635F 		.string	"i2c_lld_master_transmit_timeout"
- 576      6C6C 645F 
- 576      6D61 7374 
- 576      6572 5F74 
- 576      7261 6E73 
- 577 015c 00        		.string	""
- 578 015d 02        		.ascii	"\002"
- 579 015e 00        		.string	""
- 580 015f 00        		.string	""
- 581 0160 00        		.string	""
- 582 0161 00        		.string	""
- 583 0162 00        		.string	""
- 584 0163 00        		.string	""
- 585 0164 00        		.string	""
- 586 0165 00        		.string	""
- 587 0166 00        		.string	""
- 588 0167 7402 00   		.string	"t\002"
- 589 016a 00        		.string	""
- 590 016b 6932 635F 		.string	"i2c_lld_master_receive_timeout"
- 590      6C6C 645F 
- 590      6D61 7374 
- 590      6572 5F72 
- 590      6563 6569 
- 591 018a 00        		.string	""
- 592 018b 02        		.ascii	"\002"
- 593 018c 00        		.string	""
- 594 018d 00        		.string	""
- 595 018e 00        		.string	""
- 596 018f 00        		.string	""
- 597 0190 00        		.string	""
- 598 0191 00        		.string	""
- 599 0192 00        		.string	""
- 600 0193 00        		.string	""
- 601 0194 00        		.string	""
- 602 0195 7602 00   		.string	"v\002"
-GAS LISTING /tmp/cc8dRF8W.s 			page 37
-
-
- 603 0198 00        		.string	""
- 604               	.text
- 605               		.section	.gnu.lto_.opts,"",@progbits
- 606 0000 272D 666D 		.ascii	"'-fmath"
- 606      6174 68
- 607 0007 2D65 7272 		.string	"-errno' '-fsigned-zeros' '-ftrapping-math' '-fno-trapv' '-fno-openmp' '-fno-openacc' '-mm
- 607      6E6F 2720 
- 607      272D 6673 
- 607      6967 6E65 
- 607      642D 7A65 
- 608               	.text
- 609               		.section	.upper.bss,"aw",@nobits
- 610               		.global	__gnu_lto_v1
- 611               		.weak	__gnu_lto_v1
- 612               	__gnu_lto_v1:
- 613 0000 00        		.zero	1
- 614               		.global	__gnu_lto_slim
- 615               		.weak	__gnu_lto_slim
- 616               	__gnu_lto_slim:
- 617 0001 00        		.zero	1
- 618               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/cc8dRF8W.s 			page 38
+ 325               		.type	__func__.3707, @object
+ 326               		.size	__func__.3707, 8
+ 327               	__func__.3707:
+ 328 003e 6932 6353 		.string	"i2cStop"
+ 328      746F 7000 
+ 329               		.type	__func__.3703, @object
+ 330               		.size	__func__.3703, 9
+ 331               	__func__.3703:
+ 332 0046 6932 6353 		.string	"i2cStart"
+ 332      7461 7274 
+ 332      00
+ 333               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/cc40xLpU.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_i2c.c
-     /tmp/cc8dRF8W.s:612    .upper.bss:0000000000000000 __gnu_lto_v1
-     /tmp/cc8dRF8W.s:616    .upper.bss:0000000000000001 __gnu_lto_slim
+     /tmp/cc40xLpU.s:6      .text.i2cInit:0000000000000000 i2cInit
+     /tmp/cc40xLpU.s:25     .text.i2cObjectInit:0000000000000000 i2cObjectInit
+     /tmp/cc40xLpU.s:45     .text.i2cStart:0000000000000000 i2cStart
+     /tmp/cc40xLpU.s:331    .upper.rodata:0000000000000046 __func__.3703
+     /tmp/cc40xLpU.s:100    .text.i2cStop:0000000000000000 i2cStop
+     /tmp/cc40xLpU.s:327    .upper.rodata:000000000000003e __func__.3707
+     /tmp/cc40xLpU.s:150    .text.i2cGetErrors:0000000000000000 i2cGetErrors
+     /tmp/cc40xLpU.s:323    .upper.rodata:0000000000000031 __func__.3711
+     /tmp/cc40xLpU.s:176    .text.i2cMasterTransmitTimeout:0000000000000000 i2cMasterTransmitTimeout
+     /tmp/cc40xLpU.s:319    .upper.rodata:0000000000000018 __func__.3722
+     /tmp/cc40xLpU.s:250    .text.i2cMasterReceiveTimeout:0000000000000000 i2cMasterReceiveTimeout
+     /tmp/cc40xLpU.s:315    .upper.rodata:0000000000000000 __func__.3731
+     /tmp/cc40xLpU.s:62     .text.i2cStart:0000000000000014 .L4
+     /tmp/cc40xLpU.s:65     .text.i2cStart:000000000000001c .L5
+     /tmp/cc40xLpU.s:74     .text.i2cStart:0000000000000036 .L6
+     /tmp/cc40xLpU.s:116    .text.i2cStop:0000000000000012 .L14
+     /tmp/cc40xLpU.s:131    .text.i2cStop:0000000000000032 .L15
+     /tmp/cc40xLpU.s:166    .text.i2cGetErrors:0000000000000012 .L20
+     /tmp/cc40xLpU.s:204    .text.i2cMasterTransmitTimeout:0000000000000040 .L22
+     /tmp/cc40xLpU.s:202    .text.i2cMasterTransmitTimeout:000000000000003c .L23
+     /tmp/cc40xLpU.s:207    .text.i2cMasterTransmitTimeout:0000000000000048 .L24
+     /tmp/cc40xLpU.s:211    .text.i2cMasterTransmitTimeout:0000000000000056 .L25
+     /tmp/cc40xLpU.s:242    .text.i2cMasterTransmitTimeout:00000000000000a0 .L26
+     /tmp/cc40xLpU.s:230    .text.i2cMasterTransmitTimeout:000000000000008e .L27
+     /tmp/cc40xLpU.s:273    .text.i2cMasterReceiveTimeout:000000000000002c .L43
+     /tmp/cc40xLpU.s:276    .text.i2cMasterReceiveTimeout:0000000000000034 .L44
+     /tmp/cc40xLpU.s:280    .text.i2cMasterReceiveTimeout:0000000000000042 .L45
+     /tmp/cc40xLpU.s:308    .text.i2cMasterReceiveTimeout:000000000000007c .L46
+     /tmp/cc40xLpU.s:297    .text.i2cMasterReceiveTimeout:000000000000006c .L47
 
 UNDEFINED SYMBOLS
-__crt0_init_highbss
+i2c_lld_init
+chSysHalt
+i2c_lld_start
+i2c_lld_stop
+i2c_lld_master_transmit_timeout
+i2c_lld_master_receive_timeout

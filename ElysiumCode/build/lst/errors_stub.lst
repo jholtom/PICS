@@ -1,460 +1,91 @@
-GAS LISTING /tmp/ccV9Qq7T.s 			page 1
+GAS LISTING /tmp/cc6XC1TC.s 			page 1
 
 
    1               		.file	"errors_stub.c"
-   2               		.section	.gnu.lto_.profile.4b8af61ef86a69b,"",@progbits
-   3 0000 789C 6365 		.string	"x\234ce`d`a`"
-   3      6064 6061 
-   3      6000 
-   4 000a 921C 2C00 		.string	"\222\034,"
-   5 000e 00        		.string	""
-   6 000f 8A00      		.string	"\212"
-   7 0011 18        		.ascii	"\030"
-   8               	.text
-   9               		.section	.gnu.lto_.icf.4b8af61ef86a69b,"",@progbits
-  10 0000 789C 6365 		.string	"x\234ce`d\220b@"
-  10      6064 9062 
-  10      4000 
-  11 000a 1686 CF0B 		.string	"\026\206\317\013\333\336\3620\202I&0\311\f&\031"
-  11      DBDE F230 
-  11      8249 2630 
-  11      C90C 2619 
-  11      00
-  12 001b AB8E 0C77 		.ascii	"\253\216\fw"
-  13               	.text
-  14               		.section	.gnu.lto_.jmpfuncs.4b8af61ef86a69b,"",@progbits
-  15 0000 789C 6365 		.string	"x\234ce`d\020c@"
-  15      6064 1063 
-  15      4000 
-  16 000a 1606 4646 		.string	"\026\006FF\006 \006\022L \202\031D0"
-  16      0620 0612 
-  16      4C20 8219 
-  16      4430 00
-  17 0019 00        		.string	""
-  18 001a 04E4 00   		.string	"\004\344"
-  19 001d 2F        		.ascii	"/"
-  20               	.text
-  21               		.section	.gnu.lto_.inline.4b8af61ef86a69b,"",@progbits
-  22 0000 789C 6365 		.string	"x\234ce`d\360b@"
-  22      6064 F062 
-  22      4000 
-  23 000a 1606 0666 		.string	"\026\006\006f&F\006& \223m\201<\210\002*@\027a\302\020a\306\020a"
-  23      2646 0626 
-  23      2093 6D81 
-  23      3C88 022A 
-  23      4017 61C2 
-  24 0024 00        		.string	""
-  25 0025 8EE2 0397 		.ascii	"\216\342\003\227"
-  26               	.text
-  27               		.section	.gnu.lto_.pureconst.4b8af61ef86a69b,"",@progbits
-  28 0000 789C 6365 		.string	"x\234ce`d\340d```a"
-  28      6064 E064 
-  28      6060 6061 
-  28      00
-  29 000d 3298 1898 		.string	"2\230\030\230\031"
-  29      1900 
-  30 0013 0122 00   		.string	"\001\""
-  31 0016 1A        		.ascii	"\032"
-  32               	.text
-  33               		.section	.gnu.lto_elyErrorSignal.4b8af61ef86a69b,"",@progbits
-  34 0000 789C 254E 		.ascii	"x\234%N\261J\003Q\020\234y\353\035)\314\027x\240\205\020\256"
-GAS LISTING /tmp/ccV9Qq7T.s 			page 2
+   2               		.section	.text.elyErrorSignal,"ax",@progbits
+   3               		.balign 2
+   4               		.global	elyErrorSignal
+   5               		.type	elyErrorSignal, @function
+   6               	elyErrorSignal:
+   7               	; start of function
+   8               	; framesize_regs:     0
+   9               	; framesize_locals:   0
+  10               	; framesize_outgoing: 0
+  11               	; framesize:          0
+  12               	; elim ap -> fp       4
+  13               	; elim fp -> sp       0
+  14               	; saved regs:(none)
+  15               		; start of prologue
+  16               		; end of prologue
+  17               		; start of epilogue
+  18 0000 1001      		RETA
+  19               		.size	elyErrorSignal, .-elyErrorSignal
+  20               		.section	.text.elyErrorSignalI,"ax",@progbits
+  21               		.balign 2
+  22               		.global	elyErrorSignalI
+  23               		.type	elyErrorSignalI, @function
+  24               	elyErrorSignalI:
+  25               	; start of function
+  26               	; framesize_regs:     0
+  27               	; framesize_locals:   0
+  28               	; framesize_outgoing: 0
+  29               	; framesize:          0
+  30               	; elim ap -> fp       4
+  31               	; elim fp -> sp       0
+  32               	; saved regs:(none)
+  33               		; start of prologue
+  34               		; end of prologue
+  35               		; start of epilogue
+  36 0000 1001      		RETA
+  37               		.size	elyErrorSignalI, .-elyErrorSignalI
+  38               		.section	.text.elyErrorSetRptLvlS,"ax",@progbits
+  39               		.balign 2
+  40               		.global	elyErrorSetRptLvlS
+  41               		.type	elyErrorSetRptLvlS, @function
+  42               	elyErrorSetRptLvlS:
+  43               	; start of function
+  44               	; framesize_regs:     0
+  45               	; framesize_locals:   0
+  46               	; framesize_outgoing: 0
+  47               	; framesize:          0
+  48               	; elim ap -> fp       4
+  49               	; elim fp -> sp       0
+  50               	; saved regs:(none)
+  51               		; start of prologue
+  52               		; end of prologue
+  53               		; start of epilogue
+  54 0000 1001      		RETA
+  55               		.size	elyErrorSetRptLvlS, .-elyErrorSetRptLvlS
+  56               		.section	.text.elyErrorSetLogLvlS,"ax",@progbits
+  57               		.balign 2
+GAS LISTING /tmp/cc6XC1TC.s 			page 2
 
 
-  34      B14A 0351 
-  34      109C 79EB 
-  34      1D29 CC17 
-  34      78A0 8510 
-  35 0015 C913 F209 		.ascii	"\311\023\362\t~\210\220\220:p\247u\326k\002\2610M\f\026\222F"
-  35      7E88 9090 
-  35      3A70 A775 
-  35      D66B 02B1 
-  35      304D 0C16 
-  36 002b 4962 A316 		.ascii	"Ib\243\026)\004\213\207\245E\n?A\202\225\026\376@t_\\\030vfw"
-  36      2904 8B87 
-  36      A545 0A3F 
-  36      4182 9516 
-  36      FE40 745F 
-  37 0044 7699 04C4 		.ascii	"v\231\004\304#\200C\303\236\201\002\272\321\n8\25792\022\255"
-  37      2380 43C3 
-  37      9E81 02BA 
-  37      D10A 38AF 
-  37      3932 12AD 
-  38 0058 117D C73E 		.ascii	"\021}\307>/e\"|\035|>\273|\246Va\362F\235\007N\005\2706\304\342"
-  38      2F65 227C 
-  38      1D7C 3EBB 
-  38      7CA6 5661 
-  38      F246 9D07 
-  39 0072 8CB9 B996 		.ascii	"\214\271\271\226?W7\251\354\023\306\253\345\313*i\334\251V\032"
-  39      3F57 37A9 
-  39      EC13 C6AB 
-  39      E5CB 2A69 
-  39      DCA9 561A 
-  40 0086 BE8E 7577 		.ascii	"\276\216uw*\344\234b\027le<\312`\003p\301F4\177<m\306\365t\347"
-  40      2AE4 9C62 
-  40      176C 653C 
-  40      CA60 0370 
-  40      C146 347F 
-  41 00a0 FF1F EF99 		.ascii	"\377\037\357\231\322\372\303;\203n~\007\032\326\267\364\016\030"
-  41      D2FA C33B 
-  41      836E 7E07 
-  41      1AD6 B7F4 
-  41      0E18 
-  42 00b2 DA36 46BB 		.ascii	"\3326F\273\020\027\273|\263:\210\346m\204\241\275\263\241\331"
-  42      1017 BB7C 
-  42      B33A 88E6 
-  42      6D84 A1BD 
-  42      B3A1 D9
-  43 00c5 B2A6 F79D 		.ascii	"\262\246\367\235^\321\365\345\351Y\273\364\335\242\350\025\345"
-  43      5ED1 F5E5 
-  43      E959 BBF4 
-  43      DDA2 E815 
-  43      E5
-  44 00d6 4914 CD0E 		.ascii	"I\024\315\016\222\255\374\003M@D\345"
-  44      92AD FC03 
-  44      4D40 44E5 
-  45               	.text
-  46               		.section	.gnu.lto_elyErrorSignalI.4b8af61ef86a69b,"",@progbits
-  47 0000 789C 6365 		.string	"x\234ce`d\330\310\300\300\240\002\304\322@\314\310\314\300\3104\341\034\003C#\007\023##\2
-  47      6064 D8C8 
-  47      C0C0 A002 
-GAS LISTING /tmp/ccV9Qq7T.s 			page 3
-
-
-  47      C4D2 40CC 
-  47      C8CC C0C8 
-  48 007d 03E3 4A46 		.string	"\003\343JFu\220\342G\033\377M\345ec\201\230\307\270\212\221\215\021H\257\277\304x\240\341
-  48      7590 E247 
-  48      1BFF 4DE5 
-  48      6563 8198 
-  48      C7B8 8A91 
-  49 00e0 B02F 4581 		.ascii	"\260/E\201"
-  50               	.text
-  51               		.section	.gnu.lto_elyErrorSetRptLvlS.4b8af61ef86a69b,"",@progbits
-  52 0000 789C 254E 		.string	"x\234%N1KBa\024=\347\273\366p\260]\350A\321\".\276\240\277\340\377\b\0227Ax\317Z\275\272H
-  52      314B 4261 
-  52      143D E7BB 
-  52      F670 B05D 
-  52      E841 D122 
-  53 0047 706E 3831 		.ascii	"pn81P@7\374\004:yG\006\242y\242\355\330\346@\306\302Uo\363\346"
-  53      5040 37FC 
-  53      043A 7947 
-  53      06A2 79A2 
-  53      EDD8 E640 
-  54 0061 CA53 B5F2 		.ascii	"\312S\265\362\343\367\242\316<'\002<\032Bq\312\262\251\226\273"
-  54      E3F7 A2CE 
-  54      3C27 023C 
-  54      1A42 71CA 
-  54      B2A9 96BB 
-  55 0075 BB55 24A7 		.ascii	"\273U$\247\204\361\357\316|T(=\253v\325\177T\2650\021rF\261\017"
-  55      84F1 EFCE 
-  55      7C54 283D 
-  55      AB76 D57F 
-  55      54B5 3011 
-  56 008d 5EC6 BC88 		.ascii	"^\306\274\210a\013\360\205\245 \376Z\354\037\216\243\334\277"
-  56      610B F085 
-  56      A520 FE5A 
-  56      EC1F 8EA3 
-  56      DCBF 
-  57 009f 1F5F 19D1 		.ascii	"\037_\031\321\372|M\257\373CO\375\317\023\2279\007\364\355\034"
-  57      FA7C 4DAF 
-  57      FB43 4FFD 
-  57      CF13 9739 
-  57      07F4 ED1C 
-  58 00b3 B2DD 8B0B 		.ascii	"\262\335\213\013]\266\354\236\005\365_\206\276\371\331\322dq"
-  58      5DB6 EC9E 
-  58      05F5 5F86 
-  58      BEF9 D9D2 
-  58      6471 
-  59 00c5 2549 6ACD 		.ascii	"%Ij\315\264\236d\255\233\353,\251\247i3\315\256\302P\251A\032"
-  59      B49E 64AD 
-  59      9BEB 2CA9 
-  59      A769 33CD 
-  59      AEC2 50A9 
-  60 00db B78D 5F2B 		.ascii	"\267\215_+CD\254"
-  60      4344 AC
-  61               	.text
-  62               		.section	.gnu.lto_elyErrorSetLogLvlS.4b8af61ef86a69b,"",@progbits
-  63 0000 789C 254E 		.ascii	"x\234%N1KBa\024=\347\273\366p\260=\360A\341\".\276\300\277\320"
-  63      314B 4261 
-  63      143D E7BB 
-GAS LISTING /tmp/ccV9Qq7T.s 			page 4
-
-
-  63      F670 B03D 
-  63      F041 E122 
-  64 0019 FF08 1237 		.ascii	"\377\b\0227AxO[\275\272H6$DH\223K\241\266\210cS\037\316\321\340"
-  64      4178 4F5B 
-  64      BDBA 4836 
-  64      2444 4893 
-  64      4BA1 B688 
-  65 0033 D29E D0E6 		.ascii	"\322\236\320\346\326\252v\277\272p\270\347\336{\356\341\034\201"
-  65      D6AA 76BF 
-  65      BA70 B8E7 
-  65      DE7B EEE1 
-  65      1C81 
-  66 0045 5802 2819 		.ascii	"X\002(\031\212\006\n\350F\037@/\357\310@4Ot\035\273\274\223\261"
-  66      8A06 0AE8 
-  66      461F 402F 
-  66      EFC8 4034 
-  66      4F74 1DBB 
-  67 005c 7035 F87E 		.ascii	"p5\370~u\225\251Z\371\361\372Dg\236\023\001\036\r\2418e\305T"
-  67      7595 A95A 
-  67      F9F1 FA44 
-  67      679E 1301 
-  67      1E0D A138 
-  68 0073 6FBB 9B55 		.ascii	"o\273\233U$\247\204\361Moq_(?\253\366\325\277_ha\"\344\214b\037"
-  68      24A7 84F1 
-  68      4D6F 715F 
-  68      283F ABF6 
-  68      D5BF 5F68 
-  69 008d ACC5 3C8F 		.ascii	"\254\305<\217a\013p\316r\020\177-\367\017\307Q\356\337\217/\214"
-  69      610B 70CE 
-  69      7210 7F2D 
-  69      F70F C751 
-  69      EEDF 8F2F 
-  70 00a2 687D B1A6 		.ascii	"h}\261\246\327\375a\240\376\347\211\2379\007\f\355\034\262\335"
-  70      D7FD 61A0 
-  70      FEE7 899F 
-  70      3907 0CED 
-  70      1CB2 DD
-  71 00b5 8A0B 5DB6 		.ascii	"\212\013]\266\354\237\005\365_\206\241\371\331\322dq5I\352\255"
-  71      EC9F 05F5 
-  71      5F86 A1F9 
-  71      D9D2 6471 
-  71      3549 EAAD 
-  72 00c9 B491 64ED 		.ascii	"\264\221d\355\316U\2264\322\264\225f\227a\250\326!\315\353\346"
-  72      CE55 9634 
-  72      D2B4 9566 
-  72      9761 A8D6 
-  72      21CD EBE6 
-  73 00dd 2F44 9344 		.ascii	"/D\223D\334"
-  73      DC
-  74               	.text
-  75               		.section	.gnu.lto_.symbol_nodes.4b8af61ef86a69b,"",@progbits
-  76 0000 789C 6365 		.string	"x\234ce`dpc"
-  76      6064 7063 
-  76      00
-  77 0009 0226 9B7A 		.string	"\002&\233z\006\206\t\347\030\030\200\324\256\006G\240\200m=#\252\200]=\023\252\200}=3\212
-  77      0686 09E7 
-  77      1818 80D4 
-GAS LISTING /tmp/ccV9Qq7T.s 			page 5
-
-
-  77      AE06 47A0 
-  77      806D 3D23 
-  78 0029 0300      		.string	"\003"
-  79 002b 5D9C 10AD 		.ascii	"]\234\020\255"
-  80               	.text
-  81               		.section	.gnu.lto_.refs.4b8af61ef86a69b,"",@progbits
-  82 0000 789C 6365 		.string	"x\234ce`\004B "
-  82      6004 4220 
-  82      00
-  83 0009 00        		.string	""
-  84 000a 00        		.string	""
-  85 000b 4200      		.string	"B"
-  86 000d 08        		.ascii	"\b"
-  87               	.text
-  88               		.section	.gnu.lto_.decls.4b8af61ef86a69b,"",@progbits
-  89 0000 789C AD91 		.string	"x\234\255\221MHTQ\024\307\357yoD\033\323\021\221\220\230\205\270\262\205\3579*\322>*\002\
-  89      4D48 5451 
-  89      14C7 EF79 
-  89      6F44 1BD3 
-  89      1191 9098 
-  90 00b7 F438 4639 		.string	"\3648F9}6\204\206\324\272\261+1\\\316D\352\237\271\202\215H\254\220\235\301b\234U&X\027\3
-  90      7D36 8486 
-  90      D4BA B12B 
-  90      315C CE44 
-  90      EA9F B982 
-  91 00e9 B0DA 907B 		.string	"\260\332\220{\275<\354\344\261\007\270_\333\212\237\020&\250a%G\362\275\232\032\330H\224\
-  91      BD3C ECE4 
-  91      B107 B85F 
-  91      DB8A 9F10 
-  91      26A8 6125 
-  92 01b5 D538 CF80 		.ascii	"\3258\317\200\303h\340\350\343ok\245\265ctz\235f\277/T\275\241"
-  92      C368 E0E8 
-  92      E36F 6BA5 
-  92      B563 747A 
-  92      9D66 BF2F 
-  93 01cc 348E F76A 		.ascii	"4\216\367j\230\f\342\371\252q\313\226;\260\212\277k\026j\361"
-  93      980C E2F9 
-  93      AA71 CB96 
-  93      3BB0 8ABF 
-  93      6B16 6AF1 
-  94 01e0 E6E0 FAC7 		.ascii	"\346\340\372\307K\034\277\255\277\0352\033\311r\223\362\364\f"
-  94      4B1C BFAD 
-  94      BF1D 321B 
-  94      C972 93F2 
-  94      F40C 
-  95 01f2 BD4E 596B 		.ascii	"\275NYk\031b.\217\230\263#\322:b\340\341\217\025\340\207\214"
-  95      1962 2E8F 
-  95      98B3 23D2 
-  95      3A62 E0E1 
-  95      8F15 E087 
-  96 0207 7FBC 78ED 		.ascii	"\177\274x\355w\2227\031\237\355\214\371<c\336\316\310\350\214"
-  96      7792 3719 
-  96      9FED 8CF9 
-  96      3C63 DECE 
-  96      C8E8 8C
-  97 021a 17B1 CD9D 		.ascii	"\027\261\315\235\203\374\250\301H\215\214\3578\254:\332l\214"
-  97      83FC A8C1 
-GAS LISTING /tmp/ccV9Qq7T.s 			page 6
-
-
-  97      488D 8CEF 
-  97      38AC 3ADA 
-  97      6C8C 
-  98 022c 853C 63C1 		.ascii	"\205<c\301\316X\204ZR.+\321\343\341p0\334\356\357\tx\225\222"
-  98      CE58 845A 
-  98      522E 2BD1 
-  98      E3E1 7030 
-  98      DCEE EF09 
-  99 0243 93A7 CFD6 		.ascii	"\223\247\317\326\034\363x\310\001I\212\370\003\332QI;'\206\203"
-  99      1CF3 78C8 
-  99      0149 8AF8 
-  99      03DA 5149 
-  99      3B27 8683 
- 100 0257 414D D4FC 		.ascii	"AM\324\374\365Z0\250\250b\310\033\326\032\305>5\324\334\324P"
- 100      F55A 30A8 
- 100      A862 C81B 
- 100      D61A C53E 
- 100      35D4 DCD4 
- 101 026c DFE3 F3D5 		.ascii	"\337\343\363\325\267\b\215\202G\360\264H\212?\020\271\330\322"
- 101      B708 8D82 
- 101      47F0 B448 
- 101      8A3F 10B9 
- 101      D8D2 
- 102 027e 6C9D C94A 		.ascii	"l\235\311J\267\350\017\370\224H\227,\366y}\275\376\200,J]r\267"
- 102      B7E8 0FF8 
- 102      9448 972C 
- 102      F679 7DBD 
- 102      FE80 2C4A 
- 103 0295 37A2 6892 		.ascii	"7\242h\222\026\r\311\252\320K\212\315,m\377#\213\032UEI\325\272"
- 103      160D C9AA 
- 103      D04B 8ACD 
- 103      2C6D FF23 
- 103      8B1A 5545 
- 104 02ac 1089 68B7 		.ascii	"\020\211h\267 \212\276`\030\303Z\244S\025e\366JUb\216\340#\256"
- 104      208A BE60 
- 104      18C3 5AA4 
- 104      5315 65F6 
- 104      4A55 628E 
- 105 02c3 BDEF 3E55 		.ascii	"\275\357>U\271\353\313Z[Hk\275\240\264\333C\255\301\036\026\372"
- 105      B9EB CB5A 
- 105      5B48 6BBD 
- 105      A0B4 DB43 
- 105      ADC1 1E16 
- 106 02d8 0379 1859 		.ascii	"\003y\030Y\300"
- 106      C0
- 107               	.text
- 108               		.section	.gnu.lto_.symtab.4b8af61ef86a69b,"",@progbits
- 109 0000 656C 7945 		.string	"elyErrorSignal"
- 109      7272 6F72 
- 109      5369 676E 
- 109      616C 00
- 110 000f 00        		.string	""
- 111 0010 00        		.string	""
- 112 0011 00        		.string	""
- 113 0012 00        		.string	""
- 114 0013 00        		.string	""
- 115 0014 00        		.string	""
-GAS LISTING /tmp/ccV9Qq7T.s 			page 7
-
-
- 116 0015 00        		.string	""
- 117 0016 00        		.string	""
- 118 0017 00        		.string	""
- 119 0018 00        		.string	""
- 120 0019 00        		.string	""
- 121 001a B600      		.string	"\266"
- 122 001c 00        		.string	""
- 123 001d 00        		.string	""
- 124 001e 656C 7945 		.string	"elyErrorSignalI"
- 124      7272 6F72 
- 124      5369 676E 
- 124      616C 4900 
- 125 002e 00        		.string	""
- 126 002f 00        		.string	""
- 127 0030 00        		.string	""
- 128 0031 00        		.string	""
- 129 0032 00        		.string	""
- 130 0033 00        		.string	""
- 131 0034 00        		.string	""
- 132 0035 00        		.string	""
- 133 0036 00        		.string	""
- 134 0037 00        		.string	""
- 135 0038 00        		.string	""
- 136 0039 B800      		.string	"\270"
- 137 003b 00        		.string	""
- 138 003c 00        		.string	""
- 139 003d 656C 7945 		.string	"elyErrorSetRptLvlS"
- 139      7272 6F72 
- 139      5365 7452 
- 139      7074 4C76 
- 139      6C53 00
- 140 0050 00        		.string	""
- 141 0051 00        		.string	""
- 142 0052 00        		.string	""
- 143 0053 00        		.string	""
- 144 0054 00        		.string	""
- 145 0055 00        		.string	""
- 146 0056 00        		.string	""
- 147 0057 00        		.string	""
- 148 0058 00        		.string	""
- 149 0059 00        		.string	""
- 150 005a 00        		.string	""
- 151 005b BA00      		.string	"\272"
- 152 005d 00        		.string	""
- 153 005e 00        		.string	""
- 154 005f 656C 7945 		.string	"elyErrorSetLogLvlS"
- 154      7272 6F72 
- 154      5365 744C 
- 154      6F67 4C76 
- 154      6C53 00
- 155 0072 00        		.string	""
- 156 0073 00        		.string	""
- 157 0074 00        		.string	""
- 158 0075 00        		.string	""
- 159 0076 00        		.string	""
- 160 0077 00        		.string	""
- 161 0078 00        		.string	""
-GAS LISTING /tmp/ccV9Qq7T.s 			page 8
-
-
- 162 0079 00        		.string	""
- 163 007a 00        		.string	""
- 164 007b 00        		.string	""
- 165 007c 00        		.string	""
- 166 007d BC00      		.string	"\274"
- 167 007f 00        		.string	""
- 168 0080 00        		.string	""
- 169               	.text
- 170               		.section	.gnu.lto_.opts,"",@progbits
- 171 0000 272D 666D 		.ascii	"'-fmath"
- 171      6174 68
- 172 0007 2D65 7272 		.string	"-errno' '-fsigned-zeros' '-ftrapping-math' '-fno-trapv' '-fno-openmp' '-fno-openacc' '-mm
- 172      6E6F 2720 
- 172      272D 6673 
- 172      6967 6E65 
- 172      642D 7A65 
- 173               	.text
- 174               		.section	.upper.bss,"aw",@nobits
- 175               		.global	__gnu_lto_v1
- 176               		.weak	__gnu_lto_v1
- 177               	__gnu_lto_v1:
- 178 0000 00        		.zero	1
- 179               		.global	__gnu_lto_slim
- 180               		.weak	__gnu_lto_slim
- 181               	__gnu_lto_slim:
- 182 0001 00        		.zero	1
- 183               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccV9Qq7T.s 			page 9
+  58               		.global	elyErrorSetLogLvlS
+  59               		.type	elyErrorSetLogLvlS, @function
+  60               	elyErrorSetLogLvlS:
+  61               	; start of function
+  62               	; framesize_regs:     0
+  63               	; framesize_locals:   0
+  64               	; framesize_outgoing: 0
+  65               	; framesize:          0
+  66               	; elim ap -> fp       4
+  67               	; elim fp -> sp       0
+  68               	; saved regs:(none)
+  69               		; start of prologue
+  70               		; end of prologue
+  71               		; start of epilogue
+  72 0000 1001      		RETA
+  73               		.size	elyErrorSetLogLvlS, .-elyErrorSetLogLvlS
+  74               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/cc6XC1TC.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 errors_stub.c
-     /tmp/ccV9Qq7T.s:177    .upper.bss:0000000000000000 __gnu_lto_v1
-     /tmp/ccV9Qq7T.s:181    .upper.bss:0000000000000001 __gnu_lto_slim
+     /tmp/cc6XC1TC.s:6      .text.elyErrorSignal:0000000000000000 elyErrorSignal
+     /tmp/cc6XC1TC.s:24     .text.elyErrorSignalI:0000000000000000 elyErrorSignalI
+     /tmp/cc6XC1TC.s:42     .text.elyErrorSetRptLvlS:0000000000000000 elyErrorSetRptLvlS
+     /tmp/cc6XC1TC.s:60     .text.elyErrorSetLogLvlS:0000000000000000 elyErrorSetLogLvlS
 
-UNDEFINED SYMBOLS
-__crt0_init_highbss
+NO UNDEFINED SYMBOLS

@@ -29,7 +29,7 @@ CSTANDARD = -std=gnu11
 
 # Compiler options here.
 ifeq ($(USE_OPT),)
-  USE_OPT = -O$(OPTIMIZE) 
+  USE_OPT = -O$(OPTIMIZE)
 #-g$(DEBUG) 
   USE_OPT += -fsigned-char -fshort-enums 
 endif
@@ -51,12 +51,12 @@ endif
 
 # Linker extra options here.
 ifeq ($(USE_LDOPT),)
-  USE_LDOPT = 
+  USE_LDOPT =
 endif
 
 # Enable this if you want link time optimizations (LTO)
 ifeq ($(USE_LTO),)
-  USE_LTO = yes
+#  USE_LTO = yes
 endif
 
 # Enable the selected hardware multiplier

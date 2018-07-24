@@ -1,702 +1,85 @@
-GAS LISTING /tmp/cc0gFM67.s 			page 1
+GAS LISTING /tmp/cc99Jz9b.s 			page 1
 
 
    1               		.file	"hal_st_lld.c"
-   2               		.section	.gnu.lto_.profile.3c81accd68d0762b,"",@progbits
-   3 0000 789C 6365 		.string	"x\234ce`d`a`"
-   3      6064 6061 
-   3      6000 
-   4 000a 92DA 7C00 		.string	"\222\332|"
-   5 000e 00        		.string	""
-   6 000f DA00      		.string	"\332"
-   7 0011 45        		.ascii	"E"
-   8               	.text
-   9               		.section	.gnu.lto_.icf.3c81accd68d0762b,"",@progbits
-  10 0000 789C 6365 		.string	"x\234ce`d\340c@"
-  10      6064 E063 
-  10      4000 
-  11 000a 2686 95EB 		.string	"&\206\225\353\327~\347cjy\335u\222\233\001"
-  11      D77E E763 
-  11      6A79 DD75 
-  11      929B 0100 
-  12 001a 2E00      		.string	"."
-  13 001c 05F0      		.ascii	"\005\360"
-  14               	.text
-  15               		.section	.gnu.lto_.jmpfuncs.3c81accd68d0762b,"",@progbits
-  16 0000 789C 6365 		.string	"x\234ce`d\340f@"
-  16      6064 E066 
-  16      4000 
-  17 000a 2604 0500 		.string	"&\004\005"
-  18 000e 01D6 00   		.string	"\001\326"
-  19 0011 16        		.ascii	"\026"
-  20               	.text
-  21               		.section	.gnu.lto_.inline.3c81accd68d0762b,"",@progbits
-  22 0000 789C 6365 		.string	"x\234ce`d0g@"
-  22      6064 3067 
-  22      4000 
-  23 000a 2606 066E 		.string	"&\006\006ny \305q\300\216\201m\201<\023H\214\221\013$\301\rg1\260\2631\242\252`"
-  23      7920 C571 
-  23      C08E 816D 
-  23      813C 1348 
-  23      8C91 0B24 
-  24 0029 00        		.string	""
-  25 002a 8052 043B 		.ascii	"\200R\004;"
-  26               	.text
-  27               		.section	.gnu.lto_.pureconst.3c81accd68d0762b,"",@progbits
-  28 0000 789C 6365 		.string	"x\234ce`d`e```b\220`\222\002"
-  28      6064 6065 
-  28      6060 6062 
-  28      9060 9202 
-  28      00
-  29 0011 00        		.string	""
-  30 0012 F600      		.string	"\366"
-  31 0014 42        		.ascii	"B"
-  32               	.text
-  33               		.section	.gnu.lto_ISR_MSP430X_ST_ISR.3c81accd68d0762b,"",@progbits
-  34 0000 789C 8590 		.ascii	"x\234\205\220\313+Dq\024\307\317\367\376\356\334\031\203\275"
-  34      CB2B 4471 
-  34      14C7 CFF7 
-  34      FEEE DC19 
-  34      83BD 
-GAS LISTING /tmp/cc0gFM67.s 			page 2
+   2               		.section	.lower.lowtext,"ax",@progbits
+   3               		.balign 2
+   4               		.global	ISR_MSP430X_ST_ISR
+   5               		.section	__interrupt_vector_52,"ax",@progbits
+   6 0000 0000      		.word	ISR_MSP430X_ST_ISR
+   7               			.section	.lower.lowtext
+   8               		.type	ISR_MSP430X_ST_ISR, @function
+   9               	ISR_MSP430X_ST_ISR:
+  10               	; start of function
+  11               	; attributes: interrupt 
+  12               	; framesize_regs:     48
+  13               	; framesize_locals:   0
+  14               	; framesize_outgoing: 0
+  15               	; framesize:          48
+  16               	; elim ap -> fp       52
+  17               	; elim fp -> sp       0
+  18               	; saved regs: R4 R5 R6 R7 R8 R9 R10 R11 R12 R13 R14 R15
+  19               		; start of prologue
+  20 0000 BF14      		PUSHM.A	#12, R15
+  21               		; end of prologue
+  22 0002 4018 D243 		MOVX.B	#1, &__msp430x_in_isr
+  22      0000 
+  23 0008 B013 0000 		CALLA	#chSysTimerHandlerI
+  24 000c 4018 C243 		MOVX.B	#0, &__msp430x_in_isr
+  24      0000 
+  25 0012 B013 0000 		CALLA	#chSchIsPreemptionRequired
+  26 0016 4C93 0024 		CMP.B	#0, R12 { JEQ	.L1
+  27 001a B013 0000 		CALLA	#chSchDoReschedule
+  28               	.L1:
+  29               		; start of epilogue
+  30 001e B416      		POPM.A	#12, r15
+  31 0020 0013      		RETI
+  32               		.size	ISR_MSP430X_ST_ISR, .-ISR_MSP430X_ST_ISR
+  33               		.section	.text.st_lld_init,"ax",@progbits
+  34               		.balign 2
+  35               		.global	st_lld_init
+  36               		.type	st_lld_init, @function
+  37               	st_lld_init:
+  38               	; start of function
+  39               	; framesize_regs:     0
+  40               	; framesize_locals:   0
+  41               	; framesize_outgoing: 0
+  42               	; framesize:          0
+  43               	; elim ap -> fp       4
+  44               	; elim fp -> sp       0
+  45               	; saved regs:(none)
+  46               		; start of prologue
+  47               		; end of prologue
+  48 0000 4018 B240 		MOVX.W	#15999, &TB0CCR0
+  48      7F3E 0000 
+  49 0008 4018 B240 		MOVX.W	#16, &TB0CCTL0
+  49      1000 0000 
+  50 0010 4018 8243 		MOVX.W	#0, &TB0EX0
+  50      0000 
+  51 0016 4018 B240 		MOVX.W	#532, &TB0CTL
+  51      1402 0000 
+GAS LISTING /tmp/cc99Jz9b.s 			page 2
 
 
-  35 0012 8564 6361 		.ascii	"\205dcaa\256\302_0K\211\260\260\221\274j\246&#3\373\271^MQ(\031"
-  35      61AE C25F 
-  35      304B 89B0 
-  35      B091 BC6A 
-  35      A626 2333 
-  36 002d 4DD1 5594 		.ascii	"M\321U\224\367c\274jl"
-  36      F763 BC6A 
-  36      6C
-  37 0036 4C58 8A52 		.string	"LX\212R\244\224\220\344\271\263e\234\337\275c\"\013\247~\217\276\277s\276\347s~\016\002\2
-  37      A494 90E4 
-  37      B9B3 659C 
-  37      DFBD 6322 
-  37      0BA7 7E8F 
-  38 0137 61D3 262D 		.string	"a\323&-\226n\323\302\371\333\320\021\027\354\210-\253\261F\367\030\270\362f\022\255B\031\
-  38      966E D3C2 
-  38      F9DB D011 
-  38      17EC 882D 
-  38      ABB1 46F7 
-  39 01b5 B05A C55F 		.ascii	"\260Z\305_"
-  40               	.text
-  41               		.section	.gnu.lto_st_lld_init.3c81accd68d0762b,"",@progbits
-  42 0000 789C 6DD1 		.string	"x\234m\321KK\002Q\024\007\360\363\277\267T\220 j\023\324\027p\221\023T\364\001\\\367"
-  42      4B4B 0251 
-  42      1407 F0F3 
-  42      BFB7 5490 
-  42      206A 13D4 
-  43 001e 37ED A4C7 		.ascii	"7\355\244\307\"A2\322\275cTB\221\266\250,(&hae\357r!mdh\027\024"
-  43      2241 32D2 
-  43      BD63 5442 
-  43      91B6 A82C 
-  43      2826 6861 
-  44 003b B40D 5A18 		.ascii	"\264\rZ\030\364\240\332\224\313\312\316up \230\013\227\031\316"
-  44      F4A0 DA94 
-  44      CBCA CE75 
-  44      7020 980B 
-  44      9719 CE
-  45 004e 99F9 FDCF 		.ascii	"\231\371\375\317\235i$\320\003\210\372\210\250\2357$A,\337\020"
-  45      9D69 24D0 
-  45      0388 FA88 
-  45      A89D 3724 
-  45      412C DF10 
-  46 0062 253D 0250 		.ascii	"%=\002P7\272\007\224\020H #\263\022f\352\251(|9\235W)[\361\316"
-  46      37BA 0794 
-  46      1048 2023 
-  46      B312 66EA 
-  46      A928 7C39 
-  47 007c EB73 6D86 		.ascii	"\353sm\206$\332\340\255\026r\360\021?V>\375]mr5Xu\354\302\305"
-  47      24DA E0AD 
-  47      1672 F011 
-  47      3F56 3EFD 
-  47      5D6D 7235 
-  48 0095 1174 7C87 		.ascii	"\021t|\207\222\376[M\351\245\253\035\024\006\\D\013\334V\031"
-  48      92FE 5B4D 
-  48      E9A5 AB1D 
-  48      1406 5C44 
-  48      0BDC 5619 
-  49 00a9 8B52 A8AB 		.ascii	"\213R\250\253|\205YyYJ\265\2527XY\2333o\335iiH@\241\305\342\373"
-GAS LISTING /tmp/cc0gFM67.s 			page 3
-
-
-  49      7C85 5979 
-  49      594A B5AA 
-  49      3758 599B 
-  49      336F DD69 
-  50 00c4 BD3B F1A3 		.ascii	"\275;\361\243{\270\260\243`\256\275\317\226o\274\006\266\222"
-  50      7BB8 B0A3 
-  50      60AE BDCF 
-  50      966F BC06 
-  50      B692 
-  51 00d6 3A0C 29B0 		.ascii	":\f)\260\317s\356\241\2033\3630\300\375\317\374\333\225G\021"
-  51      CF73 EEA1 
-  51      8333 F330 
-  51      C0FD CFFC 
-  51      DB95 4711 
-  52 00ea 02D5 6FC2 		.ascii	"\002\325o\302\001\367j!\351\\=\344\277\n'\365\320V\217,\365\362"
-  52      01F7 6A21 
-  52      E95C 3DE4 
-  52      BF0A 27F5 
-  52      D056 8F2C 
-  53 0100 EBFB 5A58 		.ascii	"\353\373ZXj3\216\353f\346\271\305\321\024N\346\211m\236Z\246"
-  53      6A33 8EEB 
-  53      66E6 B9C5 
-  53      D114 4EE6 
-  53      896D 9E5A 
-  54 0115 7D58 01C2 		.ascii	"}X\001\302Y\335\\O9\317)\235\314s\333\274\260L\363\361\310\220"
-  54      59DD 5C4F 
-  54      39CF 299D 
-  54      CC73 DBBC 
-  54      B04C F3F1 
-  55 012b 96B9 D280 		.ascii	"\226\271\322\200\002\267>0\263\375\266\te\326~\330\002\237\230"
-  55      02B7 3E30 
-  55      B3FD B609 
-  55      65D6 7ED8 
-  55      029F 98
-  56 013e BF3C 8FD8 		.ascii	"\277<\217\330\353\367k\201\211\360hx0\330\031\210N\306\247\303"
-  56      EBF7 6B81 
-  56      89F0 6878 
-  56      30D8 1988 
-  56      4EC6 A7C3 
-  57 0152 A35A 34A6 		.ascii	"\243Z4\246M\214D\264\251\350t<\246\365\007\207z\272\273\206U"
-  57      4D8C 44B4 
-  57      A9E8 743C 
-  57      A6F5 0787 
-  57      7ABA BB86 
-  58 0167 2514 8B87 		.ascii	"%\024\213\207\"\221q\377\030\375\001\255l\265\272"
-  58      2291 71FF 
-  58      18FD 01AD 
-  58      6CB5 BA
-  59               	.text
-  60               		.section	.gnu.lto_.symbol_nodes.3c81accd68d0762b,"",@progbits
-  61 0000 789C 55CB 		.ascii	"x\234U\313\275\021\2030\f@\341'\377\\\222-\030\202\222\0202\231"
-  61      BD11 8330 
-  61      0C40 E127 
-  61      FF5C 922D 
-  61      1882 9210 
-  62 0016 5C64 8014 		.ascii	"\\d\200\024\254BC\005\301i3\003,\302a\273\nj\276\323\323\311"
-  62      AC42 4305 
-GAS LISTING /tmp/cc0gFM67.s 			page 4
-
-
-  62      C169 3303 
-  62      2CC2 61BB 
-  62      0A6A BED3 
-  63 002c 23F4 A431 		.ascii	"#\364\2441\215\302\373\007\2111<\301\267T\271\337U\316\375\203"
-  63      8DC2 FB07 
-  63      8931 3CC1 
-  63      B754 B9DF 
-  63      55CE FD83 
-  64 0040 E483 5F30 		.ascii	"\344\203_0\305\210-~qY\231PS> \204.\205\207\332\323>\243\356"
-  64      C588 2D7E 
-  64      7159 9950 
-  64      533E 2084 
-  64      2E85 87DA 
-  65 0058 3F58 6EC4 		.ascii	"?Xn\304u\027\313\225\327\226\275\020\207\232\003t>\036\316"
-  65      7517 CB95 
-  65      D796 BD10 
-  65      879A 0374 
-  65      3E1E CE
-  66               	.text
-  67               		.section	.gnu.lto_.refs.3c81accd68d0762b,"",@progbits
-  68 0000 789C 6365 		.string	"x\234ce`d\020g```b`\004\001f\026&FfFF \311\312\314\310\306\302"
-  68      6064 1067 
-  68      6060 6062 
-  68      6004 0166 
-  68      1626 4666 
-  69 001e 00        		.string	""
-  70 001f 0525 00   		.string	"\005%"
-  71 0022 4E        		.ascii	"N"
-  72               	.text
-  73               		.section	.gnu.lto_.decls.3c81accd68d0762b,"",@progbits
-  74 0000 789C 8554 		.string	"x\234\205TkL\024W\024\236\263w\027w\027\020j\037\261\tM\215)\t\177\330\005E\022\223\246i\
-  74      6B4C 1457 
-  74      149E B377 
-  74      1777 1710 
-  74      6A1F B109 
-  75 006d E150 8C20 		.string	"\341P\214 \204@\020\356\b\2020\215\027\301\347\t!|\231\320N\243\235EkBkAk\325\342W\320:\3
-  75      8440 10EE 
-  75      0882 308D 
-  75      17C1 E709 
-  75      217C 99D0 
-  76 00d2 9EC6 B241 		.string	"\236\306\262A\275\0037\356N\353\027"
-  76      BD03 37EE 
-  76      4EEB 1700 
-  77 00de 8F63 D4C0 		.string	"\217c\324\300\357*P\205\352\0313\020\3255h\224\374\247=!\202Q\320C\221\034,f\320\333\004=
-  77      EF2A 5085 
-  77      EA19 3310 
-  77      D535 6894 
-  77      FCA7 3D21 
-  78 0111 7419 F6D7 		.string	"t\031\366\327<\353\211%\250\001\256C\375c\313\277%\260\332\n\031\350uwt\266\304\030\261\0
-  78      3CEB 8925 
-  78      A801 AE43 
-  78      FD63 CBBF 
-  78      25B0 DA0A 
-  79 0188 F377 B2A4 		.ascii	"\363w\262\244~J\023\r\260\366\r8\tI\320\310\032\203S0\037\357"
-  79      7E4A 130D 
-  79      B0F6 0D38 
-  79      0949 D0C8 
-GAS LISTING /tmp/cc0gFM67.s 			page 5
-
-
-  79      1A83 5330 
-  80 019e EB8D 2AD3 		.ascii	"\353\215*\323\326\213\325\337\304.\254\245\265wh\340i\373\342"
-  80      D68B D5DF 
-  80      C42E ACA5 
-  80      B577 68E0 
-  80      69FB E2
-  81 01b1 1D5B 282D 		.ascii	"\035[(-\243\264\330\310`P\207\3156\200\r\341?\202\221yL\212#"
-  81      A3B4 D8C8 
-  81      6050 87CD 
-  81      3680 0DE1 
-  81      3F82 9179 
-  82 01c8 701B D539 		.ascii	"p\033\3259\r\0131\373\361\266\277j\023\210\213OPW\321\373\004"
-  82      0D0B 31FB 
-  82      F1B6 BF6A 
-  82      1388 8B4F 
-  82      5057 D1FB 
-  83 01dd 34A6 E186 		.ascii	"4\246\341\206\2702\032(\301\006\f\234\350\214N$\260e\230\345"
-  83      B832 1A28 
-  83      C106 0C9C 
-  83      E88C 4E24 
-  83      B065 98E5 
-  84 01f1 2C67 3972 		.ascii	",g9ri[\r\220B\316r\357a\307\036\326\317\035J\003\241\272w\372"
-  84      695B 0D90 
-  84      42CE 72EF 
-  84      61C7 1ED6 
-  84      CF1D 4A03 
-  85 0209 CA3A 4AE8 		.ascii	"\312:J\350>\340]\303\2710\3139\316\202\213&\316P[\371\344\367"
-  85      3EE0 5DC3 
-  85      B930 CB39 
-  85      CE82 8B26 
-  85      CE50 5BF9 
-  86 021f 1872 0838 		.ascii	"\030r\b8EO\373`\345\034\322\302\035\343\330\344\237!\002\226"
-  86      454F FB60 
-  86      E51C D2C2 
-  86      1DE3 D8E4 
-  86      9F21 0296 
-  87 0233 24C0 F921 		.ascii	"$\300\371!\245\234\322\022\032\240\025\211\310\2708\t\322\222"
-  87      A59C D212 
-  87      1AA0 1589 
-  87      C8B8 3809 
-  87      D292 
-  88 0245 04B8 0429 		.ascii	"\004\270\004)p\001,H\365\023B.\242DU\324\314#Ut\023\252\307\227"
-  88      7001 2C48 
-  88      F513 422E 
-  88      A244 55D4 
-  88      CC23 5574 
-  89 025d 87F5 7720 		.ascii	"\207\365w 0\027\232\265\352\252\204\223\245'\203\226H\271\031"
-  89      3017 9AB5 
-  89      EAAA 8493 
-  89      A527 8396 
-  89      48B9 19
-  90 0270 24AC F7E5 		.ascii	"$\254\367\345(\275+w\336\337o\322\346k\3533\225\3216\003C\300"
-  90      28BD 2B77 
-  90      DEDF 6FD2 
-  90      E66B EB33 
-  90      95D1 3603 
-  91 0286 F9F0 6CE7 		.ascii	"\371\360l\347\365\331Z\370l\233\233\256l'\244]\235\255~\377\361"
-GAS LISTING /tmp/cc0gFM67.s 			page 6
-
-
-  91      F5D9 5AF8 
-  91      6C9B 9BAE 
-  91      6C27 A45D 
-  91      9DAD 7EFF 
-  92 029b 6AB3 9EDE 		.ascii	"j\263\236\336\253\2463i\002\341\364\200\236\336\312\323ON\334"
-  92      ABA6 3369 
-  92      02E1 F480 
-  92      9EDE CAD3 
-  92      4F4E DC
-  93 02ae 6C8C 2723 		.ascii	"l\214'#j\372\243\222\261\361\271\311\007h-\252\320w\351\335\301"
-  93      6AFA A392 
-  93      B1F1 B9C9 
-  93      0768 2DAA 
-  93      D077 E9DD 
-  94 02c3 D2E2 401A 		.ascii	"\322\342@\032o\267M\315\327D\021\230\217\367+\220\314\216f\371"
-  94      6FB7 4DCD 
-  94      D744 1198 
-  94      8FF7 2B90 
-  94      CC8E 66F9 
-  95 02d7 D146 0BD9 		.ascii	"\321F\013\331\253\036\372C\317\247\036\021<joY\361\353\"\030"
-  95      AB1E FA43 
-  95      CFA7 1E11 
-  95      3C6A 6F59 
-  95      F1EB 2218 
-  96 02eb 68F8 A3F9 		.ascii	"h\370\243\371Y\274\032`\373\337Ml\277a!\207Up\371\335\322ncJ"
-  96      59BC 1A60 
-  96      FBDF 4D6C 
-  96      BF61 2187 
-  96      5570 F9DD 
-  97 0303 8478 08FA 		.ascii	"\204x\b\3729J\273\201\262-\243V+\352\\\312\2643\245\b3\302\301"
-  97      394A BB81 
-  97      B22D A356 
-  97      2BEA 5CCA 
-  97      B433 A508 
-  98 031a 2FF8 6210 		.ascii	"/\370b\020\317\246\202\016\f\266c\0203^T\036\354\264\342\b\007"
-  98      CFA6 820E 
-  98      0CB6 6310 
-  98      335E 541E 
-  98      ECB4 E208 
-  99 032f 4B69 60B4 		.ascii	"Ki`\264\367\275M\r?\320MV\270\006V\270\252\315\020\226\376*\237"
-  99      F7BD 4D0D 
-  99      3FD0 4D56 
-  99      B806 56B8 
-  99      AACD 1096 
- 100 0346 A293 4FD1 		.ascii	"\242\223O\321\364\367Do,)'\274\261\361\007\017v\315\325H\236"
- 100      F4F7 446F 
- 100      2C29 27BC 
- 100      B1F1 070F 
- 100      76CD D548 
- 101 035b 4FC7 7319 		.ascii	"O\307s\031\031E\327,\212.N\321\315)\372\206\203\255\t\244B\245"
- 101      1945 D72C 
- 101      8A2E 4ED1 
- 101      CD29 FA86 
- 101      83AD 09A4 
- 102 0371 689E ECBC 		.ascii	"h\236\354\274\033\257QLlN\230\241\350\231E\321\303)z9\305\367"
- 102      1BAF 514C 
- 102      6C4E 98A1 
-GAS LISTING /tmp/cc0gFM67.s 			page 7
-
-
- 102      E899 45D1 
- 102      C329 7A39 
- 103 0387 E33B 3E63 		.ascii	"\343;>c\2521\206\251\251\251\030\235 \242\207\276Y\004}\234\240"
- 103      AA31 86A9 
- 103      A9A9 189D 
- 103      20A2 87BE 
- 103      5904 7D9C 
- 104 039c 9F13 5CFF 		.ascii	"\237\023\\\377\272\261\232\250_\276\221}\200=Uw\347\252_\376"
- 104      BAB1 9AA8 
- 104      5FBE 917D 
- 104      803D 5577 
- 104      E7AA 5FFE 
- 105 03b0 0274 076F 		.ascii	"\002t\007o]\334j\216\333\302NyEq\300\304O6\f \321uN4\bq\374d"
- 105      5DDC 6A8E 
- 105      DBC2 4E79 
- 105      4571 C0C4 
- 105      4F36 0C20 
- 106 03cc E093 E5F6 		.ascii	"\340\223\345\366O5G\201\331A\n\203\207 N?RC\034?\336\271'\030"
- 106      4F35 4781 
- 106      D941 0A83 
- 106      8720 4E3F 
- 106      5243 1C3F 
- 107 03e4 1F89 BF1C 		.ascii	"\037\211\277\034\205\017j\344A\016\236\374\247\265\325L\366\252"
- 107      850F 6AE4 
- 107      410E 9EFC 
- 107      A7B5 D54C 
- 107      F6AA 
- 108 03f6 93DE ABA8 		.ascii	"\223\336\253\250\377\315\212\2476\200\177\r\241\207)U\245]%\264"
- 108      FFCD 8AA7 
- 108      3680 7F0D 
- 108      A187 2955 
- 108      A55D 25B4 
- 109 040a B698 BEBF 		.ascii	"\266\230\276\277\234\227\034\016\237\335\341\310?\207\020?\277"
- 109      9C97 1C0E 
- 109      9FDD E1C8 
- 109      3F87 103F 
- 109      BF
- 110 041b 2F7E 1D8D 		.ascii	"/~\035\215j\222I\024.:\242\025e\317y+r\262\035+sVg,N[\347\310"
- 110      6A92 4914 
- 110      2E3A A215 
- 110      65CF 792B 
- 110      72B2 1D2B 
- 111 0437 C975 A06B 		.ascii	"\311u\240k\221\274~QQ\212\n\375&\217\374\245\250\230?\376t\315"
- 111      91BC 7E51 
- 111      518A 0AFD 
- 111      268F FCA5 
- 111      A898 3FFE 
- 112 044d 82AC F474 		.ascii	"\202\254\364ta\211\315f\317rK\353\245U9\251Y\262\327\257H\353"
- 112      6189 CD66 
- 112      CF72 4BEB 
- 112      A555 39A9 
- 112      59B2 D7AF 
- 113 0463 EDB2 CFEE 		.ascii	"\355\262\317\356\316\363\330\013e\305\357\263k<,\342\360\371"
- 113      CEF3 D80B 
- 113      65C5 EFB3 
- 113      6B3C 2CE2 
- 113      F0F9 
-GAS LISTING /tmp/cc0gFM67.s 			page 8
-
-
- 114 0475 1D1E 8FCB 		.ascii	"\035\036\217\313\346\024b\325\225C\362J\376W\234\356\034\247"
- 114      E614 62D5 
- 114      9543 F24A 
- 114      FE57 9CEE 
- 114      1CA7 
- 115 0487 FB03 395B 		.ascii	"\373\0039[\3649\335\242\253\310#.\214\340\314\316et^\311c\227"
- 115      F439 DDA2 
- 115      ABC8 232E 
- 115      8CE0 CCCE 
- 115      6574 5EC9 
- 116 049d BC4E 4F91 		.ascii	"\274NO\221K\264;\3356\267\360&OZ\341[\255\210bA\241_\222\275"
- 116      4BB4 3BDD 
- 116      36B7 F026 
- 116      4F5A E15B 
- 116      AD88 6241 
- 117 04b5 D9E2 1745 		.ascii	"\331\342\027E\222\"\272L\216e\262\354\231\207\373_\371r\245\002"
- 117      9222 BA4C 
- 117      8E65 B2EC 
- 117      9987 FB5F 
- 117      F972 A502 
- 118 04c9 5159 9EE7 		.ascii	"QY\236\347uyDeE\242\303Q\340+\304^6bY\207\344S2\376\273u\247"
- 118      7579 4465 
- 118      45A2 C351 
- 118      E02B C45E 
- 118      3662 5987 
- 119 04e4 5C50 207B 		.ascii	"\\P {_\352\336\351v\312\212\210\205\347\344.K\313\312\312N\213"
- 119      5FEA DEE9 
- 119      76CA 8A88 
- 119      85E7 E42E 
- 119      4BCB CACA 
- 120 04fa 2BF2 FAA4 		.ascii	"+\362\372\244|\257\350Z\200\312\344\330\025Y\366\333\375R\252"
- 120      7CAF E85A 
- 120      80CA E4D8 
- 120      1559 F6DB 
- 120      FD52 AA
- 121 050d 1F6B FBEC 		.ascii	"\037k\373\354\205y\212\177\221]\255\226\232\357t\246f\332\026"
- 121      8579 8A7F 
- 121      915D AD96 
- 121      9AEF 74A6 
- 121      66DA 16
- 122 0520 D9D2 6DE9 		.ascii	"\331\322m\351\231\016\217\344-\332\230\231\241\357\211\236\r"
- 122      990E 8FE4 
- 122      2DDA 9899 
- 122      A1EF 899E 
- 122      0D
- 123 0531 3373 A9A1 		.ascii	"3s\251\241\r\312\222\245\231K\261\220\231\027\312\375$-\006\027"
- 123      0DCA 92A5 
- 123      994B B190 
- 123      9917 CAFD 
- 123      242D 0617 
- 124 0545 1FAE E30F 		.ascii	"\037\256\343\017t_\225}y\236U\321\223%\317\322\213\311\317\200"
- 124      745F 957D 
- 124      799E 55D1 
- 124      9325 CFD2 
- 124      8BC9 CF80 
- 125 0559 5C38 B640 		.ascii	"\\8\266@\302\177\001Q>\224\017"
- 125      C27F 0151 
-GAS LISTING /tmp/cc0gFM67.s 			page 9
-
-
- 125      3E94 0F
- 126               	.text
- 127               		.section	.gnu.lto_.symtab.3c81accd68d0762b,"",@progbits
- 128 0000 4953 525F 		.string	"ISR_MSP430X_ST_ISR"
- 128      4D53 5034 
- 128      3330 585F 
- 128      5354 5F49 
- 128      5352 00
- 129 0013 00        		.string	""
- 130 0014 00        		.string	""
- 131 0015 00        		.string	""
- 132 0016 00        		.string	""
- 133 0017 00        		.string	""
- 134 0018 00        		.string	""
- 135 0019 00        		.string	""
- 136 001a 00        		.string	""
- 137 001b 00        		.string	""
- 138 001c 00        		.string	""
- 139 001d 00        		.string	""
- 140 001e B300      		.string	"\263"
- 141 0020 00        		.string	""
- 142 0021 00        		.string	""
- 143 0022 7374 5F6C 		.string	"st_lld_init"
- 143      6C64 5F69 
- 143      6E69 7400 
- 144 002e 00        		.string	""
- 145 002f 00        		.string	""
- 146 0030 00        		.string	""
- 147 0031 00        		.string	""
- 148 0032 00        		.string	""
- 149 0033 00        		.string	""
- 150 0034 00        		.string	""
- 151 0035 00        		.string	""
- 152 0036 00        		.string	""
- 153 0037 00        		.string	""
- 154 0038 00        		.string	""
- 155 0039 B500      		.string	"\265"
- 156 003b 00        		.string	""
- 157 003c 00        		.string	""
- 158 003d 5F5F 6D73 		.string	"__msp430x_in_isr"
- 158      7034 3330 
- 158      785F 696E 
- 158      5F69 7372 
- 158      00
- 159 004e 00        		.string	""
- 160 004f 02        		.ascii	"\002"
- 161 0050 00        		.string	""
- 162 0051 00        		.string	""
- 163 0052 00        		.string	""
- 164 0053 00        		.string	""
- 165 0054 00        		.string	""
- 166 0055 00        		.string	""
- 167 0056 00        		.string	""
- 168 0057 00        		.string	""
- 169 0058 00        		.string	""
- 170 0059 C300      		.string	"\303"
- 171 005b 00        		.string	""
-GAS LISTING /tmp/cc0gFM67.s 			page 10
-
-
- 172 005c 00        		.string	""
- 173 005d 5442 3043 		.string	"TB0CCR0"
- 173      4352 3000 
- 174 0065 00        		.string	""
- 175 0066 02        		.ascii	"\002"
- 176 0067 00        		.string	""
- 177 0068 00        		.string	""
- 178 0069 00        		.string	""
- 179 006a 00        		.string	""
- 180 006b 00        		.string	""
- 181 006c 00        		.string	""
- 182 006d 00        		.string	""
- 183 006e 00        		.string	""
- 184 006f 00        		.string	""
- 185 0070 CA00      		.string	"\312"
- 186 0072 00        		.string	""
- 187 0073 00        		.string	""
- 188 0074 5442 3043 		.string	"TB0CCTL0"
- 188      4354 4C30 
- 188      00
- 189 007d 00        		.string	""
- 190 007e 02        		.ascii	"\002"
- 191 007f 00        		.string	""
- 192 0080 00        		.string	""
- 193 0081 00        		.string	""
- 194 0082 00        		.string	""
- 195 0083 00        		.string	""
- 196 0084 00        		.string	""
- 197 0085 00        		.string	""
- 198 0086 00        		.string	""
- 199 0087 00        		.string	""
- 200 0088 CC00      		.string	"\314"
- 201 008a 00        		.string	""
- 202 008b 00        		.string	""
- 203 008c 5442 3045 		.string	"TB0EX0"
- 203      5830 00
- 204 0093 00        		.string	""
- 205 0094 02        		.ascii	"\002"
- 206 0095 00        		.string	""
- 207 0096 00        		.string	""
- 208 0097 00        		.string	""
- 209 0098 00        		.string	""
- 210 0099 00        		.string	""
- 211 009a 00        		.string	""
- 212 009b 00        		.string	""
- 213 009c 00        		.string	""
- 214 009d 00        		.string	""
- 215 009e CE00      		.string	"\316"
- 216 00a0 00        		.string	""
- 217 00a1 00        		.string	""
- 218 00a2 5442 3043 		.string	"TB0CTL"
- 218      544C 00
- 219 00a9 00        		.string	""
- 220 00aa 02        		.ascii	"\002"
- 221 00ab 00        		.string	""
- 222 00ac 00        		.string	""
- 223 00ad 00        		.string	""
-GAS LISTING /tmp/cc0gFM67.s 			page 11
-
-
- 224 00ae 00        		.string	""
- 225 00af 00        		.string	""
- 226 00b0 00        		.string	""
- 227 00b1 00        		.string	""
- 228 00b2 00        		.string	""
- 229 00b3 00        		.string	""
- 230 00b4 D000      		.string	"\320"
- 231 00b6 00        		.string	""
- 232 00b7 00        		.string	""
- 233 00b8 6368 5363 		.string	"chSchDoReschedule"
- 233      6844 6F52 
- 233      6573 6368 
- 233      6564 756C 
- 233      6500 
- 234 00ca 00        		.string	""
- 235 00cb 02        		.ascii	"\002"
- 236 00cc 00        		.string	""
- 237 00cd 00        		.string	""
- 238 00ce 00        		.string	""
- 239 00cf 00        		.string	""
- 240 00d0 00        		.string	""
- 241 00d1 00        		.string	""
- 242 00d2 00        		.string	""
- 243 00d3 00        		.string	""
- 244 00d4 00        		.string	""
- 245 00d5 B700      		.string	"\267"
- 246 00d7 00        		.string	""
- 247 00d8 00        		.string	""
- 248 00d9 6368 5363 		.string	"chSchIsPreemptionRequired"
- 248      6849 7350 
- 248      7265 656D 
- 248      7074 696F 
- 248      6E52 6571 
- 249 00f3 00        		.string	""
- 250 00f4 02        		.ascii	"\002"
- 251 00f5 00        		.string	""
- 252 00f6 00        		.string	""
- 253 00f7 00        		.string	""
- 254 00f8 00        		.string	""
- 255 00f9 00        		.string	""
- 256 00fa 00        		.string	""
- 257 00fb 00        		.string	""
- 258 00fc 00        		.string	""
- 259 00fd 00        		.string	""
- 260 00fe BF00      		.string	"\277"
- 261 0100 00        		.string	""
- 262 0101 00        		.string	""
- 263 0102 6368 5379 		.string	"chSysTimerHandlerI"
- 263      7354 696D 
- 263      6572 4861 
- 263      6E64 6C65 
- 263      7249 00
- 264 0115 00        		.string	""
- 265 0116 02        		.ascii	"\002"
- 266 0117 00        		.string	""
- 267 0118 00        		.string	""
- 268 0119 00        		.string	""
-GAS LISTING /tmp/cc0gFM67.s 			page 12
-
-
- 269 011a 00        		.string	""
- 270 011b 00        		.string	""
- 271 011c 00        		.string	""
- 272 011d 00        		.string	""
- 273 011e 00        		.string	""
- 274 011f 00        		.string	""
- 275 0120 C100      		.string	"\301"
- 276 0122 00        		.string	""
- 277 0123 00        		.string	""
- 278               	.text
- 279               		.section	.gnu.lto_.opts,"",@progbits
- 280 0000 272D 666D 		.ascii	"'-fmath"
- 280      6174 68
- 281 0007 2D65 7272 		.string	"-errno' '-fsigned-zeros' '-ftrapping-math' '-fno-trapv' '-fno-openmp' '-fno-openacc' '-mm
- 281      6E6F 2720 
- 281      272D 6673 
- 281      6967 6E65 
- 281      642D 7A65 
- 282               	.text
- 283               		.section	.upper.bss,"aw",@nobits
- 284               		.global	__gnu_lto_v1
- 285               		.weak	__gnu_lto_v1
- 286               	__gnu_lto_v1:
- 287 0000 00        		.zero	1
- 288               		.global	__gnu_lto_slim
- 289               		.weak	__gnu_lto_slim
- 290               	__gnu_lto_slim:
- 291 0001 00        		.zero	1
- 292               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/cc0gFM67.s 			page 13
+  52               		; start of epilogue
+  53 001e 1001      		RETA
+  54               		.size	st_lld_init, .-st_lld_init
+  55               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/cc99Jz9b.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_st_lld.c
-     /tmp/cc0gFM67.s:286    .upper.bss:0000000000000000 __gnu_lto_v1
-     /tmp/cc0gFM67.s:290    .upper.bss:0000000000000001 __gnu_lto_slim
+     /tmp/cc99Jz9b.s:9      .lower.lowtext:0000000000000000 ISR_MSP430X_ST_ISR
+     /tmp/cc99Jz9b.s:37     .text.st_lld_init:0000000000000000 st_lld_init
+     /tmp/cc99Jz9b.s:28     .lower.lowtext:000000000000001e .L1
 
 UNDEFINED SYMBOLS
-__crt0_init_highbss
+__msp430x_in_isr
+chSysTimerHandlerI
+chSchIsPreemptionRequired
+chSchDoReschedule
+TB0CCR0
+TB0CCTL0
+TB0EX0
+TB0CTL
