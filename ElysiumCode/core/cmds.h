@@ -62,6 +62,7 @@ typedef enum {
   CmdInstallFW = 0x2D,
   CmdStoreTelem = 0x2E,
   CmdGetTelem = 0x2F,
+  CmdGetSX1212Reg = 0x30,
   CMD_MAX
 } elysium_opcodes_t;
 
