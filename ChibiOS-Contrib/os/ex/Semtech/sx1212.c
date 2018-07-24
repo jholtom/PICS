@@ -364,45 +364,6 @@ static void fifo_read_safe(SX1212Driver *devp, size_t n, uint8_t *buf) {
   spi_mode_config(devp);
 }
 
-/**
- * @brief   A binary GCD algorithm implementation for use in programming center
- *          frequency
- *
- * @param[in] u the first argument
- * @param[in] v the second argument
- *
- * @note    Many sources for this algorithm exist
- *
- * @notapi
- */
-static uint32_t gcd(uint32_t u, uint32_t v) {
-  int shift;
-
-  osalDbgAssert(u != 0 && v != 0, "doesn't support 0s");
-
-  for (shift = 0; ((u | v) & 1) == 0; ++shift) {
-    u >>= 1;
-    v >>= 1;
-  }
-
-  while((u & 1) == 0)
-    u >>= 1;
-
-  do {
-    while ((v & 1) == 0)
-      v >>= 1;
-
-    if (u > v) {
-      uint32_t t = v;
-      v = u;
-      u = t;
-    }
-    v = v - u;
-  } while (v != 0);
-
-  return u << shift;
-}
-
 /* TODO test this */
 /**
  * @brief   Sets the transceiver's bit rate
@@ -473,88 +434,17 @@ void sx1212SetDeviation(SX1212Driver *devp, uint32_t fdev) {
  * @param[in] deviation center frequency to be programmed, in Hz
 */
 void sx1212SetFrequency(SX1212Driver *devp, uint32_t freq) {
-  /* XXX - This is way too complicated to do elegantly. We're assuming that the
-   * datasheet design is preserved as is. */
-
-  osalDbgAssert(freq >= 300000000 && freq <= 510000000,
-      "frequency out of range");
-
-  /* The equation is (9/8) * (FREQ / (R+1)) * (75*(P+1) + S) */
-  /* The constraints are 64 <= R <= 169, S < P+1, R,P,S < 256 */
-  uint8_t r = 0;
-  uint8_t s = 0;
-  uint8_t p = 0;
-  uint32_t r_mult = 0;
-  uint32_t tmpgcd = 0;
-  uint32_t temp = 0;
-  /* Find R such that (f/FREQ)*(8/9)*(R+1) is an integer */
-  /* GCD(f*8, freq*9) */
-  tmpgcd = gcd(freq*8, SX1212_CLK_FREQ*9);
-  r_mult = SX1212_CLK_FREQ*9 / tmpgcd;
-
-  /* for inexact frequencies */
-  int i = 0;
-  while (r_mult - (75 * i) > 169) {
-    i++;
-  }
-  r_mult = r_mult - (75 * i);
-
-  /* R+1 is a multiple of r_mult */
-  r = r_mult - 1;
-
-  /* Satisfy R constraint */
-  while (r < 64 || r > 169) {
-    r += r_mult;
-  }
-
-  /* Calculate P and S */
-  r -= r_mult;
-  do {
-    r += r_mult;
-    temp = ((freq * 8 / tmpgcd) * (r+1)) / (SX1212_CLK_FREQ * 9 / tmpgcd);
-    p = (temp / 75) - 1;
-    s = temp - ((p+1)*75);
-  } while (r < 64 || r > 169 || s > p);
-
-  /*sx1212SetRegister(devp, MCParam6, r);
-  sx1212SetRegister(devp, MCParam7, p);
-  sx1212SetRegister(devp, MCParam8, s);*/
-  sx1212SetRegister(devp, MCParam6, 116);
-  sx1212SetRegister(devp, MCParam7, 49);
-  sx1212SetRegister(devp, MCParam8, 20);
+  /* Frequency parameter is ignored */
+  /* Manual RPS register configuration for frequency */
+  sx1212SetRegister(devp, MCParam6, 143);
+  sx1212SetRegister(devp, MCParam7, 60);
+  sx1212SetRegister(devp, MCParam8, 17);  /* PIC A (459.2MHz) */
+//  sx1212SetRegister(devp, MCParam8, 15);  /* PIC B (459.0MHz) */
 
   /* Set frequency band registers */
-  if (freq >= 300000000 && freq <= 330000000) {
-    devp->regs.MCParam0 = (devp->regs.MCParam0 & 0xE0) |
-      0x00 << 2 | ((freq - 300000000) / 7500000);
-    sx1212SetRegister(devp, MCParam0, devp->regs.MCParam0);
-  }
-  else if (freq >= 320000000 && freq <= 350000000) {
-    devp->regs.MCParam0 = (devp->regs.MCParam0 & 0xE0) |
-      0x01 << 2 | ((freq - 320000000) / 7500000);
-    sx1212SetRegister(devp, MCParam0, devp->regs.MCParam0);
-  }
-  else if (freq >= 350000000 && freq <= 390000000) {
-    devp->regs.MCParam0 = (devp->regs.MCParam0 & 0xE0) |
-      0x02 << 2 | ((freq - 350000000) / 10000000);
-    sx1212SetRegister(devp, MCParam0, devp->regs.MCParam0);
-  }
-  else if (freq >= 390000000 && freq <= 430000000) {
-    devp->regs.MCParam0 = (devp->regs.MCParam0 & 0xE0) |
-      0x03 << 2 | ((freq - 390000000) / 10000000);
-    sx1212SetRegister(devp, MCParam0, devp->regs.MCParam0);
-  }
-  else if (freq >= 430000000 && freq <= 470000000) {
-    devp->regs.MCParam0 = (devp->regs.MCParam0 & 0xE0) |
-      0x04 << 2 | ((freq - 430000000) / 10000000);
-    sx1212SetRegister(devp, MCParam0, devp->regs.MCParam0);
-  }
-  else if (freq >= 470000000 && freq <= 510000000) {
-    devp->regs.MCParam0 = (devp->regs.MCParam0 & 0xE0) |
-      0x05 << 2 | ((freq - 470000000) / 10000000);
-    sx1212SetRegister(devp, MCParam0, devp->regs.MCParam0);
-  }
-
+  devp->regs.MCParam0 = (devp->regs.MCParam0 & 0xE0) /* clear bits 4-0 */
+          | 0x10 /* 430-470 MHz band */ | 0x02 /* 3rd subband (450MHz) */;
+  sx1212SetRegister(devp, MCParam0, devp->regs.MCParam0);
 }
 
 /**
