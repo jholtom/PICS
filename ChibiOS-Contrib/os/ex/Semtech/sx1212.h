@@ -404,6 +404,7 @@ extern "C" {
   void sx1212ReceiveI(SX1212Driver * devp, size_t n, palcallback_t callback);
   void sx1212StopReceiveI(SX1212Driver *devp);
   void sx1212FifoRead(SX1212Driver * devp, size_t n, uint8_t * buffer);
+  uint8_t sx1212ReadRegister(SX1212Driver *devp, uint8_t reg);
 #ifdef __cplusplus
 }
 #endif

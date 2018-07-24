@@ -3,6 +3,7 @@
 #include "string.h"
 #include "regs_admin.h"
 #include "errors.h"
+#include "sx1212.h"
 
 static msg_t main_buffer[elyNLMaxSlots + elyFWMaxSlots];
 static MAILBOX_DECL(main_mbox, main_buffer, elyNLMaxSlots + elyFWMaxSlots);
@@ -1541,7 +1542,6 @@ static void get_sx1212_reg(uint8_t* buffer, elysium_cmd_hdr_t hdr) {
             elyNLFreeBuffer(elyNLFromFW(buffer));
             return;
         }
-    }
     uint8_t sx_reg = buffer[4];
     /* This should always be one, because we only send one register at a time */
     const uint8_t num_regs = hdr.length - (hdr.crc ? 2 : 0) - 3;

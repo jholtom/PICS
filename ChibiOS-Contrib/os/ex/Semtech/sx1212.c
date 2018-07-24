@@ -140,7 +140,7 @@ static void active_read_cb(void) {
  * @param[in] reg     register address
  * @return            the read value
  */
-static uint8_t sx1212ReadRegister(SX1212Driver *devp, uint8_t reg) {
+uint8_t sx1212ReadRegister(SX1212Driver *devp, uint8_t reg) {
 
   osalDbgAssert(reg <= 30, "register address out of bounds");
   /* TODO: Should also check that it is not above the register boundaries*/
