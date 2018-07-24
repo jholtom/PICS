@@ -1537,9 +1537,10 @@ static void get_sx1212_reg(uint8_t* buffer, elysium_cmd_hdr_t hdr) {
     if (hdr.reply) {
         uint8_t * reply_buff = elyFWGetBuffer();
         if (reply_buff == NULL) {
-        /* TODO signal a buffer overflow here */
-        elyNLFreeBuffer(elyNLFromFW(buffer));
-        return;
+            /* TODO signal a buffer overflow here */
+            elyNLFreeBuffer(elyNLFromFW(buffer));
+            return;
+        }
     }
     uint8_t sx_reg = buffer[4];
     /* This should always be one, because we only send one register at a time */
