@@ -194,14 +194,14 @@
 
 /**
  * @brief   System assertions.
- * 
+ *
  * @note    The default is @p FALSE.
  */
 #define CH_DBG_ENABLE_ASSERTS              TRUE
 
 /**
  * @brief   Stack check.
- * 
+ *
  *@note     The default is @p FALSE.
  */
 #define CH_DBG_ENABLE_STACK_CHECK          FALSE

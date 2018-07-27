@@ -18,13 +18,13 @@ void * nl_allocator(size_t size, unsigned align) {
   (void)(align);
   /* Provides memory blocks for the pool */
   static size_t PERSIST curr_index = 0;
-  
+
   if (curr_index + size > elyNLTotalBuffer) {
     return NULL;
   }
 
   void * result = mpool_storage + curr_index;
-  
+
   curr_index += size;
   return result;
 }
@@ -139,10 +139,10 @@ bool elyNLValidate(const uint8_t * buffer) {
     elyErrorSignal(ErrNLPVNMismatch);
     return false;
   }
-  
+
   /* ENH nasty pointer math makes this faster/better/more atomic */
   chSysLock();
-  if ( elyNLGetLength(buffer) > 
+  if ( elyNLGetLength(buffer) >
       ((uint16_t)(bank0p[RegNLMaxPktLengthMsb] << 8) | (uint16_t)(bank0p[RegNLMaxPktLengthLsb])) ) {
     chSysUnlock();
     /* Raise Packet Length Mismatch error */
@@ -153,27 +153,27 @@ bool elyNLValidate(const uint8_t * buffer) {
   return true;
 }
 
-static void nl_route(uint8_t * buffer, 
-    msg_t (*pass_func)(uint8_t *), 
+static void nl_route(uint8_t * buffer,
+    msg_t (*pass_func)(uint8_t *),
     msg_t (*fw_func)(uint8_t *),
     msg_t (*loop_func)(uint8_t *)) {
   /* Routing rules:
    * If (TC AND APID == Elysium) FW
    * If (TM AND APID == Elysium) Undefined
    * Else Passthrough */
-  
+
   /* Run Network Layer validation checks */
   if (!elyNLValidate(buffer)) {
     elyNLFreeBuffer(buffer);
     return;
   }
-  
-  /* TODO better constants */
+
+  /* TODO Don't use constants for register shifts.  Write a macro or function to handle these operations */
   uint16_t apid = ( ((buffer[0] & 0x07) << 8) | (buffer[1]) );
-  uint16_t elysium_apid = ( ((bank0p[RegSrcAddrMsb] << 8) | 
+  uint16_t elysium_apid = ( ((bank0p[RegSrcAddrMsb] << 8) |
         (bank0p[RegSrcAddrLsb])) );
   bool tc = buffer[0] & 0x10;
-  
+
   if (apid == elysium_apid) {
     if (tc) {
       if (MSG_OK != fw_func(buffer)) {
@@ -195,20 +195,20 @@ static void nl_route(uint8_t * buffer,
       }
 #else
       /* Reject invalid packet - free it. */
-      /* TODO create an error class for Invalid Address */
+      /* TODO create and return an error class for Invalid Address */
       elyNLFreeBuffer(buffer);
 #endif
       return;
     }
   }
-  
+
   if (MSG_OK != pass_func(buffer)) {
     /* We should never hit this because everyone allocates from elyNLMaxLen */
     chDbgAssert(false, "internal buffer overflows should be impossible");
     /* If we hit it anyway, free the buffer and weep */
     elyNLFreeBuffer(buffer);
   }
-  
+
   return;
 }
 
@@ -251,14 +251,14 @@ void elyNLRouteRFI(uint8_t * buffer) {
 elysium_destinations_t elyNLGetDest(uint8_t * buffer, uint16_t dest_addr) {
   /* buffer ignored for SPP */
   (void)(buffer);
-  
-  uint16_t ground_apid = ( ((bank0p[RegNLGroundAPIDMsb] << 8) | 
+
+  uint16_t ground_apid = ( ((bank0p[RegNLGroundAPIDMsb] << 8) |
         (bank0p[RegNLGroundAPIDLsb])) );
-  
+
   if (dest_addr == ground_apid) {
     return ELY_DEST_RF;
   }
-  
+
   return ELY_DEST_UART;
 }
 
@@ -267,25 +267,25 @@ bool is_fw_buf(uint8_t * buffer) {
    * If (TM AND APID == Elysium) FW Reply
    * If (TC AND APID == Elysium) Coding error
    * Else NL packet */
-  
-  /* TODO better constants */
+
+  /* TODO Don't use constants for register shifts.  Write a macro or function to handle these operations */
   uint16_t apid = ( ((buffer[0] & 0x07) << 8) | (buffer[1]) );
-  uint16_t elysium_apid = ( ((bank0p[RegSrcAddrMsb] << 8) | 
+  uint16_t elysium_apid = ( ((bank0p[RegSrcAddrMsb] << 8) |
         (bank0p[RegSrcAddrLsb])) );
   bool tc = buffer[0] & 0x10;
-  
+
   if (apid == elysium_apid) {
     if (!tc) {
       return true;
     }
     else {
-      /* Fall through to NL to allow loopback */
+      /* TODO: Fall through to NL to allow loopback */
     }
   }
-  
+
   return false;
 }
-  
+
 void elyNLFreeBufferChecked(uint8_t * buffer) {
   if (is_fw_buf(buffer)) {
       elyFWFreeBuffer(buffer);
@@ -316,26 +316,26 @@ void elyNLInit(void) {
       sh_len = 4;
     }
   }
-  
+
   sh_len = 0;
 }
 
 void elyNLSetHeader(uint8_t * buffer, uint16_t length, uint16_t dest_addr) {
   /* dest_addr not used for SPP */
   (void)(dest_addr);
-  
+
   /* Set APID */
-  uint16_t elysium_apid = ( ((bank0p[RegSrcAddrMsb] << 8) | 
+  uint16_t elysium_apid = ( ((bank0p[RegSrcAddrMsb] << 8) |
         (bank0p[RegSrcAddrLsb])) );
   buffer[0] = (elysium_apid >> 8);
   buffer[1] = (elysium_apid & 0xFF);
-  
+
   length = (length + sh_len - 1);
   buffer[4] = (length >> 8);
   buffer[5] = (length & 0xFF);
-  
+
   uint8_t options = bank0p[RegNLOptions];
-  
+
   if (options & 0x04) {
     chSysLock();
     buffer[2] = bank0p[RegNLPktNameMsb];
@@ -346,9 +346,9 @@ void elyNLSetHeader(uint8_t * buffer, uint16_t length, uint16_t dest_addr) {
     buffer[2] = (packets_sent >> 8) | 0xC0;
     buffer[3] = (packets_sent & 0xFF);
   }
-  
+
   packets_sent = (packets_sent + 1) & 0x3FFF;
-  
+
   /* insert timestamps here too if required */
   if (options & 0x02) { /* Timestamp */
     buffer[0] |= 0x08; /* Sec Hdr Flag */
@@ -360,7 +360,7 @@ void elyNLSetHeader(uint8_t * buffer, uint16_t length, uint16_t dest_addr) {
       buffer[9] = bank0p[RegMissionTimeLmb];
       buffer[10] = bank0p[RegMissionTimeLsb];
       chSysUnlock();
-      
+
     }
     else { /* No P-field */
       /* 4-byte Secondary Header + 6-byte Primary Header */
@@ -372,7 +372,7 @@ void elyNLSetHeader(uint8_t * buffer, uint16_t length, uint16_t dest_addr) {
       chSysUnlock();
     }
   }
-  
+
   return;
 }
 

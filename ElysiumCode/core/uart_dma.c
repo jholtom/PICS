@@ -29,7 +29,7 @@ msg_t elyUARTPostI(uint8_t * buffer) {
   else {
     /* don't try to handle it if we fail */
     /* TODO signal an error here */
-    chDbgAssert(false, "an error");
+    chDbgAssert(false, "UART msg failed to Post");
   }
   return msg;
 }

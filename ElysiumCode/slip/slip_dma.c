@@ -19,9 +19,9 @@ static uint8_t * dbuf_get_read(double_buff * rb) {
 }
 
 static void dbuf_init(double_buff * rb) {
-  chDbgAssert(SLIP_RX_BUF_LEN <= ((UINT16_MAX - 1) / 2), 
+  chDbgAssert(SLIP_RX_BUF_LEN <= ((UINT16_MAX - 1) / 2),
       "RX buffer length too long");
-  
+
   rb->write_idx = 0;
   rb->read_idx = 0;
 }
@@ -40,15 +40,15 @@ static const uint8_t * next_tx_ptr;
 static slip_uart_states_t tx_state = ELY_SLIP_NOT_ESCAPED;
 
 static thread_t * uart_thd;
-    
+
 void calc_next_buff(void) {
-  
+
   switch (tx_state) {
     case ELY_SLIP_NOT_ESCAPED:
       next_tx_ptr = tx_read_ptr;
       next_cnt = 0;
-      while (next_cnt != tx_n && 
-          *tx_read_ptr != SLIP_END && 
+      while (next_cnt != tx_n &&
+          *tx_read_ptr != SLIP_END &&
           *tx_read_ptr != SLIP_ESC) {
         next_cnt++;
         tx_read_ptr++;
@@ -84,37 +84,37 @@ void calc_next_buff(void) {
       /* ACTUALLY can't happen */
       break;
   }
-            
+
 }
 
 void elyUARTDLLTxCB(UARTDriver * uartp) {
   static volatile unsigned count = 0;
   static bool done = false;
   static const uint8_t END = SLIP_END;
-  
+
   if (done) {
     count++;
     done = false;
     return;
   }
-  
+
   chSysLockFromISR();
   uartStartSendI(uartp, next_cnt, next_tx_ptr);
   chSysUnlockFromISR();
-  
+
   if (tx_n == 0) {
     done = true;
     return;
   }
-  
+
   tx_n -= next_cnt;
-  
+
   if (tx_n == 0) {
     next_tx_ptr = &END;
     next_cnt = 1;
     return;
   }
-  
+
   calc_next_buff();
 }
 
@@ -133,30 +133,30 @@ void elyUARTDLLStartTx(UARTDriver * uartp, uint8_t * buffer) {
   tx_read_ptr = buffer;
   tx_active_buffer = buffer;
   tx_state = ELY_SLIP_NOT_ESCAPED;
-  
+
   calc_next_buff();
-  
+
   chSysLock();
   uartStartSendI(uartp, next_cnt, next_tx_ptr);
-  
+
   tx_n -= next_cnt;
   count++;
-  
+
   if (tx_n == 0) {
     next_tx_ptr = &END;
     next_cnt = 1;
     chSysUnlock();
     return;
   }
-  
+
   calc_next_buff();
   chSysUnlock();
-  
+
 }
 
 void elyUARTDLLRxInit(UARTDriver * uartp) {
   (void)(uartp);
-  
+
   uart_thd = chThdGetSelfX();
 }
 
@@ -164,13 +164,13 @@ static void handle_buffer(size_t bytes_available, const uint8_t * buffer) {
   static size_t rx_n;
   static bool header;
   /* We have now received 256 bytes of data somewhere in rx_buf */
-  
+
   const uint8_t * end = buffer + bytes_available;
   const uint8_t * cp = buffer;
-  
+
   while (cp < end) {
     uint8_t c = *cp;
-    
+
     if (rx_state == ELY_SLIP_RESET) {
       /* allocate a working buffer from the main pool */
       /* TODO this section is dangerous re: resets. Figure out how to fix it. */
@@ -202,7 +202,7 @@ static void handle_buffer(size_t bytes_available, const uint8_t * buffer) {
       if (NULL == rx_write_ptr) {
         chSysHalt("postdead");
       }
-    
+
     switch (rx_state) {
       case ELY_SLIP_ESCAPED:
         {
@@ -261,19 +261,19 @@ static void handle_buffer(size_t bytes_available, const uint8_t * buffer) {
         /* ACTUALLY can't happen */
         break;
     }
-    
+
     if (rx_n == 0 && header) { /* and we haven't reset */
       if (elyNLValidate(rx_active_buffer)) {
         rx_n = elyNLGetLength(rx_active_buffer) - elyNLHeaderLen;
         header = false;
-      } 
+      }
       else {
         /* junk - reset state machine */
         rx_state = ELY_SLIP_RESET;
       }
     }
   }
-  
+
   if (bytes_available < SLIP_RX_BUF_LEN) {
     if (NULL != rx_active_buffer) {
       elyNLFreeBuffer(rx_active_buffer);
@@ -292,13 +292,13 @@ void elyUARTDLLRxHandleBuffer() {
   handle_buffer(bytes_available, tmp_buf);
 }
 
-/* TODO we might be able to refactor this out by signalling from 
+/* TODO we might be able to refactor this out by signalling from
  * the callbacks and using an S-class timeout API */
 void elyUARTDLLTimeoutCB(GPTDriver * gptp) {
   (void)(gptp);
   chSysLockFromISR();
   size_t bytes_missed = uartStopReceiveI(&ELY_UART);
-  
+
   /* Count the number of bytes that are available */
   bytes_available = SLIP_RX_BUF_LEN - bytes_missed;
   /* Signal the thread that a buffer is ready */
@@ -310,7 +310,7 @@ void elyUARTDLLTimeoutCB(GPTDriver * gptp) {
 void elyUARTDLLRxCharCB(UARTDriver * uartp, uint16_t c) {
   chDbgAssert(c < 0x100, "invalid char");
   dbuf_init(&rx_buf);
-  
+
   uint8_t * buf = dbuf_get_write(&rx_buf);
   if (buf != &rx_buf.buf[0] && buf != &rx_buf.buf[1]) {
     chSysHalt("char");
@@ -319,8 +319,8 @@ void elyUARTDLLRxCharCB(UARTDriver * uartp, uint16_t c) {
   chSysLockFromISR();
   uartStartReceiveI(uartp, SLIP_RX_BUF_LEN-1, buf+1);
   gptStartOneShotI(&uart_gpt, UART_TIMEOUT_MS);
-  
-  
+
+
   chSysUnlockFromISR();
 }
 
@@ -331,14 +331,14 @@ void elyUARTDLLRxCB(UARTDriver * uartp) {
   if (tmp_buf != &rx_buf.buf[0] && tmp_buf != &rx_buf.buf[1]) {
     chSysHalt("cb");
   }
-  uartStartReceiveI(uartp, SLIP_RX_BUF_LEN, tmp_buf); 
+  uartStartReceiveI(uartp, SLIP_RX_BUF_LEN, tmp_buf);
   gptStopTimerI(&uart_gpt);
   gptStartOneShotI(&uart_gpt, UART_TIMEOUT_MS);
   /* All the bytes are available */
   bytes_available = SLIP_RX_BUF_LEN;
   /* Signal the thread that a buffer is ready */
   chEvtSignalI(uart_thd, UARTRxBufferReady);
-  
+
   chSysUnlockFromISR();
 }
 
