@@ -36,14 +36,14 @@ msg_t elyRFPost(uint8_t * buffer, systime_t timeout) {
 void elyRFCfgMarkDirtyI(rf_events_t event) {
   chDbgAssert(chThdGetSelfX() != rf_thd, "can't set your own config dirty");
   chDbgAssert(event & RFCfgMask, "invalid event");
-  
+
   chEvtSignalI(rf_thd, event);
 }
 
 void elyRFCfgMarkDirty(rf_events_t event) {
   chDbgAssert(chThdGetSelfX() != rf_thd, "can't set your own config dirty");
   chDbgAssert(event & RFCfgMask, "invalid event");
-  
+
   chEvtSignal(rf_thd, event);
 }
 
@@ -73,7 +73,7 @@ void __attribute__((weak)) elyRFChangeTxFreqS(SX1278Config * cfg) {
     bank0w[RegTXFreqMsb] = (cfg->freq >> 24);
   }
   chSysUnlock();
-  
+
   /* This is pretty fast */
   sx1278SetFrequency(&SX1278D1, cfg->freq);
 }
@@ -99,7 +99,7 @@ void __attribute__((weak)) elyRFChangeRxFreqS(SX1212Config * cfg) {
     bank0w[RegRXFreqMsb] = (cfg->freq >> 24);
   }
   chSysUnlock();
-  
+
   /* This is INCREDIBLY slow */
   sx1212SetFrequency(&SX1212D1, cfg->freq);
 }
@@ -125,7 +125,7 @@ void __attribute__((weak)) elyRFChangeTxBRS(SX1278Config * cfg) {
     bank0w[RegTXBRMsb] = (cfg->bitrate >> 24);
   }
   chSysUnlock();
-  
+
   /* This is fast */
   sx1278SetBitrate(&SX1278D1, cfg->bitrate);
 }
@@ -151,7 +151,7 @@ void __attribute__((weak)) elyRFChangeRxBRS(SX1212Config * cfg) {
     bank0w[RegRXBRMsb] = (cfg->bitrate >> 24);
   }
   chSysUnlock();
-  
+
   /* This is only moderately slow */
   sx1212SetBitrate(&SX1212D1, cfg->bitrate);
 }
@@ -177,7 +177,7 @@ void __attribute__((weak)) elyRFChangeTxDevS(SX1278Config * cfg) {
     bank0w[RegTXDevMsb] = (cfg->fdev >> 24);
   }
   chSysUnlock();
-  
+
   /* This is fast */
   sx1278SetDeviation(&SX1278D1, cfg->fdev);
 }
@@ -203,7 +203,7 @@ void __attribute__((weak)) elyRFChangeRxDevS(SX1212Config * cfg) {
     bank0w[RegRXDevMsb] = (cfg->fdev >> 24);
   }
   chSysUnlock();
-  
+
   /* This is super fast */
   sx1212SetDeviation(&SX1212D1, cfg->fdev);
 }
@@ -215,7 +215,7 @@ void __attribute__((weak)) elyRFChangeTxSyncS(SX1278Config * cfg) {
                 ((uint32_t)(bank0p[RegTXSyncHmb]) << 16) |
                 ((uint32_t)(bank0p[RegTXSyncMsb]) << 24) );
   chSysUnlock();
-  
+
   /* This is reasonably fast */
   sx1278SetSync(&SX1278D1, cfg->sync_word);
 }
@@ -227,7 +227,7 @@ void __attribute__((weak)) elyRFChangeRxSyncS(SX1212Config * cfg) {
                 ((uint32_t)(bank0p[RegRXSyncHmb]) << 16) |
                 ((uint32_t)(bank0p[RegRXSyncMsb]) << 24) );
   chSysUnlock();
-  
+
   /* This is reasonably fast */
   sx1212SetSync(&SX1212D1, cfg->sync_word);
 }
@@ -236,35 +236,35 @@ uint8_t rfic_pow_to_reg(int16_t pow) {
   /* from -4.2 to 14 by 0.2s, adjusted for Pmax weirdness */
   static const uint8_t lut[] = {
     0x0, 0x0, 0x0, 0x10, 0x20, 0x1, 0x1, 0x1, 0x11, 0x21, 0x2, 0x70, 0x70, 0x12, 0x22, 0x3, 0x71,
-    0x71, 0x13, 0x23, 0x4, 0x72, 0x72, 0x14, 0x24, 0x5, 0x73, 0x73, 0x15, 0x25, 0x6, 0x74, 0x74, 
+    0x71, 0x13, 0x23, 0x4, 0x72, 0x72, 0x14, 0x24, 0x5, 0x73, 0x73, 0x15, 0x25, 0x6, 0x74, 0x74,
     0x16,  0x26, 0x7, 0x75, 0x75, 0x17, 0x27, 0x8, 0x76, 0x76, 0x18, 0x28, 0x9, 0x77, 0x77, 0x19,
     0x29, 0xa, 0x78, 0x78, 0x1a, 0x2a, 0xb, 0x79, 0x79, 0x1b, 0x2b, 0xc, 0x7a, 0x7a, 0x1c, 0x2c,
-    0xd, 0x7b, 0x7b, 0x1d, 0x2d, 0xe, 0x7c, 0x7c, 0x1e, 0x2e, 0xf, 0x7d, 0x7d, 0x1f, 0x2f, 0x3f, 
+    0xd, 0x7b, 0x7b, 0x1d, 0x2d, 0xe, 0x7c, 0x7c, 0x1e, 0x2e, 0xf, 0x7d, 0x7d, 0x1f, 0x2f, 0x3f,
     0x7e,  0x7e, 0x7e, 0x4f, 0x6f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f, 0x7f
   };
-  
+
   return lut[(pow / 2) + 21];
 }
 
 void __attribute__((weak)) elyRFChangeTxPowerS(SX1278Config * cfg) {
-  
+
   int16_t prog_pow = 100 + 2 * bank0p[RegOutputPower];
   int16_t rfic_pow = prog_pow - 300 + (FIXED_ATTEN*10);
   cfg->pow = rfic_pow_to_reg(rfic_pow);
-  
+
   /* This is reasonably fast because I made it kind of sloppy */
   sx1278SetPower(&SX1278D1, cfg->pow);
 }
 
 void __attribute__((weak)) elyRFChangeTxFilterParamsS(SX1278Config * tx_cfg) {
-  
+
   tx_cfg->filter = ((bank0p[RegFilterParams] >> 4) & 0x03);
   /* This is very fast */
   sx1278SetFilterParams(&SX1278D1, tx_cfg->filter);
 }
 
 void __attribute__((weak)) elyRFChangeRxFilterParamsS(SX1212Config * rx_cfg) {
-  
+
   rx_cfg->rx_bw = (bank0p[RegFilterParams] & 0x0F);
   /* This is fast and I made it kind of sloppy anyway */
   sx1212SetRxBw(&SX1212D1, rx_cfg->rx_bw);
@@ -293,7 +293,7 @@ static SX1278Config __attribute__((section(".persistent"))) tx_cfg = {
   {
     0,
     1,
-  }, /* PacketSent on DIO0, FifoLevel on DIO1 - ENH currently this does basically nothing, rethink? */ 
+  }, /* PacketSent on DIO0, FifoLevel on DIO1 - ENH currently this does basically nothing, rethink? */
   LINE_SX1278_RESET_B, /* reset line */
   LINE_SX1278_SS_B, /* slave select line */
   &DLLTxPktCfg,
@@ -332,10 +332,10 @@ static bool bits_set(eventmask_t events, eventmask_t bits) {
 THD_WORKING_AREA(waRFThd, 256);
 THD_FUNCTION(RFThd, arg) {
   (void)arg;
-  
+
   /* Store a thread pointer for later use */
   rf_thd = chThdGetSelfX();
-  
+
   /* Build the TX config out of the registers */
   chSysLock();
   tx_cfg.bitrate = ( ((uint32_t)(bank0p[RegTXBRLsb])) |
@@ -359,13 +359,13 @@ THD_FUNCTION(RFThd, arg) {
                 ((uint32_t)(bank0p[RegTXSyncHmb]) << 16) |
                 ((uint32_t)(bank0p[RegTXSyncMsb]) << 24) );
   chSysUnlock();
-  
+
   /* Start the transmitter driver and initiate the transmit loop */
   sx1278ObjectInit(&SX1278D1);
   sx1278Start(&SX1278D1, &tx_cfg);
-  
+
   elyRFDLLTxInit(&SX1278D1);
-  
+
   /* Build the RX config out of the registers */
   chSysLock();
   rx_cfg.bitrate = ( ((uint32_t)(bank0p[RegRXBRLsb])) |
@@ -390,21 +390,21 @@ THD_FUNCTION(RFThd, arg) {
 
   /* Start the receiver driver and initiate the receive loop */
   sx1212Start(&SX1212D1, &rx_cfg);
-  
+
   elyRFDLLRxInit(&SX1212D1);
-  
+
   events = (RFSpiAvailable | RFTxIdle);
-  
+
   /* Get events into a consistent state with mailbox */
   chSysLock();
   if (chMBGetUsedCountI(&rf_mbox) > 0) {
     events |= RFPktAvailable;
   }
   chSysUnlock();
-  
+
   while (true) {
     if (bits_set(events, (RFRxFifoThresh | RFSpiAvailable))) {
-      /* 
+      /*
        * Read FifoThresh bytes from the Fifo using spiStartReceive
        *  In the callback - signal SpiAvailable, and post buffer and signal RxIdle if applicable
        * Clear RxFifoThresh and SpiAvailable from Events variable
@@ -439,7 +439,7 @@ THD_FUNCTION(RFThd, arg) {
     if (bits_set(events, (RFTxIdle | RFSpiAvailable)) && (events & RFTxCfgMask)) {
       while (events & RFTxCfgMask) {
         eventmask_t evt = get_next_event(events & RFTxCfgMask);
-        
+
         switch (evt) {
           case RFTxFreqUpdated:
             elyRFChangeTxFreqS(&tx_cfg);
@@ -461,7 +461,7 @@ THD_FUNCTION(RFThd, arg) {
           default:
             chDbgAssert(false, "shouldn't happen");
         }
-        
+
         /* Remove event from mask */
         events &= ~evt;
       }
@@ -469,7 +469,7 @@ THD_FUNCTION(RFThd, arg) {
     if (bits_set(events, (RFRxIdle | RFSpiAvailable)) && (events & RFRxCfgMask)) {
       while (events & RFRxCfgMask) {
         eventmask_t evt = get_next_event(events & RFRxCfgMask);
-        
+
         switch (evt) {
           case RFRxFreqUpdated:
             elyRFChangeRxFreqS(&rx_cfg);
@@ -492,8 +492,8 @@ THD_FUNCTION(RFThd, arg) {
         events &= ~evt;
       }
     }
-    
+
     events |= chEvtWaitAnyTimeout(AllRfEvents, TIME_INFINITE);
   }
-  
+
 }

@@ -42,7 +42,7 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
-  
+
 extern THD_WORKING_AREA(waUARTThd, 256);
-  
+
 #endif
