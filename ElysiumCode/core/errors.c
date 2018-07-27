@@ -63,10 +63,10 @@ void elyErrorSignalI(uint8_t error) {
 void elyErrorSetRptLvlS(uint8_t lvl) {
   chDbgCheckClassS();
   chDbgAssert(lvl < ELY_ALL_ERRORS, "invalid reporting mask");
-  
+
   logged_events = 0;
   reported_events = 0;
-  
+
   /* update the mask of enabled events */
   for (int i = 0x80; i < ErrCoreMAX; i++) {
     if (error_priorities[i] & bank0p[RegErrRptLvl]) {
@@ -83,7 +83,7 @@ void elyErrorSetRptLvlS(uint8_t lvl) {
       reported_events |= mask_from_error(i);
     }
   }
-  
+
   /* Awaken the thread */
   chSchReadyI(error_thd, MSG_RESET);
 }
@@ -91,7 +91,7 @@ void elyErrorSetRptLvlS(uint8_t lvl) {
 void elyErrorSetLogLvlS(uint8_t lvl) {
   chDbgCheckClassS();
   chDbgAssert(lvl < ELY_ALL_ERRORS, "invalid reporting mask");
-  
+
   /* update the mask of enabled events */
   for (int i = 0x80; i < ErrCoreMAX; i++) {
     if (error_priorities[i] & bank0p[RegErrLogLvl]) {
@@ -108,8 +108,8 @@ void elyErrorSetLogLvlS(uint8_t lvl) {
       logged_events |= mask_from_error(i);
     }
   }
-  
-  
+
+
   /* Awaken the thread */
   chSchReadyI(error_thd, MSG_RESET);
 }
@@ -132,15 +132,15 @@ THD_FUNCTION(EvtThd, arg) {
   event_mask_t result;
   elysium_errs_t err;
   elysium_err_lvl_t lvl;
-  
+
   error_thd = chThdGetSelfX();
-  
+
   while (true) {
     result = chEvtWaitAnyTimeout(logged_events | reported_events, TIME_INFINITE);
     while (result > 0) {
       /* Get the highest index error */
       err = get_max_error(result);
-      
+
       /* Get the error priority level */
       switch (err) {
         case ErrPAOvertemp:
@@ -191,7 +191,7 @@ THD_FUNCTION(EvtThd, arg) {
         default:
           chDbgAssert(false, "shouldn't happen");
       }
-      
+
       /* Test the level against the mask */
       if (bank0p[RegErrRptLvl] & lvl) {
         /* TODO report the error */
@@ -199,10 +199,10 @@ THD_FUNCTION(EvtThd, arg) {
       if (bank0p[RegErrLogLvl] & lvl) {
         /* TODO log the error */
       }
-      
+
       /* Remove the error from the mask */
       result &= ~(1 << err);
-      
+
     }
     /* If the loop never runs it means the masks have been updated */
   }

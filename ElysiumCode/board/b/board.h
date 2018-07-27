@@ -55,7 +55,7 @@
  */
 /*
  * Port A setup:
- * 
+ *
  * P1.0 - PA thermistor, bottom   (alternate 3, analog input)
  * P1.1 - PA thermistor, top      (alternate 3, analog input)
  * P1.2 - SX1278 DIO4 (unused)    (input pulldown)
@@ -81,7 +81,7 @@
 
 /*
  * Port B setup:
- * 
+ *
  * P3.0 - SX1278 DIO3 (unsused)   (input pulldown)
  * P3.1 - SX1278 DIO2 (unsused)   (input pulldown)
  * P3.2 - SX1278 DIO1             (input pulldown)
@@ -107,7 +107,7 @@
 
 /*
  * Port J setup:
- * 
+ *
  * PJ.0 - SX1212 Config SS_B      (output high)
  * PJ.1 - SX1212 RESET            (input pulldown)
  * PJ.2 - LNA power enable        (output low)

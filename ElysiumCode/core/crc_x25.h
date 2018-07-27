@@ -4,7 +4,7 @@
 #ifndef _ELYSIUM_CRC_X25_H_
 #define _ELYSIUM_CRC_X25_H_
 
-/* 
+/*
  * X.25 - POLY 0x1021, INIT 0xFFFF, REFIN=TRUE, REFOUT=TRUE, XOROUT=0xFFFF
  * SDLP - POLY 0x1021, INIT 0xFFFF, REFIN=FALSE, REFOUT=FALSE, XOROUT=0x0000
  */
@@ -12,7 +12,7 @@
 #include "hal.h"
 #include "hal_dma_lld.h"
 
-#if defined(HAL_USE_DMA) 
+#if defined(HAL_USE_DMA)
   #if !defined(ELYSIUM_CRC_DMA)
     #define ELYSIUM_CRC_DMA FALSE
   #endif

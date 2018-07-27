@@ -54,7 +54,7 @@
  */
 /*
  * Port A setup:
- * 
+ *
  * P1.0 - PA thermistor, bottom   (alternate 3, analog input)
  * P1.1 - LNA voltage sense       (alternate 3, analog input)
  * P1.2 - PA thermistor, top      (alternate 3, analog input)
@@ -80,7 +80,7 @@
 
 /*
  * Port B setup:
- * 
+ *
  * P3.0 - PA power sense          (alternate 3, analog input)
  * P3.1 - PA power reference      (alternate 3, analog input)
  * P3.2 - SX1278 TX indicator     (input pulldown falling edge interrupt)
@@ -106,7 +106,7 @@
 
 /*
  * Port J setup:
- * 
+ *
  * PJ.0 - N/C                     (input pullup)
  * PJ.1 - N/C                     (input pullup)
  * PJ.2 - SX1212 Config SS_B      (output high)

@@ -25,11 +25,11 @@ static interval_t PERSIST intervals[ChanCoreMAX + ChanNLMAX + ChanDLLMAX];
 static void interval_alloc(size_t size, unsigned align) {
   static PERSIST uint8_t * storage = intervals;
   uint8_t * alloc = storage;
-  if (alloc >= intervals + 
+  if (alloc >= intervals +
       (sizeof(interval_t) * (ChanCoreMAX + ChanNLMAX + ChanDLLMAX))) {
     return NULL;
   }
-  
+
   storage += sizeof(interval_t);
   return alloc;
 }
@@ -94,7 +94,7 @@ static channel_node_t PERSIST reported_channels[ChanCoreMax + ChanNLMax + ChanDL
 static PERSIST BSEMAPHORE_DECL(buffer_ready, true);
 
 static void timer_cb(GPTDriver * gptp) {
-  
+
   if (log_len > 0) {
     /* TODO log buffer once telem exists */
   }
@@ -104,10 +104,10 @@ static void timer_cb(GPTDriver * gptp) {
   }
   log_len = 0;
   report_len = 0;
-  
+
   /* Get the next interval */
   if (current_interval->next != NULL) {
-    gptChangeIntervalI(&chan_gpt, 
+    gptChangeIntervalI(&chan_gpt,
       current_interval->next->interval - current_interval->interval);
     current_interval = current_interval->next;
   }
@@ -115,7 +115,7 @@ static void timer_cb(GPTDriver * gptp) {
     current_interval = first_interval;
     gptChangeIntervalI(&chan_gpt, current_interval->interval);
   }
-  
+
 }
 
 static const GPTConfig PERSIST timer_cfg = {
@@ -131,9 +131,9 @@ interval_t * get_interval(uint32_t input) {
     /* Get a new interval from the pool */
     interval_t * new = chPoolAlloc(&interval_mpool);
     chDbgAssert(new != NULL, "Too many subscriptions!");
-    chDbgAssert(new->next == NULL && new->prev == NULL, 
+    chDbgAssert(new->next == NULL && new->prev == NULL,
         "Didn't zero interval before freeing");
-    
+
     new->interval = input;
     first_interval = new;
     return new;
@@ -142,31 +142,31 @@ interval_t * get_interval(uint32_t input) {
   while (curr->next != NULL && curr->next->interval < input) {
     curr = curr->next;
   }
-  
+
   if (curr->next->interval == input) {
     /* Found existing interval */
     return curr->next;
   }
-  
+
   /* Get a new interval from the pool */
   interval_t * new = chPoolAlloc(&interval_mpool);
   chDbgAssert(new != NULL, "Too many subscriptions!");
-  chDbgAssert(new->next == NULL && new->prev == NULL, 
+  chDbgAssert(new->next == NULL && new->prev == NULL,
       "Didn't zero interval before freeing");
-  
+
   new->interval = input;
-  
+
   /* Add to list between curr and curr->next */
   new->next = curr->next;
   curr->next = new;
-  
+
   return new;
 
 }
 
 uint8_t index_from_id(uint8_t chan_id) {
   osalDbgAssert(chan_id >= 0x40 && chan_id < 0x80, "invalid channel id");
-  
+
   if (chan_id < ChanCoreMAX) { /* core channels */
     return chan_id & 0x3F;
   }
@@ -188,19 +188,19 @@ void unlog_channel(uint8_t chan_id) {
 void remove_interval(channel_node_t * node) {
   /* Walk the list, look for the node */
   interval_t * curr = first_interval;
-  
+
   chDbgAssert(curr != NULL);
   if (curr->chan_list == node) {
     /* Remove first interval */
     first_interval = curr->next;
     chPoolFree(&interval_mpool, curr);
   }
-  
+
   /* Find the interval to remove */
   while (curr->next != NULL && curr->next->chan_list != node) {
     curr = curr->next;
   }
-  
+
   chDbgAssert(curr->next != NULL);
   /* Remove the following node */
   interval_t * next = curr->next;
@@ -219,7 +219,7 @@ void remove_node(channel_node_t * node) {
     /* Last node in interval - remove the orphan */
     remove_interval(node);
   }
-  
+
   /* Remove node from list */
   if (node->prev != NULL) {
     /* OK if next is NULL */
@@ -229,7 +229,7 @@ void remove_node(channel_node_t * node) {
     /* OK if prev is NULL */
     node->next->prev = node->prev;
   }
-  
+
   /* Disable the node */
   node->prev = node;
   node->next = node;
@@ -240,20 +240,20 @@ bool node_enabled(channel_node_t * node) {
   return !(node->prev == NULL && node->next == NULL);
 }
 
-void enable_channel(uint8_t chan_id, 
-                    channel_node_t * channels, 
+void enable_channel(uint8_t chan_id,
+                    channel_node_t * channels,
                     interval_t * interval) {
-  
+
   uint8_t chan_index = index_from_id(chan_id);
   /* If the channel is already subscribed, remove it from the old interval */
   if (node_enabled(&channels[chan_index])) {
     remove_node(&channels[chan_index]);
     elyErrorSignal(ErrSubOverwrite);
   }
-  
+
   /* Add the channel to the interval list */
   channel_node_t * curr = interval->chan_list;
-  
+
   /* Nothing in the list? Create it */
   if (NULL == curr) {
     interval->chan_list = &channels[chan_index];
@@ -263,17 +263,17 @@ void enable_channel(uint8_t chan_id,
     chDbgAssert(NULL == curr->prev, "invalid channel list insertion");
     curr->prev = &channels[chan_index];
     channels[chan_index].next = curr;
-    channels[chan_index].prev = NULL; /* TODO too paranoid? */
+    channels[chan_index].prev = NULL; /* TODO too paranoid? no, there is no such thing */
   }
 }
 
 void elyChanSubscribe(uint8_t * buffer, uint8_t length, uint32_t interval) {
   interval_t * i = get_interval(interval);
-  
+
   for (int i = 0; i < length; i++) {
     enable_channel(buffer[i], reported_channels, interval);
   }
-  
+
   if (chan_gpt.state != GPT_CONTINUOUS) {
     gptStartContinuous(&chan_gpt, interval & 0xFF);
     current_interval = interval;
@@ -289,16 +289,16 @@ void elyChanUnsubscribe(uint8_t * buffer, uint8_t length) {
   for (int i = 0; i < length; i++) {
     unsubscribe_channel(buffer[i]);
   }
-  
+
 }
 
 void elyChanLog(uint8_t * buffer, uint8_t length, uint32_t interval) {
   interval_t * i = get_interval(interval);
-  
+
   for (int i = 0; i < length; i++) {
     enable_channel(buffer[i], logged_channels, interval);
   }
-  
+
   if (chan_gpt.state != GPT_CONTINUOUS) {
     gptStartContinuous(&chan_gpt, interval & 0xFF);
     current_interval = interval;
@@ -314,20 +314,20 @@ void elyChanUnlog(uint8_t * buffer, uint8_t length) {
   for (int i = 0; i < length; i++) {
     unlog_channel(buffer[i]);
   }
-  
+
 }
 
 size_t elyChanGetValue(uint8_t * buffer, uint8_t id) {
   uint8_t chan_index = index_from_id(id);
-  
+
   size_t n = logged_channels[chan_index].size;
-  
+
   for (int i = 1; i < n+1; i--) {
     buffer[i] = (uint8_t *)(reported_channels[chan_index].chan_data)[n-i-1];
   }
-  
+
   return n;
-  
+
 }
 
 void elyChanReset() {
@@ -342,7 +342,7 @@ void elyChanReset() {
       curr.prev = NULL;
       curr = curr.next;
     }
-    
+
     /* Remove from the interval list */
     interval->interval = 0;
     interval->prev = NULL;
@@ -353,16 +353,16 @@ void elyChanReset() {
 
 THD_WORKING_AREA(waChanThd, 128);
 THD_FUNCTION(ChanThd, arg) {
-  
+
   /* "On Reset" code goes here */
   /* Re-initialize timer */
   gptStart(&chan_gpt, &timer_cfg);
-  
+
   /* If the timer was running, restart it */
   /* TODO think if there's a way to preserve the running timer */
   if (current_interval != NULL) {
     if (current_interval->next != NULL) {
-      gptStartContinuous(&chan_gpt, 
+      gptStartContinuous(&chan_gpt,
         current_interval->next->interval - current_interval->interval);
       current_interval = current_interval->next;
     }
@@ -371,7 +371,7 @@ THD_FUNCTION(ChanThd, arg) {
       gptStartContinuous(&chan_gpt, current_interval->interval);
     }
   }
-  
+
   while (MSG_OK == chBSemWait(&buffer_ready)) {
     /* Loop through the channel list of the current (next) interval */
     channel_node_t * curr = current_interval->chan_list;
@@ -389,7 +389,7 @@ THD_FUNCTION(ChanThd, arg) {
         len = &report_len;
         buffer = report_buffer + report_len;
       }
-    
+
       switch (curr->chan_id) {
         case ChanRSSI:
         case ChanMCUTemp:
@@ -417,22 +417,22 @@ THD_FUNCTION(ChanThd, arg) {
         default:
           chDbgAssert(false, "shouldn't happen");
       }
-      
+
       buffer[0] = curr->chan_id;
-      
+
       for (int i = n-1; i >= 0; i--) {
         buffer[n-i] = (uint8_t *)(curr->chan_data)[i];
       }
-      
+
       (*len) += n;
-    
+
     }
-    
+
     /* Block until the ISR triggers */
-    
+
   }
-  
+
   /* TODO handle timer overruns more rationally */
   chDbgAssert(false, "timer overrun maybe? not sure");
-  
+
 }

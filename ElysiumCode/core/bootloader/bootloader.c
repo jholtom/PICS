@@ -14,7 +14,7 @@ __attribute__((optimize(0))) __attribute__((section(".info"))) void _bootloader_
   P1SEL0 = 0x27;
   P1SEL1 = 0xC7;
   PM5CTL0 &= ~LOCKLPM5;
-  
+
   UCB0BRW = 20;
   UCB0I2CSA = 0x51;
   UCB0CTLW0 = 0xF92;
@@ -31,7 +31,7 @@ __attribute__((optimize(0))) __attribute__((section(".info"))) void _bootloader_
     WDTCTL = WDTPW | WDTCNTCL;
   }
   bootloader = 0;
-  
+
   PMMCTL0 = PMMPW | SVSHE | PMMSWPOR; /* SW POR */
 }
 
