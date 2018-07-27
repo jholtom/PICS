@@ -130,7 +130,7 @@ static void active_read_cb(void) {
 /* Driver local functions.                                                   */
 /*===========================================================================*/
 
-/**
+/** - THIS GUY ISNT LOCAL ANYMORE, ITS EXPORTED
  * @brief   Reads register value.
  * @pre     The SX1212 driver must be initialized and the NSS_CONFIG interface
  *          started and acquired (if enabled).
