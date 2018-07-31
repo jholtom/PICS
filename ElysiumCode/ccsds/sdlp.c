@@ -161,8 +161,9 @@ uint8_t elyRFDLLClampReg(uint8_t addr, uint8_t value) {
 /* TODO learn how to deal with non-SPP packets */
 void elyRFDLLBuildFrame(void) {
   static ely_framebuilder_state_t state = FB_STATE_UNINIT;
-  static size_t idle_len = 0;
+  static size_t idle_len = SDLP_IDLE_PACKET_LENGTH;
   static size_t idle_idx = 0;
+  static size_t remaining_len = 0;
   
   size_t tf_idx = SDLP_TM_PH_LEN;
   bool fhp = false;
@@ -207,7 +208,8 @@ void elyRFDLLBuildFrame(void) {
     tf_buffer[4] &= ~0x07;
     tf_buffer[5] = 0;
     fhp = true;
-    idle_len = 0;
+    idle_len = SDLP_IDLE_PACKET_LENGTH;
+    remaining_len = 0;
     idle_idx = 0;
     pkt_idx = 0;
   }
@@ -235,13 +237,7 @@ void elyRFDLLBuildFrame(void) {
           }
           msg_t r = chMBFetch(&rf_mbox, (msg_t *)(&active_packet), SDLP_IDLE_PACKET_TIMEOUT);
           if (MSG_OK != r) {
-            idle_len = tf_data_len - tf_idx;
-            if (idle_len < 7) {
-              idle_len += tf_data_len;
-            }
-            idle_header[4] = (idle_len - 7) >> 8;
-            idle_header[5] = (idle_len - 7) & 0xFF;
-            idle_idx = 0;
+            idle_idx = idle_len;
             state = FB_STATE_IDLE;
             continue;
           }
@@ -251,7 +247,23 @@ void elyRFDLLBuildFrame(void) {
         }
         tf_buffer[tf_idx++] = active_packet[pkt_idx++];
         break;
-      case FB_STATE_IDLE:
+      case FB_STATE_IDLE: // we don't have any more payload data, so we need to fill the frame with idle data
+        if (idle_idx == idle_len){
+            remaining_len = tf_data_len - tf_idx; // find how much room is left in the transfer frame
+            if (remaining_len < idle_len){ // if the last bit of the frame can't hold a full packet's worth of idle data...
+                idle_len = remaining_len; // then it won't. the frame will be given a slightly smaller packet
+                if (remaining_len < 7){ //if another idle header can't be fit into this transfer frame...
+                    for (idle_idx = 0;idle_idx<remaining_len;idle_idx++){
+                        tf_buffer[tf_idx++] = 0; // the last bit of the frame is filled with 0s
+                    }
+                    continue;
+                }
+            }
+            idle_header[4] = (idle_len - 7) >> 8;
+            idle_header[5] = (idle_len - 7) & 0xFF;
+            idle_idx = 0;
+        }
+
         if (idle_idx < 6) {
           tf_buffer[tf_idx++] = idle_header[idle_idx++];
         }
@@ -259,13 +271,13 @@ void elyRFDLLBuildFrame(void) {
           tf_buffer[tf_idx++] = SPP_IDLE_DATA;
           idle_idx++;
         }
-        if (idle_idx == idle_len) {
+/*        if (idle_idx == idle_len && tf_idx != tf_data_len) {
           chDbgAssert(tf_idx == tf_data_len, "invalid framebuilder state");
           idle_len = 0;
           chEvtWaitAnyTimeout(RFPktAvailable, TIME_IMMEDIATE);
           state = FB_STATE_UNINIT;
           continue;
-        }
+        }*/
         break;
       default:
         chDbgAssert(false, "invalid framebuilder state");

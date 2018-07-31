@@ -20,6 +20,7 @@
 
 /* TODO move this to SPP */
 #define SPP_IDLE_DATA 0xAA
+#define SDLP_IDLE_PACKET_LENGTH 1024
 
 typedef enum {
   DLL_STATE_HDR,
