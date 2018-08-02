@@ -376,14 +376,14 @@ static void fifo_read_safe(SX1212Driver *devp, size_t n, uint8_t *buf) {
  * @param[in] rate bit rate in bits per second to be used
 */
 void sx1212SetBitrate(SX1212Driver *devp, uint32_t rate) {
-  uint16_t tmp;
+  //uint16_t tmp;
 
   osalDbgAssert(rate < 150000, "bit rate too high");
-
+  //TODO: Fix algorithm to correctly calculate, bitrate one higher, and be bound by the datasheet requirements
   /* Calculate the multiplier */
-  rate = (SX1212_CLK_FREQ >> 1)/rate;
+  //rate = (SX1212_CLK_FREQ >> 1)/rate;
 
-  if (rate - 1 <= 255) {
+  /*if (rate - 1 <= 255) {
     sx1212SetRegister(devp, MCParam3, (rate & 0x00FF));
     sx1212SetRegister(devp, MCParam4, 0);
   }
@@ -391,21 +391,21 @@ void sx1212SetBitrate(SX1212Driver *devp, uint32_t rate) {
     uint8_t bestc = 0;
     uint8_t bestd = 0;
     uint8_t besterr = 0xffu;
-    uint8_t err;
+    uint8_t err;*/
     /* i is (C+1), up to the largest multiplier's square root */
-    for (unsigned int i = (rate / 255) + 1; i <= 92; i++) {
+//    for (unsigned int i = (rate / 255) + 1; i <= 92; i++) {
       /* Divide by i - this is (D+1) */
-      tmp = rate / i;
+  /*    tmp = rate / i;
       err = rate - (tmp * i);
       if (err < besterr) {
         bestc = i - 1;
         bestd = tmp - 1;
       }
       if (err == 0 || i*i > rate) break;
-    }
-    sx1212SetRegister(devp, MCParam3, bestc);
-    sx1212SetRegister(devp, MCParam4, bestd);
-  }
+    }*/
+    sx1212SetRegister(devp, MCParam3, 0x00); //bestc
+    sx1212SetRegister(devp, MCParam4, 0x72); //bestd
+  //}
 }
 
 /**

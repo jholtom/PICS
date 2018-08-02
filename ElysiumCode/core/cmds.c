@@ -1545,7 +1545,6 @@ static void get_sx1212_reg(uint8_t* buffer, elysium_cmd_hdr_t hdr) {
          elyNLFreeBuffer(elyNLFromFW(buffer));
          return;
          }*/
-
         uint8_t * reply_buff = elyFWGetBuffer();
         if (reply_buff == NULL) {
             /* TODO signal a failed buffer acquisition - OOM or similar*/
@@ -1560,7 +1559,7 @@ static void get_sx1212_reg(uint8_t* buffer, elysium_cmd_hdr_t hdr) {
         uint8_t sx_reg = buffer[4];
         SX1212Driver * devp = &SX1212D1;
         /* Enter config mode, may or may not need to do this */
-        spiStart(devp->config->spip, devp->config->spicfgp);
+        /*piStart(devp->config->spip, devp->config->spicfgp);*/
 
         reply_buff[4] = sx1212ReadRegister(devp, sx_reg);
         /* All SX1212 Registers should be 8 bits long */
@@ -1746,6 +1745,7 @@ bool elyCmdValidate(elysium_cmd_hdr_t hdr, uint8_t * buff) {
         case CmdEventUnsub:
         case CmdLogEvent: /* 8-bit aligned */
         case CmdUnlogEvent:
+	case CmdGetSX1212Reg:
         case CmdStoreTelem: /* 8-bit aligned */
             if (payload_len > 251) {
                 elyErrorSignal(ErrInvalidLength);
@@ -1775,7 +1775,6 @@ bool elyCmdValidate(elysium_cmd_hdr_t hdr, uint8_t * buff) {
                 return false;
             }
             break;
-
         default:
             /* Shouldn't happen */
             chDbgAssert(false, "invalid opcode in length check");
