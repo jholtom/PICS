@@ -625,7 +625,9 @@ void sx1212SetRxBw(SX1212Driver *devp, uint8_t bandwidth) {
   /* Passive filter bandwidth to be between 3 and 4 times active filter
    * bandwidth, per datasheet. This is precalculated because there's no obvious
    * mapping. */
-  sx1212SetRegister(devp, RXParam0, (passive[bandwidth] << 4) | bandwidth);
+  //sx1212SetRegister(devp, RXParam0, (passive[bandwidth] << 4) | bandwidth);
+  //TODO: Update this to calculate things correctly for the RCVR BW
+  sx1212SetRegister(devp, RXParam0, 0xF3);
 }
 
 /**

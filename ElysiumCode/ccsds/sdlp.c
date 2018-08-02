@@ -361,7 +361,6 @@ void elyRFDLLHandleRxFifo(SX1212Driver * devp) {
     sx1212FifoReadAsync(devp, SDLP_TC_PH_LEN, tc_hdr_buff, header_callback);
 #else /* rev A */
     sx1212FifoRead(devp, SDLP_TC_PH_LEN, tc_hdr_buff);
-    
     /* Header integrity checks */
     /* PVN and CCSDS Reserved bits */
     if (tc_hdr_buff[0] & 0xCC) {
