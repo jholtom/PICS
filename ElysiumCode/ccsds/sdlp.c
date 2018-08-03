@@ -4,7 +4,7 @@
 
 /* Initialize the header to its default values */
 /* Initialize only the header - C standard guarantees the rest filled with 0's */
-static uint8_t tf_buffer[SDLP_TM_MAX_TF_LEN] = 
+static uint8_t tf_buffer[SDLP_TM_MAX_TF_LEN] =
   {0x02, 0xF0, 0x00, 0x00, 0x18, 0x00};
 static PERSIST uint16_t tf_len = SDLP_TM_MAX_TF_LEN;
 static PERSIST uint16_t tf_idx;
@@ -31,7 +31,7 @@ uint8_t PERSIST b_frames;
 
 /* Idle Packet - TODO this should really be in SPP */
 /* TODO someday, const correctness */
-static PERSIST uint8_t idle_header[elyNLHeaderLen+1] = {0x03, 0xff, 0xC0, 
+static PERSIST uint8_t idle_header[elyNLHeaderLen+1] = {0x03, 0xff, 0xC0,
   0x00, 0x00, 0x00, SPP_IDLE_DATA};
 
 /* TX Packet Config */
@@ -72,13 +72,13 @@ static uint8_t clamp(uint8_t value, uint8_t min, uint8_t max) {
 /* Overrides the default (weak) one */
 void elyRFChangeTxSyncS(SX1278Config * cfg) {
   chDbgCheckClassS();
-  
+
   if (!(bank0p[RegDLLOptions] & BIT2)) { /* Compliant ASM */
     cfg->sync_word = ( (bank0p[RegTXSyncLsb]) |
                   ((uint32_t)(bank0p[RegTXSyncLmb]) << 8) |
                   ((uint32_t)(bank0p[RegTXSyncHmb]) << 16) |
                   ((uint32_t)(bank0p[RegTXSyncMsb]) << 24) );
-    
+
     sx1278SetSync(&SX1278D1, cfg->sync_word);
   }
 
@@ -163,19 +163,19 @@ void elyRFDLLBuildFrame(void) {
   static ely_framebuilder_state_t state = FB_STATE_UNINIT;
   static size_t idle_len = 0;
   static size_t idle_idx = 0;
-  
+
   size_t tf_idx = SDLP_TM_PH_LEN;
   bool fhp = false;
-  
+
   static uint8_t * active_packet;
   static size_t pkt_len;
   static size_t pkt_idx = 0;
-  
+
   chEvtSignal(rf_thd, RFPktAvailable);
-  
+
   /* HEADER entry actions */
   /* Set SCID */
-  tf_buffer[0] |= ( ((bank0p[RegDLLIDsMSB] & 0x03) << 4) | 
+  tf_buffer[0] |= ( ((bank0p[RegDLLIDsMSB] & 0x03) << 4) |
                     ((bank0p[RegDLLIDsLSB] & 0xF0) >> 4));
   /* Set VCID (VCID 0) */
   tf_buffer[1] |= ( ((bank0p[RegDLLIDsLSB] & 0x0F) << 4) |
@@ -193,11 +193,11 @@ void elyRFDLLBuildFrame(void) {
   tf_buffer[4] |= 0x07;
   tf_buffer[5] = 0xFF;
   /* TODO add FSH if needed */
-  
+
   if (state == FB_STATE_UNINIT) {
     /* Init actions */
     /* Idle_len already initialized to zero */
-    if (MSG_OK != chMBFetch(&rf_mbox, (msg_t *)(&active_packet), 
+    if (MSG_OK != chMBFetch(&rf_mbox, (msg_t *)(&active_packet),
           TIME_IMMEDIATE)) {
       /* Fatal error */
       chDbgAssert(false, "should have a packet available");
@@ -211,7 +211,7 @@ void elyRFDLLBuildFrame(void) {
     idle_idx = 0;
     pkt_idx = 0;
   }
-  
+
   state = FB_STATE_HEADER;
 
   while (tf_idx != tf_data_len) {
@@ -272,7 +272,7 @@ void elyRFDLLBuildFrame(void) {
         break;
     }
   }
-  
+
   /* Finished copying - add the footers */
   if (bank0p[RegDLLOptions] & BIT4) {
     /* TODO add CLCW to OCF */
@@ -294,7 +294,7 @@ void rxfifothresh_callback(void) {
 void packet_callback(SX1212Driver * devp, size_t n, uint8_t *rxbuf) {
   (void)(rxbuf);
   /* TODO run FARM checks and free the buffer if it fails */
-  
+
   rx_idx += n;
   chSysLockFromISR();
   if (rx_idx < rx_pkt_len) {
@@ -308,7 +308,7 @@ void packet_callback(SX1212Driver * devp, size_t n, uint8_t *rxbuf) {
     /* TODO implement this */
     elyNLRouteRFI(rx_active_buffer);
     /* End the packet */
-    
+
     sx1212StopReceiveI(devp);
     /* Start trying to receive the next header */
     sx1212ReceiveI(devp, SDLP_TC_PH_LEN, rxfifothresh_callback);
@@ -320,7 +320,7 @@ void packet_callback(SX1212Driver * devp, size_t n, uint8_t *rxbuf) {
 void header_callback(SX1212Driver * devp, size_t n, uint8_t *rxbuf) {
   (void)(rxbuf);
   chDbgAssert(n == SDLP_TC_PH_LEN, "invalid header size - weird");
-  
+
   /* Pull out header length */
   rx_pkt_len = ((tc_hdr_buff[2] & 0x03) << 8) | (tc_hdr_buff[3]);
   rx_pkt_len -= SDLP_TC_PH_LEN;
@@ -369,6 +369,9 @@ void elyRFDLLHandleRxFifo(SX1212Driver * devp) {
       return;
     }
     /* SCID */
+    elyUARTPost(tc_hdr_buff,TIME_IMMEDIATE);
+    chThdSleepMilliseconds(100);
+    chDbgAssert(false, "Die because I only want to see one response");
     if (((tc_hdr_buff[0] & 0x03) != (bank0p[RegDLLIDsMSB] & 0x03)) ||
         (tc_hdr_buff[1] != bank0p[RegDLLIDsLSB])) {
       /* Restart state machine */
@@ -381,7 +384,7 @@ void elyRFDLLHandleRxFifo(SX1212Driver * devp) {
       elyRFDLLRxInit(devp);
       return;
     }
-    
+
     /* Pull out header length */
     rx_pkt_len = (((tc_hdr_buff[2] & 0x03) << 8) | (tc_hdr_buff[3]))+1;
     if (rx_pkt_len > SDLP_TC_MAX_TF_LEN) {
@@ -411,13 +414,13 @@ void elyRFDLLHandleRxFifo(SX1212Driver * devp) {
   }
   else { /* DLL_STATE_PKT */
 #if 0
-    sx1212FifoReadAsync(devp, curr_threshold, rx_active_buffer + rx_idx, 
+    sx1212FifoReadAsync(devp, curr_threshold, rx_active_buffer + rx_idx,
         packet_callback);
 #else /* rev A */
     sx1212FifoRead(devp, curr_threshold, rx_active_buffer + rx_idx);
-    
+
     /* TODO run FARM checks and free the buffer if it fails */
-    
+
     rx_idx += curr_threshold;
     if (rx_idx < rx_pkt_len) {
       chSysLock();
@@ -436,7 +439,7 @@ void elyRFDLLHandleRxFifo(SX1212Driver * devp) {
     }
 #endif
   }
-  
+
 }
 
 void txlvl_callback(void) {
@@ -457,7 +460,7 @@ void write_cb(SPIDriver * spip) {
     palClearLine(LINE_PA_PC_EN);
 #endif
     palLineDisableEventI(LINE_SX1278_DIO1);
-    
+
     chEvtSignalI(rf_thd, RFSpiAvailable | RFTxIdle);
     tf_idx = 0;
   }
@@ -485,11 +488,11 @@ void elyRFDLLTxInit(SX1278Driver * devp) {
 }
 
 void elyRFDLLInitiateTransmit(SX1278Driver * devp) {
-  
+
 #if ELY_DISCRETE_PA_CTL
   palSetLine(LINE_PA_PC_EN);
 #endif
-  
+
   tf_idx = sx1278StartTransmit(devp, tf_len, tf_buffer, txlvl_callback, write_cb);
 }
 

@@ -1,0 +1,91 @@
+GAS LISTING /tmp/ccZthdMy.s 			page 1
+
+
+   1               		.file	"errors_stub.c"
+   2               		.section	.text.elyErrorSignal,"ax",@progbits
+   3               		.balign 2
+   4               		.global	elyErrorSignal
+   5               		.type	elyErrorSignal, @function
+   6               	elyErrorSignal:
+   7               	; start of function
+   8               	; framesize_regs:     0
+   9               	; framesize_locals:   0
+  10               	; framesize_outgoing: 0
+  11               	; framesize:          0
+  12               	; elim ap -> fp       4
+  13               	; elim fp -> sp       0
+  14               	; saved regs:(none)
+  15               		; start of prologue
+  16               		; end of prologue
+  17               		; start of epilogue
+  18 0000 1001      		RETA
+  19               		.size	elyErrorSignal, .-elyErrorSignal
+  20               		.section	.text.elyErrorSignalI,"ax",@progbits
+  21               		.balign 2
+  22               		.global	elyErrorSignalI
+  23               		.type	elyErrorSignalI, @function
+  24               	elyErrorSignalI:
+  25               	; start of function
+  26               	; framesize_regs:     0
+  27               	; framesize_locals:   0
+  28               	; framesize_outgoing: 0
+  29               	; framesize:          0
+  30               	; elim ap -> fp       4
+  31               	; elim fp -> sp       0
+  32               	; saved regs:(none)
+  33               		; start of prologue
+  34               		; end of prologue
+  35               		; start of epilogue
+  36 0000 1001      		RETA
+  37               		.size	elyErrorSignalI, .-elyErrorSignalI
+  38               		.section	.text.elyErrorSetRptLvlS,"ax",@progbits
+  39               		.balign 2
+  40               		.global	elyErrorSetRptLvlS
+  41               		.type	elyErrorSetRptLvlS, @function
+  42               	elyErrorSetRptLvlS:
+  43               	; start of function
+  44               	; framesize_regs:     0
+  45               	; framesize_locals:   0
+  46               	; framesize_outgoing: 0
+  47               	; framesize:          0
+  48               	; elim ap -> fp       4
+  49               	; elim fp -> sp       0
+  50               	; saved regs:(none)
+  51               		; start of prologue
+  52               		; end of prologue
+  53               		; start of epilogue
+  54 0000 1001      		RETA
+  55               		.size	elyErrorSetRptLvlS, .-elyErrorSetRptLvlS
+  56               		.section	.text.elyErrorSetLogLvlS,"ax",@progbits
+  57               		.balign 2
+GAS LISTING /tmp/ccZthdMy.s 			page 2
+
+
+  58               		.global	elyErrorSetLogLvlS
+  59               		.type	elyErrorSetLogLvlS, @function
+  60               	elyErrorSetLogLvlS:
+  61               	; start of function
+  62               	; framesize_regs:     0
+  63               	; framesize_locals:   0
+  64               	; framesize_outgoing: 0
+  65               	; framesize:          0
+  66               	; elim ap -> fp       4
+  67               	; elim fp -> sp       0
+  68               	; saved regs:(none)
+  69               		; start of prologue
+  70               		; end of prologue
+  71               		; start of epilogue
+  72 0000 1001      		RETA
+  73               		.size	elyErrorSetLogLvlS, .-elyErrorSetLogLvlS
+  74               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/ccZthdMy.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 errors_stub.c
+     /tmp/ccZthdMy.s:6      .text.elyErrorSignal:0000000000000000 elyErrorSignal
+     /tmp/ccZthdMy.s:24     .text.elyErrorSignalI:0000000000000000 elyErrorSignalI
+     /tmp/ccZthdMy.s:42     .text.elyErrorSetRptLvlS:0000000000000000 elyErrorSetRptLvlS
+     /tmp/ccZthdMy.s:60     .text.elyErrorSetLogLvlS:0000000000000000 elyErrorSetLogLvlS
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,991 @@
+GAS LISTING /tmp/ccDCMiaO.s 			page 1
+
+
+   1               		.file	"hal_spi.c"
+   2               		.section	.text.port_lock,"ax",@progbits
+   3               		.balign 2
+   4               		.type	port_lock, @function
+   5               	port_lock:
+   6               	; start of function
+   7               	; framesize_regs:     0
+   8               	; framesize_locals:   0
+   9               	; framesize_outgoing: 0
+  10               	; framesize:          0
+  11               	; elim ap -> fp       4
+  12               	; elim fp -> sp       0
+  13               	; saved regs:(none)
+  14               		; start of prologue
+  15               		; end of prologue
+  16               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+  17 0000 32C2 0343 		dint { nop
+  18               	 ; 0 "" 2
+  19               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+  20 0004 0343      		nop
+  21               	 ; 0 "" 2
+  22               		; start of epilogue
+  23 0006 1001      		RETA
+  24               		.size	port_lock, .-port_lock
+  25               		.section	.text.port_unlock,"ax",@progbits
+  26               		.balign 2
+  27               		.type	port_unlock, @function
+  28               	port_unlock:
+  29               	; start of function
+  30               	; framesize_regs:     0
+  31               	; framesize_locals:   0
+  32               	; framesize_outgoing: 0
+  33               	; framesize:          0
+  34               	; elim ap -> fp       4
+  35               	; elim fp -> sp       0
+  36               	; saved regs:(none)
+  37               		; start of prologue
+  38               		; end of prologue
+  39               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+  40 0000 0343      		nop
+  41               	 ; 0 "" 2
+  42               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+  43 0002 0343 32D2 		nop { eint { nop
+  43      0343 
+  44               	 ; 0 "" 2
+  45               		; start of epilogue
+  46 0008 1001      		RETA
+  47               		.size	port_unlock, .-port_unlock
+  48               		.section	.text.osalThreadSuspendS,"ax",@progbits
+  49               		.balign 2
+  50               		.type	osalThreadSuspendS, @function
+  51               	osalThreadSuspendS:
+  52               	; start of function
+  53               	; framesize_regs:     0
+  54               	; framesize_locals:   0
+  55               	; framesize_outgoing: 0
+  56               	; framesize:          0
+GAS LISTING /tmp/ccDCMiaO.s 			page 2
+
+
+  57               	; elim ap -> fp       4
+  58               	; elim fp -> sp       0
+  59               	; saved regs:(none)
+  60               		; start of prologue
+  61               		; end of prologue
+  62 0000 4D43      		MOV.B	#0, R13
+  63 0002 B013 0000 		CALLA	#chThdSuspendTimeoutS
+  64               		; start of epilogue
+  65 0006 1001      		RETA
+  66               		.size	osalThreadSuspendS, .-osalThreadSuspendS
+  67               		.section	.text.spiInit,"ax",@progbits
+  68               		.balign 2
+  69               		.global	spiInit
+  70               		.type	spiInit, @function
+  71               	spiInit:
+  72               	; start of function
+  73               	; framesize_regs:     0
+  74               	; framesize_locals:   0
+  75               	; framesize_outgoing: 0
+  76               	; framesize:          0
+  77               	; elim ap -> fp       4
+  78               	; elim fp -> sp       0
+  79               	; saved regs:(none)
+  80               		; start of prologue
+  81               		; end of prologue
+  82 0000 B013 0000 		CALLA	#spi_lld_init
+  83               		; start of epilogue
+  84 0004 1001      		RETA
+  85               		.size	spiInit, .-spiInit
+  86               		.section	.text.spiObjectInit,"ax",@progbits
+  87               		.balign 2
+  88               		.global	spiObjectInit
+  89               		.type	spiObjectInit, @function
+  90               	spiObjectInit:
+  91               	; start of function
+  92               	; framesize_regs:     0
+  93               	; framesize_locals:   0
+  94               	; framesize_outgoing: 0
+  95               	; framesize:          0
+  96               	; elim ap -> fp       4
+  97               	; elim fp -> sp       0
+  98               	; saved regs:(none)
+  99               		; start of prologue
+ 100               		; end of prologue
+ 101 0000 DC43 0000 		MOV.B	#1, @R12
+ 102 0004 0018 CC43 		MOVX.A	#0, 2(R12)
+ 102      0200 
+ 103 000a 0018 CC43 		MOVX.A	#0, 6(R12)
+ 103      0600 
+ 104 0010 9C43 0A00 		MOV.W	#1, 10(R12)
+ 105               		; start of epilogue
+ 106 0014 1001      		RETA
+ 107               		.size	spiObjectInit, .-spiObjectInit
+ 108               		.section	.text.spiStart,"ax",@progbits
+ 109               		.balign 2
+ 110               		.global	spiStart
+ 111               		.type	spiStart, @function
+GAS LISTING /tmp/ccDCMiaO.s 			page 3
+
+
+ 112               	spiStart:
+ 113               	; start of function
+ 114               	; framesize_regs:     8
+ 115               	; framesize_locals:   0
+ 116               	; framesize_outgoing: 0
+ 117               	; framesize:          8
+ 118               	; elim ap -> fp       12
+ 119               	; elim fp -> sp       0
+ 120               	; saved regs: R8 R10
+ 121               		; start of prologue
+ 122 0000 0A14      		PUSHM.A	#1, R10
+ 123 0002 0814      		PUSHM.A	#1, R8
+ 124               		; end of prologue
+ 125 0004 CA0C      		MOVA	R12, R10
+ 126 0006 C80D      		MOVA	R13, R8
+ 127 0008 9C00 0000 		CMPA	#0, R12 { JEQ	.L7
+ 127      0024 
+ 128 000e 9D00 0000 		CMPA	#0, R13 { JNE	.L8
+ 128      0020 
+ 129               	.L7:
+ 130 0014 8C00 0000 		MOVA	#__func__.3703, R12
+ 131 0018 B013 0000 		CALLA	#chSysHalt
+ 132               	.L8:
+ 133 001c B013 0000 		CALLA	#port_lock
+ 134 0020 6C4A      		MOV.B	@R10, R12
+ 135 0022 7C53      		ADD.B	#-1, R12
+ 136 0024 5D43      		MOV.B	#1, R13
+ 137 0026 4D9C 002C 		CMP.B	R12, R13 { JHS	.L9
+ 138 002a 8C00 0000 		MOVA	#__func__.3703, R12
+ 139 002e B013 0000 		CALLA	#chSysHalt
+ 140               	.L9:
+ 141 0032 7A08 0200 		MOVA	R8, 2(R10)
+ 142 0036 CC0A      		MOVA	R10, R12
+ 143 0038 B013 0000 		CALLA	#spi_lld_start
+ 144 003c EA43 0000 		MOV.B	#2, @R10
+ 145 0040 B013 0000 		CALLA	#port_unlock
+ 146               		; start of epilogue
+ 147 0044 0816      		POPM.A	#1, r8
+ 148 0046 0A16      		POPM.A	#1, r10
+ 149 0048 1001      		RETA
+ 150               		.size	spiStart, .-spiStart
+ 151               		.section	.text.spiStop,"ax",@progbits
+ 152               		.balign 2
+ 153               		.global	spiStop
+ 154               		.type	spiStop, @function
+ 155               	spiStop:
+ 156               	; start of function
+ 157               	; framesize_regs:     4
+ 158               	; framesize_locals:   0
+ 159               	; framesize_outgoing: 0
+ 160               	; framesize:          4
+ 161               	; elim ap -> fp       8
+ 162               	; elim fp -> sp       0
+ 163               	; saved regs: R10
+ 164               		; start of prologue
+ 165 0000 0A14      		PUSHM.A	#1, R10
+ 166               		; end of prologue
+GAS LISTING /tmp/ccDCMiaO.s 			page 4
+
+
+ 167 0002 CA0C      		MOVA	R12, R10
+ 168 0004 9C00 0000 		CMPA	#0, R12 { JNE	.L14
+ 168      0020 
+ 169 000a 8C00 0000 		MOVA	#__func__.3707, R12
+ 170 000e B013 0000 		CALLA	#chSysHalt
+ 171               	.L14:
+ 172 0012 B013 0000 		CALLA	#port_lock
+ 173 0016 6C4A      		MOV.B	@R10, R12
+ 174 0018 7C53      		ADD.B	#-1, R12
+ 175 001a 5D43      		MOV.B	#1, R13
+ 176 001c 4D9C 002C 		CMP.B	R12, R13 { JHS	.L15
+ 177 0020 8C00 0000 		MOVA	#__func__.3707, R12
+ 178 0024 B013 0000 		CALLA	#chSysHalt
+ 179               	.L15:
+ 180 0028 CC0A      		MOVA	R10, R12
+ 181 002a B013 0000 		CALLA	#spi_lld_stop
+ 182 002e 0018 CA43 		MOVX.A	#0, 2(R10)
+ 182      0200 
+ 183 0034 DA43 0000 		MOV.B	#1, @R10
+ 184 0038 B013 0000 		CALLA	#port_unlock
+ 185               		; start of epilogue
+ 186 003c 0A16      		POPM.A	#1, r10
+ 187 003e 1001      		RETA
+ 188               		.size	spiStop, .-spiStop
+ 189               		.section	.text.spiSelect,"ax",@progbits
+ 190               		.balign 2
+ 191               		.global	spiSelect
+ 192               		.type	spiSelect, @function
+ 193               	spiSelect:
+ 194               	; start of function
+ 195               	; framesize_regs:     4
+ 196               	; framesize_locals:   0
+ 197               	; framesize_outgoing: 0
+ 198               	; framesize:          4
+ 199               	; elim ap -> fp       8
+ 200               	; elim fp -> sp       0
+ 201               	; saved regs: R10
+ 202               		; start of prologue
+ 203 0000 0A14      		PUSHM.A	#1, R10
+ 204               		; end of prologue
+ 205 0002 CA0C      		MOVA	R12, R10
+ 206 0004 9C00 0000 		CMPA	#0, R12 { JNE	.L17
+ 206      0020 
+ 207 000a 8C00 0000 		MOVA	#__func__.3711, R12
+ 208 000e B013 0000 		CALLA	#chSysHalt
+ 209               	.L17:
+ 210 0012 B013 0000 		CALLA	#port_lock
+ 211 0016 EA93 0000 		CMP.B	#2, @R10 { JEQ	.L18
+ 211      0024 
+ 212 001c 8C00 0000 		MOVA	#__func__.3711, R12
+ 213 0020 B013 0000 		CALLA	#chSysHalt
+ 214               	.L18:
+ 215 0024 CC0A      		MOVA	R10, R12
+ 216 0026 B013 0000 		CALLA	#spi_lld_select
+ 217 002a B013 0000 		CALLA	#port_unlock
+ 218               		; start of epilogue
+ 219 002e 0A16      		POPM.A	#1, r10
+GAS LISTING /tmp/ccDCMiaO.s 			page 5
+
+
+ 220 0030 1001      		RETA
+ 221               		.size	spiSelect, .-spiSelect
+ 222               		.section	.text.spiUnselect,"ax",@progbits
+ 223               		.balign 2
+ 224               		.global	spiUnselect
+ 225               		.type	spiUnselect, @function
+ 226               	spiUnselect:
+ 227               	; start of function
+ 228               	; framesize_regs:     4
+ 229               	; framesize_locals:   0
+ 230               	; framesize_outgoing: 0
+ 231               	; framesize:          4
+ 232               	; elim ap -> fp       8
+ 233               	; elim fp -> sp       0
+ 234               	; saved regs: R10
+ 235               		; start of prologue
+ 236 0000 0A14      		PUSHM.A	#1, R10
+ 237               		; end of prologue
+ 238 0002 CA0C      		MOVA	R12, R10
+ 239 0004 9C00 0000 		CMPA	#0, R12 { JNE	.L20
+ 239      0020 
+ 240 000a 8C00 0000 		MOVA	#__func__.3715, R12
+ 241 000e B013 0000 		CALLA	#chSysHalt
+ 242               	.L20:
+ 243 0012 B013 0000 		CALLA	#port_lock
+ 244 0016 EA93 0000 		CMP.B	#2, @R10 { JEQ	.L21
+ 244      0024 
+ 245 001c 8C00 0000 		MOVA	#__func__.3715, R12
+ 246 0020 B013 0000 		CALLA	#chSysHalt
+ 247               	.L21:
+ 248 0024 CC0A      		MOVA	R10, R12
+ 249 0026 B013 0000 		CALLA	#spi_lld_unselect
+ 250 002a B013 0000 		CALLA	#port_unlock
+ 251               		; start of epilogue
+ 252 002e 0A16      		POPM.A	#1, r10
+ 253 0030 1001      		RETA
+ 254               		.size	spiUnselect, .-spiUnselect
+ 255               		.section	.text.spiStartIgnore,"ax",@progbits
+ 256               		.balign 2
+ 257               		.global	spiStartIgnore
+ 258               		.type	spiStartIgnore, @function
+ 259               	spiStartIgnore:
+ 260               	; start of function
+ 261               	; framesize_regs:     8
+ 262               	; framesize_locals:   0
+ 263               	; framesize_outgoing: 0
+ 264               	; framesize:          8
+ 265               	; elim ap -> fp       12
+ 266               	; elim fp -> sp       0
+ 267               	; saved regs: R8 R10
+ 268               		; start of prologue
+ 269 0000 0A14      		PUSHM.A	#1, R10
+ 270 0002 0814      		PUSHM.A	#1, R8
+ 271               		; end of prologue
+ 272 0004 CA0C      		MOVA	R12, R10
+ 273 0006 C80D      		MOVA	R13, R8
+ 274 0008 9C00 0000 		CMPA	#0, R12 { JEQ	.L23
+GAS LISTING /tmp/ccDCMiaO.s 			page 6
+
+
+ 274      0024 
+ 275 000e 9D00 0000 		CMPA	#0, R13 { JNE	.L24
+ 275      0020 
+ 276               	.L23:
+ 277 0014 8C00 0000 		MOVA	#__func__.3720, R12
+ 278 0018 B013 0000 		CALLA	#chSysHalt
+ 279               	.L24:
+ 280 001c B013 0000 		CALLA	#port_lock
+ 281 0020 EA93 0000 		CMP.B	#2, @R10 { JEQ	.L25
+ 281      0024 
+ 282 0026 8C00 0000 		MOVA	#__func__.3720, R12
+ 283 002a B013 0000 		CALLA	#chSysHalt
+ 284               	.L25:
+ 285 002e FA40 0300 		MOV.B	#3, @R10
+ 285      0000 
+ 286 0034 CD08      		MOVA	R8, R13
+ 287 0036 CC0A      		MOVA	R10, R12
+ 288 0038 B013 0000 		CALLA	#spi_lld_ignore
+ 289 003c B013 0000 		CALLA	#port_unlock
+ 290               		; start of epilogue
+ 291 0040 0816      		POPM.A	#1, r8
+ 292 0042 0A16      		POPM.A	#1, r10
+ 293 0044 1001      		RETA
+ 294               		.size	spiStartIgnore, .-spiStartIgnore
+ 295               		.section	.text.spiStartExchange,"ax",@progbits
+ 296               		.balign 2
+ 297               		.global	spiStartExchange
+ 298               		.type	spiStartExchange, @function
+ 299               	spiStartExchange:
+ 300               	; start of function
+ 301               	; framesize_regs:     16
+ 302               	; framesize_locals:   0
+ 303               	; framesize_outgoing: 0
+ 304               	; framesize:          16
+ 305               	; elim ap -> fp       20
+ 306               	; elim fp -> sp       0
+ 307               	; saved regs: R4 R6 R8 R10
+ 308               		; start of prologue
+ 309 0000 0A14      		PUSHM.A	#1, R10
+ 310 0002 0814      		PUSHM.A	#1, R8
+ 311 0004 0614      		PUSHM.A	#1, R6
+ 312 0006 0414      		PUSHM.A	#1, R4
+ 313               		; end of prologue
+ 314 0008 CA0C      		MOVA	R12, R10
+ 315 000a C40D      		MOVA	R13, R4
+ 316 000c C60E      		MOVA	R14, R6
+ 317 000e C80F      		MOVA	R15, R8
+ 318 0010 9C00 0000 		CMPA	#0, R12 { JEQ	.L30
+ 318      0024 
+ 319 0016 9D00 0000 		CMPA	#0, R13 { JEQ	.L30
+ 319      0024 
+ 320 001c 9F00 0000 		CMPA	#0, R15 { JEQ	.L30
+ 320      0024 
+ 321 0022 9E00 0000 		CMPA	#0, R14 { JNE	.L31
+ 321      0020 
+ 322               	.L30:
+ 323 0028 8C00 0000 		MOVA	#__func__.3727, R12
+GAS LISTING /tmp/ccDCMiaO.s 			page 7
+
+
+ 324 002c B013 0000 		CALLA	#chSysHalt
+ 325               	.L31:
+ 326 0030 B013 0000 		CALLA	#port_lock
+ 327 0034 EA93 0000 		CMP.B	#2, @R10 { JEQ	.L32
+ 327      0024 
+ 328 003a 8C00 0000 		MOVA	#__func__.3727, R12
+ 329 003e B013 0000 		CALLA	#chSysHalt
+ 330               	.L32:
+ 331 0042 FA40 0300 		MOV.B	#3, @R10
+ 331      0000 
+ 332 0048 CF08      		MOVA	R8, R15
+ 333 004a CE06      		MOVA	R6, R14
+ 334 004c CD04      		MOVA	R4, R13
+ 335 004e CC0A      		MOVA	R10, R12
+ 336 0050 B013 0000 		CALLA	#spi_lld_exchange
+ 337 0054 B013 0000 		CALLA	#port_unlock
+ 338               		; start of epilogue
+ 339 0058 0416      		POPM.A	#1, r4
+ 340 005a 0616      		POPM.A	#1, r6
+ 341 005c 0816      		POPM.A	#1, r8
+ 342 005e 0A16      		POPM.A	#1, r10
+ 343 0060 1001      		RETA
+ 344               		.size	spiStartExchange, .-spiStartExchange
+ 345               		.section	.text.spiStartSend,"ax",@progbits
+ 346               		.balign 2
+ 347               		.global	spiStartSend
+ 348               		.type	spiStartSend, @function
+ 349               	spiStartSend:
+ 350               	; start of function
+ 351               	; framesize_regs:     12
+ 352               	; framesize_locals:   0
+ 353               	; framesize_outgoing: 0
+ 354               	; framesize:          12
+ 355               	; elim ap -> fp       16
+ 356               	; elim fp -> sp       0
+ 357               	; saved regs: R6 R8 R10
+ 358               		; start of prologue
+ 359 0000 0A14      		PUSHM.A	#1, R10
+ 360 0002 0814      		PUSHM.A	#1, R8
+ 361 0004 0614      		PUSHM.A	#1, R6
+ 362               		; end of prologue
+ 363 0006 CA0C      		MOVA	R12, R10
+ 364 0008 C60D      		MOVA	R13, R6
+ 365 000a C80E      		MOVA	R14, R8
+ 366 000c 9C00 0000 		CMPA	#0, R12 { JEQ	.L41
+ 366      0024 
+ 367 0012 9D00 0000 		CMPA	#0, R13 { JEQ	.L41
+ 367      0024 
+ 368 0018 9E00 0000 		CMPA	#0, R14 { JNE	.L42
+ 368      0020 
+ 369               	.L41:
+ 370 001e 8C00 0000 		MOVA	#__func__.3733, R12
+ 371 0022 B013 0000 		CALLA	#chSysHalt
+ 372               	.L42:
+ 373 0026 B013 0000 		CALLA	#port_lock
+ 374 002a EA93 0000 		CMP.B	#2, @R10 { JEQ	.L43
+ 374      0024 
+GAS LISTING /tmp/ccDCMiaO.s 			page 8
+
+
+ 375 0030 8C00 0000 		MOVA	#__func__.3733, R12
+ 376 0034 B013 0000 		CALLA	#chSysHalt
+ 377               	.L43:
+ 378 0038 FA40 0300 		MOV.B	#3, @R10
+ 378      0000 
+ 379 003e CE08      		MOVA	R8, R14
+ 380 0040 CD06      		MOVA	R6, R13
+ 381 0042 CC0A      		MOVA	R10, R12
+ 382 0044 B013 0000 		CALLA	#spi_lld_send
+ 383 0048 B013 0000 		CALLA	#port_unlock
+ 384               		; start of epilogue
+ 385 004c 0616      		POPM.A	#1, r6
+ 386 004e 0816      		POPM.A	#1, r8
+ 387 0050 0A16      		POPM.A	#1, r10
+ 388 0052 1001      		RETA
+ 389               		.size	spiStartSend, .-spiStartSend
+ 390               		.section	.text.spiStartReceive,"ax",@progbits
+ 391               		.balign 2
+ 392               		.global	spiStartReceive
+ 393               		.type	spiStartReceive, @function
+ 394               	spiStartReceive:
+ 395               	; start of function
+ 396               	; framesize_regs:     12
+ 397               	; framesize_locals:   0
+ 398               	; framesize_outgoing: 0
+ 399               	; framesize:          12
+ 400               	; elim ap -> fp       16
+ 401               	; elim fp -> sp       0
+ 402               	; saved regs: R6 R8 R10
+ 403               		; start of prologue
+ 404 0000 0A14      		PUSHM.A	#1, R10
+ 405 0002 0814      		PUSHM.A	#1, R8
+ 406 0004 0614      		PUSHM.A	#1, R6
+ 407               		; end of prologue
+ 408 0006 CA0C      		MOVA	R12, R10
+ 409 0008 C60D      		MOVA	R13, R6
+ 410 000a C80E      		MOVA	R14, R8
+ 411 000c 9C00 0000 		CMPA	#0, R12 { JEQ	.L50
+ 411      0024 
+ 412 0012 9D00 0000 		CMPA	#0, R13 { JEQ	.L50
+ 412      0024 
+ 413 0018 9E00 0000 		CMPA	#0, R14 { JNE	.L51
+ 413      0020 
+ 414               	.L50:
+ 415 001e 8C00 0000 		MOVA	#__func__.3739, R12
+ 416 0022 B013 0000 		CALLA	#chSysHalt
+ 417               	.L51:
+ 418 0026 B013 0000 		CALLA	#port_lock
+ 419 002a EA93 0000 		CMP.B	#2, @R10 { JEQ	.L52
+ 419      0024 
+ 420 0030 8C00 0000 		MOVA	#__func__.3739, R12
+ 421 0034 B013 0000 		CALLA	#chSysHalt
+ 422               	.L52:
+ 423 0038 FA40 0300 		MOV.B	#3, @R10
+ 423      0000 
+ 424 003e CE08      		MOVA	R8, R14
+ 425 0040 CD06      		MOVA	R6, R13
+GAS LISTING /tmp/ccDCMiaO.s 			page 9
+
+
+ 426 0042 CC0A      		MOVA	R10, R12
+ 427 0044 B013 0000 		CALLA	#spi_lld_receive
+ 428 0048 B013 0000 		CALLA	#port_unlock
+ 429               		; start of epilogue
+ 430 004c 0616      		POPM.A	#1, r6
+ 431 004e 0816      		POPM.A	#1, r8
+ 432 0050 0A16      		POPM.A	#1, r10
+ 433 0052 1001      		RETA
+ 434               		.size	spiStartReceive, .-spiStartReceive
+ 435               		.section	.text.spiIgnore,"ax",@progbits
+ 436               		.balign 2
+ 437               		.global	spiIgnore
+ 438               		.type	spiIgnore, @function
+ 439               	spiIgnore:
+ 440               	; start of function
+ 441               	; framesize_regs:     8
+ 442               	; framesize_locals:   0
+ 443               	; framesize_outgoing: 0
+ 444               	; framesize:          8
+ 445               	; elim ap -> fp       12
+ 446               	; elim fp -> sp       0
+ 447               	; saved regs: R8 R10
+ 448               		; start of prologue
+ 449 0000 0A14      		PUSHM.A	#1, R10
+ 450 0002 0814      		PUSHM.A	#1, R8
+ 451               		; end of prologue
+ 452 0004 CA0C      		MOVA	R12, R10
+ 453 0006 C80D      		MOVA	R13, R8
+ 454 0008 9C00 0000 		CMPA	#0, R12 { JEQ	.L59
+ 454      0024 
+ 455 000e 9D00 0000 		CMPA	#0, R13 { JNE	.L60
+ 455      0020 
+ 456               	.L59:
+ 457 0014 8C00 0000 		MOVA	#__func__.3744, R12
+ 458 0018 B013 0000 		CALLA	#chSysHalt
+ 459               	.L60:
+ 460 001c B013 0000 		CALLA	#port_lock
+ 461 0020 EA93 0000 		CMP.B	#2, @R10 { JEQ	.L61
+ 461      0024 
+ 462 0026 8C00 0000 		MOVA	#__func__.3744, R12
+ 463 002a B013 0000 		CALLA	#chSysHalt
+ 464               	.L61:
+ 465 002e 3C0A 0200 		MOVA	2(R10), R12
+ 466 0032 0018 CC93 		CMPX.A	#0, @R12 { JEQ	.L62
+ 466      0000 0024 
+ 467 003a 8C00 0000 		MOVA	#__func__.3744, R12
+ 468 003e B013 0000 		CALLA	#chSysHalt
+ 469               	.L62:
+ 470 0042 FA40 0300 		MOV.B	#3, @R10
+ 470      0000 
+ 471 0048 CD08      		MOVA	R8, R13
+ 472 004a CC0A      		MOVA	R10, R12
+ 473 004c B013 0000 		CALLA	#spi_lld_ignore
+ 474 0050 CC0A      		MOVA	R10, R12
+ 475 0052 AC00 0600 		ADDA	#6, R12
+ 476 0056 B013 0000 		CALLA	#osalThreadSuspendS
+ 477 005a B013 0000 		CALLA	#port_unlock
+GAS LISTING /tmp/ccDCMiaO.s 			page 10
+
+
+ 478               		; start of epilogue
+ 479 005e 0816      		POPM.A	#1, r8
+ 480 0060 0A16      		POPM.A	#1, r10
+ 481 0062 1001      		RETA
+ 482               		.size	spiIgnore, .-spiIgnore
+ 483               		.section	.text.spiExchange,"ax",@progbits
+ 484               		.balign 2
+ 485               		.global	spiExchange
+ 486               		.type	spiExchange, @function
+ 487               	spiExchange:
+ 488               	; start of function
+ 489               	; framesize_regs:     16
+ 490               	; framesize_locals:   0
+ 491               	; framesize_outgoing: 0
+ 492               	; framesize:          16
+ 493               	; elim ap -> fp       20
+ 494               	; elim fp -> sp       0
+ 495               	; saved regs: R4 R6 R8 R10
+ 496               		; start of prologue
+ 497 0000 0A14      		PUSHM.A	#1, R10
+ 498 0002 0814      		PUSHM.A	#1, R8
+ 499 0004 0614      		PUSHM.A	#1, R6
+ 500 0006 0414      		PUSHM.A	#1, R4
+ 501               		; end of prologue
+ 502 0008 CA0C      		MOVA	R12, R10
+ 503 000a C40D      		MOVA	R13, R4
+ 504 000c C60E      		MOVA	R14, R6
+ 505 000e C80F      		MOVA	R15, R8
+ 506 0010 9C00 0000 		CMPA	#0, R12 { JEQ	.L67
+ 506      0024 
+ 507 0016 9D00 0000 		CMPA	#0, R13 { JEQ	.L67
+ 507      0024 
+ 508 001c 9F00 0000 		CMPA	#0, R15 { JEQ	.L67
+ 508      0024 
+ 509 0022 9E00 0000 		CMPA	#0, R14 { JNE	.L68
+ 509      0020 
+ 510               	.L67:
+ 511 0028 8C00 0000 		MOVA	#__func__.3751, R12
+ 512 002c B013 0000 		CALLA	#chSysHalt
+ 513               	.L68:
+ 514 0030 B013 0000 		CALLA	#port_lock
+ 515 0034 EA93 0000 		CMP.B	#2, @R10 { JEQ	.L69
+ 515      0024 
+ 516 003a 8C00 0000 		MOVA	#__func__.3751, R12
+ 517 003e B013 0000 		CALLA	#chSysHalt
+ 518               	.L69:
+ 519 0042 3C0A 0200 		MOVA	2(R10), R12
+ 520 0046 0018 CC93 		CMPX.A	#0, @R12 { JEQ	.L70
+ 520      0000 0024 
+ 521 004e 8C00 0000 		MOVA	#__func__.3751, R12
+ 522 0052 B013 0000 		CALLA	#chSysHalt
+ 523               	.L70:
+ 524 0056 FA40 0300 		MOV.B	#3, @R10
+ 524      0000 
+ 525 005c CF08      		MOVA	R8, R15
+ 526 005e CE06      		MOVA	R6, R14
+ 527 0060 CD04      		MOVA	R4, R13
+GAS LISTING /tmp/ccDCMiaO.s 			page 11
+
+
+ 528 0062 CC0A      		MOVA	R10, R12
+ 529 0064 B013 0000 		CALLA	#spi_lld_exchange
+ 530 0068 CC0A      		MOVA	R10, R12
+ 531 006a AC00 0600 		ADDA	#6, R12
+ 532 006e B013 0000 		CALLA	#osalThreadSuspendS
+ 533 0072 B013 0000 		CALLA	#port_unlock
+ 534               		; start of epilogue
+ 535 0076 0416      		POPM.A	#1, r4
+ 536 0078 0616      		POPM.A	#1, r6
+ 537 007a 0816      		POPM.A	#1, r8
+ 538 007c 0A16      		POPM.A	#1, r10
+ 539 007e 1001      		RETA
+ 540               		.size	spiExchange, .-spiExchange
+ 541               		.section	.text.spiSend,"ax",@progbits
+ 542               		.balign 2
+ 543               		.global	spiSend
+ 544               		.type	spiSend, @function
+ 545               	spiSend:
+ 546               	; start of function
+ 547               	; framesize_regs:     12
+ 548               	; framesize_locals:   0
+ 549               	; framesize_outgoing: 0
+ 550               	; framesize:          12
+ 551               	; elim ap -> fp       16
+ 552               	; elim fp -> sp       0
+ 553               	; saved regs: R6 R8 R10
+ 554               		; start of prologue
+ 555 0000 0A14      		PUSHM.A	#1, R10
+ 556 0002 0814      		PUSHM.A	#1, R8
+ 557 0004 0614      		PUSHM.A	#1, R6
+ 558               		; end of prologue
+ 559 0006 CA0C      		MOVA	R12, R10
+ 560 0008 C60D      		MOVA	R13, R6
+ 561 000a C80E      		MOVA	R14, R8
+ 562 000c 9C00 0000 		CMPA	#0, R12 { JEQ	.L79
+ 562      0024 
+ 563 0012 9D00 0000 		CMPA	#0, R13 { JEQ	.L79
+ 563      0024 
+ 564 0018 9E00 0000 		CMPA	#0, R14 { JNE	.L80
+ 564      0020 
+ 565               	.L79:
+ 566 001e 8C00 0000 		MOVA	#__func__.3757, R12
+ 567 0022 B013 0000 		CALLA	#chSysHalt
+ 568               	.L80:
+ 569 0026 B013 0000 		CALLA	#port_lock
+ 570 002a EA93 0000 		CMP.B	#2, @R10 { JEQ	.L81
+ 570      0024 
+ 571 0030 8C00 0000 		MOVA	#__func__.3757, R12
+ 572 0034 B013 0000 		CALLA	#chSysHalt
+ 573               	.L81:
+ 574 0038 3C0A 0200 		MOVA	2(R10), R12
+ 575 003c 0018 CC93 		CMPX.A	#0, @R12 { JEQ	.L82
+ 575      0000 0024 
+ 576 0044 8C00 0000 		MOVA	#__func__.3757, R12
+ 577 0048 B013 0000 		CALLA	#chSysHalt
+ 578               	.L82:
+ 579 004c FA40 0300 		MOV.B	#3, @R10
+GAS LISTING /tmp/ccDCMiaO.s 			page 12
+
+
+ 579      0000 
+ 580 0052 CE08      		MOVA	R8, R14
+ 581 0054 CD06      		MOVA	R6, R13
+ 582 0056 CC0A      		MOVA	R10, R12
+ 583 0058 B013 0000 		CALLA	#spi_lld_send
+ 584 005c CC0A      		MOVA	R10, R12
+ 585 005e AC00 0600 		ADDA	#6, R12
+ 586 0062 B013 0000 		CALLA	#osalThreadSuspendS
+ 587 0066 B013 0000 		CALLA	#port_unlock
+ 588               		; start of epilogue
+ 589 006a 0616      		POPM.A	#1, r6
+ 590 006c 0816      		POPM.A	#1, r8
+ 591 006e 0A16      		POPM.A	#1, r10
+ 592 0070 1001      		RETA
+ 593               		.size	spiSend, .-spiSend
+ 594               		.section	.text.spiReceive,"ax",@progbits
+ 595               		.balign 2
+ 596               		.global	spiReceive
+ 597               		.type	spiReceive, @function
+ 598               	spiReceive:
+ 599               	; start of function
+ 600               	; framesize_regs:     12
+ 601               	; framesize_locals:   0
+ 602               	; framesize_outgoing: 0
+ 603               	; framesize:          12
+ 604               	; elim ap -> fp       16
+ 605               	; elim fp -> sp       0
+ 606               	; saved regs: R6 R8 R10
+ 607               		; start of prologue
+ 608 0000 0A14      		PUSHM.A	#1, R10
+ 609 0002 0814      		PUSHM.A	#1, R8
+ 610 0004 0614      		PUSHM.A	#1, R6
+ 611               		; end of prologue
+ 612 0006 CA0C      		MOVA	R12, R10
+ 613 0008 C60D      		MOVA	R13, R6
+ 614 000a C80E      		MOVA	R14, R8
+ 615 000c 9C00 0000 		CMPA	#0, R12 { JEQ	.L89
+ 615      0024 
+ 616 0012 9D00 0000 		CMPA	#0, R13 { JEQ	.L89
+ 616      0024 
+ 617 0018 9E00 0000 		CMPA	#0, R14 { JNE	.L90
+ 617      0020 
+ 618               	.L89:
+ 619 001e 8C00 0000 		MOVA	#__func__.3763, R12
+ 620 0022 B013 0000 		CALLA	#chSysHalt
+ 621               	.L90:
+ 622 0026 B013 0000 		CALLA	#port_lock
+ 623 002a EA93 0000 		CMP.B	#2, @R10 { JEQ	.L91
+ 623      0024 
+ 624 0030 8C00 0000 		MOVA	#__func__.3763, R12
+ 625 0034 B013 0000 		CALLA	#chSysHalt
+ 626               	.L91:
+ 627 0038 3C0A 0200 		MOVA	2(R10), R12
+ 628 003c 0018 CC93 		CMPX.A	#0, @R12 { JEQ	.L92
+ 628      0000 0024 
+ 629 0044 8C00 0000 		MOVA	#__func__.3763, R12
+ 630 0048 B013 0000 		CALLA	#chSysHalt
+GAS LISTING /tmp/ccDCMiaO.s 			page 13
+
+
+ 631               	.L92:
+ 632 004c FA40 0300 		MOV.B	#3, @R10
+ 632      0000 
+ 633 0052 CE08      		MOVA	R8, R14
+ 634 0054 CD06      		MOVA	R6, R13
+ 635 0056 CC0A      		MOVA	R10, R12
+ 636 0058 B013 0000 		CALLA	#spi_lld_receive
+ 637 005c CC0A      		MOVA	R10, R12
+ 638 005e AC00 0600 		ADDA	#6, R12
+ 639 0062 B013 0000 		CALLA	#osalThreadSuspendS
+ 640 0066 B013 0000 		CALLA	#port_unlock
+ 641               		; start of epilogue
+ 642 006a 0616      		POPM.A	#1, r6
+ 643 006c 0816      		POPM.A	#1, r8
+ 644 006e 0A16      		POPM.A	#1, r10
+ 645 0070 1001      		RETA
+ 646               		.size	spiReceive, .-spiReceive
+ 647               		.section	.text.spiAcquireBus,"ax",@progbits
+ 648               		.balign 2
+ 649               		.global	spiAcquireBus
+ 650               		.type	spiAcquireBus, @function
+ 651               	spiAcquireBus:
+ 652               	; start of function
+ 653               	; framesize_regs:     4
+ 654               	; framesize_locals:   0
+ 655               	; framesize_outgoing: 0
+ 656               	; framesize:          4
+ 657               	; elim ap -> fp       8
+ 658               	; elim fp -> sp       0
+ 659               	; saved regs: R10
+ 660               		; start of prologue
+ 661 0000 0A14      		PUSHM.A	#1, R10
+ 662               		; end of prologue
+ 663 0002 CA0C      		MOVA	R12, R10
+ 664 0004 9C00 0000 		CMPA	#0, R12 { JNE	.L99
+ 664      0020 
+ 665 000a 8C00 0000 		MOVA	#__func__.3767, R12
+ 666 000e B013 0000 		CALLA	#chSysHalt
+ 667               	.L99:
+ 668 0012 4D43      		MOV.B	#0, R13
+ 669 0014 CC0A      		MOVA	R10, R12
+ 670 0016 AC00 0A00 		ADDA	#10, R12
+ 671 001a B013 0000 		CALLA	#chSemWaitTimeout
+ 672               		; start of epilogue
+ 673 001e 0A16      		POPM.A	#1, r10
+ 674 0020 1001      		RETA
+ 675               		.size	spiAcquireBus, .-spiAcquireBus
+ 676               		.section	.text.spiReleaseBus,"ax",@progbits
+ 677               		.balign 2
+ 678               		.global	spiReleaseBus
+ 679               		.type	spiReleaseBus, @function
+ 680               	spiReleaseBus:
+ 681               	; start of function
+ 682               	; framesize_regs:     4
+ 683               	; framesize_locals:   0
+ 684               	; framesize_outgoing: 0
+ 685               	; framesize:          4
+GAS LISTING /tmp/ccDCMiaO.s 			page 14
+
+
+ 686               	; elim ap -> fp       8
+ 687               	; elim fp -> sp       0
+ 688               	; saved regs: R10
+ 689               		; start of prologue
+ 690 0000 0A14      		PUSHM.A	#1, R10
+ 691               		; end of prologue
+ 692 0002 CA0C      		MOVA	R12, R10
+ 693 0004 9C00 0000 		CMPA	#0, R12 { JNE	.L101
+ 693      0020 
+ 694 000a 8C00 0000 		MOVA	#__func__.3771, R12
+ 695 000e B013 0000 		CALLA	#chSysHalt
+ 696               	.L101:
+ 697 0012 CC0A      		MOVA	R10, R12
+ 698 0014 AC00 0A00 		ADDA	#10, R12
+ 699 0018 B013 0000 		CALLA	#chSemSignal
+ 700               		; start of epilogue
+ 701 001c 0A16      		POPM.A	#1, r10
+ 702 001e 1001      		RETA
+ 703               		.size	spiReleaseBus, .-spiReleaseBus
+ 704               		.section	.upper.rodata,"a",@progbits
+ 705               		.type	__func__.3771, @object
+ 706               		.size	__func__.3771, 14
+ 707               	__func__.3771:
+ 708 0000 7370 6952 		.string	"spiReleaseBus"
+ 708      656C 6561 
+ 708      7365 4275 
+ 708      7300 
+ 709               		.type	__func__.3767, @object
+ 710               		.size	__func__.3767, 14
+ 711               	__func__.3767:
+ 712 000e 7370 6941 		.string	"spiAcquireBus"
+ 712      6371 7569 
+ 712      7265 4275 
+ 712      7300 
+ 713               		.type	__func__.3763, @object
+ 714               		.size	__func__.3763, 11
+ 715               	__func__.3763:
+ 716 001c 7370 6952 		.string	"spiReceive"
+ 716      6563 6569 
+ 716      7665 00
+ 717               		.type	__func__.3757, @object
+ 718               		.size	__func__.3757, 8
+ 719               	__func__.3757:
+ 720 0027 7370 6953 		.string	"spiSend"
+ 720      656E 6400 
+ 721               		.type	__func__.3751, @object
+ 722               		.size	__func__.3751, 12
+ 723               	__func__.3751:
+ 724 002f 7370 6945 		.string	"spiExchange"
+ 724      7863 6861 
+ 724      6E67 6500 
+ 725               		.type	__func__.3744, @object
+ 726               		.size	__func__.3744, 10
+ 727               	__func__.3744:
+ 728 003b 7370 6949 		.string	"spiIgnore"
+ 728      676E 6F72 
+ 728      6500 
+GAS LISTING /tmp/ccDCMiaO.s 			page 15
+
+
+ 729               		.type	__func__.3739, @object
+ 730               		.size	__func__.3739, 16
+ 731               	__func__.3739:
+ 732 0045 7370 6953 		.string	"spiStartReceive"
+ 732      7461 7274 
+ 732      5265 6365 
+ 732      6976 6500 
+ 733               		.type	__func__.3733, @object
+ 734               		.size	__func__.3733, 13
+ 735               	__func__.3733:
+ 736 0055 7370 6953 		.string	"spiStartSend"
+ 736      7461 7274 
+ 736      5365 6E64 
+ 736      00
+ 737               		.type	__func__.3727, @object
+ 738               		.size	__func__.3727, 17
+ 739               	__func__.3727:
+ 740 0062 7370 6953 		.string	"spiStartExchange"
+ 740      7461 7274 
+ 740      4578 6368 
+ 740      616E 6765 
+ 740      00
+ 741               		.type	__func__.3720, @object
+ 742               		.size	__func__.3720, 15
+ 743               	__func__.3720:
+ 744 0073 7370 6953 		.string	"spiStartIgnore"
+ 744      7461 7274 
+ 744      4967 6E6F 
+ 744      7265 00
+ 745               		.type	__func__.3715, @object
+ 746               		.size	__func__.3715, 12
+ 747               	__func__.3715:
+ 748 0082 7370 6955 		.string	"spiUnselect"
+ 748      6E73 656C 
+ 748      6563 7400 
+ 749               		.type	__func__.3711, @object
+ 750               		.size	__func__.3711, 10
+ 751               	__func__.3711:
+ 752 008e 7370 6953 		.string	"spiSelect"
+ 752      656C 6563 
+ 752      7400 
+ 753               		.type	__func__.3707, @object
+ 754               		.size	__func__.3707, 8
+ 755               	__func__.3707:
+ 756 0098 7370 6953 		.string	"spiStop"
+ 756      746F 7000 
+ 757               		.type	__func__.3703, @object
+ 758               		.size	__func__.3703, 9
+ 759               	__func__.3703:
+ 760 00a0 7370 6953 		.string	"spiStart"
+ 760      7461 7274 
+ 760      00
+ 761               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/ccDCMiaO.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 hal_spi.c
+     /tmp/ccDCMiaO.s:5      .text.port_lock:0000000000000000 port_lock
+     /tmp/ccDCMiaO.s:28     .text.port_unlock:0000000000000000 port_unlock
+     /tmp/ccDCMiaO.s:51     .text.osalThreadSuspendS:0000000000000000 osalThreadSuspendS
+     /tmp/ccDCMiaO.s:71     .text.spiInit:0000000000000000 spiInit
+     /tmp/ccDCMiaO.s:90     .text.spiObjectInit:0000000000000000 spiObjectInit
+     /tmp/ccDCMiaO.s:112    .text.spiStart:0000000000000000 spiStart
+     /tmp/ccDCMiaO.s:759    .upper.rodata:00000000000000a0 __func__.3703
+     /tmp/ccDCMiaO.s:155    .text.spiStop:0000000000000000 spiStop
+     /tmp/ccDCMiaO.s:755    .upper.rodata:0000000000000098 __func__.3707
+     /tmp/ccDCMiaO.s:193    .text.spiSelect:0000000000000000 spiSelect
+     /tmp/ccDCMiaO.s:751    .upper.rodata:000000000000008e __func__.3711
+     /tmp/ccDCMiaO.s:226    .text.spiUnselect:0000000000000000 spiUnselect
+     /tmp/ccDCMiaO.s:747    .upper.rodata:0000000000000082 __func__.3715
+     /tmp/ccDCMiaO.s:259    .text.spiStartIgnore:0000000000000000 spiStartIgnore
+     /tmp/ccDCMiaO.s:743    .upper.rodata:0000000000000073 __func__.3720
+     /tmp/ccDCMiaO.s:299    .text.spiStartExchange:0000000000000000 spiStartExchange
+     /tmp/ccDCMiaO.s:739    .upper.rodata:0000000000000062 __func__.3727
+     /tmp/ccDCMiaO.s:349    .text.spiStartSend:0000000000000000 spiStartSend
+     /tmp/ccDCMiaO.s:735    .upper.rodata:0000000000000055 __func__.3733
+     /tmp/ccDCMiaO.s:394    .text.spiStartReceive:0000000000000000 spiStartReceive
+     /tmp/ccDCMiaO.s:731    .upper.rodata:0000000000000045 __func__.3739
+     /tmp/ccDCMiaO.s:439    .text.spiIgnore:0000000000000000 spiIgnore
+     /tmp/ccDCMiaO.s:727    .upper.rodata:000000000000003b __func__.3744
+     /tmp/ccDCMiaO.s:487    .text.spiExchange:0000000000000000 spiExchange
+     /tmp/ccDCMiaO.s:723    .upper.rodata:000000000000002f __func__.3751
+     /tmp/ccDCMiaO.s:545    .text.spiSend:0000000000000000 spiSend
+     /tmp/ccDCMiaO.s:719    .upper.rodata:0000000000000027 __func__.3757
+     /tmp/ccDCMiaO.s:598    .text.spiReceive:0000000000000000 spiReceive
+     /tmp/ccDCMiaO.s:715    .upper.rodata:000000000000001c __func__.3763
+     /tmp/ccDCMiaO.s:651    .text.spiAcquireBus:0000000000000000 spiAcquireBus
+     /tmp/ccDCMiaO.s:711    .upper.rodata:000000000000000e __func__.3767
+     /tmp/ccDCMiaO.s:680    .text.spiReleaseBus:0000000000000000 spiReleaseBus
+     /tmp/ccDCMiaO.s:707    .upper.rodata:0000000000000000 __func__.3771
+     /tmp/ccDCMiaO.s:129    .text.spiStart:0000000000000014 .L7
+     /tmp/ccDCMiaO.s:132    .text.spiStart:000000000000001c .L8
+     /tmp/ccDCMiaO.s:140    .text.spiStart:0000000000000032 .L9
+     /tmp/ccDCMiaO.s:171    .text.spiStop:0000000000000012 .L14
+     /tmp/ccDCMiaO.s:179    .text.spiStop:0000000000000028 .L15
+     /tmp/ccDCMiaO.s:209    .text.spiSelect:0000000000000012 .L17
+     /tmp/ccDCMiaO.s:214    .text.spiSelect:0000000000000024 .L18
+     /tmp/ccDCMiaO.s:242    .text.spiUnselect:0000000000000012 .L20
+     /tmp/ccDCMiaO.s:247    .text.spiUnselect:0000000000000024 .L21
+     /tmp/ccDCMiaO.s:276    .text.spiStartIgnore:0000000000000014 .L23
+     /tmp/ccDCMiaO.s:279    .text.spiStartIgnore:000000000000001c .L24
+     /tmp/ccDCMiaO.s:284    .text.spiStartIgnore:000000000000002e .L25
+     /tmp/ccDCMiaO.s:322    .text.spiStartExchange:0000000000000028 .L30
+     /tmp/ccDCMiaO.s:325    .text.spiStartExchange:0000000000000030 .L31
+     /tmp/ccDCMiaO.s:330    .text.spiStartExchange:0000000000000042 .L32
+     /tmp/ccDCMiaO.s:369    .text.spiStartSend:000000000000001e .L41
+     /tmp/ccDCMiaO.s:372    .text.spiStartSend:0000000000000026 .L42
+     /tmp/ccDCMiaO.s:377    .text.spiStartSend:0000000000000038 .L43
+     /tmp/ccDCMiaO.s:414    .text.spiStartReceive:000000000000001e .L50
+     /tmp/ccDCMiaO.s:417    .text.spiStartReceive:0000000000000026 .L51
+     /tmp/ccDCMiaO.s:422    .text.spiStartReceive:0000000000000038 .L52
+     /tmp/ccDCMiaO.s:456    .text.spiIgnore:0000000000000014 .L59
+GAS LISTING /tmp/ccDCMiaO.s 			page 17
+
+
+     /tmp/ccDCMiaO.s:459    .text.spiIgnore:000000000000001c .L60
+     /tmp/ccDCMiaO.s:464    .text.spiIgnore:000000000000002e .L61
+     /tmp/ccDCMiaO.s:469    .text.spiIgnore:0000000000000042 .L62
+     /tmp/ccDCMiaO.s:510    .text.spiExchange:0000000000000028 .L67
+     /tmp/ccDCMiaO.s:513    .text.spiExchange:0000000000000030 .L68
+     /tmp/ccDCMiaO.s:518    .text.spiExchange:0000000000000042 .L69
+     /tmp/ccDCMiaO.s:523    .text.spiExchange:0000000000000056 .L70
+     /tmp/ccDCMiaO.s:565    .text.spiSend:000000000000001e .L79
+     /tmp/ccDCMiaO.s:568    .text.spiSend:0000000000000026 .L80
+     /tmp/ccDCMiaO.s:573    .text.spiSend:0000000000000038 .L81
+     /tmp/ccDCMiaO.s:578    .text.spiSend:000000000000004c .L82
+     /tmp/ccDCMiaO.s:618    .text.spiReceive:000000000000001e .L89
+     /tmp/ccDCMiaO.s:621    .text.spiReceive:0000000000000026 .L90
+     /tmp/ccDCMiaO.s:626    .text.spiReceive:0000000000000038 .L91
+     /tmp/ccDCMiaO.s:631    .text.spiReceive:000000000000004c .L92
+     /tmp/ccDCMiaO.s:667    .text.spiAcquireBus:0000000000000012 .L99
+     /tmp/ccDCMiaO.s:696    .text.spiReleaseBus:0000000000000012 .L101
+
+UNDEFINED SYMBOLS
+chThdSuspendTimeoutS
+spi_lld_init
+chSysHalt
+spi_lld_start
+spi_lld_stop
+spi_lld_select
+spi_lld_unselect
+spi_lld_ignore
+spi_lld_exchange
+spi_lld_send
+spi_lld_receive
+chSemWaitTimeout
+chSemSignal

@@ -1,0 +1,547 @@
+GAS LISTING /tmp/ccr0XqFa.s 			page 1
+
+
+   1               		.file	"hal_dma_lld.c"
+   2               		.section	.text.dma_trigger_set,"ax",@progbits
+   3               		.balign 2
+   4               		.type	dma_trigger_set, @function
+   5               	dma_trigger_set:
+   6               	; start of function
+   7               	; framesize_regs:     16
+   8               	; framesize_locals:   0
+   9               	; framesize_outgoing: 0
+  10               	; framesize:          16
+  11               	; elim ap -> fp       20
+  12               	; elim fp -> sp       0
+  13               	; saved regs: R7 R8 R9 R10
+  14               		; start of prologue
+  15 0000 3A14      		PUSHM.A	#4, R10
+  16               		; end of prologue
+  17 0002 494C      		MOV.B	R12, R9
+  18 0004 484D      		MOV.B	R13, R8
+  19 0006 0A49      		MOV.W	R9, R10
+  20 0008 12C3 0A10 		CLRC { RRC.W	R10
+  21 000c 4018 0A4A 		MOVX	R10, R10
+  22 0010 EA0A      		ADDA	R10, R10
+  23 0012 AA00 0000 		ADDA	#DMACTL0, R10
+  24 0016 59F3      		AND.B	#1, R9
+  25 0018 4218 0959 		rpt	#3 { rlax.w	R9
+  26 001c 3C40 00FF 		MOV.W	#-256, R12
+  27 0020 0D49      		MOV.W	R9, R13
+  28 0022 B013 0000 		CALLA	#__mspabi_srli
+  29 0026 074C      		MOV.W	R12, R7
+  30 0028 27FA      		AND.W	@R10, R7
+  31 002a 0C48      		MOV.W	R8, R12
+  32 002c 0D49      		MOV.W	R9, R13
+  33 002e B013 0000 		CALLA	#__mspabi_slli
+  34 0032 07DC      		BIS.W	R12, R7
+  35 0034 8A47 0000 		MOV.W	R7, @R10
+  36               		; start of epilogue
+  37 0038 3716      		POPM.A	#4, r10
+  38 003a 1001      		RETA
+  39               		.size	dma_trigger_set, .-dma_trigger_set
+  40               		.section	.lower.lowtext,"ax",@progbits
+  41               		.balign 2
+  42               		.global	ISR_DMA_VECTOR
+  43               		.section	__interrupt_vector_43,"ax",@progbits
+  44 0000 0000      		.word	ISR_DMA_VECTOR
+  45               			.section	.lower.lowtext
+  46               		.type	ISR_DMA_VECTOR, @function
+  47               	ISR_DMA_VECTOR:
+  48               	; start of function
+  49               	; attributes: interrupt 
+  50               	; framesize_regs:     48
+  51               	; framesize_locals:   0
+  52               	; framesize_outgoing: 0
+  53               	; framesize:          48
+  54               	; elim ap -> fp       52
+  55               	; elim fp -> sp       0
+  56               	; saved regs: R4 R5 R6 R7 R8 R9 R10 R11 R12 R13 R14 R15
+  57               		; start of prologue
+GAS LISTING /tmp/ccr0XqFa.s 			page 2
+
+
+  58 0000 BF14      		PUSHM.A	#12, R15
+  59               		; end of prologue
+  60 0002 4018 D243 		MOVX.B	#1, &__msp430x_in_isr
+  60      0000 
+  61 0008 4018 1842 		MOVX.W	&DMAIV, R8
+  61      0000 
+  62 000e 12C3 0810 		CLRC { RRC.W	R8
+  63 0012 7853      		ADD.B	#-1, R8
+  64 0014 4948      		MOV.B	R8, R9
+  65 0016 6C43      		MOV.B	#2, R12
+  66 0018 4C98 0028 		CMP.B	R8, R12 { JLO	.L4
+  67 001c 4C48 0D43 		MOV.B	R8,R12 { CLR	R13
+  68 0020 B013 0000 		CALLA	#__mspabi_slll_4
+  69 0024 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R10
+  69      0A16 
+  70 002a AA00 0000 		ADDA	#DMA0CTL, R10
+  71 002e BAF0 EFFF 		AND.W	#-17, @R10
+  71      0000 
+  72 0034 4D43      		MOV.B	#0, R13
+  73 0036 4C48      		MOV.B	R8, R12
+  74 0038 B013 0000 		CALLA	#dma_trigger_set
+  75 003c 8A43 0A00 		MOV.W	#0, 10(R10)
+  76 0040 BA40 1200 		MOV.W	#18, @R10
+  76      0000 
+  77 0046 8A00 0000 		MOVA	#callbacks, R10
+  78 004a 0849 0943 		MOV.W	R9,R8 { MOV.W	#0,R9
+  79 004e 0C48      		MOV.W	R8, R12
+  80 0050 0D49      		MOV.W	R9, R13
+  81 0052 B013 0000 		CALLA	#__mspabi_slll_3
+  82 0056 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+  82      0C16 
+  83 005c EC0A      		ADDA	R10, R12
+  84 005e 060C      		MOVA	@R12, R6
+  85 0060 9600 0000 		CMPA	#0, R6 { JEQ	.L4
+  85      0024 
+  86 0066 0C48      		MOV.W	R8, R12
+  87 0068 0D49      		MOV.W	R9, R13
+  88 006a B013 0000 		CALLA	#__mspabi_slll_3
+  89 006e 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+  89      0C16 
+  90 0074 EA0C      		ADDA	R12, R10
+  91 0076 3C0A 0400 		MOVA	4(R10), R12
+  92 007a 4613      		CALLA	R6
+  93               	.L4:
+  94 007c 4018 C243 		MOVX.B	#0, &__msp430x_in_isr
+  94      0000 
+  95 0082 B013 0000 		CALLA	#chSchIsPreemptionRequired
+  96 0086 4C93 0024 		CMP.B	#0, R12 { JEQ	.L2
+  97 008a B013 0000 		CALLA	#chSchDoReschedule
+  98               	.L2:
+  99               		; start of epilogue
+ 100 008e B416      		POPM.A	#12, r15
+ 101 0090 0013      		RETI
+ 102               		.size	ISR_DMA_VECTOR, .-ISR_DMA_VECTOR
+ 103               		.section	.text.dmaInit,"ax",@progbits
+ 104               		.balign 2
+ 105               		.global	dmaInit
+GAS LISTING /tmp/ccr0XqFa.s 			page 3
+
+
+ 106               		.type	dmaInit, @function
+ 107               	dmaInit:
+ 108               	; start of function
+ 109               	; framesize_regs:     0
+ 110               	; framesize_locals:   0
+ 111               	; framesize_outgoing: 0
+ 112               	; framesize:          0
+ 113               	; elim ap -> fp       4
+ 114               	; elim fp -> sp       0
+ 115               	; saved regs:(none)
+ 116               		; start of prologue
+ 117               		; end of prologue
+ 118 0000 4018 8243 		MOVX.W	#0, &dma_queue
+ 118      0000 
+ 119               		; start of epilogue
+ 120 0006 1001      		RETA
+ 121               		.size	dmaInit, .-dmaInit
+ 122               		.section	.text.dmaAcquireI,"ax",@progbits
+ 123               		.balign 2
+ 124               		.global	dmaAcquireI
+ 125               		.type	dmaAcquireI, @function
+ 126               	dmaAcquireI:
+ 127               	; start of function
+ 128               	; framesize_regs:     12
+ 129               	; framesize_locals:   0
+ 130               	; framesize_outgoing: 0
+ 131               	; framesize:          12
+ 132               	; elim ap -> fp       16
+ 133               	; elim fp -> sp       0
+ 134               	; saved regs: R8 R9 R10
+ 135               		; start of prologue
+ 136 0000 2A14      		PUSHM.A	#3, R10
+ 137               		; end of prologue
+ 138 0002 CA0C      		MOVA	R12, R10
+ 139 0004 4018 1942 		MOVX.W	&DMA0CTL, R9
+ 139      0000 
+ 140 000a 79F0 1000 		AND.B	#16, R9
+ 141 000e 0993 0024 		CMP.W	#0, R9 { JEQ	.L15
+ 142 0012 8C00 0000 		MOVA	#DMA0CTL+16, R12
+ 143 0016 4018 BCB0 		BITX.W	#16, @R12 { JEQ	.L18
+ 143      1000 0000 
+ 143      0024 
+ 144 0020 4018 BCB0 		BITX.W	#16, 16(R12) { JEQ	.L19
+ 144      1000 1000 
+ 144      0024 
+ 145 002a 8C0F FFFF 		MOVA	#-1, R12
+ 146               	.L14:
+ 147               		; start of epilogue
+ 148 002e 2816      		POPM.A	#3, r10
+ 149 0030 1001      		RETA
+ 150               	.L18:
+ 151 0032 5943      		MOV.B	#1, R9
+ 152               	.L15:
+ 153 0034 4849      		MOV.B	R9, R8
+ 154 0036 4D43      		MOV.B	#0, R13
+ 155 0038 4C48      		MOV.B	R8, R12
+ 156 003a B013 0000 		CALLA	#dma_trigger_set
+GAS LISTING /tmp/ccr0XqFa.s 			page 4
+
+
+ 157 003e 0C49 0D43 		MOV.W	R9,R12 { MOV.W	#0,R13
+ 158 0042 B013 0000 		CALLA	#__mspabi_slll_4
+ 159 0046 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 159      0C16 
+ 160 004c AC00 0000 		ADDA	#DMA0CTL, R12
+ 161 0050 8C43 0A00 		MOV.W	#0, 10(R12)
+ 162 0054 BC40 1200 		MOV.W	#18, @R12
+ 162      0000 
+ 163 005a 7A0C 0000 		MOVA	R12, @R10
+ 164 005e CA48 0400 		MOV.B	R8, 4(R10)
+ 165 0062 4C43      		MOV.B	#0, R12
+ 166 0064 8000 0000 		BRA	#.L14
+ 167               	.L19:
+ 168 0068 6943      		MOV.B	#2, R9
+ 169 006a 8000 0000 		BRA	#.L15
+ 170               		.size	dmaAcquireI, .-dmaAcquireI
+ 171               		.section	.text.dmaAcquireTimeoutS,"ax",@progbits
+ 172               		.balign 2
+ 173               		.global	dmaAcquireTimeoutS
+ 174               		.type	dmaAcquireTimeoutS, @function
+ 175               	dmaAcquireTimeoutS:
+ 176               	; start of function
+ 177               	; framesize_regs:     0
+ 178               	; framesize_locals:   4
+ 179               	; framesize_outgoing: 0
+ 180               	; framesize:          4
+ 181               	; elim ap -> fp       4
+ 182               	; elim fp -> sp       4
+ 183               	; saved regs:(none)
+ 184               		; start of prologue
+ 185 0000 B100 0400 		SUBA	#4, R1
+ 186               		; end of prologue
+ 187 0004 710D 0000 		MOVA	R13, @R1
+ 188 0008 B013 0000 		CALLA	#dmaAcquireI
+ 189 000c 0D01      		MOVA	@R1, R13
+ 190 000e 9C00 0000 		CMPA	#0, R12 { JEQ	.L20
+ 190      0024 
+ 191 0014 3D93 0024 		CMP.W	#-1, R13 { JEQ	.L22
+ 192 0018 8C00 0000 		MOVA	#dma_queue, R12
+ 193 001c B013 0000 		CALLA	#chSemWaitTimeoutS
+ 194               	.L20:
+ 195               		; start of epilogue
+ 196 0020 A100 0400 		ADDA	#4, R1
+ 197 0024 1001      		RETA
+ 198               	.L22:
+ 199 0026 8C0F FFFF 		MOVA	#-1, R12
+ 200 002a 8000 0000 		BRA	#.L20
+ 201               		.size	dmaAcquireTimeoutS, .-dmaAcquireTimeoutS
+ 202               		.section	.text.dmaClaimI,"ax",@progbits
+ 203               		.balign 2
+ 204               		.global	dmaClaimI
+ 205               		.type	dmaClaimI, @function
+ 206               	dmaClaimI:
+ 207               	; start of function
+ 208               	; framesize_regs:     16
+ 209               	; framesize_locals:   0
+ 210               	; framesize_outgoing: 0
+GAS LISTING /tmp/ccr0XqFa.s 			page 5
+
+
+ 211               	; framesize:          16
+ 212               	; elim ap -> fp       20
+ 213               	; elim fp -> sp       0
+ 214               	; saved regs: R7 R8 R9 R10
+ 215               		; start of prologue
+ 216 0000 3A14      		PUSHM.A	#4, R10
+ 217               		; end of prologue
+ 218 0002 C80C      		MOVA	R12, R8
+ 219 0004 494D      		MOV.B	R13, R9
+ 220 0006 6C43      		MOV.B	#2, R12
+ 221 0008 4C99 002C 		CMP.B	R9, R12 { JHS	.L27
+ 222 000c 8C00 0000 		MOVA	#__func__.3725, R12
+ 223 0010 B013 0000 		CALLA	#chSysHalt
+ 224               	.L27:
+ 225 0014 0C49 0D43 		MOV.W	R9,R12 { MOV.W	#0,R13
+ 226 0018 B013 0000 		CALLA	#__mspabi_slll_4
+ 227 001c 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R10
+ 227      0A16 
+ 228 0022 AA00 0000 		ADDA	#DMA0CTL, R10
+ 229 0026 274A      		MOV.W	@R10, R7
+ 230 0028 77F0 1000 		AND.B	#16, R7
+ 231 002c 0793 0020 		CMP.W	#0, R7 { JNE	.L29
+ 232 0030 4D47      		MOV.B	R7, R13
+ 233 0032 4C49      		MOV.B	R9, R12
+ 234 0034 B013 0000 		CALLA	#dma_trigger_set
+ 235 0038 8A47 0A00 		MOV.W	R7, 10(R10)
+ 236 003c BA40 1200 		MOV.W	#18, @R10
+ 236      0000 
+ 237 0042 780A 0000 		MOVA	R10, @R8
+ 238 0046 C849 0400 		MOV.B	R9, 4(R8)
+ 239 004a 4C43      		MOV.B	#0, R12
+ 240               	.L26:
+ 241               		; start of epilogue
+ 242 004c 3716      		POPM.A	#4, r10
+ 243 004e 1001      		RETA
+ 244               	.L29:
+ 245 0050 8C0F FFFF 		MOVA	#-1, R12
+ 246 0054 8000 0000 		BRA	#.L26
+ 247               		.size	dmaClaimI, .-dmaClaimI
+ 248               		.section	.text.dmaTransferI,"ax",@progbits
+ 249               		.balign 2
+ 250               		.global	dmaTransferI
+ 251               		.type	dmaTransferI, @function
+ 252               	dmaTransferI:
+ 253               	; start of function
+ 254               	; framesize_regs:     8
+ 255               	; framesize_locals:   0
+ 256               	; framesize_outgoing: 0
+ 257               	; framesize:          8
+ 258               	; elim ap -> fp       12
+ 259               	; elim fp -> sp       0
+ 260               	; saved regs: R8 R10
+ 261               		; start of prologue
+ 262 0000 0A14      		PUSHM.A	#1, R10
+ 263 0002 0814      		PUSHM.A	#1, R8
+ 264               		; end of prologue
+ 265 0004 C80C      		MOVA	R12, R8
+GAS LISTING /tmp/ccr0XqFa.s 			page 6
+
+
+ 266 0006 CA0D      		MOVA	R13, R10
+ 267 0008 0C0C      		MOVA	@R12, R12
+ 268 000a BCF0 EFFF 		AND.W	#-17, @R12
+ 268      0000 
+ 269 0010 5D4D 1000 		MOV.B	16(R13), R13
+ 270 0014 5C48 0400 		MOV.B	4(R8), R12
+ 271 0018 B013 0000 		CALLA	#dma_trigger_set
+ 272 001c 5C48 0400 		MOV.B	4(R8),R12 { CLR	R13
+ 272      0D43 
+ 273 0022 B013 0000 		CALLA	#__mspabi_slll_3
+ 274 0026 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 274      0C16 
+ 275 002c AC00 0000 		ADDA	#callbacks, R12
+ 276 0030 9C4A 1200 		MOV.W	18(R10), @R12
+ 276      0000 
+ 277 0036 9C4A 1400 		MOV.W	20(R10), 2(R12)
+ 277      0200 
+ 278 003c 9C4A 1600 		MOV.W	22(R10), 4(R12)
+ 278      0400 
+ 279 0042 9C4A 1800 		MOV.W	24(R10), 6(R12)
+ 279      0600 
+ 280 0048 0C08      		MOVA	@R8, R12
+ 281               	 ; 278 "../ChibiOS-Contrib/os/hal/ports/MSP430X/hal_dma_lld.c" 1
+ 282 004a 0018 EC4A 		movx.a @R10, 2(R12)
+ 282      0200 
+ 283               	 ; 0 "" 2
+ 284 0050 0C08      		MOVA	@R8, R12
+ 285               	 ; 279 "../ChibiOS-Contrib/os/hal/ports/MSP430X/hal_dma_lld.c" 1
+ 286 0052 0018 DC4A 		movx.a 4(R10), 6(R12)
+ 286      0400 0600 
+ 287               	 ; 0 "" 2
+ 288 005a 0E08      		MOVA	@R8, R14
+ 289 005c 9E4A 0800 		MOV.W	8(R10), 10(R14)
+ 289      0A00 
+ 290 0062 1C4A 0C00 		MOV.W	12(R10), R12
+ 291 0066 1CDA 0A00 		BIS.W	10(R10), R12
+ 292 006a 3CD0 1500 		BIS.W	#21, R12
+ 293 006e 1CDA 0E00 		BIS.W	14(R10), R12
+ 294 0072 8E4C 0000 		MOV.W	R12, @R14
+ 295               		; start of epilogue
+ 296 0076 0816      		POPM.A	#1, r8
+ 297 0078 0A16      		POPM.A	#1, r10
+ 298 007a 1001      		RETA
+ 299               		.size	dmaTransferI, .-dmaTransferI
+ 300               		.section	.text.dmaTransfer,"ax",@progbits
+ 301               		.balign 2
+ 302               		.global	dmaTransfer
+ 303               		.type	dmaTransfer, @function
+ 304               	dmaTransfer:
+ 305               	; start of function
+ 306               	; framesize_regs:     0
+ 307               	; framesize_locals:   0
+ 308               	; framesize_outgoing: 0
+ 309               	; framesize:          0
+ 310               	; elim ap -> fp       4
+ 311               	; elim fp -> sp       0
+ 312               	; saved regs:(none)
+GAS LISTING /tmp/ccr0XqFa.s 			page 7
+
+
+ 313               		; start of prologue
+ 314               		; end of prologue
+ 315               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 316 0000 32C2 0343 		dint { nop
+ 317               	 ; 0 "" 2
+ 318               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 319 0004 0343      		nop
+ 320               	 ; 0 "" 2
+ 321 0006 B013 0000 		CALLA	#dmaTransferI
+ 322               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 323 000a 0343      		nop
+ 324               	 ; 0 "" 2
+ 325               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 326 000c 0343 32D2 		nop { eint { nop
+ 326      0343 
+ 327               	 ; 0 "" 2
+ 328               		; start of epilogue
+ 329 0012 1001      		RETA
+ 330               		.size	dmaTransfer, .-dmaTransfer
+ 331               		.section	.text.dmaReleaseX,"ax",@progbits
+ 332               		.balign 2
+ 333               		.global	dmaReleaseX
+ 334               		.type	dmaReleaseX, @function
+ 335               	dmaReleaseX:
+ 336               	; start of function
+ 337               	; framesize_regs:     8
+ 338               	; framesize_locals:   0
+ 339               	; framesize_outgoing: 0
+ 340               	; framesize:          8
+ 341               	; elim ap -> fp       12
+ 342               	; elim fp -> sp       0
+ 343               	; saved regs: R9 R10
+ 344               		; start of prologue
+ 345 0000 1A14      		PUSHM.A	#2, R10
+ 346               		; end of prologue
+ 347 0002 CA0C      		MOVA	R12, R10
+ 348 0004 B013 0000 		CALLA	#chSysGetStatusAndLockX
+ 349 0008 094C      		MOV.W	R12, R9
+ 350 000a 9A00 0000 		CMPA	#0, R10 { JNE	.L33
+ 350      0020 
+ 351 0010 8C00 0000 		MOVA	#__func__.3738, R12
+ 352 0014 B013 0000 		CALLA	#chSysHalt
+ 353               	.L34:
+ 354 0018 0C49      		MOV.W	R9, R12
+ 355 001a B013 0000 		CALLA	#chSysRestoreStatusX
+ 356               		; start of epilogue
+ 357 001e 1916      		POPM.A	#2, r10
+ 358 0020 1001      		RETA
+ 359               	.L33:
+ 360 0022 0C0A      		MOVA	@R10, R12
+ 361 0024 9C00 0000 		CMPA	#0, R12 { JEQ	.L34
+ 361      0024 
+ 362 002a 4018 BCB0 		BITX.W	#16, @R12 { JEQ	.L34
+ 362      1000 0000 
+ 362      0024 
+ 363 0034 AC43 0000 		MOV.W	#2, @R12
+ 364 0038 4D43      		MOV.B	#0, R13
+GAS LISTING /tmp/ccr0XqFa.s 			page 8
+
+
+ 365 003a 8C00 0000 		MOVA	#dma_queue, R12
+ 366 003e B013 0000 		CALLA	#osalThreadDequeueNextI
+ 367 0042 8000 0000 		BRA	#.L34
+ 368               		.size	dmaReleaseX, .-dmaReleaseX
+ 369               		.section	.text.dmaCancelI,"ax",@progbits
+ 370               		.balign 2
+ 371               		.global	dmaCancelI
+ 372               		.type	dmaCancelI, @function
+ 373               	dmaCancelI:
+ 374               	; start of function
+ 375               	; framesize_regs:     4
+ 376               	; framesize_locals:   0
+ 377               	; framesize_outgoing: 0
+ 378               	; framesize:          4
+ 379               	; elim ap -> fp       8
+ 380               	; elim fp -> sp       0
+ 381               	; saved regs: R10
+ 382               		; start of prologue
+ 383 0000 0A14      		PUSHM.A	#1, R10
+ 384               		; end of prologue
+ 385 0002 CA0C      		MOVA	R12, R10
+ 386 0004 9C00 0000 		CMPA	#0, R12 { JNE	.L41
+ 386      0020 
+ 387 000a 8C00 0000 		MOVA	#__func__.3742, R12
+ 388 000e B013 0000 		CALLA	#chSysHalt
+ 389               	.L41:
+ 390 0012 0C0A      		MOVA	@R10, R12
+ 391 0014 4018 BCB0 		BITX.W	#16, @R12 { JEQ	.L40
+ 391      1000 0000 
+ 391      0024 
+ 392 001e BCF0 EEFF 		AND.W	#-18, @R12
+ 392      0000 
+ 393 0024 4D43      		MOV.B	#0, R13
+ 394 0026 5C4A 0400 		MOV.B	4(R10), R12
+ 395 002a B013 0000 		CALLA	#dma_trigger_set
+ 396 002e 0C0A      		MOVA	@R10, R12
+ 397 0030 8C43 0A00 		MOV.W	#0, 10(R12)
+ 398 0034 BC40 1200 		MOV.W	#18, @R12
+ 398      0000 
+ 399               	.L40:
+ 400               		; start of epilogue
+ 401 003a 0A16      		POPM.A	#1, r10
+ 402 003c 1001      		RETA
+ 403               		.size	dmaCancelI, .-dmaCancelI
+ 404               		.section	.upper.rodata,"a",@progbits
+ 405               		.type	__func__.3742, @object
+ 406               		.size	__func__.3742, 11
+ 407               	__func__.3742:
+ 408 0000 646D 6143 		.string	"dmaCancelI"
+ 408      616E 6365 
+ 408      6C49 00
+ 409               		.type	__func__.3738, @object
+ 410               		.size	__func__.3738, 12
+ 411               	__func__.3738:
+ 412 000b 646D 6152 		.string	"dmaReleaseX"
+ 412      656C 6561 
+ 412      7365 5800 
+GAS LISTING /tmp/ccr0XqFa.s 			page 9
+
+
+ 413               		.type	__func__.3725, @object
+ 414               		.size	__func__.3725, 10
+ 415               	__func__.3725:
+ 416 0017 646D 6143 		.string	"dmaClaimI"
+ 416      6C61 696D 
+ 416      4900 
+ 417               		.local	dma_queue
+ 418               		.comm	dma_queue,2,2
+ 419               		.local	callbacks
+ 420               		.comm	callbacks,24,2
+ 421               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/ccr0XqFa.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 hal_dma_lld.c
+     /tmp/ccr0XqFa.s:5      .text.dma_trigger_set:0000000000000000 dma_trigger_set
+     /tmp/ccr0XqFa.s:47     .lower.lowtext:0000000000000000 ISR_DMA_VECTOR
+     /tmp/ccr0XqFa.s:420    .bss:0000000000000002 callbacks
+     /tmp/ccr0XqFa.s:107    .text.dmaInit:0000000000000000 dmaInit
+     /tmp/ccr0XqFa.s:418    .bss:0000000000000000 dma_queue
+     /tmp/ccr0XqFa.s:126    .text.dmaAcquireI:0000000000000000 dmaAcquireI
+     /tmp/ccr0XqFa.s:175    .text.dmaAcquireTimeoutS:0000000000000000 dmaAcquireTimeoutS
+     /tmp/ccr0XqFa.s:206    .text.dmaClaimI:0000000000000000 dmaClaimI
+     /tmp/ccr0XqFa.s:415    .upper.rodata:0000000000000017 __func__.3725
+     /tmp/ccr0XqFa.s:252    .text.dmaTransferI:0000000000000000 dmaTransferI
+     /tmp/ccr0XqFa.s:304    .text.dmaTransfer:0000000000000000 dmaTransfer
+     /tmp/ccr0XqFa.s:335    .text.dmaReleaseX:0000000000000000 dmaReleaseX
+     /tmp/ccr0XqFa.s:411    .upper.rodata:000000000000000b __func__.3738
+     /tmp/ccr0XqFa.s:373    .text.dmaCancelI:0000000000000000 dmaCancelI
+     /tmp/ccr0XqFa.s:407    .upper.rodata:0000000000000000 __func__.3742
+     /tmp/ccr0XqFa.s:93     .lower.lowtext:000000000000007c .L4
+     /tmp/ccr0XqFa.s:98     .lower.lowtext:000000000000008e .L2
+     /tmp/ccr0XqFa.s:152    .text.dmaAcquireI:0000000000000034 .L15
+     /tmp/ccr0XqFa.s:150    .text.dmaAcquireI:0000000000000032 .L18
+     /tmp/ccr0XqFa.s:167    .text.dmaAcquireI:0000000000000068 .L19
+     /tmp/ccr0XqFa.s:146    .text.dmaAcquireI:000000000000002e .L14
+     /tmp/ccr0XqFa.s:194    .text.dmaAcquireTimeoutS:0000000000000020 .L20
+     /tmp/ccr0XqFa.s:198    .text.dmaAcquireTimeoutS:0000000000000026 .L22
+     /tmp/ccr0XqFa.s:224    .text.dmaClaimI:0000000000000014 .L27
+     /tmp/ccr0XqFa.s:244    .text.dmaClaimI:0000000000000050 .L29
+     /tmp/ccr0XqFa.s:240    .text.dmaClaimI:000000000000004c .L26
+     /tmp/ccr0XqFa.s:359    .text.dmaReleaseX:0000000000000022 .L33
+     /tmp/ccr0XqFa.s:353    .text.dmaReleaseX:0000000000000018 .L34
+     /tmp/ccr0XqFa.s:389    .text.dmaCancelI:0000000000000012 .L41
+     /tmp/ccr0XqFa.s:399    .text.dmaCancelI:000000000000003a .L40
+
+UNDEFINED SYMBOLS
+DMACTL0
+__mspabi_srli
+__mspabi_slli
+__msp430x_in_isr
+DMAIV
+__mspabi_slll_4
+DMA0CTL
+__mspabi_slll_3
+chSchIsPreemptionRequired
+chSchDoReschedule
+chSemWaitTimeoutS
+chSysHalt
+chSysGetStatusAndLockX
+chSysRestoreStatusX
+osalThreadDequeueNextI
+__crt0_init_bss

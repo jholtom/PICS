@@ -1,0 +1,596 @@
+GAS LISTING /tmp/ccCmQwGN.s 			page 1
+
+
+   1               		.file	"fram.c"
+   2               		.section	.text.fram_mpool_alloc,"ax",@progbits
+   3               		.balign 2
+   4               		.global	fram_mpool_alloc
+   5               		.type	fram_mpool_alloc, @function
+   6               	fram_mpool_alloc:
+   7               	; start of function
+   8               	; framesize_regs:     4
+   9               	; framesize_locals:   0
+  10               	; framesize_outgoing: 0
+  11               	; framesize:          4
+  12               	; elim ap -> fp       8
+  13               	; elim fp -> sp       0
+  14               	; saved regs: R10
+  15               		; start of prologue
+  16 0000 0A14      		PUSHM.A	#1, R10
+  17               		; end of prologue
+  18 0002 2E00 0000 		MOVA	&curr_index.3823, R14
+  19 0006 CA0E      		MOVA	R14, R10
+  20 0008 EA0C      		ADDA	R12, R10
+  21 000a 7C40 4800 		MOV.B	#72, R12
+  22 000e DC0A 0028 		CMPA	R10, R12 { JLO	.L3
+  23 0012 CC0E      		MOVA	R14, R12
+  24 0014 AC00 0000 		ADDA	#fram_storage, R12
+  25 0018 600A 0000 		MOVA	R10, &curr_index.3823
+  26               	.L1:
+  27               		; start of epilogue
+  28 001c 0A16      		POPM.A	#1, r10
+  29 001e 1001      		RETA
+  30               	.L3:
+  31 0020 4C43      		MOV.B	#0, R12
+  32 0022 8000 0000 		BRA	#.L1
+  33               		.size	fram_mpool_alloc, .-fram_mpool_alloc
+  34               		.section	.text.addr_cb,"ax",@progbits
+  35               		.balign 2
+  36               		.global	addr_cb
+  37               		.type	addr_cb, @function
+  38               	addr_cb:
+  39               	; start of function
+  40               	; framesize_regs:     16
+  41               	; framesize_locals:   4
+  42               	; framesize_outgoing: 4
+  43               	; framesize:          24
+  44               	; elim ap -> fp       20
+  45               	; elim fp -> sp       8
+  46               	; saved regs: R6 R8 R9 R10
+  47               		; start of prologue
+  48 0000 2A14      		PUSHM.A	#3, R10
+  49 0002 0614      		PUSHM.A	#1, R6
+  50 0004 B100 0800 		SUBA	#8, R1
+  51               		; end of prologue
+  52 0008 C80C      		MOVA	R12, R8
+  53 000a 2C00 0000 		MOVA	&active_req, R12
+  54 000e 5E4C 0400 		MOV.B	4(R12), R14
+  55 0012 4D4E      		MOV.B	R14, R13
+  56 0014 5DF3      		AND.B	#1, R13
+  57 0016 360C 0800 		MOVA	8(R12), R6
+GAS LISTING /tmp/ccCmQwGN.s 			page 2
+
+
+  58 001a 5A4C 0600 		MOV.B	6(R12), R10
+  59 001e 594C 1000 		MOV.B	16(R12), R9
+  60 0022 1C4C 0400 		MOV.W	4(R12), R12
+  61 0026 4018 2EB3 		BITX.W	#2, R14 { JEQ	.L5
+  61      0024 
+  62 002c 4D93 0024 		CMP.B	#0, R13 { JEQ	.L6
+  63 0030 B013 0000 		CALLA	#__mspabi_srli_2
+  64 0034 0D4A      		MOV.W	R10, R13
+  65 0036 4D18 0D5D 		rpt	#14 { rlax.w	R13
+  66 003a 0DDC      		BIS.W	R12, R13
+  67 003c 814D 0400 		MOV.W	R13, 4(R1)
+  68 0040 5A07      		rrum.w	#2, R10
+  69 0042 5AF3      		AND.B	#1, R10
+  70 0044 814A 0600 		MOV.W	R10, 6(R1)
+  71 0048 0018 F140 		MOVX.A	#end_cb, @R1
+  71      0000 0000 
+  72 0050 CF06      		MOVA	R6, R15
+  73 0052 3E01 0400 		MOVA	4(R1), R14
+  74 0056 4D49      		MOV.B	R9, R13
+  75 0058 CC08      		MOVA	R8, R12
+  76 005a B013 0000 		CALLA	#i2cMSP430XStartReceiveToRegI
+  77               	.L4:
+  78               		; start of epilogue
+  79 005e A100 0800 		ADDA	#8, R1
+  80 0062 0616      		POPM.A	#1, r6
+  81 0064 2816      		POPM.A	#3, r10
+  82 0066 1001      		RETA
+  83               	.L6:
+  84 0068 B013 0000 		CALLA	#__mspabi_srli_2
+  85 006c 0D4A      		MOV.W	R10, R13
+  86 006e 4D18 0D5D 		rpt	#14 { rlax.w	R13
+  87 0072 0DDC      		BIS.W	R12, R13
+  88 0074 814D 0400 		MOV.W	R13, 4(R1)
+  89 0078 5A07      		rrum.w	#2, R10
+  90 007a 5AF3      		AND.B	#1, R10
+  91 007c 814A 0600 		MOV.W	R10, 6(R1)
+  92 0080 0018 F140 		MOVX.A	#end_cb, @R1
+  92      0000 0000 
+  93 0088 CF06      		MOVA	R6, R15
+  94 008a 3E01 0400 		MOVA	4(R1), R14
+  95 008e 4D49      		MOV.B	R9, R13
+  96 0090 CC08      		MOVA	R8, R12
+  97 0092 B013 0000 		CALLA	#i2cMSP430XStartReceiveI
+  98 0096 8000 0000 		BRA	#.L4
+  99               	.L5:
+ 100 009a 4D93 0024 		CMP.B	#0, R13 { JEQ	.L8
+ 101 009e B013 0000 		CALLA	#__mspabi_srli_2
+ 102 00a2 0D4A      		MOV.W	R10, R13
+ 103 00a4 4D18 0D5D 		rpt	#14 { rlax.w	R13
+ 104 00a8 0DDC      		BIS.W	R12, R13
+ 105 00aa 814D 0400 		MOV.W	R13, 4(R1)
+ 106 00ae 5A07      		rrum.w	#2, R10
+ 107 00b0 5AF3      		AND.B	#1, R10
+ 108 00b2 814A 0600 		MOV.W	R10, 6(R1)
+ 109 00b6 0018 F140 		MOVX.A	#end_cb, @R1
+ 109      0000 0000 
+ 110 00be CF06      		MOVA	R6, R15
+GAS LISTING /tmp/ccCmQwGN.s 			page 3
+
+
+ 111 00c0 3E01 0400 		MOVA	4(R1), R14
+ 112 00c4 4D49      		MOV.B	R9, R13
+ 113 00c6 CC08      		MOVA	R8, R12
+ 114 00c8 B013 0000 		CALLA	#i2cMSP430XContinueTransmitMemsetI
+ 115 00cc 8000 0000 		BRA	#.L4
+ 116               	.L8:
+ 117 00d0 B013 0000 		CALLA	#__mspabi_srli_2
+ 118 00d4 0D4A      		MOV.W	R10, R13
+ 119 00d6 4D18 0D5D 		rpt	#14 { rlax.w	R13
+ 120 00da 0DDC      		BIS.W	R12, R13
+ 121 00dc 814D 0400 		MOV.W	R13, 4(R1)
+ 122 00e0 5A07      		rrum.w	#2, R10
+ 123 00e2 5AF3      		AND.B	#1, R10
+ 124 00e4 814A 0600 		MOV.W	R10, 6(R1)
+ 125 00e8 0018 F140 		MOVX.A	#end_cb, @R1
+ 125      0000 0000 
+ 126 00f0 CF06      		MOVA	R6, R15
+ 127 00f2 3E01 0400 		MOVA	4(R1), R14
+ 128 00f6 4D49      		MOV.B	R9, R13
+ 129 00f8 CC08      		MOVA	R8, R12
+ 130 00fa B013 0000 		CALLA	#i2cMSP430XContinueTransmitI
+ 131 00fe 8000 0000 		BRA	#.L4
+ 132               		.size	addr_cb, .-addr_cb
+ 133               		.section	.text.fram_handle_request,"ax",@progbits
+ 134               		.balign 2
+ 135               		.global	fram_handle_request
+ 136               		.type	fram_handle_request, @function
+ 137               	fram_handle_request:
+ 138               	; start of function
+ 139               	; framesize_regs:     4
+ 140               	; framesize_locals:   0
+ 141               	; framesize_outgoing: 4
+ 142               	; framesize:          8
+ 143               	; elim ap -> fp       8
+ 144               	; elim fp -> sp       4
+ 145               	; saved regs: R10
+ 146               		; start of prologue
+ 147 0000 0A14      		PUSHM.A	#1, R10
+ 148 0002 B100 0400 		SUBA	#4, R1
+ 149               		; end of prologue
+ 150 0006 CA0C      		MOVA	R12, R10
+ 151 0008 5C43      		MOV.B	#1, R12
+ 152 000a 1C9A 0200 		CMP.W	2(R10), R12 { JHS	.L10
+ 152      002C 
+ 153 0010 8C00 0000 		MOVA	#__func__.3848, R12
+ 154 0014 B013 0000 		CALLA	#chSysHalt
+ 155               	.L10:
+ 156 0018 600A 0000 		MOVA	R10, &active_req
+ 157 001c 2C4A      		MOV.W	@R10, R12
+ 158 001e 1D4A 0200 		MOV.W	2(R10), R13
+ 159 0022 7E40 1000 		MOV.B	#16, R14
+ 160 0026 B013 0000 		CALLA	#__mspabi_srll
+ 161 002a 4D4C      		MOV.B	R12, R13
+ 162 002c 7DD0 5000 		BIS.B	#80, R13
+ 163 0030 CA4D 1000 		MOV.B	R13, 16(R10)
+ 164 0034 0018 F140 		MOVX.A	#addr_cb, @R1
+ 164      0000 0000 
+GAS LISTING /tmp/ccCmQwGN.s 			page 4
+
+
+ 165 003c CF0A      		MOVA	R10, R15
+ 166 003e 6E43      		MOV.B	#2, R14
+ 167 0040 8C00 0000 		MOVA	#I2CDB0, R12
+ 168 0044 B013 0000 		CALLA	#i2cMSP430XStartTransmitMSBI
+ 169               		; start of epilogue
+ 170 0048 A100 0400 		ADDA	#4, R1
+ 171 004c 0A16      		POPM.A	#1, r10
+ 172 004e 1001      		RETA
+ 173               		.size	fram_handle_request, .-fram_handle_request
+ 174               		.section	.text.end_cb,"ax",@progbits
+ 175               		.balign 2
+ 176               		.global	end_cb
+ 177               		.type	end_cb, @function
+ 178               	end_cb:
+ 179               	; start of function
+ 180               	; framesize_regs:     4
+ 181               	; framesize_locals:   4
+ 182               	; framesize_outgoing: 0
+ 183               	; framesize:          8
+ 184               	; elim ap -> fp       8
+ 185               	; elim fp -> sp       4
+ 186               	; saved regs: R10
+ 187               		; start of prologue
+ 188 0000 0A14      		PUSHM.A	#1, R10
+ 189 0002 B100 0400 		SUBA	#4, R1
+ 190               		; end of prologue
+ 191 0006 CA0D      		MOVA	R13, R10
+ 192 0008 B013 0000 		CALLA	#i2cMSP430XEndTransferI
+ 193 000c 4018 D253 		ADDX.B	#1, &fram_read_idx
+ 193      0000 
+ 194 0012 2D00 0000 		MOVA	&active_req, R13
+ 195 0016 8C00 0000 		MOVA	#fram_mpool, R12
+ 196 001a B013 0000 		CALLA	#chPoolFreeI
+ 197 001e 8C00 0000 		MOVA	#fram_pool_sem, R12
+ 198 0022 B013 0000 		CALLA	#chSemSignalI
+ 199 0026 2C00 0000 		MOVA	&active_req, R12
+ 200 002a 3E0C 0C00 		MOVA	12(R12), R14
+ 201 002e 9E00 0000 		CMPA	#0, R14 { JEQ	.L14
+ 201      0024 
+ 202 0034 CC0A      		MOVA	R10, R12
+ 203 0036 4E13      		CALLA	R14
+ 204               	.L14:
+ 205 0038 4018 5C42 		MOVX.B	&fram_read_idx, R12
+ 205      0000 
+ 206 003e 4018 C29C 		CMPX.B	R12, &fram_write_idx { JEQ	.L13
+ 206      0000 0024 
+ 207 0046 7CF0 0300 		AND.B	#3, R12
+ 208 004a 0D43      		MOV.W	#0,R13
+ 209 004c 0E4C      		MOV.W	R12, R14
+ 210 004e 0F4D      		MOV.W	R13, R15
+ 211 0050 0E5E 0F6F 		RLA.W	R14 { RLC.W	R15 { RLA.W	R14 { RLC.W	R15
+ 211      0E5E 0F6F 
+ 212 0058 814E 0000 		MOV.W	R14, @R1
+ 213 005c 814F 0200 		MOV.W	R15, 2(R1)
+ 214 0060 0D01      		MOVA	@R1, R13
+ 215 0062 0018 5C4D 		MOVX.A	fram_mbox_buffer(R13), R12
+ 215      0000 
+GAS LISTING /tmp/ccCmQwGN.s 			page 5
+
+
+ 216 0068 B013 0000 		CALLA	#fram_handle_request
+ 217               	.L13:
+ 218               		; start of epilogue
+ 219 006c A100 0400 		ADDA	#4, R1
+ 220 0070 0A16      		POPM.A	#1, r10
+ 221 0072 1001      		RETA
+ 222               		.size	end_cb, .-end_cb
+ 223               		.section	.text.elyFramPostRequestI,"ax",@progbits
+ 224               		.balign 2
+ 225               		.global	elyFramPostRequestI
+ 226               		.type	elyFramPostRequestI, @function
+ 227               	elyFramPostRequestI:
+ 228               	; start of function
+ 229               	; framesize_regs:     4
+ 230               	; framesize_locals:   4
+ 231               	; framesize_outgoing: 0
+ 232               	; framesize:          8
+ 233               	; elim ap -> fp       8
+ 234               	; elim fp -> sp       4
+ 235               	; saved regs: R10
+ 236               		; start of prologue
+ 237 0000 0A14      		PUSHM.A	#1, R10
+ 238 0002 B100 0400 		SUBA	#4, R1
+ 239               		; end of prologue
+ 240 0006 CA0C      		MOVA	R12, R10
+ 241 0008 4018 5C42 		MOVX.B	&fram_write_idx, R12
+ 241      0000 
+ 242 000e 4018 5D42 		MOVX.B	&fram_read_idx, R13
+ 242      0000 
+ 243 0014 0C8D      		SUB.W	R13, R12
+ 244 0016 2C92 0020 		CMP.W	#4, R12 { JNE	.L20
+ 245 001a 8C00 0000 		MOVA	#__func__.3852, R12
+ 246 001e B013 0000 		CALLA	#chSysHalt
+ 247               	.L20:
+ 248 0022 4018 5C42 		MOVX.B	&fram_write_idx, R12
+ 248      0000 
+ 249 0028 4E4C      		MOV.B	R12, R14
+ 250 002a 5E53      		ADD.B	#1, R14
+ 251 002c 4018 C24E 		MOVX.B	R14, &fram_write_idx
+ 251      0000 
+ 252 0032 7CF0 0300 		AND.B	#3, R12
+ 253 0036 0D43      		MOV.W	#0,R13
+ 254 0038 0E4C      		MOV.W	R12, R14
+ 255 003a 0F4D      		MOV.W	R13, R15
+ 256 003c 0E5E 0F6F 		RLA.W	R14 { RLC.W	R15 { RLA.W	R14 { RLC.W	R15
+ 256      0E5E 0F6F 
+ 257 0044 814E 0000 		MOV.W	R14, @R1
+ 258 0048 814F 0200 		MOV.W	R15, 2(R1)
+ 259 004c 0C01      		MOVA	@R1, R12
+ 260 004e 0018 CC4A 		MOVX.A	R10, fram_mbox_buffer(R12)
+ 260      0000 
+ 261               		; start of epilogue
+ 262 0054 A100 0400 		ADDA	#4, R1
+ 263 0058 0A16      		POPM.A	#1, r10
+ 264 005a 1001      		RETA
+ 265               		.size	elyFramPostRequestI, .-elyFramPostRequestI
+ 266               		.section	.text.elyFramPostRequestS,"ax",@progbits
+GAS LISTING /tmp/ccCmQwGN.s 			page 6
+
+
+ 267               		.balign 2
+ 268               		.global	elyFramPostRequestS
+ 269               		.type	elyFramPostRequestS, @function
+ 270               	elyFramPostRequestS:
+ 271               	; start of function
+ 272               	; framesize_regs:     4
+ 273               	; framesize_locals:   0
+ 274               	; framesize_outgoing: 0
+ 275               	; framesize:          4
+ 276               	; elim ap -> fp       8
+ 277               	; elim fp -> sp       0
+ 278               	; saved regs: R10
+ 279               		; start of prologue
+ 280 0000 0A14      		PUSHM.A	#1, R10
+ 281               		; end of prologue
+ 282 0002 CA0C      		MOVA	R12, R10
+ 283 0004 8E00 0000 		MOVA	#elyFramPostRequestI, R14
+ 284 0008 4018 D292 		CMPX.B	&fram_read_idx, &fram_write_idx { JNE	.L22
+ 284      0000 0000 
+ 284      0020 
+ 285 0012 4E13      		CALLA	R14
+ 286 0014 CC0A      		MOVA	R10, R12
+ 287 0016 B013 0000 		CALLA	#fram_handle_request
+ 288               	.L21:
+ 289               		; start of epilogue
+ 290 001a 0A16      		POPM.A	#1, r10
+ 291 001c 1001      		RETA
+ 292               	.L22:
+ 293 001e 4E13      		CALLA	R14
+ 294 0020 8000 0000 		BRA	#.L21
+ 295               		.size	elyFramPostRequestS, .-elyFramPostRequestS
+ 296               		.section	.text.elyFramGetRequestI,"ax",@progbits
+ 297               		.balign 2
+ 298               		.global	elyFramGetRequestI
+ 299               		.type	elyFramGetRequestI, @function
+ 300               	elyFramGetRequestI:
+ 301               	; start of function
+ 302               	; framesize_regs:     4
+ 303               	; framesize_locals:   0
+ 304               	; framesize_outgoing: 0
+ 305               	; framesize:          4
+ 306               	; elim ap -> fp       8
+ 307               	; elim fp -> sp       0
+ 308               	; saved regs: R10
+ 309               		; start of prologue
+ 310 0000 0A14      		PUSHM.A	#1, R10
+ 311               		; end of prologue
+ 312 0002 CA0C      		MOVA	R12, R10
+ 313 0004 4018 1C42 		MOVX.W	&fram_pool_sem, R12
+ 313      0000 
+ 314 000a 4D43      		MOV.B	#0, R13
+ 315 000c 0D9C 0034 		CMP.W	R12, R13 { JGE	.L27
+ 316 0010 4018 B253 		ADDX.W	#-1, &fram_pool_sem
+ 316      0000 
+ 317 0016 8C00 0000 		MOVA	#fram_mpool, R12
+ 318 001a B013 0000 		CALLA	#chPoolAllocI
+ 319 001e 7A0C 0000 		MOVA	R12, @R10
+GAS LISTING /tmp/ccCmQwGN.s 			page 7
+
+
+ 320 0022 9C00 0000 		CMPA	#0, R12 { JNE	.L26
+ 320      0020 
+ 321 0028 8C00 0000 		MOVA	#__func__.3860, R12
+ 322 002c B013 0000 		CALLA	#chSysHalt
+ 323               	.L26:
+ 324 0030 0C0A      		MOVA	@R10, R12
+ 325 0032 DCC3 0400 		BIC.B	#1, 4(R12)
+ 326 0036 4C43      		MOV.B	#0, R12
+ 327               	.L24:
+ 328               		; start of epilogue
+ 329 0038 0A16      		POPM.A	#1, r10
+ 330 003a 1001      		RETA
+ 331               	.L27:
+ 332 003c 8C0F FFFF 		MOVA	#-1, R12
+ 333 0040 8000 0000 		BRA	#.L24
+ 334               		.size	elyFramGetRequestI, .-elyFramGetRequestI
+ 335               		.section	.text.elyFramGetRequestTimeoutS,"ax",@progbits
+ 336               		.balign 2
+ 337               		.global	elyFramGetRequestTimeoutS
+ 338               		.type	elyFramGetRequestTimeoutS, @function
+ 339               	elyFramGetRequestTimeoutS:
+ 340               	; start of function
+ 341               	; framesize_regs:     8
+ 342               	; framesize_locals:   0
+ 343               	; framesize_outgoing: 0
+ 344               	; framesize:          8
+ 345               	; elim ap -> fp       12
+ 346               	; elim fp -> sp       0
+ 347               	; saved regs: R8 R10
+ 348               		; start of prologue
+ 349 0000 0A14      		PUSHM.A	#1, R10
+ 350 0002 0814      		PUSHM.A	#1, R8
+ 351               		; end of prologue
+ 352 0004 C80C      		MOVA	R12, R8
+ 353 0006 8C00 0000 		MOVA	#fram_pool_sem, R12
+ 354 000a B013 0000 		CALLA	#chSemWaitTimeoutS
+ 355 000e CA0C      		MOVA	R12, R10
+ 356 0010 9C00 0000 		CMPA	#0, R12 { JNE	.L28
+ 356      0020 
+ 357 0016 8C00 0000 		MOVA	#fram_mpool, R12
+ 358 001a B013 0000 		CALLA	#chPoolAllocI
+ 359 001e 780C 0000 		MOVA	R12, @R8
+ 360 0022 9C00 0000 		CMPA	#0, R12 { JNE	.L30
+ 360      0020 
+ 361 0028 8C00 0000 		MOVA	#__func__.3866, R12
+ 362 002c B013 0000 		CALLA	#chSysHalt
+ 363               	.L30:
+ 364 0030 0C08      		MOVA	@R8, R12
+ 365 0032 DCC3 0400 		BIC.B	#1, 4(R12)
+ 366               	.L28:
+ 367 0036 CC0A      		MOVA	R10, R12
+ 368               		; start of epilogue
+ 369 0038 0816      		POPM.A	#1, r8
+ 370 003a 0A16      		POPM.A	#1, r10
+ 371 003c 1001      		RETA
+ 372               		.size	elyFramGetRequestTimeoutS, .-elyFramGetRequestTimeoutS
+ 373               		.section	.text.elyFramInit,"ax",@progbits
+GAS LISTING /tmp/ccCmQwGN.s 			page 8
+
+
+ 374               		.balign 2
+ 375               		.global	elyFramInit
+ 376               		.type	elyFramInit, @function
+ 377               	elyFramInit:
+ 378               	; start of function
+ 379               	; framesize_regs:     0
+ 380               	; framesize_locals:   0
+ 381               	; framesize_outgoing: 0
+ 382               	; framesize:          0
+ 383               	; elim ap -> fp       4
+ 384               	; elim fp -> sp       0
+ 385               	; saved regs:(none)
+ 386               		; start of prologue
+ 387               		; end of prologue
+ 388 0000 8D00 0000 		MOVA	#cfg, R13
+ 389 0004 8C00 0000 		MOVA	#I2CDB0, R12
+ 390 0008 B013 0000 		CALLA	#i2cStart
+ 391               		; start of epilogue
+ 392 000c 1001      		RETA
+ 393               		.size	elyFramInit, .-elyFramInit
+ 394               		.section	.upper.rodata,"a",@progbits
+ 395               		.type	__func__.3866, @object
+ 396               		.size	__func__.3866, 26
+ 397               	__func__.3866:
+ 398 0000 656C 7946 		.string	"elyFramGetRequestTimeoutS"
+ 398      7261 6D47 
+ 398      6574 5265 
+ 398      7175 6573 
+ 398      7454 696D 
+ 399               		.type	__func__.3860, @object
+ 400               		.size	__func__.3860, 19
+ 401               	__func__.3860:
+ 402 001a 656C 7946 		.string	"elyFramGetRequestI"
+ 402      7261 6D47 
+ 402      6574 5265 
+ 402      7175 6573 
+ 402      7449 00
+ 403               		.type	__func__.3852, @object
+ 404               		.size	__func__.3852, 20
+ 405               	__func__.3852:
+ 406 002d 656C 7946 		.string	"elyFramPostRequestI"
+ 406      7261 6D50 
+ 406      6F73 7452 
+ 406      6571 7565 
+ 406      7374 4900 
+ 407               		.type	__func__.3848, @object
+ 408               		.size	__func__.3848, 20
+ 409               	__func__.3848:
+ 410 0041 6672 616D 		.string	"fram_handle_request"
+ 410      5F68 616E 
+ 410      646C 655F 
+ 410      7265 7175 
+ 410      6573 7400 
+ 411               		.section	.upper.data,"aw",@progbits
+ 412               		.balign 2
+ 413               		.type	cfg, @object
+ 414               		.size	cfg, 4
+GAS LISTING /tmp/ccCmQwGN.s 			page 9
+
+
+ 415               	cfg:
+ 416 0000 801A 0600 		.long	400000
+ 417               		.local	active_req
+ 418               		.comm	active_req,4,2
+ 419               		.section	.persistent,"aw"
+ 420               		.balign 2
+ 421               		.type	fram_pool_sem, @object
+ 422               		.size	fram_pool_sem, 2
+ 423               	fram_pool_sem:
+ 424 0000 0400      		.short	4
+ 425               		.balign 2
+ 426               		.type	fram_mpool, @object
+ 427               		.size	fram_mpool, 12
+ 428               	fram_mpool:
+ 429 0002 0000 0000 		.long	0
+ 430 0006 1200 0000 		.long	18
+ 431 000a 0000 0000 		.long	fram_mpool_alloc
+ 432               		.type	fram_read_idx, @object
+ 433               		.size	fram_read_idx, 1
+ 434               	fram_read_idx:
+ 435 000e 00        		.zero	1
+ 436               		.type	fram_write_idx, @object
+ 437               		.size	fram_write_idx, 1
+ 438               	fram_write_idx:
+ 439 000f 00        		.zero	1
+ 440               		.balign 2
+ 441               		.type	fram_mbox_buffer, @object
+ 442               		.size	fram_mbox_buffer, 16
+ 443               	fram_mbox_buffer:
+ 444 0010 0000 0000 		.zero	16
+ 444      0000 0000 
+ 444      0000 0000 
+ 444      0000 0000 
+ 445               		.balign 2
+ 446               		.type	curr_index.3823, @object
+ 447               		.size	curr_index.3823, 4
+ 448               	curr_index.3823:
+ 449 0020 0000 0000 		.zero	4
+ 450               		.type	fram_storage, @object
+ 451               		.size	fram_storage, 72
+ 452               	fram_storage:
+ 453 0024 0000 0000 		.zero	72
+ 453      0000 0000 
+ 453      0000 0000 
+ 453      0000 0000 
+ 453      0000 0000 
+ 454               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/ccCmQwGN.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 fram.c
+     /tmp/ccCmQwGN.s:6      .text.fram_mpool_alloc:0000000000000000 fram_mpool_alloc
+     /tmp/ccCmQwGN.s:448    .persistent:0000000000000020 curr_index.3823
+     /tmp/ccCmQwGN.s:452    .persistent:0000000000000024 fram_storage
+     /tmp/ccCmQwGN.s:38     .text.addr_cb:0000000000000000 addr_cb
+     /tmp/ccCmQwGN.s:418    .bss:0000000000000000 active_req
+     /tmp/ccCmQwGN.s:178    .text.end_cb:0000000000000000 end_cb
+     /tmp/ccCmQwGN.s:137    .text.fram_handle_request:0000000000000000 fram_handle_request
+     /tmp/ccCmQwGN.s:409    .upper.rodata:0000000000000041 __func__.3848
+     /tmp/ccCmQwGN.s:434    .persistent:000000000000000e fram_read_idx
+     /tmp/ccCmQwGN.s:428    .persistent:0000000000000002 fram_mpool
+     /tmp/ccCmQwGN.s:423    .persistent:0000000000000000 fram_pool_sem
+     /tmp/ccCmQwGN.s:438    .persistent:000000000000000f fram_write_idx
+     /tmp/ccCmQwGN.s:443    .persistent:0000000000000010 fram_mbox_buffer
+     /tmp/ccCmQwGN.s:227    .text.elyFramPostRequestI:0000000000000000 elyFramPostRequestI
+     /tmp/ccCmQwGN.s:405    .upper.rodata:000000000000002d __func__.3852
+     /tmp/ccCmQwGN.s:270    .text.elyFramPostRequestS:0000000000000000 elyFramPostRequestS
+     /tmp/ccCmQwGN.s:300    .text.elyFramGetRequestI:0000000000000000 elyFramGetRequestI
+     /tmp/ccCmQwGN.s:401    .upper.rodata:000000000000001a __func__.3860
+     /tmp/ccCmQwGN.s:339    .text.elyFramGetRequestTimeoutS:0000000000000000 elyFramGetRequestTimeoutS
+     /tmp/ccCmQwGN.s:397    .upper.rodata:0000000000000000 __func__.3866
+     /tmp/ccCmQwGN.s:377    .text.elyFramInit:0000000000000000 elyFramInit
+     /tmp/ccCmQwGN.s:415    .upper.data:0000000000000000 cfg
+     /tmp/ccCmQwGN.s:30     .text.fram_mpool_alloc:0000000000000020 .L3
+     /tmp/ccCmQwGN.s:26     .text.fram_mpool_alloc:000000000000001c .L1
+     /tmp/ccCmQwGN.s:99     .text.addr_cb:000000000000009a .L5
+     /tmp/ccCmQwGN.s:83     .text.addr_cb:0000000000000068 .L6
+     /tmp/ccCmQwGN.s:77     .text.addr_cb:000000000000005e .L4
+     /tmp/ccCmQwGN.s:116    .text.addr_cb:00000000000000d0 .L8
+     /tmp/ccCmQwGN.s:155    .text.fram_handle_request:0000000000000018 .L10
+     /tmp/ccCmQwGN.s:204    .text.end_cb:0000000000000038 .L14
+     /tmp/ccCmQwGN.s:217    .text.end_cb:000000000000006c .L13
+     /tmp/ccCmQwGN.s:247    .text.elyFramPostRequestI:0000000000000022 .L20
+     /tmp/ccCmQwGN.s:292    .text.elyFramPostRequestS:000000000000001e .L22
+     /tmp/ccCmQwGN.s:288    .text.elyFramPostRequestS:000000000000001a .L21
+     /tmp/ccCmQwGN.s:331    .text.elyFramGetRequestI:000000000000003c .L27
+     /tmp/ccCmQwGN.s:323    .text.elyFramGetRequestI:0000000000000030 .L26
+     /tmp/ccCmQwGN.s:327    .text.elyFramGetRequestI:0000000000000038 .L24
+     /tmp/ccCmQwGN.s:366    .text.elyFramGetRequestTimeoutS:0000000000000036 .L28
+     /tmp/ccCmQwGN.s:363    .text.elyFramGetRequestTimeoutS:0000000000000030 .L30
+
+UNDEFINED SYMBOLS
+__mspabi_srli_2
+i2cMSP430XStartReceiveToRegI
+i2cMSP430XStartReceiveI
+i2cMSP430XContinueTransmitMemsetI
+i2cMSP430XContinueTransmitI
+chSysHalt
+__mspabi_srll
+I2CDB0
+i2cMSP430XStartTransmitMSBI
+i2cMSP430XEndTransferI
+chPoolFreeI
+chSemSignalI
+chPoolAllocI
+chSemWaitTimeoutS
+GAS LISTING /tmp/ccCmQwGN.s 			page 11
+
+
+i2cStart
+__crt0_move_highdata
+__crt0_init_bss

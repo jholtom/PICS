@@ -1,0 +1,49 @@
+GAS LISTING /tmp/cc34rJGk.s 			page 1
+
+
+   1               		.file	"hal.c"
+   2               		.section	.text.halInit,"ax",@progbits
+   3               		.balign 2
+   4               		.global	halInit
+   5               		.type	halInit, @function
+   6               	halInit:
+   7               	; start of function
+   8               	; framesize_regs:     0
+   9               	; framesize_locals:   0
+  10               	; framesize_outgoing: 0
+  11               	; framesize:          0
+  12               	; elim ap -> fp       4
+  13               	; elim fp -> sp       0
+  14               	; saved regs:(none)
+  15               		; start of prologue
+  16               		; end of prologue
+  17 0000 B013 0000 		CALLA	#hal_lld_init
+  18 0004 8C00 0000 		MOVA	#pal_default_config, R12
+  19 0008 B013 0000 		CALLA	#_pal_lld_init
+  20 000c B013 0000 		CALLA	#gptInit
+  21 0010 B013 0000 		CALLA	#i2cInit
+  22 0014 B013 0000 		CALLA	#spiInit
+  23 0018 B013 0000 		CALLA	#uartInit
+  24 001c B013 0000 		CALLA	#boardInit
+  25 0020 B013 0000 		CALLA	#stInit
+  26               		; start of epilogue
+  27 0024 1001      		RETA
+  28               		.size	halInit, .-halInit
+  29               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/cc34rJGk.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 hal.c
+     /tmp/cc34rJGk.s:6      .text.halInit:0000000000000000 halInit
+
+UNDEFINED SYMBOLS
+hal_lld_init
+pal_default_config
+_pal_lld_init
+gptInit
+i2cInit
+spiInit
+uartInit
+boardInit
+stInit

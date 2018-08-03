@@ -1,0 +1,1739 @@
+GAS LISTING /tmp/cchrX2zG.s 			page 1
+
+
+   1               		.file	"sx1212.c"
+   2               		.section	.text.spi_end_cb,"ax",@progbits
+   3               		.balign 2
+   4               		.type	spi_end_cb, @function
+   5               	spi_end_cb:
+   6               	; start of function
+   7               	; framesize_regs:     4
+   8               	; framesize_locals:   0
+   9               	; framesize_outgoing: 0
+  10               	; framesize:          4
+  11               	; elim ap -> fp       8
+  12               	; elim fp -> sp       0
+  13               	; saved regs: R10
+  14               		; start of prologue
+  15 0000 0A14      		PUSHM.A	#1, R10
+  16               		; end of prologue
+  17 0002 8A00 0000 		MOVA	#SX1212D1, R10
+  18 0006 3E0A 1800 		MOVA	24(R10), R14
+  19 000a 3D0A 1400 		MOVA	20(R10), R13
+  20 000e CC0A      		MOVA	R10, R12
+  21 0010 3A0A 0C00 		MOVA	12(R10), R10
+  22 0014 4A13      		CALLA	R10
+  23               		; start of epilogue
+  24 0016 0A16      		POPM.A	#1, r10
+  25 0018 1001      		RETA
+  26               		.size	spi_end_cb, .-spi_end_cb
+  27               		.section	.text.blockuntil_callback,"ax",@progbits
+  28               		.balign 2
+  29               		.type	blockuntil_callback, @function
+  30               	blockuntil_callback:
+  31               	; start of function
+  32               	; framesize_regs:     0
+  33               	; framesize_locals:   0
+  34               	; framesize_outgoing: 0
+  35               	; framesize:          0
+  36               	; elim ap -> fp       4
+  37               	; elim fp -> sp       0
+  38               	; saved regs:(none)
+  39               		; start of prologue
+  40               		; end of prologue
+  41 0000 4D43      		MOV.B	#0, R13
+  42 0002 8C00 0000 		MOVA	#tr, R12
+  43 0006 B013 0000 		CALLA	#chThdResumeI
+  44               		; start of epilogue
+  45 000a 1001      		RETA
+  46               		.size	blockuntil_callback, .-blockuntil_callback
+  47               		.section	.text.sx1212SetRegister.isra.0,"ax",@progbits
+  48               		.balign 2
+  49               		.type	sx1212SetRegister.isra.0, @function
+  50               	sx1212SetRegister.isra.0:
+  51               	; start of function
+  52               	; framesize_regs:     16
+  53               	; framesize_locals:   0
+  54               	; framesize_outgoing: 0
+  55               	; framesize:          16
+  56               	; elim ap -> fp       20
+  57               	; elim fp -> sp       0
+GAS LISTING /tmp/cchrX2zG.s 			page 2
+
+
+  58               	; saved regs: R7 R8 R9 R10
+  59               		; start of prologue
+  60 0000 3A14      		PUSHM.A	#4, R10
+  61               		; end of prologue
+  62 0002 CA0C      		MOVA	R12, R10
+  63 0004 494D      		MOV.B	R13, R9
+  64 0006 474E      		MOV.B	R14, R7
+  65 0008 7C40 1E00 		MOV.B	#30, R12
+  66 000c 4C99 002C 		CMP.B	R9, R12 { JHS	.L4
+  67               	.L6:
+  68 0010 8C00 0000 		MOVA	#__func__.4974, R12
+  69 0014 B013 0000 		CALLA	#chSysHalt
+  70               	.L5:
+  71 0018 0C0A      		MOVA	@R10, R12
+  72 001a 0C0C      		MOVA	@R12, R12
+  73 001c B013 0000 		CALLA	#spi_lld_select
+  74 0020 0C0A      		MOVA	@R10, R12
+  75 0022 8800 0000 		MOVA	#spi_lld_polled_exchange, R8
+  76 0026 0D49      		MOV.W	R9, R13
+  77 0028 0D5D      		RLA.W	R13
+  78 002a 0C0C      		MOVA	@R12, R12
+  79 002c 4813      		CALLA	R8
+  80 002e 0C0A      		MOVA	@R10, R12
+  81 0030 4D47      		MOV.B	R7, R13
+  82 0032 0C0C      		MOVA	@R12, R12
+  83 0034 4813      		CALLA	R8
+  84 0036 494C      		MOV.B	R12, R9
+  85 0038 0C0A      		MOVA	@R10, R12
+  86 003a 0C0C      		MOVA	@R12, R12
+  87 003c B013 0000 		CALLA	#spi_lld_unselect
+  88 0040 4C49      		MOV.B	R9, R12
+  89               		; start of epilogue
+  90 0042 3716      		POPM.A	#4, r10
+  91 0044 1001      		RETA
+  92               	.L4:
+  93 0046 3990 1400 		CMP.W	#20, R9 { JNE	.L5
+  93      0020 
+  94 004c 8000 0000 		BRA	#.L6
+  95               		.size	sx1212SetRegister.isra.0, .-sx1212SetRegister.isra.0
+  96               		.section	.text.sx1212SetMode,"ax",@progbits
+  97               		.balign 2
+  98               		.type	sx1212SetMode, @function
+  99               	sx1212SetMode:
+ 100               	; start of function
+ 101               	; framesize_regs:     4
+ 102               	; framesize_locals:   0
+ 103               	; framesize_outgoing: 0
+ 104               	; framesize:          4
+ 105               	; elim ap -> fp       8
+ 106               	; elim fp -> sp       0
+ 107               	; saved regs: R10
+ 108               		; start of prologue
+ 109 0000 0A14      		PUSHM.A	#1, R10
+ 110               		; end of prologue
+ 111 0002 CA0C      		MOVA	R12, R10
+ 112 0004 5E4C 0400 		MOV.B	4(R12), R14
+ 113 0008 7EF0 1F00 		AND.B	#31, R14
+GAS LISTING /tmp/cchrX2zG.s 			page 3
+
+
+ 114 000c 4EDD      		BIS.B	R13, R14
+ 115 000e CC4E 0400 		MOV.B	R14, 4(R12)
+ 116 0012 4D43      		MOV.B	#0, R13
+ 117 0014 B013 0000 		CALLA	#sx1212SetRegister.isra.0
+ 118               		; start of epilogue
+ 119 0018 0A16      		POPM.A	#1, r10
+ 120 001a 1001      		RETA
+ 121               		.size	sx1212SetMode, .-sx1212SetMode
+ 122               		.section	.text.sx1212SetFifoThreshold,"ax",@progbits
+ 123               		.balign 2
+ 124               		.type	sx1212SetFifoThreshold, @function
+ 125               	sx1212SetFifoThreshold:
+ 126               	; start of function
+ 127               	; framesize_regs:     8
+ 128               	; framesize_locals:   0
+ 129               	; framesize_outgoing: 0
+ 130               	; framesize:          8
+ 131               	; elim ap -> fp       12
+ 132               	; elim fp -> sp       0
+ 133               	; saved regs: R8 R10
+ 134               		; start of prologue
+ 135 0000 0A14      		PUSHM.A	#1, R10
+ 136 0002 0814      		PUSHM.A	#1, R8
+ 137               		; end of prologue
+ 138 0004 C80C      		MOVA	R12, R8
+ 139 0006 4A4D      		MOV.B	R13, R10
+ 140 0008 7C40 3F00 		MOV.B	#63, R12
+ 141 000c 4C9A 002C 		CMP.B	R10, R12 { JHS	.L12
+ 142 0010 8C00 0000 		MOVA	#__func__.5059, R12
+ 143 0014 B013 0000 		CALLA	#chSysHalt
+ 144               	.L12:
+ 145 0018 7AD0 C0FF 		BIS.B	#-64, R10
+ 146 001c 4E4A      		MOV.B	R10, R14
+ 147 001e 7D40 0C00 		MOV.B	#12, R13
+ 148 0022 CC08      		MOVA	R8, R12
+ 149 0024 B013 0000 		CALLA	#sx1212SetRegister.isra.0
+ 150 0028 C84A 0500 		MOV.B	R10, 5(R8)
+ 151               		; start of epilogue
+ 152 002c 0816      		POPM.A	#1, r8
+ 153 002e 0A16      		POPM.A	#1, r10
+ 154 0030 1001      		RETA
+ 155               		.size	sx1212SetFifoThreshold, .-sx1212SetFifoThreshold
+ 156               		.section	.text.sx1212Reset.isra.1,"ax",@progbits
+ 157               		.balign 2
+ 158               		.type	sx1212Reset.isra.1, @function
+ 159               	sx1212Reset.isra.1:
+ 160               	; start of function
+ 161               	; framesize_regs:     20
+ 162               	; framesize_locals:   0
+ 163               	; framesize_outgoing: 0
+ 164               	; framesize:          20
+ 165               	; elim ap -> fp       24
+ 166               	; elim fp -> sp       0
+ 167               	; saved regs: R6 R7 R8 R9 R10
+ 168               		; start of prologue
+ 169 0000 4A14      		PUSHM.A	#5, R10
+ 170               		; end of prologue
+GAS LISTING /tmp/cchrX2zG.s 			page 4
+
+
+ 171 0002 CA0C      		MOVA	R12, R10
+ 172 0004 0C0C      		MOVA	@R12, R12
+ 173 0006 0018 CC93 		CMPX.A	#0, 34(R12) { JNE	.L14
+ 173      2200 0020 
+ 174 000e 8C00 0000 		MOVA	#__func__.5041, R12
+ 175 0012 B013 0000 		CALLA	#chSysHalt
+ 176               	.L14:
+ 177 0016 0C0A      		MOVA	@R10, R12
+ 178 0018 380C 2200 		MOVA	34(R12), R8
+ 179 001c 0814 4018 		PUSHM.A	#1, R8 { POPX.W	R12 { POPX.W	R13 ; move pointer in R8 into reg-pair R12:R13
+ 179      3C41 4018 
+ 179      3D41 
+ 180 0026 B013 0000 		CALLA	#__mspabi_srll_12
+ 181 002a 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 181      0C16 
+ 182 0030 4018 0D4C 		MOVX	R12, R13
+ 183 0034 5C43      		MOV.B	#1, R12
+ 184 0036 B013 0000 		CALLA	#__mspabi_slli
+ 185 003a 8600 0000 		MOVA	#_pal_lld_setgroupmode, R6
+ 186 003e 7E40 0600 		MOV.B	#6, R14
+ 187 0042 0D4C      		MOV.W	R12, R13
+ 188 0044 CC08      		MOVA	R8, R12
+ 189 0046 0018 7CF0 		ANDX.A	#4095, R12
+ 189      FF0F 
+ 190 004c 4613      		CALLA	R6
+ 191 004e 0C0A      		MOVA	@R10, R12
+ 192 0050 3C0C 2200 		MOVA	34(R12), R12
+ 193 0054 C80C      		MOVA	R12, R8
+ 194 0056 0018 78F0 		ANDX.A	#4095, R8
+ 194      FF0F 
+ 195 005c 1948 0200 		MOV.W	2(R8), R9
+ 196 0060 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 196      3C41 4018 
+ 196      3D41 
+ 197 006a B013 0000 		CALLA	#__mspabi_srll_12
+ 198 006e 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 198      0C16 
+ 199 0074 4018 0D4C 		MOVX	R12, R13
+ 200 0078 5C43      		MOV.B	#1, R12
+ 201 007a B013 0000 		CALLA	#__mspabi_slli
+ 202 007e 0CD9      		BIS.W	R9, R12
+ 203 0080 884C 0200 		MOV.W	R12, 2(R8)
+ 204 0084 8800 0000 		MOVA	#chThdSleep, R8
+ 205 0088 5C43      		MOV.B	#1, R12
+ 206 008a 4813      		CALLA	R8
+ 207 008c 0C0A      		MOVA	@R10, R12
+ 208 008e 3C0C 2200 		MOVA	34(R12), R12
+ 209 0092 CA0C      		MOVA	R12, R10
+ 210 0094 0018 7AF0 		ANDX.A	#4095, R10
+ 210      FF0F 
+ 211 009a 194A 0200 		MOV.W	2(R10), R9
+ 212 009e 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 212      3C41 4018 
+ 212      3D41 
+ 213 00a8 B013 0000 		CALLA	#__mspabi_srll_12
+ 214 00ac 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 214      0C16 
+GAS LISTING /tmp/cchrX2zG.s 			page 5
+
+
+ 215 00b2 4018 074C 		MOVX	R12, R7
+ 216 00b6 5C43      		MOV.B	#1, R12
+ 217 00b8 0D47      		MOV.W	R7, R13
+ 218 00ba B013 0000 		CALLA	#__mspabi_slli
+ 219 00be 09CC      		BIC.W	R12, R9
+ 220 00c0 8A49 0200 		MOV.W	R9, 2(R10)
+ 221 00c4 5C43      		MOV.B	#1, R12
+ 222 00c6 0D47      		MOV.W	R7, R13
+ 223 00c8 B013 0000 		CALLA	#__mspabi_slli
+ 224 00cc 6E42      		MOV.B	#4, R14
+ 225 00ce 0D4C      		MOV.W	R12, R13
+ 226 00d0 CC0A      		MOVA	R10, R12
+ 227 00d2 4613      		CALLA	R6
+ 228 00d4 7C40 0500 		MOV.B	#5, R12
+ 229 00d8 4813      		CALLA	R8
+ 230               		; start of epilogue
+ 231 00da 4616      		POPM.A	#5, r10
+ 232 00dc 1001      		RETA
+ 233               		.size	sx1212Reset.isra.1, .-sx1212Reset.isra.1
+ 234               		.section	.text.irq_block_with_timeout.isra.2,"ax",@progbits
+ 235               		.balign 2
+ 236               		.type	irq_block_with_timeout.isra.2, @function
+ 237               	irq_block_with_timeout.isra.2:
+ 238               	; start of function
+ 239               	; framesize_regs:     16
+ 240               	; framesize_locals:   0
+ 241               	; framesize_outgoing: 0
+ 242               	; framesize:          16
+ 243               	; elim ap -> fp       20
+ 244               	; elim fp -> sp       0
+ 245               	; saved regs: R7 R8 R9 R10
+ 246               		; start of prologue
+ 247 0000 3A14      		PUSHM.A	#4, R10
+ 248               		; end of prologue
+ 249 0002 074D      		MOV.W	R13, R7
+ 250               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 251 0004 32C2 0343 		dint { nop
+ 252               	 ; 0 "" 2
+ 253               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 254 0008 0343      		nop
+ 255               	 ; 0 "" 2
+ 256 000a C80C      		MOVA	R12, R8
+ 257 000c 0018 78F0 		ANDX.A	#4095, R8
+ 257      FF0F 
+ 258 0012 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 258      3C41 4018 
+ 258      3D41 
+ 259 001c B013 0000 		CALLA	#__mspabi_srll_12
+ 260 0020 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R10
+ 260      0A16 
+ 261 0026 0A14 4018 		PUSHM.A	#1, R10 { POPX.W	R12 { POPX.W	R13 ; move pointer in R10 into reg-pair R12:R13
+ 261      3C41 4018 
+ 261      3D41 
+ 262 0030 494C      		MOV.B	R12, R9
+ 263 0032 8F00 0000 		MOVA	#blockuntil_callback, R15
+ 264 0036 5E43      		MOV.B	#1, R14
+ 265 0038 4D4C      		MOV.B	R12, R13
+GAS LISTING /tmp/cchrX2zG.s 			page 6
+
+
+ 266 003a CC08      		MOVA	R8, R12
+ 267 003c B013 0000 		CALLA	#_pal_lld_enablepadevent
+ 268 0040 4018 0D4A 		MOVX	R10, R13
+ 269 0044 2C48      		MOV.W	@R8, R12
+ 270 0046 B013 0000 		CALLA	#__mspabi_srli
+ 271 004a 4018 1CB3 		BITX.W	#1, R12 { JEQ	.L16
+ 271      0024 
+ 272 0050 0018 C243 		MOVX.A	#0, &suspend_result
+ 272      0000 
+ 273               	.L17:
+ 274 0056 4D49      		MOV.B	R9, R13
+ 275 0058 CC08      		MOVA	R8, R12
+ 276 005a B013 0000 		CALLA	#_pal_lld_disablepadevent
+ 277               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 278 005e 0343      		nop
+ 279               	 ; 0 "" 2
+ 280               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 281 0060 0343 32D2 		nop { eint { nop
+ 281      0343 
+ 282               	 ; 0 "" 2
+ 283 0066 2C00 0000 		MOVA	&suspend_result, R12
+ 284               		; start of epilogue
+ 285 006a 3716      		POPM.A	#4, r10
+ 286 006c 1001      		RETA
+ 287               	.L16:
+ 288 006e 0D47      		MOV.W	R7, R13
+ 289 0070 8C00 0000 		MOVA	#tr, R12
+ 290 0074 B013 0000 		CALLA	#chThdSuspendTimeoutS
+ 291 0078 600C 0000 		MOVA	R12, &suspend_result
+ 292 007c 8000 0000 		BRA	#.L17
+ 293               		.size	irq_block_with_timeout.isra.2, .-irq_block_with_timeout.isra.2
+ 294               		.section	.text.spi_mode_config,"ax",@progbits
+ 295               		.balign 2
+ 296               		.global	spi_mode_config
+ 297               		.type	spi_mode_config, @function
+ 298               	spi_mode_config:
+ 299               	; start of function
+ 300               	; framesize_regs:     0
+ 301               	; framesize_locals:   0
+ 302               	; framesize_outgoing: 0
+ 303               	; framesize:          0
+ 304               	; elim ap -> fp       4
+ 305               	; elim fp -> sp       0
+ 306               	; saved regs:(none)
+ 307               		; start of prologue
+ 308               		; end of prologue
+ 309 0000 0C0C      		MOVA	@R12, R12
+ 310 0002 3E0C 0400 		MOVA	4(R12), R14
+ 311 0006 0018 CE43 		MOVX.A	#0, @R14
+ 311      0000 
+ 312 000c 0C0C      		MOVA	@R12, R12
+ 313 000e 3C0C 0C00 		MOVA	12(R12), R12
+ 314 0012 BCF0 FFFB 		AND.W	#-1025, @R12
+ 314      0000 
+ 315               		; start of epilogue
+ 316 0018 1001      		RETA
+ 317               		.size	spi_mode_config, .-spi_mode_config
+GAS LISTING /tmp/cchrX2zG.s 			page 7
+
+
+ 318               		.section	.text.spi_mode_data,"ax",@progbits
+ 319               		.balign 2
+ 320               		.global	spi_mode_data
+ 321               		.type	spi_mode_data, @function
+ 322               	spi_mode_data:
+ 323               	; start of function
+ 324               	; framesize_regs:     0
+ 325               	; framesize_locals:   0
+ 326               	; framesize_outgoing: 0
+ 327               	; framesize:          0
+ 328               	; elim ap -> fp       4
+ 329               	; elim fp -> sp       0
+ 330               	; saved regs:(none)
+ 331               		; start of prologue
+ 332               		; end of prologue
+ 333 0000 0C0C      		MOVA	@R12, R12
+ 334 0002 3E0C 0400 		MOVA	4(R12), R14
+ 335 0006 0018 FE40 		MOVX.A	#spi_end_cb, @R14
+ 335      0000 0000 
+ 336 000e 0C0C      		MOVA	@R12, R12
+ 337 0010 3C0C 0C00 		MOVA	12(R12), R12
+ 338 0014 BCD0 0004 		BIS.W	#1024, @R12
+ 338      0000 
+ 339               		; start of epilogue
+ 340 001a 1001      		RETA
+ 341               		.size	spi_mode_data, .-spi_mode_data
+ 342               		.section	.text.fifo_read_safe,"ax",@progbits
+ 343               		.balign 2
+ 344               		.type	fifo_read_safe, @function
+ 345               	fifo_read_safe:
+ 346               	; start of function
+ 347               	; framesize_regs:     28
+ 348               	; framesize_locals:   0
+ 349               	; framesize_outgoing: 0
+ 350               	; framesize:          28
+ 351               	; elim ap -> fp       32
+ 352               	; elim fp -> sp       0
+ 353               	; saved regs: R4 R5 R6 R7 R8 R9 R10
+ 354               		; start of prologue
+ 355 0000 6A14      		PUSHM.A	#7, R10
+ 356               		; end of prologue
+ 357 0002 C80C      		MOVA	R12, R8
+ 358 0004 C60D      		MOVA	R13, R6
+ 359 0006 C70E      		MOVA	R14, R7
+ 360 0008 B013 0000 		CALLA	#spi_mode_data
+ 361 000c 4543      		MOV.B	#0, R5
+ 362 000e 8400 0000 		MOVA	#spi_lld_polled_exchange, R4
+ 363 0012 7943      		MOV.B	#-1, R9
+ 364               	.L21:
+ 365 0014 4018 0A45 		MOVX	R5, R10
+ 366 0018 DA06 0028 		CMPA	R6, R10 { JLO	.L22
+ 367 001c CC08      		MOVA	R8, R12
+ 368 001e B013 0000 		CALLA	#spi_mode_config
+ 369               		; start of epilogue
+ 370 0022 6416      		POPM.A	#7, r10
+ 371 0024 1001      		RETA
+ 372               	.L22:
+GAS LISTING /tmp/cchrX2zG.s 			page 8
+
+
+ 373 0026 EA07      		ADDA	R7, R10
+ 374 0028 0C08      		MOVA	@R8, R12
+ 375 002a 4D49      		MOV.B	R9, R13
+ 376 002c 0C0C      		MOVA	@R12, R12
+ 377 002e 4413      		CALLA	R4
+ 378 0030 CA4C 0000 		MOV.B	R12, @R10
+ 379 0034 1553      		ADD.W	#1, R5
+ 380 0036 8000 0000 		BRA	#.L21
+ 381               		.size	fifo_read_safe, .-fifo_read_safe
+ 382               		.section	.text.sx1212ReadRegister,"ax",@progbits
+ 383               		.balign 2
+ 384               		.global	sx1212ReadRegister
+ 385               		.type	sx1212ReadRegister, @function
+ 386               	sx1212ReadRegister:
+ 387               	; start of function
+ 388               	; framesize_regs:     12
+ 389               	; framesize_locals:   0
+ 390               	; framesize_outgoing: 0
+ 391               	; framesize:          12
+ 392               	; elim ap -> fp       16
+ 393               	; elim fp -> sp       0
+ 394               	; saved regs: R8 R9 R10
+ 395               		; start of prologue
+ 396 0000 2A14      		PUSHM.A	#3, R10
+ 397               		; end of prologue
+ 398 0002 CA0C      		MOVA	R12, R10
+ 399 0004 494D      		MOV.B	R13, R9
+ 400 0006 7C40 1E00 		MOV.B	#30, R12
+ 401 000a 4C99 002C 		CMP.B	R9, R12 { JHS	.L24
+ 402 000e 8C00 0000 		MOVA	#__func__.4968, R12
+ 403 0012 B013 0000 		CALLA	#chSysHalt
+ 404               	.L24:
+ 405 0016 0959      		ADD.W	R9, R9
+ 406 0018 79D0 4000 		BIS.B	#64, R9
+ 407 001c 0C0A      		MOVA	@R10, R12
+ 408 001e 0C0C      		MOVA	@R12, R12
+ 409 0020 B013 0000 		CALLA	#spi_lld_select
+ 410 0024 0C0A      		MOVA	@R10, R12
+ 411 0026 8800 0000 		MOVA	#spi_lld_polled_exchange, R8
+ 412 002a 4D49      		MOV.B	R9, R13
+ 413 002c 0C0C      		MOVA	@R12, R12
+ 414 002e 4813      		CALLA	R8
+ 415 0030 0C0A      		MOVA	@R10, R12
+ 416 0032 7D43      		MOV.B	#-1, R13
+ 417 0034 0C0C      		MOVA	@R12, R12
+ 418 0036 4813      		CALLA	R8
+ 419 0038 494C      		MOV.B	R12, R9
+ 420 003a 0C0A      		MOVA	@R10, R12
+ 421 003c 0C0C      		MOVA	@R12, R12
+ 422 003e B013 0000 		CALLA	#spi_lld_unselect
+ 423 0042 4C49      		MOV.B	R9, R12
+ 424               		; start of epilogue
+ 425 0044 2816      		POPM.A	#3, r10
+ 426 0046 1001      		RETA
+ 427               		.size	sx1212ReadRegister, .-sx1212ReadRegister
+ 428               		.section	.text.sx1212SetBitrate,"ax",@progbits
+ 429               		.balign 2
+GAS LISTING /tmp/cchrX2zG.s 			page 9
+
+
+ 430               		.global	sx1212SetBitrate
+ 431               		.type	sx1212SetBitrate, @function
+ 432               	sx1212SetBitrate:
+ 433               	; start of function
+ 434               	; framesize_regs:     8
+ 435               	; framesize_locals:   0
+ 436               	; framesize_outgoing: 0
+ 437               	; framesize:          8
+ 438               	; elim ap -> fp       12
+ 439               	; elim fp -> sp       0
+ 440               	; saved regs: R8 R10
+ 441               		; start of prologue
+ 442 0000 0A14      		PUSHM.A	#1, R10
+ 443 0002 0814      		PUSHM.A	#1, R8
+ 444               		; end of prologue
+ 445 0004 C80C      		MOVA	R12, R8
+ 446 0006 6C43      		MOV.B	#2, R12
+ 447 0008 0C9E 0028 		CMP.W	R14, R12 { JLO	.L28
+ 448 000c 0E9C 0020 		CMP.W	R12, R14 { JNE	.L26
+ 449 0010 3C40 EF49 		MOV.W	#18927, R12
+ 450 0014 0C9D 002C 		CMP.W	R13, R12 { JHS	.L26
+ 451               	.L28:
+ 452 0018 8C00 0000 		MOVA	#__func__.5018, R12
+ 453 001c B013 0000 		CALLA	#chSysHalt
+ 454               	.L26:
+ 455 0020 8A00 0000 		MOVA	#sx1212SetRegister.isra.0, R10
+ 456 0024 4E43      		MOV.B	#0, R14
+ 457 0026 7D40 0300 		MOV.B	#3, R13
+ 458 002a CC08      		MOVA	R8, R12
+ 459 002c 4A13      		CALLA	R10
+ 460 002e 7E40 7200 		MOV.B	#114, R14
+ 461 0032 6D42      		MOV.B	#4, R13
+ 462 0034 CC08      		MOVA	R8, R12
+ 463 0036 4A13      		CALLA	R10
+ 464               		; start of epilogue
+ 465 0038 0816      		POPM.A	#1, r8
+ 466 003a 0A16      		POPM.A	#1, r10
+ 467 003c 1001      		RETA
+ 468               		.size	sx1212SetBitrate, .-sx1212SetBitrate
+ 469               		.global	__mspabi_divul
+ 470               		.section	.text.sx1212SetDeviation,"ax",@progbits
+ 471               		.balign 2
+ 472               		.global	sx1212SetDeviation
+ 473               		.type	sx1212SetDeviation, @function
+ 474               	sx1212SetDeviation:
+ 475               	; start of function
+ 476               	; framesize_regs:     20
+ 477               	; framesize_locals:   0
+ 478               	; framesize_outgoing: 0
+ 479               	; framesize:          20
+ 480               	; elim ap -> fp       24
+ 481               	; elim fp -> sp       0
+ 482               	; saved regs: R6 R7 R8 R9 R10
+ 483               		; start of prologue
+ 484 0000 4A14      		PUSHM.A	#5, R10
+ 485               		; end of prologue
+ 486 0002 CA0C      		MOVA	R12, R10
+GAS LISTING /tmp/cchrX2zG.s 			page 10
+
+
+ 487 0004 084D      		MOV.W	R13, R8
+ 488 0006 094E      		MOV.W	R14, R9
+ 489 0008 064D      		MOV.W	R13, R6
+ 490 000a 074E      		MOV.W	R14, R7
+ 491 000c 12C3 0710 		CLRC { RRC.W	R7 { RRC.W	R6
+ 491      0610 
+ 492 0012 0E4D      		MOV.W	R13, R14
+ 493 0014 0F49      		MOV.W	R9, R15
+ 494 0016 0C46      		MOV.W	R6, R12
+ 495 0018 3C50 801A 		ADD	#6784, R12 ; cy
+ 496 001c 0D47      		MOV.W	R7, R13
+ 497 001e 3D60 0600 		ADDC	#6, R13
+ 498 0022 B013 0000 		CALLA	#__mspabi_divul
+ 499 0026 074C      		MOV.W	R12, R7
+ 500 0028 7C40 0300 		MOV.B	#3, R12
+ 501 002c 0C99 0028 		CMP.W	R9, R12 { JLO	.L32
+ 502 0030 3990 0300 		CMP.W	#3, R9 { JNE	.L30
+ 502      0020 
+ 503 0036 3C40 3F0D 		MOV.W	#3391, R12
+ 504 003a 0C98 002C 		CMP.W	R8, R12 { JHS	.L30
+ 505               	.L32:
+ 506 003e 8C00 0000 		MOVA	#__func__.5024, R12
+ 507 0042 B013 0000 		CALLA	#chSysHalt
+ 508               	.L30:
+ 509 0046 4E47      		MOV.B	R7, R14
+ 510 0048 7E53      		ADD.B	#-1, R14
+ 511 004a 6D43      		MOV.B	#2, R13
+ 512 004c CC0A      		MOVA	R10, R12
+ 513 004e B013 0000 		CALLA	#sx1212SetRegister.isra.0
+ 514               		; start of epilogue
+ 515 0052 4616      		POPM.A	#5, r10
+ 516 0054 1001      		RETA
+ 517               		.size	sx1212SetDeviation, .-sx1212SetDeviation
+ 518               		.section	.text.sx1212SetFrequency,"ax",@progbits
+ 519               		.balign 2
+ 520               		.global	sx1212SetFrequency
+ 521               		.type	sx1212SetFrequency, @function
+ 522               	sx1212SetFrequency:
+ 523               	; start of function
+ 524               	; framesize_regs:     8
+ 525               	; framesize_locals:   0
+ 526               	; framesize_outgoing: 0
+ 527               	; framesize:          8
+ 528               	; elim ap -> fp       12
+ 529               	; elim fp -> sp       0
+ 530               	; saved regs: R8 R10
+ 531               		; start of prologue
+ 532 0000 0A14      		PUSHM.A	#1, R10
+ 533 0002 0814      		PUSHM.A	#1, R8
+ 534               		; end of prologue
+ 535 0004 CA0C      		MOVA	R12, R10
+ 536 0006 8800 0000 		MOVA	#sx1212SetRegister.isra.0, R8
+ 537 000a 7E40 8FFF 		MOV.B	#-113, R14
+ 538 000e 7D40 0600 		MOV.B	#6, R13
+ 539 0012 4813      		CALLA	R8
+ 540 0014 7E40 3C00 		MOV.B	#60, R14
+ 541 0018 7D40 0700 		MOV.B	#7, R13
+GAS LISTING /tmp/cchrX2zG.s 			page 11
+
+
+ 542 001c CC0A      		MOVA	R10, R12
+ 543 001e 4813      		CALLA	R8
+ 544 0020 7E40 1100 		MOV.B	#17, R14
+ 545 0024 7D42      		MOV.B	#8, R13
+ 546 0026 CC0A      		MOVA	R10, R12
+ 547 0028 4813      		CALLA	R8
+ 548 002a 5E4A 0400 		MOV.B	4(R10), R14
+ 549 002e 7EF0 E0FF 		AND.B	#-32, R14
+ 550 0032 7ED0 1200 		BIS.B	#18, R14
+ 551 0036 CA4E 0400 		MOV.B	R14, 4(R10)
+ 552 003a 4D43      		MOV.B	#0, R13
+ 553 003c CC0A      		MOVA	R10, R12
+ 554 003e 4813      		CALLA	R8
+ 555               		; start of epilogue
+ 556 0040 0816      		POPM.A	#1, r8
+ 557 0042 0A16      		POPM.A	#1, r10
+ 558 0044 1001      		RETA
+ 559               		.size	sx1212SetFrequency, .-sx1212SetFrequency
+ 560               		.section	.text.sx1212SetSync,"ax",@progbits
+ 561               		.balign 2
+ 562               		.global	sx1212SetSync
+ 563               		.type	sx1212SetSync, @function
+ 564               	sx1212SetSync:
+ 565               	; start of function
+ 566               	; framesize_regs:     24
+ 567               	; framesize_locals:   0
+ 568               	; framesize_outgoing: 0
+ 569               	; framesize:          24
+ 570               	; elim ap -> fp       28
+ 571               	; elim fp -> sp       0
+ 572               	; saved regs: R5 R6 R7 R8 R9 R10
+ 573               		; start of prologue
+ 574 0000 5A14      		PUSHM.A	#6, R10
+ 575               		; end of prologue
+ 576 0002 CA0C      		MOVA	R12, R10
+ 577 0004 084D      		MOV.W	R13, R8
+ 578 0006 094E      		MOV.W	R14, R9
+ 579 0008 7740 1600 		MOV.B	#22, R7
+ 580 000c 7540 1800 		MOV.B	#24, R5
+ 581 0010 8600 0000 		MOVA	#sx1212SetRegister.isra.0, R6
+ 582               	.L35:
+ 583 0014 0C48      		MOV.W	R8, R12
+ 584 0016 0D49      		MOV.W	R9, R13
+ 585 0018 0E45 0F43 		MOV.W	R5,R14 { MOV.W	#0,R15
+ 586 001c B013 0000 		CALLA	#__mspabi_srll
+ 587 0020 4E4C      		MOV.B	R12, R14
+ 588 0022 4D47      		MOV.B	R7, R13
+ 589 0024 CC0A      		MOVA	R10, R12
+ 590 0026 4613      		CALLA	R6
+ 591 0028 3550 F8FF 		ADD.W	#-8, R5
+ 592 002c 4C47      		MOV.B	R7, R12
+ 593 002e 5C53      		ADD.B	#1, R12
+ 594 0030 474C      		MOV.B	R12, R7
+ 595 0032 7C90 1A00 		CMP.B	#26, R12 { JNE	.L35
+ 595      0020 
+ 596               		; start of epilogue
+ 597 0038 5516      		POPM.A	#6, r10
+GAS LISTING /tmp/cchrX2zG.s 			page 12
+
+
+ 598 003a 1001      		RETA
+ 599               		.size	sx1212SetSync, .-sx1212SetSync
+ 600               		.section	.text.sx1212SetRxBw,"ax",@progbits
+ 601               		.balign 2
+ 602               		.global	sx1212SetRxBw
+ 603               		.type	sx1212SetRxBw, @function
+ 604               	sx1212SetRxBw:
+ 605               	; start of function
+ 606               	; framesize_regs:     4
+ 607               	; framesize_locals:   0
+ 608               	; framesize_outgoing: 0
+ 609               	; framesize:          4
+ 610               	; elim ap -> fp       8
+ 611               	; elim fp -> sp       0
+ 612               	; saved regs: R10
+ 613               		; start of prologue
+ 614 0000 0A14      		PUSHM.A	#1, R10
+ 615               		; end of prologue
+ 616 0002 CA0C      		MOVA	R12, R10
+ 617 0004 7C40 0F00 		MOV.B	#15, R12
+ 618 0008 4C9D 002C 		CMP.B	R13, R12 { JHS	.L38
+ 619 000c 8C00 0000 		MOVA	#__func__.5065, R12
+ 620 0010 B013 0000 		CALLA	#chSysHalt
+ 621               	.L38:
+ 622 0014 7E40 F3FF 		MOV.B	#-13, R14
+ 623 0018 7D40 1000 		MOV.B	#16, R13
+ 624 001c CC0A      		MOVA	R10, R12
+ 625 001e B013 0000 		CALLA	#sx1212SetRegister.isra.0
+ 626               		; start of epilogue
+ 627 0022 0A16      		POPM.A	#1, r10
+ 628 0024 1001      		RETA
+ 629               		.size	sx1212SetRxBw, .-sx1212SetRxBw
+ 630               		.section	.text.sx122ObjectInit,"ax",@progbits
+ 631               		.balign 2
+ 632               		.global	sx122ObjectInit
+ 633               		.type	sx122ObjectInit, @function
+ 634               	sx122ObjectInit:
+ 635               	; start of function
+ 636               	; framesize_regs:     0
+ 637               	; framesize_locals:   0
+ 638               	; framesize_outgoing: 0
+ 639               	; framesize:          0
+ 640               	; elim ap -> fp       4
+ 641               	; elim fp -> sp       0
+ 642               	; saved regs:(none)
+ 643               		; start of prologue
+ 644               		; end of prologue
+ 645               		; start of epilogue
+ 646 0000 1001      		RETA
+ 647               		.size	sx122ObjectInit, .-sx122ObjectInit
+ 648               		.section	.text.sx1212Start,"ax",@progbits
+ 649               		.balign 2
+ 650               		.global	sx1212Start
+ 651               		.type	sx1212Start, @function
+ 652               	sx1212Start:
+ 653               	; start of function
+ 654               	; framesize_regs:     16
+GAS LISTING /tmp/cchrX2zG.s 			page 13
+
+
+ 655               	; framesize_locals:   0
+ 656               	; framesize_outgoing: 0
+ 657               	; framesize:          16
+ 658               	; elim ap -> fp       20
+ 659               	; elim fp -> sp       0
+ 660               	; saved regs: R4 R6 R8 R10
+ 661               		; start of prologue
+ 662 0000 0A14      		PUSHM.A	#1, R10
+ 663 0002 0814      		PUSHM.A	#1, R8
+ 664 0004 0614      		PUSHM.A	#1, R6
+ 665 0006 0414      		PUSHM.A	#1, R4
+ 666               		; end of prologue
+ 667 0008 CA0C      		MOVA	R12, R10
+ 668 000a C80D      		MOVA	R13, R8
+ 669 000c 7A0D 0000 		MOVA	R13, @R10
+ 670 0010 B013 0000 		CALLA	#sx1212Reset.isra.1
+ 671 0014 FA40 3000 		MOV.B	#48, 4(R10)
+ 671      0400 
+ 672 001a FA40 0F00 		MOV.B	#15, 5(R10)
+ 672      0500 
+ 673 0020 3D08 0400 		MOVA	4(R8), R13
+ 674 0024 0C08      		MOVA	@R8, R12
+ 675 0026 B013 0000 		CALLA	#spiStart
+ 676 002a CC0A      		MOVA	R10, R12
+ 677 002c B013 0000 		CALLA	#spi_mode_config
+ 678 0030 4D43      		MOV.B	#0, R13
+ 679 0032 CC0A      		MOVA	R10, R12
+ 680 0034 B013 0000 		CALLA	#sx1212SetMode
+ 681 0038 1D48 1000 		MOV.W	16(R8), R13
+ 682 003c 1E48 1200 		MOV.W	18(R8), R14
+ 683 0040 CC0A      		MOVA	R10, R12
+ 684 0042 B013 0000 		CALLA	#sx1212SetFrequency
+ 685 0046 1D48 1400 		MOV.W	20(R8), R13
+ 686 004a 1E48 1600 		MOV.W	22(R8), R14
+ 687 004e CC0A      		MOVA	R10, R12
+ 688 0050 B013 0000 		CALLA	#sx1212SetDeviation
+ 689 0054 1D48 0C00 		MOV.W	12(R8), R13
+ 690 0058 1E48 0E00 		MOV.W	14(R8), R14
+ 691 005c CC0A      		MOVA	R10, R12
+ 692 005e B013 0000 		CALLA	#sx1212SetBitrate
+ 693 0062 5D48 1800 		MOV.B	24(R8), R13
+ 694 0066 CC0A      		MOVA	R10, R12
+ 695 0068 B013 0000 		CALLA	#sx1212SetRxBw
+ 696 006c 1D48 1C00 		MOV.W	28(R8), R13
+ 697 0070 1E48 1E00 		MOV.W	30(R8), R14
+ 698 0074 CC0A      		MOVA	R10, R12
+ 699 0076 B013 0000 		CALLA	#sx1212SetSync
+ 700 007a 8600 0000 		MOVA	#sx1212SetRegister.isra.0, R6
+ 701 007e 0018 C893 		CMPX.A	#0, 38(R8) { JEQ	.L41
+ 701      2600 0024 
+ 702 0086 0C0A      		MOVA	@R10, R12
+ 703 0088 340C 2600 		MOVA	38(R12), R4
+ 704 008c 7E40 A4FF 		MOV.B	#-92, R14
+ 705 0090 5D43      		MOV.B	#1, R13
+ 706 0092 CC0A      		MOVA	R10, R12
+ 707 0094 4613      		CALLA	R6
+ 708 0096 6C44      		MOV.B	@R4, R12
+GAS LISTING /tmp/cchrX2zG.s 			page 14
+
+
+ 709 0098 7CF0 0600 		AND.B	#6, R12
+ 710 009c 7C90 0600 		CMP.B	#6, R12 { JNE	.L42
+ 710      0020 
+ 711 00a2 8C00 0000 		MOVA	#__func__.5070, R12
+ 712 00a6 B013 0000 		CALLA	#chSysHalt
+ 713               	.L42:
+ 714 00aa 0C0A      		MOVA	@R10, R12
+ 715 00ac CC93 2B00 		CMP.B	#0, 43(R12) { JGE	.L43
+ 715      0034 
+ 716 00b2 8C00 0000 		MOVA	#__func__.5070, R12
+ 717 00b6 B013 0000 		CALLA	#chSysHalt
+ 718               	.L43:
+ 719 00ba 6E44      		MOV.B	@R4, R14
+ 720 00bc 4418 0E5E 		rpt	#5 { rlax.w	R14
+ 721 00c0 7EF0 8000 		AND.B	#128, R14
+ 722 00c4 0C0A      		MOVA	@R10, R12
+ 723 00c6 5EDC 2B00 		BIS.B	43(R12), R14
+ 724 00ca 7D40 1C00 		MOV.B	#28, R13
+ 725 00ce CC0A      		MOVA	R10, R12
+ 726 00d0 4613      		CALLA	R6
+ 727 00d2 F4B0 6000 		BIT.B	#96, @R4 { JNE	.L44
+ 727      0000 0020 
+ 728 00da 6D44      		MOV.B	@R4, R13
+ 729 00dc 0C4D      		MOV.W	R13, R12
+ 730 00de 5C0F      		rrum.w	#4, R12
+ 731 00e0 5CF3      		AND.B	#1, R12
+ 732 00e2 4418 0C5C 		rpt	#5 { rlax.w	R12
+ 733 00e6 7DF0 9FFF 		AND.B	#-97, R13
+ 734 00ea 4DDC      		BIS.B	R12, R13
+ 735 00ec C44D 0000 		MOV.B	R13, @R4
+ 736               	.L44:
+ 737 00f0 F4B0 6000 		BIT.B	#96, @R4 { JEQ	.L45
+ 737      0000 0024 
+ 738 00f8 0C0A      		MOVA	@R10, R12
+ 739 00fa 5E4C 2A00 		MOV.B	42(R12), R14
+ 740 00fe 7D40 1D00 		MOV.B	#29, R13
+ 741 0102 CC0A      		MOVA	R10, R12
+ 742 0104 4613      		CALLA	R6
+ 743               	.L45:
+ 744 0106 D4B3 0000 		BIT.B	#1, @R4 { JNE	.L50
+ 744      0020 
+ 745 010c 4D43      		MOV.B	#0, R13
+ 746               	.L46:
+ 747 010e 6F44      		MOV.B	@R4, R15
+ 748 0110 0C4F      		MOV.W	R15, R12
+ 749 0112 4218 0C5C 		rpt	#3 { rlax.w	R12
+ 750 0116 7CF0 1000 		AND.B	#16, R12
+ 751 011a 0E4F      		MOV.W	R15, R14
+ 752 011c 7EF2      		AND.B	#8, R14
+ 753 011e 4CDE      		BIS.B	R14, R12
+ 754 0120 0E4F      		MOV.W	R15, R14
+ 755 0122 5E0F      		rrum.w	#4, R14
+ 756 0124 7EF0 0600 		AND.B	#6, R14
+ 757 0128 4EDC      		BIS.B	R12, R14
+ 758 012a 4EDD      		BIS.B	R13, R14
+ 759 012c 7D40 1E00 		MOV.B	#30, R13
+ 760 0130 CC0A      		MOVA	R10, R12
+GAS LISTING /tmp/cchrX2zG.s 			page 15
+
+
+ 761 0132 4613      		CALLA	R6
+ 762 0134 6E44      		MOV.B	@R4, R14
+ 763 0136 3EE0 8000 		XOR.W	#128, R14
+ 764 013a 7EF0 80FF 		AND.B	#-128, R14
+ 765 013e 7D40 1F00 		MOV.B	#31, R13
+ 766               	.L55:
+ 767 0142 CC0A      		MOVA	R10, R12
+ 768 0144 4613      		CALLA	R6
+ 769 0146 7C40 0300 		MOV.B	#3, R12
+ 770 014a 5C98 2000 		CMP.B	32(R8), R12 { JHS	.L49
+ 770      002C 
+ 771 0150 8C00 0000 		MOVA	#__func__.5101, R12
+ 772 0154 B013 0000 		CALLA	#chSysHalt
+ 773               	.L49:
+ 774 0158 5E48 2000 		MOV.B	32(R8), R14
+ 775 015c 0E5E      		RLA.W	R14
+ 776 015e 7ED0 3800 		BIS.B	#56, R14
+ 777 0162 7D40 1200 		MOV.B	#18, R13
+ 778 0166 CC0A      		MOVA	R10, R12
+ 779 0168 4613      		CALLA	R6
+ 780 016a 7E40 5100 		MOV.B	#81, R14
+ 781 016e 7D40 0E00 		MOV.B	#14, R13
+ 782 0172 CC0A      		MOVA	R10, R12
+ 783 0174 4613      		CALLA	R6
+ 784 0176 7E40 C0FF 		MOV.B	#-64, R14
+ 785 017a 7D40 0C00 		MOV.B	#12, R13
+ 786 017e CC0A      		MOVA	R10, R12
+ 787 0180 4613      		CALLA	R6
+ 788 0182 FA40 C0FF 		MOV.B	#-64, 5(R10)
+ 788      0500 
+ 789               		; start of epilogue
+ 790 0188 0416      		POPM.A	#1, r4
+ 791 018a 0616      		POPM.A	#1, r6
+ 792 018c 0816      		POPM.A	#1, r8
+ 793 018e 0A16      		POPM.A	#1, r10
+ 794 0190 1001      		RETA
+ 795               	.L50:
+ 796 0192 3D40 80FF 		MOV.W	#-128, R13
+ 797 0196 8000 0000 		BRA	#.L46
+ 798               	.L41:
+ 799 019a 7E40 6400 		MOV.B	#100, R14
+ 800 019e 5D43      		MOV.B	#1, R13
+ 801 01a0 8000 0000 		BRA	#.L55
+ 802               		.size	sx1212Start, .-sx1212Start
+ 803               		.section	.text.sx1212Stop,"ax",@progbits
+ 804               		.balign 2
+ 805               		.global	sx1212Stop
+ 806               		.type	sx1212Stop, @function
+ 807               	sx1212Stop:
+ 808               	; start of function
+ 809               	; framesize_regs:     4
+ 810               	; framesize_locals:   0
+ 811               	; framesize_outgoing: 0
+ 812               	; framesize:          4
+ 813               	; elim ap -> fp       8
+ 814               	; elim fp -> sp       0
+ 815               	; saved regs: R10
+GAS LISTING /tmp/cchrX2zG.s 			page 16
+
+
+ 816               		; start of prologue
+ 817 0000 0A14      		PUSHM.A	#1, R10
+ 818               		; end of prologue
+ 819 0002 CA0C      		MOVA	R12, R10
+ 820 0004 B013 0000 		CALLA	#sx1212Reset.isra.1
+ 821 0008 0C0A      		MOVA	@R10, R12
+ 822 000a 3D0C 0400 		MOVA	4(R12), R13
+ 823 000e 0C0C      		MOVA	@R12, R12
+ 824 0010 B013 0000 		CALLA	#spiStart
+ 825 0014 4D43      		MOV.B	#0, R13
+ 826 0016 CC0A      		MOVA	R10, R12
+ 827 0018 B013 0000 		CALLA	#sx1212SetMode
+ 828 001c FA40 3000 		MOV.B	#48, 4(R10)
+ 828      0400 
+ 829 0022 0C0A      		MOVA	@R10, R12
+ 830 0024 0C0C      		MOVA	@R12, R12
+ 831 0026 B013 0000 		CALLA	#spiStop
+ 832               		; start of epilogue
+ 833 002a 0A16      		POPM.A	#1, r10
+ 834 002c 1001      		RETA
+ 835               		.size	sx1212Stop, .-sx1212Stop
+ 836               		.section	.text.sx1212ReceiveI,"ax",@progbits
+ 837               		.balign 2
+ 838               		.global	sx1212ReceiveI
+ 839               		.type	sx1212ReceiveI, @function
+ 840               	sx1212ReceiveI:
+ 841               	; start of function
+ 842               	; framesize_regs:     12
+ 843               	; framesize_locals:   0
+ 844               	; framesize_outgoing: 0
+ 845               	; framesize:          12
+ 846               	; elim ap -> fp       16
+ 847               	; elim fp -> sp       0
+ 848               	; saved regs: R6 R8 R10
+ 849               		; start of prologue
+ 850 0000 0A14      		PUSHM.A	#1, R10
+ 851 0002 0814      		PUSHM.A	#1, R8
+ 852 0004 0614      		PUSHM.A	#1, R6
+ 853               		; end of prologue
+ 854 0006 C80C      		MOVA	R12, R8
+ 855 0008 CA0D      		MOVA	R13, R10
+ 856 000a C60E      		MOVA	R14, R6
+ 857 000c 7C40 3F00 		MOV.B	#63, R12
+ 858 0010 DC0D 002C 		CMPA	R13, R12 { JHS	.L58
+ 859 0014 8C00 0000 		MOVA	#__func__.5115, R12
+ 860 0018 B013 0000 		CALLA	#chSysHalt
+ 861               	.L58:
+ 862 001c CF06      		MOVA	R6, R15
+ 863 001e 5E43      		MOV.B	#1, R14
+ 864 0020 7D40 0A00 		MOV.B	#10, R13
+ 865 0024 3C40 2002 		MOV.W	#544, R12
+ 866 0028 B013 0000 		CALLA	#_pal_lld_enablepadevent
+ 867 002c 4D4A      		MOV.B	R10, R13
+ 868 002e CC08      		MOVA	R8, R12
+ 869 0030 B013 0000 		CALLA	#sx1212SetFifoThreshold
+ 870               		; start of epilogue
+ 871 0034 0616      		POPM.A	#1, r6
+GAS LISTING /tmp/cchrX2zG.s 			page 17
+
+
+ 872 0036 0816      		POPM.A	#1, r8
+ 873 0038 0A16      		POPM.A	#1, r10
+ 874 003a 1001      		RETA
+ 875               		.size	sx1212ReceiveI, .-sx1212ReceiveI
+ 876               		.section	.text.sx1212StartReceive,"ax",@progbits
+ 877               		.balign 2
+ 878               		.global	sx1212StartReceive
+ 879               		.type	sx1212StartReceive, @function
+ 880               	sx1212StartReceive:
+ 881               	; start of function
+ 882               	; framesize_regs:     16
+ 883               	; framesize_locals:   0
+ 884               	; framesize_outgoing: 0
+ 885               	; framesize:          16
+ 886               	; elim ap -> fp       20
+ 887               	; elim fp -> sp       0
+ 888               	; saved regs: R4 R6 R8 R10
+ 889               		; start of prologue
+ 890 0000 0A14      		PUSHM.A	#1, R10
+ 891 0002 0814      		PUSHM.A	#1, R8
+ 892 0004 0614      		PUSHM.A	#1, R6
+ 893 0006 0414      		PUSHM.A	#1, R4
+ 894               		; end of prologue
+ 895 0008 CA0C      		MOVA	R12, R10
+ 896 000a C60D      		MOVA	R13, R6
+ 897 000c C80E      		MOVA	R14, R8
+ 898 000e FC40 80FF 		MOV.B	#-128, 6(R12)
+ 898      0600 
+ 899 0014 FC40 3000 		MOV.B	#48, 7(R12)
+ 899      0700 
+ 900 001a 8400 0000 		MOVA	#sx1212SetRegister.isra.0, R4
+ 901 001e 7E40 B0FF 		MOV.B	#-80, R14
+ 902 0022 7D40 0D00 		MOV.B	#13, R13
+ 903 0026 4413      		CALLA	R4
+ 904               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 905 0028 32C2 0343 		dint { nop
+ 906               	 ; 0 "" 2
+ 907               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 908 002c 0343      		nop
+ 909               	 ; 0 "" 2
+ 910 002e CE08      		MOVA	R8, R14
+ 911 0030 CD06      		MOVA	R6, R13
+ 912 0032 CC0A      		MOVA	R10, R12
+ 913 0034 B013 0000 		CALLA	#sx1212ReceiveI
+ 914               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 915 0038 0343      		nop
+ 916               	 ; 0 "" 2
+ 917               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 918 003a 0343 32D2 		nop { eint { nop
+ 918      0343 
+ 919               	 ; 0 "" 2
+ 920 0040 8800 0000 		MOVA	#sx1212SetMode, R8
+ 921 0044 7D40 2000 		MOV.B	#32, R13
+ 922 0048 CC0A      		MOVA	R10, R12
+ 923 004a 4813      		CALLA	R8
+ 924 004c 7C40 0500 		MOV.B	#5, R12
+ 925 0050 B013 0000 		CALLA	#chThdSleep
+GAS LISTING /tmp/cchrX2zG.s 			page 18
+
+
+ 926 0054 7D40 4000 		MOV.B	#64, R13
+ 927 0058 CC0A      		MOVA	R10, R12
+ 928 005a 4813      		CALLA	R8
+ 929 005c 4D43      		MOV.B	#0, R13
+ 930 005e 3C40 20B2 		MOV.W	#45600, R12
+ 931 0062 B013 0000 		CALLA	#irq_block_with_timeout.isra.2
+ 932 0066 C60C      		MOVA	R12, R6
+ 933 0068 600C 0000 		MOVA	R12, &suspend_result
+ 934 006c 9C00 0000 		CMPA	#0, R12 { JNE	.L60
+ 934      0020 
+ 935 0072 7D40 6000 		MOV.B	#96, R13
+ 936 0076 CC0A      		MOVA	R10, R12
+ 937 0078 4813      		CALLA	R8
+ 938 007a 7E40 5100 		MOV.B	#81, R14
+ 939 007e 7D40 0E00 		MOV.B	#14, R13
+ 940 0082 CC0A      		MOVA	R10, R12
+ 941 0084 4413      		CALLA	R4
+ 942               	.L60:
+ 943 0086 6006 0000 		MOVA	R6, &suspend_result
+ 944 008a CC06      		MOVA	R6, R12
+ 945               		; start of epilogue
+ 946 008c 0416      		POPM.A	#1, r4
+ 947 008e 0616      		POPM.A	#1, r6
+ 948 0090 0816      		POPM.A	#1, r8
+ 949 0092 0A16      		POPM.A	#1, r10
+ 950 0094 1001      		RETA
+ 951               		.size	sx1212StartReceive, .-sx1212StartReceive
+ 952               		.section	.text.sx1212FifoReadAsync,"ax",@progbits
+ 953               		.balign 2
+ 954               		.global	sx1212FifoReadAsync
+ 955               		.type	sx1212FifoReadAsync, @function
+ 956               	sx1212FifoReadAsync:
+ 957               	; start of function
+ 958               	; framesize_regs:     16
+ 959               	; framesize_locals:   0
+ 960               	; framesize_outgoing: 0
+ 961               	; framesize:          16
+ 962               	; elim ap -> fp       20
+ 963               	; elim fp -> sp       0
+ 964               	; saved regs: R4 R6 R8 R10
+ 965               		; start of prologue
+ 966 0000 0A14      		PUSHM.A	#1, R10
+ 967 0002 0814      		PUSHM.A	#1, R8
+ 968 0004 0614      		PUSHM.A	#1, R6
+ 969 0006 0414      		PUSHM.A	#1, R4
+ 970               		; end of prologue
+ 971 0008 C60C      		MOVA	R12, R6
+ 972 000a C40D      		MOVA	R13, R4
+ 973 000c CA0E      		MOVA	R14, R10
+ 974 000e C80F      		MOVA	R15, R8
+ 975 0010 0C0C      		MOVA	@R12, R12
+ 976 0012 0018 CC93 		CMPX.A	#0, 8(R12) { JEQ	.L62
+ 976      0800 0024 
+ 977 001a 8C00 0000 		MOVA	#__func__.5122, R12
+ 978 001e B013 0000 		CALLA	#chSysHalt
+ 979               	.L62:
+ 980 0022 CC06      		MOVA	R6, R12
+GAS LISTING /tmp/cchrX2zG.s 			page 19
+
+
+ 981 0024 B013 0000 		CALLA	#spi_mode_data
+ 982 0028 7608 0C00 		MOVA	R8, 12(R6)
+ 983 002c 0C06      		MOVA	@R6, R12
+ 984 002e CE0A      		MOVA	R10, R14
+ 985 0030 CD04      		MOVA	R4, R13
+ 986 0032 0C0C      		MOVA	@R12, R12
+ 987 0034 B013 0000 		CALLA	#spiStartReceive
+ 988               		; start of epilogue
+ 989 0038 0416      		POPM.A	#1, r4
+ 990 003a 0616      		POPM.A	#1, r6
+ 991 003c 0816      		POPM.A	#1, r8
+ 992 003e 0A16      		POPM.A	#1, r10
+ 993 0040 1001      		RETA
+ 994               		.size	sx1212FifoReadAsync, .-sx1212FifoReadAsync
+ 995               		.section	.text.sx1212FifoRead,"ax",@progbits
+ 996               		.balign 2
+ 997               		.global	sx1212FifoRead
+ 998               		.type	sx1212FifoRead, @function
+ 999               	sx1212FifoRead:
+ 1000               	; start of function
+ 1001               	; framesize_regs:     28
+ 1002               	; framesize_locals:   4
+ 1003               	; framesize_outgoing: 0
+ 1004               	; framesize:          32
+ 1005               	; elim ap -> fp       32
+ 1006               	; elim fp -> sp       4
+ 1007               	; saved regs: R4 R5 R6 R7 R8 R9 R10
+ 1008               		; start of prologue
+ 1009 0000 6A14      		PUSHM.A	#7, R10
+ 1010 0002 B100 0400 		SUBA	#4, R1
+ 1011               		; end of prologue
+ 1012 0006 C40C      		MOVA	R12, R4
+ 1013 0008 C50E      		MOVA	R14, R5
+ 1014 000a ED0E      		ADDA	R14, R13
+ 1015 000c 710D 0000 		MOVA	R13, @R1
+ 1016 0010 5A43      		MOV.B	#1, R10
+ 1017 0012 7943      		MOV.B	#-1, R9
+ 1018               	.L64:
+ 1019 0014 0018 C195 		CMPX.A	R5, @R1 { JNE	.L65
+ 1019      0000 0020 
+ 1020               		; start of epilogue
+ 1021 001c A100 0400 		ADDA	#4, R1
+ 1022 0020 6416      		POPM.A	#7, r10
+ 1023 0022 1001      		RETA
+ 1024               	.L65:
+ 1025 0024 0804      		MOVA	@R4, R8
+ 1026 0026 3C08 0800 		MOVA	8(R8), R12
+ 1027 002a C60C      		MOVA	R12, R6
+ 1028 002c 0018 76F0 		ANDX.A	#4095, R6
+ 1028      FF0F 
+ 1029 0032 1746 0200 		MOV.W	2(R6), R7
+ 1030 0036 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 1030      3C41 4018 
+ 1030      3D41 
+ 1031 0040 B013 0000 		CALLA	#__mspabi_srll_12
+ 1032 0044 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 1032      0C16 
+GAS LISTING /tmp/cchrX2zG.s 			page 20
+
+
+ 1033 004a 4018 0D4C 		MOVX	R12, R13
+ 1034 004e 0C4A      		MOV.W	R10, R12
+ 1035 0050 B013 0000 		CALLA	#__mspabi_slli
+ 1036 0054 07CC      		BIC.W	R12, R7
+ 1037 0056 8647 0200 		MOV.W	R7, 2(R6)
+ 1038 005a 4D49      		MOV.B	R9, R13
+ 1039 005c 0C08      		MOVA	@R8, R12
+ 1040 005e B013 0000 		CALLA	#spi_lld_polled_exchange
+ 1041 0062 C54C 0000 		MOV.B	R12, @R5
+ 1042 0066 0C04      		MOVA	@R4, R12
+ 1043 0068 3C0C 0800 		MOVA	8(R12), R12
+ 1044 006c C60C      		MOVA	R12, R6
+ 1045 006e 0018 76F0 		ANDX.A	#4095, R6
+ 1045      FF0F 
+ 1046 0074 1846 0200 		MOV.W	2(R6), R8
+ 1047 0078 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 1047      3C41 4018 
+ 1047      3D41 
+ 1048 0082 B013 0000 		CALLA	#__mspabi_srll_12
+ 1049 0086 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 1049      0C16 
+ 1050 008c 4018 0D4C 		MOVX	R12, R13
+ 1051 0090 0C4A      		MOV.W	R10, R12
+ 1052 0092 B013 0000 		CALLA	#__mspabi_slli
+ 1053 0096 0CD8      		BIS.W	R8, R12
+ 1054 0098 864C 0200 		MOV.W	R12, 2(R6)
+ 1055 009c A500 0100 		ADDA	#1, R5
+ 1056 00a0 8000 0000 		BRA	#.L64
+ 1057               		.size	sx1212FifoRead, .-sx1212FifoRead
+ 1058               		.section	.text.sx1212StopReceive,"ax",@progbits
+ 1059               		.balign 2
+ 1060               		.global	sx1212StopReceive
+ 1061               		.type	sx1212StopReceive, @function
+ 1062               	sx1212StopReceive:
+ 1063               	; start of function
+ 1064               	; framesize_regs:     4
+ 1065               	; framesize_locals:   0
+ 1066               	; framesize_outgoing: 0
+ 1067               	; framesize:          4
+ 1068               	; elim ap -> fp       8
+ 1069               	; elim fp -> sp       0
+ 1070               	; saved regs: R10
+ 1071               		; start of prologue
+ 1072 0000 0A14      		PUSHM.A	#1, R10
+ 1073               		; end of prologue
+ 1074 0002 CA0C      		MOVA	R12, R10
+ 1075 0004 7E40 5100 		MOV.B	#81, R14
+ 1076 0008 7D40 0E00 		MOV.B	#14, R13
+ 1077 000c B013 0000 		CALLA	#sx1212SetRegister.isra.0
+ 1078 0010 4D43      		MOV.B	#0, R13
+ 1079 0012 CC0A      		MOVA	R10, R12
+ 1080 0014 B013 0000 		CALLA	#sx1212SetMode
+ 1081               		; start of epilogue
+ 1082 0018 0A16      		POPM.A	#1, r10
+ 1083 001a 1001      		RETA
+ 1084               		.size	sx1212StopReceive, .-sx1212StopReceive
+ 1085               		.section	.text.sx1212StopReceiveI,"ax",@progbits
+GAS LISTING /tmp/cchrX2zG.s 			page 21
+
+
+ 1086               		.balign 2
+ 1087               		.global	sx1212StopReceiveI
+ 1088               		.type	sx1212StopReceiveI, @function
+ 1089               	sx1212StopReceiveI:
+ 1090               	; start of function
+ 1091               	; framesize_regs:     0
+ 1092               	; framesize_locals:   0
+ 1093               	; framesize_outgoing: 0
+ 1094               	; framesize:          0
+ 1095               	; elim ap -> fp       4
+ 1096               	; elim fp -> sp       0
+ 1097               	; saved regs:(none)
+ 1098               		; start of prologue
+ 1099               		; end of prologue
+ 1100 0000 B013 0000 		CALLA	#sx1212StopReceive
+ 1101               		; start of epilogue
+ 1102 0004 1001      		RETA
+ 1103               		.size	sx1212StopReceiveI, .-sx1212StopReceiveI
+ 1104               		.section	.text.sx1212ReceiveTimeout,"ax",@progbits
+ 1105               		.balign 2
+ 1106               		.global	sx1212ReceiveTimeout
+ 1107               		.type	sx1212ReceiveTimeout, @function
+ 1108               	sx1212ReceiveTimeout:
+ 1109               	; start of function
+ 1110               	; framesize_regs:     28
+ 1111               	; framesize_locals:   4
+ 1112               	; framesize_outgoing: 0
+ 1113               	; framesize:          32
+ 1114               	; elim ap -> fp       32
+ 1115               	; elim fp -> sp       4
+ 1116               	; saved regs: R4 R5 R6 R7 R8 R9 R10
+ 1117               		; start of prologue
+ 1118 0000 6A14      		PUSHM.A	#7, R10
+ 1119 0002 B100 0400 		SUBA	#4, R1
+ 1120               		; end of prologue
+ 1121 0006 CA0C      		MOVA	R12, R10
+ 1122 0008 C50D      		MOVA	R13, R5
+ 1123 000a C60E      		MOVA	R14, R6
+ 1124 000c 094F      		MOV.W	R15, R9
+ 1125 000e 0E0C      		MOVA	@R12, R14
+ 1126 0010 8800 0000 		MOVA	#sx1212SetRegister.isra.0, R8
+ 1127 0014 0018 CE93 		CMPX.A	#0, 38(R14) { JEQ	.L69
+ 1127      2600 0024 
+ 1128 001c 5E4E 2B00 		MOV.B	43(R14), R14
+ 1129 0020 4018 0C4E 		MOVX	R14, R12
+ 1130 0024 DC0D 002C 		CMPA	R13, R12 { JHS	.L70
+ 1131 0028 8C00 0000 		MOVA	#__func__.5077, R12
+ 1132 002c B013 0000 		CALLA	#chSysHalt
+ 1133               	.L70:
+ 1134 0030 CA43 0600 		MOV.B	#0, 6(R10)
+ 1135 0034 CA43 0700 		MOV.B	#0, 7(R10)
+ 1136 0038 4E43      		MOV.B	#0, R14
+ 1137 003a 7D40 0D00 		MOV.B	#13, R13
+ 1138 003e CC0A      		MOVA	R10, R12
+ 1139 0040 4813      		CALLA	R8
+ 1140 0042 0C0A      		MOVA	@R10, R12
+ 1141 0044 3C0C 2600 		MOVA	38(R12), R12
+GAS LISTING /tmp/cchrX2zG.s 			page 22
+
+
+ 1142 0048 6C4C      		MOV.B	@R12, R12
+ 1143 004a 7CF0 88FF 		AND.B	#-120, R12
+ 1144 004e 8E00 0000 		MOVA	#irq_block_with_timeout.isra.2, R14
+ 1145 0052 0D49      		MOV.W	R9, R13
+ 1146 0054 7C90 88FF 		CMP.B	#-120, R12 { JNE	.L71
+ 1146      0020 
+ 1147 005a 3C40 20A2 		MOV.W	#41504, R12
+ 1148 005e 4E13      		CALLA	R14
+ 1149 0060 C80C      		MOVA	R12, R8
+ 1150 0062 600C 0000 		MOVA	R12, &suspend_result
+ 1151 0066 9C00 0000 		CMPA	#0, R12 { JNE	.L72
+ 1151      0020 
+ 1152               	.L93:
+ 1153 006c 0C0A      		MOVA	@R10, R12
+ 1154 006e 3C0C 2600 		MOVA	38(R12), R12
+ 1155 0072 8400 0000 		MOVA	#fifo_read_safe, R4
+ 1156 0076 4018 DCB3 		BITX.B	#1, @R12 { JEQ	.L74
+ 1156      0000 0024 
+ 1157 007e CE06      		MOVA	R6, R14
+ 1158 0080 5D43      		MOV.B	#1, R13
+ 1159 0082 CC0A      		MOVA	R10, R12
+ 1160 0084 4413      		CALLA	R4
+ 1161 0086 6C46      		MOV.B	@R6, R12
+ 1162 0088 4018 054C 		MOVX	R12, R5
+ 1163 008c A600 0100 		ADDA	#1, R6
+ 1164               	.L74:
+ 1165 0090 CE06      		MOVA	R6, R14
+ 1166 0092 CD05      		MOVA	R5, R13
+ 1167 0094 CC0A      		MOVA	R10, R12
+ 1168 0096 4413      		CALLA	R4
+ 1169               	.L72:
+ 1170 0098 6008 0000 		MOVA	R8, &suspend_result
+ 1171 009c CC08      		MOVA	R8, R12
+ 1172               		; start of epilogue
+ 1173 009e A100 0400 		ADDA	#4, R1
+ 1174 00a2 6416      		POPM.A	#7, r10
+ 1175 00a4 1001      		RETA
+ 1176               	.L71:
+ 1177 00a6 3C40 2092 		MOV.W	#37408, R12
+ 1178 00aa 4E13      		CALLA	R14
+ 1179 00ac C80C      		MOVA	R12, R8
+ 1180 00ae 600C 0000 		MOVA	R12, &suspend_result
+ 1181 00b2 9C00 0000 		CMPA	#0, R12 { JNE	.L72
+ 1181      0020 
+ 1182 00b8 7D40 2000 		MOV.B	#32, R13
+ 1183 00bc CC0A      		MOVA	R10, R12
+ 1184 00be B013 0000 		CALLA	#sx1212SetMode
+ 1185 00c2 8000 0000 		BRA	#.L93
+ 1186               	.L69:
+ 1187 00c6 FC40 80FF 		MOV.B	#-128, 6(R12)
+ 1187      0600 
+ 1188 00cc FC40 3000 		MOV.B	#48, 7(R12)
+ 1188      0700 
+ 1189 00d2 7E40 B0FF 		MOV.B	#-80, R14
+ 1190 00d6 7D40 0D00 		MOV.B	#13, R13
+ 1191 00da 4813      		CALLA	R8
+ 1192 00dc 0C0A      		MOVA	@R10, R12
+GAS LISTING /tmp/cchrX2zG.s 			page 23
+
+
+ 1193 00de 5C4C 2B00 		MOV.B	43(R12), R12
+ 1194 00e2 4018 0C4C 		MOVX	R12, R12
+ 1195 00e6 AC00 0200 		ADDA	#2, R12
+ 1196 00ea 710C 0000 		MOVA	R12, @R1
+ 1197 00ee CC0A      		MOVA	R10, R12
+ 1198 00f0 B013 0000 		CALLA	#spi_mode_data
+ 1199 00f4 4743      		MOV.B	#0, R7
+ 1200 00f6 8400 0000 		MOVA	#spi_lld_polled_exchange, R4
+ 1201               	.L75:
+ 1202 00fa 4018 0847 		MOVX	R7, R8
+ 1203 00fe 0018 6891 		CMPX.A	@R1, R8 { JHS	.L80
+ 1203      002C 
+ 1204 0104 FA90 80FF 		CMP.B	#-128, 6(R10) { JEQ	.L76
+ 1204      0600 0024 
+ 1205 010c 8C00 0000 		MOVA	#__func__.4994, R12
+ 1206 0110 B013 0000 		CALLA	#chSysHalt
+ 1207               	.L76:
+ 1208 0114 0D49      		MOV.W	R9, R13
+ 1209 0116 3C40 2092 		MOV.W	#37408, R12
+ 1210 011a B013 0000 		CALLA	#irq_block_with_timeout.isra.2
+ 1211 011e 600C 0000 		MOVA	R12, &suspend_result
+ 1212 0122 9C00 0000 		CMPA	#0, R12 { JEQ	.L77
+ 1212      0024 
+ 1213               	.L80:
+ 1214 0128 CC0A      		MOVA	R10, R12
+ 1215 012a B013 0000 		CALLA	#spi_mode_config
+ 1216 012e 0018 C243 		MOVX.A	#0, &suspend_result
+ 1216      0000 
+ 1217 0134 0C0A      		MOVA	@R10, R12
+ 1218 0136 5C4C 2B00 		MOV.B	43(R12), R12
+ 1219 013a 4018 0E4C 		MOVX	R12, R14
+ 1220 013e C70E      		MOVA	R14, R7
+ 1221 0140 A700 0200 		ADDA	#2, R7
+ 1222 0144 EE06      		ADDA	R6, R14
+ 1223 0146 6C4E      		MOV.B	@R14, R12
+ 1224 0148 0C5C      		RLA.W	R12
+ 1225 014a 5E4E 0100 		MOV.B	1(R14), R14
+ 1226 014e 0CDE      		BIS.W	R14, R12
+ 1227 0150 4018 0C4C 		MOVX	R12, R12
+ 1228 0154 D50C 0028 		CMPA	R12, R5 { JLO	.L83
+ 1229               	.L78:
+ 1230 0158 D705 0028 		CMPA	R5, R7 { JLO	.L82
+ 1231 015c 7E40 5100 		MOV.B	#81, R14
+ 1232 0160 7D40 0E00 		MOV.B	#14, R13
+ 1233 0164 CC0A      		MOVA	R10, R12
+ 1234 0166 B013 0000 		CALLA	#sx1212SetRegister.isra.0
+ 1235 016a 4843      		MOV.B	#0, R8
+ 1236 016c 8000 0000 		BRA	#.L72
+ 1237               	.L77:
+ 1238 0170 E806      		ADDA	R6, R8
+ 1239 0172 0C0A      		MOVA	@R10, R12
+ 1240 0174 7D43      		MOV.B	#-1, R13
+ 1241 0176 0C0C      		MOVA	@R12, R12
+ 1242 0178 4413      		CALLA	R4
+ 1243 017a C84C 0000 		MOV.B	R12, @R8
+ 1244 017e 1753      		ADD.W	#1, R7
+ 1245 0180 8000 0000 		BRA	#.L75
+GAS LISTING /tmp/cchrX2zG.s 			page 24
+
+
+ 1246               	.L82:
+ 1247 0184 0018 4445 		MOVX.A	R5, R4 { SUBX.A	R7, R4
+ 1247      0018 4487 
+ 1248 018c 7C40 3F00 		MOV.B	#63, R12
+ 1249 0190 DC04 0028 		CMPA	R4, R12 { JLO	.L84
+ 1250 0194 7D40 2000 		MOV.B	#32, R13
+ 1251 0198 CC0A      		MOVA	R10, R12
+ 1252 019a B013 0000 		CALLA	#sx1212SetMode
+ 1253               	.L81:
+ 1254 019e 4D44      		MOV.B	R4, R13
+ 1255 01a0 7D53      		ADD.B	#-1, R13
+ 1256 01a2 CC0A      		MOVA	R10, R12
+ 1257 01a4 B013 0000 		CALLA	#sx1212SetFifoThreshold
+ 1258 01a8 0D49      		MOV.W	R9, R13
+ 1259 01aa 3C40 20A2 		MOV.W	#41504, R12
+ 1260 01ae B013 0000 		CALLA	#irq_block_with_timeout.isra.2
+ 1261 01b2 C80C      		MOVA	R12, R8
+ 1262 01b4 600C 0000 		MOVA	R12, &suspend_result
+ 1263 01b8 9C00 0000 		CMPA	#0, R12 { JNE	.L72
+ 1263      0020 
+ 1264 01be CE06      		MOVA	R6, R14
+ 1265 01c0 EE07      		ADDA	R7, R14
+ 1266 01c2 CD04      		MOVA	R4, R13
+ 1267 01c4 CC0A      		MOVA	R10, R12
+ 1268 01c6 B013 0000 		CALLA	#fifo_read_safe
+ 1269 01ca E704      		ADDA	R4, R7
+ 1270 01cc 8000 0000 		BRA	#.L78
+ 1271               	.L84:
+ 1272 01d0 7440 3000 		MOV.B	#48, R4
+ 1273 01d4 8000 0000 		BRA	#.L81
+ 1274               	.L83:
+ 1275 01d8 880F FEFF 		MOVA	#-2, R8
+ 1276 01dc 8000 0000 		BRA	#.L72
+ 1277               		.size	sx1212ReceiveTimeout, .-sx1212ReceiveTimeout
+ 1278               		.section	.text.sx1212RSSI,"ax",@progbits
+ 1279               		.balign 2
+ 1280               		.global	sx1212RSSI
+ 1281               		.type	sx1212RSSI, @function
+ 1282               	sx1212RSSI:
+ 1283               	; start of function
+ 1284               	; framesize_regs:     0
+ 1285               	; framesize_locals:   0
+ 1286               	; framesize_outgoing: 0
+ 1287               	; framesize:          0
+ 1288               	; elim ap -> fp       4
+ 1289               	; elim fp -> sp       0
+ 1290               	; saved regs:(none)
+ 1291               		; start of prologue
+ 1292               		; end of prologue
+ 1293 0000 7D40 1400 		MOV.B	#20, R13
+ 1294 0004 B013 0000 		CALLA	#sx1212ReadRegister
+ 1295 0008 3CF0 FF00 		AND	#0xff, R12
+ 1296 000c 12C3 0C10 		CLRC { RRC.W	R12
+ 1297 0010 7C50 8DFF 		ADD.B	#-115, R12
+ 1298               		; start of epilogue
+ 1299 0014 1001      		RETA
+ 1300               		.size	sx1212RSSI, .-sx1212RSSI
+GAS LISTING /tmp/cchrX2zG.s 			page 25
+
+
+ 1301               		.section	.text.sx1212CLKOUT,"ax",@progbits
+ 1302               		.balign 2
+ 1303               		.global	sx1212CLKOUT
+ 1304               		.type	sx1212CLKOUT, @function
+ 1305               	sx1212CLKOUT:
+ 1306               	; start of function
+ 1307               	; framesize_regs:     0
+ 1308               	; framesize_locals:   0
+ 1309               	; framesize_outgoing: 0
+ 1310               	; framesize:          0
+ 1311               	; elim ap -> fp       4
+ 1312               	; elim fp -> sp       0
+ 1313               	; saved regs:(none)
+ 1314               		; start of prologue
+ 1315               		; end of prologue
+ 1316 0000 4118 0D5D 		rpt	#2 { rlax.w	R13
+ 1317 0004 4E4D      		MOV.B	R13, R14
+ 1318 0006 7ED0 80FF 		BIS.B	#-128, R14
+ 1319 000a 7D40 1B00 		MOV.B	#27, R13
+ 1320 000e B013 0000 		CALLA	#sx1212SetRegister.isra.0
+ 1321               		; start of epilogue
+ 1322 0012 1001      		RETA
+ 1323               		.size	sx1212CLKOUT, .-sx1212CLKOUT
+ 1324               		.section	.text.sx1212TUNE,"ax",@progbits
+ 1325               		.balign 2
+ 1326               		.global	sx1212TUNE
+ 1327               		.type	sx1212TUNE, @function
+ 1328               	sx1212TUNE:
+ 1329               	; start of function
+ 1330               	; framesize_regs:     0
+ 1331               	; framesize_locals:   0
+ 1332               	; framesize_outgoing: 0
+ 1333               	; framesize:          0
+ 1334               	; elim ap -> fp       4
+ 1335               	; elim fp -> sp       0
+ 1336               	; saved regs:(none)
+ 1337               		; start of prologue
+ 1338               		; end of prologue
+ 1339 0000 7D40 80FF 		MOV.B	#-128, R13
+ 1340 0004 B013 0000 		CALLA	#sx1212SetMode
+ 1341               		; start of epilogue
+ 1342 0008 1001      		RETA
+ 1343               		.size	sx1212TUNE, .-sx1212TUNE
+ 1344               		.section	.upper.rodata,"a",@progbits
+ 1345               		.type	__func__.4994, @object
+ 1346               		.size	__func__.4994, 17
+ 1347               	__func__.4994:
+ 1348 0000 626C 6F63 		.string	"block_fifo_empty"
+ 1348      6B5F 6669 
+ 1348      666F 5F65 
+ 1348      6D70 7479 
+ 1348      00
+ 1349               		.type	__func__.5077, @object
+ 1350               		.size	__func__.5077, 15
+ 1351               	__func__.5077:
+ 1352 0011 7061 636B 		.string	"packet_handler"
+ 1352      6574 5F68 
+GAS LISTING /tmp/cchrX2zG.s 			page 26
+
+
+ 1352      616E 646C 
+ 1352      6572 00
+ 1353               		.type	__func__.5122, @object
+ 1354               		.size	__func__.5122, 20
+ 1355               	__func__.5122:
+ 1356 0020 7378 3132 		.string	"sx1212FifoReadAsync"
+ 1356      3132 4669 
+ 1356      666F 5265 
+ 1356      6164 4173 
+ 1356      796E 6300 
+ 1357               		.type	__func__.5059, @object
+ 1358               		.size	__func__.5059, 23
+ 1359               	__func__.5059:
+ 1360 0034 7378 3132 		.string	"sx1212SetFifoThreshold"
+ 1360      3132 5365 
+ 1360      7446 6966 
+ 1360      6F54 6872 
+ 1360      6573 686F 
+ 1361               		.type	__func__.5115, @object
+ 1362               		.size	__func__.5115, 15
+ 1363               	__func__.5115:
+ 1364 004b 7378 3132 		.string	"sx1212ReceiveI"
+ 1364      3132 5265 
+ 1364      6365 6976 
+ 1364      6549 00
+ 1365               		.type	__func__.5070, @object
+ 1366               		.size	__func__.5070, 23
+ 1367               	__func__.5070:
+ 1368 005a 7378 3132 		.string	"sx1212ConfigurePackets"
+ 1368      3132 436F 
+ 1368      6E66 6967 
+ 1368      7572 6550 
+ 1368      6163 6B65 
+ 1369               		.type	__func__.5041, @object
+ 1370               		.size	__func__.5041, 12
+ 1371               	__func__.5041:
+ 1372 0071 7378 3132 		.string	"sx1212Reset"
+ 1372      3132 5265 
+ 1372      7365 7400 
+ 1373               		.type	__func__.5101, @object
+ 1374               		.size	__func__.5101, 12
+ 1375               	__func__.5101:
+ 1376 007d 7378 3132 		.string	"sx1212Start"
+ 1376      3132 5374 
+ 1376      6172 7400 
+ 1377               		.type	__func__.5065, @object
+ 1378               		.size	__func__.5065, 14
+ 1379               	__func__.5065:
+ 1380 0089 7378 3132 		.string	"sx1212SetRxBw"
+ 1380      3132 5365 
+ 1380      7452 7842 
+ 1380      7700 
+ 1381               		.type	__func__.5024, @object
+ 1382               		.size	__func__.5024, 19
+ 1383               	__func__.5024:
+ 1384 0097 7378 3132 		.string	"sx1212SetDeviation"
+ 1384      3132 5365 
+GAS LISTING /tmp/cchrX2zG.s 			page 27
+
+
+ 1384      7444 6576 
+ 1384      6961 7469 
+ 1384      6F6E 00
+ 1385               		.type	__func__.4974, @object
+ 1386               		.size	__func__.4974, 18
+ 1387               	__func__.4974:
+ 1388 00aa 7378 3132 		.string	"sx1212SetRegister"
+ 1388      3132 5365 
+ 1388      7452 6567 
+ 1388      6973 7465 
+ 1388      7200 
+ 1389               		.type	__func__.5018, @object
+ 1390               		.size	__func__.5018, 17
+ 1391               	__func__.5018:
+ 1392 00bc 7378 3132 		.string	"sx1212SetBitrate"
+ 1392      3132 5365 
+ 1392      7442 6974 
+ 1392      7261 7465 
+ 1392      00
+ 1393               		.type	__func__.4968, @object
+ 1394               		.size	__func__.4968, 19
+ 1395               	__func__.4968:
+ 1396 00cd 7378 3132 		.string	"sx1212ReadRegister"
+ 1396      3132 5265 
+ 1396      6164 5265 
+ 1396      6769 7374 
+ 1396      6572 00
+ 1397               		.local	suspend_result
+ 1398               		.comm	suspend_result,4,2
+ 1399               		.global	sending
+ 1400               		.section	.upper.bss,"aw",@nobits
+ 1401               		.type	sending, @object
+ 1402               		.size	sending, 1
+ 1403               	sending:
+ 1404 0000 00        		.zero	1
+ 1405               		.global	tr
+ 1406 0001 00        		.balign 2
+ 1407               		.type	tr, @object
+ 1408               		.size	tr, 4
+ 1409               	tr:
+ 1410 0002 0000 0000 		.zero	4
+ 1411               		.global	SX1212D1
+ 1412               		.balign 2
+ 1413               		.type	SX1212D1, @object
+ 1414               		.size	SX1212D1, 28
+ 1415               	SX1212D1:
+ 1416 0006 0000 0000 		.zero	28
+ 1416      0000 0000 
+ 1416      0000 0000 
+ 1416      0000 0000 
+ 1416      0000 0000 
+ 1417               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/cchrX2zG.s 			page 28
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 sx1212.c
+     /tmp/cchrX2zG.s:5      .text.spi_end_cb:0000000000000000 spi_end_cb
+     /tmp/cchrX2zG.s:1415   .upper.bss:0000000000000006 SX1212D1
+     /tmp/cchrX2zG.s:30     .text.blockuntil_callback:0000000000000000 blockuntil_callback
+     /tmp/cchrX2zG.s:1409   .upper.bss:0000000000000002 tr
+     /tmp/cchrX2zG.s:50     .text.sx1212SetRegister.isra.0:0000000000000000 sx1212SetRegister.isra.0
+     /tmp/cchrX2zG.s:1387   .upper.rodata:00000000000000aa __func__.4974
+     /tmp/cchrX2zG.s:99     .text.sx1212SetMode:0000000000000000 sx1212SetMode
+     /tmp/cchrX2zG.s:125    .text.sx1212SetFifoThreshold:0000000000000000 sx1212SetFifoThreshold
+     /tmp/cchrX2zG.s:1359   .upper.rodata:0000000000000034 __func__.5059
+     /tmp/cchrX2zG.s:159    .text.sx1212Reset.isra.1:0000000000000000 sx1212Reset.isra.1
+     /tmp/cchrX2zG.s:1371   .upper.rodata:0000000000000071 __func__.5041
+     /tmp/cchrX2zG.s:237    .text.irq_block_with_timeout.isra.2:0000000000000000 irq_block_with_timeout.isra.2
+     /tmp/cchrX2zG.s:1398   .bss:0000000000000000 suspend_result
+     /tmp/cchrX2zG.s:298    .text.spi_mode_config:0000000000000000 spi_mode_config
+     /tmp/cchrX2zG.s:322    .text.spi_mode_data:0000000000000000 spi_mode_data
+     /tmp/cchrX2zG.s:345    .text.fifo_read_safe:0000000000000000 fifo_read_safe
+     /tmp/cchrX2zG.s:386    .text.sx1212ReadRegister:0000000000000000 sx1212ReadRegister
+     /tmp/cchrX2zG.s:1395   .upper.rodata:00000000000000cd __func__.4968
+     /tmp/cchrX2zG.s:432    .text.sx1212SetBitrate:0000000000000000 sx1212SetBitrate
+     /tmp/cchrX2zG.s:1391   .upper.rodata:00000000000000bc __func__.5018
+     /tmp/cchrX2zG.s:474    .text.sx1212SetDeviation:0000000000000000 sx1212SetDeviation
+     /tmp/cchrX2zG.s:1383   .upper.rodata:0000000000000097 __func__.5024
+     /tmp/cchrX2zG.s:522    .text.sx1212SetFrequency:0000000000000000 sx1212SetFrequency
+     /tmp/cchrX2zG.s:564    .text.sx1212SetSync:0000000000000000 sx1212SetSync
+     /tmp/cchrX2zG.s:604    .text.sx1212SetRxBw:0000000000000000 sx1212SetRxBw
+     /tmp/cchrX2zG.s:1379   .upper.rodata:0000000000000089 __func__.5065
+     /tmp/cchrX2zG.s:634    .text.sx122ObjectInit:0000000000000000 sx122ObjectInit
+     /tmp/cchrX2zG.s:652    .text.sx1212Start:0000000000000000 sx1212Start
+     /tmp/cchrX2zG.s:1367   .upper.rodata:000000000000005a __func__.5070
+     /tmp/cchrX2zG.s:1375   .upper.rodata:000000000000007d __func__.5101
+     /tmp/cchrX2zG.s:807    .text.sx1212Stop:0000000000000000 sx1212Stop
+     /tmp/cchrX2zG.s:840    .text.sx1212ReceiveI:0000000000000000 sx1212ReceiveI
+     /tmp/cchrX2zG.s:1363   .upper.rodata:000000000000004b __func__.5115
+     /tmp/cchrX2zG.s:880    .text.sx1212StartReceive:0000000000000000 sx1212StartReceive
+     /tmp/cchrX2zG.s:956    .text.sx1212FifoReadAsync:0000000000000000 sx1212FifoReadAsync
+     /tmp/cchrX2zG.s:1355   .upper.rodata:0000000000000020 __func__.5122
+     /tmp/cchrX2zG.s:999    .text.sx1212FifoRead:0000000000000000 sx1212FifoRead
+     /tmp/cchrX2zG.s:1062   .text.sx1212StopReceive:0000000000000000 sx1212StopReceive
+     /tmp/cchrX2zG.s:1089   .text.sx1212StopReceiveI:0000000000000000 sx1212StopReceiveI
+     /tmp/cchrX2zG.s:1108   .text.sx1212ReceiveTimeout:0000000000000000 sx1212ReceiveTimeout
+     /tmp/cchrX2zG.s:1351   .upper.rodata:0000000000000011 __func__.5077
+     /tmp/cchrX2zG.s:1347   .upper.rodata:0000000000000000 __func__.4994
+     /tmp/cchrX2zG.s:1282   .text.sx1212RSSI:0000000000000000 sx1212RSSI
+     /tmp/cchrX2zG.s:1305   .text.sx1212CLKOUT:0000000000000000 sx1212CLKOUT
+     /tmp/cchrX2zG.s:1328   .text.sx1212TUNE:0000000000000000 sx1212TUNE
+     /tmp/cchrX2zG.s:1403   .upper.bss:0000000000000000 sending
+     /tmp/cchrX2zG.s:92     .text.sx1212SetRegister.isra.0:0000000000000046 .L4
+     /tmp/cchrX2zG.s:70     .text.sx1212SetRegister.isra.0:0000000000000018 .L5
+     /tmp/cchrX2zG.s:67     .text.sx1212SetRegister.isra.0:0000000000000010 .L6
+     /tmp/cchrX2zG.s:144    .text.sx1212SetFifoThreshold:0000000000000018 .L12
+     /tmp/cchrX2zG.s:176    .text.sx1212Reset.isra.1:0000000000000016 .L14
+     /tmp/cchrX2zG.s:287    .text.irq_block_with_timeout.isra.2:000000000000006e .L16
+     /tmp/cchrX2zG.s:273    .text.irq_block_with_timeout.isra.2:0000000000000056 .L17
+     /tmp/cchrX2zG.s:372    .text.fifo_read_safe:0000000000000026 .L22
+     /tmp/cchrX2zG.s:364    .text.fifo_read_safe:0000000000000014 .L21
+GAS LISTING /tmp/cchrX2zG.s 			page 29
+
+
+     /tmp/cchrX2zG.s:404    .text.sx1212ReadRegister:0000000000000016 .L24
+     /tmp/cchrX2zG.s:451    .text.sx1212SetBitrate:0000000000000018 .L28
+     /tmp/cchrX2zG.s:454    .text.sx1212SetBitrate:0000000000000020 .L26
+     /tmp/cchrX2zG.s:505    .text.sx1212SetDeviation:000000000000003e .L32
+     /tmp/cchrX2zG.s:508    .text.sx1212SetDeviation:0000000000000046 .L30
+     /tmp/cchrX2zG.s:582    .text.sx1212SetSync:0000000000000014 .L35
+     /tmp/cchrX2zG.s:621    .text.sx1212SetRxBw:0000000000000014 .L38
+     /tmp/cchrX2zG.s:798    .text.sx1212Start:000000000000019a .L41
+     /tmp/cchrX2zG.s:713    .text.sx1212Start:00000000000000aa .L42
+     /tmp/cchrX2zG.s:718    .text.sx1212Start:00000000000000ba .L43
+     /tmp/cchrX2zG.s:736    .text.sx1212Start:00000000000000f0 .L44
+     /tmp/cchrX2zG.s:743    .text.sx1212Start:0000000000000106 .L45
+     /tmp/cchrX2zG.s:795    .text.sx1212Start:0000000000000192 .L50
+     /tmp/cchrX2zG.s:773    .text.sx1212Start:0000000000000158 .L49
+     /tmp/cchrX2zG.s:746    .text.sx1212Start:000000000000010e .L46
+     /tmp/cchrX2zG.s:766    .text.sx1212Start:0000000000000142 .L55
+     /tmp/cchrX2zG.s:861    .text.sx1212ReceiveI:000000000000001c .L58
+     /tmp/cchrX2zG.s:942    .text.sx1212StartReceive:0000000000000086 .L60
+     /tmp/cchrX2zG.s:979    .text.sx1212FifoReadAsync:0000000000000022 .L62
+     /tmp/cchrX2zG.s:1024   .text.sx1212FifoRead:0000000000000024 .L65
+     /tmp/cchrX2zG.s:1018   .text.sx1212FifoRead:0000000000000014 .L64
+     /tmp/cchrX2zG.s:1186   .text.sx1212ReceiveTimeout:00000000000000c6 .L69
+     /tmp/cchrX2zG.s:1133   .text.sx1212ReceiveTimeout:0000000000000030 .L70
+     /tmp/cchrX2zG.s:1176   .text.sx1212ReceiveTimeout:00000000000000a6 .L71
+     /tmp/cchrX2zG.s:1169   .text.sx1212ReceiveTimeout:0000000000000098 .L72
+     /tmp/cchrX2zG.s:1164   .text.sx1212ReceiveTimeout:0000000000000090 .L74
+     /tmp/cchrX2zG.s:1152   .text.sx1212ReceiveTimeout:000000000000006c .L93
+     /tmp/cchrX2zG.s:1213   .text.sx1212ReceiveTimeout:0000000000000128 .L80
+     /tmp/cchrX2zG.s:1207   .text.sx1212ReceiveTimeout:0000000000000114 .L76
+     /tmp/cchrX2zG.s:1237   .text.sx1212ReceiveTimeout:0000000000000170 .L77
+     /tmp/cchrX2zG.s:1274   .text.sx1212ReceiveTimeout:00000000000001d8 .L83
+     /tmp/cchrX2zG.s:1246   .text.sx1212ReceiveTimeout:0000000000000184 .L82
+     /tmp/cchrX2zG.s:1201   .text.sx1212ReceiveTimeout:00000000000000fa .L75
+     /tmp/cchrX2zG.s:1271   .text.sx1212ReceiveTimeout:00000000000001d0 .L84
+     /tmp/cchrX2zG.s:1229   .text.sx1212ReceiveTimeout:0000000000000158 .L78
+     /tmp/cchrX2zG.s:1253   .text.sx1212ReceiveTimeout:000000000000019e .L81
+
+UNDEFINED SYMBOLS
+chThdResumeI
+chSysHalt
+spi_lld_select
+spi_lld_polled_exchange
+spi_lld_unselect
+__mspabi_srll_12
+__mspabi_slli
+_pal_lld_setgroupmode
+chThdSleep
+_pal_lld_enablepadevent
+__mspabi_srli
+_pal_lld_disablepadevent
+chThdSuspendTimeoutS
+__mspabi_divul
+__mspabi_srll
+spiStart
+spiStop
+spiStartReceive
+__crt0_init_bss
+GAS LISTING /tmp/cchrX2zG.s 			page 30
+
+
+__crt0_init_highbss

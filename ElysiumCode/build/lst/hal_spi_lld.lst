@@ -1,0 +1,590 @@
+GAS LISTING /tmp/cc5cBang.s 			page 1
+
+
+   1               		.file	"hal_spi_lld.c"
+   2               		.section	.text.init_transfer,"ax",@progbits
+   3               		.balign 2
+   4               		.type	init_transfer, @function
+   5               	init_transfer:
+   6               	; start of function
+   7               	; framesize_regs:     16
+   8               	; framesize_locals:   0
+   9               	; framesize_outgoing: 0
+  10               	; framesize:          16
+  11               	; elim ap -> fp       20
+  12               	; elim fp -> sp       0
+  13               	; saved regs: R4 R6 R8 R10
+  14               		; start of prologue
+  15 0000 0A14      		PUSHM.A	#1, R10
+  16 0002 0814      		PUSHM.A	#1, R8
+  17 0004 0614      		PUSHM.A	#1, R6
+  18 0006 0414      		PUSHM.A	#1, R4
+  19               		; end of prologue
+  20 0008 CA0C      		MOVA	R12, R10
+  21 000a C80C      		MOVA	R12, R8
+  22 000c A800 5200 		ADDA	#82, R8
+  23 0010 9800 0000 		CMPA	#0, R8 { JEQ	.L2
+  23      0024 
+  24 0016 3C0C 5200 		MOVA	82(R12), R12
+  25 001a 9C00 0000 		CMPA	#0, R12 { JEQ	.L2
+  25      0024 
+  26 0020 BCB0 1000 		BIT.W	#16, @R12 { JNE	.L3
+  26      0000 0020 
+  27               	.L2:
+  28 0028 CC08      		MOVA	R8, R12
+  29 002a B013 0000 		CALLA	#dmaAcquireI
+  30               	.L3:
+  31 002e C60A      		MOVA	R10, R6
+  32 0030 A600 4800 		ADDA	#72, R6
+  33 0034 9600 0000 		CMPA	#0, R6 { JEQ	.L4
+  33      0024 
+  34 003a 3C0A 4800 		MOVA	72(R10), R12
+  35 003e 9C00 0000 		CMPA	#0, R12 { JEQ	.L4
+  35      0024 
+  36 0044 BCB0 1000 		BIT.W	#16, @R12 { JNE	.L5
+  36      0000 0020 
+  37               	.L4:
+  38 004c CC06      		MOVA	R6, R12
+  39 004e B013 0000 		CALLA	#dmaAcquireI
+  40               	.L5:
+  41 0052 8400 0000 		MOVA	#dmaTransferI, R4
+  42 0056 CD0A      		MOVA	R10, R13
+  43 0058 AD00 2E00 		ADDA	#46, R13
+  44 005c CC08      		MOVA	R8, R12
+  45 005e 4413      		CALLA	R4
+  46 0060 CD0A      		MOVA	R10, R13
+  47 0062 AD00 1400 		ADDA	#20, R13
+  48 0066 CC06      		MOVA	R6, R12
+  49 0068 4413      		CALLA	R4
+  50 006a 3C0A 1000 		MOVA	16(R10), R12
+  51 006e ACD3 0000 		BIS.W	#2, @R12
+GAS LISTING /tmp/cc5cBang.s 			page 2
+
+
+  52               		; start of epilogue
+  53 0072 0416      		POPM.A	#1, r4
+  54 0074 0616      		POPM.A	#1, r6
+  55 0076 0816      		POPM.A	#1, r8
+  56 0078 0A16      		POPM.A	#1, r10
+  57 007a 1001      		RETA
+  58               		.size	init_transfer, .-init_transfer
+  59               		.section	.text.spi_lld_end_of_transfer,"ax",@progbits
+  60               		.balign 2
+  61               		.type	spi_lld_end_of_transfer, @function
+  62               	spi_lld_end_of_transfer:
+  63               	; start of function
+  64               	; framesize_regs:     8
+  65               	; framesize_locals:   0
+  66               	; framesize_outgoing: 0
+  67               	; framesize:          8
+  68               	; elim ap -> fp       12
+  69               	; elim fp -> sp       0
+  70               	; saved regs: R8 R10
+  71               		; start of prologue
+  72 0000 0A14      		PUSHM.A	#1, R10
+  73 0002 0814      		PUSHM.A	#1, R8
+  74               		; end of prologue
+  75 0004 CA0C      		MOVA	R12, R10
+  76 0006 3E0C 1000 		MOVA	16(R12), R14
+  77 000a AEC3 0000 		BIC.W	#2, @R14
+  78 000e 3E0C 0200 		MOVA	2(R12), R14
+  79 0012 0E0E      		MOVA	@R14, R14
+  80 0014 9E00 0000 		CMPA	#0, R14 { JEQ	.L17
+  80      0024 
+  81 001a EC42 0000 		MOV.B	#4, @R12
+  82 001e 4E13      		CALLA	R14
+  83 0020 EA92 0000 		CMP.B	#4, @R10 { JNE	.L18
+  83      0020 
+  84               	.L17:
+  85 0026 EA43 0000 		MOV.B	#2, @R10
+  86               	.L18:
+  87 002a 4D43      		MOV.B	#0, R13
+  88 002c CC0A      		MOVA	R10, R12
+  89 002e AC00 0600 		ADDA	#6, R12
+  90 0032 B013 0000 		CALLA	#chThdResumeI
+  91 0036 EA93 0000 		CMP.B	#2, @R10 { JNE	.L16
+  91      0020 
+  92 003c 8800 0000 		MOVA	#dmaReleaseX, R8
+  93 0040 CC0A      		MOVA	R10, R12
+  94 0042 AC00 5200 		ADDA	#82, R12
+  95 0046 4813      		CALLA	R8
+  96 0048 CC0A      		MOVA	R10, R12
+  97 004a AC00 4800 		ADDA	#72, R12
+  98 004e 4813      		CALLA	R8
+  99               	.L16:
+ 100               		; start of epilogue
+ 101 0050 0816      		POPM.A	#1, r8
+ 102 0052 0A16      		POPM.A	#1, r10
+ 103 0054 1001      		RETA
+ 104               		.size	spi_lld_end_of_transfer, .-spi_lld_end_of_transfer
+ 105               		.section	.text.spi_lld_init,"ax",@progbits
+GAS LISTING /tmp/cc5cBang.s 			page 3
+
+
+ 106               		.balign 2
+ 107               		.global	spi_lld_init
+ 108               		.type	spi_lld_init, @function
+ 109               	spi_lld_init:
+ 110               	; start of function
+ 111               	; framesize_regs:     4
+ 112               	; framesize_locals:   0
+ 113               	; framesize_outgoing: 0
+ 114               	; framesize:          4
+ 115               	; elim ap -> fp       8
+ 116               	; elim fp -> sp       0
+ 117               	; saved regs: R10
+ 118               		; start of prologue
+ 119 0000 0A14      		PUSHM.A	#1, R10
+ 120               		; end of prologue
+ 121 0002 8A00 0000 		MOVA	#SPIDA0, R10
+ 122 0006 CC0A      		MOVA	R10, R12
+ 123 0008 B013 0000 		CALLA	#spiObjectInit
+ 124 000c 0018 FA40 		MOVX.A	#UCA0CTLW0, 12(R10)
+ 124      0000 0C00 
+ 125 0014 0018 FA40 		MOVX.A	#UCA0IFG, 16(R10)
+ 125      0000 1000 
+ 126 001c BA40 0F00 		MOV.W	#15, 36(R10)
+ 126      2400 
+ 127 0022 BA40 0E00 		MOV.W	#14, 62(R10)
+ 127      3E00 
+ 128 0028 0018 FA40 		MOVX.A	#UCA0CTLW0+14, 24(R10)
+ 128      0000 1800 
+ 129 0030 0018 FA40 		MOVX.A	#UCA0CTLW0+12, 46(R10)
+ 129      0000 2E00 
+ 130 0038 BA40 C000 		MOV.W	#192, 32(R10)
+ 130      2000 
+ 131 003e BA40 C000 		MOV.W	#192, 58(R10)
+ 131      3A00 
+ 132 0044 8A43 2200 		MOV.W	#0, 34(R10)
+ 133 0048 8A43 3C00 		MOV.W	#0, 60(R10)
+ 134 004c 0018 CA43 		MOVX.A	#0, 38(R10)
+ 134      2600 
+ 135 0052 0018 CA43 		MOVX.A	#0, 42(R10)
+ 135      2A00 
+ 136 0058 0018 FA40 		MOVX.A	#spi_lld_end_of_transfer, 64(R10)
+ 136      0000 4000 
+ 137 0060 7A0A 4400 		MOVA	R10, 68(R10)
+ 138               		; start of epilogue
+ 139 0064 0A16      		POPM.A	#1, r10
+ 140 0066 1001      		RETA
+ 141               		.size	spi_lld_init, .-spi_lld_init
+ 142               		.section	.text.spi_lld_stop,"ax",@progbits
+ 143               		.balign 2
+ 144               		.global	spi_lld_stop
+ 145               		.type	spi_lld_stop, @function
+ 146               	spi_lld_stop:
+ 147               	; start of function
+ 148               	; framesize_regs:     0
+ 149               	; framesize_locals:   0
+ 150               	; framesize_outgoing: 0
+ 151               	; framesize:          0
+GAS LISTING /tmp/cc5cBang.s 			page 4
+
+
+ 152               	; elim ap -> fp       4
+ 153               	; elim fp -> sp       0
+ 154               	; saved regs:(none)
+ 155               		; start of prologue
+ 156               		; end of prologue
+ 157 0000 EC93 0000 		CMP.B	#2, @R12 { JNE	.L24
+ 157      0020 
+ 158 0006 3C0C 0C00 		MOVA	12(R12), R12
+ 159 000a 9C43 0000 		MOV.W	#1, @R12
+ 160               	.L24:
+ 161               		; start of epilogue
+ 162 000e 1001      		RETA
+ 163               		.size	spi_lld_stop, .-spi_lld_stop
+ 164               		.section	.text.spi_lld_select,"ax",@progbits
+ 165               		.balign 2
+ 166               		.global	spi_lld_select
+ 167               		.type	spi_lld_select, @function
+ 168               	spi_lld_select:
+ 169               	; start of function
+ 170               	; framesize_regs:     8
+ 171               	; framesize_locals:   0
+ 172               	; framesize_outgoing: 0
+ 173               	; framesize:          8
+ 174               	; elim ap -> fp       12
+ 175               	; elim fp -> sp       0
+ 176               	; saved regs: R9 R10
+ 177               		; start of prologue
+ 178 0000 1A14      		PUSHM.A	#2, R10
+ 179               		; end of prologue
+ 180 0002 3C0C 0200 		MOVA	2(R12), R12
+ 181 0006 3C0C 0400 		MOVA	4(R12), R12
+ 182 000a 9C00 0000 		CMPA	#0, R12 { JEQ	.L26
+ 182      0024 
+ 183 0010 CA0C      		MOVA	R12, R10
+ 184 0012 0018 7AF0 		ANDX.A	#4095, R10
+ 184      FF0F 
+ 185 0018 194A 0200 		MOV.W	2(R10), R9
+ 186 001c 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 186      3C41 4018 
+ 186      3D41 
+ 187 0026 B013 0000 		CALLA	#__mspabi_srll_12
+ 188 002a 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 188      0C16 
+ 189 0030 4018 0D4C 		MOVX	R12, R13
+ 190 0034 5C43      		MOV.B	#1, R12
+ 191 0036 B013 0000 		CALLA	#__mspabi_slli
+ 192 003a 09CC      		BIC.W	R12, R9
+ 193 003c 8A49 0200 		MOV.W	R9, 2(R10)
+ 194               	.L26:
+ 195               		; start of epilogue
+ 196 0040 1916      		POPM.A	#2, r10
+ 197 0042 1001      		RETA
+ 198               		.size	spi_lld_select, .-spi_lld_select
+ 199               		.section	.text.spi_lld_unselect,"ax",@progbits
+ 200               		.balign 2
+ 201               		.global	spi_lld_unselect
+ 202               		.type	spi_lld_unselect, @function
+GAS LISTING /tmp/cc5cBang.s 			page 5
+
+
+ 203               	spi_lld_unselect:
+ 204               	; start of function
+ 205               	; framesize_regs:     8
+ 206               	; framesize_locals:   0
+ 207               	; framesize_outgoing: 0
+ 208               	; framesize:          8
+ 209               	; elim ap -> fp       12
+ 210               	; elim fp -> sp       0
+ 211               	; saved regs: R9 R10
+ 212               		; start of prologue
+ 213 0000 1A14      		PUSHM.A	#2, R10
+ 214               		; end of prologue
+ 215 0002 3C0C 0200 		MOVA	2(R12), R12
+ 216 0006 3C0C 0400 		MOVA	4(R12), R12
+ 217 000a 9C00 0000 		CMPA	#0, R12 { JEQ	.L31
+ 217      0024 
+ 218 0010 CA0C      		MOVA	R12, R10
+ 219 0012 0018 7AF0 		ANDX.A	#4095, R10
+ 219      FF0F 
+ 220 0018 194A 0200 		MOV.W	2(R10), R9
+ 221 001c 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 221      3C41 4018 
+ 221      3D41 
+ 222 0026 B013 0000 		CALLA	#__mspabi_srll_12
+ 223 002a 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 223      0C16 
+ 224 0030 4018 0D4C 		MOVX	R12, R13
+ 225 0034 5C43      		MOV.B	#1, R12
+ 226 0036 B013 0000 		CALLA	#__mspabi_slli
+ 227 003a 0CD9      		BIS.W	R9, R12
+ 228 003c 8A4C 0200 		MOV.W	R12, 2(R10)
+ 229               	.L31:
+ 230               		; start of epilogue
+ 231 0040 1916      		POPM.A	#2, r10
+ 232 0042 1001      		RETA
+ 233               		.size	spi_lld_unselect, .-spi_lld_unselect
+ 234               		.global	__mspabi_divul
+ 235               		.section	.text.spi_lld_start,"ax",@progbits
+ 236               		.balign 2
+ 237               		.global	spi_lld_start
+ 238               		.type	spi_lld_start, @function
+ 239               	spi_lld_start:
+ 240               	; start of function
+ 241               	; framesize_regs:     8
+ 242               	; framesize_locals:   0
+ 243               	; framesize_outgoing: 0
+ 244               	; framesize:          8
+ 245               	; elim ap -> fp       12
+ 246               	; elim fp -> sp       0
+ 247               	; saved regs: R8 R10
+ 248               		; start of prologue
+ 249 0000 0A14      		PUSHM.A	#1, R10
+ 250 0002 0814      		PUSHM.A	#1, R8
+ 251               		; end of prologue
+ 252 0004 CA0C      		MOVA	R12, R10
+ 253 0006 9C00 0000 		CMPA	#SPIDA0, R12 { JNE	.L39
+ 253      0020 
+GAS LISTING /tmp/cc5cBang.s 			page 6
+
+
+ 254 000c 3C0C 0200 		MOVA	2(R12), R12
+ 255 0010 1E4C 0800 		MOV.W	8(R12), R14
+ 256 0014 1F4C 0A00 		MOV.W	10(R12), R15
+ 257 0018 3C40 0024 		MOV.W	#9216, R12
+ 258 001c 7D40 F400 		MOV.B	#244, R13
+ 259 0020 B013 0000 		CALLA	#__mspabi_divul
+ 260 0024 7D40 8000 		MOV.B	#128, R13
+ 261               	.L37:
+ 262 0028 3E0A 0C00 		MOVA	12(R10), R14
+ 263 002c 8E4C 0600 		MOV.W	R12, 6(R14)
+ 264 0030 380A 0200 		MOVA	2(R10), R8
+ 265 0034 5C48 0E00 		MOV.B	14(R8), R12
+ 266 0038 6CE3      		XOR.B	#2, R12
+ 267 003a 0F4C      		MOV.W	R12, R15
+ 268 003c 4D18 0F5F 		rpt	#14 { rlax.w	R15
+ 269 0040 5C48 0C00 		MOV.B	12(R8), R12
+ 270 0044 4C18 0C5C 		rpt	#13 { rlax.w	R12
+ 271 0048 5B48 0D00 		MOV.B	13(R8), R11
+ 272 004c 4B18 0B5B 		rpt	#12 { rlax.w	R11
+ 273 0050 0CDB      		BIS.W	R11, R12
+ 274 0052 0018 C893 		CMPX.A	#0, 4(R8) { JNE	.L40
+ 274      0400 0020 
+ 275 005a 3840 0004 		MOV.W	#1024, R8
+ 276               	.L38:
+ 277 005e 3CD0 0209 		BIS.W	#2306, R12
+ 278 0062 0CDF      		BIS.W	R15, R12
+ 279 0064 0CDD      		BIS.W	R13, R12
+ 280 0066 0CD8      		BIS.W	R8, R12
+ 281 0068 8E4C 0000 		MOV.W	R12, @R14
+ 282 006c 3C0A 1000 		MOVA	16(R10), R12
+ 283 0070 8C43 0000 		MOV.W	#0, @R12
+ 284 0074 CC0A      		MOVA	R10, R12
+ 285 0076 B013 0000 		CALLA	#spi_lld_unselect
+ 286               		; start of epilogue
+ 287 007a 0816      		POPM.A	#1, r8
+ 288 007c 0A16      		POPM.A	#1, r10
+ 289 007e 1001      		RETA
+ 290               	.L39:
+ 291 0080 4D43      		MOV.B	#0, R13
+ 292 0082 0C4D      		MOV.W	R13, R12
+ 293 0084 8000 0000 		BRA	#.L37
+ 294               	.L40:
+ 295 0088 4843      		MOV.B	#0, R8
+ 296 008a 8000 0000 		BRA	#.L38
+ 297               		.size	spi_lld_start, .-spi_lld_start
+ 298               		.section	.text.spi_lld_ignore,"ax",@progbits
+ 299               		.balign 2
+ 300               		.global	spi_lld_ignore
+ 301               		.type	spi_lld_ignore, @function
+ 302               	spi_lld_ignore:
+ 303               	; start of function
+ 304               	; framesize_regs:     0
+ 305               	; framesize_locals:   0
+ 306               	; framesize_outgoing: 0
+ 307               	; framesize:          0
+ 308               	; elim ap -> fp       4
+ 309               	; elim fp -> sp       0
+GAS LISTING /tmp/cc5cBang.s 			page 7
+
+
+ 310               	; saved regs:(none)
+ 311               		; start of prologue
+ 312               		; end of prologue
+ 313 0000 0018 FC40 		MOVX.A	#dummytx, 20(R12)
+ 313      0000 1400 
+ 314 0008 8C4D 1C00 		MOV.W	R13, 28(R12)
+ 315 000c 8C43 1E00 		MOV.W	#0, 30(R12)
+ 316 0010 0018 FC40 		MOVX.A	#dummyrx, 50(R12)
+ 316      0000 3200 
+ 317 0018 8C4D 3600 		MOV.W	R13, 54(R12)
+ 318 001c 8C43 3800 		MOV.W	#0, 56(R12)
+ 319 0020 B013 0000 		CALLA	#init_transfer
+ 320               		; start of epilogue
+ 321 0024 1001      		RETA
+ 322               		.size	spi_lld_ignore, .-spi_lld_ignore
+ 323               		.section	.text.spi_lld_exchange,"ax",@progbits
+ 324               		.balign 2
+ 325               		.global	spi_lld_exchange
+ 326               		.type	spi_lld_exchange, @function
+ 327               	spi_lld_exchange:
+ 328               	; start of function
+ 329               	; framesize_regs:     4
+ 330               	; framesize_locals:   0
+ 331               	; framesize_outgoing: 0
+ 332               	; framesize:          4
+ 333               	; elim ap -> fp       8
+ 334               	; elim fp -> sp       0
+ 335               	; saved regs: R10
+ 336               		; start of prologue
+ 337 0000 0A14      		PUSHM.A	#1, R10
+ 338               		; end of prologue
+ 339 0002 CA0C      		MOVA	R12, R10
+ 340 0004 7C0E 1400 		MOVA	R14, 20(R12)
+ 341 0008 8C4D 1C00 		MOV.W	R13, 28(R12)
+ 342 000c BC40 0003 		MOV.W	#768, 30(R12)
+ 342      1E00 
+ 343 0012 7C0F 3200 		MOVA	R15, 50(R12)
+ 344 0016 8C4D 3600 		MOV.W	R13, 54(R12)
+ 345 001a BC40 000C 		MOV.W	#3072, 56(R12)
+ 345      3800 
+ 346 0020 B013 0000 		CALLA	#init_transfer
+ 347               		; start of epilogue
+ 348 0024 0A16      		POPM.A	#1, r10
+ 349 0026 1001      		RETA
+ 350               		.size	spi_lld_exchange, .-spi_lld_exchange
+ 351               		.section	.text.spi_lld_send,"ax",@progbits
+ 352               		.balign 2
+ 353               		.global	spi_lld_send
+ 354               		.type	spi_lld_send, @function
+ 355               	spi_lld_send:
+ 356               	; start of function
+ 357               	; framesize_regs:     4
+ 358               	; framesize_locals:   0
+ 359               	; framesize_outgoing: 0
+ 360               	; framesize:          4
+ 361               	; elim ap -> fp       8
+ 362               	; elim fp -> sp       0
+GAS LISTING /tmp/cc5cBang.s 			page 8
+
+
+ 363               	; saved regs: R10
+ 364               		; start of prologue
+ 365 0000 0A14      		PUSHM.A	#1, R10
+ 366               		; end of prologue
+ 367 0002 CA0C      		MOVA	R12, R10
+ 368 0004 7C0E 1400 		MOVA	R14, 20(R12)
+ 369 0008 8C4D 1C00 		MOV.W	R13, 28(R12)
+ 370 000c BC40 0003 		MOV.W	#768, 30(R12)
+ 370      1E00 
+ 371 0012 0018 FC40 		MOVX.A	#dummyrx, 50(R12)
+ 371      0000 3200 
+ 372 001a 8C4D 3600 		MOV.W	R13, 54(R12)
+ 373 001e 8C43 3800 		MOV.W	#0, 56(R12)
+ 374 0022 B013 0000 		CALLA	#init_transfer
+ 375               		; start of epilogue
+ 376 0026 0A16      		POPM.A	#1, r10
+ 377 0028 1001      		RETA
+ 378               		.size	spi_lld_send, .-spi_lld_send
+ 379               		.section	.text.spi_lld_receive,"ax",@progbits
+ 380               		.balign 2
+ 381               		.global	spi_lld_receive
+ 382               		.type	spi_lld_receive, @function
+ 383               	spi_lld_receive:
+ 384               	; start of function
+ 385               	; framesize_regs:     4
+ 386               	; framesize_locals:   0
+ 387               	; framesize_outgoing: 0
+ 388               	; framesize:          4
+ 389               	; elim ap -> fp       8
+ 390               	; elim fp -> sp       0
+ 391               	; saved regs: R10
+ 392               		; start of prologue
+ 393 0000 0A14      		PUSHM.A	#1, R10
+ 394               		; end of prologue
+ 395 0002 CA0C      		MOVA	R12, R10
+ 396 0004 0018 FC40 		MOVX.A	#dummytx, 20(R12)
+ 396      0000 1400 
+ 397 000c 8C4D 1C00 		MOV.W	R13, 28(R12)
+ 398 0010 8C43 1E00 		MOV.W	#0, 30(R12)
+ 399 0014 7C0E 3200 		MOVA	R14, 50(R12)
+ 400 0018 8C4D 3600 		MOV.W	R13, 54(R12)
+ 401 001c BC40 000C 		MOV.W	#3072, 56(R12)
+ 401      3800 
+ 402 0022 B013 0000 		CALLA	#init_transfer
+ 403               		; start of epilogue
+ 404 0026 0A16      		POPM.A	#1, r10
+ 405 0028 1001      		RETA
+ 406               		.size	spi_lld_receive, .-spi_lld_receive
+ 407               		.section	.text.spi_lld_polled_exchange,"ax",@progbits
+ 408               		.balign 2
+ 409               		.global	spi_lld_polled_exchange
+ 410               		.type	spi_lld_polled_exchange, @function
+ 411               	spi_lld_polled_exchange:
+ 412               	; start of function
+ 413               	; framesize_regs:     8
+ 414               	; framesize_locals:   0
+ 415               	; framesize_outgoing: 0
+GAS LISTING /tmp/cc5cBang.s 			page 9
+
+
+ 416               	; framesize:          8
+ 417               	; elim ap -> fp       12
+ 418               	; elim fp -> sp       0
+ 419               	; saved regs: R9 R10
+ 420               		; start of prologue
+ 421 0000 1A14      		PUSHM.A	#2, R10
+ 422               		; end of prologue
+ 423 0002 CA0C      		MOVA	R12, R10
+ 424 0004 494D      		MOV.B	R13, R9
+ 425 0006 EC93 0000 		CMP.B	#2, @R12 { JEQ	.L46
+ 425      0024 
+ 426 000c 8C00 0000 		MOVA	#__func__.3744, R12
+ 427 0010 B013 0000 		CALLA	#chSysHalt
+ 428               	.L46:
+ 429 0014 3E0A 0C00 		MOVA	12(R10), R14
+ 430 0018 8E49 0E00 		MOV.W	R9, 14(R14)
+ 431 001c 3C0A 1000 		MOVA	16(R10), R12
+ 432               	.L47:
+ 433 0020 4018 9CB3 		BITX.W	#1, @R12 { JEQ	.L47
+ 433      0000 0024 
+ 434 0028 BCF0 FCFF 		AND.W	#-4, @R12
+ 434      0000 
+ 435 002e 5C4E 0C00 		MOV.B	12(R14), R12
+ 436               		; start of epilogue
+ 437 0032 1916      		POPM.A	#2, r10
+ 438 0034 1001      		RETA
+ 439               		.size	spi_lld_polled_exchange, .-spi_lld_polled_exchange
+ 440               		.section	.upper.rodata,"a",@progbits
+ 441               		.type	__func__.3744, @object
+ 442               		.size	__func__.3744, 24
+ 443               	__func__.3744:
+ 444 0000 7370 695F 		.string	"spi_lld_polled_exchange"
+ 444      6C6C 645F 
+ 444      706F 6C6C 
+ 444      6564 5F65 
+ 444      7863 6861 
+ 445               		.local	dummyrx
+ 446               		.comm	dummyrx,2,2
+ 447               		.balign 2
+ 448               		.type	dummytx, @object
+ 449               		.size	dummytx, 2
+ 450               	dummytx:
+ 451 0018 FFFF      		.short	-1
+ 452               		.global	SPIDA0
+ 453               		.section	.upper.bss,"aw",@nobits
+ 454               		.balign 2
+ 455               		.type	SPIDA0, @object
+ 456               		.size	SPIDA0, 92
+ 457               	SPIDA0:
+ 458 0000 0000 0000 		.zero	92
+ 458      0000 0000 
+ 458      0000 0000 
+ 458      0000 0000 
+ 458      0000 0000 
+ 459               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/cc5cBang.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 hal_spi_lld.c
+     /tmp/cc5cBang.s:5      .text.init_transfer:0000000000000000 init_transfer
+     /tmp/cc5cBang.s:62     .text.spi_lld_end_of_transfer:0000000000000000 spi_lld_end_of_transfer
+     /tmp/cc5cBang.s:109    .text.spi_lld_init:0000000000000000 spi_lld_init
+     /tmp/cc5cBang.s:457    .upper.bss:0000000000000000 SPIDA0
+     /tmp/cc5cBang.s:146    .text.spi_lld_stop:0000000000000000 spi_lld_stop
+     /tmp/cc5cBang.s:168    .text.spi_lld_select:0000000000000000 spi_lld_select
+     /tmp/cc5cBang.s:203    .text.spi_lld_unselect:0000000000000000 spi_lld_unselect
+     /tmp/cc5cBang.s:239    .text.spi_lld_start:0000000000000000 spi_lld_start
+     /tmp/cc5cBang.s:302    .text.spi_lld_ignore:0000000000000000 spi_lld_ignore
+     /tmp/cc5cBang.s:450    .upper.rodata:0000000000000018 dummytx
+     /tmp/cc5cBang.s:446    .bss:0000000000000000 dummyrx
+     /tmp/cc5cBang.s:327    .text.spi_lld_exchange:0000000000000000 spi_lld_exchange
+     /tmp/cc5cBang.s:355    .text.spi_lld_send:0000000000000000 spi_lld_send
+     /tmp/cc5cBang.s:383    .text.spi_lld_receive:0000000000000000 spi_lld_receive
+     /tmp/cc5cBang.s:411    .text.spi_lld_polled_exchange:0000000000000000 spi_lld_polled_exchange
+     /tmp/cc5cBang.s:443    .upper.rodata:0000000000000000 __func__.3744
+     /tmp/cc5cBang.s:27     .text.init_transfer:0000000000000028 .L2
+     /tmp/cc5cBang.s:30     .text.init_transfer:000000000000002e .L3
+     /tmp/cc5cBang.s:37     .text.init_transfer:000000000000004c .L4
+     /tmp/cc5cBang.s:40     .text.init_transfer:0000000000000052 .L5
+     /tmp/cc5cBang.s:84     .text.spi_lld_end_of_transfer:0000000000000026 .L17
+     /tmp/cc5cBang.s:86     .text.spi_lld_end_of_transfer:000000000000002a .L18
+     /tmp/cc5cBang.s:99     .text.spi_lld_end_of_transfer:0000000000000050 .L16
+     /tmp/cc5cBang.s:160    .text.spi_lld_stop:000000000000000e .L24
+     /tmp/cc5cBang.s:194    .text.spi_lld_select:0000000000000040 .L26
+     /tmp/cc5cBang.s:229    .text.spi_lld_unselect:0000000000000040 .L31
+     /tmp/cc5cBang.s:290    .text.spi_lld_start:0000000000000080 .L39
+     /tmp/cc5cBang.s:294    .text.spi_lld_start:0000000000000088 .L40
+     /tmp/cc5cBang.s:261    .text.spi_lld_start:0000000000000028 .L37
+     /tmp/cc5cBang.s:276    .text.spi_lld_start:000000000000005e .L38
+     /tmp/cc5cBang.s:428    .text.spi_lld_polled_exchange:0000000000000014 .L46
+     /tmp/cc5cBang.s:432    .text.spi_lld_polled_exchange:0000000000000020 .L47
+
+UNDEFINED SYMBOLS
+dmaAcquireI
+dmaTransferI
+chThdResumeI
+dmaReleaseX
+spiObjectInit
+UCA0CTLW0
+UCA0IFG
+__mspabi_srll_12
+__mspabi_slli
+__mspabi_divul
+chSysHalt
+__crt0_init_bss
+__crt0_init_highbss

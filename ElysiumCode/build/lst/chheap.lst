@@ -1,0 +1,663 @@
+GAS LISTING /tmp/ccM7FYfm.s 			page 1
+
+
+   1               		.file	"chheap.c"
+   2               		.section	.text._heap_init,"ax",@progbits
+   3               		.balign 2
+   4               		.global	_heap_init
+   5               		.type	_heap_init, @function
+   6               	_heap_init:
+   7               	; start of function
+   8               	; framesize_regs:     0
+   9               	; framesize_locals:   0
+  10               	; framesize_outgoing: 0
+  11               	; framesize:          0
+  12               	; elim ap -> fp       4
+  13               	; elim fp -> sp       0
+  14               	; saved regs:(none)
+  15               		; start of prologue
+  16               		; end of prologue
+  17 0000 8C00 0000 		MOVA	#default_heap, R12
+  18 0004 0018 FC40 		MOVX.A	#chCoreAllocAligned, @R12
+  18      0000 0000 
+  19 000c 0018 CC43 		MOVX.A	#0, 4(R12)
+  19      0400 
+  20 0012 8C43 0800 		MOV.W	#0, 8(R12)
+  21 0016 FCF0 F0FF 		AND.B	#-16, 10(R12)
+  21      0A00 
+  22 001c 9C43 0C00 		MOV.W	#1, 12(R12)
+  23               		; start of epilogue
+  24 0020 1001      		RETA
+  25               		.size	_heap_init, .-_heap_init
+  26               		.section	.text.chHeapObjectInit,"ax",@progbits
+  27               		.balign 2
+  28               		.global	chHeapObjectInit
+  29               		.type	chHeapObjectInit, @function
+  30               	chHeapObjectInit:
+  31               	; start of function
+  32               	; framesize_regs:     12
+  33               	; framesize_locals:   4
+  34               	; framesize_outgoing: 0
+  35               	; framesize:          16
+  36               	; elim ap -> fp       16
+  37               	; elim fp -> sp       4
+  38               	; saved regs: R6 R8 R10
+  39               		; start of prologue
+  40 0000 0A14      		PUSHM.A	#1, R10
+  41 0002 0814      		PUSHM.A	#1, R8
+  42 0004 0614      		PUSHM.A	#1, R6
+  43 0006 B100 0400 		SUBA	#4, R1
+  44               		; end of prologue
+  45 000a CA0C      		MOVA	R12, R10
+  46 000c C80D      		MOVA	R13, R8
+  47 000e C60E      		MOVA	R14, R6
+  48 0010 9C00 0000 		CMPA	#0, R12 { JEQ	.L3
+  48      0024 
+  49 0016 9E00 0000 		CMPA	#0, R14 { JEQ	.L3
+  49      0024 
+  50 001c CC0D      		MOVA	R13, R12
+  51 001e 0018 4CDE 		BISX.A	R14, R12
+  52 0022 4018 7CF0 		ANDX.B	#7, R12
+GAS LISTING /tmp/ccM7FYfm.s 			page 2
+
+
+  52      0700 
+  53 0028 9C00 0000 		CMPA	#0, R12 { JEQ	.L4
+  53      0024 
+  54               	.L3:
+  55 002e 8C00 0000 		MOVA	#__func__.2600, R12
+  56 0032 B013 0000 		CALLA	#chSysHalt
+  57               	.L4:
+  58 0036 0018 CA43 		MOVX.A	#0, @R10
+  58      0000 
+  59 003c 7A08 0400 		MOVA	R8, 4(R10)
+  60 0040 8A43 0800 		MOV.W	#0, 8(R10)
+  61 0044 FAF0 F0FF 		AND.B	#-16, 10(R10)
+  61      0A00 
+  62 004a 0018 C843 		MOVX.A	#0, @R8
+  62      0000 
+  63 0050 A60F F8FF 		ADDA	#-8, R6
+  64 0054 0614 4018 		PUSHM.A	#1, R6 { POPX.W	R12 { POPX.W	R13 ; move pointer in R6 into reg-pair R12:R13
+  64      3C41 4018 
+  64      3D41 
+  65 005e B013 0000 		CALLA	#__mspabi_srll_3
+  66 0062 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R14
+  66      0E16 
+  67 0068 710E 0000 		MOVA	R14, @R1
+  68 006c 884E 0400 		MOV.W	R14, 4(R8)
+  69 0070 0E14 0C17 		PUSHM.A	#1,R14 { POPM.W	#1,R12 { POPM.W	#1,R12
+  69      0C17 
+  70 0076 7CF0 0F00 		AND.B	#15, R12
+  71 007a 5D48 0600 		MOV.B	6(R8), R13
+  72 007e 7DF0 F0FF 		AND.B	#-16, R13
+  73 0082 4DDC      		BIS.B	R12, R13
+  74 0084 C84D 0600 		MOV.B	R13, 6(R8)
+  75 0088 9A43 0C00 		MOV.W	#1, 12(R10)
+  76               		; start of epilogue
+  77 008c A100 0400 		ADDA	#4, R1
+  78 0090 0616      		POPM.A	#1, r6
+  79 0092 0816      		POPM.A	#1, r8
+  80 0094 0A16      		POPM.A	#1, r10
+  81 0096 1001      		RETA
+  82               		.size	chHeapObjectInit, .-chHeapObjectInit
+  83               		.section	.text.chHeapAllocAligned,"ax",@progbits
+  84               		.balign 2
+  85               		.global	chHeapAllocAligned
+  86               		.type	chHeapAllocAligned, @function
+  87               	chHeapAllocAligned:
+  88               	; start of function
+  89               	; framesize_regs:     28
+  90               	; framesize_locals:   32
+  91               	; framesize_outgoing: 0
+  92               	; framesize:          60
+  93               	; elim ap -> fp       32
+  94               	; elim fp -> sp       32
+  95               	; saved regs: R4 R5 R6 R7 R8 R9 R10
+  96               		; start of prologue
+  97 0000 6A14      		PUSHM.A	#7, R10
+  98 0002 B100 2000 		SUBA	#32, R1
+  99               		; end of prologue
+ 100 0006 C50C      		MOVA	R12, R5
+GAS LISTING /tmp/ccM7FYfm.s 			page 3
+
+
+ 101 0008 710D 0400 		MOVA	R13, 4(R1)
+ 102 000c 094E      		MOV.W	R14, R9
+ 103 000e 9D00 0000 		CMPA	#0, R13 { JEQ	.L13
+ 103      0024 
+ 104 0014 0E93 0024 		CMP.W	#0, R14 { JEQ	.L13
+ 105 0018 4018 0C4E 		MOVX	R14, R12
+ 106 001c CE0C      		MOVA	R12, R14
+ 107 001e AE0F FFFF 		ADDA	#-1, R14
+ 108 0022 0018 4EBC 		BITX.A	R12, R14 { JEQ	.L14
+ 108      0024 
+ 109               	.L13:
+ 110 0028 8C00 0000 		MOVA	#__func__.2609, R12
+ 111 002c B013 0000 		CALLA	#chSysHalt
+ 112               	.L14:
+ 113 0030 9500 0000 		CMPA	#0, R5 { JNE	.L15
+ 113      0020 
+ 114 0036 8500 0000 		MOVA	#default_heap, R5
+ 115               	.L15:
+ 116 003a 3992 002C 		CMP.W	#8, R9 { JHS	.L16
+ 117 003e 7942      		MOV.B	#8, R9
+ 118               	.L16:
+ 119 0040 3C01 0400 		MOVA	4(R1), R12
+ 120 0044 AC00 0700 		ADDA	#7, R12
+ 121 0048 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 121      3C41 4018 
+ 121      3D41 
+ 122 0052 B013 0000 		CALLA	#__mspabi_srll_3
+ 123 0056 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R7
+ 123      0716 
+ 124 005c CE05      		MOVA	R5, R14
+ 125 005e AE00 0C00 		ADDA	#12, R14
+ 126 0062 710E 0800 		MOVA	R14, 8(R1)
+ 127 0066 4D43      		MOV.B	#0, R13
+ 128 0068 CC0E      		MOVA	R14, R12
+ 129 006a B013 0000 		CALLA	#chSemWaitTimeout
+ 130 006e CE05      		MOVA	R5, R14
+ 131 0070 AE00 0400 		ADDA	#4, R14
+ 132 0074 710E 0000 		MOVA	R14, @R1
+ 133 0078 4018 0C49 		MOVX	R9, R12
+ 134 007c CE0C      		MOVA	R12, R14
+ 135 007e AE0F FFFF 		ADDA	#-1, R14
+ 136 0082 710E 1800 		MOVA	R14, 24(R1)
+ 137 0086 4E43      		MOV.B	#0, R14
+ 138 0088 FE0C      		SUBA	R12, R14
+ 139 008a 710E 1C00 		MOVA	R14, 28(R1)
+ 140               	.L17:
+ 141 008e 0C01      		MOVA	@R1, R12
+ 142 0090 080C      		MOVA	@R12, R8
+ 143 0092 9800 0000 		CMPA	#0, R8 { JNE	.L23
+ 143      0020 
+ 144 0098 3C01 0800 		MOVA	8(R1), R12
+ 145 009c B013 0000 		CALLA	#chSemSignal
+ 146 00a0 0A05      		MOVA	@R5, R10
+ 147 00a2 9A00 0000 		CMPA	#0, R10 { JNE	.L24
+ 147      0020 
+ 148               	.L25:
+ 149 00a8 4C43      		MOV.B	#0, R12
+GAS LISTING /tmp/ccM7FYfm.s 			page 4
+
+
+ 150               	.L12:
+ 151               		; start of epilogue
+ 152 00aa A100 2000 		ADDA	#32, R1
+ 153 00ae 6416      		POPM.A	#7, r10
+ 154 00b0 1001      		RETA
+ 155               	.L23:
+ 156 00b2 CE08      		MOVA	R8, R14
+ 157 00b4 AE00 0800 		ADDA	#8, R14
+ 158 00b8 710E 0C00 		MOVA	R14, 12(R1)
+ 159 00bc C60E      		MOVA	R14, R6
+ 160 00be 0018 5651 		ADDX.A	24(R1), R6
+ 160      1800 
+ 161 00c4 0018 56F1 		ANDX.A	28(R1), R6
+ 161      1C00 
+ 162 00ca CA06      		MOVA	R6, R10
+ 163 00cc AA0F F8FF 		ADDA	#-8, R10
+ 164 00d0 0018 D148 		MOVX.A	4(R8), 16(R1)
+ 164      0400 1000 
+ 165 00d8 3C01 1000 		MOVA	16(R1), R12
+ 166 00dc AC00 0100 		ADDA	#1, R12
+ 167 00e0 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 167      3C41 4018 
+ 167      3D41 
+ 168 00ea B013 0000 		CALLA	#__mspabi_slll_3
+ 169 00ee 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R4
+ 169      0416 
+ 170 00f4 E408      		ADDA	R8, R4
+ 171 00f6 DA04 002C 		CMPA	R4, R10 { JHS	.L18
+ 172 00fa 0018 4C44 		MOVX.A	R4, R12 { SUBX.A	R6, R12
+ 172      0018 4C86 
+ 173 0102 0018 4D4C 		MOVX.A	R12, R13 { MOV.W	R12, R12 { RPT	#16 { RRAX.A	R13 ; sign extend pointer in R12 into R12:R13
+ 173      0C4C 0F18 
+ 173      4D11 
+ 174 010c B013 0000 		CALLA	#__mspabi_sral_3
+ 175 0110 814C 1400 		MOV.W	R12, 20(R1)
+ 176 0114 814D 1600 		MOV.W	R13, 22(R1)
+ 177 0118 3601 1400 		MOVA	20(R1), R6
+ 178 011c D607 0028 		CMPA	R7, R6 { JLO	.L18
+ 179 0120 D80A 002C 		CMPA	R10, R8 { JHS	.L19
+ 180 0124 0018 4C4A 		MOVX.A	R10, R12 { SUBX.A	12(R1), R12
+ 180      0018 5C81 
+ 180      0C00 
+ 181 012e 0018 4D4C 		MOVX.A	R12, R13 { MOV.W	R12, R12 { RPT	#16 { RRAX.A	R13 ; sign extend pointer in R12 into R12:R13
+ 181      0C4C 0F18 
+ 181      4D11 
+ 182 0138 B013 0000 		CALLA	#__mspabi_sral_3
+ 183 013c 884C 0400 		MOV.W	R12, 4(R8)
+ 184 0140 7DF0 0F00 		AND.B	#15, R13
+ 185 0144 5C48 0600 		MOV.B	6(R8), R12
+ 186 0148 7CF0 F0FF 		AND.B	#-16, R12
+ 187 014c 4CDD      		BIS.B	R13, R12
+ 188 014e C84C 0600 		MOV.B	R12, 6(R8)
+ 189 0152 D706 002C 		CMPA	R6, R7 { JHS	.L20
+ 190 0156 CC07      		MOVA	R7, R12
+ 191 0158 AC00 0100 		ADDA	#1, R12
+ 192 015c 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 192      3C41 4018 
+GAS LISTING /tmp/ccM7FYfm.s 			page 5
+
+
+ 192      3D41 
+ 193 0166 B013 0000 		CALLA	#__mspabi_slll_3
+ 194 016a 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 194      0C16 
+ 195 0170 EC0A      		ADDA	R10, R12
+ 196 0172 CE07      		MOVA	R7, R14
+ 197 0174 0018 7EE3 		INVX.A	R14
+ 198 0178 EE06      		ADDA	R6, R14
+ 199 017a 710E 0000 		MOVA	R14, @R1
+ 200 017e 8C4E 0400 		MOV.W	R14, 4(R12)
+ 201 0182 0E14 0D17 		PUSHM.A	#1,R14 { POPM.W	#1,R13 { POPM.W	#1,R13
+ 201      0D17 
+ 202 0188 7DF0 0F00 		AND.B	#15, R13
+ 203 018c 5E4C 0600 		MOV.B	6(R12), R14
+ 204 0190 7EF0 F0FF 		AND.B	#-16, R14
+ 205 0194 4EDD      		BIS.B	R13, R14
+ 206 0196 CC4E 0600 		MOV.B	R14, 6(R12)
+ 207 019a 0018 EC48 		MOVX.A	@R8, @R12
+ 207      0000 
+ 208 01a0 780C 0000 		MOVA	R12, @R8
+ 209               	.L20:
+ 210 01a4 9A41 0400 		MOV.W	4(R1), 4(R10)
+ 210      0400 
+ 211 01aa 3E01 0400 		MOVA	4(R1), R14
+ 212 01ae 0E14 0C17 		PUSHM.A	#1,R14 { POPM.W	#1,R12 { POPM.W	#1,R12
+ 212      0C17 
+ 213 01b4 7CF0 0F00 		AND.B	#15, R12
+ 214 01b8 5D4A 0600 		MOV.B	6(R10), R13
+ 215 01bc 7DF0 F0FF 		AND.B	#-16, R13
+ 216 01c0 4DDC      		BIS.B	R12, R13
+ 217 01c2 CA4D 0600 		MOV.B	R13, 6(R10)
+ 218 01c6 7A05 0000 		MOVA	R5, @R10
+ 219 01ca 3C01 0800 		MOVA	8(R1), R12
+ 220 01ce B013 0000 		CALLA	#chSemSignal
+ 221 01d2 CC0A      		MOVA	R10, R12
+ 222               	.L38:
+ 223 01d4 AC00 0800 		ADDA	#8, R12
+ 224 01d8 8000 0000 		BRA	#.L12
+ 225               	.L19:
+ 226 01dc 0A08      		MOVA	@R8, R10
+ 227 01de 0018 5791 		CMPX.A	16(R1), R7 { JNE	.L21
+ 227      1000 0020 
+ 228 01e6 0C01      		MOVA	@R1, R12
+ 229 01e8 7C0A 0000 		MOVA	R10, @R12
+ 230               	.L37:
+ 231 01ec CA08      		MOVA	R8, R10
+ 232 01ee 8000 0000 		BRA	#.L20
+ 233               	.L21:
+ 234 01f2 CE07      		MOVA	R7, R14
+ 235 01f4 AE00 0100 		ADDA	#1, R14
+ 236 01f8 0E14 4018 		PUSHM.A	#1, R14 { POPX.W	R12 { POPX.W	R13 ; move pointer in R14 into reg-pair R12:R13
+ 236      3C41 4018 
+ 236      3D41 
+ 237 0202 B013 0000 		CALLA	#__mspabi_slll_3
+ 238 0206 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R6
+ 238      0616 
+ 239 020c E608      		ADDA	R8, R6
+GAS LISTING /tmp/ccM7FYfm.s 			page 6
+
+
+ 240 020e 760A 0000 		MOVA	R10, @R6
+ 241 0212 CE06      		MOVA	R6, R14
+ 242 0214 AE00 0800 		ADDA	#8, R14
+ 243 0218 0018 4C44 		MOVX.A	R4, R12 { SUBX.A	R14, R12
+ 243      0018 4C8E 
+ 244 0220 0018 4D4C 		MOVX.A	R12, R13 { MOV.W	R12, R12 { RPT	#16 { RRAX.A	R13 ; sign extend pointer in R12 into R12:R13
+ 244      0C4C 0F18 
+ 244      4D11 
+ 245 022a B013 0000 		CALLA	#__mspabi_sral_3
+ 246 022e 864C 0400 		MOV.W	R12, 4(R6)
+ 247 0232 7DF0 0F00 		AND.B	#15, R13
+ 248 0236 5C46 0600 		MOV.B	6(R6), R12
+ 249 023a 7CF0 F0FF 		AND.B	#-16, R12
+ 250 023e 4CDD      		BIS.B	R13, R12
+ 251 0240 C64C 0600 		MOV.B	R12, 6(R6)
+ 252 0244 0D01      		MOVA	@R1, R13
+ 253 0246 7D06 0000 		MOVA	R6, @R13
+ 254 024a 8000 0000 		BRA	#.L37
+ 255               	.L18:
+ 256 024e 7108 0000 		MOVA	R8, @R1
+ 257 0252 8000 0000 		BRA	#.L17
+ 258               	.L24:
+ 259 0256 CE07      		MOVA	R7, R14
+ 260 0258 AE00 0100 		ADDA	#1, R14
+ 261 025c 0E14 4018 		PUSHM.A	#1, R14 { POPX.W	R12 { POPX.W	R13 ; move pointer in R14 into reg-pair R12:R13
+ 261      3C41 4018 
+ 261      3D41 
+ 262 0266 B013 0000 		CALLA	#__mspabi_slll_3
+ 263 026a 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 263      0C16 
+ 264 0270 0D49      		MOV.W	R9, R13
+ 265 0272 4A13      		CALLA	R10
+ 266 0274 9C00 0000 		CMPA	#0, R12 { JEQ	.L25
+ 266      0024 
+ 267 027a 7C05 0000 		MOVA	R5, @R12
+ 268 027e 9C41 0400 		MOV.W	4(R1), 4(R12)
+ 268      0400 
+ 269 0284 3E01 0400 		MOVA	4(R1), R14
+ 270 0288 0E14 0D17 		PUSHM.A	#1,R14 { POPM.W	#1,R13 { POPM.W	#1,R13
+ 270      0D17 
+ 271 028e 7DF0 0F00 		AND.B	#15, R13
+ 272 0292 5E4C 0600 		MOV.B	6(R12), R14
+ 273 0296 7EF0 F0FF 		AND.B	#-16, R14
+ 274 029a 4EDD      		BIS.B	R13, R14
+ 275 029c CC4E 0600 		MOV.B	R14, 6(R12)
+ 276 02a0 8000 0000 		BRA	#.L38
+ 277               		.size	chHeapAllocAligned, .-chHeapAllocAligned
+ 278               		.section	.text.chHeapFree,"ax",@progbits
+ 279               		.balign 2
+ 280               		.global	chHeapFree
+ 281               		.type	chHeapFree, @function
+ 282               	chHeapFree:
+ 283               	; start of function
+ 284               	; framesize_regs:     28
+ 285               	; framesize_locals:   4
+ 286               	; framesize_outgoing: 0
+ 287               	; framesize:          32
+GAS LISTING /tmp/ccM7FYfm.s 			page 7
+
+
+ 288               	; elim ap -> fp       32
+ 289               	; elim fp -> sp       4
+ 290               	; saved regs: R4 R5 R6 R7 R8 R9 R10
+ 291               		; start of prologue
+ 292 0000 6A14      		PUSHM.A	#7, R10
+ 293 0002 B100 0400 		SUBA	#4, R1
+ 294               		; end of prologue
+ 295 0006 CA0C      		MOVA	R12, R10
+ 296 0008 9C00 0000 		CMPA	#0, R12 { JEQ	.L40
+ 296      0024 
+ 297 000e 4018 7CF0 		ANDX.B	#7, R12
+ 297      0700 
+ 298 0014 9C00 0000 		CMPA	#0, R12 { JEQ	.L41
+ 298      0024 
+ 299               	.L40:
+ 300 001a 8C00 0000 		MOVA	#__func__.2623, R12
+ 301 001e B013 0000 		CALLA	#chSysHalt
+ 302               	.L41:
+ 303 0022 C80A      		MOVA	R10, R8
+ 304 0024 A80F F8FF 		ADDA	#-8, R8
+ 305 0028 340A F8FF 		MOVA	-8(R10), R4
+ 306 002c C604      		MOVA	R4, R6
+ 307 002e A600 0400 		ADDA	#4, R6
+ 308 0032 3C0A FCFF 		MOVA	-4(R10), R12
+ 309 0036 AC00 0700 		ADDA	#7, R12
+ 310 003a 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 310      3C41 4018 
+ 310      3D41 
+ 311 0044 B013 0000 		CALLA	#__mspabi_srll_3
+ 312 0048 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R14
+ 312      0E16 
+ 313 004e 710E 0000 		MOVA	R14, @R1
+ 314 0052 8A4E FCFF 		MOV.W	R14, -4(R10)
+ 315 0056 0E14 0C17 		PUSHM.A	#1,R14 { POPM.W	#1,R12 { POPM.W	#1,R12
+ 315      0C17 
+ 316 005c 7CF0 0F00 		AND.B	#15, R12
+ 317 0060 5D4A FEFF 		MOV.B	-2(R10), R13
+ 318 0064 7DF0 F0FF 		AND.B	#-16, R13
+ 319 0068 4DDC      		BIS.B	R12, R13
+ 320 006a CA4D FEFF 		MOV.B	R13, -2(R10)
+ 321 006e C504      		MOVA	R4, R5
+ 322 0070 A500 0C00 		ADDA	#12, R5
+ 323 0074 4D43      		MOV.B	#0, R13
+ 324 0076 CC05      		MOVA	R5, R12
+ 325 0078 B013 0000 		CALLA	#chSemWaitTimeout
+ 326 007c C406      		MOVA	R6, R4
+ 327 007e 8900 0000 		MOVA	#chSysHalt, R9
+ 328 0082 8700 0000 		MOVA	#__func__.2623, R7
+ 329               	.L48:
+ 330 0086 D804 0028 		CMPA	R4, R8 { JLO	.L42
+ 331 008a 3C04 0400 		MOVA	4(R4), R12
+ 332 008e AC00 0100 		ADDA	#1, R12
+ 333 0092 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 333      3C41 4018 
+ 333      3D41 
+ 334 009c B013 0000 		CALLA	#__mspabi_slll_3
+ 335 00a0 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+GAS LISTING /tmp/ccM7FYfm.s 			page 8
+
+
+ 335      0C16 
+ 336 00a6 EC04      		ADDA	R4, R12
+ 337 00a8 D80C 002C 		CMPA	R12, R8 { JHS	.L42
+ 338 00ac CC07      		MOVA	R7, R12
+ 339 00ae 4913      		CALLA	R9
+ 340               	.L42:
+ 341 00b0 0C04      		MOVA	@R4, R12
+ 342 00b2 D406 0024 		CMPA	R6, R4 { JEQ	.L43
+ 343 00b6 D408 002C 		CMPA	R8, R4 { JHS	.L44
+ 344               	.L43:
+ 345 00ba 9C00 0000 		CMPA	#0, R12 { JEQ	.L45
+ 345      0024 
+ 346 00c0 D80C 002C 		CMPA	R12, R8 { JHS	.L44
+ 347               	.L45:
+ 348 00c4 7A0C F8FF 		MOVA	R12, -8(R10)
+ 349 00c8 7408 0000 		MOVA	R8, @R4
+ 350 00cc 360A FCFF 		MOVA	-4(R10), R6
+ 351 00d0 A600 0100 		ADDA	#1, R6
+ 352 00d4 0614 4018 		PUSHM.A	#1, R6 { POPX.W	R12 { POPX.W	R13 ; move pointer in R6 into reg-pair R12:R13
+ 352      3C41 4018 
+ 352      3D41 
+ 353 00de B013 0000 		CALLA	#__mspabi_slll_3
+ 354 00e2 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 354      0C16 
+ 355 00e8 EC08      		ADDA	R8, R12
+ 356 00ea 801F 5C9A 		CMPX.A	-8(R10), R12 { JNE	.L46
+ 356      F8FF 0020 
+ 357 00f2 0018 565C 		ADDX.A	4(R12), R6
+ 357      0400 
+ 358 00f8 7106 0000 		MOVA	R6, @R1
+ 359 00fc AA41 FCFF 		MOV.W	@R1, -4(R10)
+ 360 0100 0614 0D17 		PUSHM.A	#1,R6 { POPM.W	#1,R13 { POPM.W	#1,R13
+ 360      0D17 
+ 361 0106 7DF0 0F00 		AND.B	#15, R13
+ 362 010a 5E4A FEFF 		MOV.B	-2(R10), R14
+ 363 010e 7EF0 F0FF 		AND.B	#-16, R14
+ 364 0112 4EDD      		BIS.B	R13, R14
+ 365 0114 CA4E FEFF 		MOV.B	R14, -2(R10)
+ 366 0118 0F18 EA4C 		MOVX.A	@R12, -8(R10)
+ 366      F8FF 
+ 367               	.L46:
+ 368 011e 3604 0400 		MOVA	4(R4), R6
+ 369 0122 CC06      		MOVA	R6, R12
+ 370 0124 AC00 0100 		ADDA	#1, R12
+ 371 0128 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 371      3C41 4018 
+ 371      3D41 
+ 372 0132 B013 0000 		CALLA	#__mspabi_slll_3
+ 373 0136 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 373      0C16 
+ 374 013c EC04      		ADDA	R4, R12
+ 375 013e D80C 0020 		CMPA	R12, R8 { JNE	.L47
+ 376 0142 3C0A FCFF 		MOVA	-4(R10), R12
+ 377 0146 AC00 0100 		ADDA	#1, R12
+ 378 014a EC06      		ADDA	R6, R12
+ 379 014c 710C 0000 		MOVA	R12, @R1
+ 380 0150 A441 0400 		MOV.W	@R1, 4(R4)
+GAS LISTING /tmp/ccM7FYfm.s 			page 9
+
+
+ 381 0154 0C14 0C17 		PUSHM.A	#1,R12 { POPM.W	#1,R12 { POPM.W	#1,R12
+ 381      0C17 
+ 382 015a 7CF0 0F00 		AND.B	#15, R12
+ 383 015e 5D44 0600 		MOV.B	6(R4), R13
+ 384 0162 7DF0 F0FF 		AND.B	#-16, R13
+ 385 0166 4DDC      		BIS.B	R12, R13
+ 386 0168 C44D 0600 		MOV.B	R13, 6(R4)
+ 387 016c 801F D44A 		MOVX.A	-8(R10), @R4
+ 387      F8FF 0000 
+ 388               	.L47:
+ 389 0174 CC05      		MOVA	R5, R12
+ 390 0176 B013 0000 		CALLA	#chSemSignal
+ 391               		; start of epilogue
+ 392 017a A100 0400 		ADDA	#4, R1
+ 393 017e 6416      		POPM.A	#7, r10
+ 394 0180 1001      		RETA
+ 395               	.L44:
+ 396 0182 C40C      		MOVA	R12, R4
+ 397 0184 8000 0000 		BRA	#.L48
+ 398               		.size	chHeapFree, .-chHeapFree
+ 399               		.section	.text.chHeapStatus,"ax",@progbits
+ 400               		.balign 2
+ 401               		.global	chHeapStatus
+ 402               		.type	chHeapStatus, @function
+ 403               	chHeapStatus:
+ 404               	; start of function
+ 405               	; framesize_regs:     24
+ 406               	; framesize_locals:   0
+ 407               	; framesize_outgoing: 0
+ 408               	; framesize:          24
+ 409               	; elim ap -> fp       28
+ 410               	; elim fp -> sp       0
+ 411               	; saved regs: R4 R6 R7 R8 R9 R10
+ 412               		; start of prologue
+ 413 0000 4A14      		PUSHM.A	#5, R10
+ 414 0002 0414      		PUSHM.A	#1, R4
+ 415               		; end of prologue
+ 416 0004 C80C      		MOVA	R12, R8
+ 417 0006 C90D      		MOVA	R13, R9
+ 418 0008 C70E      		MOVA	R14, R7
+ 419 000a 9C00 0000 		CMPA	#0, R12 { JNE	.L58
+ 419      0020 
+ 420 0010 8800 0000 		MOVA	#default_heap, R8
+ 421               	.L58:
+ 422 0014 CA08      		MOVA	R8, R10
+ 423 0016 AA00 0C00 		ADDA	#12, R10
+ 424 001a 4D43      		MOV.B	#0, R13
+ 425 001c CC0A      		MOVA	R10, R12
+ 426 001e B013 0000 		CALLA	#chSemWaitTimeout
+ 427 0022 CC08      		MOVA	R8, R12
+ 428 0024 AC00 0400 		ADDA	#4, R12
+ 429 0028 4843      		MOV.B	#0, R8
+ 430 002a C408      		MOVA	R8, R4
+ 431 002c C608      		MOVA	R8, R6
+ 432               	.L59:
+ 433 002e 0C0C      		MOVA	@R12, R12
+ 434 0030 9C00 0000 		CMPA	#0, R12 { JNE	.L61
+GAS LISTING /tmp/ccM7FYfm.s 			page 10
+
+
+ 434      0020 
+ 435 0036 9900 0000 		CMPA	#0, R9 { JEQ	.L62
+ 435      0024 
+ 436 003c 0414 4018 		PUSHM.A	#1, R4 { POPX.W	R12 { POPX.W	R13 ; move pointer in R4 into reg-pair R12:R13
+ 436      3C41 4018 
+ 436      3D41 
+ 437 0046 B013 0000 		CALLA	#__mspabi_slll_3
+ 438 004a 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 438      0C16 
+ 439 0050 790C 0000 		MOVA	R12, @R9
+ 440               	.L62:
+ 441 0054 9700 0000 		CMPA	#0, R7 { JEQ	.L63
+ 441      0024 
+ 442 005a 0814 4018 		PUSHM.A	#1, R8 { POPX.W	R12 { POPX.W	R13 ; move pointer in R8 into reg-pair R12:R13
+ 442      3C41 4018 
+ 442      3D41 
+ 443 0064 B013 0000 		CALLA	#__mspabi_slll_3
+ 444 0068 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 444      0C16 
+ 445 006e 770C 0000 		MOVA	R12, @R7
+ 446               	.L63:
+ 447 0072 CC0A      		MOVA	R10, R12
+ 448 0074 B013 0000 		CALLA	#chSemSignal
+ 449 0078 CC06      		MOVA	R6, R12
+ 450               		; start of epilogue
+ 451 007a 0416      		POPM.A	#1, r4
+ 452 007c 4616      		POPM.A	#5, r10
+ 453 007e 1001      		RETA
+ 454               	.L61:
+ 455 0080 3E0C 0400 		MOVA	4(R12), R14
+ 456 0084 A600 0100 		ADDA	#1, R6
+ 457 0088 E40E      		ADDA	R14, R4
+ 458 008a D80E 002C 		CMPA	R14, R8 { JHS	.L59
+ 459 008e C80E      		MOVA	R14, R8
+ 460 0090 8000 0000 		BRA	#.L59
+ 461               		.size	chHeapStatus, .-chHeapStatus
+ 462               		.section	.upper.rodata,"a",@progbits
+ 463               		.type	__func__.2623, @object
+ 464               		.size	__func__.2623, 11
+ 465               	__func__.2623:
+ 466 0000 6368 4865 		.string	"chHeapFree"
+ 466      6170 4672 
+ 466      6565 00
+ 467               		.type	__func__.2609, @object
+ 468               		.size	__func__.2609, 19
+ 469               	__func__.2609:
+ 470 000b 6368 4865 		.string	"chHeapAllocAligned"
+ 470      6170 416C 
+ 470      6C6F 6341 
+ 470      6C69 676E 
+ 470      6564 00
+ 471               		.type	__func__.2600, @object
+ 472               		.size	__func__.2600, 17
+ 473               	__func__.2600:
+ 474 001e 6368 4865 		.string	"chHeapObjectInit"
+ 474      6170 4F62 
+ 474      6A65 6374 
+GAS LISTING /tmp/ccM7FYfm.s 			page 11
+
+
+ 474      496E 6974 
+ 474      00
+ 475               		.local	default_heap
+ 476               		.comm	default_heap,14,2
+ 477               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/ccM7FYfm.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 chheap.c
+     /tmp/ccM7FYfm.s:6      .text._heap_init:0000000000000000 _heap_init
+     /tmp/ccM7FYfm.s:476    .bss:0000000000000000 default_heap
+     /tmp/ccM7FYfm.s:30     .text.chHeapObjectInit:0000000000000000 chHeapObjectInit
+     /tmp/ccM7FYfm.s:473    .upper.rodata:000000000000001e __func__.2600
+     /tmp/ccM7FYfm.s:87     .text.chHeapAllocAligned:0000000000000000 chHeapAllocAligned
+     /tmp/ccM7FYfm.s:469    .upper.rodata:000000000000000b __func__.2609
+     /tmp/ccM7FYfm.s:282    .text.chHeapFree:0000000000000000 chHeapFree
+     /tmp/ccM7FYfm.s:465    .upper.rodata:0000000000000000 __func__.2623
+     /tmp/ccM7FYfm.s:403    .text.chHeapStatus:0000000000000000 chHeapStatus
+     /tmp/ccM7FYfm.s:54     .text.chHeapObjectInit:000000000000002e .L3
+     /tmp/ccM7FYfm.s:57     .text.chHeapObjectInit:0000000000000036 .L4
+     /tmp/ccM7FYfm.s:109    .text.chHeapAllocAligned:0000000000000028 .L13
+     /tmp/ccM7FYfm.s:112    .text.chHeapAllocAligned:0000000000000030 .L14
+     /tmp/ccM7FYfm.s:115    .text.chHeapAllocAligned:000000000000003a .L15
+     /tmp/ccM7FYfm.s:118    .text.chHeapAllocAligned:0000000000000040 .L16
+     /tmp/ccM7FYfm.s:155    .text.chHeapAllocAligned:00000000000000b2 .L23
+     /tmp/ccM7FYfm.s:258    .text.chHeapAllocAligned:0000000000000256 .L24
+     /tmp/ccM7FYfm.s:255    .text.chHeapAllocAligned:000000000000024e .L18
+     /tmp/ccM7FYfm.s:225    .text.chHeapAllocAligned:00000000000001dc .L19
+     /tmp/ccM7FYfm.s:209    .text.chHeapAllocAligned:00000000000001a4 .L20
+     /tmp/ccM7FYfm.s:150    .text.chHeapAllocAligned:00000000000000aa .L12
+     /tmp/ccM7FYfm.s:233    .text.chHeapAllocAligned:00000000000001f2 .L21
+     /tmp/ccM7FYfm.s:230    .text.chHeapAllocAligned:00000000000001ec .L37
+     /tmp/ccM7FYfm.s:140    .text.chHeapAllocAligned:000000000000008e .L17
+     /tmp/ccM7FYfm.s:148    .text.chHeapAllocAligned:00000000000000a8 .L25
+     /tmp/ccM7FYfm.s:222    .text.chHeapAllocAligned:00000000000001d4 .L38
+     /tmp/ccM7FYfm.s:299    .text.chHeapFree:000000000000001a .L40
+     /tmp/ccM7FYfm.s:302    .text.chHeapFree:0000000000000022 .L41
+     /tmp/ccM7FYfm.s:340    .text.chHeapFree:00000000000000b0 .L42
+     /tmp/ccM7FYfm.s:344    .text.chHeapFree:00000000000000ba .L43
+     /tmp/ccM7FYfm.s:395    .text.chHeapFree:0000000000000182 .L44
+     /tmp/ccM7FYfm.s:347    .text.chHeapFree:00000000000000c4 .L45
+     /tmp/ccM7FYfm.s:367    .text.chHeapFree:000000000000011e .L46
+     /tmp/ccM7FYfm.s:388    .text.chHeapFree:0000000000000174 .L47
+     /tmp/ccM7FYfm.s:329    .text.chHeapFree:0000000000000086 .L48
+     /tmp/ccM7FYfm.s:421    .text.chHeapStatus:0000000000000014 .L58
+     /tmp/ccM7FYfm.s:454    .text.chHeapStatus:0000000000000080 .L61
+     /tmp/ccM7FYfm.s:440    .text.chHeapStatus:0000000000000054 .L62
+     /tmp/ccM7FYfm.s:446    .text.chHeapStatus:0000000000000072 .L63
+     /tmp/ccM7FYfm.s:432    .text.chHeapStatus:000000000000002e .L59
+
+UNDEFINED SYMBOLS
+chCoreAllocAligned
+chSysHalt
+__mspabi_srll_3
+chSemWaitTimeout
+chSemSignal
+__mspabi_slll_3
+__mspabi_sral_3
+__crt0_init_bss

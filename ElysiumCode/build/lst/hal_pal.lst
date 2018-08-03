@@ -1,0 +1,172 @@
+GAS LISTING /tmp/ccehq8UL.s 			page 1
+
+
+   1               		.file	"hal_pal.c"
+   2               		.section	.text.palReadBus,"ax",@progbits
+   3               		.balign 2
+   4               		.global	palReadBus
+   5               		.type	palReadBus, @function
+   6               	palReadBus:
+   7               	; start of function
+   8               	; framesize_regs:     4
+   9               	; framesize_locals:   0
+  10               	; framesize_outgoing: 0
+  11               	; framesize:          4
+  12               	; elim ap -> fp       8
+  13               	; elim fp -> sp       0
+  14               	; saved regs: R10
+  15               		; start of prologue
+  16 0000 0A14      		PUSHM.A	#1, R10
+  17               		; end of prologue
+  18 0002 CA0C      		MOVA	R12, R10
+  19 0004 9C00 0000 		CMPA	#0, R12 { JEQ	.L2
+  19      0024 
+  20 000a 7C40 0F00 		MOV.B	#15, R12
+  21 000e 1C9A 0600 		CMP.W	6(R10), R12 { JHS	.L3
+  21      002C 
+  22               	.L2:
+  23 0014 8C00 0000 		MOVA	#__func__.3696, R12
+  24 0018 B013 0000 		CALLA	#chSysHalt
+  25               	.L3:
+  26 001c 0C0A      		MOVA	@R10, R12
+  27 001e 2C4C      		MOV.W	@R12, R12
+  28 0020 1D4A 0600 		MOV.W	6(R10), R13
+  29 0024 B013 0000 		CALLA	#__mspabi_srli
+  30 0028 1CFA 0400 		AND.W	4(R10), R12
+  31               		; start of epilogue
+  32 002c 0A16      		POPM.A	#1, r10
+  33 002e 1001      		RETA
+  34               		.size	palReadBus, .-palReadBus
+  35               		.section	.text.palWriteBus,"ax",@progbits
+  36               		.balign 2
+  37               		.global	palWriteBus
+  38               		.type	palWriteBus, @function
+  39               	palWriteBus:
+  40               	; start of function
+  41               	; framesize_regs:     24
+  42               	; framesize_locals:   0
+  43               	; framesize_outgoing: 0
+  44               	; framesize:          24
+  45               	; elim ap -> fp       28
+  46               	; elim fp -> sp       0
+  47               	; saved regs: R5 R6 R7 R8 R9 R10
+  48               		; start of prologue
+  49 0000 5A14      		PUSHM.A	#6, R10
+  50               		; end of prologue
+  51 0002 CA0C      		MOVA	R12, R10
+  52 0004 074D      		MOV.W	R13, R7
+  53 0006 9C00 0000 		CMPA	#0, R12 { JEQ	.L8
+  53      0024 
+  54 000c 7C40 0F00 		MOV.B	#15, R12
+GAS LISTING /tmp/ccehq8UL.s 			page 2
+
+
+  55 0010 1C9A 0600 		CMP.W	6(R10), R12 { JHS	.L9
+  55      002C 
+  56               	.L8:
+  57 0016 8C00 0000 		MOVA	#__func__.3701, R12
+  58 001a B013 0000 		CALLA	#chSysHalt
+  59               	.L9:
+  60 001e 080A      		MOVA	@R10, R8
+  61 0020 1948 0200 		MOV.W	2(R8), R9
+  62 0024 154A 0400 		MOV.W	4(R10), R5
+  63 0028 164A 0600 		MOV.W	6(R10), R6
+  64 002c 0C45      		MOV.W	R5, R12
+  65 002e 0D46      		MOV.W	R6, R13
+  66 0030 B013 0000 		CALLA	#__mspabi_slli
+  67 0034 09CC      		BIC.W	R12, R9
+  68 0036 0C45      		MOV.W	R5, R12
+  69 0038 0CF7      		AND.W	R7, R12
+  70 003a 0D46      		MOV.W	R6, R13
+  71 003c B013 0000 		CALLA	#__mspabi_slli
+  72 0040 09DC      		BIS.W	R12, R9
+  73 0042 8849 0200 		MOV.W	R9, 2(R8)
+  74               		; start of epilogue
+  75 0046 5516      		POPM.A	#6, r10
+  76 0048 1001      		RETA
+  77               		.size	palWriteBus, .-palWriteBus
+  78               		.section	.text.palSetBusMode,"ax",@progbits
+  79               		.balign 2
+  80               		.global	palSetBusMode
+  81               		.type	palSetBusMode, @function
+  82               	palSetBusMode:
+  83               	; start of function
+  84               	; framesize_regs:     8
+  85               	; framesize_locals:   0
+  86               	; framesize_outgoing: 0
+  87               	; framesize:          8
+  88               	; elim ap -> fp       12
+  89               	; elim fp -> sp       0
+  90               	; saved regs: R9 R10
+  91               		; start of prologue
+  92 0000 1A14      		PUSHM.A	#2, R10
+  93               		; end of prologue
+  94 0002 CA0C      		MOVA	R12, R10
+  95 0004 094D      		MOV.W	R13, R9
+  96 0006 9C00 0000 		CMPA	#0, R12 { JEQ	.L14
+  96      0024 
+  97 000c 7C40 0F00 		MOV.B	#15, R12
+  98 0010 1C9A 0600 		CMP.W	6(R10), R12 { JHS	.L15
+  98      002C 
+  99               	.L14:
+ 100 0016 8C00 0000 		MOVA	#__func__.3706, R12
+ 101 001a B013 0000 		CALLA	#chSysHalt
+ 102               	.L15:
+ 103 001e 1C4A 0400 		MOV.W	4(R10), R12
+ 104 0022 1D4A 0600 		MOV.W	6(R10), R13
+ 105 0026 B013 0000 		CALLA	#__mspabi_slli
+ 106 002a 0E49      		MOV.W	R9, R14
+ 107 002c 0D4C      		MOV.W	R12, R13
+ 108 002e 0C0A      		MOVA	@R10, R12
+GAS LISTING /tmp/ccehq8UL.s 			page 3
+
+
+ 109 0030 B013 0000 		CALLA	#_pal_lld_setgroupmode
+ 110               		; start of epilogue
+ 111 0034 1916      		POPM.A	#2, r10
+ 112 0036 1001      		RETA
+ 113               		.size	palSetBusMode, .-palSetBusMode
+ 114               		.section	.upper.rodata,"a",@progbits
+ 115               		.type	__func__.3706, @object
+ 116               		.size	__func__.3706, 14
+ 117               	__func__.3706:
+ 118 0000 7061 6C53 		.string	"palSetBusMode"
+ 118      6574 4275 
+ 118      734D 6F64 
+ 118      6500 
+ 119               		.type	__func__.3701, @object
+ 120               		.size	__func__.3701, 12
+ 121               	__func__.3701:
+ 122 000e 7061 6C57 		.string	"palWriteBus"
+ 122      7269 7465 
+ 122      4275 7300 
+ 123               		.type	__func__.3696, @object
+ 124               		.size	__func__.3696, 11
+ 125               	__func__.3696:
+ 126 001a 7061 6C52 		.string	"palReadBus"
+ 126      6561 6442 
+ 126      7573 00
+ 127               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/ccehq8UL.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 hal_pal.c
+     /tmp/ccehq8UL.s:6      .text.palReadBus:0000000000000000 palReadBus
+     /tmp/ccehq8UL.s:125    .upper.rodata:000000000000001a __func__.3696
+     /tmp/ccehq8UL.s:39     .text.palWriteBus:0000000000000000 palWriteBus
+     /tmp/ccehq8UL.s:121    .upper.rodata:000000000000000e __func__.3701
+     /tmp/ccehq8UL.s:82     .text.palSetBusMode:0000000000000000 palSetBusMode
+     /tmp/ccehq8UL.s:117    .upper.rodata:0000000000000000 __func__.3706
+     /tmp/ccehq8UL.s:22     .text.palReadBus:0000000000000014 .L2
+     /tmp/ccehq8UL.s:25     .text.palReadBus:000000000000001c .L3
+     /tmp/ccehq8UL.s:56     .text.palWriteBus:0000000000000016 .L8
+     /tmp/ccehq8UL.s:59     .text.palWriteBus:000000000000001e .L9
+     /tmp/ccehq8UL.s:99     .text.palSetBusMode:0000000000000016 .L14
+     /tmp/ccehq8UL.s:102    .text.palSetBusMode:000000000000001e .L15
+
+UNDEFINED SYMBOLS
+chSysHalt
+__mspabi_srli
+__mspabi_slli
+_pal_lld_setgroupmode

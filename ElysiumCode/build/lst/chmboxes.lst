@@ -1,0 +1,703 @@
+GAS LISTING /tmp/ccbE8Pmf.s 			page 1
+
+
+   1               		.file	"chmboxes.c"
+   2               		.section	.text.chMBObjectInit,"ax",@progbits
+   3               		.balign 2
+   4               		.global	chMBObjectInit
+   5               		.type	chMBObjectInit, @function
+   6               	chMBObjectInit:
+   7               	; start of function
+   8               	; framesize_regs:     12
+   9               	; framesize_locals:   4
+  10               	; framesize_outgoing: 0
+  11               	; framesize:          16
+  12               	; elim ap -> fp       16
+  13               	; elim fp -> sp       4
+  14               	; saved regs: R8 R9 R10
+  15               		; start of prologue
+  16 0000 2A14      		PUSHM.A	#3, R10
+  17 0002 B100 0400 		SUBA	#4, R1
+  18               		; end of prologue
+  19 0006 CA0C      		MOVA	R12, R10
+  20 0008 C80D      		MOVA	R13, R8
+  21 000a 094E      		MOV.W	R14, R9
+  22 000c 9C00 0000 		CMPA	#0, R12 { JEQ	.L2
+  22      0024 
+  23 0012 9D00 0000 		CMPA	#0, R13 { JEQ	.L2
+  23      0024 
+  24 0018 4C43      		MOV.B	#0, R12
+  25 001a 0C9E 0038 		CMP.W	R14, R12 { JL	.L3
+  26               	.L2:
+  27 001e 8C00 0000 		MOVA	#__func__.2595, R12
+  28 0022 B013 0000 		CALLA	#chSysHalt
+  29               	.L3:
+  30 0026 7A08 0000 		MOVA	R8, @R10
+  31 002a 7A08 0C00 		MOVA	R8, 12(R10)
+  32 002e 7A08 0800 		MOVA	R8, 8(R10)
+  33 0032 0D49      		MOV.W	R9, R13
+  34 0034 4D0E 4D0D 		RLAM.A #4, R13 { RRAM.A #4, R13
+  35 0038 0D14 4018 		PUSHM.A	#1, R13 { POPX.W	R12 { POPX.W	R13 ; move pointer in R13 into reg-pair R12:R13
+  35      3C41 4018 
+  35      3D41 
+  36 0042 0E4C      		MOV.W	R12, R14
+  37 0044 0F4D      		MOV.W	R13, R15
+  38 0046 0E5E 0F6F 		RLA.W	R14 { RLC.W	R15 { RLA.W	R14 { RLC.W	R15
+  38      0E5E 0F6F 
+  39 004e 814E 0000 		MOV.W	R14, @R1
+  40 0052 814F 0200 		MOV.W	R15, 2(R1)
+  41 0056 0018 6851 		ADDX.A	@R1, R8
+  42 005a 7A08 0400 		MOVA	R8, 4(R10)
+  43 005e 8A49 1200 		MOV.W	R9, 18(R10)
+  44 0062 8A43 1000 		MOV.W	#0, 16(R10)
+  45               		; start of epilogue
+  46 0066 A100 0400 		ADDA	#4, R1
+  47 006a 2816      		POPM.A	#3, r10
+  48 006c 1001      		RETA
+  49               		.size	chMBObjectInit, .-chMBObjectInit
+  50               		.section	.text.chMBResetI,"ax",@progbits
+  51               		.balign 2
+  52               		.global	chMBResetI
+GAS LISTING /tmp/ccbE8Pmf.s 			page 2
+
+
+  53               		.type	chMBResetI, @function
+  54               	chMBResetI:
+  55               	; start of function
+  56               	; framesize_regs:     8
+  57               	; framesize_locals:   0
+  58               	; framesize_outgoing: 0
+  59               	; framesize:          8
+  60               	; elim ap -> fp       12
+  61               	; elim fp -> sp       0
+  62               	; saved regs: R8 R10
+  63               		; start of prologue
+  64 0000 0A14      		PUSHM.A	#1, R10
+  65 0002 0814      		PUSHM.A	#1, R8
+  66               		; end of prologue
+  67 0004 CA0C      		MOVA	R12, R10
+  68 0006 9C00 0000 		CMPA	#0, R12 { JNE	.L10
+  68      0020 
+  69 000c 8C00 0000 		MOVA	#__func__.2602, R12
+  70 0010 B013 0000 		CALLA	#chSysHalt
+  71               	.L10:
+  72 0014 0E0A      		MOVA	@R10, R14
+  73 0016 7A0E 0800 		MOVA	R14, 8(R10)
+  74 001a 7A0E 0C00 		MOVA	R14, 12(R10)
+  75 001e 3C0A 0400 		MOVA	4(R10), R12
+  76 0022 FC0E      		SUBA	R14, R12
+  77 0024 0018 4D4C 		MOVX.A	R12, R13 { MOV.W	R12, R12 { RPT	#16 { RRAX.A	R13 ; sign extend pointer in R12 into R12:R13
+  77      0C4C 0F18 
+  77      4D11 
+  78 002e 0E4D      		MOV.W	R13, R14
+  79 0030 0D4C      		MOV.W	R12, R13
+  80 0032 0E11 0D10 		RRA.W	R14 { RRC.W	R13 { RRA.W	R14 { RRC.W	R13
+  80      0E11 0D10 
+  81 003a 8800 0000 		MOVA	#chSemResetI, R8
+  82 003e CC0A      		MOVA	R10, R12
+  83 0040 AC00 1200 		ADDA	#18, R12
+  84 0044 4813      		CALLA	R8
+  85 0046 4D43      		MOV.B	#0, R13
+  86 0048 CC0A      		MOVA	R10, R12
+  87 004a AC00 1000 		ADDA	#16, R12
+  88 004e 4813      		CALLA	R8
+  89               		; start of epilogue
+  90 0050 0816      		POPM.A	#1, r8
+  91 0052 0A16      		POPM.A	#1, r10
+  92 0054 1001      		RETA
+  93               		.size	chMBResetI, .-chMBResetI
+  94               		.section	.text.chMBReset,"ax",@progbits
+  95               		.balign 2
+  96               		.global	chMBReset
+  97               		.type	chMBReset, @function
+  98               	chMBReset:
+  99               	; start of function
+ 100               	; framesize_regs:     0
+ 101               	; framesize_locals:   0
+ 102               	; framesize_outgoing: 0
+ 103               	; framesize:          0
+ 104               	; elim ap -> fp       4
+ 105               	; elim fp -> sp       0
+GAS LISTING /tmp/ccbE8Pmf.s 			page 3
+
+
+ 106               	; saved regs:(none)
+ 107               		; start of prologue
+ 108               		; end of prologue
+ 109               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 110 0000 32C2 0343 		dint { nop
+ 111               	 ; 0 "" 2
+ 112               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 113 0004 0343      		nop
+ 114               	 ; 0 "" 2
+ 115 0006 B013 0000 		CALLA	#chMBResetI
+ 116 000a B013 0000 		CALLA	#chSchRescheduleS
+ 117               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 118 000e 0343      		nop
+ 119               	 ; 0 "" 2
+ 120               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 121 0010 0343 32D2 		nop { eint { nop
+ 121      0343 
+ 122               	 ; 0 "" 2
+ 123               		; start of epilogue
+ 124 0016 1001      		RETA
+ 125               		.size	chMBReset, .-chMBReset
+ 126               		.section	.text.chMBPostS,"ax",@progbits
+ 127               		.balign 2
+ 128               		.global	chMBPostS
+ 129               		.type	chMBPostS, @function
+ 130               	chMBPostS:
+ 131               	; start of function
+ 132               	; framesize_regs:     12
+ 133               	; framesize_locals:   0
+ 134               	; framesize_outgoing: 0
+ 135               	; framesize:          12
+ 136               	; elim ap -> fp       16
+ 137               	; elim fp -> sp       0
+ 138               	; saved regs: R6 R8 R10
+ 139               		; start of prologue
+ 140 0000 0A14      		PUSHM.A	#1, R10
+ 141 0002 0814      		PUSHM.A	#1, R8
+ 142 0004 0614      		PUSHM.A	#1, R6
+ 143               		; end of prologue
+ 144 0006 CA0C      		MOVA	R12, R10
+ 145 0008 C60D      		MOVA	R13, R6
+ 146 000a 084E      		MOV.W	R14, R8
+ 147 000c 9C00 0000 		CMPA	#0, R12 { JNE	.L13
+ 147      0020 
+ 148 0012 8C00 0000 		MOVA	#__func__.2615, R12
+ 149 0016 B013 0000 		CALLA	#chSysHalt
+ 150               	.L13:
+ 151 001a 0D48      		MOV.W	R8, R13
+ 152 001c CC0A      		MOVA	R10, R12
+ 153 001e AC00 1200 		ADDA	#18, R12
+ 154 0022 B013 0000 		CALLA	#chSemWaitTimeoutS
+ 155 0026 C80C      		MOVA	R12, R8
+ 156 0028 9C00 0000 		CMPA	#0, R12 { JNE	.L12
+ 156      0020 
+ 157 002e 3E0A 0800 		MOVA	8(R10), R14
+ 158 0032 CC0E      		MOVA	R14, R12
+ 159 0034 AC00 0400 		ADDA	#4, R12
+GAS LISTING /tmp/ccbE8Pmf.s 			page 4
+
+
+ 160 0038 7A0C 0800 		MOVA	R12, 8(R10)
+ 161 003c 7E06 0000 		MOVA	R6, @R14
+ 162 0040 0018 5C9A 		CMPX.A	4(R10), R12 { JLO	.L15
+ 162      0400 0028 
+ 163 0048 0018 EA4A 		MOVX.A	@R10, 8(R10)
+ 163      0800 
+ 164               	.L15:
+ 165 004e CC0A      		MOVA	R10, R12
+ 166 0050 AC00 1000 		ADDA	#16, R12
+ 167 0054 B013 0000 		CALLA	#chSemSignalI
+ 168 0058 B013 0000 		CALLA	#chSchRescheduleS
+ 169               	.L12:
+ 170 005c CC08      		MOVA	R8, R12
+ 171               		; start of epilogue
+ 172 005e 0616      		POPM.A	#1, r6
+ 173 0060 0816      		POPM.A	#1, r8
+ 174 0062 0A16      		POPM.A	#1, r10
+ 175 0064 1001      		RETA
+ 176               		.size	chMBPostS, .-chMBPostS
+ 177               		.section	.text.chMBPost,"ax",@progbits
+ 178               		.balign 2
+ 179               		.global	chMBPost
+ 180               		.type	chMBPost, @function
+ 181               	chMBPost:
+ 182               	; start of function
+ 183               	; framesize_regs:     0
+ 184               	; framesize_locals:   0
+ 185               	; framesize_outgoing: 0
+ 186               	; framesize:          0
+ 187               	; elim ap -> fp       4
+ 188               	; elim fp -> sp       0
+ 189               	; saved regs:(none)
+ 190               		; start of prologue
+ 191               		; end of prologue
+ 192               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 193 0000 32C2 0343 		dint { nop
+ 194               	 ; 0 "" 2
+ 195               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 196 0004 0343      		nop
+ 197               	 ; 0 "" 2
+ 198 0006 B013 0000 		CALLA	#chMBPostS
+ 199               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 200 000a 0343      		nop
+ 201               	 ; 0 "" 2
+ 202               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 203 000c 0343 32D2 		nop { eint { nop
+ 203      0343 
+ 204               	 ; 0 "" 2
+ 205               		; start of epilogue
+ 206 0012 1001      		RETA
+ 207               		.size	chMBPost, .-chMBPost
+ 208               		.section	.text.chMBPostI,"ax",@progbits
+ 209               		.balign 2
+ 210               		.global	chMBPostI
+ 211               		.type	chMBPostI, @function
+ 212               	chMBPostI:
+ 213               	; start of function
+GAS LISTING /tmp/ccbE8Pmf.s 			page 5
+
+
+ 214               	; framesize_regs:     8
+ 215               	; framesize_locals:   0
+ 216               	; framesize_outgoing: 0
+ 217               	; framesize:          8
+ 218               	; elim ap -> fp       12
+ 219               	; elim fp -> sp       0
+ 220               	; saved regs: R8 R10
+ 221               		; start of prologue
+ 222 0000 0A14      		PUSHM.A	#1, R10
+ 223 0002 0814      		PUSHM.A	#1, R8
+ 224               		; end of prologue
+ 225 0004 CA0C      		MOVA	R12, R10
+ 226 0006 C80D      		MOVA	R13, R8
+ 227 0008 9C00 0000 		CMPA	#0, R12 { JNE	.L18
+ 227      0020 
+ 228 000e 8C00 0000 		MOVA	#__func__.2620, R12
+ 229 0012 B013 0000 		CALLA	#chSysHalt
+ 230               	.L18:
+ 231 0016 1C4A 1200 		MOV.W	18(R10), R12
+ 232 001a 4D43      		MOV.B	#0, R13
+ 233 001c 0D9C 0034 		CMP.W	R12, R13 { JGE	.L21
+ 234 0020 BA53 1200 		ADD.W	#-1, 18(R10)
+ 235 0024 3E0A 0800 		MOVA	8(R10), R14
+ 236 0028 CC0E      		MOVA	R14, R12
+ 237 002a AC00 0400 		ADDA	#4, R12
+ 238 002e 7A0C 0800 		MOVA	R12, 8(R10)
+ 239 0032 7E08 0000 		MOVA	R8, @R14
+ 240 0036 0018 5C9A 		CMPX.A	4(R10), R12 { JLO	.L20
+ 240      0400 0028 
+ 241 003e 0018 EA4A 		MOVX.A	@R10, 8(R10)
+ 241      0800 
+ 242               	.L20:
+ 243 0044 CC0A      		MOVA	R10, R12
+ 244 0046 AC00 1000 		ADDA	#16, R12
+ 245 004a B013 0000 		CALLA	#chSemSignalI
+ 246 004e 4C43      		MOV.B	#0, R12
+ 247               	.L17:
+ 248               		; start of epilogue
+ 249 0050 0816      		POPM.A	#1, r8
+ 250 0052 0A16      		POPM.A	#1, r10
+ 251 0054 1001      		RETA
+ 252               	.L21:
+ 253 0056 8C0F FFFF 		MOVA	#-1, R12
+ 254 005a 8000 0000 		BRA	#.L17
+ 255               		.size	chMBPostI, .-chMBPostI
+ 256               		.section	.text.chMBPostAheadS,"ax",@progbits
+ 257               		.balign 2
+ 258               		.global	chMBPostAheadS
+ 259               		.type	chMBPostAheadS, @function
+ 260               	chMBPostAheadS:
+ 261               	; start of function
+ 262               	; framesize_regs:     12
+ 263               	; framesize_locals:   0
+ 264               	; framesize_outgoing: 0
+ 265               	; framesize:          12
+ 266               	; elim ap -> fp       16
+ 267               	; elim fp -> sp       0
+GAS LISTING /tmp/ccbE8Pmf.s 			page 6
+
+
+ 268               	; saved regs: R6 R8 R10
+ 269               		; start of prologue
+ 270 0000 0A14      		PUSHM.A	#1, R10
+ 271 0002 0814      		PUSHM.A	#1, R8
+ 272 0004 0614      		PUSHM.A	#1, R6
+ 273               		; end of prologue
+ 274 0006 CA0C      		MOVA	R12, R10
+ 275 0008 C60D      		MOVA	R13, R6
+ 276 000a 084E      		MOV.W	R14, R8
+ 277 000c 9C00 0000 		CMPA	#0, R12 { JNE	.L23
+ 277      0020 
+ 278 0012 8C00 0000 		MOVA	#__func__.2633, R12
+ 279 0016 B013 0000 		CALLA	#chSysHalt
+ 280               	.L23:
+ 281 001a 0D48      		MOV.W	R8, R13
+ 282 001c CC0A      		MOVA	R10, R12
+ 283 001e AC00 1200 		ADDA	#18, R12
+ 284 0022 B013 0000 		CALLA	#chSemWaitTimeoutS
+ 285 0026 C80C      		MOVA	R12, R8
+ 286 0028 9C00 0000 		CMPA	#0, R12 { JNE	.L22
+ 286      0020 
+ 287 002e 3C0A 0C00 		MOVA	12(R10), R12
+ 288 0032 AC0F FCFF 		ADDA	#-4, R12
+ 289 0036 7A0C 0C00 		MOVA	R12, 12(R10)
+ 290 003a 0018 6C9A 		CMPX.A	@R10, R12 { JHS	.L25
+ 290      002C 
+ 291 0040 3C0A 0400 		MOVA	4(R10), R12
+ 292 0044 AC0F FCFF 		ADDA	#-4, R12
+ 293 0048 7A0C 0C00 		MOVA	R12, 12(R10)
+ 294               	.L25:
+ 295 004c 3C0A 0C00 		MOVA	12(R10), R12
+ 296 0050 7C06 0000 		MOVA	R6, @R12
+ 297 0054 CC0A      		MOVA	R10, R12
+ 298 0056 AC00 1000 		ADDA	#16, R12
+ 299 005a B013 0000 		CALLA	#chSemSignalI
+ 300 005e B013 0000 		CALLA	#chSchRescheduleS
+ 301               	.L22:
+ 302 0062 CC08      		MOVA	R8, R12
+ 303               		; start of epilogue
+ 304 0064 0616      		POPM.A	#1, r6
+ 305 0066 0816      		POPM.A	#1, r8
+ 306 0068 0A16      		POPM.A	#1, r10
+ 307 006a 1001      		RETA
+ 308               		.size	chMBPostAheadS, .-chMBPostAheadS
+ 309               		.section	.text.chMBPostAhead,"ax",@progbits
+ 310               		.balign 2
+ 311               		.global	chMBPostAhead
+ 312               		.type	chMBPostAhead, @function
+ 313               	chMBPostAhead:
+ 314               	; start of function
+ 315               	; framesize_regs:     0
+ 316               	; framesize_locals:   0
+ 317               	; framesize_outgoing: 0
+ 318               	; framesize:          0
+ 319               	; elim ap -> fp       4
+ 320               	; elim fp -> sp       0
+ 321               	; saved regs:(none)
+GAS LISTING /tmp/ccbE8Pmf.s 			page 7
+
+
+ 322               		; start of prologue
+ 323               		; end of prologue
+ 324               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 325 0000 32C2 0343 		dint { nop
+ 326               	 ; 0 "" 2
+ 327               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 328 0004 0343      		nop
+ 329               	 ; 0 "" 2
+ 330 0006 B013 0000 		CALLA	#chMBPostAheadS
+ 331               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 332 000a 0343      		nop
+ 333               	 ; 0 "" 2
+ 334               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 335 000c 0343 32D2 		nop { eint { nop
+ 335      0343 
+ 336               	 ; 0 "" 2
+ 337               		; start of epilogue
+ 338 0012 1001      		RETA
+ 339               		.size	chMBPostAhead, .-chMBPostAhead
+ 340               		.section	.text.chMBPostAheadI,"ax",@progbits
+ 341               		.balign 2
+ 342               		.global	chMBPostAheadI
+ 343               		.type	chMBPostAheadI, @function
+ 344               	chMBPostAheadI:
+ 345               	; start of function
+ 346               	; framesize_regs:     8
+ 347               	; framesize_locals:   0
+ 348               	; framesize_outgoing: 0
+ 349               	; framesize:          8
+ 350               	; elim ap -> fp       12
+ 351               	; elim fp -> sp       0
+ 352               	; saved regs: R8 R10
+ 353               		; start of prologue
+ 354 0000 0A14      		PUSHM.A	#1, R10
+ 355 0002 0814      		PUSHM.A	#1, R8
+ 356               		; end of prologue
+ 357 0004 CA0C      		MOVA	R12, R10
+ 358 0006 C80D      		MOVA	R13, R8
+ 359 0008 9C00 0000 		CMPA	#0, R12 { JNE	.L28
+ 359      0020 
+ 360 000e 8C00 0000 		MOVA	#__func__.2638, R12
+ 361 0012 B013 0000 		CALLA	#chSysHalt
+ 362               	.L28:
+ 363 0016 1C4A 1200 		MOV.W	18(R10), R12
+ 364 001a 4D43      		MOV.B	#0, R13
+ 365 001c 0D9C 0034 		CMP.W	R12, R13 { JGE	.L31
+ 366 0020 BA53 1200 		ADD.W	#-1, 18(R10)
+ 367 0024 3C0A 0C00 		MOVA	12(R10), R12
+ 368 0028 AC0F FCFF 		ADDA	#-4, R12
+ 369 002c 7A0C 0C00 		MOVA	R12, 12(R10)
+ 370 0030 0018 6C9A 		CMPX.A	@R10, R12 { JHS	.L30
+ 370      002C 
+ 371 0036 3C0A 0400 		MOVA	4(R10), R12
+ 372 003a AC0F FCFF 		ADDA	#-4, R12
+ 373 003e 7A0C 0C00 		MOVA	R12, 12(R10)
+ 374               	.L30:
+ 375 0042 3C0A 0C00 		MOVA	12(R10), R12
+GAS LISTING /tmp/ccbE8Pmf.s 			page 8
+
+
+ 376 0046 7C08 0000 		MOVA	R8, @R12
+ 377 004a CC0A      		MOVA	R10, R12
+ 378 004c AC00 1000 		ADDA	#16, R12
+ 379 0050 B013 0000 		CALLA	#chSemSignalI
+ 380 0054 4C43      		MOV.B	#0, R12
+ 381               	.L27:
+ 382               		; start of epilogue
+ 383 0056 0816      		POPM.A	#1, r8
+ 384 0058 0A16      		POPM.A	#1, r10
+ 385 005a 1001      		RETA
+ 386               	.L31:
+ 387 005c 8C0F FFFF 		MOVA	#-1, R12
+ 388 0060 8000 0000 		BRA	#.L27
+ 389               		.size	chMBPostAheadI, .-chMBPostAheadI
+ 390               		.section	.text.chMBFetchS,"ax",@progbits
+ 391               		.balign 2
+ 392               		.global	chMBFetchS
+ 393               		.type	chMBFetchS, @function
+ 394               	chMBFetchS:
+ 395               	; start of function
+ 396               	; framesize_regs:     12
+ 397               	; framesize_locals:   0
+ 398               	; framesize_outgoing: 0
+ 399               	; framesize:          12
+ 400               	; elim ap -> fp       16
+ 401               	; elim fp -> sp       0
+ 402               	; saved regs: R6 R8 R10
+ 403               		; start of prologue
+ 404 0000 0A14      		PUSHM.A	#1, R10
+ 405 0002 0814      		PUSHM.A	#1, R8
+ 406 0004 0614      		PUSHM.A	#1, R6
+ 407               		; end of prologue
+ 408 0006 CA0C      		MOVA	R12, R10
+ 409 0008 C80D      		MOVA	R13, R8
+ 410 000a 064E      		MOV.W	R14, R6
+ 411 000c 9C00 0000 		CMPA	#0, R12 { JEQ	.L33
+ 411      0024 
+ 412 0012 9D00 0000 		CMPA	#0, R13 { JNE	.L34
+ 412      0020 
+ 413               	.L33:
+ 414 0018 8C00 0000 		MOVA	#__func__.2651, R12
+ 415 001c B013 0000 		CALLA	#chSysHalt
+ 416               	.L34:
+ 417 0020 0D46      		MOV.W	R6, R13
+ 418 0022 CC0A      		MOVA	R10, R12
+ 419 0024 AC00 1000 		ADDA	#16, R12
+ 420 0028 B013 0000 		CALLA	#chSemWaitTimeoutS
+ 421 002c C60C      		MOVA	R12, R6
+ 422 002e 9C00 0000 		CMPA	#0, R12 { JNE	.L32
+ 422      0020 
+ 423 0034 3C0A 0C00 		MOVA	12(R10), R12
+ 424 0038 CE0C      		MOVA	R12, R14
+ 425 003a AE00 0400 		ADDA	#4, R14
+ 426 003e 7A0E 0C00 		MOVA	R14, 12(R10)
+ 427 0042 0018 E84C 		MOVX.A	@R12, @R8
+ 427      0000 
+ 428 0048 0018 5E9A 		CMPX.A	4(R10), R14 { JLO	.L36
+GAS LISTING /tmp/ccbE8Pmf.s 			page 9
+
+
+ 428      0400 0028 
+ 429 0050 0018 EA4A 		MOVX.A	@R10, 12(R10)
+ 429      0C00 
+ 430               	.L36:
+ 431 0056 CC0A      		MOVA	R10, R12
+ 432 0058 AC00 1200 		ADDA	#18, R12
+ 433 005c B013 0000 		CALLA	#chSemSignalI
+ 434 0060 B013 0000 		CALLA	#chSchRescheduleS
+ 435               	.L32:
+ 436 0064 CC06      		MOVA	R6, R12
+ 437               		; start of epilogue
+ 438 0066 0616      		POPM.A	#1, r6
+ 439 0068 0816      		POPM.A	#1, r8
+ 440 006a 0A16      		POPM.A	#1, r10
+ 441 006c 1001      		RETA
+ 442               		.size	chMBFetchS, .-chMBFetchS
+ 443               		.section	.text.chMBFetch,"ax",@progbits
+ 444               		.balign 2
+ 445               		.global	chMBFetch
+ 446               		.type	chMBFetch, @function
+ 447               	chMBFetch:
+ 448               	; start of function
+ 449               	; framesize_regs:     0
+ 450               	; framesize_locals:   0
+ 451               	; framesize_outgoing: 0
+ 452               	; framesize:          0
+ 453               	; elim ap -> fp       4
+ 454               	; elim fp -> sp       0
+ 455               	; saved regs:(none)
+ 456               		; start of prologue
+ 457               		; end of prologue
+ 458               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 459 0000 32C2 0343 		dint { nop
+ 460               	 ; 0 "" 2
+ 461               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 462 0004 0343      		nop
+ 463               	 ; 0 "" 2
+ 464 0006 B013 0000 		CALLA	#chMBFetchS
+ 465               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 466 000a 0343      		nop
+ 467               	 ; 0 "" 2
+ 468               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 469 000c 0343 32D2 		nop { eint { nop
+ 469      0343 
+ 470               	 ; 0 "" 2
+ 471               		; start of epilogue
+ 472 0012 1001      		RETA
+ 473               		.size	chMBFetch, .-chMBFetch
+ 474               		.section	.text.chMBFetchI,"ax",@progbits
+ 475               		.balign 2
+ 476               		.global	chMBFetchI
+ 477               		.type	chMBFetchI, @function
+ 478               	chMBFetchI:
+ 479               	; start of function
+ 480               	; framesize_regs:     8
+ 481               	; framesize_locals:   0
+ 482               	; framesize_outgoing: 0
+GAS LISTING /tmp/ccbE8Pmf.s 			page 10
+
+
+ 483               	; framesize:          8
+ 484               	; elim ap -> fp       12
+ 485               	; elim fp -> sp       0
+ 486               	; saved regs: R8 R10
+ 487               		; start of prologue
+ 488 0000 0A14      		PUSHM.A	#1, R10
+ 489 0002 0814      		PUSHM.A	#1, R8
+ 490               		; end of prologue
+ 491 0004 CA0C      		MOVA	R12, R10
+ 492 0006 C80D      		MOVA	R13, R8
+ 493 0008 9C00 0000 		CMPA	#0, R12 { JEQ	.L42
+ 493      0024 
+ 494 000e 9D00 0000 		CMPA	#0, R13 { JNE	.L43
+ 494      0020 
+ 495               	.L42:
+ 496 0014 8C00 0000 		MOVA	#__func__.2656, R12
+ 497 0018 B013 0000 		CALLA	#chSysHalt
+ 498               	.L43:
+ 499 001c 1C4A 1000 		MOV.W	16(R10), R12
+ 500 0020 4D43      		MOV.B	#0, R13
+ 501 0022 0D9C 0034 		CMP.W	R12, R13 { JGE	.L46
+ 502 0026 BA53 1000 		ADD.W	#-1, 16(R10)
+ 503 002a 3E0A 0C00 		MOVA	12(R10), R14
+ 504 002e CC0E      		MOVA	R14, R12
+ 505 0030 AC00 0400 		ADDA	#4, R12
+ 506 0034 7A0C 0C00 		MOVA	R12, 12(R10)
+ 507 0038 0018 E84E 		MOVX.A	@R14, @R8
+ 507      0000 
+ 508 003e 0018 5C9A 		CMPX.A	4(R10), R12 { JLO	.L45
+ 508      0400 0028 
+ 509 0046 0018 EA4A 		MOVX.A	@R10, 12(R10)
+ 509      0C00 
+ 510               	.L45:
+ 511 004c CC0A      		MOVA	R10, R12
+ 512 004e AC00 1200 		ADDA	#18, R12
+ 513 0052 B013 0000 		CALLA	#chSemSignalI
+ 514 0056 4C43      		MOV.B	#0, R12
+ 515               	.L41:
+ 516               		; start of epilogue
+ 517 0058 0816      		POPM.A	#1, r8
+ 518 005a 0A16      		POPM.A	#1, r10
+ 519 005c 1001      		RETA
+ 520               	.L46:
+ 521 005e 8C0F FFFF 		MOVA	#-1, R12
+ 522 0062 8000 0000 		BRA	#.L41
+ 523               		.size	chMBFetchI, .-chMBFetchI
+ 524               		.section	.upper.rodata,"a",@progbits
+ 525               		.type	__func__.2656, @object
+ 526               		.size	__func__.2656, 11
+ 527               	__func__.2656:
+ 528 0000 6368 4D42 		.string	"chMBFetchI"
+ 528      4665 7463 
+ 528      6849 00
+ 529               		.type	__func__.2651, @object
+ 530               		.size	__func__.2651, 11
+ 531               	__func__.2651:
+ 532 000b 6368 4D42 		.string	"chMBFetchS"
+GAS LISTING /tmp/ccbE8Pmf.s 			page 11
+
+
+ 532      4665 7463 
+ 532      6853 00
+ 533               		.type	__func__.2638, @object
+ 534               		.size	__func__.2638, 15
+ 535               	__func__.2638:
+ 536 0016 6368 4D42 		.string	"chMBPostAheadI"
+ 536      506F 7374 
+ 536      4168 6561 
+ 536      6449 00
+ 537               		.type	__func__.2633, @object
+ 538               		.size	__func__.2633, 15
+ 539               	__func__.2633:
+ 540 0025 6368 4D42 		.string	"chMBPostAheadS"
+ 540      506F 7374 
+ 540      4168 6561 
+ 540      6453 00
+ 541               		.type	__func__.2620, @object
+ 542               		.size	__func__.2620, 10
+ 543               	__func__.2620:
+ 544 0034 6368 4D42 		.string	"chMBPostI"
+ 544      506F 7374 
+ 544      4900 
+ 545               		.type	__func__.2615, @object
+ 546               		.size	__func__.2615, 10
+ 547               	__func__.2615:
+ 548 003e 6368 4D42 		.string	"chMBPostS"
+ 548      506F 7374 
+ 548      5300 
+ 549               		.type	__func__.2602, @object
+ 550               		.size	__func__.2602, 11
+ 551               	__func__.2602:
+ 552 0048 6368 4D42 		.string	"chMBResetI"
+ 552      5265 7365 
+ 552      7449 00
+ 553               		.type	__func__.2595, @object
+ 554               		.size	__func__.2595, 15
+ 555               	__func__.2595:
+ 556 0053 6368 4D42 		.string	"chMBObjectInit"
+ 556      4F62 6A65 
+ 556      6374 496E 
+ 556      6974 00
+ 557               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/ccbE8Pmf.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 chmboxes.c
+     /tmp/ccbE8Pmf.s:6      .text.chMBObjectInit:0000000000000000 chMBObjectInit
+     /tmp/ccbE8Pmf.s:555    .upper.rodata:0000000000000053 __func__.2595
+     /tmp/ccbE8Pmf.s:54     .text.chMBResetI:0000000000000000 chMBResetI
+     /tmp/ccbE8Pmf.s:551    .upper.rodata:0000000000000048 __func__.2602
+     /tmp/ccbE8Pmf.s:98     .text.chMBReset:0000000000000000 chMBReset
+     /tmp/ccbE8Pmf.s:130    .text.chMBPostS:0000000000000000 chMBPostS
+     /tmp/ccbE8Pmf.s:547    .upper.rodata:000000000000003e __func__.2615
+     /tmp/ccbE8Pmf.s:181    .text.chMBPost:0000000000000000 chMBPost
+     /tmp/ccbE8Pmf.s:212    .text.chMBPostI:0000000000000000 chMBPostI
+     /tmp/ccbE8Pmf.s:543    .upper.rodata:0000000000000034 __func__.2620
+     /tmp/ccbE8Pmf.s:260    .text.chMBPostAheadS:0000000000000000 chMBPostAheadS
+     /tmp/ccbE8Pmf.s:539    .upper.rodata:0000000000000025 __func__.2633
+     /tmp/ccbE8Pmf.s:313    .text.chMBPostAhead:0000000000000000 chMBPostAhead
+     /tmp/ccbE8Pmf.s:344    .text.chMBPostAheadI:0000000000000000 chMBPostAheadI
+     /tmp/ccbE8Pmf.s:535    .upper.rodata:0000000000000016 __func__.2638
+     /tmp/ccbE8Pmf.s:394    .text.chMBFetchS:0000000000000000 chMBFetchS
+     /tmp/ccbE8Pmf.s:531    .upper.rodata:000000000000000b __func__.2651
+     /tmp/ccbE8Pmf.s:447    .text.chMBFetch:0000000000000000 chMBFetch
+     /tmp/ccbE8Pmf.s:478    .text.chMBFetchI:0000000000000000 chMBFetchI
+     /tmp/ccbE8Pmf.s:527    .upper.rodata:0000000000000000 __func__.2656
+     /tmp/ccbE8Pmf.s:26     .text.chMBObjectInit:000000000000001e .L2
+     /tmp/ccbE8Pmf.s:29     .text.chMBObjectInit:0000000000000026 .L3
+     /tmp/ccbE8Pmf.s:71     .text.chMBResetI:0000000000000014 .L10
+     /tmp/ccbE8Pmf.s:150    .text.chMBPostS:000000000000001a .L13
+     /tmp/ccbE8Pmf.s:169    .text.chMBPostS:000000000000005c .L12
+     /tmp/ccbE8Pmf.s:164    .text.chMBPostS:000000000000004e .L15
+     /tmp/ccbE8Pmf.s:230    .text.chMBPostI:0000000000000016 .L18
+     /tmp/ccbE8Pmf.s:252    .text.chMBPostI:0000000000000056 .L21
+     /tmp/ccbE8Pmf.s:242    .text.chMBPostI:0000000000000044 .L20
+     /tmp/ccbE8Pmf.s:247    .text.chMBPostI:0000000000000050 .L17
+     /tmp/ccbE8Pmf.s:280    .text.chMBPostAheadS:000000000000001a .L23
+     /tmp/ccbE8Pmf.s:301    .text.chMBPostAheadS:0000000000000062 .L22
+     /tmp/ccbE8Pmf.s:294    .text.chMBPostAheadS:000000000000004c .L25
+     /tmp/ccbE8Pmf.s:362    .text.chMBPostAheadI:0000000000000016 .L28
+     /tmp/ccbE8Pmf.s:386    .text.chMBPostAheadI:000000000000005c .L31
+     /tmp/ccbE8Pmf.s:374    .text.chMBPostAheadI:0000000000000042 .L30
+     /tmp/ccbE8Pmf.s:381    .text.chMBPostAheadI:0000000000000056 .L27
+     /tmp/ccbE8Pmf.s:413    .text.chMBFetchS:0000000000000018 .L33
+     /tmp/ccbE8Pmf.s:416    .text.chMBFetchS:0000000000000020 .L34
+     /tmp/ccbE8Pmf.s:435    .text.chMBFetchS:0000000000000064 .L32
+     /tmp/ccbE8Pmf.s:430    .text.chMBFetchS:0000000000000056 .L36
+     /tmp/ccbE8Pmf.s:495    .text.chMBFetchI:0000000000000014 .L42
+     /tmp/ccbE8Pmf.s:498    .text.chMBFetchI:000000000000001c .L43
+     /tmp/ccbE8Pmf.s:520    .text.chMBFetchI:000000000000005e .L46
+     /tmp/ccbE8Pmf.s:510    .text.chMBFetchI:000000000000004c .L45
+     /tmp/ccbE8Pmf.s:515    .text.chMBFetchI:0000000000000058 .L41
+
+UNDEFINED SYMBOLS
+chSysHalt
+chSemResetI
+chSchRescheduleS
+chSemWaitTimeoutS
+chSemSignalI

@@ -1,0 +1,63 @@
+GAS LISTING /tmp/ccOTYz90.s 			page 1
+
+
+   1               		.file	"hal_lld.c"
+   2               		.section	.text.hal_lld_init,"ax",@progbits
+   3               		.balign 2
+   4               		.global	hal_lld_init
+   5               		.type	hal_lld_init, @function
+   6               	hal_lld_init:
+   7               	; start of function
+   8               	; framesize_regs:     0
+   9               	; framesize_locals:   0
+  10               	; framesize_outgoing: 0
+  11               	; framesize:          0
+  12               	; elim ap -> fp       4
+  13               	; elim fp -> sp       0
+  14               	; saved regs:(none)
+  15               		; start of prologue
+  16               		; end of prologue
+  17 0000 4018 B240 		MOVX.W	#23168, &WDTCTL
+  17      805A 0000 
+  18 0008 C01F B240 		MOVX.W	#-23280, &FRCTL0
+  18      10A5 0000 
+  19 0010 4018 F243 		MOVX.B	#-1, &FRCTL0_H
+  19      0000 
+  20 0016 C01F B240 		MOVX.W	#-23296, &CSCTL0
+  20      00A5 0000 
+  21 001e 4018 B240 		MOVX.W	#72, &CSCTL1
+  21      4800 0000 
+  22 0026 4018 B240 		MOVX.W	#307, &CSCTL2
+  22      3301 0000 
+  23 002e 4018 8243 		MOVX.W	#0, &CSCTL3
+  23      0000 
+  24 0034 C01F B240 		MOVX.W	#-15927, &CSCTL4
+  24      C9C1 0000 
+  25 003c 4018 B240 		MOVX.W	#15, &CSCTL6
+  25      0F00 0000 
+  26 0044 4018 F243 		MOVX.B	#-1, &CSCTL0_H
+  26      0000 
+  27 004a B013 0000 		CALLA	#dmaInit
+  28               		; start of epilogue
+  29 004e 1001      		RETA
+  30               		.size	hal_lld_init, .-hal_lld_init
+  31               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/ccOTYz90.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 hal_lld.c
+     /tmp/ccOTYz90.s:6      .text.hal_lld_init:0000000000000000 hal_lld_init
+
+UNDEFINED SYMBOLS
+WDTCTL
+FRCTL0
+FRCTL0_H
+CSCTL0
+CSCTL1
+CSCTL2
+CSCTL3
+CSCTL4
+CSCTL6
+CSCTL0_H
+dmaInit

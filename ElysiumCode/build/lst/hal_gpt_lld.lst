@@ -1,0 +1,340 @@
+GAS LISTING /tmp/ccAdx68o.s 			page 1
+
+
+   1               		.file	"hal_gpt_lld.c"
+   2               		.section	.text.gpt_lld_init,"ax",@progbits
+   3               		.balign 2
+   4               		.global	gpt_lld_init
+   5               		.type	gpt_lld_init, @function
+   6               	gpt_lld_init:
+   7               	; start of function
+   8               	; framesize_regs:     0
+   9               	; framesize_locals:   0
+  10               	; framesize_outgoing: 0
+  11               	; framesize:          0
+  12               	; elim ap -> fp       4
+  13               	; elim fp -> sp       0
+  14               	; saved regs:(none)
+  15               		; start of prologue
+  16               		; end of prologue
+  17 0000 8C00 0000 		MOVA	#GPTDA1, R12
+  18 0004 0018 FC40 		MOVX.A	#TA1CTL, 6(R12)
+  18      0000 0600 
+  19 000c B013 0000 		CALLA	#gptObjectInit
+  20               		; start of epilogue
+  21 0010 1001      		RETA
+  22               		.size	gpt_lld_init, .-gpt_lld_init
+  23               		.global	__mspabi_divul
+  24               		.section	.text.gpt_lld_start,"ax",@progbits
+  25               		.balign 2
+  26               		.global	gpt_lld_start
+  27               		.type	gpt_lld_start, @function
+  28               	gpt_lld_start:
+  29               	; start of function
+  30               	; framesize_regs:     12
+  31               	; framesize_locals:   0
+  32               	; framesize_outgoing: 0
+  33               	; framesize:          12
+  34               	; elim ap -> fp       16
+  35               	; elim fp -> sp       0
+  36               	; saved regs: R8 R9 R10
+  37               		; start of prologue
+  38 0000 2A14      		PUSHM.A	#3, R10
+  39               		; end of prologue
+  40 0002 CA0C      		MOVA	R12, R10
+  41 0004 9C00 0000 		CMPA	#GPTDA1, R12 { JNE	.L10
+  41      0020 
+  42 000a 3C0C 0600 		MOVA	6(R12), R12
+  43 000e BC40 0401 		MOV.W	#260, @R12
+  43      0000 
+  44 0014 3C0A 0200 		MOVA	2(R10), R12
+  45 0018 2E4C      		MOV.W	@R12, R14
+  46 001a 1F4C 0200 		MOV.W	2(R12), R15
+  47 001e 3C40 1027 		MOV.W	#10000, R12
+  48 0022 4D43      		MOV.B	#0, R13
+  49 0024 B013 0000 		CALLA	#__mspabi_divul
+  50 0028 084C      		MOV.W	R12, R8
+  51 002a 094D      		MOV.W	R13, R9
+  52 002c 0D93 0020 		CMP.W	#0, R13 { JNE	.L11
+  53 0030 7C40 4000 		MOV.B	#64, R12
+  54 0034 0C98 002C 		CMP.W	R8, R12 { JHS	.L3
+GAS LISTING /tmp/ccAdx68o.s 			page 2
+
+
+  55               	.L11:
+  56 0038 8C00 0000 		MOVA	#__func__.3705, R12
+  57 003c B013 0000 		CALLA	#chSysHalt
+  58               	.L3:
+  59 0040 0C48      		MOV.W	R8, R12
+  60 0042 7CF0 0700 		AND.B	#7, R12
+  61 0046 0C93 0024 		CMP.W	#0, R12 { JEQ	.L13
+  62 004a 0C48      		MOV.W	R8, R12
+  63 004c 7CF0 0300 		AND.B	#3, R12
+  64 0050 0C93 0020 		CMP.W	#0, R12 { JNE	.L7
+  65 0054 3C0A 0600 		MOVA	6(R10), R12
+  66 0058 BCD0 8000 		BIS.W	#128, @R12
+  66      0000 
+  67 005e 5903 0810 		RRUX.W	R9 { RRC.W	R8 { RRUX.W	R9 { RRC.W	R8
+  67      5903 0810 
+  68 0066 8000 0000 		BRA	#.L6
+  69               	.L10:
+  70 006a 4843      		MOV.B	#0, R8
+  71 006c 4943      		MOV.B	#0, R9
+  72               	.L13:
+  73 006e 3C0A 0600 		MOVA	6(R10), R12
+  74 0072 BCD0 C000 		BIS.W	#192, @R12
+  74      0000 
+  75 0078 0C48      		MOV.W	R8, R12
+  76 007a 0D49      		MOV.W	R9, R13
+  77 007c B013 0000 		CALLA	#__mspabi_srll_3
+  78 0080 084C      		MOV.W	R12, R8
+  79 0082 094D      		MOV.W	R13, R9
+  80               	.L6:
+  81 0084 0993 0020 		CMP.W	#0, R9 { JNE	.L12
+  82 0088 7D42      		MOV.B	#8, R13
+  83 008a 0D98 002C 		CMP.W	R8, R13 { JHS	.L8
+  84               	.L12:
+  85 008e 8C00 0000 		MOVA	#__func__.3705, R12
+  86 0092 B013 0000 		CALLA	#chSysHalt
+  87               	.L8:
+  88 0096 3C0A 0600 		MOVA	6(R10), R12
+  89 009a 0D48      		MOV.W	R8, R13
+  90 009c 3D53      		ADD.W	#-1, R13
+  91 009e 8C4D 2000 		MOV.W	R13, 32(R12)
+  92               		; start of epilogue
+  93 00a2 2816      		POPM.A	#3, r10
+  94 00a4 1001      		RETA
+  95               	.L7:
+  96 00a6 0C48      		MOV.W	R8, R12
+  97 00a8 5CF3      		AND.B	#1, R12
+  98 00aa 0C93 0020 		CMP.W	#0, R12 { JNE	.L6
+  99 00ae 3C0A 0600 		MOVA	6(R10), R12
+ 100 00b2 BCD0 4000 		BIS.W	#64, @R12
+ 100      0000 
+ 101 00b8 12C3 0910 		CLRC { RRC.W	R9 { RRC.W	R8
+ 101      0810 
+ 102 00be 8000 0000 		BRA	#.L6
+ 103               		.size	gpt_lld_start, .-gpt_lld_start
+ 104               		.section	.text.gpt_lld_stop,"ax",@progbits
+ 105               		.balign 2
+ 106               		.global	gpt_lld_stop
+GAS LISTING /tmp/ccAdx68o.s 			page 3
+
+
+ 107               		.type	gpt_lld_stop, @function
+ 108               	gpt_lld_stop:
+ 109               	; start of function
+ 110               	; framesize_regs:     0
+ 111               	; framesize_locals:   0
+ 112               	; framesize_outgoing: 0
+ 113               	; framesize:          0
+ 114               	; elim ap -> fp       4
+ 115               	; elim fp -> sp       0
+ 116               	; saved regs:(none)
+ 117               		; start of prologue
+ 118               		; end of prologue
+ 119 0000 EC93 0000 		CMP.B	#2, @R12 { JNE	.L14
+ 119      0020 
+ 120 0006 3C0C 0600 		MOVA	6(R12), R12
+ 121 000a AC42 0000 		MOV.W	#4, @R12
+ 122 000e 8C43 0200 		MOV.W	#0, 2(R12)
+ 123               	.L14:
+ 124               		; start of epilogue
+ 125 0012 1001      		RETA
+ 126               		.size	gpt_lld_stop, .-gpt_lld_stop
+ 127               		.section	.text.gpt_lld_start_timer,"ax",@progbits
+ 128               		.balign 2
+ 129               		.global	gpt_lld_start_timer
+ 130               		.type	gpt_lld_start_timer, @function
+ 131               	gpt_lld_start_timer:
+ 132               	; start of function
+ 133               	; framesize_regs:     0
+ 134               	; framesize_locals:   0
+ 135               	; framesize_outgoing: 0
+ 136               	; framesize:          0
+ 137               	; elim ap -> fp       4
+ 138               	; elim fp -> sp       0
+ 139               	; saved regs:(none)
+ 140               		; start of prologue
+ 141               		; end of prologue
+ 142 0000 3E0C 0200 		MOVA	2(R12), R14
+ 143 0004 3C0C 0600 		MOVA	6(R12), R12
+ 144 0008 0018 CE93 		CMPX.A	#0, 4(R14) { JEQ	.L17
+ 144      0400 0024 
+ 145 0010 ACD3 0000 		BIS.W	#2, @R12
+ 146               	.L17:
+ 147 0014 8C4D 1200 		MOV.W	R13, 18(R12)
+ 148 0018 2D4C      		MOV.W	@R12, R13
+ 149 001a 3DD0 1400 		BIS.W	#20, R13
+ 150 001e 8C4D 0000 		MOV.W	R13, @R12
+ 151               		; start of epilogue
+ 152 0022 1001      		RETA
+ 153               		.size	gpt_lld_start_timer, .-gpt_lld_start_timer
+ 154               		.section	.text.gpt_lld_stop_timer,"ax",@progbits
+ 155               		.balign 2
+ 156               		.global	gpt_lld_stop_timer
+ 157               		.type	gpt_lld_stop_timer, @function
+ 158               	gpt_lld_stop_timer:
+ 159               	; start of function
+ 160               	; framesize_regs:     0
+ 161               	; framesize_locals:   0
+GAS LISTING /tmp/ccAdx68o.s 			page 4
+
+
+ 162               	; framesize_outgoing: 0
+ 163               	; framesize:          0
+ 164               	; elim ap -> fp       4
+ 165               	; elim fp -> sp       0
+ 166               	; saved regs:(none)
+ 167               		; start of prologue
+ 168               		; end of prologue
+ 169 0000 3C0C 0600 		MOVA	6(R12), R12
+ 170 0004 BCF0 CFFF 		AND.W	#-49, @R12
+ 170      0000 
+ 171               		; start of epilogue
+ 172 000a 1001      		RETA
+ 173               		.size	gpt_lld_stop_timer, .-gpt_lld_stop_timer
+ 174               		.section	.lower.lowtext,"ax",@progbits
+ 175               		.balign 2
+ 176               		.global	ISR_TIMER1_A1_VECTOR
+ 177               		.section	__interrupt_vector_41,"ax",@progbits
+ 178 0000 0000      		.word	ISR_TIMER1_A1_VECTOR
+ 179               			.section	.lower.lowtext
+ 180               		.type	ISR_TIMER1_A1_VECTOR, @function
+ 181               	ISR_TIMER1_A1_VECTOR:
+ 182               	; start of function
+ 183               	; attributes: interrupt 
+ 184               	; framesize_regs:     48
+ 185               	; framesize_locals:   0
+ 186               	; framesize_outgoing: 0
+ 187               	; framesize:          48
+ 188               	; elim ap -> fp       52
+ 189               	; elim fp -> sp       0
+ 190               	; saved regs: R4 R5 R6 R7 R8 R9 R10 R11 R12 R13 R14 R15
+ 191               		; start of prologue
+ 192 0000 BF14      		PUSHM.A	#12, R15
+ 193               		; end of prologue
+ 194 0002 4018 D243 		MOVX.B	#1, &__msp430x_in_isr
+ 194      0000 
+ 195 0008 4018 1C42 		MOVX.W	&TA1IV, R12
+ 195      0000 
+ 196 000e 3C90 0E00 		CMP.W	#14, R12 { JNE	.L20
+ 196      0020 
+ 197 0014 8C00 0000 		MOVA	#GPTDA1, R12
+ 198 0018 6D4C      		MOV.B	@R12, R13
+ 199 001a 7D50 FDFF 		ADD.B	#-3, R13
+ 200 001e 5E43      		MOV.B	#1, R14
+ 201 0020 4E9D 0028 		CMP.B	R13, R14 { JLO	.L22
+ 202 0024 3E0C 0200 		MOVA	2(R12), R14
+ 203 0028 3E0E 0400 		MOVA	4(R14), R14
+ 204 002c 9E00 0000 		CMPA	#0, R14 { JEQ	.L22
+ 204      0024 
+ 205 0032 4E13      		CALLA	R14
+ 206               	.L22:
+ 207 0034 4018 E292 		CMPX.B	#4, &GPTDA1 { JNE	.L20
+ 207      0000 0020 
+ 208 003c 4018 E243 		MOVX.B	#2, &GPTDA1
+ 208      0000 
+ 209 0042 8C00 0000 		MOVA	#GPTDA1, R12
+ 210 0046 B013 0000 		CALLA	#gpt_lld_stop_timer
+ 211               	.L20:
+GAS LISTING /tmp/ccAdx68o.s 			page 5
+
+
+ 212 004a 4018 C243 		MOVX.B	#0, &__msp430x_in_isr
+ 212      0000 
+ 213 0050 B013 0000 		CALLA	#chSchIsPreemptionRequired
+ 214 0054 4C93 0024 		CMP.B	#0, R12 { JEQ	.L19
+ 215 0058 B013 0000 		CALLA	#chSchDoReschedule
+ 216               	.L19:
+ 217               		; start of epilogue
+ 218 005c B416      		POPM.A	#12, r15
+ 219 005e 0013      		RETI
+ 220               		.size	ISR_TIMER1_A1_VECTOR, .-ISR_TIMER1_A1_VECTOR
+ 221               		.section	.text.gpt_lld_polled_delay,"ax",@progbits
+ 222               		.balign 2
+ 223               		.global	gpt_lld_polled_delay
+ 224               		.type	gpt_lld_polled_delay, @function
+ 225               	gpt_lld_polled_delay:
+ 226               	; start of function
+ 227               	; framesize_regs:     0
+ 228               	; framesize_locals:   0
+ 229               	; framesize_outgoing: 0
+ 230               	; framesize:          0
+ 231               	; elim ap -> fp       4
+ 232               	; elim fp -> sp       0
+ 233               	; saved regs:(none)
+ 234               		; start of prologue
+ 235               		; end of prologue
+ 236 0000 3C0C 0600 		MOVA	6(R12), R12
+ 237 0004 2E4C      		MOV.W	@R12, R14
+ 238 0006 8C4D 1200 		MOV.W	R13, 18(R12)
+ 239 000a 0D4E      		MOV.W	R14, R13
+ 240 000c 3DD0 1400 		BIS.W	#20, R13
+ 241 0010 8C4D 0000 		MOV.W	R13, @R12
+ 242 0014 1EB3 0020 		BIT.W	#1, R14 { JNE	.L34
+ 243               	.L33:
+ 244 0018 8000 0000 		BRA	#.L33
+ 245               	.L34:
+ 246               		; start of epilogue
+ 247 001c 1001      		RETA
+ 248               		.size	gpt_lld_polled_delay, .-gpt_lld_polled_delay
+ 249               		.section	.upper.rodata,"a",@progbits
+ 250               		.type	__func__.3705, @object
+ 251               		.size	__func__.3705, 14
+ 252               	__func__.3705:
+ 253 0000 6770 745F 		.string	"gpt_lld_start"
+ 253      6C6C 645F 
+ 253      7374 6172 
+ 253      7400 
+ 254               		.global	GPTDA1
+ 255               		.section	.upper.bss,"aw",@nobits
+ 256               		.balign 2
+ 257               		.type	GPTDA1, @object
+ 258               		.size	GPTDA1, 10
+ 259               	GPTDA1:
+ 260 0000 0000 0000 		.zero	10
+ 260      0000 0000 
+ 260      0000 
+ 261               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/ccAdx68o.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 hal_gpt_lld.c
+     /tmp/ccAdx68o.s:6      .text.gpt_lld_init:0000000000000000 gpt_lld_init
+     /tmp/ccAdx68o.s:259    .upper.bss:0000000000000000 GPTDA1
+     /tmp/ccAdx68o.s:28     .text.gpt_lld_start:0000000000000000 gpt_lld_start
+     /tmp/ccAdx68o.s:252    .upper.rodata:0000000000000000 __func__.3705
+     /tmp/ccAdx68o.s:108    .text.gpt_lld_stop:0000000000000000 gpt_lld_stop
+     /tmp/ccAdx68o.s:131    .text.gpt_lld_start_timer:0000000000000000 gpt_lld_start_timer
+     /tmp/ccAdx68o.s:158    .text.gpt_lld_stop_timer:0000000000000000 gpt_lld_stop_timer
+     /tmp/ccAdx68o.s:181    .lower.lowtext:0000000000000000 ISR_TIMER1_A1_VECTOR
+     /tmp/ccAdx68o.s:225    .text.gpt_lld_polled_delay:0000000000000000 gpt_lld_polled_delay
+     /tmp/ccAdx68o.s:69     .text.gpt_lld_start:000000000000006a .L10
+     /tmp/ccAdx68o.s:55     .text.gpt_lld_start:0000000000000038 .L11
+     /tmp/ccAdx68o.s:58     .text.gpt_lld_start:0000000000000040 .L3
+     /tmp/ccAdx68o.s:72     .text.gpt_lld_start:000000000000006e .L13
+     /tmp/ccAdx68o.s:95     .text.gpt_lld_start:00000000000000a6 .L7
+     /tmp/ccAdx68o.s:80     .text.gpt_lld_start:0000000000000084 .L6
+     /tmp/ccAdx68o.s:84     .text.gpt_lld_start:000000000000008e .L12
+     /tmp/ccAdx68o.s:87     .text.gpt_lld_start:0000000000000096 .L8
+     /tmp/ccAdx68o.s:123    .text.gpt_lld_stop:0000000000000012 .L14
+     /tmp/ccAdx68o.s:146    .text.gpt_lld_start_timer:0000000000000014 .L17
+     /tmp/ccAdx68o.s:211    .lower.lowtext:000000000000004a .L20
+     /tmp/ccAdx68o.s:206    .lower.lowtext:0000000000000034 .L22
+     /tmp/ccAdx68o.s:216    .lower.lowtext:000000000000005c .L19
+     /tmp/ccAdx68o.s:245    .text.gpt_lld_polled_delay:000000000000001c .L34
+     /tmp/ccAdx68o.s:243    .text.gpt_lld_polled_delay:0000000000000018 .L33
+
+UNDEFINED SYMBOLS
+TA1CTL
+gptObjectInit
+__mspabi_divul
+chSysHalt
+__mspabi_srll_3
+__msp430x_in_isr
+TA1IV
+chSchIsPreemptionRequired
+chSchDoReschedule
+__crt0_init_highbss

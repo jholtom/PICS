@@ -1,0 +1,12 @@
+GAS LISTING /tmp/ccr2bOUq.s 			page 1
+
+
+   1               		.file	"hal_adc_lld.c"
+   2               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/ccr2bOUq.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 hal_adc_lld.c
+
+NO UNDEFINED SYMBOLS

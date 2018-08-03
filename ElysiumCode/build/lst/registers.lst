@@ -1,0 +1,1071 @@
+GAS LISTING /tmp/ccfUa0sp.s 			page 1
+
+
+   1               		.file	"registers.c"
+   2               		.section	.text.clamp,"ax",@progbits
+   3               		.balign 2
+   4               		.type	clamp, @function
+   5               	clamp:
+   6               	; start of function
+   7               	; framesize_regs:     8
+   8               	; framesize_locals:   0
+   9               	; framesize_outgoing: 0
+  10               	; framesize:          8
+  11               	; elim ap -> fp       12
+  12               	; elim fp -> sp       0
+  13               	; saved regs: R9 R10
+  14               		; start of prologue
+  15 0000 1A14      		PUSHM.A	#2, R10
+  16               		; end of prologue
+  17 0002 3CF0 FF00 		AND	#0xff, R12
+  18 0006 494D      		MOV.B	R13, R9
+  19 0008 4A4E      		MOV.B	R14, R10
+  20 000a 4C99 002C 		CMP.B	R9, R12 { JHS	.L2
+  21 000e 7C40 88FF 		MOV.B	#-120, R12
+  22 0012 B013 0000 		CALLA	#elyErrorSignal
+  23 0016 0C49      		MOV.W	R9, R12
+  24               	.L3:
+  25               		; start of epilogue
+  26 0018 1916      		POPM.A	#2, r10
+  27 001a 1001      		RETA
+  28               	.L2:
+  29 001c 4A9C 002C 		CMP.B	R12, R10 { JHS	.L3
+  30 0020 7C40 88FF 		MOV.B	#-120, R12
+  31 0024 B013 0000 		CALLA	#elyErrorSignal
+  32 0028 0C4A      		MOV.W	R10, R12
+  33 002a 8000 0000 		BRA	#.L3
+  34               		.size	clamp, .-clamp
+  35               		.section	.text.fram_reg_cb,"ax",@progbits
+  36               		.balign 2
+  37               		.global	fram_reg_cb
+  38               		.type	fram_reg_cb, @function
+  39               	fram_reg_cb:
+  40               	; start of function
+  41               	; framesize_regs:     0
+  42               	; framesize_locals:   0
+  43               	; framesize_outgoing: 0
+  44               	; framesize:          0
+  45               	; elim ap -> fp       4
+  46               	; elim fp -> sp       0
+  47               	; saved regs:(none)
+  48               		; start of prologue
+  49               		; end of prologue
+  50 0000 4018 5C42 		MOVX.B	&regs_in_progress, R12
+  50      0000 
+  51 0006 7C53      		ADD.B	#-1, R12
+  52 0008 4018 C24C 		MOVX.B	R12, &regs_in_progress
+  52      0000 
+  53 000e 4C93 0020 		CMP.B	#0, R12 { JNE	.L4
+  54 0012 4018 1C42 		MOVX.W	&regs_sem, R12
+  54      0000 
+GAS LISTING /tmp/ccfUa0sp.s 			page 2
+
+
+  55 0018 4D43      		MOV.B	#0, R13
+  56 001a 0D9C 0038 		CMP.W	R12, R13 { JL	.L4
+  57 001e 8C00 0000 		MOVA	#regs_sem, R12
+  58 0022 B013 0000 		CALLA	#chSemSignalI
+  59               	.L4:
+  60               		; start of epilogue
+  61 0026 1001      		RETA
+  62               		.size	fram_reg_cb, .-fram_reg_cb
+  63               		.section	.text.fram_block_cb,"ax",@progbits
+  64               		.balign 2
+  65               		.global	fram_block_cb
+  66               		.type	fram_block_cb, @function
+  67               	fram_block_cb:
+  68               	; start of function
+  69               	; framesize_regs:     0
+  70               	; framesize_locals:   0
+  71               	; framesize_outgoing: 0
+  72               	; framesize:          0
+  73               	; elim ap -> fp       4
+  74               	; elim fp -> sp       0
+  75               	; saved regs:(none)
+  76               		; start of prologue
+  77               		; end of prologue
+  78 0000 4018 1C42 		MOVX.W	&regs_sem, R12
+  78      0000 
+  79 0006 4D43      		MOV.B	#0, R13
+  80 0008 0D9C 0038 		CMP.W	R12, R13 { JL	.L6
+  81 000c 8C00 0000 		MOVA	#regs_sem, R12
+  82 0010 B013 0000 		CALLA	#chSemSignalI
+  83               	.L6:
+  84               		; start of epilogue
+  85 0014 1001      		RETA
+  86               		.size	fram_block_cb, .-fram_block_cb
+  87               		.section	.text.fram_reg,"ax",@progbits
+  88               		.balign 2
+  89               		.global	fram_reg
+  90               		.type	fram_reg, @function
+  91               	fram_reg:
+  92               	; start of function
+  93               	; framesize_regs:     16
+  94               	; framesize_locals:   4
+  95               	; framesize_outgoing: 0
+  96               	; framesize:          20
+  97               	; elim ap -> fp       20
+  98               	; elim fp -> sp       4
+  99               	; saved regs: R6 R8 R9 R10
+ 100               		; start of prologue
+ 101 0000 2A14      		PUSHM.A	#3, R10
+ 102 0002 0614      		PUSHM.A	#1, R6
+ 103 0004 B100 0400 		SUBA	#4, R1
+ 104               		; end of prologue
+ 105 0008 4A4C      		MOV.B	R12, R10
+ 106 000a 494D      		MOV.B	R13, R9
+ 107 000c 484E      		MOV.B	R14, R8
+ 108 000e C60F      		MOVA	R15, R6
+ 109               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 110 0010 32C2 0343 		dint { nop
+GAS LISTING /tmp/ccfUa0sp.s 			page 3
+
+
+ 111               	 ; 0 "" 2
+ 112               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 113 0014 0343      		nop
+ 114               	 ; 0 "" 2
+ 115 0016 4D43      		MOV.B	#0, R13
+ 116 0018 CC01      		MOVA	R1, R12
+ 117 001a B013 0000 		CALLA	#elyFramGetRequestTimeoutS
+ 118               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 119 001e 0343      		nop
+ 120               	 ; 0 "" 2
+ 121               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 122 0020 0343 32D2 		nop { eint { nop
+ 122      0343 
+ 123               	 ; 0 "" 2
+ 124 0026 0C01      		MOVA	@R1, R12
+ 125 0028 3953      		ADD.W	#-1, R9
+ 126 002a 4718 0959 		rpt	#8 { rlax.w	R9
+ 127 002e 0E49 0F49 		MOV.W	R9, R14 { MOV.W	R9, R15 { RPT	#15 { RRAX.W	R15
+ 127      4E18 0F11 
+ 128 0036 4848 0943 		MOV.B	R8,R8 { CLR	R9
+ 129 003a 0D48      		MOV.W	R8, R13
+ 130 003c 0D53      		ADD	#0, R13 ; cy
+ 131 003e 1963      		ADDC	#1, R9
+ 132 0040 0D5E      		ADD	R14, R13 ; cy
+ 133 0042 8C4D 0000 		MOV.W	R13, @R12
+ 134 0046 096F      		ADDC	R15, R9
+ 135 0048 8C49 0200 		MOV.W	R9, 2(R12)
+ 136 004c 5AF3      		AND.B	#1, R10
+ 137 004e 4A5A      		ADD.B	R10, R10
+ 138 0050 5D4C 0400 		MOV.B	4(R12), R13
+ 139 0054 6DC3      		BIC.B	#2, R13
+ 140 0056 4DDA      		BIS.B	R10, R13
+ 141 0058 CC4D 0400 		MOV.B	R13, 4(R12)
+ 142 005c 1D4C 0400 		MOV.W	4(R12), R13
+ 143 0060 7DF0 0300 		AND.B	#3, R13
+ 144 0064 2DD2      		BIS.W	#4, R13
+ 145 0066 8C4D 0400 		MOV.W	R13, 4(R12)
+ 146 006a FCF0 F8FF 		AND.B	#-8, 6(R12)
+ 146      0600 
+ 147 0070 7C06 0800 		MOVA	R6, 8(R12)
+ 148 0074 0018 FC40 		MOVX.A	#fram_reg_cb, 12(R12)
+ 148      0000 0C00 
+ 149               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 150 007c 32C2 0343 		dint { nop
+ 151               	 ; 0 "" 2
+ 152               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 153 0080 0343      		nop
+ 154               	 ; 0 "" 2
+ 155 0082 B013 0000 		CALLA	#elyFramPostRequestS
+ 156               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 157 0086 0343      		nop
+ 158               	 ; 0 "" 2
+ 159               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 160 0088 0343 32D2 		nop { eint { nop
+ 160      0343 
+ 161               	 ; 0 "" 2
+ 162               		; start of epilogue
+GAS LISTING /tmp/ccfUa0sp.s 			page 4
+
+
+ 163 008e A100 0400 		ADDA	#4, R1
+ 164 0092 0616      		POPM.A	#1, r6
+ 165 0094 2816      		POPM.A	#3, r10
+ 166 0096 1001      		RETA
+ 167               		.size	fram_reg, .-fram_reg
+ 168               		.section	.text.fram_block,"ax",@progbits
+ 169               		.balign 2
+ 170               		.global	fram_block
+ 171               		.type	fram_block, @function
+ 172               	fram_block:
+ 173               	; start of function
+ 174               	; framesize_regs:     16
+ 175               	; framesize_locals:   8
+ 176               	; framesize_outgoing: 0
+ 177               	; framesize:          24
+ 178               	; elim ap -> fp       20
+ 179               	; elim fp -> sp       8
+ 180               	; saved regs: R6 R8 R9 R10
+ 181               		; start of prologue
+ 182 0000 2A14      		PUSHM.A	#3, R10
+ 183 0002 0614      		PUSHM.A	#1, R6
+ 184 0004 B100 0800 		SUBA	#8, R1
+ 185               		; end of prologue
+ 186 0008 4A4C      		MOV.B	R12, R10
+ 187 000a 494D      		MOV.B	R13, R9
+ 188 000c 484E      		MOV.B	R14, R8
+ 189 000e C60F      		MOVA	R15, R6
+ 190               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 191 0010 32C2 0343 		dint { nop
+ 192               	 ; 0 "" 2
+ 193               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 194 0014 0343      		nop
+ 195               	 ; 0 "" 2
+ 196 0016 4D43      		MOV.B	#0, R13
+ 197 0018 CC01      		MOVA	R1, R12
+ 198 001a AC00 0400 		ADDA	#4, R12
+ 199 001e B013 0000 		CALLA	#elyFramGetRequestTimeoutS
+ 200               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 201 0022 0343      		nop
+ 202               	 ; 0 "" 2
+ 203               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 204 0024 0343 32D2 		nop { eint { nop
+ 204      0343 
+ 205               	 ; 0 "" 2
+ 206 002a 3C01 0400 		MOVA	4(R1), R12
+ 207 002e 3953      		ADD.W	#-1, R9
+ 208 0030 4718 0959 		rpt	#8 { rlax.w	R9
+ 209 0034 0E49 0F49 		MOV.W	R9, R14 { MOV.W	R9, R15 { RPT	#15 { RRAX.W	R15
+ 209      4E18 0F11 
+ 210 003c 4848 0943 		MOV.B	R8,R8 { CLR	R9
+ 211 0040 0D48      		MOV.W	R8, R13
+ 212 0042 0D53      		ADD	#0, R13 ; cy
+ 213 0044 1963      		ADDC	#1, R9
+ 214 0046 0D5E      		ADD	R14, R13 ; cy
+ 215 0048 8C4D 0000 		MOV.W	R13, @R12
+ 216 004c 096F      		ADDC	R15, R9
+ 217 004e 8C49 0200 		MOV.W	R9, 2(R12)
+GAS LISTING /tmp/ccfUa0sp.s 			page 5
+
+
+ 218 0052 5AF3      		AND.B	#1, R10
+ 219 0054 4A5A      		ADD.B	R10, R10
+ 220 0056 5D4C 0400 		MOV.B	4(R12), R13
+ 221 005a 6DC3      		BIC.B	#2, R13
+ 222 005c 4DDA      		BIS.B	R10, R13
+ 223 005e CC4D 0400 		MOV.B	R13, 4(R12)
+ 224 0062 5D41 1C00 		MOV.B	28(R1), R13
+ 225 0066 0018 C14D 		MOVX.A	R13, @R1
+ 225      0000 
+ 226 006c 2D41      		MOV.W	@R1, R13
+ 227 006e 4118 0D5D 		rpt	#2 { rlax.w	R13
+ 228 0072 1E4C 0400 		MOV.W	4(R12), R14
+ 229 0076 7EF0 0300 		AND.B	#3, R14
+ 230 007a 0EDD      		BIS.W	R13, R14
+ 231 007c 8C4E 0400 		MOV.W	R14, 4(R12)
+ 232 0080 2E41      		MOV.W	@R1, R14
+ 233 0082 0F4E      		MOV.W	R14, R15
+ 234 0084 5F03 4C18 		rrum.w	#1, R15 { rpt	#13 { rrax.w	R15
+ 234      0F11 
+ 235 008a 5E4C 0600 		MOV.B	6(R12), R14
+ 236 008e 7EF0 F8FF 		AND.B	#-8, R14
+ 237 0092 0A01      		MOVA	@R1, R10
+ 238 0094 0A14 0D17 		PUSHM.A	#1,R10 { POPM.W	#1,R13 { POPM.W	#1,R13
+ 238      0D17 
+ 239 009a 5DF3      		AND.B	#1, R13
+ 240 009c 4118 0D5D 		rpt	#2 { rlax.w	R13
+ 241 00a0 4EDF      		BIS.B	R15, R14
+ 242 00a2 4EDD      		BIS.B	R13, R14
+ 243 00a4 CC4E 0600 		MOV.B	R14, 6(R12)
+ 244 00a8 7C06 0800 		MOVA	R6, 8(R12)
+ 245 00ac 0018 FC40 		MOVX.A	#fram_block_cb, 12(R12)
+ 245      0000 0C00 
+ 246               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 247 00b4 32C2 0343 		dint { nop
+ 248               	 ; 0 "" 2
+ 249               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 250 00b8 0343      		nop
+ 251               	 ; 0 "" 2
+ 252 00ba B013 0000 		CALLA	#elyFramPostRequestS
+ 253               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 254 00be 0343      		nop
+ 255               	 ; 0 "" 2
+ 256               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 257 00c0 0343 32D2 		nop { eint { nop
+ 257      0343 
+ 258               	 ; 0 "" 2
+ 259               		; start of epilogue
+ 260 00c6 A100 0800 		ADDA	#8, R1
+ 261 00ca 0616      		POPM.A	#1, r6
+ 262 00cc 2816      		POPM.A	#3, r10
+ 263 00ce 1001      		RETA
+ 264               		.size	fram_block, .-fram_block
+ 265               		.section	.text.elyClampReg,"ax",@progbits
+ 266               		.balign 2
+ 267               		.global	elyClampReg
+ 268               		.type	elyClampReg, @function
+ 269               	elyClampReg:
+GAS LISTING /tmp/ccfUa0sp.s 			page 6
+
+
+ 270               	; start of function
+ 271               	; framesize_regs:     0
+ 272               	; framesize_locals:   0
+ 273               	; framesize_outgoing: 0
+ 274               	; framesize:          0
+ 275               	; elim ap -> fp       4
+ 276               	; elim fp -> sp       0
+ 277               	; saved regs:(none)
+ 278               		; start of prologue
+ 279               		; end of prologue
+ 280 0000 4E4C      		MOV.B	R12, R14
+ 281 0002 4C4D      		MOV.B	R13, R12
+ 282 0004 7E90 2400 		CMP.B	#36, R14 { JEQ	.L12
+ 282      0024 
+ 283 000a 7F40 2400 		MOV.B	#36, R15
+ 284 000e 4F9E 0028 		CMP.B	R14, R15 { JLO	.L13
+ 285 0012 7E90 0F00 		CMP.B	#15, R14 { JEQ	.L19
+ 285      0024 
+ 286 0018 7F40 0F00 		MOV.B	#15, R15
+ 287 001c 4F9E 0028 		CMP.B	R14, R15 { JLO	.L15
+ 288 0020 7E90 0700 		CMP.B	#7, R14 { JEQ	.L16
+ 288      0024 
+ 289 0026 7E90 0B00 		CMP.B	#11, R14 { JEQ	.L19
+ 289      0024 
+ 290 002c 7E90 0300 		CMP.B	#3, R14 { JNE	.L11
+ 290      0020 
+ 291 0032 7E40 3800 		MOV.B	#56, R14
+ 292 0036 7D40 3300 		MOV.B	#51, R13
+ 293               	.L92:
+ 294 003a B013 0000 		CALLA	#clamp
+ 295               	.L91:
+ 296 003e 3CF0 FF00 		AND	#0xff, R12
+ 297 0042 8000 0000 		BRA	#.L27
+ 298               	.L15:
+ 299 0046 7E90 1F00 		CMP.B	#31, R14 { JEQ	.L19
+ 299      0024 
+ 300 004c 7F40 1F00 		MOV.B	#31, R15
+ 301 0050 4F9E 0028 		CMP.B	R14, R15 { JLO	.L20
+ 302 0054 7E90 1B00 		CMP.B	#27, R14 { JEQ	.L19
+ 302      0024 
+ 303               	.L11:
+ 304 005a 4D4E      		MOV.B	R14, R13
+ 305 005c 7D50 7F00 		ADD.B	#127, R13
+ 306 0060 7F40 3D00 		MOV.B	#61, R15
+ 307 0064 4F9D 0028 		CMP.B	R13, R15 { JLO	.L37
+ 308 0068 4D4C      		MOV.B	R12, R13
+ 309 006a 4C4E      		MOV.B	R14, R12
+ 310 006c B013 0000 		CALLA	#elyNLClampReg
+ 311 0070 8000 0000 		BRA	#.L91
+ 312               	.L20:
+ 313 0074 7E90 2100 		CMP.B	#33, R14 { JEQ	.L22
+ 313      0024 
+ 314 007a 7E90 2200 		CMP.B	#34, R14 { JNE	.L11
+ 314      0020 
+ 315               	.L23:
+ 316 0080 7E43      		MOV.B	#-1, R14
+ 317 0082 5D43      		MOV.B	#1, R13
+GAS LISTING /tmp/ccfUa0sp.s 			page 7
+
+
+ 318 0084 8000 0000 		BRA	#.L92
+ 319               	.L13:
+ 320 0088 7E90 3A00 		CMP.B	#58, R14 { JEQ	.L12
+ 320      0024 
+ 321 008e 7F40 3A00 		MOV.B	#58, R15
+ 322 0092 4F9E 0028 		CMP.B	R14, R15 { JLO	.L24
+ 323 0096 7F40 3300 		MOV.B	#51, R15
+ 324 009a 4F9E 0028 		CMP.B	R14, R15 { JLO	.L25
+ 325 009e 7E90 2A00 		CMP.B	#42, R14 { JHS	.L26
+ 325      002C 
+ 326 00a4 7E90 2500 		CMP.B	#37, R14 { JNE	.L11
+ 326      0020 
+ 327               	.L38:
+ 328 00aa 4C43      		MOV.B	#0, R12
+ 329 00ac 8000 0000 		BRA	#.L27
+ 330               	.L25:
+ 331 00b0 7E90 3800 		CMP.B	#56, R14 { JEQ	.L23
+ 331      0024 
+ 332 00b6 8000 0000 		BRA	#.L11
+ 333               	.L24:
+ 334 00ba 7E90 4000 		CMP.B	#64, R14 { JEQ	.L28
+ 334      0024 
+ 335 00c0 7F40 4000 		MOV.B	#64, R15
+ 336 00c4 4F9E 0028 		CMP.B	R14, R15 { JLO	.L29
+ 337 00c8 7E90 3B00 		CMP.B	#59, R14 { JEQ	.L38
+ 337      0024 
+ 338 00ce 8000 0000 		BRA	#.L11
+ 339               	.L29:
+ 340 00d2 4D4E      		MOV.B	R14, R13
+ 341 00d4 7D50 BAFF 		ADD.B	#-70, R13
+ 342 00d8 7F40 0500 		MOV.B	#5, R15
+ 343 00dc 4F9D 0028 		CMP.B	R13, R15 { JLO	.L11
+ 344 00e0 4D4C      		MOV.B	R12, R13
+ 345 00e2 4018 8D11 		SXTX	R13
+ 346 00e6 7D90 B0FF 		CMP.B	#-80, R13 { JGE	.L36
+ 346      0034 
+ 347 00ec 7C40 88FF 		MOV.B	#-120, R12
+ 348 00f0 B013 0000 		CALLA	#elyErrorSignal
+ 349 00f4 7C40 B000 		MOV.B	#176, R12
+ 350 00f8 8000 0000 		BRA	#.L27
+ 351               	.L16:
+ 352 00fc 7E40 1C00 		MOV.B	#28, R14
+ 353 0100 7D40 1B00 		MOV.B	#27, R13
+ 354 0104 8000 0000 		BRA	#.L92
+ 355               	.L19:
+ 356 0108 4E43      		MOV.B	#0, R14
+ 357               	.L93:
+ 358 010a 4D43      		MOV.B	#0, R13
+ 359 010c 8000 0000 		BRA	#.L92
+ 360               	.L22:
+ 361 0110 7E40 82FF 		MOV.B	#-126, R14
+ 362 0114 7D40 3B00 		MOV.B	#59, R13
+ 363 0118 B013 0000 		CALLA	#clamp
+ 364 011c 3CF0 FF00 		AND	#0xff, R12
+ 365 0120 8000 0000 		BRA	#.L23
+ 366               	.L12:
+ 367 0124 7E40 0F00 		MOV.B	#15, R14
+GAS LISTING /tmp/ccfUa0sp.s 			page 8
+
+
+ 368 0128 8000 0000 		BRA	#.L93
+ 369               	.L26:
+ 370 012c 4018 3CB0 		BITX.W	#16, R12 { JEQ	.L31
+ 370      1000 0024 
+ 371 0134 3C90 1000 		CMP.W	#16, R12 { JEQ	.L31
+ 371      0024 
+ 372 013a 7C40 88FF 		MOV.B	#-120, R12
+ 373 013e B013 0000 		CALLA	#elyErrorSignal
+ 374 0142 7C40 1000 		MOV.B	#16, R12
+ 375               	.L27:
+ 376               		; start of epilogue
+ 377 0146 1001      		RETA
+ 378               	.L31:
+ 379 0148 4018 3CB2 		BITX.W	#8, R12 { JEQ	.L32
+ 379      0024 
+ 380 014e 3C92 0024 		CMP.W	#8, R12 { JEQ	.L32
+ 381 0152 7C40 88FF 		MOV.B	#-120, R12
+ 382 0156 B013 0000 		CALLA	#elyErrorSignal
+ 383 015a 7C42      		MOV.B	#8, R12
+ 384 015c 8000 0000 		BRA	#.L27
+ 385               	.L32:
+ 386 0160 4018 2CB2 		BITX.W	#4, R12 { JEQ	.L33
+ 386      0024 
+ 387 0166 2C92 0024 		CMP.W	#4, R12 { JEQ	.L33
+ 388 016a 7C40 88FF 		MOV.B	#-120, R12
+ 389 016e B013 0000 		CALLA	#elyErrorSignal
+ 390 0172 6C42      		MOV.B	#4, R12
+ 391 0174 8000 0000 		BRA	#.L27
+ 392               	.L33:
+ 393 0178 4018 2CB3 		BITX.W	#2, R12 { JEQ	.L34
+ 393      0024 
+ 394 017e 2C93 0024 		CMP.W	#2, R12 { JEQ	.L34
+ 395 0182 7C40 88FF 		MOV.B	#-120, R12
+ 396 0186 B013 0000 		CALLA	#elyErrorSignal
+ 397 018a 6C43      		MOV.B	#2, R12
+ 398 018c 8000 0000 		BRA	#.L27
+ 399               	.L34:
+ 400 0190 4018 1CB3 		BITX.W	#1, R12 { JEQ	.L35
+ 400      0024 
+ 401 0196 1C93 0024 		CMP.W	#1, R12 { JEQ	.L35
+ 402 019a 7C40 88FF 		MOV.B	#-120, R12
+ 403 019e B013 0000 		CALLA	#elyErrorSignal
+ 404 01a2 5C43      		MOV.B	#1, R12
+ 405 01a4 8000 0000 		BRA	#.L27
+ 406               	.L35:
+ 407 01a8 7CB0 D0FF 		BIT.B	#-48, R12 { JEQ	.L27
+ 407      0024 
+ 408 01ae 7C40 88FF 		MOV.B	#-120, R12
+ 409 01b2 B013 0000 		CALLA	#elyErrorSignal
+ 410 01b6 8000 0000 		BRA	#.L38
+ 411               	.L28:
+ 412 01ba 6E42      		MOV.B	#4, R14
+ 413 01bc 8000 0000 		BRA	#.L93
+ 414               	.L36:
+ 415 01c0 7E40 7D00 		MOV.B	#125, R14
+ 416 01c4 4E9D 0034 		CMP.B	R13, R14 { JGE	.L27
+ 417 01c8 7C40 88FF 		MOV.B	#-120, R12
+GAS LISTING /tmp/ccfUa0sp.s 			page 9
+
+
+ 418 01cc B013 0000 		CALLA	#elyErrorSignal
+ 419 01d0 7C40 7D00 		MOV.B	#125, R12
+ 420 01d4 8000 0000 		BRA	#.L27
+ 421               	.L37:
+ 422 01d8 7D40 C0FF 		MOV.B	#-64, R13
+ 423 01dc 4D9E 002C 		CMP.B	R14, R13 { JHS	.L27
+ 424 01e0 4D4C      		MOV.B	R12, R13
+ 425 01e2 4C4E      		MOV.B	R14, R12
+ 426 01e4 B013 0000 		CALLA	#elyRFDLLClampReg
+ 427 01e8 8000 0000 		BRA	#.L91
+ 428               		.size	elyClampReg, .-elyClampReg
+ 429               		.section	.text.elyRegGet,"ax",@progbits
+ 430               		.balign 2
+ 431               		.global	elyRegGet
+ 432               		.type	elyRegGet, @function
+ 433               	elyRegGet:
+ 434               	; start of function
+ 435               	; framesize_regs:     24
+ 436               	; framesize_locals:   0
+ 437               	; framesize_outgoing: 0
+ 438               	; framesize:          24
+ 439               	; elim ap -> fp       28
+ 440               	; elim fp -> sp       0
+ 441               	; saved regs: R5 R6 R7 R8 R9 R10
+ 442               		; start of prologue
+ 443 0000 5A14      		PUSHM.A	#6, R10
+ 444               		; end of prologue
+ 445 0002 494C      		MOV.B	R12, R9
+ 446 0004 CA0D      		MOVA	R13, R10
+ 447 0006 474E      		MOV.B	R14, R7
+ 448 0008 4018 C247 		MOVX.B	R7, &regs_in_progress
+ 448      0000 
+ 449 000e 0993 0024 		CMP.W	#0, R9 { JEQ	.L97
+ 450 0012 4543      		MOV.B	#0, R5
+ 451 0014 8800 0000 		MOVA	#fram_reg, R8
+ 452 0018 5643      		MOV.B	#1, R6
+ 453               	.L96:
+ 454 001a 0597 0038 		CMP.W	R7, R5 { JL	.L100
+ 455 001e 4D43      		MOV.B	#0, R13
+ 456 0020 8C00 0000 		MOVA	#regs_sem, R12
+ 457 0024 B013 0000 		CALLA	#chSemWaitTimeout
+ 458 0028 8000 0000 		BRA	#.L94
+ 459               	.L98:
+ 460 002c 6D4A      		MOV.B	@R10, R13
+ 461 002e 4018 0C4D 		MOVX	R13, R12
+ 462 0032 4018 DA4C 		MOVX.B	bank0(R12), @R10
+ 462      0000 0000 
+ 463 003a 1953      		ADD.W	#1, R9
+ 464 003c AA00 0100 		ADDA	#1, R10
+ 465               	.L97:
+ 466 0040 0997 0038 		CMP.W	R7, R9 { JL	.L98
+ 467               	.L94:
+ 468               		; start of epilogue
+ 469 0044 5516      		POPM.A	#6, r10
+ 470 0046 1001      		RETA
+ 471               	.L100:
+ 472 0048 CF0A      		MOVA	R10, R15
+GAS LISTING /tmp/ccfUa0sp.s 			page 10
+
+
+ 473 004a 6E4A      		MOV.B	@R10, R14
+ 474 004c 4D49      		MOV.B	R9, R13
+ 475 004e 4C46      		MOV.B	R6, R12
+ 476 0050 4813      		CALLA	R8
+ 477 0052 1553      		ADD.W	#1, R5
+ 478 0054 AA00 0100 		ADDA	#1, R10
+ 479 0058 8000 0000 		BRA	#.L96
+ 480               		.size	elyRegGet, .-elyRegGet
+ 481               		.section	.text.elyRegSet,"ax",@progbits
+ 482               		.balign 2
+ 483               		.global	elyRegSet
+ 484               		.type	elyRegSet, @function
+ 485               	elyRegSet:
+ 486               	; start of function
+ 487               	; framesize_regs:     28
+ 488               	; framesize_locals:   6
+ 489               	; framesize_outgoing: 0
+ 490               	; framesize:          34
+ 491               	; elim ap -> fp       32
+ 492               	; elim fp -> sp       6
+ 493               	; saved regs: R4 R5 R6 R7 R8 R9 R10
+ 494               		; start of prologue
+ 495 0000 6A14      		PUSHM.A	#7, R10
+ 496 0002 B100 0600 		SUBA	#6, R1
+ 497               		; end of prologue
+ 498 0006 474C      		MOV.B	R12, R7
+ 499 0008 3EF0 FF00 		AND	#0xff, R14
+ 500 000c 4018 C24E 		MOVX.B	R14, &regs_in_progress
+ 500      0000 
+ 501 0012 0E5E      		ADD.W	R14, R14
+ 502 0014 814E 0400 		MOV.W	R14, 4(R1)
+ 503 0018 C60D      		MOVA	R13, R6
+ 504 001a CA0D      		MOVA	R13, R10
+ 505 001c AA00 0100 		ADDA	#1, R10
+ 506 0020 4943      		MOV.B	#0, R9
+ 507 0022 8400 0000 		MOVA	#elyClampReg, R4
+ 508 0026 8800 0000 		MOVA	#fram_reg, R8
+ 509 002a 4549      		MOV.B	R9, R5
+ 510               	.L102:
+ 511 002c 1991 0400 		CMP.W	4(R1), R9 { JL	.L103
+ 511      0038 
+ 512 0032 4D43      		MOV.B	#0, R13
+ 513 0034 8C00 0000 		MOVA	#regs_sem, R12
+ 514 0038 B013 0000 		CALLA	#chSemWaitTimeout
+ 515               		; start of epilogue
+ 516 003c A100 0600 		ADDA	#6, R1
+ 517 0040 6416      		POPM.A	#7, r10
+ 518 0042 1001      		RETA
+ 519               	.L103:
+ 520 0044 6E46      		MOV.B	@R6, R14
+ 521 0046 6D4A      		MOV.B	@R10, R13
+ 522 0048 4C4E      		MOV.B	R14, R12
+ 523 004a 710E 0000 		MOVA	R14, @R1
+ 524 004e 4413      		CALLA	R4
+ 525 0050 CA4C 0000 		MOV.B	R12, @R10
+ 526 0054 CF0A      		MOVA	R10, R15
+ 527 0056 0E01      		MOVA	@R1, R14
+GAS LISTING /tmp/ccfUa0sp.s 			page 11
+
+
+ 528 0058 4D47      		MOV.B	R7, R13
+ 529 005a 4C45      		MOV.B	R5, R12
+ 530 005c 4813      		CALLA	R8
+ 531 005e 2953      		ADD.W	#2, R9
+ 532 0060 A600 0200 		ADDA	#2, R6
+ 533 0064 AA00 0200 		ADDA	#2, R10
+ 534 0068 8000 0000 		BRA	#.L102
+ 535               		.size	elyRegSet, .-elyRegSet
+ 536               		.section	.text.elyRegGetBlock,"ax",@progbits
+ 537               		.balign 2
+ 538               		.global	elyRegGetBlock
+ 539               		.type	elyRegGetBlock, @function
+ 540               	elyRegGetBlock:
+ 541               	; start of function
+ 542               	; framesize_regs:     0
+ 543               	; framesize_locals:   0
+ 544               	; framesize_outgoing: 2
+ 545               	; framesize:          2
+ 546               	; elim ap -> fp       4
+ 547               	; elim fp -> sp       2
+ 548               	; saved regs:(none)
+ 549               		; start of prologue
+ 550 0000 B100 0200 		SUBA	#2, R1
+ 551               		; end of prologue
+ 552 0004 4B4C      		MOV.B	R12, R11
+ 553 0006 CC0D      		MOVA	R13, R12
+ 554 0008 3EF0 FF00 		AND	#0xff, R14
+ 555 000c 3FF0 FF00 		AND	#0xff, R15
+ 556 0010 0B93 0020 		CMP.W	#0, R11 { JNE	.L105
+ 557 0014 4018 0D4E 		MOVX	R14, R13
+ 558 0018 4018 0E4F 		MOVX	R15, R14
+ 559 001c AD00 0000 		ADDA	#bank0, R13
+ 560 0020 B013 0000 		CALLA	#memcpy
+ 561               	.L104:
+ 562               		; start of epilogue
+ 563 0024 A100 0200 		ADDA	#2, R1
+ 564 0028 1001      		RETA
+ 565               	.L105:
+ 566 002a C14F 0000 		MOV.B	R15, @R1
+ 567 002e CF0D      		MOVA	R13, R15
+ 568 0030 4D4B      		MOV.B	R11, R13
+ 569 0032 5C43      		MOV.B	#1, R12
+ 570 0034 B013 0000 		CALLA	#fram_block
+ 571 0038 4D43      		MOV.B	#0, R13
+ 572 003a 8C00 0000 		MOVA	#regs_sem, R12
+ 573 003e B013 0000 		CALLA	#chSemWaitTimeout
+ 574 0042 8000 0000 		BRA	#.L104
+ 575               		.size	elyRegGetBlock, .-elyRegGetBlock
+ 576               		.section	.text.elyRegSetBlock,"ax",@progbits
+ 577               		.balign 2
+ 578               		.global	elyRegSetBlock
+ 579               		.type	elyRegSetBlock, @function
+ 580               	elyRegSetBlock:
+ 581               	; start of function
+ 582               	; framesize_regs:     28
+ 583               	; framesize_locals:   0
+ 584               	; framesize_outgoing: 2
+GAS LISTING /tmp/ccfUa0sp.s 			page 12
+
+
+ 585               	; framesize:          30
+ 586               	; elim ap -> fp       32
+ 587               	; elim fp -> sp       2
+ 588               	; saved regs: R4 R5 R6 R7 R8 R9 R10
+ 589               		; start of prologue
+ 590 0000 6A14      		PUSHM.A	#7, R10
+ 591 0002 B100 0200 		SUBA	#2, R1
+ 592               		; end of prologue
+ 593 0006 494C      		MOV.B	R12, R9
+ 594 0008 CA0D      		MOVA	R13, R10
+ 595 000a 454E      		MOV.B	R14, R5
+ 596 000c 444F      		MOV.B	R15, R4
+ 597 000e C60D      		MOVA	R13, R6
+ 598 0010 4743      		MOV.B	#0, R7
+ 599 0012 8800 0000 		MOVA	#elyClampReg, R8
+ 600               	.L108:
+ 601 0016 0794 0038 		CMP.W	R4, R7 { JL	.L109
+ 602 001a C144 0000 		MOV.B	R4, @R1
+ 603 001e CF0A      		MOVA	R10, R15
+ 604 0020 4E45      		MOV.B	R5, R14
+ 605 0022 4D49      		MOV.B	R9, R13
+ 606 0024 4C43      		MOV.B	#0, R12
+ 607 0026 B013 0000 		CALLA	#fram_block
+ 608 002a 4D43      		MOV.B	#0, R13
+ 609 002c 8C00 0000 		MOVA	#regs_sem, R12
+ 610 0030 B013 0000 		CALLA	#chSemWaitTimeout
+ 611               		; start of epilogue
+ 612 0034 A100 0200 		ADDA	#2, R1
+ 613 0038 6416      		POPM.A	#7, r10
+ 614 003a 1001      		RETA
+ 615               	.L109:
+ 616 003c 6D46      		MOV.B	@R6, R13
+ 617 003e 4C47      		MOV.B	R7, R12
+ 618 0040 4C55      		ADD.B	R5, R12
+ 619 0042 4813      		CALLA	R8
+ 620 0044 C64C 0000 		MOV.B	R12, @R6
+ 621 0048 1753      		ADD.W	#1, R7
+ 622 004a A600 0100 		ADDA	#1, R6
+ 623 004e 8000 0000 		BRA	#.L108
+ 624               		.size	elyRegSetBlock, .-elyRegSetBlock
+ 625               		.local	regs_in_progress
+ 626               		.comm	regs_in_progress,1,1
+ 627               		.local	regs_sem
+ 628               		.comm	regs_sem,2,2
+ 629               		.global	bank0w
+ 630               		.section	.upper.rodata,"a",@progbits
+ 631               		.balign 2
+ 632               		.type	bank0w, @object
+ 633               		.size	bank0w, 4
+ 634               	bank0w:
+ 635 0000 0000 0000 		.long	bank0
+ 636               		.global	bank0p
+ 637               		.balign 2
+ 638               		.type	bank0p, @object
+ 639               		.size	bank0p, 4
+ 640               	bank0p:
+ 641 0004 0000 0000 		.long	bank0
+GAS LISTING /tmp/ccfUa0sp.s 			page 13
+
+
+ 642               		.section	.persistent,"aw"
+ 643               		.type	bank0, @object
+ 644               		.size	bank0, 256
+ 645               	bank0:
+ 646 0000 80        		.byte	-128
+ 647 0001 7F        		.byte	127
+ 648 0002 3D        		.byte	61
+ 649 0003 36        		.byte	54
+ 650 0004 00        		.byte	0
+ 651 0005 14        		.byte	20
+ 652 0006 A8        		.byte	-88
+ 653 0007 1B        		.byte	27
+ 654 0008 88        		.byte	-120
+ 655 0009 13        		.byte	19
+ 656 000a 00        		.byte	0
+ 657 000b 00        		.byte	0
+ 658 000c 50        		.byte	80
+ 659 000d C3        		.byte	-61
+ 660 000e 00        		.byte	0
+ 661 000f 00        		.byte	0
+ 662 0010 EA        		.byte	-22
+ 663 0011 83        		.byte	-125
+ 664 0012 E9        		.byte	-23
+ 665 0013 97        		.byte	-105
+ 666 0014 2A        		.byte	42
+ 667 0015 BB        		.byte	-69
+ 668 0016 D8        		.byte	-40
+ 669 0017 8A        		.byte	-118
+ 670 0018 C0        		.byte	-64
+ 671 0019 12        		.byte	18
+ 672 001a 00        		.byte	0
+ 673 001b 00        		.byte	0
+ 674 001c A8        		.byte	-88
+ 675 001d 61        		.byte	97
+ 676 001e 00        		.byte	0
+ 677 001f 00        		.byte	0
+ 678 0020 C0        		.byte	-64
+ 679 0021 3B        		.byte	59
+ 680 0022 00        		.byte	0
+ 681 0023 C2        		.byte	-62
+ 682 0024 01        		.byte	1
+ 683 0025 00        		.byte	0
+ 684 0026 F0        		.byte	-16
+ 685 0027 FF        		.byte	-1
+ 686 0028 FF        		.byte	-1
+ 687 0029 FF        		.byte	-1
+ 688 002a 08        		.byte	8
+ 689 002b 04        		.byte	4
+ 690 002c 02        		.byte	2
+ 691 002d 04        		.byte	4
+ 692 002e 04        		.byte	4
+ 693 002f 04        		.byte	4
+ 694 0030 04        		.byte	4
+ 695 0031 04        		.byte	4
+ 696 0032 08        		.byte	8
+ 697 0033 08        		.byte	8
+ 698 0034 00        		.byte	0
+GAS LISTING /tmp/ccfUa0sp.s 			page 14
+
+
+ 699 0035 A3        		.byte	-93
+ 700 0036 02        		.byte	2
+ 701 0037 00        		.byte	0
+ 702 0038 80        		.byte	-128
+ 703 0039 25        		.byte	37
+ 704 003a 00        		.byte	0
+ 705 003b 00        		.byte	0
+ 706 003c 00        		.byte	0
+ 707 003d A3        		.byte	-93
+ 708 003e 02        		.byte	2
+ 709 003f 00        		.byte	0
+ 710 0040 04        		.byte	4
+ 711 0041 2C        		.byte	44
+ 712 0042 01        		.byte	1
+ 713 0043 00        		.byte	0
+ 714 0044 00        		.byte	0
+ 715 0045 1E        		.byte	30
+ 716 0046 32        		.byte	50
+ 717 0047 3C        		.byte	60
+ 718 0048 32        		.byte	50
+ 719 0049 46        		.byte	70
+ 720 004a 3C        		.byte	60
+ 721 004b 4B        		.byte	75
+ 722 004c 1C        		.byte	28
+ 723 004d 18        		.byte	24
+ 724 004e FF        		.byte	-1
+ 725 004f FF        		.byte	-1
+ 726 0050 01        		.byte	1
+ 727 0051 00        		.byte	0
+ 728 0052 FF        		.byte	-1
+ 729 0053 FF        		.byte	-1
+ 730 0054 FF        		.byte	-1
+ 731 0055 FF        		.byte	-1
+ 732 0056 FF        		.byte	-1
+ 733 0057 FF        		.byte	-1
+ 734 0058 FF        		.byte	-1
+ 735 0059 FF        		.byte	-1
+ 736 005a FF        		.byte	-1
+ 737 005b FF        		.byte	-1
+ 738 005c FF        		.byte	-1
+ 739 005d FF        		.byte	-1
+ 740 005e FF        		.byte	-1
+ 741 005f FF        		.byte	-1
+ 742 0060 00        		.byte	0
+ 743 0061 00        		.byte	0
+ 744 0062 00        		.byte	0
+ 745 0063 00        		.byte	0
+ 746 0064 00        		.byte	0
+ 747 0065 00        		.byte	0
+ 748 0066 00        		.byte	0
+ 749 0067 FF        		.byte	-1
+ 750 0068 FF        		.byte	-1
+ 751 0069 01        		.byte	1
+ 752 006a 00        		.byte	0
+ 753 006b 00        		.byte	0
+ 754 006c 00        		.byte	0
+ 755 006d 00        		.byte	0
+GAS LISTING /tmp/ccfUa0sp.s 			page 15
+
+
+ 756 006e 00        		.byte	0
+ 757 006f 01        		.byte	1
+ 758 0070 00        		.byte	0
+ 759 0071 00        		.byte	0
+ 760 0072 00        		.byte	0
+ 761 0073 FF        		.byte	-1
+ 762 0074 FF        		.byte	-1
+ 763 0075 FF        		.byte	-1
+ 764 0076 FF        		.byte	-1
+ 765 0077 FF        		.byte	-1
+ 766 0078 FF        		.byte	-1
+ 767 0079 FF        		.byte	-1
+ 768 007a FF        		.byte	-1
+ 769 007b FF        		.byte	-1
+ 770 007c FF        		.byte	-1
+ 771 007d FF        		.byte	-1
+ 772 007e FF        		.byte	-1
+ 773 007f FF        		.byte	-1
+ 774 0080 00        		.byte	0
+ 775 0081 10        		.byte	16
+ 776 0082 9B        		.byte	-101
+ 777 0083 05        		.byte	5
+ 778 0084 5C        		.byte	92
+ 779 0085 1A        		.byte	26
+ 780 0086 F8        		.byte	-8
+ 781 0087 08        		.byte	8
+ 782 0088 08        		.byte	8
+ 783 0089 FF        		.byte	-1
+ 784 008a FF        		.byte	-1
+ 785 008b FF        		.byte	-1
+ 786 008c FF        		.byte	-1
+ 787 008d FF        		.byte	-1
+ 788 008e FF        		.byte	-1
+ 789 008f FF        		.byte	-1
+ 790 0090 FF        		.byte	-1
+ 791 0091 FF        		.byte	-1
+ 792 0092 FF        		.byte	-1
+ 793 0093 FF        		.byte	-1
+ 794 0094 FF        		.byte	-1
+ 795 0095 FF        		.byte	-1
+ 796 0096 FF        		.byte	-1
+ 797 0097 FF        		.byte	-1
+ 798 0098 FF        		.byte	-1
+ 799 0099 FF        		.byte	-1
+ 800 009a FF        		.byte	-1
+ 801 009b FF        		.byte	-1
+ 802 009c FF        		.byte	-1
+ 803 009d FF        		.byte	-1
+ 804 009e FF        		.byte	-1
+ 805 009f FF        		.byte	-1
+ 806 00a0 FF        		.byte	-1
+ 807 00a1 FF        		.byte	-1
+ 808 00a2 FF        		.byte	-1
+ 809 00a3 FF        		.byte	-1
+ 810 00a4 FF        		.byte	-1
+ 811 00a5 FF        		.byte	-1
+ 812 00a6 FF        		.byte	-1
+GAS LISTING /tmp/ccfUa0sp.s 			page 16
+
+
+ 813 00a7 FF        		.byte	-1
+ 814 00a8 FF        		.byte	-1
+ 815 00a9 FF        		.byte	-1
+ 816 00aa FF        		.byte	-1
+ 817 00ab FF        		.byte	-1
+ 818 00ac FF        		.byte	-1
+ 819 00ad FF        		.byte	-1
+ 820 00ae FF        		.byte	-1
+ 821 00af FF        		.byte	-1
+ 822 00b0 FF        		.byte	-1
+ 823 00b1 FF        		.byte	-1
+ 824 00b2 FF        		.byte	-1
+ 825 00b3 FF        		.byte	-1
+ 826 00b4 FF        		.byte	-1
+ 827 00b5 FF        		.byte	-1
+ 828 00b6 FF        		.byte	-1
+ 829 00b7 FF        		.byte	-1
+ 830 00b8 FF        		.byte	-1
+ 831 00b9 FF        		.byte	-1
+ 832 00ba FF        		.byte	-1
+ 833 00bb FF        		.byte	-1
+ 834 00bc FF        		.byte	-1
+ 835 00bd FF        		.byte	-1
+ 836 00be FF        		.byte	-1
+ 837 00bf FF        		.byte	-1
+ 838 00c0 00        		.byte	0
+ 839 00c1 08        		.byte	8
+ 840 00c2 00        		.byte	0
+ 841 00c3 00        		.byte	0
+ 842 00c4 0C        		.byte	12
+ 843 00c5 FF        		.byte	-1
+ 844 00c6 FF        		.byte	-1
+ 845 00c7 FD        		.byte	-3
+ 846 00c8 FF        		.byte	-1
+ 847 00c9 2F        		.byte	47
+ 848 00ca 7C        		.byte	124
+ 849 00cb 04        		.byte	4
+ 850 00cc 08        		.byte	8
+ 851 00cd 08        		.byte	8
+ 852 00ce 08        		.byte	8
+ 853 00cf 02        		.byte	2
+ 854 00d0 08        		.byte	8
+ 855 00d1 08        		.byte	8
+ 856 00d2 04        		.byte	4
+ 857 00d3 08        		.byte	8
+ 858 00d4 FF        		.byte	-1
+ 859 00d5 FF        		.byte	-1
+ 860 00d6 FF        		.byte	-1
+ 861 00d7 FF        		.byte	-1
+ 862 00d8 FF        		.byte	-1
+ 863 00d9 FF        		.byte	-1
+ 864 00da FF        		.byte	-1
+ 865 00db FF        		.byte	-1
+ 866 00dc FF        		.byte	-1
+ 867 00dd FF        		.byte	-1
+ 868 00de FF        		.byte	-1
+ 869 00df FF        		.byte	-1
+GAS LISTING /tmp/ccfUa0sp.s 			page 17
+
+
+ 870 00e0 FF        		.byte	-1
+ 871 00e1 FF        		.byte	-1
+ 872 00e2 FF        		.byte	-1
+ 873 00e3 FF        		.byte	-1
+ 874 00e4 FF        		.byte	-1
+ 875 00e5 FF        		.byte	-1
+ 876 00e6 FF        		.byte	-1
+ 877 00e7 FF        		.byte	-1
+ 878 00e8 FF        		.byte	-1
+ 879 00e9 FF        		.byte	-1
+ 880 00ea FF        		.byte	-1
+ 881 00eb FF        		.byte	-1
+ 882 00ec FF        		.byte	-1
+ 883 00ed FF        		.byte	-1
+ 884 00ee FF        		.byte	-1
+ 885 00ef FF        		.byte	-1
+ 886 00f0 FF        		.byte	-1
+ 887 00f1 FF        		.byte	-1
+ 888 00f2 FF        		.byte	-1
+ 889 00f3 FF        		.byte	-1
+ 890 00f4 FF        		.byte	-1
+ 891 00f5 FF        		.byte	-1
+ 892 00f6 FF        		.byte	-1
+ 893 00f7 FF        		.byte	-1
+ 894 00f8 FF        		.byte	-1
+ 895 00f9 FF        		.byte	-1
+ 896 00fa FF        		.byte	-1
+ 897 00fb FF        		.byte	-1
+ 898 00fc FF        		.byte	-1
+ 899 00fd FF        		.byte	-1
+ 900 00fe FF        		.byte	-1
+ 901 00ff FF        		.byte	-1
+ 902               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/ccfUa0sp.s 			page 18
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 registers.c
+     /tmp/ccfUa0sp.s:5      .text.clamp:0000000000000000 clamp
+     /tmp/ccfUa0sp.s:39     .text.fram_reg_cb:0000000000000000 fram_reg_cb
+                             .bss:0000000000000000 regs_in_progress
+     /tmp/ccfUa0sp.s:628    .bss:0000000000000002 regs_sem
+     /tmp/ccfUa0sp.s:67     .text.fram_block_cb:0000000000000000 fram_block_cb
+     /tmp/ccfUa0sp.s:91     .text.fram_reg:0000000000000000 fram_reg
+     /tmp/ccfUa0sp.s:172    .text.fram_block:0000000000000000 fram_block
+     /tmp/ccfUa0sp.s:269    .text.elyClampReg:0000000000000000 elyClampReg
+     /tmp/ccfUa0sp.s:433    .text.elyRegGet:0000000000000000 elyRegGet
+     /tmp/ccfUa0sp.s:645    .persistent:0000000000000000 bank0
+     /tmp/ccfUa0sp.s:485    .text.elyRegSet:0000000000000000 elyRegSet
+     /tmp/ccfUa0sp.s:540    .text.elyRegGetBlock:0000000000000000 elyRegGetBlock
+     /tmp/ccfUa0sp.s:580    .text.elyRegSetBlock:0000000000000000 elyRegSetBlock
+     /tmp/ccfUa0sp.s:634    .upper.rodata:0000000000000000 bank0w
+     /tmp/ccfUa0sp.s:640    .upper.rodata:0000000000000004 bank0p
+     /tmp/ccfUa0sp.s:28     .text.clamp:000000000000001c .L2
+     /tmp/ccfUa0sp.s:24     .text.clamp:0000000000000018 .L3
+     /tmp/ccfUa0sp.s:59     .text.fram_reg_cb:0000000000000026 .L4
+     /tmp/ccfUa0sp.s:83     .text.fram_block_cb:0000000000000014 .L6
+     /tmp/ccfUa0sp.s:366    .text.elyClampReg:0000000000000124 .L12
+     /tmp/ccfUa0sp.s:319    .text.elyClampReg:0000000000000088 .L13
+     /tmp/ccfUa0sp.s:355    .text.elyClampReg:0000000000000108 .L19
+     /tmp/ccfUa0sp.s:298    .text.elyClampReg:0000000000000046 .L15
+     /tmp/ccfUa0sp.s:351    .text.elyClampReg:00000000000000fc .L16
+     /tmp/ccfUa0sp.s:303    .text.elyClampReg:000000000000005a .L11
+     /tmp/ccfUa0sp.s:375    .text.elyClampReg:0000000000000146 .L27
+     /tmp/ccfUa0sp.s:312    .text.elyClampReg:0000000000000074 .L20
+     /tmp/ccfUa0sp.s:421    .text.elyClampReg:00000000000001d8 .L37
+     /tmp/ccfUa0sp.s:295    .text.elyClampReg:000000000000003e .L91
+     /tmp/ccfUa0sp.s:360    .text.elyClampReg:0000000000000110 .L22
+     /tmp/ccfUa0sp.s:293    .text.elyClampReg:000000000000003a .L92
+     /tmp/ccfUa0sp.s:333    .text.elyClampReg:00000000000000ba .L24
+     /tmp/ccfUa0sp.s:330    .text.elyClampReg:00000000000000b0 .L25
+     /tmp/ccfUa0sp.s:369    .text.elyClampReg:000000000000012c .L26
+     /tmp/ccfUa0sp.s:315    .text.elyClampReg:0000000000000080 .L23
+     /tmp/ccfUa0sp.s:411    .text.elyClampReg:00000000000001ba .L28
+     /tmp/ccfUa0sp.s:339    .text.elyClampReg:00000000000000d2 .L29
+     /tmp/ccfUa0sp.s:327    .text.elyClampReg:00000000000000aa .L38
+     /tmp/ccfUa0sp.s:414    .text.elyClampReg:00000000000001c0 .L36
+     /tmp/ccfUa0sp.s:357    .text.elyClampReg:000000000000010a .L93
+     /tmp/ccfUa0sp.s:378    .text.elyClampReg:0000000000000148 .L31
+     /tmp/ccfUa0sp.s:385    .text.elyClampReg:0000000000000160 .L32
+     /tmp/ccfUa0sp.s:392    .text.elyClampReg:0000000000000178 .L33
+     /tmp/ccfUa0sp.s:399    .text.elyClampReg:0000000000000190 .L34
+     /tmp/ccfUa0sp.s:406    .text.elyClampReg:00000000000001a8 .L35
+     /tmp/ccfUa0sp.s:465    .text.elyRegGet:0000000000000040 .L97
+     /tmp/ccfUa0sp.s:471    .text.elyRegGet:0000000000000048 .L100
+     /tmp/ccfUa0sp.s:467    .text.elyRegGet:0000000000000044 .L94
+     /tmp/ccfUa0sp.s:459    .text.elyRegGet:000000000000002c .L98
+     /tmp/ccfUa0sp.s:453    .text.elyRegGet:000000000000001a .L96
+     /tmp/ccfUa0sp.s:519    .text.elyRegSet:0000000000000044 .L103
+     /tmp/ccfUa0sp.s:510    .text.elyRegSet:000000000000002c .L102
+     /tmp/ccfUa0sp.s:565    .text.elyRegGetBlock:000000000000002a .L105
+     /tmp/ccfUa0sp.s:561    .text.elyRegGetBlock:0000000000000024 .L104
+     /tmp/ccfUa0sp.s:615    .text.elyRegSetBlock:000000000000003c .L109
+GAS LISTING /tmp/ccfUa0sp.s 			page 19
+
+
+     /tmp/ccfUa0sp.s:600    .text.elyRegSetBlock:0000000000000016 .L108
+
+UNDEFINED SYMBOLS
+elyErrorSignal
+chSemSignalI
+elyFramGetRequestTimeoutS
+elyFramPostRequestS
+elyNLClampReg
+elyRFDLLClampReg
+chSemWaitTimeout
+memcpy
+__crt0_init_bss
