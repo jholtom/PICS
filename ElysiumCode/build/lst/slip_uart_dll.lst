@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cc8GNDAw.s 			page 1
+GAS LISTING /tmp/ccSz7mGE.s 			page 1
 
 
    1               		.file	"slip_uart_dll.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/cc8GNDAw.s 			page 1
   49 0060 AC00 0100 		ADDA	#1, R12
   50 0064 0D4B      		MOV.W	R11, R13
   51 0066 CE0A      		MOVA	R10, R14
-GAS LISTING /tmp/cc8GNDAw.s 			page 2
+GAS LISTING /tmp/ccSz7mGE.s 			page 2
 
 
   52 0068 8000 0000 		BRA	#.L5
@@ -118,7 +118,7 @@ GAS LISTING /tmp/cc8GNDAw.s 			page 1
   96      0000 
   97               	.L34:
   98               		; start of epilogue
-GAS LISTING /tmp/cc8GNDAw.s 			page 3
+GAS LISTING /tmp/ccSz7mGE.s 			page 3
 
 
   99 000e 1001      		RETA
@@ -178,7 +178,7 @@ GAS LISTING /tmp/cc8GNDAw.s 			page 1
  145               	.L40:
  146 0020 8C00 0000 		MOVA	#__func__.4825, R12
  147 0024 B013 0000 		CALLA	#chSysHalt
-GAS LISTING /tmp/cc8GNDAw.s 			page 4
+GAS LISTING /tmp/ccSz7mGE.s 			page 4
 
 
  148               	.L41:
@@ -238,7 +238,7 @@ GAS LISTING /tmp/cc8GNDAw.s 			page 1
  194 00aa 8000 0000 		BRA	#.L52
  195               		.size	elyUARTDLLStartTx, .-elyUARTDLLStartTx
  196               		.section	.text.elyUARTDLLRxInit,"ax",@progbits
-GAS LISTING /tmp/cc8GNDAw.s 			page 5
+GAS LISTING /tmp/ccSz7mGE.s 			page 5
 
 
  197               		.balign 2
@@ -298,7 +298,7 @@ GAS LISTING /tmp/cc8GNDAw.s 			page 1
  249 003c 7C40 FF00 		MOV.B	#255, R12
  250 0040 DC08 0028 		CMPA	R8, R12 { JLO	.L54
  251 0044 2C00 0000 		MOVA	&rx_active_buffer, R12
-GAS LISTING /tmp/cc8GNDAw.s 			page 6
+GAS LISTING /tmp/ccSz7mGE.s 			page 6
 
 
  252 0048 9C00 0000 		CMPA	#0, R12 { JEQ	.L78
@@ -358,7 +358,7 @@ GAS LISTING /tmp/cc8GNDAw.s 			page 1
  292      0000 
  293               	.L66:
  294 00e0 0018 F253 		ADDX.A	#-1, &rx_n.4833
-GAS LISTING /tmp/cc8GNDAw.s 			page 7
+GAS LISTING /tmp/ccSz7mGE.s 			page 7
 
 
  294      0000 
@@ -418,7 +418,7 @@ GAS LISTING /tmp/cc8GNDAw.s 			page 1
  335 0186 2E00 0000 		MOVA	&rx_write_ptr, R14
  336 018a CD0E      		MOVA	R14, R13
  337 018c AD00 0100 		ADDA	#1, R13
-GAS LISTING /tmp/cc8GNDAw.s 			page 8
+GAS LISTING /tmp/ccSz7mGE.s 			page 8
 
 
  338 0190 600D 0000 		MOVA	R13, &rx_write_ptr
@@ -478,7 +478,7 @@ GAS LISTING /tmp/cc8GNDAw.s 			page 1
  391 0004 C80C      		MOVA	R12, R8
  392 0006 0A4D      		MOV.W	R13, R10
  393 0008 7C40 FF00 		MOV.B	#255, R12
-GAS LISTING /tmp/cc8GNDAw.s 			page 9
+GAS LISTING /tmp/ccSz7mGE.s 			page 9
 
 
  394 000c 0C9D 002C 		CMP.W	R13, R12 { JHS	.L89
@@ -538,7 +538,7 @@ GAS LISTING /tmp/cc8GNDAw.s 			page 1
  445 0030 B013 0000 		CALLA	#uartStartReceiveI
  446 0034 8A00 0000 		MOVA	#GPTDA1, R10
  447 0038 CC0A      		MOVA	R10, R12
-GAS LISTING /tmp/cc8GNDAw.s 			page 10
+GAS LISTING /tmp/ccSz7mGE.s 			page 10
 
 
  448 003a B013 0000 		CALLA	#gptStopTimerI
@@ -598,7 +598,7 @@ GAS LISTING /tmp/cc8GNDAw.s 			page 1
  491               	__func__.4813:
  492 0035 6361 6C63 		.string	"calc_next_buff"
  492      5F6E 6578 
-GAS LISTING /tmp/cc8GNDAw.s 			page 11
+GAS LISTING /tmp/ccSz7mGE.s 			page 11
 
 
  492      745F 6275 
@@ -646,84 +646,84 @@ GAS LISTING /tmp/cc8GNDAw.s 			page 1
  533 0046 DB        		.byte	-37
  534 0047 DD        		.byte	-35
  535               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/cc8GNDAw.s 			page 12
+GAS LISTING /tmp/ccSz7mGE.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 slip_uart_dll.c
-     /tmp/cc8GNDAw.s:6      .text.calc_next_buff:0000000000000000 calc_next_buff
-     /tmp/cc8GNDAw.s:498    .upper.data:0000000000000000 tx_state
-     /tmp/cc8GNDAw.s:505    .bss:0000000000000014 tx_read_ptr
-     /tmp/cc8GNDAw.s:501    .bss:000000000000000c next_tx_ptr
-     /tmp/cc8GNDAw.s:503    .bss:0000000000000010 next_cnt
-     /tmp/cc8GNDAw.s:507    .bss:0000000000000018 tx_n
-     /tmp/cc8GNDAw.s:532    .upper.rodata:0000000000000046 SLIP_ESC_ESC_ESC
-     /tmp/cc8GNDAw.s:527    .upper.rodata:0000000000000044 SLIP_ESC_ESC_END
-     /tmp/cc8GNDAw.s:491    .upper.rodata:0000000000000035 __func__.4813
-     /tmp/cc8GNDAw.s:84     .text.elyUARTDLLTxCB:0000000000000000 elyUARTDLLTxCB
-     /tmp/cc8GNDAw.s:474    .bss:0000000000000006 done.4818
-     /tmp/cc8GNDAw.s:509    .bss:000000000000001c tx_active_buffer
-     /tmp/cc8GNDAw.s:485    .upper.rodata:0000000000000034 END.4819
-     /tmp/cc8GNDAw.s:125    .text.elyUARTDLLStartTx:0000000000000000 elyUARTDLLStartTx
-     /tmp/cc8GNDAw.s:481    .upper.rodata:0000000000000022 __func__.4825
-     /tmp/cc8GNDAw.s:477    .upper.rodata:0000000000000021 END.4824
-     /tmp/cc8GNDAw.s:200    .text.elyUARTDLLRxInit:0000000000000000 elyUARTDLLRxInit
-     /tmp/cc8GNDAw.s:494    .bss:0000000000000008 uart_thd
-     /tmp/cc8GNDAw.s:219    .text.elyUARTDLLRxHandleBuffer:0000000000000000 elyUARTDLLRxHandleBuffer
-     /tmp/cc8GNDAw.s:511    .bss:0000000000000020 bytes_available
-     /tmp/cc8GNDAw.s:523    .bss:000000000000002a rx_buf
-     /tmp/cc8GNDAw.s:518    .persistent:0000000000000000 rx_active_buffer
-     /tmp/cc8GNDAw.s:513    .bss:0000000000000028 rx_state
-     /tmp/cc8GNDAw.s:513    .bss:0000000000000024 rx_write_ptr
-     /tmp/cc8GNDAw.s:474    .bss:0000000000000002 rx_n.4833
+     /tmp/ccSz7mGE.s:6      .text.calc_next_buff:0000000000000000 calc_next_buff
+     /tmp/ccSz7mGE.s:498    .upper.data:0000000000000000 tx_state
+     /tmp/ccSz7mGE.s:505    .bss:0000000000000014 tx_read_ptr
+     /tmp/ccSz7mGE.s:501    .bss:000000000000000c next_tx_ptr
+     /tmp/ccSz7mGE.s:503    .bss:0000000000000010 next_cnt
+     /tmp/ccSz7mGE.s:507    .bss:0000000000000018 tx_n
+     /tmp/ccSz7mGE.s:532    .upper.rodata:0000000000000046 SLIP_ESC_ESC_ESC
+     /tmp/ccSz7mGE.s:527    .upper.rodata:0000000000000044 SLIP_ESC_ESC_END
+     /tmp/ccSz7mGE.s:491    .upper.rodata:0000000000000035 __func__.4813
+     /tmp/ccSz7mGE.s:84     .text.elyUARTDLLTxCB:0000000000000000 elyUARTDLLTxCB
+     /tmp/ccSz7mGE.s:474    .bss:0000000000000006 done.4818
+     /tmp/ccSz7mGE.s:509    .bss:000000000000001c tx_active_buffer
+     /tmp/ccSz7mGE.s:485    .upper.rodata:0000000000000034 END.4819
+     /tmp/ccSz7mGE.s:125    .text.elyUARTDLLStartTx:0000000000000000 elyUARTDLLStartTx
+     /tmp/ccSz7mGE.s:481    .upper.rodata:0000000000000022 __func__.4825
+     /tmp/ccSz7mGE.s:477    .upper.rodata:0000000000000021 END.4824
+     /tmp/ccSz7mGE.s:200    .text.elyUARTDLLRxInit:0000000000000000 elyUARTDLLRxInit
+     /tmp/ccSz7mGE.s:494    .bss:0000000000000008 uart_thd
+     /tmp/ccSz7mGE.s:219    .text.elyUARTDLLRxHandleBuffer:0000000000000000 elyUARTDLLRxHandleBuffer
+     /tmp/ccSz7mGE.s:511    .bss:0000000000000020 bytes_available
+     /tmp/ccSz7mGE.s:523    .bss:000000000000002a rx_buf
+     /tmp/ccSz7mGE.s:518    .persistent:0000000000000000 rx_active_buffer
+     /tmp/ccSz7mGE.s:513    .bss:0000000000000028 rx_state
+     /tmp/ccSz7mGE.s:513    .bss:0000000000000024 rx_write_ptr
+     /tmp/ccSz7mGE.s:474    .bss:0000000000000002 rx_n.4833
                              .bss:0000000000000000 header.4834
-     /tmp/cc8GNDAw.s:469    .upper.rodata:0000000000000013 __func__.4851
-     /tmp/cc8GNDAw.s:351    .text.elyUARTDLLTimeoutCB:0000000000000000 elyUARTDLLTimeoutCB
-     /tmp/cc8GNDAw.s:378    .text.elyUARTDLLRxCharCB:0000000000000000 elyUARTDLLRxCharCB
-     /tmp/cc8GNDAw.s:465    .upper.rodata:0000000000000000 __func__.4864
-     /tmp/cc8GNDAw.s:418    .text.elyUARTDLLRxCB:0000000000000000 elyUARTDLLRxCB
-     /tmp/cc8GNDAw.s:53     .text.calc_next_buff:000000000000006c .L3
-     /tmp/cc8GNDAw.s:75     .text.calc_next_buff:00000000000000c4 .L30
-     /tmp/cc8GNDAw.s:43     .text.calc_next_buff:000000000000004c .L6
-     /tmp/cc8GNDAw.s:35     .text.calc_next_buff:000000000000003a .L11
-     /tmp/cc8GNDAw.s:31     .text.calc_next_buff:000000000000002e .L33
-     /tmp/cc8GNDAw.s:29     .text.calc_next_buff:000000000000002a .L5
-     /tmp/cc8GNDAw.s:67     .text.calc_next_buff:00000000000000a6 .L15
-     /tmp/cc8GNDAw.s:70     .text.calc_next_buff:00000000000000b2 .L31
-     /tmp/cc8GNDAw.s:38     .text.calc_next_buff:0000000000000046 .L1
-     /tmp/cc8GNDAw.s:62     .text.calc_next_buff:0000000000000090 .L17
-     /tmp/cc8GNDAw.s:100    .text.elyUARTDLLTxCB:0000000000000010 .L35
-     /tmp/cc8GNDAw.s:108    .text.elyUARTDLLTxCB:0000000000000030 .L37
-     /tmp/cc8GNDAw.s:97     .text.elyUARTDLLTxCB:000000000000000e .L34
-     /tmp/cc8GNDAw.s:117    .text.elyUARTDLLTxCB:000000000000005a .L38
-     /tmp/cc8GNDAw.s:145    .text.elyUARTDLLStartTx:0000000000000020 .L40
-     /tmp/cc8GNDAw.s:148    .text.elyUARTDLLStartTx:0000000000000028 .L41
-     /tmp/cc8GNDAw.s:152    .text.elyUARTDLLStartTx:000000000000003a .L42
-     /tmp/cc8GNDAw.s:157    .text.elyUARTDLLStartTx:0000000000000048 .L43
-     /tmp/cc8GNDAw.s:192    .text.elyUARTDLLStartTx:00000000000000a8 .L44
-     /tmp/cc8GNDAw.s:181    .text.elyUARTDLLStartTx:000000000000009a .L52
-     /tmp/cc8GNDAw.s:261    .text.elyUARTDLLRxHandleBuffer:0000000000000062 .L76
-     /tmp/cc8GNDAw.s:257    .text.elyUARTDLLRxHandleBuffer:000000000000005e .L54
-     /tmp/cc8GNDAw.s:255    .text.elyUARTDLLRxHandleBuffer:0000000000000058 .L78
-     /tmp/cc8GNDAw.s:274    .text.elyUARTDLLRxHandleBuffer:000000000000009c .L56
-GAS LISTING /tmp/cc8GNDAw.s 			page 13
+     /tmp/ccSz7mGE.s:469    .upper.rodata:0000000000000013 __func__.4851
+     /tmp/ccSz7mGE.s:351    .text.elyUARTDLLTimeoutCB:0000000000000000 elyUARTDLLTimeoutCB
+     /tmp/ccSz7mGE.s:378    .text.elyUARTDLLRxCharCB:0000000000000000 elyUARTDLLRxCharCB
+     /tmp/ccSz7mGE.s:465    .upper.rodata:0000000000000000 __func__.4864
+     /tmp/ccSz7mGE.s:418    .text.elyUARTDLLRxCB:0000000000000000 elyUARTDLLRxCB
+     /tmp/ccSz7mGE.s:53     .text.calc_next_buff:000000000000006c .L3
+     /tmp/ccSz7mGE.s:75     .text.calc_next_buff:00000000000000c4 .L30
+     /tmp/ccSz7mGE.s:43     .text.calc_next_buff:000000000000004c .L6
+     /tmp/ccSz7mGE.s:35     .text.calc_next_buff:000000000000003a .L11
+     /tmp/ccSz7mGE.s:31     .text.calc_next_buff:000000000000002e .L33
+     /tmp/ccSz7mGE.s:29     .text.calc_next_buff:000000000000002a .L5
+     /tmp/ccSz7mGE.s:67     .text.calc_next_buff:00000000000000a6 .L15
+     /tmp/ccSz7mGE.s:70     .text.calc_next_buff:00000000000000b2 .L31
+     /tmp/ccSz7mGE.s:38     .text.calc_next_buff:0000000000000046 .L1
+     /tmp/ccSz7mGE.s:62     .text.calc_next_buff:0000000000000090 .L17
+     /tmp/ccSz7mGE.s:100    .text.elyUARTDLLTxCB:0000000000000010 .L35
+     /tmp/ccSz7mGE.s:108    .text.elyUARTDLLTxCB:0000000000000030 .L37
+     /tmp/ccSz7mGE.s:97     .text.elyUARTDLLTxCB:000000000000000e .L34
+     /tmp/ccSz7mGE.s:117    .text.elyUARTDLLTxCB:000000000000005a .L38
+     /tmp/ccSz7mGE.s:145    .text.elyUARTDLLStartTx:0000000000000020 .L40
+     /tmp/ccSz7mGE.s:148    .text.elyUARTDLLStartTx:0000000000000028 .L41
+     /tmp/ccSz7mGE.s:152    .text.elyUARTDLLStartTx:000000000000003a .L42
+     /tmp/ccSz7mGE.s:157    .text.elyUARTDLLStartTx:0000000000000048 .L43
+     /tmp/ccSz7mGE.s:192    .text.elyUARTDLLStartTx:00000000000000a8 .L44
+     /tmp/ccSz7mGE.s:181    .text.elyUARTDLLStartTx:000000000000009a .L52
+     /tmp/ccSz7mGE.s:261    .text.elyUARTDLLRxHandleBuffer:0000000000000062 .L76
+     /tmp/ccSz7mGE.s:257    .text.elyUARTDLLRxHandleBuffer:000000000000005e .L54
+     /tmp/ccSz7mGE.s:255    .text.elyUARTDLLRxHandleBuffer:0000000000000058 .L78
+     /tmp/ccSz7mGE.s:274    .text.elyUARTDLLRxHandleBuffer:000000000000009c .L56
+GAS LISTING /tmp/ccSz7mGE.s 			page 13
 
 
-     /tmp/cc8GNDAw.s:267    .text.elyUARTDLLRxHandleBuffer:000000000000007a .L57
-     /tmp/cc8GNDAw.s:281    .text.elyUARTDLLRxHandleBuffer:00000000000000b6 .L61
-     /tmp/cc8GNDAw.s:317    .text.elyUARTDLLRxHandleBuffer:000000000000013a .L62
-     /tmp/cc8GNDAw.s:298    .text.elyUARTDLLRxHandleBuffer:00000000000000f0 .L68
-     /tmp/cc8GNDAw.s:287    .text.elyUARTDLLRxHandleBuffer:00000000000000cc .L64
-     /tmp/cc8GNDAw.s:310    .text.elyUARTDLLRxHandleBuffer:0000000000000122 .L65
-     /tmp/cc8GNDAw.s:247    .text.elyUARTDLLRxHandleBuffer:0000000000000038 .L55
-     /tmp/cc8GNDAw.s:343    .text.elyUARTDLLRxHandleBuffer:00000000000001a4 .L75
-     /tmp/cc8GNDAw.s:293    .text.elyUARTDLLRxHandleBuffer:00000000000000e0 .L66
-     /tmp/cc8GNDAw.s:323    .text.elyUARTDLLRxHandleBuffer:0000000000000158 .L70
-     /tmp/cc8GNDAw.s:332    .text.elyUARTDLLRxHandleBuffer:000000000000017c .L84
-     /tmp/cc8GNDAw.s:284    .text.elyUARTDLLRxHandleBuffer:00000000000000c2 .L86
-     /tmp/cc8GNDAw.s:296    .text.elyUARTDLLRxHandleBuffer:00000000000000ec .L85
-     /tmp/cc8GNDAw.s:328    .text.elyUARTDLLRxHandleBuffer:000000000000016e .L73
-     /tmp/cc8GNDAw.s:397    .text.elyUARTDLLRxCharCB:0000000000000018 .L89
+     /tmp/ccSz7mGE.s:267    .text.elyUARTDLLRxHandleBuffer:000000000000007a .L57
+     /tmp/ccSz7mGE.s:281    .text.elyUARTDLLRxHandleBuffer:00000000000000b6 .L61
+     /tmp/ccSz7mGE.s:317    .text.elyUARTDLLRxHandleBuffer:000000000000013a .L62
+     /tmp/ccSz7mGE.s:298    .text.elyUARTDLLRxHandleBuffer:00000000000000f0 .L68
+     /tmp/ccSz7mGE.s:287    .text.elyUARTDLLRxHandleBuffer:00000000000000cc .L64
+     /tmp/ccSz7mGE.s:310    .text.elyUARTDLLRxHandleBuffer:0000000000000122 .L65
+     /tmp/ccSz7mGE.s:247    .text.elyUARTDLLRxHandleBuffer:0000000000000038 .L55
+     /tmp/ccSz7mGE.s:343    .text.elyUARTDLLRxHandleBuffer:00000000000001a4 .L75
+     /tmp/ccSz7mGE.s:293    .text.elyUARTDLLRxHandleBuffer:00000000000000e0 .L66
+     /tmp/ccSz7mGE.s:323    .text.elyUARTDLLRxHandleBuffer:0000000000000158 .L70
+     /tmp/ccSz7mGE.s:332    .text.elyUARTDLLRxHandleBuffer:000000000000017c .L84
+     /tmp/ccSz7mGE.s:284    .text.elyUARTDLLRxHandleBuffer:00000000000000c2 .L86
+     /tmp/ccSz7mGE.s:296    .text.elyUARTDLLRxHandleBuffer:00000000000000ec .L85
+     /tmp/ccSz7mGE.s:328    .text.elyUARTDLLRxHandleBuffer:000000000000016e .L73
+     /tmp/ccSz7mGE.s:397    .text.elyUARTDLLRxCharCB:0000000000000018 .L89
 
 UNDEFINED SYMBOLS
 chSysHalt

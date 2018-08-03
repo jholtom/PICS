@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccZthdMy.s 			page 1
+GAS LISTING /tmp/ccf3euEt.s 			page 1
 
 
    1               		.file	"errors_stub.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccZthdMy.s 			page 1
   55               		.size	elyErrorSetRptLvlS, .-elyErrorSetRptLvlS
   56               		.section	.text.elyErrorSetLogLvlS,"ax",@progbits
   57               		.balign 2
-GAS LISTING /tmp/ccZthdMy.s 			page 2
+GAS LISTING /tmp/ccf3euEt.s 			page 2
 
 
   58               		.global	elyErrorSetLogLvlS
@@ -78,14 +78,14 @@ GAS LISTING /tmp/ccZthdMy.s 			page 1
   72 0000 1001      		RETA
   73               		.size	elyErrorSetLogLvlS, .-elyErrorSetLogLvlS
   74               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccZthdMy.s 			page 3
+GAS LISTING /tmp/ccf3euEt.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 errors_stub.c
-     /tmp/ccZthdMy.s:6      .text.elyErrorSignal:0000000000000000 elyErrorSignal
-     /tmp/ccZthdMy.s:24     .text.elyErrorSignalI:0000000000000000 elyErrorSignalI
-     /tmp/ccZthdMy.s:42     .text.elyErrorSetRptLvlS:0000000000000000 elyErrorSetRptLvlS
-     /tmp/ccZthdMy.s:60     .text.elyErrorSetLogLvlS:0000000000000000 elyErrorSetLogLvlS
+     /tmp/ccf3euEt.s:6      .text.elyErrorSignal:0000000000000000 elyErrorSignal
+     /tmp/ccf3euEt.s:24     .text.elyErrorSignalI:0000000000000000 elyErrorSignalI
+     /tmp/ccf3euEt.s:42     .text.elyErrorSetRptLvlS:0000000000000000 elyErrorSetRptLvlS
+     /tmp/ccf3euEt.s:60     .text.elyErrorSetLogLvlS:0000000000000000 elyErrorSetLogLvlS
 
 NO UNDEFINED SYMBOLS

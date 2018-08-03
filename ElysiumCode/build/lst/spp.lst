@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccFZWJxZ.s 			page 1
+GAS LISTING /tmp/ccTwJpO7.s 			page 1
 
 
    1               		.file	"spp.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
   55 0016 0C49      		MOV.W	R9, R12
   56               	.L6:
   57               		; start of epilogue
-GAS LISTING /tmp/ccFZWJxZ.s 			page 2
+GAS LISTING /tmp/ccTwJpO7.s 			page 2
 
 
   58 0018 1916      		POPM.A	#2, r10
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  112               	; framesize_outgoing: 0
  113               	; framesize:          0
  114               	; elim ap -> fp       4
-GAS LISTING /tmp/ccFZWJxZ.s 			page 3
+GAS LISTING /tmp/ccTwJpO7.s 			page 3
 
 
  115               	; elim fp -> sp       0
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  169               	; elim ap -> fp       4
  170               	; elim fp -> sp       0
  171               	; saved regs:(none)
-GAS LISTING /tmp/ccFZWJxZ.s 			page 4
+GAS LISTING /tmp/ccTwJpO7.s 			page 4
 
 
  172               		; start of prologue
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  220 005a 3A90 1000 		CMP.W	#16, R10 { JEQ	.L22
  220      0024 
  221 0060 7C40 88FF 		MOV.B	#-120, R12
-GAS LISTING /tmp/ccFZWJxZ.s 			page 5
+GAS LISTING /tmp/ccTwJpO7.s 			page 5
 
 
  222 0064 B013 0000 		CALLA	#elyErrorSignal
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  272               	.L26:
  273 00fc 7AB0 D0FF 		BIT.B	#-48, R10 { JEQ	.L15
  273      0024 
-GAS LISTING /tmp/ccFZWJxZ.s 			page 6
+GAS LISTING /tmp/ccTwJpO7.s 			page 6
 
 
  274 0102 7C40 88FF 		MOV.B	#-120, R12
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  324 0064 C64D 0600 		MOV.B	R13, 6(R6)
  325               		; start of epilogue
  326 0068 A100 0400 		ADDA	#4, R1
-GAS LISTING /tmp/ccFZWJxZ.s 			page 7
+GAS LISTING /tmp/ccTwJpO7.s 			page 7
 
 
  327 006c 0616      		POPM.A	#1, r6
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  381               	; framesize_outgoing: 0
  382               	; framesize:          0
  383               	; elim ap -> fp       4
-GAS LISTING /tmp/ccFZWJxZ.s 			page 8
+GAS LISTING /tmp/ccTwJpO7.s 			page 8
 
 
  384               	; elim fp -> sp       0
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  438               		; start of epilogue
  439 001a 1001      		RETA
  440               		.size	elyNLGetDest, .-elyNLGetDest
-GAS LISTING /tmp/ccFZWJxZ.s 			page 9
+GAS LISTING /tmp/ccTwJpO7.s 			page 9
 
 
  441               		.section	.text.is_fw_buf,"ax",@progbits
@@ -538,7 +538,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  495 0000 0A14      		PUSHM.A	#1, R10
  496               		; end of prologue
  497 0002 CA0C      		MOVA	R12, R10
-GAS LISTING /tmp/ccFZWJxZ.s 			page 10
+GAS LISTING /tmp/ccTwJpO7.s 			page 10
 
 
  498 0004 B013 0000 		CALLA	#is_fw_buf
@@ -598,7 +598,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  552               	; elim fp -> sp       0
  553               	; saved regs:(none)
  554               		; start of prologue
-GAS LISTING /tmp/ccFZWJxZ.s 			page 11
+GAS LISTING /tmp/ccTwJpO7.s 			page 11
 
 
  555               		; end of prologue
@@ -658,7 +658,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  604               	 ; 0 "" 2
  605               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
  606 0058 0343 32D2 		nop { eint { nop
-GAS LISTING /tmp/ccFZWJxZ.s 			page 12
+GAS LISTING /tmp/ccTwJpO7.s 			page 12
 
 
  606      0343 
@@ -718,7 +718,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  649               	 ; 0 "" 2
  650               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
  651 00d0 0343      		nop
-GAS LISTING /tmp/ccFZWJxZ.s 			page 13
+GAS LISTING /tmp/ccTwJpO7.s 			page 13
 
 
  652               	 ; 0 "" 2
@@ -778,7 +778,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  701               	.L98:
  702 000e B013 0000 		CALLA	#elyErrorSignal
  703 0012 4C43      		MOV.B	#0, R12
-GAS LISTING /tmp/ccFZWJxZ.s 			page 14
+GAS LISTING /tmp/ccTwJpO7.s 			page 14
 
 
  704               	.L96:
@@ -838,7 +838,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  756 0004 0614      		PUSHM.A	#1, R6
  757 0006 0414      		PUSHM.A	#1, R4
  758               		; end of prologue
-GAS LISTING /tmp/ccFZWJxZ.s 			page 15
+GAS LISTING /tmp/ccTwJpO7.s 			page 15
 
 
  759 0008 CA0C      		MOVA	R12, R10
@@ -898,7 +898,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  811               	elyNLRouteUART:
  812               	; start of function
  813               	; framesize_regs:     0
-GAS LISTING /tmp/ccFZWJxZ.s 			page 16
+GAS LISTING /tmp/ccTwJpO7.s 			page 16
 
 
  814               	; framesize_locals:   0
@@ -958,7 +958,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  868 0008 8D00 0000 		MOVA	#uart_pass_i, R13
  869 000c B013 0000 		CALLA	#nl_route
  870               		; start of epilogue
-GAS LISTING /tmp/ccFZWJxZ.s 			page 17
+GAS LISTING /tmp/ccTwJpO7.s 			page 17
 
 
  871 0010 1001      		RETA
@@ -1018,7 +1018,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  924               	elyNLFromFW:
  925               	; start of function
  926               	; framesize_regs:     0
-GAS LISTING /tmp/ccFZWJxZ.s 			page 18
+GAS LISTING /tmp/ccTwJpO7.s 			page 18
 
 
  927               	; framesize_locals:   0
@@ -1078,7 +1078,7 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  975 0012 0100      		.short	1
  976               		.global	packets_received
  977               		.type	packets_received, @object
-GAS LISTING /tmp/ccFZWJxZ.s 			page 19
+GAS LISTING /tmp/ccTwJpO7.s 			page 19
 
 
  978               		.size	packets_received, 1
@@ -1099,95 +1099,95 @@ GAS LISTING /tmp/ccFZWJxZ.s 			page 1
  989               	elyNLMaxLen:
  990 2016 0008 0000 		.long	2048
  991               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccFZWJxZ.s 			page 20
+GAS LISTING /tmp/ccTwJpO7.s 			page 20
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 spp.c
-     /tmp/ccFZWJxZ.s:6      .text.nl_allocator:0000000000000000 nl_allocator
-     /tmp/ccFZWJxZ.s:961    .persistent:000000000000000c curr_index.4805
-     /tmp/ccFZWJxZ.s:983    .persistent:0000000000000015 mpool_storage
-     /tmp/ccFZWJxZ.s:37     .text.clamp:0000000000000000 clamp
-     /tmp/ccFZWJxZ.s:70     .text.uart_pass:0000000000000000 uart_pass
-     /tmp/ccFZWJxZ.s:89     .text.fw:0000000000000000 fw
-     /tmp/ccFZWJxZ.s:108    .text.rf_pass:0000000000000000 rf_pass
-     /tmp/ccFZWJxZ.s:127    .text.rf_pass_i:0000000000000000 rf_pass_i
-     /tmp/ccFZWJxZ.s:145    .text.fw_i:0000000000000000 fw_i
-     /tmp/ccFZWJxZ.s:163    .text.uart_pass_i:0000000000000000 uart_pass_i
-     /tmp/ccFZWJxZ.s:182    .text.elyNLClampReg:0000000000000000 elyNLClampReg
-     /tmp/ccFZWJxZ.s:948    .upper.rodata:0000000000000009 __func__.4820
-     /tmp/ccFZWJxZ.s:283    .text.elyNLChangeMaxLengthS:0000000000000000 elyNLChangeMaxLengthS
-     /tmp/ccFZWJxZ.s:954    .persistent:0000000000000000 main_mpool
-     /tmp/ccFZWJxZ.s:989    .persistent:0000000000002016 elyNLMaxLen
-     /tmp/ccFZWJxZ.s:336    .text.elyNLGetBuffer:0000000000000000 elyNLGetBuffer
-     /tmp/ccFZWJxZ.s:356    .text.elyNLFreeBuffer:0000000000000000 elyNLFreeBuffer
-     /tmp/ccFZWJxZ.s:377    .text.elyNLGetBufferI:0000000000000000 elyNLGetBufferI
-     /tmp/ccFZWJxZ.s:397    .text.elyNLFreeBufferI:0000000000000000 elyNLFreeBufferI
-     /tmp/ccFZWJxZ.s:418    .text.elyNLGetDest:0000000000000000 elyNLGetDest
-     /tmp/ccFZWJxZ.s:445    .text.is_fw_buf:0000000000000000 is_fw_buf
-     /tmp/ccFZWJxZ.s:485    .text.elyNLFreeBufferChecked:0000000000000000 elyNLFreeBufferChecked
-     /tmp/ccFZWJxZ.s:515    .text.elyNLFreeBufferCheckedI:0000000000000000 elyNLFreeBufferCheckedI
-     /tmp/ccFZWJxZ.s:545    .text.elyNLInit:0000000000000000 elyNLInit
-     /tmp/ccFZWJxZ.s:964    .bss:0000000000000000 sh_len
-     /tmp/ccFZWJxZ.s:564    .text.elyNLSetHeader:0000000000000000 elyNLSetHeader
-     /tmp/ccFZWJxZ.s:974    .persistent:0000000000000012 packets_sent
-     /tmp/ccFZWJxZ.s:663    .text.elyNLGetLength:0000000000000000 elyNLGetLength
-     /tmp/ccFZWJxZ.s:687    .text.elyNLValidate:0000000000000000 elyNLValidate
-     /tmp/ccFZWJxZ.s:744    .text.nl_route:0000000000000000 nl_route
-     /tmp/ccFZWJxZ.s:944    .upper.rodata:0000000000000000 __func__.4864
-     /tmp/ccFZWJxZ.s:811    .text.elyNLRouteUART:0000000000000000 elyNLRouteUART
-     /tmp/ccFZWJxZ.s:833    .text.elyNLRouteRF:0000000000000000 elyNLRouteRF
-     /tmp/ccFZWJxZ.s:855    .text.elyNLRouteRFI:0000000000000000 elyNLRouteRFI
-     /tmp/ccFZWJxZ.s:877    .text.elyNLGetPayloadLength:0000000000000000 elyNLGetPayloadLength
-     /tmp/ccFZWJxZ.s:903    .text.elyNLToFW:0000000000000000 elyNLToFW
-     /tmp/ccFZWJxZ.s:924    .text.elyNLFromFW:0000000000000000 elyNLFromFW
-     /tmp/ccFZWJxZ.s:968    .persistent:0000000000000010 packets_relayed
-     /tmp/ccFZWJxZ.s:979    .persistent:0000000000000014 packets_received
-     /tmp/ccFZWJxZ.s:30     .text.nl_allocator:0000000000000020 .L3
-     /tmp/ccFZWJxZ.s:26     .text.nl_allocator:000000000000001c .L1
-     /tmp/ccFZWJxZ.s:60     .text.clamp:000000000000001c .L5
-     /tmp/ccFZWJxZ.s:56     .text.clamp:0000000000000018 .L6
-     /tmp/ccFZWJxZ.s:202    .text.elyNLClampReg:000000000000001c .L14
-     /tmp/ccFZWJxZ.s:238    .text.elyNLClampReg:000000000000008c .L16
-     /tmp/ccFZWJxZ.s:213    .text.elyNLClampReg:000000000000003c .L17
-     /tmp/ccFZWJxZ.s:225    .text.elyNLClampReg:0000000000000070 .L18
-     /tmp/ccFZWJxZ.s:233    .text.elyNLClampReg:0000000000000082 .L19
-     /tmp/ccFZWJxZ.s:241    .text.elyNLClampReg:0000000000000094 .L20
-     /tmp/ccFZWJxZ.s:208    .text.elyNLClampReg:0000000000000036 .L15
-     /tmp/ccFZWJxZ.s:244    .text.elyNLClampReg:000000000000009c .L22
-     /tmp/ccFZWJxZ.s:228    .text.elyNLClampReg:0000000000000076 .L61
-     /tmp/ccFZWJxZ.s:235    .text.elyNLClampReg:0000000000000086 .L62
-     /tmp/ccFZWJxZ.s:251    .text.elyNLClampReg:00000000000000b4 .L23
-     /tmp/ccFZWJxZ.s:258    .text.elyNLClampReg:00000000000000cc .L24
-GAS LISTING /tmp/ccFZWJxZ.s 			page 21
+     /tmp/ccTwJpO7.s:6      .text.nl_allocator:0000000000000000 nl_allocator
+     /tmp/ccTwJpO7.s:961    .persistent:000000000000000c curr_index.4805
+     /tmp/ccTwJpO7.s:983    .persistent:0000000000000015 mpool_storage
+     /tmp/ccTwJpO7.s:37     .text.clamp:0000000000000000 clamp
+     /tmp/ccTwJpO7.s:70     .text.uart_pass:0000000000000000 uart_pass
+     /tmp/ccTwJpO7.s:89     .text.fw:0000000000000000 fw
+     /tmp/ccTwJpO7.s:108    .text.rf_pass:0000000000000000 rf_pass
+     /tmp/ccTwJpO7.s:127    .text.rf_pass_i:0000000000000000 rf_pass_i
+     /tmp/ccTwJpO7.s:145    .text.fw_i:0000000000000000 fw_i
+     /tmp/ccTwJpO7.s:163    .text.uart_pass_i:0000000000000000 uart_pass_i
+     /tmp/ccTwJpO7.s:182    .text.elyNLClampReg:0000000000000000 elyNLClampReg
+     /tmp/ccTwJpO7.s:948    .upper.rodata:0000000000000009 __func__.4820
+     /tmp/ccTwJpO7.s:283    .text.elyNLChangeMaxLengthS:0000000000000000 elyNLChangeMaxLengthS
+     /tmp/ccTwJpO7.s:954    .persistent:0000000000000000 main_mpool
+     /tmp/ccTwJpO7.s:989    .persistent:0000000000002016 elyNLMaxLen
+     /tmp/ccTwJpO7.s:336    .text.elyNLGetBuffer:0000000000000000 elyNLGetBuffer
+     /tmp/ccTwJpO7.s:356    .text.elyNLFreeBuffer:0000000000000000 elyNLFreeBuffer
+     /tmp/ccTwJpO7.s:377    .text.elyNLGetBufferI:0000000000000000 elyNLGetBufferI
+     /tmp/ccTwJpO7.s:397    .text.elyNLFreeBufferI:0000000000000000 elyNLFreeBufferI
+     /tmp/ccTwJpO7.s:418    .text.elyNLGetDest:0000000000000000 elyNLGetDest
+     /tmp/ccTwJpO7.s:445    .text.is_fw_buf:0000000000000000 is_fw_buf
+     /tmp/ccTwJpO7.s:485    .text.elyNLFreeBufferChecked:0000000000000000 elyNLFreeBufferChecked
+     /tmp/ccTwJpO7.s:515    .text.elyNLFreeBufferCheckedI:0000000000000000 elyNLFreeBufferCheckedI
+     /tmp/ccTwJpO7.s:545    .text.elyNLInit:0000000000000000 elyNLInit
+     /tmp/ccTwJpO7.s:964    .bss:0000000000000000 sh_len
+     /tmp/ccTwJpO7.s:564    .text.elyNLSetHeader:0000000000000000 elyNLSetHeader
+     /tmp/ccTwJpO7.s:974    .persistent:0000000000000012 packets_sent
+     /tmp/ccTwJpO7.s:663    .text.elyNLGetLength:0000000000000000 elyNLGetLength
+     /tmp/ccTwJpO7.s:687    .text.elyNLValidate:0000000000000000 elyNLValidate
+     /tmp/ccTwJpO7.s:744    .text.nl_route:0000000000000000 nl_route
+     /tmp/ccTwJpO7.s:944    .upper.rodata:0000000000000000 __func__.4864
+     /tmp/ccTwJpO7.s:811    .text.elyNLRouteUART:0000000000000000 elyNLRouteUART
+     /tmp/ccTwJpO7.s:833    .text.elyNLRouteRF:0000000000000000 elyNLRouteRF
+     /tmp/ccTwJpO7.s:855    .text.elyNLRouteRFI:0000000000000000 elyNLRouteRFI
+     /tmp/ccTwJpO7.s:877    .text.elyNLGetPayloadLength:0000000000000000 elyNLGetPayloadLength
+     /tmp/ccTwJpO7.s:903    .text.elyNLToFW:0000000000000000 elyNLToFW
+     /tmp/ccTwJpO7.s:924    .text.elyNLFromFW:0000000000000000 elyNLFromFW
+     /tmp/ccTwJpO7.s:968    .persistent:0000000000000010 packets_relayed
+     /tmp/ccTwJpO7.s:979    .persistent:0000000000000014 packets_received
+     /tmp/ccTwJpO7.s:30     .text.nl_allocator:0000000000000020 .L3
+     /tmp/ccTwJpO7.s:26     .text.nl_allocator:000000000000001c .L1
+     /tmp/ccTwJpO7.s:60     .text.clamp:000000000000001c .L5
+     /tmp/ccTwJpO7.s:56     .text.clamp:0000000000000018 .L6
+     /tmp/ccTwJpO7.s:202    .text.elyNLClampReg:000000000000001c .L14
+     /tmp/ccTwJpO7.s:238    .text.elyNLClampReg:000000000000008c .L16
+     /tmp/ccTwJpO7.s:213    .text.elyNLClampReg:000000000000003c .L17
+     /tmp/ccTwJpO7.s:225    .text.elyNLClampReg:0000000000000070 .L18
+     /tmp/ccTwJpO7.s:233    .text.elyNLClampReg:0000000000000082 .L19
+     /tmp/ccTwJpO7.s:241    .text.elyNLClampReg:0000000000000094 .L20
+     /tmp/ccTwJpO7.s:208    .text.elyNLClampReg:0000000000000036 .L15
+     /tmp/ccTwJpO7.s:244    .text.elyNLClampReg:000000000000009c .L22
+     /tmp/ccTwJpO7.s:228    .text.elyNLClampReg:0000000000000076 .L61
+     /tmp/ccTwJpO7.s:235    .text.elyNLClampReg:0000000000000086 .L62
+     /tmp/ccTwJpO7.s:251    .text.elyNLClampReg:00000000000000b4 .L23
+     /tmp/ccTwJpO7.s:258    .text.elyNLClampReg:00000000000000cc .L24
+GAS LISTING /tmp/ccTwJpO7.s 			page 21
 
 
-     /tmp/ccFZWJxZ.s:265    .text.elyNLClampReg:00000000000000e4 .L25
-     /tmp/ccFZWJxZ.s:272    .text.elyNLClampReg:00000000000000fc .L26
-     /tmp/ccFZWJxZ.s:301    .text.elyNLChangeMaxLengthS:0000000000000016 .L64
-     /tmp/ccFZWJxZ.s:308    .text.elyNLChangeMaxLengthS:000000000000002a .L65
-     /tmp/ccFZWJxZ.s:437    .text.elyNLGetDest:000000000000001a .L73
-     /tmp/ccFZWJxZ.s:477    .text.is_fw_buf:0000000000000036 .L76
-     /tmp/ccFZWJxZ.s:473    .text.is_fw_buf:0000000000000032 .L75
-     /tmp/ccFZWJxZ.s:506    .text.elyNLFreeBufferChecked:0000000000000016 .L78
-     /tmp/ccFZWJxZ.s:502    .text.elyNLFreeBufferChecked:0000000000000012 .L77
-     /tmp/ccFZWJxZ.s:536    .text.elyNLFreeBufferCheckedI:0000000000000016 .L81
-     /tmp/ccFZWJxZ.s:532    .text.elyNLFreeBufferCheckedI:0000000000000012 .L80
-     /tmp/ccFZWJxZ.s:638    .text.elyNLSetHeader:00000000000000b0 .L85
-     /tmp/ccFZWJxZ.s:634    .text.elyNLSetHeader:00000000000000ac .L84
-     /tmp/ccFZWJxZ.s:646    .text.elyNLSetHeader:00000000000000cc .L88
-     /tmp/ccFZWJxZ.s:608    .text.elyNLSetHeader:000000000000005e .L86
-     /tmp/ccFZWJxZ.s:627    .text.elyNLSetHeader:00000000000000a4 .L92
-     /tmp/ccFZWJxZ.s:708    .text.elyNLValidate:0000000000000018 .L95
-     /tmp/ccFZWJxZ.s:731    .text.elyNLValidate:000000000000004c .L97
-     /tmp/ccFZWJxZ.s:701    .text.elyNLValidate:000000000000000e .L98
-     /tmp/ccFZWJxZ.s:704    .text.elyNLValidate:0000000000000014 .L96
-     /tmp/ccFZWJxZ.s:775    .text.nl_route:0000000000000028 .L100
-     /tmp/ccFZWJxZ.s:802    .text.nl_route:000000000000007e .L102
-     /tmp/ccFZWJxZ.s:796    .text.nl_route:000000000000006e .L103
-     /tmp/ccFZWJxZ.s:768    .text.nl_route:000000000000001e .L99
-     /tmp/ccFZWJxZ.s:765    .text.nl_route:0000000000000018 .L108
-     /tmp/ccFZWJxZ.s:791    .text.nl_route:000000000000005c .L106
+     /tmp/ccTwJpO7.s:265    .text.elyNLClampReg:00000000000000e4 .L25
+     /tmp/ccTwJpO7.s:272    .text.elyNLClampReg:00000000000000fc .L26
+     /tmp/ccTwJpO7.s:301    .text.elyNLChangeMaxLengthS:0000000000000016 .L64
+     /tmp/ccTwJpO7.s:308    .text.elyNLChangeMaxLengthS:000000000000002a .L65
+     /tmp/ccTwJpO7.s:437    .text.elyNLGetDest:000000000000001a .L73
+     /tmp/ccTwJpO7.s:477    .text.is_fw_buf:0000000000000036 .L76
+     /tmp/ccTwJpO7.s:473    .text.is_fw_buf:0000000000000032 .L75
+     /tmp/ccTwJpO7.s:506    .text.elyNLFreeBufferChecked:0000000000000016 .L78
+     /tmp/ccTwJpO7.s:502    .text.elyNLFreeBufferChecked:0000000000000012 .L77
+     /tmp/ccTwJpO7.s:536    .text.elyNLFreeBufferCheckedI:0000000000000016 .L81
+     /tmp/ccTwJpO7.s:532    .text.elyNLFreeBufferCheckedI:0000000000000012 .L80
+     /tmp/ccTwJpO7.s:638    .text.elyNLSetHeader:00000000000000b0 .L85
+     /tmp/ccTwJpO7.s:634    .text.elyNLSetHeader:00000000000000ac .L84
+     /tmp/ccTwJpO7.s:646    .text.elyNLSetHeader:00000000000000cc .L88
+     /tmp/ccTwJpO7.s:608    .text.elyNLSetHeader:000000000000005e .L86
+     /tmp/ccTwJpO7.s:627    .text.elyNLSetHeader:00000000000000a4 .L92
+     /tmp/ccTwJpO7.s:708    .text.elyNLValidate:0000000000000018 .L95
+     /tmp/ccTwJpO7.s:731    .text.elyNLValidate:000000000000004c .L97
+     /tmp/ccTwJpO7.s:701    .text.elyNLValidate:000000000000000e .L98
+     /tmp/ccTwJpO7.s:704    .text.elyNLValidate:0000000000000014 .L96
+     /tmp/ccTwJpO7.s:775    .text.nl_route:0000000000000028 .L100
+     /tmp/ccTwJpO7.s:802    .text.nl_route:000000000000007e .L102
+     /tmp/ccTwJpO7.s:796    .text.nl_route:000000000000006e .L103
+     /tmp/ccTwJpO7.s:768    .text.nl_route:000000000000001e .L99
+     /tmp/ccTwJpO7.s:765    .text.nl_route:0000000000000018 .L108
+     /tmp/ccTwJpO7.s:791    .text.nl_route:000000000000005c .L106
 
 UNDEFINED SYMBOLS
 elyErrorSignal

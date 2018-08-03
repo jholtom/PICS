@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cc34rJGk.s 			page 1
+GAS LISTING /tmp/ccugdTVw.s 			page 1
 
 
    1               		.file	"hal.c"
@@ -30,12 +30,12 @@ GAS LISTING /tmp/cc34rJGk.s 			page 1
   27 0024 1001      		RETA
   28               		.size	halInit, .-halInit
   29               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/cc34rJGk.s 			page 2
+GAS LISTING /tmp/ccugdTVw.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal.c
-     /tmp/cc34rJGk.s:6      .text.halInit:0000000000000000 halInit
+     /tmp/ccugdTVw.s:6      .text.halInit:0000000000000000 halInit
 
 UNDEFINED SYMBOLS
 hal_lld_init

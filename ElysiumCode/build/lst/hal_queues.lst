@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccIL6n7z.s 			page 1
+GAS LISTING /tmp/ccKiKIAM.s 			page 1
 
 
    1               		.file	"hal_queues.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccIL6n7z.s 			page 1
   54               	; framesize_regs:     4
   55               	; framesize_locals:   0
   56               	; framesize_outgoing: 0
-GAS LISTING /tmp/ccIL6n7z.s 			page 2
+GAS LISTING /tmp/ccKiKIAM.s 			page 2
 
 
   57               	; framesize:          4
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccIL6n7z.s 			page 1
  108               		.global	iqPutI
  109               		.type	iqPutI, @function
  110               	iqPutI:
-GAS LISTING /tmp/ccIL6n7z.s 			page 3
+GAS LISTING /tmp/ccKiKIAM.s 			page 3
 
 
  111               	; start of function
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccIL6n7z.s 			page 1
  160               		.global	iqGetTimeout
  161               		.type	iqGetTimeout, @function
  162               	iqGetTimeout:
-GAS LISTING /tmp/ccIL6n7z.s 			page 4
+GAS LISTING /tmp/ccKiKIAM.s 			page 4
 
 
  163               	; start of function
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccIL6n7z.s 			page 1
  212      0034 
  213 0088 710C 0000 		MOVA	R12, @R1
  214 008c B013 0000 		CALLA	#port_unlock
-GAS LISTING /tmp/ccIL6n7z.s 			page 5
+GAS LISTING /tmp/ccKiKIAM.s 			page 5
 
 
  215 0090 0C01      		MOVA	@R1, R12
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccIL6n7z.s 			page 1
  267 0062 8A4D 0400 		MOV.W	R13, 4(R10)
  268 0066 CD06      		MOVA	R6, R13
  269 0068 AD00 0100 		ADDA	#1, R13
-GAS LISTING /tmp/ccIL6n7z.s 			page 6
+GAS LISTING /tmp/ccKiKIAM.s 			page 6
 
 
  270 006c 710D 0000 		MOVA	R13, @R1
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccIL6n7z.s 			page 1
  317               		.global	oqObjectInit
  318               		.type	oqObjectInit, @function
  319               	oqObjectInit:
-GAS LISTING /tmp/ccIL6n7z.s 			page 7
+GAS LISTING /tmp/ccKiKIAM.s 			page 7
 
 
  320               	; start of function
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccIL6n7z.s 			page 1
  373 000e 7C0A 0E00 		MOVA	R10, 14(R12)
  374 0012 3D0C 0A00 		MOVA	10(R12), R13
  375 0016 FD0A      		SUBA	R10, R13
-GAS LISTING /tmp/ccIL6n7z.s 			page 8
+GAS LISTING /tmp/ccKiKIAM.s 			page 8
 
 
  376 0018 710D 0000 		MOVA	R13, @R1
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccIL6n7z.s 			page 1
  429 004e 7A0D 0E00 		MOVA	R13, 14(R10)
  430 0052 CC49 0000 		MOV.B	R9, @R12
  431 0056 0018 DA9A 		CMPX.A	10(R10), 14(R10) { JLO	.L48
-GAS LISTING /tmp/ccIL6n7z.s 			page 9
+GAS LISTING /tmp/ccKiKIAM.s 			page 9
 
 
  431      0A00 0E00 
@@ -538,7 +538,7 @@ GAS LISTING /tmp/ccIL6n7z.s 			page 1
  479 001e 3D0C 0200 		MOVA	2(R12), R13
  480 0022 AD00 0100 		ADDA	#1, R13
  481 0026 710D 0000 		MOVA	R13, @R1
-GAS LISTING /tmp/ccIL6n7z.s 			page 10
+GAS LISTING /tmp/ccKiKIAM.s 			page 10
 
 
  482 002a 8C4D 0200 		MOV.W	R13, 2(R12)
@@ -598,7 +598,7 @@ GAS LISTING /tmp/ccIL6n7z.s 			page 1
  533 001c B013 0000 		CALLA	#chSysHalt
  534               	.L61:
  535 0020 8800 0000 		MOVA	#port_lock, R8
-GAS LISTING /tmp/ccIL6n7z.s 			page 11
+GAS LISTING /tmp/ccKiKIAM.s 			page 11
 
 
  536 0024 4813      		CALLA	R8
@@ -658,7 +658,7 @@ GAS LISTING /tmp/ccIL6n7z.s 			page 1
  584 00c6 CC0A      		MOVA	R10, R12
  585 00c8 B013 0000 		CALLA	#chSemWaitTimeoutS
  586 00cc 9C00 0000 		CMPA	#0, R12 { JEQ	.L62
-GAS LISTING /tmp/ccIL6n7z.s 			page 12
+GAS LISTING /tmp/ccKiKIAM.s 			page 12
 
 
  586      0024 
@@ -694,67 +694,67 @@ GAS LISTING /tmp/ccIL6n7z.s 			page 1
  610      6D65 6F75 
  610      7400 
  611               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccIL6n7z.s 			page 13
+GAS LISTING /tmp/ccKiKIAM.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_queues.c
-     /tmp/ccIL6n7z.s:5      .text.port_lock:0000000000000000 port_lock
-     /tmp/ccIL6n7z.s:28     .text.port_unlock:0000000000000000 port_unlock
-     /tmp/ccIL6n7z.s:52     .text.iqObjectInit:0000000000000000 iqObjectInit
-     /tmp/ccIL6n7z.s:83     .text.iqResetI:0000000000000000 iqResetI
-     /tmp/ccIL6n7z.s:110    .text.iqPutI:0000000000000000 iqPutI
-     /tmp/ccIL6n7z.s:162    .text.iqGetTimeout:0000000000000000 iqGetTimeout
-     /tmp/ccIL6n7z.s:226    .text.iqReadTimeout:0000000000000000 iqReadTimeout
-     /tmp/ccIL6n7z.s:609    .upper.rodata:000000000000000f __func__.3725
-     /tmp/ccIL6n7z.s:319    .text.oqObjectInit:0000000000000000 oqObjectInit
-     /tmp/ccIL6n7z.s:358    .text.oqResetI:0000000000000000 oqResetI
-     /tmp/ccIL6n7z.s:395    .text.oqPutTimeout:0000000000000000 oqPutTimeout
-     /tmp/ccIL6n7z.s:460    .text.oqGetI:0000000000000000 oqGetI
-     /tmp/ccIL6n7z.s:513    .text.oqWriteTimeout:0000000000000000 oqWriteTimeout
-     /tmp/ccIL6n7z.s:605    .upper.rodata:0000000000000000 __func__.3764
-     /tmp/ccIL6n7z.s:128    .text.iqPutI:0000000000000020 .L6
-     /tmp/ccIL6n7z.s:154    .text.iqPutI:0000000000000076 .L10
-     /tmp/ccIL6n7z.s:145    .text.iqPutI:0000000000000066 .L9
-     /tmp/ccIL6n7z.s:149    .text.iqPutI:000000000000006e .L5
-     /tmp/ccIL6n7z.s:208    .text.iqGetTimeout:000000000000007c .L14
-     /tmp/ccIL6n7z.s:199    .text.iqGetTimeout:0000000000000062 .L15
-     /tmp/ccIL6n7z.s:204    .text.iqGetTimeout:0000000000000070 .L16
-     /tmp/ccIL6n7z.s:216    .text.iqGetTimeout:0000000000000092 .L11
-     /tmp/ccIL6n7z.s:179    .text.iqGetTimeout:0000000000000012 .L12
-     /tmp/ccIL6n7z.s:247    .text.iqReadTimeout:0000000000000020 .L22
-     /tmp/ccIL6n7z.s:290    .text.iqReadTimeout:00000000000000b8 .L29
-     /tmp/ccIL6n7z.s:278    .text.iqReadTimeout:0000000000000094 .L30
-     /tmp/ccIL6n7z.s:282    .text.iqReadTimeout:000000000000009e .L31
-     /tmp/ccIL6n7z.s:308    .text.iqReadTimeout:00000000000000ea .L21
-     /tmp/ccIL6n7z.s:255    .text.iqReadTimeout:0000000000000036 .L23
-     /tmp/ccIL6n7z.s:301    .text.iqReadTimeout:00000000000000d6 .L24
-     /tmp/ccIL6n7z.s:306    .text.iqReadTimeout:00000000000000e6 .L41
-     /tmp/ccIL6n7z.s:296    .text.iqReadTimeout:00000000000000c6 .L26
-     /tmp/ccIL6n7z.s:442    .text.oqPutTimeout:0000000000000080 .L47
-     /tmp/ccIL6n7z.s:433    .text.oqPutTimeout:0000000000000068 .L48
-     /tmp/ccIL6n7z.s:438    .text.oqPutTimeout:0000000000000076 .L49
-     /tmp/ccIL6n7z.s:450    .text.oqPutTimeout:0000000000000096 .L44
-     /tmp/ccIL6n7z.s:413    .text.oqPutTimeout:0000000000000014 .L45
-     /tmp/ccIL6n7z.s:478    .text.oqGetI:000000000000001e .L55
-     /tmp/ccIL6n7z.s:505    .text.oqGetI:0000000000000074 .L59
-     /tmp/ccIL6n7z.s:495    .text.oqGetI:0000000000000060 .L58
-     /tmp/ccIL6n7z.s:499    .text.oqGetI:000000000000006a .L54
-     /tmp/ccIL6n7z.s:534    .text.oqWriteTimeout:0000000000000020 .L61
-     /tmp/ccIL6n7z.s:577    .text.oqWriteTimeout:00000000000000b8 .L68
-     /tmp/ccIL6n7z.s:565    .text.oqWriteTimeout:0000000000000094 .L69
-     /tmp/ccIL6n7z.s:569    .text.oqWriteTimeout:000000000000009e .L70
-     /tmp/ccIL6n7z.s:595    .text.oqWriteTimeout:00000000000000ea .L60
-     /tmp/ccIL6n7z.s:542    .text.oqWriteTimeout:0000000000000036 .L62
-     /tmp/ccIL6n7z.s:588    .text.oqWriteTimeout:00000000000000d6 .L63
-     /tmp/ccIL6n7z.s:593    .text.oqWriteTimeout:00000000000000e6 .L80
-     /tmp/ccIL6n7z.s:583    .text.oqWriteTimeout:00000000000000c6 .L65
+     /tmp/ccKiKIAM.s:5      .text.port_lock:0000000000000000 port_lock
+     /tmp/ccKiKIAM.s:28     .text.port_unlock:0000000000000000 port_unlock
+     /tmp/ccKiKIAM.s:52     .text.iqObjectInit:0000000000000000 iqObjectInit
+     /tmp/ccKiKIAM.s:83     .text.iqResetI:0000000000000000 iqResetI
+     /tmp/ccKiKIAM.s:110    .text.iqPutI:0000000000000000 iqPutI
+     /tmp/ccKiKIAM.s:162    .text.iqGetTimeout:0000000000000000 iqGetTimeout
+     /tmp/ccKiKIAM.s:226    .text.iqReadTimeout:0000000000000000 iqReadTimeout
+     /tmp/ccKiKIAM.s:609    .upper.rodata:000000000000000f __func__.3725
+     /tmp/ccKiKIAM.s:319    .text.oqObjectInit:0000000000000000 oqObjectInit
+     /tmp/ccKiKIAM.s:358    .text.oqResetI:0000000000000000 oqResetI
+     /tmp/ccKiKIAM.s:395    .text.oqPutTimeout:0000000000000000 oqPutTimeout
+     /tmp/ccKiKIAM.s:460    .text.oqGetI:0000000000000000 oqGetI
+     /tmp/ccKiKIAM.s:513    .text.oqWriteTimeout:0000000000000000 oqWriteTimeout
+     /tmp/ccKiKIAM.s:605    .upper.rodata:0000000000000000 __func__.3764
+     /tmp/ccKiKIAM.s:128    .text.iqPutI:0000000000000020 .L6
+     /tmp/ccKiKIAM.s:154    .text.iqPutI:0000000000000076 .L10
+     /tmp/ccKiKIAM.s:145    .text.iqPutI:0000000000000066 .L9
+     /tmp/ccKiKIAM.s:149    .text.iqPutI:000000000000006e .L5
+     /tmp/ccKiKIAM.s:208    .text.iqGetTimeout:000000000000007c .L14
+     /tmp/ccKiKIAM.s:199    .text.iqGetTimeout:0000000000000062 .L15
+     /tmp/ccKiKIAM.s:204    .text.iqGetTimeout:0000000000000070 .L16
+     /tmp/ccKiKIAM.s:216    .text.iqGetTimeout:0000000000000092 .L11
+     /tmp/ccKiKIAM.s:179    .text.iqGetTimeout:0000000000000012 .L12
+     /tmp/ccKiKIAM.s:247    .text.iqReadTimeout:0000000000000020 .L22
+     /tmp/ccKiKIAM.s:290    .text.iqReadTimeout:00000000000000b8 .L29
+     /tmp/ccKiKIAM.s:278    .text.iqReadTimeout:0000000000000094 .L30
+     /tmp/ccKiKIAM.s:282    .text.iqReadTimeout:000000000000009e .L31
+     /tmp/ccKiKIAM.s:308    .text.iqReadTimeout:00000000000000ea .L21
+     /tmp/ccKiKIAM.s:255    .text.iqReadTimeout:0000000000000036 .L23
+     /tmp/ccKiKIAM.s:301    .text.iqReadTimeout:00000000000000d6 .L24
+     /tmp/ccKiKIAM.s:306    .text.iqReadTimeout:00000000000000e6 .L41
+     /tmp/ccKiKIAM.s:296    .text.iqReadTimeout:00000000000000c6 .L26
+     /tmp/ccKiKIAM.s:442    .text.oqPutTimeout:0000000000000080 .L47
+     /tmp/ccKiKIAM.s:433    .text.oqPutTimeout:0000000000000068 .L48
+     /tmp/ccKiKIAM.s:438    .text.oqPutTimeout:0000000000000076 .L49
+     /tmp/ccKiKIAM.s:450    .text.oqPutTimeout:0000000000000096 .L44
+     /tmp/ccKiKIAM.s:413    .text.oqPutTimeout:0000000000000014 .L45
+     /tmp/ccKiKIAM.s:478    .text.oqGetI:000000000000001e .L55
+     /tmp/ccKiKIAM.s:505    .text.oqGetI:0000000000000074 .L59
+     /tmp/ccKiKIAM.s:495    .text.oqGetI:0000000000000060 .L58
+     /tmp/ccKiKIAM.s:499    .text.oqGetI:000000000000006a .L54
+     /tmp/ccKiKIAM.s:534    .text.oqWriteTimeout:0000000000000020 .L61
+     /tmp/ccKiKIAM.s:577    .text.oqWriteTimeout:00000000000000b8 .L68
+     /tmp/ccKiKIAM.s:565    .text.oqWriteTimeout:0000000000000094 .L69
+     /tmp/ccKiKIAM.s:569    .text.oqWriteTimeout:000000000000009e .L70
+     /tmp/ccKiKIAM.s:595    .text.oqWriteTimeout:00000000000000ea .L60
+     /tmp/ccKiKIAM.s:542    .text.oqWriteTimeout:0000000000000036 .L62
+     /tmp/ccKiKIAM.s:588    .text.oqWriteTimeout:00000000000000d6 .L63
+     /tmp/ccKiKIAM.s:593    .text.oqWriteTimeout:00000000000000e6 .L80
+     /tmp/ccKiKIAM.s:583    .text.oqWriteTimeout:00000000000000c6 .L65
 
 UNDEFINED SYMBOLS
 osalThreadDequeueAllI
 osalThreadDequeueNextI
 chSemWaitTimeoutS
-GAS LISTING /tmp/ccIL6n7z.s 			page 14
+GAS LISTING /tmp/ccKiKIAM.s 			page 14
 
 
 chSysHalt

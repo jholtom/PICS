@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccCmQwGN.s 			page 1
+GAS LISTING /tmp/ccQD9WgW.s 			page 1
 
 
    1               		.file	"fram.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccCmQwGN.s 			page 1
   55 0012 4D4E      		MOV.B	R14, R13
   56 0014 5DF3      		AND.B	#1, R13
   57 0016 360C 0800 		MOVA	8(R12), R6
-GAS LISTING /tmp/ccCmQwGN.s 			page 2
+GAS LISTING /tmp/ccQD9WgW.s 			page 2
 
 
   58 001a 5A4C 0600 		MOV.B	6(R12), R10
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccCmQwGN.s 			page 1
  109 00b6 0018 F140 		MOVX.A	#end_cb, @R1
  109      0000 0000 
  110 00be CF06      		MOVA	R6, R15
-GAS LISTING /tmp/ccCmQwGN.s 			page 3
+GAS LISTING /tmp/ccQD9WgW.s 			page 3
 
 
  111 00c0 3E01 0400 		MOVA	4(R1), R14
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccCmQwGN.s 			page 1
  163 0030 CA4D 1000 		MOV.B	R13, 16(R10)
  164 0034 0018 F140 		MOVX.A	#addr_cb, @R1
  164      0000 0000 
-GAS LISTING /tmp/ccCmQwGN.s 			page 4
+GAS LISTING /tmp/ccQD9WgW.s 			page 4
 
 
  165 003c CF0A      		MOVA	R10, R15
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccCmQwGN.s 			page 1
  214 0060 0D01      		MOVA	@R1, R13
  215 0062 0018 5C4D 		MOVX.A	fram_mbox_buffer(R13), R12
  215      0000 
-GAS LISTING /tmp/ccCmQwGN.s 			page 5
+GAS LISTING /tmp/ccQD9WgW.s 			page 5
 
 
  216 0068 B013 0000 		CALLA	#fram_handle_request
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccCmQwGN.s 			page 1
  264 005a 1001      		RETA
  265               		.size	elyFramPostRequestI, .-elyFramPostRequestI
  266               		.section	.text.elyFramPostRequestS,"ax",@progbits
-GAS LISTING /tmp/ccCmQwGN.s 			page 6
+GAS LISTING /tmp/ccQD9WgW.s 			page 6
 
 
  267               		.balign 2
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccCmQwGN.s 			page 1
  317 0016 8C00 0000 		MOVA	#fram_mpool, R12
  318 001a B013 0000 		CALLA	#chPoolAllocI
  319 001e 7A0C 0000 		MOVA	R12, @R10
-GAS LISTING /tmp/ccCmQwGN.s 			page 7
+GAS LISTING /tmp/ccQD9WgW.s 			page 7
 
 
  320 0022 9C00 0000 		CMPA	#0, R12 { JNE	.L26
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccCmQwGN.s 			page 1
  371 003c 1001      		RETA
  372               		.size	elyFramGetRequestTimeoutS, .-elyFramGetRequestTimeoutS
  373               		.section	.text.elyFramInit,"ax",@progbits
-GAS LISTING /tmp/ccCmQwGN.s 			page 8
+GAS LISTING /tmp/ccQD9WgW.s 			page 8
 
 
  374               		.balign 2
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccCmQwGN.s 			page 1
  412               		.balign 2
  413               		.type	cfg, @object
  414               		.size	cfg, 4
-GAS LISTING /tmp/ccCmQwGN.s 			page 9
+GAS LISTING /tmp/ccQD9WgW.s 			page 9
 
 
  415               	cfg:
@@ -528,50 +528,50 @@ GAS LISTING /tmp/ccCmQwGN.s 			page 1
  453      0000 0000 
  453      0000 0000 
  454               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccCmQwGN.s 			page 10
+GAS LISTING /tmp/ccQD9WgW.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 fram.c
-     /tmp/ccCmQwGN.s:6      .text.fram_mpool_alloc:0000000000000000 fram_mpool_alloc
-     /tmp/ccCmQwGN.s:448    .persistent:0000000000000020 curr_index.3823
-     /tmp/ccCmQwGN.s:452    .persistent:0000000000000024 fram_storage
-     /tmp/ccCmQwGN.s:38     .text.addr_cb:0000000000000000 addr_cb
-     /tmp/ccCmQwGN.s:418    .bss:0000000000000000 active_req
-     /tmp/ccCmQwGN.s:178    .text.end_cb:0000000000000000 end_cb
-     /tmp/ccCmQwGN.s:137    .text.fram_handle_request:0000000000000000 fram_handle_request
-     /tmp/ccCmQwGN.s:409    .upper.rodata:0000000000000041 __func__.3848
-     /tmp/ccCmQwGN.s:434    .persistent:000000000000000e fram_read_idx
-     /tmp/ccCmQwGN.s:428    .persistent:0000000000000002 fram_mpool
-     /tmp/ccCmQwGN.s:423    .persistent:0000000000000000 fram_pool_sem
-     /tmp/ccCmQwGN.s:438    .persistent:000000000000000f fram_write_idx
-     /tmp/ccCmQwGN.s:443    .persistent:0000000000000010 fram_mbox_buffer
-     /tmp/ccCmQwGN.s:227    .text.elyFramPostRequestI:0000000000000000 elyFramPostRequestI
-     /tmp/ccCmQwGN.s:405    .upper.rodata:000000000000002d __func__.3852
-     /tmp/ccCmQwGN.s:270    .text.elyFramPostRequestS:0000000000000000 elyFramPostRequestS
-     /tmp/ccCmQwGN.s:300    .text.elyFramGetRequestI:0000000000000000 elyFramGetRequestI
-     /tmp/ccCmQwGN.s:401    .upper.rodata:000000000000001a __func__.3860
-     /tmp/ccCmQwGN.s:339    .text.elyFramGetRequestTimeoutS:0000000000000000 elyFramGetRequestTimeoutS
-     /tmp/ccCmQwGN.s:397    .upper.rodata:0000000000000000 __func__.3866
-     /tmp/ccCmQwGN.s:377    .text.elyFramInit:0000000000000000 elyFramInit
-     /tmp/ccCmQwGN.s:415    .upper.data:0000000000000000 cfg
-     /tmp/ccCmQwGN.s:30     .text.fram_mpool_alloc:0000000000000020 .L3
-     /tmp/ccCmQwGN.s:26     .text.fram_mpool_alloc:000000000000001c .L1
-     /tmp/ccCmQwGN.s:99     .text.addr_cb:000000000000009a .L5
-     /tmp/ccCmQwGN.s:83     .text.addr_cb:0000000000000068 .L6
-     /tmp/ccCmQwGN.s:77     .text.addr_cb:000000000000005e .L4
-     /tmp/ccCmQwGN.s:116    .text.addr_cb:00000000000000d0 .L8
-     /tmp/ccCmQwGN.s:155    .text.fram_handle_request:0000000000000018 .L10
-     /tmp/ccCmQwGN.s:204    .text.end_cb:0000000000000038 .L14
-     /tmp/ccCmQwGN.s:217    .text.end_cb:000000000000006c .L13
-     /tmp/ccCmQwGN.s:247    .text.elyFramPostRequestI:0000000000000022 .L20
-     /tmp/ccCmQwGN.s:292    .text.elyFramPostRequestS:000000000000001e .L22
-     /tmp/ccCmQwGN.s:288    .text.elyFramPostRequestS:000000000000001a .L21
-     /tmp/ccCmQwGN.s:331    .text.elyFramGetRequestI:000000000000003c .L27
-     /tmp/ccCmQwGN.s:323    .text.elyFramGetRequestI:0000000000000030 .L26
-     /tmp/ccCmQwGN.s:327    .text.elyFramGetRequestI:0000000000000038 .L24
-     /tmp/ccCmQwGN.s:366    .text.elyFramGetRequestTimeoutS:0000000000000036 .L28
-     /tmp/ccCmQwGN.s:363    .text.elyFramGetRequestTimeoutS:0000000000000030 .L30
+     /tmp/ccQD9WgW.s:6      .text.fram_mpool_alloc:0000000000000000 fram_mpool_alloc
+     /tmp/ccQD9WgW.s:448    .persistent:0000000000000020 curr_index.3823
+     /tmp/ccQD9WgW.s:452    .persistent:0000000000000024 fram_storage
+     /tmp/ccQD9WgW.s:38     .text.addr_cb:0000000000000000 addr_cb
+     /tmp/ccQD9WgW.s:418    .bss:0000000000000000 active_req
+     /tmp/ccQD9WgW.s:178    .text.end_cb:0000000000000000 end_cb
+     /tmp/ccQD9WgW.s:137    .text.fram_handle_request:0000000000000000 fram_handle_request
+     /tmp/ccQD9WgW.s:409    .upper.rodata:0000000000000041 __func__.3848
+     /tmp/ccQD9WgW.s:434    .persistent:000000000000000e fram_read_idx
+     /tmp/ccQD9WgW.s:428    .persistent:0000000000000002 fram_mpool
+     /tmp/ccQD9WgW.s:423    .persistent:0000000000000000 fram_pool_sem
+     /tmp/ccQD9WgW.s:438    .persistent:000000000000000f fram_write_idx
+     /tmp/ccQD9WgW.s:443    .persistent:0000000000000010 fram_mbox_buffer
+     /tmp/ccQD9WgW.s:227    .text.elyFramPostRequestI:0000000000000000 elyFramPostRequestI
+     /tmp/ccQD9WgW.s:405    .upper.rodata:000000000000002d __func__.3852
+     /tmp/ccQD9WgW.s:270    .text.elyFramPostRequestS:0000000000000000 elyFramPostRequestS
+     /tmp/ccQD9WgW.s:300    .text.elyFramGetRequestI:0000000000000000 elyFramGetRequestI
+     /tmp/ccQD9WgW.s:401    .upper.rodata:000000000000001a __func__.3860
+     /tmp/ccQD9WgW.s:339    .text.elyFramGetRequestTimeoutS:0000000000000000 elyFramGetRequestTimeoutS
+     /tmp/ccQD9WgW.s:397    .upper.rodata:0000000000000000 __func__.3866
+     /tmp/ccQD9WgW.s:377    .text.elyFramInit:0000000000000000 elyFramInit
+     /tmp/ccQD9WgW.s:415    .upper.data:0000000000000000 cfg
+     /tmp/ccQD9WgW.s:30     .text.fram_mpool_alloc:0000000000000020 .L3
+     /tmp/ccQD9WgW.s:26     .text.fram_mpool_alloc:000000000000001c .L1
+     /tmp/ccQD9WgW.s:99     .text.addr_cb:000000000000009a .L5
+     /tmp/ccQD9WgW.s:83     .text.addr_cb:0000000000000068 .L6
+     /tmp/ccQD9WgW.s:77     .text.addr_cb:000000000000005e .L4
+     /tmp/ccQD9WgW.s:116    .text.addr_cb:00000000000000d0 .L8
+     /tmp/ccQD9WgW.s:155    .text.fram_handle_request:0000000000000018 .L10
+     /tmp/ccQD9WgW.s:204    .text.end_cb:0000000000000038 .L14
+     /tmp/ccQD9WgW.s:217    .text.end_cb:000000000000006c .L13
+     /tmp/ccQD9WgW.s:247    .text.elyFramPostRequestI:0000000000000022 .L20
+     /tmp/ccQD9WgW.s:292    .text.elyFramPostRequestS:000000000000001e .L22
+     /tmp/ccQD9WgW.s:288    .text.elyFramPostRequestS:000000000000001a .L21
+     /tmp/ccQD9WgW.s:331    .text.elyFramGetRequestI:000000000000003c .L27
+     /tmp/ccQD9WgW.s:323    .text.elyFramGetRequestI:0000000000000030 .L26
+     /tmp/ccQD9WgW.s:327    .text.elyFramGetRequestI:0000000000000038 .L24
+     /tmp/ccQD9WgW.s:366    .text.elyFramGetRequestTimeoutS:0000000000000036 .L28
+     /tmp/ccQD9WgW.s:363    .text.elyFramGetRequestTimeoutS:0000000000000030 .L30
 
 UNDEFINED SYMBOLS
 __mspabi_srli_2
@@ -588,7 +588,7 @@ chPoolFreeI
 chSemSignalI
 chPoolAllocI
 chSemWaitTimeoutS
-GAS LISTING /tmp/ccCmQwGN.s 			page 11
+GAS LISTING /tmp/ccQD9WgW.s 			page 11
 
 
 i2cStart

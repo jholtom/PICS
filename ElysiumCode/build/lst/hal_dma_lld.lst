@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccr0XqFa.s 			page 1
+GAS LISTING /tmp/ccpUDnYb.s 			page 1
 
 
    1               		.file	"hal_dma_lld.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccr0XqFa.s 			page 1
   55               	; elim fp -> sp       0
   56               	; saved regs: R4 R5 R6 R7 R8 R9 R10 R11 R12 R13 R14 R15
   57               		; start of prologue
-GAS LISTING /tmp/ccr0XqFa.s 			page 2
+GAS LISTING /tmp/ccpUDnYb.s 			page 2
 
 
   58 0000 BF14      		PUSHM.A	#12, R15
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccr0XqFa.s 			page 1
  103               		.section	.text.dmaInit,"ax",@progbits
  104               		.balign 2
  105               		.global	dmaInit
-GAS LISTING /tmp/ccr0XqFa.s 			page 3
+GAS LISTING /tmp/ccpUDnYb.s 			page 3
 
 
  106               		.type	dmaInit, @function
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccr0XqFa.s 			page 1
  154 0036 4D43      		MOV.B	#0, R13
  155 0038 4C48      		MOV.B	R8, R12
  156 003a B013 0000 		CALLA	#dma_trigger_set
-GAS LISTING /tmp/ccr0XqFa.s 			page 4
+GAS LISTING /tmp/ccpUDnYb.s 			page 4
 
 
  157 003e 0C49 0D43 		MOV.W	R9,R12 { MOV.W	#0,R13
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccr0XqFa.s 			page 1
  208               	; framesize_regs:     16
  209               	; framesize_locals:   0
  210               	; framesize_outgoing: 0
-GAS LISTING /tmp/ccr0XqFa.s 			page 5
+GAS LISTING /tmp/ccpUDnYb.s 			page 5
 
 
  211               	; framesize:          16
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccr0XqFa.s 			page 1
  263 0002 0814      		PUSHM.A	#1, R8
  264               		; end of prologue
  265 0004 C80C      		MOVA	R12, R8
-GAS LISTING /tmp/ccr0XqFa.s 			page 6
+GAS LISTING /tmp/ccpUDnYb.s 			page 6
 
 
  266 0006 CA0D      		MOVA	R13, R10
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccr0XqFa.s 			page 1
  310               	; elim ap -> fp       4
  311               	; elim fp -> sp       0
  312               	; saved regs:(none)
-GAS LISTING /tmp/ccr0XqFa.s 			page 7
+GAS LISTING /tmp/ccpUDnYb.s 			page 7
 
 
  313               		; start of prologue
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccr0XqFa.s 			page 1
  362      0024 
  363 0034 AC43 0000 		MOV.W	#2, @R12
  364 0038 4D43      		MOV.B	#0, R13
-GAS LISTING /tmp/ccr0XqFa.s 			page 8
+GAS LISTING /tmp/ccpUDnYb.s 			page 8
 
 
  365 003a 8C00 0000 		MOVA	#dma_queue, R12
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccr0XqFa.s 			page 1
  412 000b 646D 6152 		.string	"dmaReleaseX"
  412      656C 6561 
  412      7365 5800 
-GAS LISTING /tmp/ccr0XqFa.s 			page 9
+GAS LISTING /tmp/ccpUDnYb.s 			page 9
 
 
  413               		.type	__func__.3725, @object
@@ -492,41 +492,41 @@ GAS LISTING /tmp/ccr0XqFa.s 			page 1
  419               		.local	callbacks
  420               		.comm	callbacks,24,2
  421               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccr0XqFa.s 			page 10
+GAS LISTING /tmp/ccpUDnYb.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_dma_lld.c
-     /tmp/ccr0XqFa.s:5      .text.dma_trigger_set:0000000000000000 dma_trigger_set
-     /tmp/ccr0XqFa.s:47     .lower.lowtext:0000000000000000 ISR_DMA_VECTOR
-     /tmp/ccr0XqFa.s:420    .bss:0000000000000002 callbacks
-     /tmp/ccr0XqFa.s:107    .text.dmaInit:0000000000000000 dmaInit
-     /tmp/ccr0XqFa.s:418    .bss:0000000000000000 dma_queue
-     /tmp/ccr0XqFa.s:126    .text.dmaAcquireI:0000000000000000 dmaAcquireI
-     /tmp/ccr0XqFa.s:175    .text.dmaAcquireTimeoutS:0000000000000000 dmaAcquireTimeoutS
-     /tmp/ccr0XqFa.s:206    .text.dmaClaimI:0000000000000000 dmaClaimI
-     /tmp/ccr0XqFa.s:415    .upper.rodata:0000000000000017 __func__.3725
-     /tmp/ccr0XqFa.s:252    .text.dmaTransferI:0000000000000000 dmaTransferI
-     /tmp/ccr0XqFa.s:304    .text.dmaTransfer:0000000000000000 dmaTransfer
-     /tmp/ccr0XqFa.s:335    .text.dmaReleaseX:0000000000000000 dmaReleaseX
-     /tmp/ccr0XqFa.s:411    .upper.rodata:000000000000000b __func__.3738
-     /tmp/ccr0XqFa.s:373    .text.dmaCancelI:0000000000000000 dmaCancelI
-     /tmp/ccr0XqFa.s:407    .upper.rodata:0000000000000000 __func__.3742
-     /tmp/ccr0XqFa.s:93     .lower.lowtext:000000000000007c .L4
-     /tmp/ccr0XqFa.s:98     .lower.lowtext:000000000000008e .L2
-     /tmp/ccr0XqFa.s:152    .text.dmaAcquireI:0000000000000034 .L15
-     /tmp/ccr0XqFa.s:150    .text.dmaAcquireI:0000000000000032 .L18
-     /tmp/ccr0XqFa.s:167    .text.dmaAcquireI:0000000000000068 .L19
-     /tmp/ccr0XqFa.s:146    .text.dmaAcquireI:000000000000002e .L14
-     /tmp/ccr0XqFa.s:194    .text.dmaAcquireTimeoutS:0000000000000020 .L20
-     /tmp/ccr0XqFa.s:198    .text.dmaAcquireTimeoutS:0000000000000026 .L22
-     /tmp/ccr0XqFa.s:224    .text.dmaClaimI:0000000000000014 .L27
-     /tmp/ccr0XqFa.s:244    .text.dmaClaimI:0000000000000050 .L29
-     /tmp/ccr0XqFa.s:240    .text.dmaClaimI:000000000000004c .L26
-     /tmp/ccr0XqFa.s:359    .text.dmaReleaseX:0000000000000022 .L33
-     /tmp/ccr0XqFa.s:353    .text.dmaReleaseX:0000000000000018 .L34
-     /tmp/ccr0XqFa.s:389    .text.dmaCancelI:0000000000000012 .L41
-     /tmp/ccr0XqFa.s:399    .text.dmaCancelI:000000000000003a .L40
+     /tmp/ccpUDnYb.s:5      .text.dma_trigger_set:0000000000000000 dma_trigger_set
+     /tmp/ccpUDnYb.s:47     .lower.lowtext:0000000000000000 ISR_DMA_VECTOR
+     /tmp/ccpUDnYb.s:420    .bss:0000000000000002 callbacks
+     /tmp/ccpUDnYb.s:107    .text.dmaInit:0000000000000000 dmaInit
+     /tmp/ccpUDnYb.s:418    .bss:0000000000000000 dma_queue
+     /tmp/ccpUDnYb.s:126    .text.dmaAcquireI:0000000000000000 dmaAcquireI
+     /tmp/ccpUDnYb.s:175    .text.dmaAcquireTimeoutS:0000000000000000 dmaAcquireTimeoutS
+     /tmp/ccpUDnYb.s:206    .text.dmaClaimI:0000000000000000 dmaClaimI
+     /tmp/ccpUDnYb.s:415    .upper.rodata:0000000000000017 __func__.3725
+     /tmp/ccpUDnYb.s:252    .text.dmaTransferI:0000000000000000 dmaTransferI
+     /tmp/ccpUDnYb.s:304    .text.dmaTransfer:0000000000000000 dmaTransfer
+     /tmp/ccpUDnYb.s:335    .text.dmaReleaseX:0000000000000000 dmaReleaseX
+     /tmp/ccpUDnYb.s:411    .upper.rodata:000000000000000b __func__.3738
+     /tmp/ccpUDnYb.s:373    .text.dmaCancelI:0000000000000000 dmaCancelI
+     /tmp/ccpUDnYb.s:407    .upper.rodata:0000000000000000 __func__.3742
+     /tmp/ccpUDnYb.s:93     .lower.lowtext:000000000000007c .L4
+     /tmp/ccpUDnYb.s:98     .lower.lowtext:000000000000008e .L2
+     /tmp/ccpUDnYb.s:152    .text.dmaAcquireI:0000000000000034 .L15
+     /tmp/ccpUDnYb.s:150    .text.dmaAcquireI:0000000000000032 .L18
+     /tmp/ccpUDnYb.s:167    .text.dmaAcquireI:0000000000000068 .L19
+     /tmp/ccpUDnYb.s:146    .text.dmaAcquireI:000000000000002e .L14
+     /tmp/ccpUDnYb.s:194    .text.dmaAcquireTimeoutS:0000000000000020 .L20
+     /tmp/ccpUDnYb.s:198    .text.dmaAcquireTimeoutS:0000000000000026 .L22
+     /tmp/ccpUDnYb.s:224    .text.dmaClaimI:0000000000000014 .L27
+     /tmp/ccpUDnYb.s:244    .text.dmaClaimI:0000000000000050 .L29
+     /tmp/ccpUDnYb.s:240    .text.dmaClaimI:000000000000004c .L26
+     /tmp/ccpUDnYb.s:359    .text.dmaReleaseX:0000000000000022 .L33
+     /tmp/ccpUDnYb.s:353    .text.dmaReleaseX:0000000000000018 .L34
+     /tmp/ccpUDnYb.s:389    .text.dmaCancelI:0000000000000012 .L41
+     /tmp/ccpUDnYb.s:399    .text.dmaCancelI:000000000000003a .L40
 
 UNDEFINED SYMBOLS
 DMACTL0

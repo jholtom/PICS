@@ -1032,7 +1032,7 @@ __reset_vector  0x000000000000fffe        0x2
                 0x0000000000010000                _end = .
                 [!provide]                        PROVIDE (end, .)
 
-.text           0x0000000000004400     0x8328
+.text           0x0000000000004400     0x82ec
                 0x0000000000004400                PROVIDE (_start, .)
                 0x0000000000004400                . = ALIGN (0x2)
  *(SORT(.crt_*))
@@ -1795,290 +1795,290 @@ __reset_vector  0x000000000000fffe        0x2
                 0x000000000000ae96       0x2e build/obj/sdlp.o
                 0x000000000000ae96                elyRFDLLRxInit
  .text.elyRFDLLHandleRxFifo
-                0x000000000000aec4      0x17a build/obj/sdlp.o
+                0x000000000000aec4      0x13e build/obj/sdlp.o
                 0x000000000000aec4                elyRFDLLHandleRxFifo
  .text.elyRFDLLTxInit
-                0x000000000000b03e       0x50 build/obj/sdlp.o
-                0x000000000000b03e                elyRFDLLTxInit
+                0x000000000000b002       0x50 build/obj/sdlp.o
+                0x000000000000b002                elyRFDLLTxInit
  .text.elyRFDLLInitiateTransmit
-                0x000000000000b08e       0x32 build/obj/sdlp.o
-                0x000000000000b08e                elyRFDLLInitiateTransmit
+                0x000000000000b052       0x32 build/obj/sdlp.o
+                0x000000000000b052                elyRFDLLInitiateTransmit
  .text.elyRFDLLHandleTxFifo
-                0x000000000000b0c0       0x46 build/obj/sdlp.o
-                0x000000000000b0c0                elyRFDLLHandleTxFifo
+                0x000000000000b084       0x46 build/obj/sdlp.o
+                0x000000000000b084                elyRFDLLHandleTxFifo
  .text.fram_mpool_alloc
-                0x000000000000b106       0x26 build/obj/fram.o
-                0x000000000000b106                fram_mpool_alloc
- .text.addr_cb  0x000000000000b12c      0x102 build/obj/fram.o
-                0x000000000000b12c                addr_cb
+                0x000000000000b0ca       0x26 build/obj/fram.o
+                0x000000000000b0ca                fram_mpool_alloc
+ .text.addr_cb  0x000000000000b0f0      0x102 build/obj/fram.o
+                0x000000000000b0f0                addr_cb
  .text.fram_handle_request
-                0x000000000000b22e       0x50 build/obj/fram.o
-                0x000000000000b22e                fram_handle_request
- .text.end_cb   0x000000000000b27e       0x74 build/obj/fram.o
-                0x000000000000b27e                end_cb
+                0x000000000000b1f2       0x50 build/obj/fram.o
+                0x000000000000b1f2                fram_handle_request
+ .text.end_cb   0x000000000000b242       0x74 build/obj/fram.o
+                0x000000000000b242                end_cb
  .text.elyFramPostRequestI
-                0x000000000000b2f2       0x5c build/obj/fram.o
-                0x000000000000b2f2                elyFramPostRequestI
+                0x000000000000b2b6       0x5c build/obj/fram.o
+                0x000000000000b2b6                elyFramPostRequestI
  .text.elyFramPostRequestS
-                0x000000000000b34e       0x24 build/obj/fram.o
-                0x000000000000b34e                elyFramPostRequestS
+                0x000000000000b312       0x24 build/obj/fram.o
+                0x000000000000b312                elyFramPostRequestS
  .text.elyFramGetRequestTimeoutS
-                0x000000000000b372       0x3e build/obj/fram.o
-                0x000000000000b372                elyFramGetRequestTimeoutS
+                0x000000000000b336       0x3e build/obj/fram.o
+                0x000000000000b336                elyFramGetRequestTimeoutS
  .text.elyFramInit
-                0x000000000000b3b0        0xe build/obj/fram.o
-                0x000000000000b3b0                elyFramInit
+                0x000000000000b374        0xe build/obj/fram.o
+                0x000000000000b374                elyFramInit
  .text.port_lock
-                0x000000000000b3be        0x8 build/obj/rf.o
+                0x000000000000b382        0x8 build/obj/rf.o
  .text.port_unlock
-                0x000000000000b3c6        0xa build/obj/rf.o
+                0x000000000000b38a        0xa build/obj/rf.o
  .text.elyRFPostI
-                0x000000000000b3d0       0x28 build/obj/rf.o
-                0x000000000000b3d0                elyRFPostI
+                0x000000000000b394       0x28 build/obj/rf.o
+                0x000000000000b394                elyRFPostI
  .text.elyRFPost
-                0x000000000000b3f8       0x36 build/obj/rf.o
-                0x000000000000b3f8                elyRFPost
+                0x000000000000b3bc       0x36 build/obj/rf.o
+                0x000000000000b3bc                elyRFPost
  .text.elyRFCfgMarkDirty
-                0x000000000000b42e       0x36 build/obj/rf.o
-                0x000000000000b42e                elyRFCfgMarkDirty
+                0x000000000000b3f2       0x36 build/obj/rf.o
+                0x000000000000b3f2                elyRFCfgMarkDirty
  .text.elyRFChangeTxFreqS
-                0x000000000000b464      0x118 build/obj/rf.o
-                0x000000000000b464                elyRFChangeTxFreqS
+                0x000000000000b428      0x118 build/obj/rf.o
+                0x000000000000b428                elyRFChangeTxFreqS
  .text.elyRFChangeRxFreqS
-                0x000000000000b57c      0x11a build/obj/rf.o
-                0x000000000000b57c                elyRFChangeRxFreqS
+                0x000000000000b540      0x11a build/obj/rf.o
+                0x000000000000b540                elyRFChangeRxFreqS
  .text.elyRFChangeTxBRS
-                0x000000000000b696      0x10a build/obj/rf.o
-                0x000000000000b696                elyRFChangeTxBRS
+                0x000000000000b65a      0x10a build/obj/rf.o
+                0x000000000000b65a                elyRFChangeTxBRS
  .text.elyRFChangeRxBRS
-                0x000000000000b7a0      0x10a build/obj/rf.o
-                0x000000000000b7a0                elyRFChangeRxBRS
+                0x000000000000b764      0x10a build/obj/rf.o
+                0x000000000000b764                elyRFChangeRxBRS
  .text.elyRFChangeTxDevS
-                0x000000000000b8aa      0x10e build/obj/rf.o
-                0x000000000000b8aa                elyRFChangeTxDevS
+                0x000000000000b86e      0x10e build/obj/rf.o
+                0x000000000000b86e                elyRFChangeTxDevS
  .text.elyRFChangeRxDevS
-                0x000000000000b9b8      0x10e build/obj/rf.o
-                0x000000000000b9b8                elyRFChangeRxDevS
+                0x000000000000b97c      0x10e build/obj/rf.o
+                0x000000000000b97c                elyRFChangeRxDevS
  .text.elyRFChangeRxSyncS
-                0x000000000000bac6       0x48 build/obj/rf.o
-                0x000000000000bac6                elyRFChangeRxSyncS
+                0x000000000000ba8a       0x48 build/obj/rf.o
+                0x000000000000ba8a                elyRFChangeRxSyncS
  .text.elyRFChangeTxPowerS
-                0x000000000000bb0e       0x2c build/obj/rf.o
-                0x000000000000bb0e                elyRFChangeTxPowerS
+                0x000000000000bad2       0x2c build/obj/rf.o
+                0x000000000000bad2                elyRFChangeTxPowerS
  .text.elyRFChangeRxFilterParamsS
-                0x000000000000bb3a       0x22 build/obj/rf.o
-                0x000000000000bb3a                elyRFChangeRxFilterParamsS
- .text.RFThd    0x000000000000bb5c      0x438 build/obj/rf.o
-                0x000000000000bb5c                RFThd
+                0x000000000000bafe       0x22 build/obj/rf.o
+                0x000000000000bafe                elyRFChangeRxFilterParamsS
+ .text.RFThd    0x000000000000bb20      0x438 build/obj/rf.o
+                0x000000000000bb20                RFThd
  .text.nl_allocator
-                0x000000000000bf94       0x26 build/obj/spp.o
-                0x000000000000bf94                nl_allocator
- .text.clamp    0x000000000000bfba       0x2e build/obj/spp.o
+                0x000000000000bf58       0x26 build/obj/spp.o
+                0x000000000000bf58                nl_allocator
+ .text.clamp    0x000000000000bf7e       0x2e build/obj/spp.o
  .text.uart_pass
-                0x000000000000bfe8        0x8 build/obj/spp.o
- .text.fw       0x000000000000bff0        0x8 build/obj/spp.o
- .text.rf_pass  0x000000000000bff8        0x8 build/obj/spp.o
+                0x000000000000bfac        0x8 build/obj/spp.o
+ .text.fw       0x000000000000bfb4        0x8 build/obj/spp.o
+ .text.rf_pass  0x000000000000bfbc        0x8 build/obj/spp.o
  .text.elyNLClampReg
-                0x000000000000c000      0x110 build/obj/spp.o
-                0x000000000000c000                elyNLClampReg
+                0x000000000000bfc4      0x110 build/obj/spp.o
+                0x000000000000bfc4                elyNLClampReg
  .text.elyNLGetBuffer
-                0x000000000000c110        0xa build/obj/spp.o
-                0x000000000000c110                elyNLGetBuffer
+                0x000000000000c0d4        0xa build/obj/spp.o
+                0x000000000000c0d4                elyNLGetBuffer
  .text.elyNLFreeBuffer
-                0x000000000000c11a        0xc build/obj/spp.o
-                0x000000000000c11a                elyNLFreeBuffer
+                0x000000000000c0de        0xc build/obj/spp.o
+                0x000000000000c0de                elyNLFreeBuffer
  .text.elyNLGetBufferI
-                0x000000000000c126        0xa build/obj/spp.o
-                0x000000000000c126                elyNLGetBufferI
+                0x000000000000c0ea        0xa build/obj/spp.o
+                0x000000000000c0ea                elyNLGetBufferI
  .text.elyNLFreeBufferI
-                0x000000000000c130        0xc build/obj/spp.o
-                0x000000000000c130                elyNLFreeBufferI
+                0x000000000000c0f4        0xc build/obj/spp.o
+                0x000000000000c0f4                elyNLFreeBufferI
  .text.elyNLGetDest
-                0x000000000000c13c       0x1c build/obj/spp.o
-                0x000000000000c13c                elyNLGetDest
+                0x000000000000c100       0x1c build/obj/spp.o
+                0x000000000000c100                elyNLGetDest
  .text.is_fw_buf
-                0x000000000000c158       0x3c build/obj/spp.o
-                0x000000000000c158                is_fw_buf
+                0x000000000000c11c       0x3c build/obj/spp.o
+                0x000000000000c11c                is_fw_buf
  .text.elyNLFreeBufferChecked
-                0x000000000000c194       0x20 build/obj/spp.o
-                0x000000000000c194                elyNLFreeBufferChecked
+                0x000000000000c158       0x20 build/obj/spp.o
+                0x000000000000c158                elyNLFreeBufferChecked
  .text.elyNLFreeBufferCheckedI
-                0x000000000000c1b4       0x20 build/obj/spp.o
-                0x000000000000c1b4                elyNLFreeBufferCheckedI
+                0x000000000000c178       0x20 build/obj/spp.o
+                0x000000000000c178                elyNLFreeBufferCheckedI
  .text.elyNLInit
-                0x000000000000c1d4        0x8 build/obj/spp.o
-                0x000000000000c1d4                elyNLInit
+                0x000000000000c198        0x8 build/obj/spp.o
+                0x000000000000c198                elyNLInit
  .text.elyNLSetHeader
-                0x000000000000c1dc       0xee build/obj/spp.o
-                0x000000000000c1dc                elyNLSetHeader
+                0x000000000000c1a0       0xee build/obj/spp.o
+                0x000000000000c1a0                elyNLSetHeader
  .text.elyNLGetLength
-                0x000000000000c2ca       0x18 build/obj/spp.o
-                0x000000000000c2ca                elyNLGetLength
+                0x000000000000c28e       0x18 build/obj/spp.o
+                0x000000000000c28e                elyNLGetLength
  .text.elyNLValidate
-                0x000000000000c2e2       0x5a build/obj/spp.o
-                0x000000000000c2e2                elyNLValidate
+                0x000000000000c2a6       0x5a build/obj/spp.o
+                0x000000000000c2a6                elyNLValidate
  .text.nl_route
-                0x000000000000c33c       0x86 build/obj/spp.o
+                0x000000000000c300       0x86 build/obj/spp.o
  .text.elyNLRouteUART
-                0x000000000000c3c2       0x12 build/obj/spp.o
-                0x000000000000c3c2                elyNLRouteUART
+                0x000000000000c386       0x12 build/obj/spp.o
+                0x000000000000c386                elyNLRouteUART
  .text.elyNLRouteRF
-                0x000000000000c3d4       0x12 build/obj/spp.o
-                0x000000000000c3d4                elyNLRouteRF
+                0x000000000000c398       0x12 build/obj/spp.o
+                0x000000000000c398                elyNLRouteRF
  .text.elyNLToFW
-                0x000000000000c3e6        0xc build/obj/spp.o
-                0x000000000000c3e6                elyNLToFW
+                0x000000000000c3aa        0xc build/obj/spp.o
+                0x000000000000c3aa                elyNLToFW
  .text.elyNLFromFW
-                0x000000000000c3f2        0xe build/obj/spp.o
-                0x000000000000c3f2                elyNLFromFW
+                0x000000000000c3b6        0xe build/obj/spp.o
+                0x000000000000c3b6                elyNLFromFW
  .text.startup.main
-                0x000000000000c400       0x1c build/obj/init.o
-                0x000000000000c400                main
+                0x000000000000c3c4       0x1c build/obj/init.o
+                0x000000000000c3c4                main
  .text.udivmodsi4
-                0x000000000000c41c       0x8a /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libgcc.a(lib2divSI.o)
-                0x000000000000c41c                udivmodsi4
+                0x000000000000c3e0       0x8a /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libgcc.a(lib2divSI.o)
+                0x000000000000c3e0                udivmodsi4
  .text.__udivsi3
-                0x000000000000c4a6       0x12 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libgcc.a(lib2divSI.o)
-                0x000000000000c4a6                __mspabi_divul
-                0x000000000000c4a6                __mspabi_divlu
- .text          0x000000000000c4b8       0x74 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libgcc.a(slli.o)
-                0x000000000000c4b8                __mspabi_slli_15
-                0x000000000000c4ba                __mspabi_slli_14
-                0x000000000000c4bc                __mspabi_slli_13
-                0x000000000000c4be                __mspabi_slli_12
-                0x000000000000c4c0                __mspabi_slli_11
-                0x000000000000c4c2                __mspabi_slli_10
-                0x000000000000c4c4                __mspabi_slli_9
-                0x000000000000c4c6                __mspabi_slli_8
-                0x000000000000c4c8                __mspabi_slli_7
-                0x000000000000c4ca                __mspabi_slli_6
-                0x000000000000c4cc                __mspabi_slli_5
-                0x000000000000c4ce                __mspabi_slli_4
-                0x000000000000c4d0                __mspabi_slli_3
-                0x000000000000c4d2                __mspabi_slli_2
-                0x000000000000c4d4                __mspabi_slli_1
-                0x000000000000c4dc                __mspabi_slli
-                0x000000000000c4e2                __mspabi_slll_15
-                0x000000000000c4e6                __mspabi_slll_14
-                0x000000000000c4ea                __mspabi_slll_13
-                0x000000000000c4ee                __mspabi_slll_12
-                0x000000000000c4f2                __mspabi_slll_11
-                0x000000000000c4f6                __mspabi_slll_10
-                0x000000000000c4fa                __mspabi_slll_9
-                0x000000000000c4fe                __mspabi_slll_8
-                0x000000000000c502                __mspabi_slll_7
-                0x000000000000c506                __mspabi_slll_6
-                0x000000000000c50a                __mspabi_slll_5
-                0x000000000000c50e                __mspabi_slll_4
-                0x000000000000c512                __mspabi_slll_3
-                0x000000000000c516                __mspabi_slll_2
-                0x000000000000c51a                __mspabi_slll_1
-                0x000000000000c526                __mspabi_slll
- .text          0x000000000000c52c       0x74 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libgcc.a(srai.o)
-                0x000000000000c52c                __mspabi_srai_15
-                0x000000000000c52e                __mspabi_srai_14
-                0x000000000000c530                __mspabi_srai_13
-                0x000000000000c532                __mspabi_srai_12
-                0x000000000000c534                __mspabi_srai_11
-                0x000000000000c536                __mspabi_srai_10
-                0x000000000000c538                __mspabi_srai_9
-                0x000000000000c53a                __mspabi_srai_8
-                0x000000000000c53c                __mspabi_srai_7
-                0x000000000000c53e                __mspabi_srai_6
-                0x000000000000c540                __mspabi_srai_5
-                0x000000000000c542                __mspabi_srai_4
-                0x000000000000c544                __mspabi_srai_3
-                0x000000000000c546                __mspabi_srai_2
-                0x000000000000c548                __mspabi_srai_1
-                0x000000000000c550                __mspabi_srai
-                0x000000000000c556                __mspabi_sral_15
-                0x000000000000c55a                __mspabi_sral_14
-                0x000000000000c55e                __mspabi_sral_13
-                0x000000000000c562                __mspabi_sral_12
-                0x000000000000c566                __mspabi_sral_11
-                0x000000000000c56a                __mspabi_sral_10
-                0x000000000000c56e                __mspabi_sral_9
-                0x000000000000c572                __mspabi_sral_8
-                0x000000000000c576                __mspabi_sral_7
-                0x000000000000c57a                __mspabi_sral_6
-                0x000000000000c57e                __mspabi_sral_5
-                0x000000000000c582                __mspabi_sral_4
-                0x000000000000c586                __mspabi_sral_3
-                0x000000000000c58a                __mspabi_sral_2
-                0x000000000000c58e                __mspabi_sral_1
-                0x000000000000c59a                __mspabi_sral
- .text          0x000000000000c5a0       0xb4 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libgcc.a(srli.o)
-                0x000000000000c5a0                __mspabi_srli_15
-                0x000000000000c5a4                __mspabi_srli_14
-                0x000000000000c5a8                __mspabi_srli_13
-                0x000000000000c5ac                __mspabi_srli_12
-                0x000000000000c5b0                __mspabi_srli_11
-                0x000000000000c5b4                __mspabi_srli_10
-                0x000000000000c5b8                __mspabi_srli_9
-                0x000000000000c5bc                __mspabi_srli_8
-                0x000000000000c5c0                __mspabi_srli_7
-                0x000000000000c5c4                __mspabi_srli_6
-                0x000000000000c5c8                __mspabi_srli_5
-                0x000000000000c5cc                __mspabi_srli_4
-                0x000000000000c5d0                __mspabi_srli_3
-                0x000000000000c5d4                __mspabi_srli_2
-                0x000000000000c5d8                __mspabi_srli_1
-                0x000000000000c5e4                __mspabi_srli
-                0x000000000000c5ea                __mspabi_srll_15
-                0x000000000000c5f0                __mspabi_srll_14
-                0x000000000000c5f6                __mspabi_srll_13
-                0x000000000000c5fc                __mspabi_srll_12
-                0x000000000000c602                __mspabi_srll_11
-                0x000000000000c608                __mspabi_srll_10
-                0x000000000000c60e                __mspabi_srll_9
-                0x000000000000c614                __mspabi_srll_8
-                0x000000000000c61a                __mspabi_srll_7
-                0x000000000000c620                __mspabi_srll_6
-                0x000000000000c626                __mspabi_srll_5
-                0x000000000000c62c                __mspabi_srll_4
-                0x000000000000c632                __mspabi_srll_3
-                0x000000000000c638                __mspabi_srll_2
-                0x000000000000c63e                __mspabi_srll_1
-                0x000000000000c64e                __mspabi_srll
- .text          0x000000000000c654       0x28 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libgcc.a(cmpsi2.o)
-                0x000000000000c654                __cmpsi2
-                0x000000000000c66c                __ucmpsi2
+                0x000000000000c46a       0x12 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libgcc.a(lib2divSI.o)
+                0x000000000000c46a                __mspabi_divul
+                0x000000000000c46a                __mspabi_divlu
+ .text          0x000000000000c47c       0x74 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libgcc.a(slli.o)
+                0x000000000000c47c                __mspabi_slli_15
+                0x000000000000c47e                __mspabi_slli_14
+                0x000000000000c480                __mspabi_slli_13
+                0x000000000000c482                __mspabi_slli_12
+                0x000000000000c484                __mspabi_slli_11
+                0x000000000000c486                __mspabi_slli_10
+                0x000000000000c488                __mspabi_slli_9
+                0x000000000000c48a                __mspabi_slli_8
+                0x000000000000c48c                __mspabi_slli_7
+                0x000000000000c48e                __mspabi_slli_6
+                0x000000000000c490                __mspabi_slli_5
+                0x000000000000c492                __mspabi_slli_4
+                0x000000000000c494                __mspabi_slli_3
+                0x000000000000c496                __mspabi_slli_2
+                0x000000000000c498                __mspabi_slli_1
+                0x000000000000c4a0                __mspabi_slli
+                0x000000000000c4a6                __mspabi_slll_15
+                0x000000000000c4aa                __mspabi_slll_14
+                0x000000000000c4ae                __mspabi_slll_13
+                0x000000000000c4b2                __mspabi_slll_12
+                0x000000000000c4b6                __mspabi_slll_11
+                0x000000000000c4ba                __mspabi_slll_10
+                0x000000000000c4be                __mspabi_slll_9
+                0x000000000000c4c2                __mspabi_slll_8
+                0x000000000000c4c6                __mspabi_slll_7
+                0x000000000000c4ca                __mspabi_slll_6
+                0x000000000000c4ce                __mspabi_slll_5
+                0x000000000000c4d2                __mspabi_slll_4
+                0x000000000000c4d6                __mspabi_slll_3
+                0x000000000000c4da                __mspabi_slll_2
+                0x000000000000c4de                __mspabi_slll_1
+                0x000000000000c4ea                __mspabi_slll
+ .text          0x000000000000c4f0       0x74 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libgcc.a(srai.o)
+                0x000000000000c4f0                __mspabi_srai_15
+                0x000000000000c4f2                __mspabi_srai_14
+                0x000000000000c4f4                __mspabi_srai_13
+                0x000000000000c4f6                __mspabi_srai_12
+                0x000000000000c4f8                __mspabi_srai_11
+                0x000000000000c4fa                __mspabi_srai_10
+                0x000000000000c4fc                __mspabi_srai_9
+                0x000000000000c4fe                __mspabi_srai_8
+                0x000000000000c500                __mspabi_srai_7
+                0x000000000000c502                __mspabi_srai_6
+                0x000000000000c504                __mspabi_srai_5
+                0x000000000000c506                __mspabi_srai_4
+                0x000000000000c508                __mspabi_srai_3
+                0x000000000000c50a                __mspabi_srai_2
+                0x000000000000c50c                __mspabi_srai_1
+                0x000000000000c514                __mspabi_srai
+                0x000000000000c51a                __mspabi_sral_15
+                0x000000000000c51e                __mspabi_sral_14
+                0x000000000000c522                __mspabi_sral_13
+                0x000000000000c526                __mspabi_sral_12
+                0x000000000000c52a                __mspabi_sral_11
+                0x000000000000c52e                __mspabi_sral_10
+                0x000000000000c532                __mspabi_sral_9
+                0x000000000000c536                __mspabi_sral_8
+                0x000000000000c53a                __mspabi_sral_7
+                0x000000000000c53e                __mspabi_sral_6
+                0x000000000000c542                __mspabi_sral_5
+                0x000000000000c546                __mspabi_sral_4
+                0x000000000000c54a                __mspabi_sral_3
+                0x000000000000c54e                __mspabi_sral_2
+                0x000000000000c552                __mspabi_sral_1
+                0x000000000000c55e                __mspabi_sral
+ .text          0x000000000000c564       0xb4 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libgcc.a(srli.o)
+                0x000000000000c564                __mspabi_srli_15
+                0x000000000000c568                __mspabi_srli_14
+                0x000000000000c56c                __mspabi_srli_13
+                0x000000000000c570                __mspabi_srli_12
+                0x000000000000c574                __mspabi_srli_11
+                0x000000000000c578                __mspabi_srli_10
+                0x000000000000c57c                __mspabi_srli_9
+                0x000000000000c580                __mspabi_srli_8
+                0x000000000000c584                __mspabi_srli_7
+                0x000000000000c588                __mspabi_srli_6
+                0x000000000000c58c                __mspabi_srli_5
+                0x000000000000c590                __mspabi_srli_4
+                0x000000000000c594                __mspabi_srli_3
+                0x000000000000c598                __mspabi_srli_2
+                0x000000000000c59c                __mspabi_srli_1
+                0x000000000000c5a8                __mspabi_srli
+                0x000000000000c5ae                __mspabi_srll_15
+                0x000000000000c5b4                __mspabi_srll_14
+                0x000000000000c5ba                __mspabi_srll_13
+                0x000000000000c5c0                __mspabi_srll_12
+                0x000000000000c5c6                __mspabi_srll_11
+                0x000000000000c5cc                __mspabi_srll_10
+                0x000000000000c5d2                __mspabi_srll_9
+                0x000000000000c5d8                __mspabi_srll_8
+                0x000000000000c5de                __mspabi_srll_7
+                0x000000000000c5e4                __mspabi_srll_6
+                0x000000000000c5ea                __mspabi_srll_5
+                0x000000000000c5f0                __mspabi_srll_4
+                0x000000000000c5f6                __mspabi_srll_3
+                0x000000000000c5fc                __mspabi_srll_2
+                0x000000000000c602                __mspabi_srll_1
+                0x000000000000c612                __mspabi_srll
+ .text          0x000000000000c618       0x28 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libgcc.a(cmpsi2.o)
+                0x000000000000c618                __cmpsi2
+                0x000000000000c630                __ucmpsi2
  .text.__mulsi2_f5
-                0x000000000000c67c       0x22 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libmul_f5.a(lib2hw_mul_f5.o)
-                0x000000000000c67c                __mspabi_mpyl
-                0x000000000000c67c                __mspabi_mpyl_f5hw
-                0x000000000000c67c                __mulsi2_f5
- .text.memcpy   0x000000000000c69e       0x1e /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/../../../../msp430-elf/lib/large/libc.a(lib_a-memcpy.o)
-                0x000000000000c69e                memcpy
- .text.memset   0x000000000000c6bc       0x1a /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/../../../../msp430-elf/lib/large/libc.a(lib_a-memset.o)
-                0x000000000000c6bc                memset
- .text.memmove  0x000000000000c6d6       0x52 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/../../../../msp430-elf/lib/large/libc.a(lib_a-memmove.o)
-                0x000000000000c6d6                memmove
+                0x000000000000c640       0x22 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libmul_f5.a(lib2hw_mul_f5.o)
+                0x000000000000c640                __mspabi_mpyl
+                0x000000000000c640                __mspabi_mpyl_f5hw
+                0x000000000000c640                __mulsi2_f5
+ .text.memcpy   0x000000000000c662       0x1e /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/../../../../msp430-elf/lib/large/libc.a(lib_a-memcpy.o)
+                0x000000000000c662                memcpy
+ .text.memset   0x000000000000c680       0x1a /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/../../../../msp430-elf/lib/large/libc.a(lib_a-memset.o)
+                0x000000000000c680                memset
+ .text.memmove  0x000000000000c69a       0x52 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/../../../../msp430-elf/lib/large/libc.a(lib_a-memmove.o)
+                0x000000000000c69a                memmove
  *(.text.*personality*)
  *(.gnu.warning)
  *(.interp .hash .dynsym .dynstr .gnu.version*)
                 [!provide]                        PROVIDE (__etext, .)
                 [!provide]                        PROVIDE (_etext, .)
                 [!provide]                        PROVIDE (etext, .)
-                0x000000000000c728                . = ALIGN (0x2)
+                0x000000000000c6ec                . = ALIGN (0x2)
  *(.init)
  *(.fini)
  *(.tm_clone_table)
 
-.stack          0x000000000000c728      0x100
-                0x000000000000c728                __main_thread_stack_end__ = .
+.stack          0x000000000000c6ec      0x100
+                0x000000000000c6ec                __main_thread_stack_end__ = .
  *(.stack)
-                0x000000000000c828                . = (. + __idle_stack_size__)
- *fill*         0x000000000000c728      0x100 
-                0x000000000000c828                PROVIDE (__stack, .)
-                0x000000000000c828                . = ALIGN (0x2)
-                0x000000000000c828                __main_thread_stack_base__ = .
+                0x000000000000c7ec                . = (. + __idle_stack_size__)
+ *fill*         0x000000000000c6ec      0x100 
+                0x000000000000c7ec                PROVIDE (__stack, .)
+                0x000000000000c7ec                . = ALIGN (0x2)
+                0x000000000000c7ec                __main_thread_stack_base__ = .
 
-.rodata         0x000000000000c828       0x23
-                0x000000000000c828                . = ALIGN (0x2)
+.rodata         0x000000000000c7ec       0x23
+                0x000000000000c7ec                . = ALIGN (0x2)
  *(.plt)
  *(.rodata .rodata.* .gnu.linkonce.r.* .const .const:*)
- .rodata        0x000000000000c828       0x23 build/obj/init.o
+ .rodata        0x000000000000c7ec       0x23 build/obj/init.o
  *(.rodata1)
  *(.lower.rodata.* .lower.rodata)
  *(.gcc_except_table)
@@ -2095,11 +2095,11 @@ __reset_vector  0x000000000000fffe        0x2
  *(SORT(.fini_array.*))
                 [!provide]                        PROVIDE (__fini_array_end, .)
 
-.rodata2        0x000000000000c84c       0x48
-                0x000000000000c84c                . = ALIGN (0x2)
+.rodata2        0x000000000000c810       0x48
+                0x000000000000c810                . = ALIGN (0x2)
  *(.eh_frame_hdr)
  *(.eh_frame)
- .eh_frame      0x000000000000c84c       0x48 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libgcc.a(_udivdi3.o)
+ .eh_frame      0x000000000000c810       0x48 /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libgcc.a(_udivdi3.o)
  *crtbegin*.o(.ctors)
  *(EXCLUDE_FILE(*crtend*.o) .ctors)
  *(SORT(.ctors.*))
@@ -2109,38 +2109,38 @@ __reset_vector  0x000000000000fffe        0x2
  *(SORT(.dtors.*))
  *(.dtors)
 
-.persistent     0x000000000000c894     0x2712
-                0x000000000000c894                . = ALIGN (0x2)
+.persistent     0x000000000000c858     0x2712
+                0x000000000000c858                . = ALIGN (0x2)
                 [!provide]                        PROVIDE (__persistent_start, .)
  *(.persistent)
- .persistent    0x000000000000c894       0x62 build/obj/uart.o
-                0x000000000000c894                A1_cfg
- .persistent    0x000000000000c8f6      0x434 build/obj/main.o
- .persistent    0x000000000000cd2a      0x100 build/obj/registers.o
- .persistent    0x000000000000ce2a        0x4 build/obj/slip_uart_dll.o
- .persistent    0x000000000000ce2e       0x2c build/obj/sdlp.o
-                0x000000000000ce2e                DLLRxPktCfg
-                0x000000000000ce2f                DLLTxPktCfg
-                0x000000000000ce37                b_frames
-                0x000000000000ce38                a_frames
-                0x000000000000ce39                double_frames
-                0x000000000000ce3a                missed_frames
-                0x000000000000ce3b                seq_no
-                0x000000000000ce3c                fecf
-                0x000000000000ce3d                fec
- .persistent    0x000000000000ce5a       0x6c build/obj/fram.o
- .persistent    0x000000000000cec6       0xc6 build/obj/rf.o
-                0x000000000000cf38                rf_spi_cfg
-                0x000000000000cf48                rf_mbox
- .persistent    0x000000000000cf8c     0x201a build/obj/spp.o
-                0x000000000000cf9c                packets_relayed
-                0x000000000000cf9e                packets_sent
-                0x000000000000cfa0                packets_received
-                0x000000000000efa2                elyNLMaxLen
-                0x000000000000efa6                . = ALIGN (0x2)
+ .persistent    0x000000000000c858       0x62 build/obj/uart.o
+                0x000000000000c858                A1_cfg
+ .persistent    0x000000000000c8ba      0x434 build/obj/main.o
+ .persistent    0x000000000000ccee      0x100 build/obj/registers.o
+ .persistent    0x000000000000cdee        0x4 build/obj/slip_uart_dll.o
+ .persistent    0x000000000000cdf2       0x2c build/obj/sdlp.o
+                0x000000000000cdf2                DLLRxPktCfg
+                0x000000000000cdf3                DLLTxPktCfg
+                0x000000000000cdfb                b_frames
+                0x000000000000cdfc                a_frames
+                0x000000000000cdfd                double_frames
+                0x000000000000cdfe                missed_frames
+                0x000000000000cdff                seq_no
+                0x000000000000ce00                fecf
+                0x000000000000ce01                fec
+ .persistent    0x000000000000ce1e       0x6c build/obj/fram.o
+ .persistent    0x000000000000ce8a       0xc6 build/obj/rf.o
+                0x000000000000cefc                rf_spi_cfg
+                0x000000000000cf0c                rf_mbox
+ .persistent    0x000000000000cf50     0x201a build/obj/spp.o
+                0x000000000000cf60                packets_relayed
+                0x000000000000cf62                packets_sent
+                0x000000000000cf64                packets_received
+                0x000000000000ef66                elyNLMaxLen
+                0x000000000000ef6a                . = ALIGN (0x2)
                 [!provide]                        PROVIDE (__persistent_end, .)
 
-.data           0x0000000000001c00        0x0 load address 0x000000000000efa6
+.data           0x0000000000001c00        0x0 load address 0x000000000000ef6a
                 0x0000000000001c00                . = ALIGN (0x2)
                 [!provide]                        PROVIDE (__datastart, .)
  *(.jcr)
@@ -2163,41 +2163,41 @@ __reset_vector  0x000000000000fffe        0x2
                 [!provide]                        PROVIDE (__romdatastart, LOADADDR (.data))
                 [!provide]                        PROVIDE (__romdatacopysize, SIZEOF (.data))
 
-.bss            0x000000000000efa6      0x2dc
-                0x000000000000efa6                . = ALIGN (0x2)
-                0x000000000000efa6                PROVIDE (__bssstart, .)
+.bss            0x000000000000ef6a      0x2dc
+                0x000000000000ef6a                . = ALIGN (0x2)
+                0x000000000000ef6a                PROVIDE (__bssstart, .)
  *(.dynbss)
  *(.sbss .sbss.*)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x000000000000efa6        0x8 build/obj/chmemcore.o
- .bss           0x000000000000efae        0xe build/obj/chheap.o
- .bss           0x000000000000efbc       0x1a build/obj/hal_dma_lld.o
- .bss           0x000000000000efd6        0x2 build/obj/hal_spi_lld.o
- .bss           0x000000000000efd8        0x4 build/obj/sx1212.o
- .bss           0x000000000000efdc        0xa build/obj/uart.o
- .bss           0x000000000000efe6       0x46 build/obj/cmds.o
- .bss           0x000000000000f02c        0x4 build/obj/registers.o
- .bss           0x000000000000f030      0x22e build/obj/slip_uart_dll.o
- .bss           0x000000000000f25e        0x1 build/obj/crc_x25.o
- *fill*         0x000000000000f25f        0x1 
- .bss           0x000000000000f260       0x16 build/obj/sdlp.o
- .bss           0x000000000000f276        0x4 build/obj/fram.o
- .bss           0x000000000000f27a        0x4 build/obj/rf.o
- .bss           0x000000000000f27e        0x4 build/obj/spp.o
+ .bss           0x000000000000ef6a        0x8 build/obj/chmemcore.o
+ .bss           0x000000000000ef72        0xe build/obj/chheap.o
+ .bss           0x000000000000ef80       0x1a build/obj/hal_dma_lld.o
+ .bss           0x000000000000ef9a        0x2 build/obj/hal_spi_lld.o
+ .bss           0x000000000000ef9c        0x4 build/obj/sx1212.o
+ .bss           0x000000000000efa0        0xa build/obj/uart.o
+ .bss           0x000000000000efaa       0x46 build/obj/cmds.o
+ .bss           0x000000000000eff0        0x4 build/obj/registers.o
+ .bss           0x000000000000eff4      0x22e build/obj/slip_uart_dll.o
+ .bss           0x000000000000f222        0x1 build/obj/crc_x25.o
+ *fill*         0x000000000000f223        0x1 
+ .bss           0x000000000000f224       0x16 build/obj/sdlp.o
+ .bss           0x000000000000f23a        0x4 build/obj/fram.o
+ .bss           0x000000000000f23e        0x4 build/obj/rf.o
+ .bss           0x000000000000f242        0x4 build/obj/spp.o
  *(.lower.bss.* .lower.bss)
-                0x000000000000f282                . = ALIGN (0x2)
+                0x000000000000f246                . = ALIGN (0x2)
  *(COMMON)
                 [!provide]                        PROVIDE (__bssend, .)
                 0x00000000000002dc                PROVIDE (__bsssize, SIZEOF (.bss))
 
-.noinit         0x000000000000f282        0x0
-                0x000000000000f282                . = ALIGN (0x2)
+.noinit         0x000000000000f246        0x0
+                0x000000000000f246                . = ALIGN (0x2)
                 [!provide]                        PROVIDE (__noinit_start, .)
  *(.noinit)
-                0x000000000000f282                . = ALIGN (0x2)
+                0x000000000000f246                . = ALIGN (0x2)
                 [!provide]                        PROVIDE (__noinit_end, .)
 
-.upper.rodata   0x0000000000010000      0xa4e
+.upper.rodata   0x0000000000010000      0xa3a
  *(.upper.rodata.* .upper.rodata)
  .upper.rodata  0x0000000000010000       0x8e build/obj/ch.o
  .upper.rodata  0x000000000001008e       0x62 build/obj/chmboxes.o
@@ -2227,70 +2227,71 @@ __reset_vector  0x000000000000fffe        0x2
  .upper.rodata  0x0000000000010848       0x48 build/obj/slip_uart_dll.o
  .upper.rodata  0x0000000000010890       0x27 build/obj/crc_x25.o
  .upper.rodata  0x00000000000108b7        0xb build/obj/crc_sdlp.o
- .upper.rodata  0x00000000000108c2       0x49 build/obj/sdlp.o
- .upper.rodata  0x000000000001090b       0x55 build/obj/fram.o
- .upper.rodata  0x0000000000010960       0x87 build/obj/rf.o
- .upper.rodata  0x00000000000109e7       0x17 build/obj/spp.o
- .upper.rodata  0x00000000000109fe       0x50 build/obj/init.o
-                0x00000000000109fe                nil_thd_configs
+ .upper.rodata  0x00000000000108c2       0x34 build/obj/sdlp.o
+ .upper.rodata  0x00000000000108f6       0x55 build/obj/fram.o
+ .upper.rodata  0x000000000001094b       0x87 build/obj/rf.o
+ .upper.rodata  0x00000000000109d2       0x17 build/obj/spp.o
+ *fill*         0x00000000000109e9        0x1 
+ .upper.rodata  0x00000000000109ea       0x50 build/obj/init.o
+                0x00000000000109ea                nil_thd_configs
 
-.upper.data     0x0000000000010a4e      0x81e
-                0x0000000000010a4e                __upper_data_init = LOADADDR (.upper.data)
-                0x0000000000010a4e        0x2 SHORT 0x0
-                0x0000000000010a50                __high_datastart = .
+.upper.data     0x0000000000010a3a      0x81e
+                0x0000000000010a3a                __upper_data_init = LOADADDR (.upper.data)
+                0x0000000000010a3a        0x2 SHORT 0x0
+                0x0000000000010a3c                __high_datastart = .
  *(.upper.data.* .upper.data)
- .upper.data    0x0000000000010a50        0x2 build/obj/main.o
- .upper.data    0x0000000000010a52       0x14 build/obj/cmds.o
- .upper.data    0x0000000000010a66        0x1 build/obj/slip_uart_dll.o
- .upper.data    0x0000000000010a67      0x800 build/obj/sdlp.o
- *fill*         0x0000000000011267        0x1 
- .upper.data    0x0000000000011268        0x4 build/obj/fram.o
-                0x000000000001126c                __high_dataend = .
+ .upper.data    0x0000000000010a3c        0x2 build/obj/main.o
+ .upper.data    0x0000000000010a3e       0x14 build/obj/cmds.o
+ .upper.data    0x0000000000010a52        0x1 build/obj/slip_uart_dll.o
+ .upper.data    0x0000000000010a53      0x800 build/obj/sdlp.o
+ *fill*         0x0000000000011253        0x1 
+ .upper.data    0x0000000000011254        0x4 build/obj/fram.o
+                0x0000000000011258                __high_dataend = .
                 0x000000000000081c                __rom_highdatacopysize = (SIZEOF (.upper.data) - 0x2)
 
-.upper.rom      0x000000000001126c      0x81c
-                0x000000000001126c                __rom_highdatastart = .
-                0x0000000000011a88                . = (. + __rom_highdatacopysize)
- *fill*         0x000000000001126c      0x81c 
+.upper.rom      0x0000000000011258      0x81c
+                0x0000000000011258                __rom_highdatastart = .
+                0x0000000000011a74                . = (. + __rom_highdatacopysize)
+ *fill*         0x0000000000011258      0x81c 
 
-.upper.bss      0x0000000000011a88      0x5ca
-                0x0000000000011a88                . = ALIGN (0x2)
-                0x0000000000011a88                __high_bssstart = .
+.upper.bss      0x0000000000011a74      0x5ca
+                0x0000000000011a74                . = ALIGN (0x2)
+                0x0000000000011a74                __high_bssstart = .
  *(.upper.bss.* .upper.bss)
- .upper.bss     0x0000000000011a88       0x4e build/obj/ch.o
-                0x0000000000011a88                nil
- .upper.bss     0x0000000000011ad6        0x1 build/obj/chcore.o
-                0x0000000000011ad6                __msp430x_in_isr
- *fill*         0x0000000000011ad7        0x1 
- .upper.bss     0x0000000000011ad8       0x80 build/obj/hal_pal_lld.o
-                0x0000000000011ad8                port_callback_map
- .upper.bss     0x0000000000011b58       0x5c build/obj/hal_spi_lld.o
-                0x0000000000011b58                SPIDA0
- .upper.bss     0x0000000000011bb4       0x3e build/obj/hal_i2c_lld.o
-                0x0000000000011bb4                I2CDB0
- .upper.bss     0x0000000000011bf2       0x64 build/obj/hal_uart_lld.o
-                0x0000000000011bf2                UARTDA1
- .upper.bss     0x0000000000011c56        0xa build/obj/hal_gpt_lld.o
-                0x0000000000011c56                GPTDA1
- .upper.bss     0x0000000000011c60        0xc build/obj/sx1278.o
-                0x0000000000011c60                SX1278D1
- .upper.bss     0x0000000000011c6c       0x22 build/obj/sx1212.o
-                0x0000000000011c6c                sending
-                0x0000000000011c6e                tr
-                0x0000000000011c72                SX1212D1
- .upper.bss     0x0000000000011c8e      0x140 build/obj/uart.o
-                0x0000000000011c8e                waUARTThd
- .upper.bss     0x0000000000011dce      0x140 build/obj/cmds.o
-                0x0000000000011dce                waCmdThd
- .upper.bss     0x0000000000011f0e      0x144 build/obj/rf.o
-                0x0000000000011f0e                waRFThd
-                0x000000000001204e                rf_thd
-                0x0000000000012052                . = ALIGN (0x2)
-                0x0000000000012052                __high_bssend = .
+ .upper.bss     0x0000000000011a74       0x4e build/obj/ch.o
+                0x0000000000011a74                nil
+ .upper.bss     0x0000000000011ac2        0x1 build/obj/chcore.o
+                0x0000000000011ac2                __msp430x_in_isr
+ *fill*         0x0000000000011ac3        0x1 
+ .upper.bss     0x0000000000011ac4       0x80 build/obj/hal_pal_lld.o
+                0x0000000000011ac4                port_callback_map
+ .upper.bss     0x0000000000011b44       0x5c build/obj/hal_spi_lld.o
+                0x0000000000011b44                SPIDA0
+ .upper.bss     0x0000000000011ba0       0x3e build/obj/hal_i2c_lld.o
+                0x0000000000011ba0                I2CDB0
+ .upper.bss     0x0000000000011bde       0x64 build/obj/hal_uart_lld.o
+                0x0000000000011bde                UARTDA1
+ .upper.bss     0x0000000000011c42        0xa build/obj/hal_gpt_lld.o
+                0x0000000000011c42                GPTDA1
+ .upper.bss     0x0000000000011c4c        0xc build/obj/sx1278.o
+                0x0000000000011c4c                SX1278D1
+ .upper.bss     0x0000000000011c58       0x22 build/obj/sx1212.o
+                0x0000000000011c58                sending
+                0x0000000000011c5a                tr
+                0x0000000000011c5e                SX1212D1
+ .upper.bss     0x0000000000011c7a      0x140 build/obj/uart.o
+                0x0000000000011c7a                waUARTThd
+ .upper.bss     0x0000000000011dba      0x140 build/obj/cmds.o
+                0x0000000000011dba                waCmdThd
+ .upper.bss     0x0000000000011efa      0x144 build/obj/rf.o
+                0x0000000000011efa                waRFThd
+                0x000000000001203a                rf_thd
+                0x000000000001203e                . = ALIGN (0x2)
+                0x000000000001203e                __high_bssend = .
                 0x00000000000005ca                __high_bsssize = SIZEOF (.upper.bss)
 
-.upper.text     0x0000000000012052        0x0
-                0x0000000000012052                . = ALIGN (0x2)
+.upper.text     0x000000000001203e        0x0
+                0x000000000001203e                . = ALIGN (0x2)
  *(.upper.text.* .upper.text)
 
 .info           0x0000000000001800       0xc8
@@ -3453,28 +3454,28 @@ LOAD /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/
 LOAD /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/bin/../lib/gcc/msp430-elf/6.2.1/large/libgcc.a
 OUTPUT(build/elysium.elf elf32-msp430)
 
-.lower.lowtext  0x000000000000f282      0x55c
+.lower.lowtext  0x000000000000f246      0x55c
  .lower.lowtext
-                0x000000000000f282       0x22 build/obj/hal_st_lld.o
-                0x000000000000f282                ISR_MSP430X_ST_ISR
+                0x000000000000f246       0x22 build/obj/hal_st_lld.o
+                0x000000000000f246                ISR_MSP430X_ST_ISR
  .lower.lowtext
-                0x000000000000f2a4      0x1a0 build/obj/hal_pal_lld.o
-                0x000000000000f2a4                ISR_PORT1_VECTOR
-                0x000000000000f300                ISR_PORT2_VECTOR
-                0x000000000000f36c                ISR_PORT3_VECTOR
-                0x000000000000f3d8                ISR_PORT4_VECTOR
+                0x000000000000f268      0x1a0 build/obj/hal_pal_lld.o
+                0x000000000000f268                ISR_PORT1_VECTOR
+                0x000000000000f2c4                ISR_PORT2_VECTOR
+                0x000000000000f330                ISR_PORT3_VECTOR
+                0x000000000000f39c                ISR_PORT4_VECTOR
  .lower.lowtext
-                0x000000000000f444       0x92 build/obj/hal_dma_lld.o
-                0x000000000000f444                ISR_DMA_VECTOR
+                0x000000000000f408       0x92 build/obj/hal_dma_lld.o
+                0x000000000000f408                ISR_DMA_VECTOR
  .lower.lowtext
-                0x000000000000f4d6      0x19a build/obj/hal_i2c_lld.o
-                0x000000000000f4d6                ISR_USCI_B0_VECTOR
+                0x000000000000f49a      0x19a build/obj/hal_i2c_lld.o
+                0x000000000000f49a                ISR_USCI_B0_VECTOR
  .lower.lowtext
-                0x000000000000f670      0x10e build/obj/hal_uart_lld.o
-                0x000000000000f670                ISR_USCI_A1_VECTOR
+                0x000000000000f634      0x10e build/obj/hal_uart_lld.o
+                0x000000000000f634                ISR_USCI_A1_VECTOR
  .lower.lowtext
-                0x000000000000f77e       0x60 build/obj/hal_gpt_lld.o
-                0x000000000000f77e                ISR_TIMER1_A1_VECTOR
+                0x000000000000f742       0x60 build/obj/hal_gpt_lld.o
+                0x000000000000f742                ISR_TIMER1_A1_VECTOR
 
 Cross Reference Table
 
@@ -4116,7 +4117,6 @@ chThdResumeI                                      build/obj/ch.o
                                                   build/obj/hal_i2c_lld.o
                                                   build/obj/hal_spi_lld.o
 chThdSleep                                        build/obj/ch.o
-                                                  build/obj/sdlp.o
                                                   build/obj/sx1212.o
                                                   build/obj/sx1278.o
 chThdSleepUntil                                   build/obj/ch.o
@@ -4331,7 +4331,6 @@ elyUARTDLLTxCB                                    build/obj/slip_uart_dll.o
                                                   build/obj/uart.o
 elyUARTPost                                       build/obj/uart.o
                                                   build/obj/spp.o
-                                                  build/obj/sdlp.o
 elyUARTPostI                                      build/obj/uart.o
                                                   build/obj/spp.o
                                                   build/obj/cmds.o

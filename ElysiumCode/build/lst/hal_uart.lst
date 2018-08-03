@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccklLRbT.s 			page 1
+GAS LISTING /tmp/cch78H6X.s 			page 1
 
 
    1               		.file	"hal_uart.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccklLRbT.s 			page 1
   54               	; framesize_regs:     0
   55               	; framesize_locals:   0
   56               	; framesize_outgoing: 0
-GAS LISTING /tmp/ccklLRbT.s 			page 2
+GAS LISTING /tmp/cch78H6X.s 			page 2
 
 
   57               	; framesize:          0
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccklLRbT.s 			page 1
  108               		; end of prologue
  109 0004 CA0C      		MOVA	R12, R10
  110 0006 C80D      		MOVA	R13, R8
-GAS LISTING /tmp/ccklLRbT.s 			page 3
+GAS LISTING /tmp/cch78H6X.s 			page 3
 
 
  111 0008 9C00 0000 		CMPA	#0, R12 { JEQ	.L6
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccklLRbT.s 			page 1
  162 0024 B013 0000 		CALLA	#chSysHalt
  163               	.L14:
  164 0028 CC0A      		MOVA	R10, R12
-GAS LISTING /tmp/ccklLRbT.s 			page 4
+GAS LISTING /tmp/cch78H6X.s 			page 4
 
 
  165 002a B013 0000 		CALLA	#uart_lld_stop
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccklLRbT.s 			page 1
  213 0048 CD06      		MOVA	R6, R13
  214 004a CC0A      		MOVA	R10, R12
  215 004c B013 0000 		CALLA	#uart_lld_start_send
-GAS LISTING /tmp/ccklLRbT.s 			page 5
+GAS LISTING /tmp/cch78H6X.s 			page 5
 
 
  216 0050 DA43 0100 		MOV.B	#1, 1(R10)
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccklLRbT.s 			page 1
  265               		; start of epilogue
  266 0050 0616      		POPM.A	#1, r6
  267 0052 0816      		POPM.A	#1, r8
-GAS LISTING /tmp/ccklLRbT.s 			page 6
+GAS LISTING /tmp/cch78H6X.s 			page 6
 
 
  268 0054 0A16      		POPM.A	#1, r10
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccklLRbT.s 			page 1
  319               	; start of function
  320               	; framesize_regs:     4
  321               	; framesize_locals:   0
-GAS LISTING /tmp/ccklLRbT.s 			page 7
+GAS LISTING /tmp/cch78H6X.s 			page 7
 
 
  322               	; framesize_outgoing: 0
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccklLRbT.s 			page 1
  372      0024 
  373 0012 9D00 0000 		CMPA	#0, R13 { JEQ	.L46
  373      0024 
-GAS LISTING /tmp/ccklLRbT.s 			page 8
+GAS LISTING /tmp/cch78H6X.s 			page 8
 
 
  374 0018 9E00 0000 		CMPA	#0, R14 { JNE	.L47
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccklLRbT.s 			page 1
  423 0018 9E00 0000 		CMPA	#0, R14 { JNE	.L57
  423      0020 
  424               	.L56:
-GAS LISTING /tmp/ccklLRbT.s 			page 9
+GAS LISTING /tmp/cch78H6X.s 			page 9
 
 
  425 001e 8C00 0000 		MOVA	#__func__.3741, R12
@@ -538,7 +538,7 @@ GAS LISTING /tmp/ccklLRbT.s 			page 1
  474      0020 
  475 002e CC0A      		MOVA	R10, R12
  476 0030 B013 0000 		CALLA	#uart_lld_stop_receive
-GAS LISTING /tmp/ccklLRbT.s 			page 10
+GAS LISTING /tmp/cch78H6X.s 			page 10
 
 
  477 0034 CA43 0200 		MOV.B	#0, 2(R10)
@@ -598,7 +598,7 @@ GAS LISTING /tmp/ccklLRbT.s 			page 1
  528               		.balign 2
  529               		.global	uartSendTimeout
  530               		.type	uartSendTimeout, @function
-GAS LISTING /tmp/ccklLRbT.s 			page 11
+GAS LISTING /tmp/cch78H6X.s 			page 11
 
 
  531               	uartSendTimeout:
@@ -658,7 +658,7 @@ GAS LISTING /tmp/ccklLRbT.s 			page 1
  579               	.L80:
  580 0078 B013 0000 		CALLA	#port_unlock
  581 007c CC08      		MOVA	R8, R12
-GAS LISTING /tmp/ccklLRbT.s 			page 12
+GAS LISTING /tmp/cch78H6X.s 			page 12
 
 
  582               		; start of epilogue
@@ -718,7 +718,7 @@ GAS LISTING /tmp/ccklLRbT.s 			page 1
  631 005c CC0A      		MOVA	R10, R12
  632 005e AC00 0E00 		ADDA	#14, R12
  633 0062 B013 0000 		CALLA	#chThdSuspendTimeoutS
-GAS LISTING /tmp/ccklLRbT.s 			page 13
+GAS LISTING /tmp/cch78H6X.s 			page 13
 
 
  634 0066 C80C      		MOVA	R12, R8
@@ -778,7 +778,7 @@ GAS LISTING /tmp/ccklLRbT.s 			page 1
  682 0044 B013 0000 		CALLA	#chSysHalt
  683               	.L103:
  684 0048 CE08      		MOVA	R8, R14
-GAS LISTING /tmp/ccklLRbT.s 			page 14
+GAS LISTING /tmp/cch78H6X.s 			page 14
 
 
  685 004a 0D06      		MOVA	@R6, R13
@@ -838,7 +838,7 @@ GAS LISTING /tmp/ccklLRbT.s 			page 1
  723               		.type	__func__.3746, @object
  724               		.size	__func__.3746, 16
  725               	__func__.3746:
-GAS LISTING /tmp/ccklLRbT.s 			page 15
+GAS LISTING /tmp/cch78H6X.s 			page 15
 
 
  726 0048 7561 7274 		.string	"uartStopReceive"
@@ -898,103 +898,103 @@ GAS LISTING /tmp/ccklLRbT.s 			page 1
  755               		.type	__func__.3703, @object
  756               		.size	__func__.3703, 10
  757               	__func__.3703:
-GAS LISTING /tmp/ccklLRbT.s 			page 16
+GAS LISTING /tmp/cch78H6X.s 			page 16
 
 
  758 00bc 7561 7274 		.string	"uartStart"
  758      5374 6172 
  758      7400 
  759               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccklLRbT.s 			page 17
+GAS LISTING /tmp/cch78H6X.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_uart.c
-     /tmp/ccklLRbT.s:5      .text.port_lock:0000000000000000 port_lock
-     /tmp/ccklLRbT.s:28     .text.port_unlock:0000000000000000 port_unlock
-     /tmp/ccklLRbT.s:52     .text.uartInit:0000000000000000 uartInit
-     /tmp/ccklLRbT.s:71     .text.uartObjectInit:0000000000000000 uartObjectInit
-     /tmp/ccklLRbT.s:96     .text.uartStart:0000000000000000 uartStart
-     /tmp/ccklLRbT.s:757    .upper.rodata:00000000000000bc __func__.3703
-     /tmp/ccklLRbT.s:139    .text.uartStop:0000000000000000 uartStop
-     /tmp/ccklLRbT.s:753    .upper.rodata:00000000000000b3 __func__.3707
-     /tmp/ccklLRbT.s:179    .text.uartStartSend:0000000000000000 uartStartSend
-     /tmp/ccklLRbT.s:749    .upper.rodata:00000000000000a5 __func__.3713
-     /tmp/ccklLRbT.s:228    .text.uartStartSendI:0000000000000000 uartStartSendI
-     /tmp/ccklLRbT.s:745    .upper.rodata:0000000000000096 __func__.3719
-     /tmp/ccklLRbT.s:275    .text.uartStopSend:0000000000000000 uartStopSend
-     /tmp/ccklLRbT.s:741    .upper.rodata:0000000000000089 __func__.3724
-     /tmp/ccklLRbT.s:318    .text.uartStopSendI:0000000000000000 uartStopSendI
-     /tmp/ccklLRbT.s:737    .upper.rodata:000000000000007b __func__.3728
-     /tmp/ccklLRbT.s:355    .text.uartStartReceive:0000000000000000 uartStartReceive
-     /tmp/ccklLRbT.s:733    .upper.rodata:000000000000006a __func__.3735
-     /tmp/ccklLRbT.s:404    .text.uartStartReceiveI:0000000000000000 uartStartReceiveI
-     /tmp/ccklLRbT.s:729    .upper.rodata:0000000000000058 __func__.3741
-     /tmp/ccklLRbT.s:451    .text.uartStopReceive:0000000000000000 uartStopReceive
-     /tmp/ccklLRbT.s:725    .upper.rodata:0000000000000048 __func__.3746
-     /tmp/ccklLRbT.s:494    .text.uartStopReceiveI:0000000000000000 uartStopReceiveI
-     /tmp/ccklLRbT.s:721    .upper.rodata:0000000000000037 __func__.3750
-     /tmp/ccklLRbT.s:531    .text.uartSendTimeout:0000000000000000 uartSendTimeout
-     /tmp/ccklLRbT.s:717    .upper.rodata:0000000000000027 __func__.3759
-     /tmp/ccklLRbT.s:591    .text.uartSendFullTimeout:0000000000000000 uartSendFullTimeout
-     /tmp/ccklLRbT.s:713    .upper.rodata:0000000000000013 __func__.3767
-     /tmp/ccklLRbT.s:651    .text.uartReceiveTimeout:0000000000000000 uartReceiveTimeout
-     /tmp/ccklLRbT.s:709    .upper.rodata:0000000000000000 __func__.3775
-     /tmp/ccklLRbT.s:113    .text.uartStart:0000000000000014 .L6
-     /tmp/ccklLRbT.s:116    .text.uartStart:000000000000001c .L7
-     /tmp/ccklLRbT.s:124    .text.uartStart:0000000000000032 .L8
-     /tmp/ccklLRbT.s:155    .text.uartStop:0000000000000012 .L13
-     /tmp/ccklLRbT.s:163    .text.uartStop:0000000000000028 .L14
-     /tmp/ccklLRbT.s:199    .text.uartStartSend:000000000000001e .L16
-     /tmp/ccklLRbT.s:202    .text.uartStartSend:0000000000000026 .L17
-     /tmp/ccklLRbT.s:207    .text.uartStartSend:0000000000000038 .L18
-     /tmp/ccklLRbT.s:211    .text.uartStartSend:0000000000000046 .L19
-     /tmp/ccklLRbT.s:248    .text.uartStartSendI:000000000000001e .L26
-     /tmp/ccklLRbT.s:251    .text.uartStartSendI:0000000000000026 .L27
-     /tmp/ccklLRbT.s:255    .text.uartStartSendI:0000000000000034 .L28
-     /tmp/ccklLRbT.s:259    .text.uartStartSendI:0000000000000042 .L29
-     /tmp/ccklLRbT.s:292    .text.uartStopSend:0000000000000016 .L36
-     /tmp/ccklLRbT.s:297    .text.uartStopSend:0000000000000028 .L37
-     /tmp/ccklLRbT.s:310    .text.uartStopSend:000000000000004a .L39
-     /tmp/ccklLRbT.s:302    .text.uartStopSend:0000000000000038 .L38
-     /tmp/ccklLRbT.s:334    .text.uartStopSendI:0000000000000012 .L41
-     /tmp/ccklLRbT.s:338    .text.uartStopSendI:0000000000000020 .L42
-     /tmp/ccklLRbT.s:347    .text.uartStopSendI:0000000000000034 .L44
-     /tmp/ccklLRbT.s:343    .text.uartStopSendI:0000000000000030 .L40
-     /tmp/ccklLRbT.s:375    .text.uartStartReceive:000000000000001e .L46
-     /tmp/ccklLRbT.s:378    .text.uartStartReceive:0000000000000026 .L47
-     /tmp/ccklLRbT.s:383    .text.uartStartReceive:0000000000000038 .L48
-     /tmp/ccklLRbT.s:387    .text.uartStartReceive:0000000000000046 .L49
-GAS LISTING /tmp/ccklLRbT.s 			page 18
+     /tmp/cch78H6X.s:5      .text.port_lock:0000000000000000 port_lock
+     /tmp/cch78H6X.s:28     .text.port_unlock:0000000000000000 port_unlock
+     /tmp/cch78H6X.s:52     .text.uartInit:0000000000000000 uartInit
+     /tmp/cch78H6X.s:71     .text.uartObjectInit:0000000000000000 uartObjectInit
+     /tmp/cch78H6X.s:96     .text.uartStart:0000000000000000 uartStart
+     /tmp/cch78H6X.s:757    .upper.rodata:00000000000000bc __func__.3703
+     /tmp/cch78H6X.s:139    .text.uartStop:0000000000000000 uartStop
+     /tmp/cch78H6X.s:753    .upper.rodata:00000000000000b3 __func__.3707
+     /tmp/cch78H6X.s:179    .text.uartStartSend:0000000000000000 uartStartSend
+     /tmp/cch78H6X.s:749    .upper.rodata:00000000000000a5 __func__.3713
+     /tmp/cch78H6X.s:228    .text.uartStartSendI:0000000000000000 uartStartSendI
+     /tmp/cch78H6X.s:745    .upper.rodata:0000000000000096 __func__.3719
+     /tmp/cch78H6X.s:275    .text.uartStopSend:0000000000000000 uartStopSend
+     /tmp/cch78H6X.s:741    .upper.rodata:0000000000000089 __func__.3724
+     /tmp/cch78H6X.s:318    .text.uartStopSendI:0000000000000000 uartStopSendI
+     /tmp/cch78H6X.s:737    .upper.rodata:000000000000007b __func__.3728
+     /tmp/cch78H6X.s:355    .text.uartStartReceive:0000000000000000 uartStartReceive
+     /tmp/cch78H6X.s:733    .upper.rodata:000000000000006a __func__.3735
+     /tmp/cch78H6X.s:404    .text.uartStartReceiveI:0000000000000000 uartStartReceiveI
+     /tmp/cch78H6X.s:729    .upper.rodata:0000000000000058 __func__.3741
+     /tmp/cch78H6X.s:451    .text.uartStopReceive:0000000000000000 uartStopReceive
+     /tmp/cch78H6X.s:725    .upper.rodata:0000000000000048 __func__.3746
+     /tmp/cch78H6X.s:494    .text.uartStopReceiveI:0000000000000000 uartStopReceiveI
+     /tmp/cch78H6X.s:721    .upper.rodata:0000000000000037 __func__.3750
+     /tmp/cch78H6X.s:531    .text.uartSendTimeout:0000000000000000 uartSendTimeout
+     /tmp/cch78H6X.s:717    .upper.rodata:0000000000000027 __func__.3759
+     /tmp/cch78H6X.s:591    .text.uartSendFullTimeout:0000000000000000 uartSendFullTimeout
+     /tmp/cch78H6X.s:713    .upper.rodata:0000000000000013 __func__.3767
+     /tmp/cch78H6X.s:651    .text.uartReceiveTimeout:0000000000000000 uartReceiveTimeout
+     /tmp/cch78H6X.s:709    .upper.rodata:0000000000000000 __func__.3775
+     /tmp/cch78H6X.s:113    .text.uartStart:0000000000000014 .L6
+     /tmp/cch78H6X.s:116    .text.uartStart:000000000000001c .L7
+     /tmp/cch78H6X.s:124    .text.uartStart:0000000000000032 .L8
+     /tmp/cch78H6X.s:155    .text.uartStop:0000000000000012 .L13
+     /tmp/cch78H6X.s:163    .text.uartStop:0000000000000028 .L14
+     /tmp/cch78H6X.s:199    .text.uartStartSend:000000000000001e .L16
+     /tmp/cch78H6X.s:202    .text.uartStartSend:0000000000000026 .L17
+     /tmp/cch78H6X.s:207    .text.uartStartSend:0000000000000038 .L18
+     /tmp/cch78H6X.s:211    .text.uartStartSend:0000000000000046 .L19
+     /tmp/cch78H6X.s:248    .text.uartStartSendI:000000000000001e .L26
+     /tmp/cch78H6X.s:251    .text.uartStartSendI:0000000000000026 .L27
+     /tmp/cch78H6X.s:255    .text.uartStartSendI:0000000000000034 .L28
+     /tmp/cch78H6X.s:259    .text.uartStartSendI:0000000000000042 .L29
+     /tmp/cch78H6X.s:292    .text.uartStopSend:0000000000000016 .L36
+     /tmp/cch78H6X.s:297    .text.uartStopSend:0000000000000028 .L37
+     /tmp/cch78H6X.s:310    .text.uartStopSend:000000000000004a .L39
+     /tmp/cch78H6X.s:302    .text.uartStopSend:0000000000000038 .L38
+     /tmp/cch78H6X.s:334    .text.uartStopSendI:0000000000000012 .L41
+     /tmp/cch78H6X.s:338    .text.uartStopSendI:0000000000000020 .L42
+     /tmp/cch78H6X.s:347    .text.uartStopSendI:0000000000000034 .L44
+     /tmp/cch78H6X.s:343    .text.uartStopSendI:0000000000000030 .L40
+     /tmp/cch78H6X.s:375    .text.uartStartReceive:000000000000001e .L46
+     /tmp/cch78H6X.s:378    .text.uartStartReceive:0000000000000026 .L47
+     /tmp/cch78H6X.s:383    .text.uartStartReceive:0000000000000038 .L48
+     /tmp/cch78H6X.s:387    .text.uartStartReceive:0000000000000046 .L49
+GAS LISTING /tmp/cch78H6X.s 			page 18
 
 
-     /tmp/ccklLRbT.s:424    .text.uartStartReceiveI:000000000000001e .L56
-     /tmp/ccklLRbT.s:427    .text.uartStartReceiveI:0000000000000026 .L57
-     /tmp/ccklLRbT.s:431    .text.uartStartReceiveI:0000000000000034 .L58
-     /tmp/ccklLRbT.s:435    .text.uartStartReceiveI:0000000000000042 .L59
-     /tmp/ccklLRbT.s:468    .text.uartStopReceive:0000000000000016 .L66
-     /tmp/ccklLRbT.s:473    .text.uartStopReceive:0000000000000028 .L67
-     /tmp/ccklLRbT.s:486    .text.uartStopReceive:000000000000004a .L69
-     /tmp/ccklLRbT.s:478    .text.uartStopReceive:0000000000000038 .L68
-     /tmp/ccklLRbT.s:510    .text.uartStopReceiveI:0000000000000012 .L71
-     /tmp/ccklLRbT.s:514    .text.uartStopReceiveI:0000000000000020 .L72
-     /tmp/ccklLRbT.s:523    .text.uartStopReceiveI:0000000000000034 .L74
-     /tmp/ccklLRbT.s:519    .text.uartStopReceiveI:0000000000000030 .L70
-     /tmp/ccklLRbT.s:551    .text.uartSendTimeout:0000000000000020 .L76
-     /tmp/ccklLRbT.s:554    .text.uartSendTimeout:0000000000000028 .L77
-     /tmp/ccklLRbT.s:559    .text.uartSendTimeout:000000000000003a .L78
-     /tmp/ccklLRbT.s:563    .text.uartSendTimeout:0000000000000048 .L79
-     /tmp/ccklLRbT.s:579    .text.uartSendTimeout:0000000000000078 .L80
-     /tmp/ccklLRbT.s:611    .text.uartSendFullTimeout:0000000000000020 .L88
-     /tmp/ccklLRbT.s:614    .text.uartSendFullTimeout:0000000000000028 .L89
-     /tmp/ccklLRbT.s:619    .text.uartSendFullTimeout:000000000000003a .L90
-     /tmp/ccklLRbT.s:623    .text.uartSendFullTimeout:0000000000000048 .L91
-     /tmp/ccklLRbT.s:639    .text.uartSendFullTimeout:0000000000000078 .L92
-     /tmp/ccklLRbT.s:671    .text.uartReceiveTimeout:0000000000000020 .L100
-     /tmp/ccklLRbT.s:674    .text.uartReceiveTimeout:0000000000000028 .L101
-     /tmp/ccklLRbT.s:679    .text.uartReceiveTimeout:000000000000003a .L102
-     /tmp/ccklLRbT.s:683    .text.uartReceiveTimeout:0000000000000048 .L103
-     /tmp/ccklLRbT.s:698    .text.uartReceiveTimeout:0000000000000074 .L104
+     /tmp/cch78H6X.s:424    .text.uartStartReceiveI:000000000000001e .L56
+     /tmp/cch78H6X.s:427    .text.uartStartReceiveI:0000000000000026 .L57
+     /tmp/cch78H6X.s:431    .text.uartStartReceiveI:0000000000000034 .L58
+     /tmp/cch78H6X.s:435    .text.uartStartReceiveI:0000000000000042 .L59
+     /tmp/cch78H6X.s:468    .text.uartStopReceive:0000000000000016 .L66
+     /tmp/cch78H6X.s:473    .text.uartStopReceive:0000000000000028 .L67
+     /tmp/cch78H6X.s:486    .text.uartStopReceive:000000000000004a .L69
+     /tmp/cch78H6X.s:478    .text.uartStopReceive:0000000000000038 .L68
+     /tmp/cch78H6X.s:510    .text.uartStopReceiveI:0000000000000012 .L71
+     /tmp/cch78H6X.s:514    .text.uartStopReceiveI:0000000000000020 .L72
+     /tmp/cch78H6X.s:523    .text.uartStopReceiveI:0000000000000034 .L74
+     /tmp/cch78H6X.s:519    .text.uartStopReceiveI:0000000000000030 .L70
+     /tmp/cch78H6X.s:551    .text.uartSendTimeout:0000000000000020 .L76
+     /tmp/cch78H6X.s:554    .text.uartSendTimeout:0000000000000028 .L77
+     /tmp/cch78H6X.s:559    .text.uartSendTimeout:000000000000003a .L78
+     /tmp/cch78H6X.s:563    .text.uartSendTimeout:0000000000000048 .L79
+     /tmp/cch78H6X.s:579    .text.uartSendTimeout:0000000000000078 .L80
+     /tmp/cch78H6X.s:611    .text.uartSendFullTimeout:0000000000000020 .L88
+     /tmp/cch78H6X.s:614    .text.uartSendFullTimeout:0000000000000028 .L89
+     /tmp/cch78H6X.s:619    .text.uartSendFullTimeout:000000000000003a .L90
+     /tmp/cch78H6X.s:623    .text.uartSendFullTimeout:0000000000000048 .L91
+     /tmp/cch78H6X.s:639    .text.uartSendFullTimeout:0000000000000078 .L92
+     /tmp/cch78H6X.s:671    .text.uartReceiveTimeout:0000000000000020 .L100
+     /tmp/cch78H6X.s:674    .text.uartReceiveTimeout:0000000000000028 .L101
+     /tmp/cch78H6X.s:679    .text.uartReceiveTimeout:000000000000003a .L102
+     /tmp/cch78H6X.s:683    .text.uartReceiveTimeout:0000000000000048 .L103
+     /tmp/cch78H6X.s:698    .text.uartReceiveTimeout:0000000000000074 .L104
 
 UNDEFINED SYMBOLS
 uart_lld_init

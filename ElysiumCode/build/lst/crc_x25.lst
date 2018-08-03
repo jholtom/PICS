@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccBWVlwB.s 			page 1
+GAS LISTING /tmp/ccaq4HLJ.s 			page 1
 
 
    1               		.file	"crc_x25.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccBWVlwB.s 			page 1
   50 0064 1001      		RETA
   51               	.L5:
   52 0066 4018 E24E 		MOVX.B	@R14, &CRCDI_L
-GAS LISTING /tmp/ccBWVlwB.s 			page 2
+GAS LISTING /tmp/ccaq4HLJ.s 			page 2
 
 
   52      0000 
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccBWVlwB.s 			page 1
  102 0058 0A16      		POPM.A	#1, r10
  103 005a 1001      		RETA
  104               	.L9:
-GAS LISTING /tmp/ccBWVlwB.s 			page 3
+GAS LISTING /tmp/ccaq4HLJ.s 			page 3
 
 
  105 005c 4018 E24E 		MOVX.B	@R14, &CRCDI_L
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccBWVlwB.s 			page 1
  153      0000 
  154 0016 4018 1C42 		MOVX.W	&CRCRESR, R12
  154      0000 
-GAS LISTING /tmp/ccBWVlwB.s 			page 4
+GAS LISTING /tmp/ccaq4HLJ.s 			page 4
 
 
  155 001c 3CE3      		INV.W	R12
@@ -212,30 +212,30 @@ GAS LISTING /tmp/ccBWVlwB.s 			page 1
  176               		.local	crc_state
  177               		.comm	crc_state,1,1
  178               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccBWVlwB.s 			page 5
+GAS LISTING /tmp/ccaq4HLJ.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 crc_x25.c
-     /tmp/ccBWVlwB.s:6      .text.crcGenX25:0000000000000000 crcGenX25
+     /tmp/ccaq4HLJ.s:6      .text.crcGenX25:0000000000000000 crcGenX25
                              .bss:0000000000000000 crc_state
-     /tmp/ccBWVlwB.s:174    .upper.rodata:000000000000001d __func__.3711
-     /tmp/ccBWVlwB.s:60     .text.crcCheckX25:0000000000000000 crcCheckX25
-     /tmp/ccBWVlwB.s:170    .upper.rodata:0000000000000011 __func__.3720
-     /tmp/ccBWVlwB.s:113    .text.crcStart:0000000000000000 crcStart
-     /tmp/ccBWVlwB.s:166    .upper.rodata:0000000000000008 __func__.3727
-     /tmp/ccBWVlwB.s:138    .text.crcStop:0000000000000000 crcStop
-     /tmp/ccBWVlwB.s:162    .upper.rodata:0000000000000000 __func__.3730
-     /tmp/ccBWVlwB.s:25     .text.crcGenX25:000000000000001a .L2
-     /tmp/ccBWVlwB.s:30     .text.crcGenX25:0000000000000028 .L3
-     /tmp/ccBWVlwB.s:51     .text.crcGenX25:0000000000000066 .L5
-     /tmp/ccBWVlwB.s:35     .text.crcGenX25:0000000000000036 .L4
-     /tmp/ccBWVlwB.s:79     .text.crcCheckX25:000000000000001a .L7
-     /tmp/ccBWVlwB.s:104    .text.crcCheckX25:000000000000005c .L9
-     /tmp/ccBWVlwB.s:98     .text.crcCheckX25:0000000000000054 .L10
-     /tmp/ccBWVlwB.s:84     .text.crcCheckX25:0000000000000028 .L8
-     /tmp/ccBWVlwB.s:127    .text.crcStart:0000000000000010 .L12
-     /tmp/ccBWVlwB.s:152    .text.crcStop:0000000000000010 .L14
+     /tmp/ccaq4HLJ.s:174    .upper.rodata:000000000000001d __func__.3711
+     /tmp/ccaq4HLJ.s:60     .text.crcCheckX25:0000000000000000 crcCheckX25
+     /tmp/ccaq4HLJ.s:170    .upper.rodata:0000000000000011 __func__.3720
+     /tmp/ccaq4HLJ.s:113    .text.crcStart:0000000000000000 crcStart
+     /tmp/ccaq4HLJ.s:166    .upper.rodata:0000000000000008 __func__.3727
+     /tmp/ccaq4HLJ.s:138    .text.crcStop:0000000000000000 crcStop
+     /tmp/ccaq4HLJ.s:162    .upper.rodata:0000000000000000 __func__.3730
+     /tmp/ccaq4HLJ.s:25     .text.crcGenX25:000000000000001a .L2
+     /tmp/ccaq4HLJ.s:30     .text.crcGenX25:0000000000000028 .L3
+     /tmp/ccaq4HLJ.s:51     .text.crcGenX25:0000000000000066 .L5
+     /tmp/ccaq4HLJ.s:35     .text.crcGenX25:0000000000000036 .L4
+     /tmp/ccaq4HLJ.s:79     .text.crcCheckX25:000000000000001a .L7
+     /tmp/ccaq4HLJ.s:104    .text.crcCheckX25:000000000000005c .L9
+     /tmp/ccaq4HLJ.s:98     .text.crcCheckX25:0000000000000054 .L10
+     /tmp/ccaq4HLJ.s:84     .text.crcCheckX25:0000000000000028 .L8
+     /tmp/ccaq4HLJ.s:127    .text.crcStart:0000000000000010 .L12
+     /tmp/ccaq4HLJ.s:152    .text.crcStop:0000000000000010 .L14
 
 UNDEFINED SYMBOLS
 chSysHalt

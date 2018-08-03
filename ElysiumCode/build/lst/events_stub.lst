@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cc0YaF8o.s 			page 1
+GAS LISTING /tmp/cckDx3ox.s 			page 1
 
 
    1               		.file	"events_stub.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/cc0YaF8o.s 			page 1
   55               		.size	elyEventSubscribe, .-elyEventSubscribe
   56               		.section	.text.elyEventUnsubscribe,"ax",@progbits
   57               		.balign 2
-GAS LISTING /tmp/cc0YaF8o.s 			page 2
+GAS LISTING /tmp/cckDx3ox.s 			page 2
 
 
   58               		.global	elyEventUnsubscribe
@@ -118,7 +118,7 @@ GAS LISTING /tmp/cc0YaF8o.s 			page 1
  112               		.global	elyEventReset
  113               		.type	elyEventReset, @function
  114               	elyEventReset:
-GAS LISTING /tmp/cc0YaF8o.s 			page 3
+GAS LISTING /tmp/cckDx3ox.s 			page 3
 
 
  115               	; start of function
@@ -135,17 +135,17 @@ GAS LISTING /tmp/cc0YaF8o.s 			page 1
  126 0000 1001      		RETA
  127               		.size	elyEventReset, .-elyEventReset
  128               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/cc0YaF8o.s 			page 4
+GAS LISTING /tmp/cckDx3ox.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 events_stub.c
-     /tmp/cc0YaF8o.s:6      .text.elyEventSignal:0000000000000000 elyEventSignal
-     /tmp/cc0YaF8o.s:24     .text.elyEventSignalI:0000000000000000 elyEventSignalI
-     /tmp/cc0YaF8o.s:42     .text.elyEventSubscribe:0000000000000000 elyEventSubscribe
-     /tmp/cc0YaF8o.s:60     .text.elyEventUnsubscribe:0000000000000000 elyEventUnsubscribe
-     /tmp/cc0YaF8o.s:78     .text.elyEventLog:0000000000000000 elyEventLog
-     /tmp/cc0YaF8o.s:96     .text.elyEventUnlog:0000000000000000 elyEventUnlog
-     /tmp/cc0YaF8o.s:114    .text.elyEventReset:0000000000000000 elyEventReset
+     /tmp/cckDx3ox.s:6      .text.elyEventSignal:0000000000000000 elyEventSignal
+     /tmp/cckDx3ox.s:24     .text.elyEventSignalI:0000000000000000 elyEventSignalI
+     /tmp/cckDx3ox.s:42     .text.elyEventSubscribe:0000000000000000 elyEventSubscribe
+     /tmp/cckDx3ox.s:60     .text.elyEventUnsubscribe:0000000000000000 elyEventUnsubscribe
+     /tmp/cckDx3ox.s:78     .text.elyEventLog:0000000000000000 elyEventLog
+     /tmp/cckDx3ox.s:96     .text.elyEventUnlog:0000000000000000 elyEventUnlog
+     /tmp/cckDx3ox.s:114    .text.elyEventReset:0000000000000000 elyEventReset
 
 NO UNDEFINED SYMBOLS

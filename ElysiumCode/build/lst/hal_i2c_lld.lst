@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cc97wXNk.s 			page 1
+GAS LISTING /tmp/ccfVKgim.s 			page 1
 
 
    1               		.file	"hal_i2c_lld.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
   55               	; saved regs: R10
   56               		; start of prologue
   57 0000 0A14      		PUSHM.A	#1, R10
-GAS LISTING /tmp/cc97wXNk.s 			page 2
+GAS LISTING /tmp/ccfVKgim.s 			page 2
 
 
   58               		; end of prologue
@@ -118,7 +118,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  102 003c 3C0A 1000 		MOVA	16(R10), R12
  103 0040 4018 BCB0 		BITX.W	#16, 8(R12) { JEQ	.L6
  103      1000 0800 
-GAS LISTING /tmp/cc97wXNk.s 			page 3
+GAS LISTING /tmp/ccfVKgim.s 			page 3
 
 
  103      0024 
@@ -178,7 +178,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  144 000a 8C00 0000 		MOVA	#__func__.3740, R12
  145 000e B013 0000 		CALLA	#chSysHalt
  146               	.L13:
-GAS LISTING /tmp/cc97wXNk.s 			page 4
+GAS LISTING /tmp/ccfVKgim.s 			page 4
 
 
  147 0012 DA93 0000 		CMP.B	#1, @R10 { JEQ	.L12
@@ -238,7 +238,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  196               	.L16:
  197 0020 4993 0034 		CMP.B	#0, R9 { JGE	.L17
  198 0024 8C00 0000 		MOVA	#__func__.3748, R12
-GAS LISTING /tmp/cc97wXNk.s 			page 5
+GAS LISTING /tmp/ccfVKgim.s 			page 5
 
 
  199 0028 B013 0000 		CALLA	#chSysHalt
@@ -298,7 +298,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  246 00c4 CD0A      		MOVA	R10, R13
  247 00c6 AD00 1400 		ADDA	#20, R13
  248 00ca CC08      		MOVA	R8, R12
-GAS LISTING /tmp/cc97wXNk.s 			page 6
+GAS LISTING /tmp/ccfVKgim.s 			page 6
 
 
  249 00cc B013 0000 		CALLA	#dmaTransferI
@@ -358,7 +358,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  298 005a 9400 0000 		CMPA	#0, R4 { JEQ	.L30
  298      0024 
  299 0060 5E43      		MOV.B	#1, R14
-GAS LISTING /tmp/cc97wXNk.s 			page 7
+GAS LISTING /tmp/ccfVKgim.s 			page 7
 
 
  300 0062 CD08      		MOVA	R8, R13
@@ -418,7 +418,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  349               	; framesize_locals:   0
  350               	; framesize_outgoing: 0
  351               	; framesize:          16
-GAS LISTING /tmp/cc97wXNk.s 			page 8
+GAS LISTING /tmp/ccfVKgim.s 			page 8
 
 
  352               	; elim ap -> fp       20
@@ -478,7 +478,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  397      0000 0020 
  398               	.L49:
  399 009e CC0A      		MOVA	R10, R12
-GAS LISTING /tmp/cc97wXNk.s 			page 9
+GAS LISTING /tmp/ccfVKgim.s 			page 9
 
 
  400 00a0 B013 0000 		CALLA	#dmaAcquireI
@@ -538,7 +538,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  449 0040 7608 0800 		MOVA	R8, 8(R6)
  450 0044 7608 1400 		MOVA	R8, 20(R6)
  451 0048 3C06 1000 		MOVA	16(R6), R12
-GAS LISTING /tmp/cc97wXNk.s 			page 10
+GAS LISTING /tmp/ccfVKgim.s 			page 10
 
 
  452 004c AC00 0E00 		ADDA	#14, R12
@@ -598,7 +598,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  499 0006 494D      		MOV.B	R13, R9
  500 0008 CA0E      		MOVA	R14, R10
  501 000a C80F      		MOVA	R15, R8
-GAS LISTING /tmp/cc97wXNk.s 			page 11
+GAS LISTING /tmp/ccfVKgim.s 			page 11
 
 
  502 000c FC90 0300 		CMP.B	#3, @R12 { JEQ	.L67
@@ -658,7 +658,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  547               		.size	i2cMSP430XContinueTransmitMSBI, .-i2cMSP430XContinueTransmitMSBI
  548               		.section	.text.i2cMSP430XContinueTransmitMemsetI,"ax",@progbits
  549               		.balign 2
-GAS LISTING /tmp/cc97wXNk.s 			page 12
+GAS LISTING /tmp/ccfVKgim.s 			page 12
 
 
  550               		.global	i2cMSP430XContinueTransmitMemsetI
@@ -718,7 +718,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  597               	.L82:
  598 0084 8C00 0000 		MOVA	#__func__.3794, R12
  599 0088 B013 0000 		CALLA	#chSysHalt
-GAS LISTING /tmp/cc97wXNk.s 			page 13
+GAS LISTING /tmp/ccfVKgim.s 			page 13
 
 
  600               	.L83:
@@ -778,7 +778,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  651 0050 B640 0003 		MOV.W	#768, 30(R6)
  651      1E00 
  652 0056 5C46 3200 		MOV.B	50(R6), R12
-GAS LISTING /tmp/cc97wXNk.s 			page 14
+GAS LISTING /tmp/ccfVKgim.s 			page 14
 
 
  653 005a 864C 2400 		MOV.W	R12, 36(R6)
@@ -838,7 +838,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  703 0024 EA92 0000 		CMP.B	#4, @R10 { JNE	.L107
  703      0020 
  704               	.L110:
-GAS LISTING /tmp/cc97wXNk.s 			page 15
+GAS LISTING /tmp/ccfVKgim.s 			page 15
 
 
  705 002a 4018 9CB3 		BITX.W	#1, 44(R12) { JEQ	.L110
@@ -898,7 +898,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  753 0004 CA0C      		MOVA	R12, R10
  754 0006 380C 0C00 		MOVA	12(R12), R8
  755 000a 9800 0000 		CMPA	#0, R8 { JEQ	.L114
-GAS LISTING /tmp/cc97wXNk.s 			page 16
+GAS LISTING /tmp/ccfVKgim.s 			page 16
 
 
  755      0024 
@@ -958,7 +958,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  804 004a 8C00 0000 		MOVA	#I2CDB0+52, R12
  805 004e B013 0000 		CALLA	#dmaCancelI
  806 0052 4018 FAB0 		BITX.B	#32, 6(R10) { JEQ	.L135
-GAS LISTING /tmp/cc97wXNk.s 			page 17
+GAS LISTING /tmp/ccfVKgim.s 			page 17
 
 
  806      2000 0600 
@@ -1018,7 +1018,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  848 00f4 3C90 1400 		CMP.W	#20, R12 { JEQ	.L127
  848      0024 
  849 00fa 3C90 1000 		CMP.W	#16, R12 { JNE	.L117
-GAS LISTING /tmp/cc97wXNk.s 			page 18
+GAS LISTING /tmp/ccfVKgim.s 			page 18
 
 
  849      0020 
@@ -1078,7 +1078,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  892 0196 8000 0000 		BRA	#.L117
  893               		.size	ISR_USCI_B0_VECTOR, .-ISR_USCI_B0_VECTOR
  894               		.section	.text.i2c_lld_master_receive_timeout,"ax",@progbits
-GAS LISTING /tmp/cc97wXNk.s 			page 19
+GAS LISTING /tmp/ccfVKgim.s 			page 19
 
 
  895               		.balign 2
@@ -1138,7 +1138,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  944               		; start of epilogue
  945 0078 0416      		POPM.A	#1, r4
  946 007a 4616      		POPM.A	#5, r10
-GAS LISTING /tmp/cc97wXNk.s 			page 20
+GAS LISTING /tmp/ccfVKgim.s 			page 20
 
 
  947 007c 1001      		RETA
@@ -1198,7 +1198,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  996 0012 8C00 0000 		MOVA	#__func__.3841, R12
  997 0016 B013 0000 		CALLA	#chSysHalt
  998               	.L181:
-GAS LISTING /tmp/cc97wXNk.s 			page 21
+GAS LISTING /tmp/ccfVKgim.s 			page 21
 
 
  999 001a 4018 1742 		MOVX.W	&nil+8, R7
@@ -1258,7 +1258,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  1043               	.L186:
  1044 00ca 1C48 0800 		MOV.W	8(R8), R12
  1045 00ce 4018 0D47 		MOVX.W	R7, R13 { SUBX.W	R12, R13
-GAS LISTING /tmp/cc97wXNk.s 			page 22
+GAS LISTING /tmp/ccfVKgim.s 			page 22
 
 
  1045      4018 0D8C 
@@ -1318,7 +1318,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  1091               		.section	.upper.rodata,"a",@progbits
  1092               		.type	__func__.3841, @object
  1093               		.size	__func__.3841, 32
-GAS LISTING /tmp/cc97wXNk.s 			page 23
+GAS LISTING /tmp/ccfVKgim.s 			page 23
 
 
  1094               	__func__.3841:
@@ -1378,7 +1378,7 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  1120               		.type	__func__.3770, @object
  1121               		.size	__func__.3770, 28
  1122               	__func__.3770:
-GAS LISTING /tmp/cc97wXNk.s 			page 24
+GAS LISTING /tmp/ccfVKgim.s 			page 24
 
 
  1123 00cc 6932 634D 		.string	"i2cMSP430XStartTransmitMSBI"
@@ -1429,130 +1429,130 @@ GAS LISTING /tmp/cc97wXNk.s 			page 1
  1146      0000 0000 
  1146      0000 0000 
  1147               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/cc97wXNk.s 			page 25
+GAS LISTING /tmp/ccfVKgim.s 			page 25
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_i2c_lld.c
-     /tmp/cc97wXNk.s:6      .text.tx_complete:0000000000000000 tx_complete
-     /tmp/cc97wXNk.s:26     .text.rx_complete:0000000000000000 rx_complete
-     /tmp/cc97wXNk.s:47     .text.i2c_lld_init:0000000000000000 i2c_lld_init
-     /tmp/cc97wXNk.s:1145   .upper.bss:0000000000000000 I2CDB0
-     /tmp/cc97wXNk.s:78     .text.i2c_lld_start:0000000000000000 i2c_lld_start
-     /tmp/cc97wXNk.s:130    .text.i2c_lld_stop:0000000000000000 i2c_lld_stop
-     /tmp/cc97wXNk.s:1134   .upper.rodata:000000000000011d __func__.3740
-     /tmp/cc97wXNk.s:174    .text.i2cMSP430XStartReceiveToRegI:0000000000000000 i2cMSP430XStartReceiveToRegI
-     /tmp/cc97wXNk.s:1130   .upper.rodata:0000000000000100 __func__.3748
-     /tmp/cc97wXNk.s:740    .text.rx_async_callback:0000000000000000 rx_async_callback
-     /tmp/cc97wXNk.s:260    .text.i2cMSP430XStartReceiveI:0000000000000000 i2cMSP430XStartReceiveI
-     /tmp/cc97wXNk.s:1126   .upper.rodata:00000000000000e8 __func__.3759
-     /tmp/cc97wXNk.s:346    .text.i2cMSP430XStartTransmitMSBI:0000000000000000 i2cMSP430XStartTransmitMSBI
-     /tmp/cc97wXNk.s:1122   .upper.rodata:00000000000000cc __func__.3770
-     /tmp/cc97wXNk.s:418    .text.i2cMSP430XStartTransmitI:0000000000000000 i2cMSP430XStartTransmitI
-     /tmp/cc97wXNk.s:1118   .upper.rodata:00000000000000b3 __func__.3778
-     /tmp/cc97wXNk.s:485    .text.i2cMSP430XContinueTransmitMSBI:0000000000000000 i2cMSP430XContinueTransmitMSBI
-     /tmp/cc97wXNk.s:1114   .upper.rodata:0000000000000094 __func__.3786
-     /tmp/cc97wXNk.s:552    .text.i2cMSP430XContinueTransmitMemsetI:0000000000000000 i2cMSP430XContinueTransmitMemsetI
-     /tmp/cc97wXNk.s:1110   .upper.rodata:0000000000000072 __func__.3794
-     /tmp/cc97wXNk.s:616    .text.i2cMSP430XContinueTransmitI:0000000000000000 i2cMSP430XContinueTransmitI
-     /tmp/cc97wXNk.s:1106   .upper.rodata:0000000000000056 __func__.3802
-     /tmp/cc97wXNk.s:680    .text.i2cMSP430XEndTransferI:0000000000000000 i2cMSP430XEndTransferI
-     /tmp/cc97wXNk.s:1102   .upper.rodata:000000000000003f __func__.3806
-     /tmp/cc97wXNk.s:775    .lower.lowtext:0000000000000000 ISR_USCI_B0_VECTOR
-     /tmp/cc97wXNk.s:1138   .upper.rodata:000000000000012a __func__.3714
-     /tmp/cc97wXNk.s:898    .text.i2c_lld_master_receive_timeout:0000000000000000 i2c_lld_master_receive_timeout
-     /tmp/cc97wXNk.s:1098   .upper.rodata:0000000000000020 __func__.3825
-     /tmp/cc97wXNk.s:978    .text.i2c_lld_master_transmit_timeout:0000000000000000 i2c_lld_master_transmit_timeout
-     /tmp/cc97wXNk.s:1094   .upper.rodata:0000000000000000 __func__.3841
-     /tmp/cc97wXNk.s:121    .text.i2c_lld_start:00000000000000ae .L4
-     /tmp/cc97wXNk.s:118    .text.i2c_lld_start:00000000000000a0 .L6
-     /tmp/cc97wXNk.s:109    .text.i2c_lld_start:000000000000006c .L7
-     /tmp/cc97wXNk.s:146    .text.i2c_lld_stop:0000000000000012 .L13
-     /tmp/cc97wXNk.s:165    .text.i2c_lld_stop:000000000000003c .L12
-     /tmp/cc97wXNk.s:196    .text.i2cMSP430XStartReceiveToRegI:0000000000000020 .L16
-     /tmp/cc97wXNk.s:200    .text.i2cMSP430XStartReceiveToRegI:000000000000002c .L17
-     /tmp/cc97wXNk.s:223    .text.i2cMSP430XStartReceiveToRegI:0000000000000070 .L18
-     /tmp/cc97wXNk.s:210    .text.i2cMSP430XStartReceiveToRegI:0000000000000054 .L19
-     /tmp/cc97wXNk.s:217    .text.i2cMSP430XStartReceiveToRegI:0000000000000068 .L15
-     /tmp/cc97wXNk.s:242    .text.i2cMSP430XStartReceiveToRegI:00000000000000be .L21
-     /tmp/cc97wXNk.s:245    .text.i2cMSP430XStartReceiveToRegI:00000000000000c4 .L22
-     /tmp/cc97wXNk.s:282    .text.i2cMSP430XStartReceiveI:0000000000000020 .L31
-     /tmp/cc97wXNk.s:286    .text.i2cMSP430XStartReceiveI:000000000000002c .L32
-     /tmp/cc97wXNk.s:309    .text.i2cMSP430XStartReceiveI:0000000000000070 .L33
-     /tmp/cc97wXNk.s:296    .text.i2cMSP430XStartReceiveI:0000000000000054 .L34
-     /tmp/cc97wXNk.s:303    .text.i2cMSP430XStartReceiveI:0000000000000068 .L30
-     /tmp/cc97wXNk.s:328    .text.i2cMSP430XStartReceiveI:00000000000000c0 .L36
-     /tmp/cc97wXNk.s:331    .text.i2cMSP430XStartReceiveI:00000000000000c6 .L37
-     /tmp/cc97wXNk.s:366    .text.i2cMSP430XStartTransmitMSBI:000000000000001a .L46
-     /tmp/cc97wXNk.s:370    .text.i2cMSP430XStartTransmitMSBI:0000000000000028 .L47
-     /tmp/cc97wXNk.s:374    .text.i2cMSP430XStartTransmitMSBI:0000000000000034 .L48
-     /tmp/cc97wXNk.s:398    .text.i2cMSP430XStartTransmitMSBI:000000000000009e .L49
-     /tmp/cc97wXNk.s:401    .text.i2cMSP430XStartTransmitMSBI:00000000000000a4 .L50
-     /tmp/cc97wXNk.s:438    .text.i2cMSP430XStartTransmitI:000000000000001a .L55
-GAS LISTING /tmp/cc97wXNk.s 			page 26
+     /tmp/ccfVKgim.s:6      .text.tx_complete:0000000000000000 tx_complete
+     /tmp/ccfVKgim.s:26     .text.rx_complete:0000000000000000 rx_complete
+     /tmp/ccfVKgim.s:47     .text.i2c_lld_init:0000000000000000 i2c_lld_init
+     /tmp/ccfVKgim.s:1145   .upper.bss:0000000000000000 I2CDB0
+     /tmp/ccfVKgim.s:78     .text.i2c_lld_start:0000000000000000 i2c_lld_start
+     /tmp/ccfVKgim.s:130    .text.i2c_lld_stop:0000000000000000 i2c_lld_stop
+     /tmp/ccfVKgim.s:1134   .upper.rodata:000000000000011d __func__.3740
+     /tmp/ccfVKgim.s:174    .text.i2cMSP430XStartReceiveToRegI:0000000000000000 i2cMSP430XStartReceiveToRegI
+     /tmp/ccfVKgim.s:1130   .upper.rodata:0000000000000100 __func__.3748
+     /tmp/ccfVKgim.s:740    .text.rx_async_callback:0000000000000000 rx_async_callback
+     /tmp/ccfVKgim.s:260    .text.i2cMSP430XStartReceiveI:0000000000000000 i2cMSP430XStartReceiveI
+     /tmp/ccfVKgim.s:1126   .upper.rodata:00000000000000e8 __func__.3759
+     /tmp/ccfVKgim.s:346    .text.i2cMSP430XStartTransmitMSBI:0000000000000000 i2cMSP430XStartTransmitMSBI
+     /tmp/ccfVKgim.s:1122   .upper.rodata:00000000000000cc __func__.3770
+     /tmp/ccfVKgim.s:418    .text.i2cMSP430XStartTransmitI:0000000000000000 i2cMSP430XStartTransmitI
+     /tmp/ccfVKgim.s:1118   .upper.rodata:00000000000000b3 __func__.3778
+     /tmp/ccfVKgim.s:485    .text.i2cMSP430XContinueTransmitMSBI:0000000000000000 i2cMSP430XContinueTransmitMSBI
+     /tmp/ccfVKgim.s:1114   .upper.rodata:0000000000000094 __func__.3786
+     /tmp/ccfVKgim.s:552    .text.i2cMSP430XContinueTransmitMemsetI:0000000000000000 i2cMSP430XContinueTransmitMemsetI
+     /tmp/ccfVKgim.s:1110   .upper.rodata:0000000000000072 __func__.3794
+     /tmp/ccfVKgim.s:616    .text.i2cMSP430XContinueTransmitI:0000000000000000 i2cMSP430XContinueTransmitI
+     /tmp/ccfVKgim.s:1106   .upper.rodata:0000000000000056 __func__.3802
+     /tmp/ccfVKgim.s:680    .text.i2cMSP430XEndTransferI:0000000000000000 i2cMSP430XEndTransferI
+     /tmp/ccfVKgim.s:1102   .upper.rodata:000000000000003f __func__.3806
+     /tmp/ccfVKgim.s:775    .lower.lowtext:0000000000000000 ISR_USCI_B0_VECTOR
+     /tmp/ccfVKgim.s:1138   .upper.rodata:000000000000012a __func__.3714
+     /tmp/ccfVKgim.s:898    .text.i2c_lld_master_receive_timeout:0000000000000000 i2c_lld_master_receive_timeout
+     /tmp/ccfVKgim.s:1098   .upper.rodata:0000000000000020 __func__.3825
+     /tmp/ccfVKgim.s:978    .text.i2c_lld_master_transmit_timeout:0000000000000000 i2c_lld_master_transmit_timeout
+     /tmp/ccfVKgim.s:1094   .upper.rodata:0000000000000000 __func__.3841
+     /tmp/ccfVKgim.s:121    .text.i2c_lld_start:00000000000000ae .L4
+     /tmp/ccfVKgim.s:118    .text.i2c_lld_start:00000000000000a0 .L6
+     /tmp/ccfVKgim.s:109    .text.i2c_lld_start:000000000000006c .L7
+     /tmp/ccfVKgim.s:146    .text.i2c_lld_stop:0000000000000012 .L13
+     /tmp/ccfVKgim.s:165    .text.i2c_lld_stop:000000000000003c .L12
+     /tmp/ccfVKgim.s:196    .text.i2cMSP430XStartReceiveToRegI:0000000000000020 .L16
+     /tmp/ccfVKgim.s:200    .text.i2cMSP430XStartReceiveToRegI:000000000000002c .L17
+     /tmp/ccfVKgim.s:223    .text.i2cMSP430XStartReceiveToRegI:0000000000000070 .L18
+     /tmp/ccfVKgim.s:210    .text.i2cMSP430XStartReceiveToRegI:0000000000000054 .L19
+     /tmp/ccfVKgim.s:217    .text.i2cMSP430XStartReceiveToRegI:0000000000000068 .L15
+     /tmp/ccfVKgim.s:242    .text.i2cMSP430XStartReceiveToRegI:00000000000000be .L21
+     /tmp/ccfVKgim.s:245    .text.i2cMSP430XStartReceiveToRegI:00000000000000c4 .L22
+     /tmp/ccfVKgim.s:282    .text.i2cMSP430XStartReceiveI:0000000000000020 .L31
+     /tmp/ccfVKgim.s:286    .text.i2cMSP430XStartReceiveI:000000000000002c .L32
+     /tmp/ccfVKgim.s:309    .text.i2cMSP430XStartReceiveI:0000000000000070 .L33
+     /tmp/ccfVKgim.s:296    .text.i2cMSP430XStartReceiveI:0000000000000054 .L34
+     /tmp/ccfVKgim.s:303    .text.i2cMSP430XStartReceiveI:0000000000000068 .L30
+     /tmp/ccfVKgim.s:328    .text.i2cMSP430XStartReceiveI:00000000000000c0 .L36
+     /tmp/ccfVKgim.s:331    .text.i2cMSP430XStartReceiveI:00000000000000c6 .L37
+     /tmp/ccfVKgim.s:366    .text.i2cMSP430XStartTransmitMSBI:000000000000001a .L46
+     /tmp/ccfVKgim.s:370    .text.i2cMSP430XStartTransmitMSBI:0000000000000028 .L47
+     /tmp/ccfVKgim.s:374    .text.i2cMSP430XStartTransmitMSBI:0000000000000034 .L48
+     /tmp/ccfVKgim.s:398    .text.i2cMSP430XStartTransmitMSBI:000000000000009e .L49
+     /tmp/ccfVKgim.s:401    .text.i2cMSP430XStartTransmitMSBI:00000000000000a4 .L50
+     /tmp/ccfVKgim.s:438    .text.i2cMSP430XStartTransmitI:000000000000001a .L55
+GAS LISTING /tmp/ccfVKgim.s 			page 26
 
 
-     /tmp/cc97wXNk.s:442    .text.i2cMSP430XStartTransmitI:0000000000000028 .L56
-     /tmp/cc97wXNk.s:446    .text.i2cMSP430XStartTransmitI:0000000000000036 .L57
-     /tmp/cc97wXNk.s:465    .text.i2cMSP430XStartTransmitI:0000000000000090 .L58
-     /tmp/cc97wXNk.s:468    .text.i2cMSP430XStartTransmitI:0000000000000096 .L59
-     /tmp/cc97wXNk.s:505    .text.i2cMSP430XContinueTransmitMSBI:000000000000001c .L67
-     /tmp/cc97wXNk.s:509    .text.i2cMSP430XContinueTransmitMSBI:000000000000002a .L68
-     /tmp/cc97wXNk.s:513    .text.i2cMSP430XContinueTransmitMSBI:0000000000000038 .L69
-     /tmp/cc97wXNk.s:533    .text.i2cMSP430XContinueTransmitMSBI:0000000000000090 .L70
-     /tmp/cc97wXNk.s:536    .text.i2cMSP430XContinueTransmitMSBI:0000000000000098 .L71
-     /tmp/cc97wXNk.s:572    .text.i2cMSP430XContinueTransmitMemsetI:000000000000001c .L79
-     /tmp/cc97wXNk.s:576    .text.i2cMSP430XContinueTransmitMemsetI:000000000000002a .L80
-     /tmp/cc97wXNk.s:580    .text.i2cMSP430XContinueTransmitMemsetI:0000000000000036 .L81
-     /tmp/cc97wXNk.s:597    .text.i2cMSP430XContinueTransmitMemsetI:0000000000000084 .L82
-     /tmp/cc97wXNk.s:600    .text.i2cMSP430XContinueTransmitMemsetI:000000000000008c .L83
-     /tmp/cc97wXNk.s:636    .text.i2cMSP430XContinueTransmitI:000000000000001c .L88
-     /tmp/cc97wXNk.s:640    .text.i2cMSP430XContinueTransmitI:000000000000002a .L89
-     /tmp/cc97wXNk.s:644    .text.i2cMSP430XContinueTransmitI:0000000000000036 .L90
-     /tmp/cc97wXNk.s:661    .text.i2cMSP430XContinueTransmitI:0000000000000086 .L91
-     /tmp/cc97wXNk.s:664    .text.i2cMSP430XContinueTransmitI:000000000000008e .L92
-     /tmp/cc97wXNk.s:700    .text.i2cMSP430XEndTransferI:000000000000001c .L97
-     /tmp/cc97wXNk.s:731    .text.i2cMSP430XEndTransferI:0000000000000086 .L107
-     /tmp/cc97wXNk.s:704    .text.i2cMSP430XEndTransferI:000000000000002a .L110
-     /tmp/cc97wXNk.s:727    .text.i2cMSP430XEndTransferI:000000000000007a .L100
-     /tmp/cc97wXNk.s:714    .text.i2cMSP430XEndTransferI:0000000000000050 .L102
-     /tmp/cc97wXNk.s:721    .text.i2cMSP430XEndTransferI:000000000000006e .L103
-     /tmp/cc97wXNk.s:712    .text.i2cMSP430XEndTransferI:000000000000004c .L101
-     /tmp/cc97wXNk.s:764    .text.rx_async_callback:0000000000000020 .L114
-     /tmp/cc97wXNk.s:759    .text.rx_async_callback:000000000000001a .L113
-     /tmp/cc97wXNk.s:850    .lower.lowtext:0000000000000100 .L127
-     /tmp/cc97wXNk.s:843    .lower.lowtext:00000000000000e0 .L119
-     /tmp/cc97wXNk.s:829    .lower.lowtext:00000000000000aa .L121
-     /tmp/cc97wXNk.s:867    .lower.lowtext:0000000000000146 .L122
-     /tmp/cc97wXNk.s:870    .lower.lowtext:000000000000014e .L123
-     /tmp/cc97wXNk.s:820    .lower.lowtext:0000000000000094 .L134
-     /tmp/cc97wXNk.s:808    .lower.lowtext:0000000000000064 .L135
-     /tmp/cc97wXNk.s:815    .lower.lowtext:0000000000000080 .L136
-     /tmp/cc97wXNk.s:825    .lower.lowtext:00000000000000a6 .L116
-     /tmp/cc97wXNk.s:799    .lower.lowtext:0000000000000036 .L117
-     /tmp/cc97wXNk.s:839    .lower.lowtext:00000000000000d4 .L130
-     /tmp/cc97wXNk.s:873    .lower.lowtext:0000000000000156 .L125
-     /tmp/cc97wXNk.s:854    .lower.lowtext:000000000000010c .L126
-     /tmp/cc97wXNk.s:890    .lower.lowtext:0000000000000190 .L128
-     /tmp/cc97wXNk.s:884    .lower.lowtext:0000000000000180 .L131
-     /tmp/cc97wXNk.s:880    .lower.lowtext:0000000000000176 .L132
-     /tmp/cc97wXNk.s:918    .text.i2c_lld_master_receive_timeout:000000000000001a .L167
-     /tmp/cc97wXNk.s:948    .text.i2c_lld_master_receive_timeout:000000000000007e .L168
-     /tmp/cc97wXNk.s:928    .text.i2c_lld_master_receive_timeout:0000000000000042 .L169
-     /tmp/cc97wXNk.s:963    .text.i2c_lld_master_receive_timeout:00000000000000c0 .L171
-     /tmp/cc97wXNk.s:967    .text.i2c_lld_master_receive_timeout:00000000000000ca .L172
-     /tmp/cc97wXNk.s:932    .text.i2c_lld_master_receive_timeout:0000000000000050 .L170
-     /tmp/cc97wXNk.s:998    .text.i2c_lld_master_transmit_timeout:000000000000001a .L181
-     /tmp/cc97wXNk.s:1015   .text.i2c_lld_master_transmit_timeout:0000000000000068 .L182
-     /tmp/cc97wXNk.s:1018   .text.i2c_lld_master_transmit_timeout:000000000000006e .L183
-     /tmp/cc97wXNk.s:1052   .text.i2c_lld_master_transmit_timeout:00000000000000e8 .L180
-     /tmp/cc97wXNk.s:1058   .text.i2c_lld_master_transmit_timeout:00000000000000f2 .L185
-     /tmp/cc97wXNk.s:1070   .text.i2c_lld_master_transmit_timeout:0000000000000126 .L187
-     /tmp/cc97wXNk.s:1065   .text.i2c_lld_master_transmit_timeout:0000000000000114 .L188
-GAS LISTING /tmp/cc97wXNk.s 			page 27
+     /tmp/ccfVKgim.s:442    .text.i2cMSP430XStartTransmitI:0000000000000028 .L56
+     /tmp/ccfVKgim.s:446    .text.i2cMSP430XStartTransmitI:0000000000000036 .L57
+     /tmp/ccfVKgim.s:465    .text.i2cMSP430XStartTransmitI:0000000000000090 .L58
+     /tmp/ccfVKgim.s:468    .text.i2cMSP430XStartTransmitI:0000000000000096 .L59
+     /tmp/ccfVKgim.s:505    .text.i2cMSP430XContinueTransmitMSBI:000000000000001c .L67
+     /tmp/ccfVKgim.s:509    .text.i2cMSP430XContinueTransmitMSBI:000000000000002a .L68
+     /tmp/ccfVKgim.s:513    .text.i2cMSP430XContinueTransmitMSBI:0000000000000038 .L69
+     /tmp/ccfVKgim.s:533    .text.i2cMSP430XContinueTransmitMSBI:0000000000000090 .L70
+     /tmp/ccfVKgim.s:536    .text.i2cMSP430XContinueTransmitMSBI:0000000000000098 .L71
+     /tmp/ccfVKgim.s:572    .text.i2cMSP430XContinueTransmitMemsetI:000000000000001c .L79
+     /tmp/ccfVKgim.s:576    .text.i2cMSP430XContinueTransmitMemsetI:000000000000002a .L80
+     /tmp/ccfVKgim.s:580    .text.i2cMSP430XContinueTransmitMemsetI:0000000000000036 .L81
+     /tmp/ccfVKgim.s:597    .text.i2cMSP430XContinueTransmitMemsetI:0000000000000084 .L82
+     /tmp/ccfVKgim.s:600    .text.i2cMSP430XContinueTransmitMemsetI:000000000000008c .L83
+     /tmp/ccfVKgim.s:636    .text.i2cMSP430XContinueTransmitI:000000000000001c .L88
+     /tmp/ccfVKgim.s:640    .text.i2cMSP430XContinueTransmitI:000000000000002a .L89
+     /tmp/ccfVKgim.s:644    .text.i2cMSP430XContinueTransmitI:0000000000000036 .L90
+     /tmp/ccfVKgim.s:661    .text.i2cMSP430XContinueTransmitI:0000000000000086 .L91
+     /tmp/ccfVKgim.s:664    .text.i2cMSP430XContinueTransmitI:000000000000008e .L92
+     /tmp/ccfVKgim.s:700    .text.i2cMSP430XEndTransferI:000000000000001c .L97
+     /tmp/ccfVKgim.s:731    .text.i2cMSP430XEndTransferI:0000000000000086 .L107
+     /tmp/ccfVKgim.s:704    .text.i2cMSP430XEndTransferI:000000000000002a .L110
+     /tmp/ccfVKgim.s:727    .text.i2cMSP430XEndTransferI:000000000000007a .L100
+     /tmp/ccfVKgim.s:714    .text.i2cMSP430XEndTransferI:0000000000000050 .L102
+     /tmp/ccfVKgim.s:721    .text.i2cMSP430XEndTransferI:000000000000006e .L103
+     /tmp/ccfVKgim.s:712    .text.i2cMSP430XEndTransferI:000000000000004c .L101
+     /tmp/ccfVKgim.s:764    .text.rx_async_callback:0000000000000020 .L114
+     /tmp/ccfVKgim.s:759    .text.rx_async_callback:000000000000001a .L113
+     /tmp/ccfVKgim.s:850    .lower.lowtext:0000000000000100 .L127
+     /tmp/ccfVKgim.s:843    .lower.lowtext:00000000000000e0 .L119
+     /tmp/ccfVKgim.s:829    .lower.lowtext:00000000000000aa .L121
+     /tmp/ccfVKgim.s:867    .lower.lowtext:0000000000000146 .L122
+     /tmp/ccfVKgim.s:870    .lower.lowtext:000000000000014e .L123
+     /tmp/ccfVKgim.s:820    .lower.lowtext:0000000000000094 .L134
+     /tmp/ccfVKgim.s:808    .lower.lowtext:0000000000000064 .L135
+     /tmp/ccfVKgim.s:815    .lower.lowtext:0000000000000080 .L136
+     /tmp/ccfVKgim.s:825    .lower.lowtext:00000000000000a6 .L116
+     /tmp/ccfVKgim.s:799    .lower.lowtext:0000000000000036 .L117
+     /tmp/ccfVKgim.s:839    .lower.lowtext:00000000000000d4 .L130
+     /tmp/ccfVKgim.s:873    .lower.lowtext:0000000000000156 .L125
+     /tmp/ccfVKgim.s:854    .lower.lowtext:000000000000010c .L126
+     /tmp/ccfVKgim.s:890    .lower.lowtext:0000000000000190 .L128
+     /tmp/ccfVKgim.s:884    .lower.lowtext:0000000000000180 .L131
+     /tmp/ccfVKgim.s:880    .lower.lowtext:0000000000000176 .L132
+     /tmp/ccfVKgim.s:918    .text.i2c_lld_master_receive_timeout:000000000000001a .L167
+     /tmp/ccfVKgim.s:948    .text.i2c_lld_master_receive_timeout:000000000000007e .L168
+     /tmp/ccfVKgim.s:928    .text.i2c_lld_master_receive_timeout:0000000000000042 .L169
+     /tmp/ccfVKgim.s:963    .text.i2c_lld_master_receive_timeout:00000000000000c0 .L171
+     /tmp/ccfVKgim.s:967    .text.i2c_lld_master_receive_timeout:00000000000000ca .L172
+     /tmp/ccfVKgim.s:932    .text.i2c_lld_master_receive_timeout:0000000000000050 .L170
+     /tmp/ccfVKgim.s:998    .text.i2c_lld_master_transmit_timeout:000000000000001a .L181
+     /tmp/ccfVKgim.s:1015   .text.i2c_lld_master_transmit_timeout:0000000000000068 .L182
+     /tmp/ccfVKgim.s:1018   .text.i2c_lld_master_transmit_timeout:000000000000006e .L183
+     /tmp/ccfVKgim.s:1052   .text.i2c_lld_master_transmit_timeout:00000000000000e8 .L180
+     /tmp/ccfVKgim.s:1058   .text.i2c_lld_master_transmit_timeout:00000000000000f2 .L185
+     /tmp/ccfVKgim.s:1070   .text.i2c_lld_master_transmit_timeout:0000000000000126 .L187
+     /tmp/ccfVKgim.s:1065   .text.i2c_lld_master_transmit_timeout:0000000000000114 .L188
+GAS LISTING /tmp/ccfVKgim.s 			page 27
 
 
-     /tmp/cc97wXNk.s:1043   .text.i2c_lld_master_transmit_timeout:00000000000000ca .L186
+     /tmp/ccfVKgim.s:1043   .text.i2c_lld_master_transmit_timeout:00000000000000ca .L186
 
 UNDEFINED SYMBOLS
 i2cObjectInit

@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cc5NLRMT.s 			page 1
+GAS LISTING /tmp/ccO7gUzX.s 			page 1
 
 
    1               		.file	"rf.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
   54               	; framesize_regs:     4
   55               	; framesize_locals:   0
   56               	; framesize_outgoing: 0
-GAS LISTING /tmp/cc5NLRMT.s 			page 2
+GAS LISTING /tmp/ccO7gUzX.s 			page 2
 
 
   57               	; framesize:          4
@@ -118,7 +118,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  109 002c B013 0000 		CALLA	#port_unlock
  110 0030 CC0A      		MOVA	R10, R12
  111               		; start of epilogue
-GAS LISTING /tmp/cc5NLRMT.s 			page 3
+GAS LISTING /tmp/ccO7gUzX.s 			page 3
 
 
  112 0032 1916      		POPM.A	#2, r10
@@ -178,7 +178,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  163 0000 1A14      		PUSHM.A	#2, R10
  164               		; end of prologue
  165 0002 0A4C      		MOV.W	R12, R10
-GAS LISTING /tmp/cc5NLRMT.s 			page 4
+GAS LISTING /tmp/ccO7gUzX.s 			page 4
 
 
  166 0004 094D      		MOV.W	R13, R9
@@ -238,7 +238,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  217               	.L19:
  218 003c 8A4D 0C00 		MOV.W	R13, 12(R10)
  219 0040 8A4C 0E00 		MOV.W	R12, 14(R10)
-GAS LISTING /tmp/cc5NLRMT.s 			page 5
+GAS LISTING /tmp/ccO7gUzX.s 			page 5
 
 
  220               	.L16:
@@ -298,7 +298,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  265 00f0 1D4A 0E00 		MOV.W	14(R10), R13
  266 00f4 7E40 1000 		MOV.B	#16, R14
  267 00f8 B013 0000 		CALLA	#__mspabi_srll
-GAS LISTING /tmp/cc5NLRMT.s 			page 6
+GAS LISTING /tmp/ccO7gUzX.s 			page 6
 
 
  268 00fc C84C 0200 		MOV.B	R12, 2(R8)
@@ -358,7 +358,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  319               	.L28:
  320 0060 BA40 4044 		MOV.W	#17472, 16(R10)
  320      1000 
-GAS LISTING /tmp/cc5NLRMT.s 			page 7
+GAS LISTING /tmp/ccO7gUzX.s 			page 7
 
 
  321 0066 BA40 3D1B 		MOV.W	#6973, 18(R10)
@@ -418,7 +418,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  370               		.balign 2
  371               		.weak	elyRFChangeTxBRS
  372               		.type	elyRFChangeTxBRS, @function
-GAS LISTING /tmp/cc5NLRMT.s 			page 8
+GAS LISTING /tmp/ccO7gUzX.s 			page 8
 
 
  373               	elyRFChangeTxBRS:
@@ -478,7 +478,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  423 008c 1C4A 0800 		MOV.W	8(R10), R12
  424 0090 1D4A 0A00 		MOV.W	10(R10), R13
  425 0094 7E40 1800 		MOV.B	#24, R14
-GAS LISTING /tmp/cc5NLRMT.s 			page 9
+GAS LISTING /tmp/ccO7gUzX.s 			page 9
 
 
  426 0098 B013 0000 		CALLA	#__mspabi_srll
@@ -538,7 +538,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  478 0006 B013 0000 		CALLA	#port_lock
  479 000a 2E00 0000 		MOVA	&bank0p, R14
  480 000e 5D4E 1D00 		MOV.B	29(R14), R13
-GAS LISTING /tmp/cc5NLRMT.s 			page 10
+GAS LISTING /tmp/ccO7gUzX.s 			page 10
 
 
  481 0012 4718 0D5D 		rpt	#8 { rlax.w	R13
@@ -598,7 +598,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  530 00c0 AA43 0E00 		MOV.W	#2, 14(R10)
  531 00c4 2800 0000 		MOVA	&bank0w, R8
  532 00c8 F840 F0FF 		MOV.B	#-16, 28(R8)
-GAS LISTING /tmp/cc5NLRMT.s 			page 11
+GAS LISTING /tmp/ccO7gUzX.s 			page 11
 
 
  532      1C00 
@@ -658,7 +658,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  586               	.L48:
  587 0046 8A93 1200 		CMP.W	#0, 18(R10) { JNE	.L49
  587      0020 
-GAS LISTING /tmp/cc5NLRMT.s 			page 12
+GAS LISTING /tmp/ccO7gUzX.s 			page 12
 
 
  588 004c 3C40 5702 		MOV.W	#599, R12
@@ -718,7 +718,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  636 0106 C84C 0B00 		MOV.B	R12, 11(R8)
  637 010a 8000 0000 		BRA	#.L48
  638               		.size	elyRFChangeTxDevS, .-elyRFChangeTxDevS
-GAS LISTING /tmp/cc5NLRMT.s 			page 13
+GAS LISTING /tmp/ccO7gUzX.s 			page 13
 
 
  639               		.section	.text.elyRFChangeRxDevS,"ax",@progbits
@@ -778,7 +778,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  689 007e 1D4A 1600 		MOV.W	22(R10), R13
  690 0082 7E40 1000 		MOV.B	#16, R14
  691 0086 B013 0000 		CALLA	#__mspabi_srll
-GAS LISTING /tmp/cc5NLRMT.s 			page 14
+GAS LISTING /tmp/ccO7gUzX.s 			page 14
 
 
  692 008a C84C 0E00 		MOV.B	R12, 14(R8)
@@ -838,7 +838,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  743               		; start of prologue
  744 0000 0A14      		PUSHM.A	#1, R10
  745               		; end of prologue
-GAS LISTING /tmp/cc5NLRMT.s 			page 15
+GAS LISTING /tmp/ccO7gUzX.s 			page 15
 
 
  746 0002 CA0C      		MOVA	R12, R10
@@ -898,7 +898,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  800 0038 1E4A 1E00 		MOV.W	30(R10), R14
  801 003c 8C00 0000 		MOVA	#SX1212D1, R12
  802 0040 B013 0000 		CALLA	#sx1212SetSync
-GAS LISTING /tmp/cc5NLRMT.s 			page 16
+GAS LISTING /tmp/ccO7gUzX.s 			page 16
 
 
  803               		; start of epilogue
@@ -958,7 +958,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  855 0018 4018 5D4E 		MOVX.B	lut.4816(R14), R13
  855      0000 
  856 001e CC4D 1500 		MOV.B	R13, 21(R12)
-GAS LISTING /tmp/cc5NLRMT.s 			page 17
+GAS LISTING /tmp/ccO7gUzX.s 			page 17
 
 
  857 0022 8C00 0000 		MOVA	#SX1278D1, R12
@@ -1018,7 +1018,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  911 001c B013 0000 		CALLA	#sx1212SetRxBw
  912               		; start of epilogue
  913 0020 1001      		RETA
-GAS LISTING /tmp/cc5NLRMT.s 			page 18
+GAS LISTING /tmp/ccO7gUzX.s 			page 18
 
 
  914               		.size	elyRFChangeRxFilterParamsS, .-elyRFChangeRxFilterParamsS
@@ -1078,7 +1078,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  967 0082 844C 1200 		MOV.W	R12, 18(R4)
  968 0086 5C46 2000 		MOV.B	32(R6), R12
  969 008a 5C0F      		rrum.w	#4, R12
-GAS LISTING /tmp/cc5NLRMT.s 			page 19
+GAS LISTING /tmp/ccO7gUzX.s 			page 19
 
 
  970 008c 7CF0 0300 		AND.B	#3, R12
@@ -1138,7 +1138,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  1023 014e 4718 0C5C 		rpt	#8 { rlax.w	R12
  1024 0152 5E46 0E00 		MOV.B	14(R6), R14
  1025 0156 0CDE      		BIS.W	R14, R12
-GAS LISTING /tmp/cc5NLRMT.s 			page 20
+GAS LISTING /tmp/ccO7gUzX.s 			page 20
 
 
  1026 0158 5E46 0C00 		MOV.B	12(R6), R14
@@ -1198,7 +1198,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  1071      0000 
  1072               	.L69:
  1073 020a 4018 1D42 		MOVX.W	&events, R13
-GAS LISTING /tmp/cc5NLRMT.s 			page 21
+GAS LISTING /tmp/ccO7gUzX.s 			page 21
 
 
  1073      0000 
@@ -1258,7 +1258,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  1110 02b4 4018 1C42 		MOVX.W	&events, R12
  1110      0000 
  1111 02ba 0D4C      		MOV.W	R12, R13
-GAS LISTING /tmp/cc5NLRMT.s 			page 22
+GAS LISTING /tmp/ccO7gUzX.s 			page 22
 
 
  1112 02bc 3DF0 0060 		AND.W	#24576, R13
@@ -1318,7 +1318,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  1156 0354 8C00 0000 		MOVA	#__func__.4850, R12
  1157 0358 4813      		CALLA	R8
  1158 035a 8000 0000 		BRA	#.L92
-GAS LISTING /tmp/cc5NLRMT.s 			page 23
+GAS LISTING /tmp/ccO7gUzX.s 			page 23
 
 
  1159               	.L83:
@@ -1378,7 +1378,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  1207 03f0 8000 0000 		BRA	#.L106
  1208               	.L99:
  1209 03f4 3690 2000 		CMP.W	#32, R6 { JEQ	.L114
-GAS LISTING /tmp/cc5NLRMT.s 			page 24
+GAS LISTING /tmp/ccO7gUzX.s 			page 24
 
 
  1209      0024 
@@ -1438,7 +1438,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  1261 001e 24        		.byte	36
  1262 001f 05        		.byte	5
  1263 0020 73        		.byte	115
-GAS LISTING /tmp/cc5NLRMT.s 			page 25
+GAS LISTING /tmp/ccO7gUzX.s 			page 25
 
 
  1264 0021 73        		.byte	115
@@ -1498,7 +1498,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  1318 0057 7E        		.byte	126
  1319 0058 7E        		.byte	126
  1320 0059 7E        		.byte	126
-GAS LISTING /tmp/cc5NLRMT.s 			page 26
+GAS LISTING /tmp/ccO7gUzX.s 			page 26
 
 
  1321 005a 4F        		.byte	79
@@ -1558,7 +1558,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  1363               		.balign 2
  1364               		.type	tx_cfg, @object
  1365               		.size	tx_cfg, 62
-GAS LISTING /tmp/cc5NLRMT.s 			page 27
+GAS LISTING /tmp/ccO7gUzX.s 			page 27
 
 
  1366               	tx_cfg:
@@ -1618,7 +1618,7 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  1420 008e 0000 0000 		.long	rf_buffer
  1421 0092 0000      		.short	0
  1422 0094 0C00      		.short	12
-GAS LISTING /tmp/cc5NLRMT.s 			page 28
+GAS LISTING /tmp/ccO7gUzX.s 			page 28
 
 
  1423               		.balign 2
@@ -1631,105 +1631,105 @@ GAS LISTING /tmp/cc5NLRMT.s 			page 1
  1427      0000 0000 
  1427      0000 0000 
  1428               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/cc5NLRMT.s 			page 29
+GAS LISTING /tmp/ccO7gUzX.s 			page 29
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 rf.c
-     /tmp/cc5NLRMT.s:5      .text.port_lock:0000000000000000 port_lock
-     /tmp/cc5NLRMT.s:28     .text.port_unlock:0000000000000000 port_unlock
-     /tmp/cc5NLRMT.s:52     .text.elyRFPostI:0000000000000000 elyRFPostI
-     /tmp/cc5NLRMT.s:1416   .persistent:0000000000000082 rf_mbox
-     /tmp/cc5NLRMT.s:1409   .upper.bss:0000000000000140 rf_thd
-     /tmp/cc5NLRMT.s:83     .text.elyRFPost:0000000000000000 elyRFPost
-     /tmp/cc5NLRMT.s:119    .text.elyRFCfgMarkDirtyI:0000000000000000 elyRFCfgMarkDirtyI
-     /tmp/cc5NLRMT.s:1335   .upper.rodata:0000000000000074 __func__.4781
-     /tmp/cc5NLRMT.s:153    .text.elyRFCfgMarkDirty:0000000000000000 elyRFCfgMarkDirty
-     /tmp/cc5NLRMT.s:1331   .upper.rodata:0000000000000062 __func__.4785
-     /tmp/cc5NLRMT.s:187    .text.elyRFChangeTxFreqS:0000000000000000 elyRFChangeTxFreqS
-     /tmp/cc5NLRMT.s:280    .text.elyRFChangeRxFreqS:0000000000000000 elyRFChangeRxFreqS
-     /tmp/cc5NLRMT.s:373    .text.elyRFChangeTxBRS:0000000000000000 elyRFChangeTxBRS
-     /tmp/cc5NLRMT.s:463    .text.elyRFChangeRxBRS:0000000000000000 elyRFChangeRxBRS
-     /tmp/cc5NLRMT.s:553    .text.elyRFChangeTxDevS:0000000000000000 elyRFChangeTxDevS
-     /tmp/cc5NLRMT.s:643    .text.elyRFChangeRxDevS:0000000000000000 elyRFChangeRxDevS
-     /tmp/cc5NLRMT.s:733    .text.elyRFChangeTxSyncS:0000000000000000 elyRFChangeTxSyncS
-     /tmp/cc5NLRMT.s:772    .text.elyRFChangeRxSyncS:0000000000000000 elyRFChangeRxSyncS
-     /tmp/cc5NLRMT.s:811    .text.rfic_pow_to_reg:0000000000000000 rfic_pow_to_reg
-     /tmp/cc5NLRMT.s:1236   .upper.rodata:0000000000000006 lut.4816
-     /tmp/cc5NLRMT.s:836    .text.elyRFChangeTxPowerS:0000000000000000 elyRFChangeTxPowerS
-     /tmp/cc5NLRMT.s:866    .text.elyRFChangeTxFilterParamsS:0000000000000000 elyRFChangeTxFilterParamsS
-     /tmp/cc5NLRMT.s:892    .text.elyRFChangeRxFilterParamsS:0000000000000000 elyRFChangeRxFilterParamsS
-     /tmp/cc5NLRMT.s:920    .text.RFThd:0000000000000000 RFThd
-     /tmp/cc5NLRMT.s:1366   .persistent:000000000000002c tx_cfg
-     /tmp/cc5NLRMT.s:1348   .persistent:0000000000000000 rx_cfg
-     /tmp/cc5NLRMT.s:1403   .bss:0000000000000000 events
-     /tmp/cc5NLRMT.s:1232   .upper.rodata:0000000000000000 __func__.4850
-     /tmp/cc5NLRMT.s:1342   .upper.bss:0000000000000000 waRFThd
-     /tmp/cc5NLRMT.s:1394   .persistent:0000000000000072 rf_spi_cfg
-     /tmp/cc5NLRMT.s:1426   .persistent:0000000000000096 rf_buffer
-     /tmp/cc5NLRMT.s:73     .text.elyRFPostI:0000000000000022 .L3
-     /tmp/cc5NLRMT.s:108    .text.elyRFPost:000000000000002c .L6
-     /tmp/cc5NLRMT.s:136    .text.elyRFCfgMarkDirtyI:0000000000000018 .L8
-     /tmp/cc5NLRMT.s:140    .text.elyRFCfgMarkDirtyI:0000000000000026 .L9
-     /tmp/cc5NLRMT.s:170    .text.elyRFCfgMarkDirty:0000000000000018 .L11
-     /tmp/cc5NLRMT.s:174    .text.elyRFCfgMarkDirty:0000000000000026 .L12
-     /tmp/cc5NLRMT.s:255    .text.elyRFChangeTxFreqS:00000000000000c6 .L14
-     /tmp/cc5NLRMT.s:217    .text.elyRFChangeTxFreqS:000000000000003c .L19
-     /tmp/cc5NLRMT.s:245    .text.elyRFChangeTxFreqS:00000000000000ac .L17
-     /tmp/cc5NLRMT.s:226    .text.elyRFChangeTxFreqS:000000000000005e .L20
-     /tmp/cc5NLRMT.s:220    .text.elyRFChangeTxFreqS:0000000000000044 .L16
-     /tmp/cc5NLRMT.s:348    .text.elyRFChangeRxFreqS:00000000000000c8 .L22
-     /tmp/cc5NLRMT.s:310    .text.elyRFChangeRxFreqS:000000000000003e .L27
-     /tmp/cc5NLRMT.s:338    .text.elyRFChangeRxFreqS:00000000000000ae .L25
-     /tmp/cc5NLRMT.s:319    .text.elyRFChangeRxFreqS:0000000000000060 .L28
-     /tmp/cc5NLRMT.s:313    .text.elyRFChangeRxFreqS:0000000000000046 .L24
-     /tmp/cc5NLRMT.s:438    .text.elyRFChangeTxBRS:00000000000000ba .L30
-     /tmp/cc5NLRMT.s:403    .text.elyRFChangeTxBRS:000000000000003c .L35
-     /tmp/cc5NLRMT.s:428    .text.elyRFChangeTxBRS:00000000000000a0 .L33
-     /tmp/cc5NLRMT.s:406    .text.elyRFChangeTxBRS:0000000000000044 .L32
-     /tmp/cc5NLRMT.s:528    .text.elyRFChangeRxBRS:00000000000000ba .L38
-     /tmp/cc5NLRMT.s:493    .text.elyRFChangeRxBRS:000000000000003c .L43
-     /tmp/cc5NLRMT.s:518    .text.elyRFChangeRxBRS:00000000000000a0 .L41
-     /tmp/cc5NLRMT.s:496    .text.elyRFChangeRxBRS:0000000000000044 .L40
-GAS LISTING /tmp/cc5NLRMT.s 			page 30
+     /tmp/ccO7gUzX.s:5      .text.port_lock:0000000000000000 port_lock
+     /tmp/ccO7gUzX.s:28     .text.port_unlock:0000000000000000 port_unlock
+     /tmp/ccO7gUzX.s:52     .text.elyRFPostI:0000000000000000 elyRFPostI
+     /tmp/ccO7gUzX.s:1416   .persistent:0000000000000082 rf_mbox
+     /tmp/ccO7gUzX.s:1409   .upper.bss:0000000000000140 rf_thd
+     /tmp/ccO7gUzX.s:83     .text.elyRFPost:0000000000000000 elyRFPost
+     /tmp/ccO7gUzX.s:119    .text.elyRFCfgMarkDirtyI:0000000000000000 elyRFCfgMarkDirtyI
+     /tmp/ccO7gUzX.s:1335   .upper.rodata:0000000000000074 __func__.4781
+     /tmp/ccO7gUzX.s:153    .text.elyRFCfgMarkDirty:0000000000000000 elyRFCfgMarkDirty
+     /tmp/ccO7gUzX.s:1331   .upper.rodata:0000000000000062 __func__.4785
+     /tmp/ccO7gUzX.s:187    .text.elyRFChangeTxFreqS:0000000000000000 elyRFChangeTxFreqS
+     /tmp/ccO7gUzX.s:280    .text.elyRFChangeRxFreqS:0000000000000000 elyRFChangeRxFreqS
+     /tmp/ccO7gUzX.s:373    .text.elyRFChangeTxBRS:0000000000000000 elyRFChangeTxBRS
+     /tmp/ccO7gUzX.s:463    .text.elyRFChangeRxBRS:0000000000000000 elyRFChangeRxBRS
+     /tmp/ccO7gUzX.s:553    .text.elyRFChangeTxDevS:0000000000000000 elyRFChangeTxDevS
+     /tmp/ccO7gUzX.s:643    .text.elyRFChangeRxDevS:0000000000000000 elyRFChangeRxDevS
+     /tmp/ccO7gUzX.s:733    .text.elyRFChangeTxSyncS:0000000000000000 elyRFChangeTxSyncS
+     /tmp/ccO7gUzX.s:772    .text.elyRFChangeRxSyncS:0000000000000000 elyRFChangeRxSyncS
+     /tmp/ccO7gUzX.s:811    .text.rfic_pow_to_reg:0000000000000000 rfic_pow_to_reg
+     /tmp/ccO7gUzX.s:1236   .upper.rodata:0000000000000006 lut.4816
+     /tmp/ccO7gUzX.s:836    .text.elyRFChangeTxPowerS:0000000000000000 elyRFChangeTxPowerS
+     /tmp/ccO7gUzX.s:866    .text.elyRFChangeTxFilterParamsS:0000000000000000 elyRFChangeTxFilterParamsS
+     /tmp/ccO7gUzX.s:892    .text.elyRFChangeRxFilterParamsS:0000000000000000 elyRFChangeRxFilterParamsS
+     /tmp/ccO7gUzX.s:920    .text.RFThd:0000000000000000 RFThd
+     /tmp/ccO7gUzX.s:1366   .persistent:000000000000002c tx_cfg
+     /tmp/ccO7gUzX.s:1348   .persistent:0000000000000000 rx_cfg
+     /tmp/ccO7gUzX.s:1403   .bss:0000000000000000 events
+     /tmp/ccO7gUzX.s:1232   .upper.rodata:0000000000000000 __func__.4850
+     /tmp/ccO7gUzX.s:1342   .upper.bss:0000000000000000 waRFThd
+     /tmp/ccO7gUzX.s:1394   .persistent:0000000000000072 rf_spi_cfg
+     /tmp/ccO7gUzX.s:1426   .persistent:0000000000000096 rf_buffer
+     /tmp/ccO7gUzX.s:73     .text.elyRFPostI:0000000000000022 .L3
+     /tmp/ccO7gUzX.s:108    .text.elyRFPost:000000000000002c .L6
+     /tmp/ccO7gUzX.s:136    .text.elyRFCfgMarkDirtyI:0000000000000018 .L8
+     /tmp/ccO7gUzX.s:140    .text.elyRFCfgMarkDirtyI:0000000000000026 .L9
+     /tmp/ccO7gUzX.s:170    .text.elyRFCfgMarkDirty:0000000000000018 .L11
+     /tmp/ccO7gUzX.s:174    .text.elyRFCfgMarkDirty:0000000000000026 .L12
+     /tmp/ccO7gUzX.s:255    .text.elyRFChangeTxFreqS:00000000000000c6 .L14
+     /tmp/ccO7gUzX.s:217    .text.elyRFChangeTxFreqS:000000000000003c .L19
+     /tmp/ccO7gUzX.s:245    .text.elyRFChangeTxFreqS:00000000000000ac .L17
+     /tmp/ccO7gUzX.s:226    .text.elyRFChangeTxFreqS:000000000000005e .L20
+     /tmp/ccO7gUzX.s:220    .text.elyRFChangeTxFreqS:0000000000000044 .L16
+     /tmp/ccO7gUzX.s:348    .text.elyRFChangeRxFreqS:00000000000000c8 .L22
+     /tmp/ccO7gUzX.s:310    .text.elyRFChangeRxFreqS:000000000000003e .L27
+     /tmp/ccO7gUzX.s:338    .text.elyRFChangeRxFreqS:00000000000000ae .L25
+     /tmp/ccO7gUzX.s:319    .text.elyRFChangeRxFreqS:0000000000000060 .L28
+     /tmp/ccO7gUzX.s:313    .text.elyRFChangeRxFreqS:0000000000000046 .L24
+     /tmp/ccO7gUzX.s:438    .text.elyRFChangeTxBRS:00000000000000ba .L30
+     /tmp/ccO7gUzX.s:403    .text.elyRFChangeTxBRS:000000000000003c .L35
+     /tmp/ccO7gUzX.s:428    .text.elyRFChangeTxBRS:00000000000000a0 .L33
+     /tmp/ccO7gUzX.s:406    .text.elyRFChangeTxBRS:0000000000000044 .L32
+     /tmp/ccO7gUzX.s:528    .text.elyRFChangeRxBRS:00000000000000ba .L38
+     /tmp/ccO7gUzX.s:493    .text.elyRFChangeRxBRS:000000000000003c .L43
+     /tmp/ccO7gUzX.s:518    .text.elyRFChangeRxBRS:00000000000000a0 .L41
+     /tmp/ccO7gUzX.s:496    .text.elyRFChangeRxBRS:0000000000000044 .L40
+GAS LISTING /tmp/ccO7gUzX.s 			page 30
 
 
-     /tmp/cc5NLRMT.s:618    .text.elyRFChangeTxDevS:00000000000000bc .L46
-     /tmp/cc5NLRMT.s:583    .text.elyRFChangeTxDevS:000000000000003e .L51
-     /tmp/cc5NLRMT.s:608    .text.elyRFChangeTxDevS:00000000000000a2 .L49
-     /tmp/cc5NLRMT.s:586    .text.elyRFChangeTxDevS:0000000000000046 .L48
-     /tmp/cc5NLRMT.s:708    .text.elyRFChangeRxDevS:00000000000000bc .L54
-     /tmp/cc5NLRMT.s:673    .text.elyRFChangeRxDevS:000000000000003e .L59
-     /tmp/cc5NLRMT.s:698    .text.elyRFChangeRxDevS:00000000000000a2 .L57
-     /tmp/cc5NLRMT.s:676    .text.elyRFChangeRxDevS:0000000000000046 .L56
-     /tmp/cc5NLRMT.s:1059   .text.RFThd:00000000000001dc .L68
-     /tmp/cc5NLRMT.s:1072   .text.RFThd:000000000000020a .L69
-     /tmp/cc5NLRMT.s:1083   .text.RFThd:000000000000023c .L70
-     /tmp/cc5NLRMT.s:1091   .text.RFThd:0000000000000262 .L71
-     /tmp/cc5NLRMT.s:1103   .text.RFThd:000000000000029a .L72
-     /tmp/cc5NLRMT.s:1109   .text.RFThd:00000000000002b4 .L79
-     /tmp/cc5NLRMT.s:1123   .text.RFThd:00000000000002e6 .L108
-     /tmp/cc5NLRMT.s:1115   .text.RFThd:00000000000002cc .L77
-     /tmp/cc5NLRMT.s:1224   .text.RFThd:000000000000042c .L95
-     /tmp/cc5NLRMT.s:1064   .text.RFThd:00000000000001e6 .L94
-     /tmp/cc5NLRMT.s:1138   .text.RFThd:0000000000000320 .L112
-     /tmp/cc5NLRMT.s:1145   .text.RFThd:000000000000033a .L82
-     /tmp/cc5NLRMT.s:1128   .text.RFThd:00000000000002f8 .L93
-     /tmp/cc5NLRMT.s:1159   .text.RFThd:000000000000035e .L83
-     /tmp/cc5NLRMT.s:1166   .text.RFThd:0000000000000376 .L109
-     /tmp/cc5NLRMT.s:1170   .text.RFThd:0000000000000382 .L110
-     /tmp/cc5NLRMT.s:1136   .text.RFThd:000000000000031a .L92
-     /tmp/cc5NLRMT.s:1174   .text.RFThd:000000000000038e .L111
-     /tmp/cc5NLRMT.s:1155   .text.RFThd:0000000000000354 .L80
-     /tmp/cc5NLRMT.s:1162   .text.RFThd:000000000000036a .L90
-     /tmp/cc5NLRMT.s:1195   .text.RFThd:00000000000003d6 .L98
-     /tmp/cc5NLRMT.s:1178   .text.RFThd:000000000000039a .L107
-     /tmp/cc5NLRMT.s:1208   .text.RFThd:00000000000003f4 .L99
-     /tmp/cc5NLRMT.s:1216   .text.RFThd:0000000000000414 .L113
-     /tmp/cc5NLRMT.s:1186   .text.RFThd:00000000000003b6 .L106
-     /tmp/cc5NLRMT.s:1220   .text.RFThd:0000000000000420 .L114
-     /tmp/cc5NLRMT.s:1204   .text.RFThd:00000000000003ea .L96
-     /tmp/cc5NLRMT.s:1188   .text.RFThd:00000000000003bc .L116
+     /tmp/ccO7gUzX.s:618    .text.elyRFChangeTxDevS:00000000000000bc .L46
+     /tmp/ccO7gUzX.s:583    .text.elyRFChangeTxDevS:000000000000003e .L51
+     /tmp/ccO7gUzX.s:608    .text.elyRFChangeTxDevS:00000000000000a2 .L49
+     /tmp/ccO7gUzX.s:586    .text.elyRFChangeTxDevS:0000000000000046 .L48
+     /tmp/ccO7gUzX.s:708    .text.elyRFChangeRxDevS:00000000000000bc .L54
+     /tmp/ccO7gUzX.s:673    .text.elyRFChangeRxDevS:000000000000003e .L59
+     /tmp/ccO7gUzX.s:698    .text.elyRFChangeRxDevS:00000000000000a2 .L57
+     /tmp/ccO7gUzX.s:676    .text.elyRFChangeRxDevS:0000000000000046 .L56
+     /tmp/ccO7gUzX.s:1059   .text.RFThd:00000000000001dc .L68
+     /tmp/ccO7gUzX.s:1072   .text.RFThd:000000000000020a .L69
+     /tmp/ccO7gUzX.s:1083   .text.RFThd:000000000000023c .L70
+     /tmp/ccO7gUzX.s:1091   .text.RFThd:0000000000000262 .L71
+     /tmp/ccO7gUzX.s:1103   .text.RFThd:000000000000029a .L72
+     /tmp/ccO7gUzX.s:1109   .text.RFThd:00000000000002b4 .L79
+     /tmp/ccO7gUzX.s:1123   .text.RFThd:00000000000002e6 .L108
+     /tmp/ccO7gUzX.s:1115   .text.RFThd:00000000000002cc .L77
+     /tmp/ccO7gUzX.s:1224   .text.RFThd:000000000000042c .L95
+     /tmp/ccO7gUzX.s:1064   .text.RFThd:00000000000001e6 .L94
+     /tmp/ccO7gUzX.s:1138   .text.RFThd:0000000000000320 .L112
+     /tmp/ccO7gUzX.s:1145   .text.RFThd:000000000000033a .L82
+     /tmp/ccO7gUzX.s:1128   .text.RFThd:00000000000002f8 .L93
+     /tmp/ccO7gUzX.s:1159   .text.RFThd:000000000000035e .L83
+     /tmp/ccO7gUzX.s:1166   .text.RFThd:0000000000000376 .L109
+     /tmp/ccO7gUzX.s:1170   .text.RFThd:0000000000000382 .L110
+     /tmp/ccO7gUzX.s:1136   .text.RFThd:000000000000031a .L92
+     /tmp/ccO7gUzX.s:1174   .text.RFThd:000000000000038e .L111
+     /tmp/ccO7gUzX.s:1155   .text.RFThd:0000000000000354 .L80
+     /tmp/ccO7gUzX.s:1162   .text.RFThd:000000000000036a .L90
+     /tmp/ccO7gUzX.s:1195   .text.RFThd:00000000000003d6 .L98
+     /tmp/ccO7gUzX.s:1178   .text.RFThd:000000000000039a .L107
+     /tmp/ccO7gUzX.s:1208   .text.RFThd:00000000000003f4 .L99
+     /tmp/ccO7gUzX.s:1216   .text.RFThd:0000000000000414 .L113
+     /tmp/ccO7gUzX.s:1186   .text.RFThd:00000000000003b6 .L106
+     /tmp/ccO7gUzX.s:1220   .text.RFThd:0000000000000420 .L114
+     /tmp/ccO7gUzX.s:1204   .text.RFThd:00000000000003ea .L96
+     /tmp/ccO7gUzX.s:1188   .text.RFThd:00000000000003bc .L116
 
 UNDEFINED SYMBOLS
 chMBPostI
@@ -1751,7 +1751,7 @@ sx1212SetBitrate
 sx1278SetDeviation
 sx1212SetDeviation
 sx1278SetSync
-GAS LISTING /tmp/cc5NLRMT.s 			page 31
+GAS LISTING /tmp/ccO7gUzX.s 			page 31
 
 
 sx1212SetSync

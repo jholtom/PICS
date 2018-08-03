@@ -369,29 +369,26 @@ void elyRFDLLHandleRxFifo(SX1212Driver * devp) {
       return;
     }
     /* SCID */
-    elyUARTPost(tc_hdr_buff,TIME_IMMEDIATE);
-    chThdSleepMilliseconds(100);
-    chDbgAssert(false, "Die because I only want to see one response");
-    if (((tc_hdr_buff[0] & 0x03) != (bank0p[RegDLLIDsMSB] & 0x03)) ||
-        (tc_hdr_buff[1] != bank0p[RegDLLIDsLSB])) {
-      /* Restart state machine */
-      elyRFDLLRxInit(devp);
-      return;
-    }
-    /* VCID */
-    if ((tc_hdr_buff[2] & 0xFC) != (bank0p[RegDLLIDsMSB] & 0xFC)) {
-      /* Restart state machine */
-      elyRFDLLRxInit(devp);
-      return;
-    }
-
+//    if (((tc_hdr_buff[0] & 0x03) != (bank0p[RegDLLIDsMSB] & 0x03)) ||
+//        (tc_hdr_buff[1] != bank0p[RegDLLIDsLSB])) {
+//      /* Restart state machine */
+//      elyRFDLLRxInit(devp);
+//      return;
+//    }
+//    /* VCID */
+//    if ((tc_hdr_buff[2] & 0xFC) != (bank0p[RegDLLIDsMSB] & 0xFC)) {
+//      /* Restart state machine */
+//      elyRFDLLRxInit(devp);
+//      return;
+//    }
+//
     /* Pull out header length */
     rx_pkt_len = (((tc_hdr_buff[2] & 0x03) << 8) | (tc_hdr_buff[3]))+1;
-    if (rx_pkt_len > SDLP_TC_MAX_TF_LEN) {
-      /* Restart state machine */
-      elyRFDLLRxInit(devp);
-      return;
-    }
+//    if (rx_pkt_len > SDLP_TC_MAX_TF_LEN) {
+//      /* Restart state machine */
+//      elyRFDLLRxInit(devp);
+//      return;
+//    }
     rx_pkt_len -= SDLP_TC_PH_LEN;
     chSysLock();
     /* Grab a working buffer */

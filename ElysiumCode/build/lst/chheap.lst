@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccM7FYfm.s 			page 1
+GAS LISTING /tmp/ccelbdGm.s 			page 1
 
 
    1               		.file	"chheap.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccM7FYfm.s 			page 1
   50 001c CC0D      		MOVA	R13, R12
   51 001e 0018 4CDE 		BISX.A	R14, R12
   52 0022 4018 7CF0 		ANDX.B	#7, R12
-GAS LISTING /tmp/ccM7FYfm.s 			page 2
+GAS LISTING /tmp/ccelbdGm.s 			page 2
 
 
   52      0700 
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccM7FYfm.s 			page 1
   98 0002 B100 2000 		SUBA	#32, R1
   99               		; end of prologue
  100 0006 C50C      		MOVA	R12, R5
-GAS LISTING /tmp/ccM7FYfm.s 			page 3
+GAS LISTING /tmp/ccelbdGm.s 			page 3
 
 
  101 0008 710D 0400 		MOVA	R13, 4(R1)
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccM7FYfm.s 			page 1
  147      0020 
  148               	.L25:
  149 00a8 4C43      		MOV.B	#0, R12
-GAS LISTING /tmp/ccM7FYfm.s 			page 4
+GAS LISTING /tmp/ccelbdGm.s 			page 4
 
 
  150               	.L12:
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccM7FYfm.s 			page 1
  191 0158 AC00 0100 		ADDA	#1, R12
  192 015c 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
  192      3C41 4018 
-GAS LISTING /tmp/ccM7FYfm.s 			page 5
+GAS LISTING /tmp/ccelbdGm.s 			page 5
 
 
  192      3D41 
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccM7FYfm.s 			page 1
  238 0206 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R6
  238      0616 
  239 020c E608      		ADDA	R8, R6
-GAS LISTING /tmp/ccM7FYfm.s 			page 6
+GAS LISTING /tmp/ccelbdGm.s 			page 6
 
 
  240 020e 760A 0000 		MOVA	R10, @R6
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccM7FYfm.s 			page 1
  285               	; framesize_locals:   4
  286               	; framesize_outgoing: 0
  287               	; framesize:          32
-GAS LISTING /tmp/ccM7FYfm.s 			page 7
+GAS LISTING /tmp/ccelbdGm.s 			page 7
 
 
  288               	; elim ap -> fp       32
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccM7FYfm.s 			page 1
  333      3D41 
  334 009c B013 0000 		CALLA	#__mspabi_slll_3
  335 00a0 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
-GAS LISTING /tmp/ccM7FYfm.s 			page 8
+GAS LISTING /tmp/ccelbdGm.s 			page 8
 
 
  335      0C16 
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccM7FYfm.s 			page 1
  378 014a EC06      		ADDA	R6, R12
  379 014c 710C 0000 		MOVA	R12, @R1
  380 0150 A441 0400 		MOV.W	@R1, 4(R4)
-GAS LISTING /tmp/ccM7FYfm.s 			page 9
+GAS LISTING /tmp/ccelbdGm.s 			page 9
 
 
  381 0154 0C14 0C17 		PUSHM.A	#1,R12 { POPM.W	#1,R12 { POPM.W	#1,R12
@@ -538,7 +538,7 @@ GAS LISTING /tmp/ccM7FYfm.s 			page 1
  432               	.L59:
  433 002e 0C0C      		MOVA	@R12, R12
  434 0030 9C00 0000 		CMPA	#0, R12 { JNE	.L61
-GAS LISTING /tmp/ccM7FYfm.s 			page 10
+GAS LISTING /tmp/ccelbdGm.s 			page 10
 
 
  434      0020 
@@ -598,7 +598,7 @@ GAS LISTING /tmp/ccM7FYfm.s 			page 1
  474 001e 6368 4865 		.string	"chHeapObjectInit"
  474      6170 4F62 
  474      6A65 6374 
-GAS LISTING /tmp/ccM7FYfm.s 			page 11
+GAS LISTING /tmp/ccelbdGm.s 			page 11
 
 
  474      496E 6974 
@@ -606,51 +606,51 @@ GAS LISTING /tmp/ccM7FYfm.s 			page 1
  475               		.local	default_heap
  476               		.comm	default_heap,14,2
  477               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccM7FYfm.s 			page 12
+GAS LISTING /tmp/ccelbdGm.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 chheap.c
-     /tmp/ccM7FYfm.s:6      .text._heap_init:0000000000000000 _heap_init
-     /tmp/ccM7FYfm.s:476    .bss:0000000000000000 default_heap
-     /tmp/ccM7FYfm.s:30     .text.chHeapObjectInit:0000000000000000 chHeapObjectInit
-     /tmp/ccM7FYfm.s:473    .upper.rodata:000000000000001e __func__.2600
-     /tmp/ccM7FYfm.s:87     .text.chHeapAllocAligned:0000000000000000 chHeapAllocAligned
-     /tmp/ccM7FYfm.s:469    .upper.rodata:000000000000000b __func__.2609
-     /tmp/ccM7FYfm.s:282    .text.chHeapFree:0000000000000000 chHeapFree
-     /tmp/ccM7FYfm.s:465    .upper.rodata:0000000000000000 __func__.2623
-     /tmp/ccM7FYfm.s:403    .text.chHeapStatus:0000000000000000 chHeapStatus
-     /tmp/ccM7FYfm.s:54     .text.chHeapObjectInit:000000000000002e .L3
-     /tmp/ccM7FYfm.s:57     .text.chHeapObjectInit:0000000000000036 .L4
-     /tmp/ccM7FYfm.s:109    .text.chHeapAllocAligned:0000000000000028 .L13
-     /tmp/ccM7FYfm.s:112    .text.chHeapAllocAligned:0000000000000030 .L14
-     /tmp/ccM7FYfm.s:115    .text.chHeapAllocAligned:000000000000003a .L15
-     /tmp/ccM7FYfm.s:118    .text.chHeapAllocAligned:0000000000000040 .L16
-     /tmp/ccM7FYfm.s:155    .text.chHeapAllocAligned:00000000000000b2 .L23
-     /tmp/ccM7FYfm.s:258    .text.chHeapAllocAligned:0000000000000256 .L24
-     /tmp/ccM7FYfm.s:255    .text.chHeapAllocAligned:000000000000024e .L18
-     /tmp/ccM7FYfm.s:225    .text.chHeapAllocAligned:00000000000001dc .L19
-     /tmp/ccM7FYfm.s:209    .text.chHeapAllocAligned:00000000000001a4 .L20
-     /tmp/ccM7FYfm.s:150    .text.chHeapAllocAligned:00000000000000aa .L12
-     /tmp/ccM7FYfm.s:233    .text.chHeapAllocAligned:00000000000001f2 .L21
-     /tmp/ccM7FYfm.s:230    .text.chHeapAllocAligned:00000000000001ec .L37
-     /tmp/ccM7FYfm.s:140    .text.chHeapAllocAligned:000000000000008e .L17
-     /tmp/ccM7FYfm.s:148    .text.chHeapAllocAligned:00000000000000a8 .L25
-     /tmp/ccM7FYfm.s:222    .text.chHeapAllocAligned:00000000000001d4 .L38
-     /tmp/ccM7FYfm.s:299    .text.chHeapFree:000000000000001a .L40
-     /tmp/ccM7FYfm.s:302    .text.chHeapFree:0000000000000022 .L41
-     /tmp/ccM7FYfm.s:340    .text.chHeapFree:00000000000000b0 .L42
-     /tmp/ccM7FYfm.s:344    .text.chHeapFree:00000000000000ba .L43
-     /tmp/ccM7FYfm.s:395    .text.chHeapFree:0000000000000182 .L44
-     /tmp/ccM7FYfm.s:347    .text.chHeapFree:00000000000000c4 .L45
-     /tmp/ccM7FYfm.s:367    .text.chHeapFree:000000000000011e .L46
-     /tmp/ccM7FYfm.s:388    .text.chHeapFree:0000000000000174 .L47
-     /tmp/ccM7FYfm.s:329    .text.chHeapFree:0000000000000086 .L48
-     /tmp/ccM7FYfm.s:421    .text.chHeapStatus:0000000000000014 .L58
-     /tmp/ccM7FYfm.s:454    .text.chHeapStatus:0000000000000080 .L61
-     /tmp/ccM7FYfm.s:440    .text.chHeapStatus:0000000000000054 .L62
-     /tmp/ccM7FYfm.s:446    .text.chHeapStatus:0000000000000072 .L63
-     /tmp/ccM7FYfm.s:432    .text.chHeapStatus:000000000000002e .L59
+     /tmp/ccelbdGm.s:6      .text._heap_init:0000000000000000 _heap_init
+     /tmp/ccelbdGm.s:476    .bss:0000000000000000 default_heap
+     /tmp/ccelbdGm.s:30     .text.chHeapObjectInit:0000000000000000 chHeapObjectInit
+     /tmp/ccelbdGm.s:473    .upper.rodata:000000000000001e __func__.2600
+     /tmp/ccelbdGm.s:87     .text.chHeapAllocAligned:0000000000000000 chHeapAllocAligned
+     /tmp/ccelbdGm.s:469    .upper.rodata:000000000000000b __func__.2609
+     /tmp/ccelbdGm.s:282    .text.chHeapFree:0000000000000000 chHeapFree
+     /tmp/ccelbdGm.s:465    .upper.rodata:0000000000000000 __func__.2623
+     /tmp/ccelbdGm.s:403    .text.chHeapStatus:0000000000000000 chHeapStatus
+     /tmp/ccelbdGm.s:54     .text.chHeapObjectInit:000000000000002e .L3
+     /tmp/ccelbdGm.s:57     .text.chHeapObjectInit:0000000000000036 .L4
+     /tmp/ccelbdGm.s:109    .text.chHeapAllocAligned:0000000000000028 .L13
+     /tmp/ccelbdGm.s:112    .text.chHeapAllocAligned:0000000000000030 .L14
+     /tmp/ccelbdGm.s:115    .text.chHeapAllocAligned:000000000000003a .L15
+     /tmp/ccelbdGm.s:118    .text.chHeapAllocAligned:0000000000000040 .L16
+     /tmp/ccelbdGm.s:155    .text.chHeapAllocAligned:00000000000000b2 .L23
+     /tmp/ccelbdGm.s:258    .text.chHeapAllocAligned:0000000000000256 .L24
+     /tmp/ccelbdGm.s:255    .text.chHeapAllocAligned:000000000000024e .L18
+     /tmp/ccelbdGm.s:225    .text.chHeapAllocAligned:00000000000001dc .L19
+     /tmp/ccelbdGm.s:209    .text.chHeapAllocAligned:00000000000001a4 .L20
+     /tmp/ccelbdGm.s:150    .text.chHeapAllocAligned:00000000000000aa .L12
+     /tmp/ccelbdGm.s:233    .text.chHeapAllocAligned:00000000000001f2 .L21
+     /tmp/ccelbdGm.s:230    .text.chHeapAllocAligned:00000000000001ec .L37
+     /tmp/ccelbdGm.s:140    .text.chHeapAllocAligned:000000000000008e .L17
+     /tmp/ccelbdGm.s:148    .text.chHeapAllocAligned:00000000000000a8 .L25
+     /tmp/ccelbdGm.s:222    .text.chHeapAllocAligned:00000000000001d4 .L38
+     /tmp/ccelbdGm.s:299    .text.chHeapFree:000000000000001a .L40
+     /tmp/ccelbdGm.s:302    .text.chHeapFree:0000000000000022 .L41
+     /tmp/ccelbdGm.s:340    .text.chHeapFree:00000000000000b0 .L42
+     /tmp/ccelbdGm.s:344    .text.chHeapFree:00000000000000ba .L43
+     /tmp/ccelbdGm.s:395    .text.chHeapFree:0000000000000182 .L44
+     /tmp/ccelbdGm.s:347    .text.chHeapFree:00000000000000c4 .L45
+     /tmp/ccelbdGm.s:367    .text.chHeapFree:000000000000011e .L46
+     /tmp/ccelbdGm.s:388    .text.chHeapFree:0000000000000174 .L47
+     /tmp/ccelbdGm.s:329    .text.chHeapFree:0000000000000086 .L48
+     /tmp/ccelbdGm.s:421    .text.chHeapStatus:0000000000000014 .L58
+     /tmp/ccelbdGm.s:454    .text.chHeapStatus:0000000000000080 .L61
+     /tmp/ccelbdGm.s:440    .text.chHeapStatus:0000000000000054 .L62
+     /tmp/ccelbdGm.s:446    .text.chHeapStatus:0000000000000072 .L63
+     /tmp/ccelbdGm.s:432    .text.chHeapStatus:000000000000002e .L59
 
 UNDEFINED SYMBOLS
 chCoreAllocAligned

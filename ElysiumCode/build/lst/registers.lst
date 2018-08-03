@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccfUa0sp.s 			page 1
+GAS LISTING /tmp/ccy9fHWm.s 			page 1
 
 
    1               		.file	"registers.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
   53 000e 4C93 0020 		CMP.B	#0, R12 { JNE	.L4
   54 0012 4018 1C42 		MOVX.W	&regs_sem, R12
   54      0000 
-GAS LISTING /tmp/ccfUa0sp.s 			page 2
+GAS LISTING /tmp/ccy9fHWm.s 			page 2
 
 
   55 0018 4D43      		MOV.B	#0, R13
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  108 000e C60F      		MOVA	R15, R6
  109               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
  110 0010 32C2 0343 		dint { nop
-GAS LISTING /tmp/ccfUa0sp.s 			page 3
+GAS LISTING /tmp/ccy9fHWm.s 			page 3
 
 
  111               	 ; 0 "" 2
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  160      0343 
  161               	 ; 0 "" 2
  162               		; start of epilogue
-GAS LISTING /tmp/ccfUa0sp.s 			page 4
+GAS LISTING /tmp/ccy9fHWm.s 			page 4
 
 
  163 008e A100 0400 		ADDA	#4, R1
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  215 0048 8C4D 0000 		MOV.W	R13, @R12
  216 004c 096F      		ADDC	R15, R9
  217 004e 8C49 0200 		MOV.W	R9, 2(R12)
-GAS LISTING /tmp/ccfUa0sp.s 			page 5
+GAS LISTING /tmp/ccy9fHWm.s 			page 5
 
 
  218 0052 5AF3      		AND.B	#1, R10
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  267               		.global	elyClampReg
  268               		.type	elyClampReg, @function
  269               	elyClampReg:
-GAS LISTING /tmp/ccfUa0sp.s 			page 6
+GAS LISTING /tmp/ccy9fHWm.s 			page 6
 
 
  270               	; start of function
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  315               	.L23:
  316 0080 7E43      		MOV.B	#-1, R14
  317 0082 5D43      		MOV.B	#1, R13
-GAS LISTING /tmp/ccfUa0sp.s 			page 7
+GAS LISTING /tmp/ccy9fHWm.s 			page 7
 
 
  318 0084 8000 0000 		BRA	#.L92
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  365 0120 8000 0000 		BRA	#.L23
  366               	.L12:
  367 0124 7E40 0F00 		MOV.B	#15, R14
-GAS LISTING /tmp/ccfUa0sp.s 			page 8
+GAS LISTING /tmp/ccy9fHWm.s 			page 8
 
 
  368 0128 8000 0000 		BRA	#.L93
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  415 01c0 7E40 7D00 		MOV.B	#125, R14
  416 01c4 4E9D 0034 		CMP.B	R13, R14 { JGE	.L27
  417 01c8 7C40 88FF 		MOV.B	#-120, R12
-GAS LISTING /tmp/ccfUa0sp.s 			page 9
+GAS LISTING /tmp/ccy9fHWm.s 			page 9
 
 
  418 01cc B013 0000 		CALLA	#elyErrorSignal
@@ -538,7 +538,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  470 0046 1001      		RETA
  471               	.L100:
  472 0048 CF0A      		MOVA	R10, R15
-GAS LISTING /tmp/ccfUa0sp.s 			page 10
+GAS LISTING /tmp/ccy9fHWm.s 			page 10
 
 
  473 004a 6E4A      		MOV.B	@R10, R14
@@ -598,7 +598,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  525 0050 CA4C 0000 		MOV.B	R12, @R10
  526 0054 CF0A      		MOVA	R10, R15
  527 0056 0E01      		MOVA	@R1, R14
-GAS LISTING /tmp/ccfUa0sp.s 			page 11
+GAS LISTING /tmp/ccy9fHWm.s 			page 11
 
 
  528 0058 4D47      		MOV.B	R7, R13
@@ -658,7 +658,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  582               	; framesize_regs:     28
  583               	; framesize_locals:   0
  584               	; framesize_outgoing: 2
-GAS LISTING /tmp/ccfUa0sp.s 			page 12
+GAS LISTING /tmp/ccy9fHWm.s 			page 12
 
 
  585               	; framesize:          30
@@ -718,7 +718,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  639               		.size	bank0p, 4
  640               	bank0p:
  641 0004 0000 0000 		.long	bank0
-GAS LISTING /tmp/ccfUa0sp.s 			page 13
+GAS LISTING /tmp/ccy9fHWm.s 			page 13
 
 
  642               		.section	.persistent,"aw"
@@ -778,7 +778,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  696 0032 08        		.byte	8
  697 0033 08        		.byte	8
  698 0034 00        		.byte	0
-GAS LISTING /tmp/ccfUa0sp.s 			page 14
+GAS LISTING /tmp/ccy9fHWm.s 			page 14
 
 
  699 0035 A3        		.byte	-93
@@ -838,7 +838,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  753 006b 00        		.byte	0
  754 006c 00        		.byte	0
  755 006d 00        		.byte	0
-GAS LISTING /tmp/ccfUa0sp.s 			page 15
+GAS LISTING /tmp/ccy9fHWm.s 			page 15
 
 
  756 006e 00        		.byte	0
@@ -898,7 +898,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  810 00a4 FF        		.byte	-1
  811 00a5 FF        		.byte	-1
  812 00a6 FF        		.byte	-1
-GAS LISTING /tmp/ccfUa0sp.s 			page 16
+GAS LISTING /tmp/ccy9fHWm.s 			page 16
 
 
  813 00a7 FF        		.byte	-1
@@ -958,7 +958,7 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  867 00dd FF        		.byte	-1
  868 00de FF        		.byte	-1
  869 00df FF        		.byte	-1
-GAS LISTING /tmp/ccfUa0sp.s 			page 17
+GAS LISTING /tmp/ccy9fHWm.s 			page 17
 
 
  870 00e0 FF        		.byte	-1
@@ -994,70 +994,70 @@ GAS LISTING /tmp/ccfUa0sp.s 			page 1
  900 00fe FF        		.byte	-1
  901 00ff FF        		.byte	-1
  902               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccfUa0sp.s 			page 18
+GAS LISTING /tmp/ccy9fHWm.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 registers.c
-     /tmp/ccfUa0sp.s:5      .text.clamp:0000000000000000 clamp
-     /tmp/ccfUa0sp.s:39     .text.fram_reg_cb:0000000000000000 fram_reg_cb
+     /tmp/ccy9fHWm.s:5      .text.clamp:0000000000000000 clamp
+     /tmp/ccy9fHWm.s:39     .text.fram_reg_cb:0000000000000000 fram_reg_cb
                              .bss:0000000000000000 regs_in_progress
-     /tmp/ccfUa0sp.s:628    .bss:0000000000000002 regs_sem
-     /tmp/ccfUa0sp.s:67     .text.fram_block_cb:0000000000000000 fram_block_cb
-     /tmp/ccfUa0sp.s:91     .text.fram_reg:0000000000000000 fram_reg
-     /tmp/ccfUa0sp.s:172    .text.fram_block:0000000000000000 fram_block
-     /tmp/ccfUa0sp.s:269    .text.elyClampReg:0000000000000000 elyClampReg
-     /tmp/ccfUa0sp.s:433    .text.elyRegGet:0000000000000000 elyRegGet
-     /tmp/ccfUa0sp.s:645    .persistent:0000000000000000 bank0
-     /tmp/ccfUa0sp.s:485    .text.elyRegSet:0000000000000000 elyRegSet
-     /tmp/ccfUa0sp.s:540    .text.elyRegGetBlock:0000000000000000 elyRegGetBlock
-     /tmp/ccfUa0sp.s:580    .text.elyRegSetBlock:0000000000000000 elyRegSetBlock
-     /tmp/ccfUa0sp.s:634    .upper.rodata:0000000000000000 bank0w
-     /tmp/ccfUa0sp.s:640    .upper.rodata:0000000000000004 bank0p
-     /tmp/ccfUa0sp.s:28     .text.clamp:000000000000001c .L2
-     /tmp/ccfUa0sp.s:24     .text.clamp:0000000000000018 .L3
-     /tmp/ccfUa0sp.s:59     .text.fram_reg_cb:0000000000000026 .L4
-     /tmp/ccfUa0sp.s:83     .text.fram_block_cb:0000000000000014 .L6
-     /tmp/ccfUa0sp.s:366    .text.elyClampReg:0000000000000124 .L12
-     /tmp/ccfUa0sp.s:319    .text.elyClampReg:0000000000000088 .L13
-     /tmp/ccfUa0sp.s:355    .text.elyClampReg:0000000000000108 .L19
-     /tmp/ccfUa0sp.s:298    .text.elyClampReg:0000000000000046 .L15
-     /tmp/ccfUa0sp.s:351    .text.elyClampReg:00000000000000fc .L16
-     /tmp/ccfUa0sp.s:303    .text.elyClampReg:000000000000005a .L11
-     /tmp/ccfUa0sp.s:375    .text.elyClampReg:0000000000000146 .L27
-     /tmp/ccfUa0sp.s:312    .text.elyClampReg:0000000000000074 .L20
-     /tmp/ccfUa0sp.s:421    .text.elyClampReg:00000000000001d8 .L37
-     /tmp/ccfUa0sp.s:295    .text.elyClampReg:000000000000003e .L91
-     /tmp/ccfUa0sp.s:360    .text.elyClampReg:0000000000000110 .L22
-     /tmp/ccfUa0sp.s:293    .text.elyClampReg:000000000000003a .L92
-     /tmp/ccfUa0sp.s:333    .text.elyClampReg:00000000000000ba .L24
-     /tmp/ccfUa0sp.s:330    .text.elyClampReg:00000000000000b0 .L25
-     /tmp/ccfUa0sp.s:369    .text.elyClampReg:000000000000012c .L26
-     /tmp/ccfUa0sp.s:315    .text.elyClampReg:0000000000000080 .L23
-     /tmp/ccfUa0sp.s:411    .text.elyClampReg:00000000000001ba .L28
-     /tmp/ccfUa0sp.s:339    .text.elyClampReg:00000000000000d2 .L29
-     /tmp/ccfUa0sp.s:327    .text.elyClampReg:00000000000000aa .L38
-     /tmp/ccfUa0sp.s:414    .text.elyClampReg:00000000000001c0 .L36
-     /tmp/ccfUa0sp.s:357    .text.elyClampReg:000000000000010a .L93
-     /tmp/ccfUa0sp.s:378    .text.elyClampReg:0000000000000148 .L31
-     /tmp/ccfUa0sp.s:385    .text.elyClampReg:0000000000000160 .L32
-     /tmp/ccfUa0sp.s:392    .text.elyClampReg:0000000000000178 .L33
-     /tmp/ccfUa0sp.s:399    .text.elyClampReg:0000000000000190 .L34
-     /tmp/ccfUa0sp.s:406    .text.elyClampReg:00000000000001a8 .L35
-     /tmp/ccfUa0sp.s:465    .text.elyRegGet:0000000000000040 .L97
-     /tmp/ccfUa0sp.s:471    .text.elyRegGet:0000000000000048 .L100
-     /tmp/ccfUa0sp.s:467    .text.elyRegGet:0000000000000044 .L94
-     /tmp/ccfUa0sp.s:459    .text.elyRegGet:000000000000002c .L98
-     /tmp/ccfUa0sp.s:453    .text.elyRegGet:000000000000001a .L96
-     /tmp/ccfUa0sp.s:519    .text.elyRegSet:0000000000000044 .L103
-     /tmp/ccfUa0sp.s:510    .text.elyRegSet:000000000000002c .L102
-     /tmp/ccfUa0sp.s:565    .text.elyRegGetBlock:000000000000002a .L105
-     /tmp/ccfUa0sp.s:561    .text.elyRegGetBlock:0000000000000024 .L104
-     /tmp/ccfUa0sp.s:615    .text.elyRegSetBlock:000000000000003c .L109
-GAS LISTING /tmp/ccfUa0sp.s 			page 19
+     /tmp/ccy9fHWm.s:628    .bss:0000000000000002 regs_sem
+     /tmp/ccy9fHWm.s:67     .text.fram_block_cb:0000000000000000 fram_block_cb
+     /tmp/ccy9fHWm.s:91     .text.fram_reg:0000000000000000 fram_reg
+     /tmp/ccy9fHWm.s:172    .text.fram_block:0000000000000000 fram_block
+     /tmp/ccy9fHWm.s:269    .text.elyClampReg:0000000000000000 elyClampReg
+     /tmp/ccy9fHWm.s:433    .text.elyRegGet:0000000000000000 elyRegGet
+     /tmp/ccy9fHWm.s:645    .persistent:0000000000000000 bank0
+     /tmp/ccy9fHWm.s:485    .text.elyRegSet:0000000000000000 elyRegSet
+     /tmp/ccy9fHWm.s:540    .text.elyRegGetBlock:0000000000000000 elyRegGetBlock
+     /tmp/ccy9fHWm.s:580    .text.elyRegSetBlock:0000000000000000 elyRegSetBlock
+     /tmp/ccy9fHWm.s:634    .upper.rodata:0000000000000000 bank0w
+     /tmp/ccy9fHWm.s:640    .upper.rodata:0000000000000004 bank0p
+     /tmp/ccy9fHWm.s:28     .text.clamp:000000000000001c .L2
+     /tmp/ccy9fHWm.s:24     .text.clamp:0000000000000018 .L3
+     /tmp/ccy9fHWm.s:59     .text.fram_reg_cb:0000000000000026 .L4
+     /tmp/ccy9fHWm.s:83     .text.fram_block_cb:0000000000000014 .L6
+     /tmp/ccy9fHWm.s:366    .text.elyClampReg:0000000000000124 .L12
+     /tmp/ccy9fHWm.s:319    .text.elyClampReg:0000000000000088 .L13
+     /tmp/ccy9fHWm.s:355    .text.elyClampReg:0000000000000108 .L19
+     /tmp/ccy9fHWm.s:298    .text.elyClampReg:0000000000000046 .L15
+     /tmp/ccy9fHWm.s:351    .text.elyClampReg:00000000000000fc .L16
+     /tmp/ccy9fHWm.s:303    .text.elyClampReg:000000000000005a .L11
+     /tmp/ccy9fHWm.s:375    .text.elyClampReg:0000000000000146 .L27
+     /tmp/ccy9fHWm.s:312    .text.elyClampReg:0000000000000074 .L20
+     /tmp/ccy9fHWm.s:421    .text.elyClampReg:00000000000001d8 .L37
+     /tmp/ccy9fHWm.s:295    .text.elyClampReg:000000000000003e .L91
+     /tmp/ccy9fHWm.s:360    .text.elyClampReg:0000000000000110 .L22
+     /tmp/ccy9fHWm.s:293    .text.elyClampReg:000000000000003a .L92
+     /tmp/ccy9fHWm.s:333    .text.elyClampReg:00000000000000ba .L24
+     /tmp/ccy9fHWm.s:330    .text.elyClampReg:00000000000000b0 .L25
+     /tmp/ccy9fHWm.s:369    .text.elyClampReg:000000000000012c .L26
+     /tmp/ccy9fHWm.s:315    .text.elyClampReg:0000000000000080 .L23
+     /tmp/ccy9fHWm.s:411    .text.elyClampReg:00000000000001ba .L28
+     /tmp/ccy9fHWm.s:339    .text.elyClampReg:00000000000000d2 .L29
+     /tmp/ccy9fHWm.s:327    .text.elyClampReg:00000000000000aa .L38
+     /tmp/ccy9fHWm.s:414    .text.elyClampReg:00000000000001c0 .L36
+     /tmp/ccy9fHWm.s:357    .text.elyClampReg:000000000000010a .L93
+     /tmp/ccy9fHWm.s:378    .text.elyClampReg:0000000000000148 .L31
+     /tmp/ccy9fHWm.s:385    .text.elyClampReg:0000000000000160 .L32
+     /tmp/ccy9fHWm.s:392    .text.elyClampReg:0000000000000178 .L33
+     /tmp/ccy9fHWm.s:399    .text.elyClampReg:0000000000000190 .L34
+     /tmp/ccy9fHWm.s:406    .text.elyClampReg:00000000000001a8 .L35
+     /tmp/ccy9fHWm.s:465    .text.elyRegGet:0000000000000040 .L97
+     /tmp/ccy9fHWm.s:471    .text.elyRegGet:0000000000000048 .L100
+     /tmp/ccy9fHWm.s:467    .text.elyRegGet:0000000000000044 .L94
+     /tmp/ccy9fHWm.s:459    .text.elyRegGet:000000000000002c .L98
+     /tmp/ccy9fHWm.s:453    .text.elyRegGet:000000000000001a .L96
+     /tmp/ccy9fHWm.s:519    .text.elyRegSet:0000000000000044 .L103
+     /tmp/ccy9fHWm.s:510    .text.elyRegSet:000000000000002c .L102
+     /tmp/ccy9fHWm.s:565    .text.elyRegGetBlock:000000000000002a .L105
+     /tmp/ccy9fHWm.s:561    .text.elyRegGetBlock:0000000000000024 .L104
+     /tmp/ccy9fHWm.s:615    .text.elyRegSetBlock:000000000000003c .L109
+GAS LISTING /tmp/ccy9fHWm.s 			page 19
 
 
-     /tmp/ccfUa0sp.s:600    .text.elyRegSetBlock:0000000000000016 .L108
+     /tmp/ccy9fHWm.s:600    .text.elyRegSetBlock:0000000000000016 .L108
 
 UNDEFINED SYMBOLS
 elyErrorSignal

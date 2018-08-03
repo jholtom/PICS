@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccd5dn9t.s 			page 1
+GAS LISTING /tmp/ccwIP2eC.s 			page 1
 
 
    1               		.file	"telem_stub.c"
@@ -48,14 +48,14 @@ GAS LISTING /tmp/ccd5dn9t.s 			page 1
   43 001a 1001      		RETA
   44               		.size	elyTelemPostBufferS, .-elyTelemPostBufferS
   45               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccd5dn9t.s 			page 2
+GAS LISTING /tmp/ccwIP2eC.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 telem_stub.c
-     /tmp/ccd5dn9t.s:6      .text.elyTelemUpdateConfigS:0000000000000000 elyTelemUpdateConfigS
-     /tmp/ccd5dn9t.s:24     .text.elyTelemPostBufferS:0000000000000000 elyTelemPostBufferS
-     /tmp/ccd5dn9t.s:41     .text.elyTelemPostBufferS:000000000000001a .L2
+     /tmp/ccwIP2eC.s:6      .text.elyTelemUpdateConfigS:0000000000000000 elyTelemUpdateConfigS
+     /tmp/ccwIP2eC.s:24     .text.elyTelemPostBufferS:0000000000000000 elyTelemPostBufferS
+     /tmp/ccwIP2eC.s:41     .text.elyTelemPostBufferS:000000000000001a .L2
 
 UNDEFINED SYMBOLS
 __msp430x_in_isr

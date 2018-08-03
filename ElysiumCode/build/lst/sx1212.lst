@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cchrX2zG.s 			page 1
+GAS LISTING /tmp/cc2DuFbP.s 			page 1
 
 
    1               		.file	"sx1212.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
   55               	; framesize:          16
   56               	; elim ap -> fp       20
   57               	; elim fp -> sp       0
-GAS LISTING /tmp/cchrX2zG.s 			page 2
+GAS LISTING /tmp/cc2DuFbP.s 			page 2
 
 
   58               	; saved regs: R7 R8 R9 R10
@@ -118,7 +118,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  111 0002 CA0C      		MOVA	R12, R10
  112 0004 5E4C 0400 		MOV.B	4(R12), R14
  113 0008 7EF0 1F00 		AND.B	#31, R14
-GAS LISTING /tmp/cchrX2zG.s 			page 3
+GAS LISTING /tmp/cc2DuFbP.s 			page 3
 
 
  114 000c 4EDD      		BIS.B	R13, R14
@@ -178,7 +178,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  168               		; start of prologue
  169 0000 4A14      		PUSHM.A	#5, R10
  170               		; end of prologue
-GAS LISTING /tmp/cchrX2zG.s 			page 4
+GAS LISTING /tmp/cc2DuFbP.s 			page 4
 
 
  171 0002 CA0C      		MOVA	R12, R10
@@ -238,7 +238,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  213 00a8 B013 0000 		CALLA	#__mspabi_srll_12
  214 00ac 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
  214      0C16 
-GAS LISTING /tmp/cchrX2zG.s 			page 5
+GAS LISTING /tmp/cc2DuFbP.s 			page 5
 
 
  215 00b2 4018 074C 		MOVX	R12, R7
@@ -298,7 +298,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  263 0032 8F00 0000 		MOVA	#blockuntil_callback, R15
  264 0036 5E43      		MOV.B	#1, R14
  265 0038 4D4C      		MOV.B	R12, R13
-GAS LISTING /tmp/cchrX2zG.s 			page 6
+GAS LISTING /tmp/cc2DuFbP.s 			page 6
 
 
  266 003a CC08      		MOVA	R8, R12
@@ -358,7 +358,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  315               		; start of epilogue
  316 0018 1001      		RETA
  317               		.size	spi_mode_config, .-spi_mode_config
-GAS LISTING /tmp/cchrX2zG.s 			page 7
+GAS LISTING /tmp/cc2DuFbP.s 			page 7
 
 
  318               		.section	.text.spi_mode_data,"ax",@progbits
@@ -418,7 +418,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  370 0022 6416      		POPM.A	#7, r10
  371 0024 1001      		RETA
  372               	.L22:
-GAS LISTING /tmp/cchrX2zG.s 			page 8
+GAS LISTING /tmp/cc2DuFbP.s 			page 8
 
 
  373 0026 EA07      		ADDA	R7, R10
@@ -478,7 +478,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  427               		.size	sx1212ReadRegister, .-sx1212ReadRegister
  428               		.section	.text.sx1212SetBitrate,"ax",@progbits
  429               		.balign 2
-GAS LISTING /tmp/cchrX2zG.s 			page 9
+GAS LISTING /tmp/cc2DuFbP.s 			page 9
 
 
  430               		.global	sx1212SetBitrate
@@ -538,7 +538,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  484 0000 4A14      		PUSHM.A	#5, R10
  485               		; end of prologue
  486 0002 CA0C      		MOVA	R12, R10
-GAS LISTING /tmp/cchrX2zG.s 			page 10
+GAS LISTING /tmp/cc2DuFbP.s 			page 10
 
 
  487 0004 084D      		MOV.W	R13, R8
@@ -598,7 +598,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  539 0012 4813      		CALLA	R8
  540 0014 7E40 3C00 		MOV.B	#60, R14
  541 0018 7D40 0700 		MOV.B	#7, R13
-GAS LISTING /tmp/cchrX2zG.s 			page 11
+GAS LISTING /tmp/cc2DuFbP.s 			page 11
 
 
  542 001c CC0A      		MOVA	R10, R12
@@ -658,7 +658,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  595      0020 
  596               		; start of epilogue
  597 0038 5516      		POPM.A	#6, r10
-GAS LISTING /tmp/cchrX2zG.s 			page 12
+GAS LISTING /tmp/cc2DuFbP.s 			page 12
 
 
  598 003a 1001      		RETA
@@ -718,7 +718,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  652               	sx1212Start:
  653               	; start of function
  654               	; framesize_regs:     16
-GAS LISTING /tmp/cchrX2zG.s 			page 13
+GAS LISTING /tmp/cc2DuFbP.s 			page 13
 
 
  655               	; framesize_locals:   0
@@ -778,7 +778,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  706 0092 CC0A      		MOVA	R10, R12
  707 0094 4613      		CALLA	R6
  708 0096 6C44      		MOV.B	@R4, R12
-GAS LISTING /tmp/cchrX2zG.s 			page 14
+GAS LISTING /tmp/cc2DuFbP.s 			page 14
 
 
  709 0098 7CF0 0600 		AND.B	#6, R12
@@ -838,7 +838,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  758 012a 4EDD      		BIS.B	R13, R14
  759 012c 7D40 1E00 		MOV.B	#30, R13
  760 0130 CC0A      		MOVA	R10, R12
-GAS LISTING /tmp/cchrX2zG.s 			page 15
+GAS LISTING /tmp/cc2DuFbP.s 			page 15
 
 
  761 0132 4613      		CALLA	R6
@@ -898,7 +898,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  813               	; elim ap -> fp       8
  814               	; elim fp -> sp       0
  815               	; saved regs: R10
-GAS LISTING /tmp/cchrX2zG.s 			page 16
+GAS LISTING /tmp/cc2DuFbP.s 			page 16
 
 
  816               		; start of prologue
@@ -958,7 +958,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  869 0030 B013 0000 		CALLA	#sx1212SetFifoThreshold
  870               		; start of epilogue
  871 0034 0616      		POPM.A	#1, r6
-GAS LISTING /tmp/cchrX2zG.s 			page 17
+GAS LISTING /tmp/cc2DuFbP.s 			page 17
 
 
  872 0036 0816      		POPM.A	#1, r8
@@ -1018,7 +1018,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  923 004a 4813      		CALLA	R8
  924 004c 7C40 0500 		MOV.B	#5, R12
  925 0050 B013 0000 		CALLA	#chThdSleep
-GAS LISTING /tmp/cchrX2zG.s 			page 18
+GAS LISTING /tmp/cc2DuFbP.s 			page 18
 
 
  926 0054 7D40 4000 		MOV.B	#64, R13
@@ -1078,7 +1078,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  978 001e B013 0000 		CALLA	#chSysHalt
  979               	.L62:
  980 0022 CC06      		MOVA	R6, R12
-GAS LISTING /tmp/cchrX2zG.s 			page 19
+GAS LISTING /tmp/cc2DuFbP.s 			page 19
 
 
  981 0024 B013 0000 		CALLA	#spi_mode_data
@@ -1138,7 +1138,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  1031 0040 B013 0000 		CALLA	#__mspabi_srll_12
  1032 0044 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
  1032      0C16 
-GAS LISTING /tmp/cchrX2zG.s 			page 20
+GAS LISTING /tmp/cc2DuFbP.s 			page 20
 
 
  1033 004a 4018 0D4C 		MOVX	R12, R13
@@ -1198,7 +1198,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  1083 001a 1001      		RETA
  1084               		.size	sx1212StopReceive, .-sx1212StopReceive
  1085               		.section	.text.sx1212StopReceiveI,"ax",@progbits
-GAS LISTING /tmp/cchrX2zG.s 			page 21
+GAS LISTING /tmp/cc2DuFbP.s 			page 21
 
 
  1086               		.balign 2
@@ -1258,7 +1258,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  1139 0040 4813      		CALLA	R8
  1140 0042 0C0A      		MOVA	@R10, R12
  1141 0044 3C0C 2600 		MOVA	38(R12), R12
-GAS LISTING /tmp/cchrX2zG.s 			page 22
+GAS LISTING /tmp/cc2DuFbP.s 			page 22
 
 
  1142 0048 6C4C      		MOV.B	@R12, R12
@@ -1318,7 +1318,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  1190 00d6 7D40 0D00 		MOV.B	#13, R13
  1191 00da 4813      		CALLA	R8
  1192 00dc 0C0A      		MOVA	@R10, R12
-GAS LISTING /tmp/cchrX2zG.s 			page 23
+GAS LISTING /tmp/cc2DuFbP.s 			page 23
 
 
  1193 00de 5C4C 2B00 		MOV.B	43(R12), R12
@@ -1378,7 +1378,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  1243 017a C84C 0000 		MOV.B	R12, @R8
  1244 017e 1753      		ADD.W	#1, R7
  1245 0180 8000 0000 		BRA	#.L75
-GAS LISTING /tmp/cchrX2zG.s 			page 24
+GAS LISTING /tmp/cc2DuFbP.s 			page 24
 
 
  1246               	.L82:
@@ -1438,7 +1438,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  1298               		; start of epilogue
  1299 0014 1001      		RETA
  1300               		.size	sx1212RSSI, .-sx1212RSSI
-GAS LISTING /tmp/cchrX2zG.s 			page 25
+GAS LISTING /tmp/cc2DuFbP.s 			page 25
 
 
  1301               		.section	.text.sx1212CLKOUT,"ax",@progbits
@@ -1498,7 +1498,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  1351               	__func__.5077:
  1352 0011 7061 636B 		.string	"packet_handler"
  1352      6574 5F68 
-GAS LISTING /tmp/cchrX2zG.s 			page 26
+GAS LISTING /tmp/cc2DuFbP.s 			page 26
 
 
  1352      616E 646C 
@@ -1558,7 +1558,7 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  1383               	__func__.5024:
  1384 0097 7378 3132 		.string	"sx1212SetDeviation"
  1384      3132 5365 
-GAS LISTING /tmp/cchrX2zG.s 			page 27
+GAS LISTING /tmp/cc2DuFbP.s 			page 27
 
 
  1384      7444 6576 
@@ -1613,105 +1613,105 @@ GAS LISTING /tmp/cchrX2zG.s 			page 1
  1416      0000 0000 
  1416      0000 0000 
  1417               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/cchrX2zG.s 			page 28
+GAS LISTING /tmp/cc2DuFbP.s 			page 28
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sx1212.c
-     /tmp/cchrX2zG.s:5      .text.spi_end_cb:0000000000000000 spi_end_cb
-     /tmp/cchrX2zG.s:1415   .upper.bss:0000000000000006 SX1212D1
-     /tmp/cchrX2zG.s:30     .text.blockuntil_callback:0000000000000000 blockuntil_callback
-     /tmp/cchrX2zG.s:1409   .upper.bss:0000000000000002 tr
-     /tmp/cchrX2zG.s:50     .text.sx1212SetRegister.isra.0:0000000000000000 sx1212SetRegister.isra.0
-     /tmp/cchrX2zG.s:1387   .upper.rodata:00000000000000aa __func__.4974
-     /tmp/cchrX2zG.s:99     .text.sx1212SetMode:0000000000000000 sx1212SetMode
-     /tmp/cchrX2zG.s:125    .text.sx1212SetFifoThreshold:0000000000000000 sx1212SetFifoThreshold
-     /tmp/cchrX2zG.s:1359   .upper.rodata:0000000000000034 __func__.5059
-     /tmp/cchrX2zG.s:159    .text.sx1212Reset.isra.1:0000000000000000 sx1212Reset.isra.1
-     /tmp/cchrX2zG.s:1371   .upper.rodata:0000000000000071 __func__.5041
-     /tmp/cchrX2zG.s:237    .text.irq_block_with_timeout.isra.2:0000000000000000 irq_block_with_timeout.isra.2
-     /tmp/cchrX2zG.s:1398   .bss:0000000000000000 suspend_result
-     /tmp/cchrX2zG.s:298    .text.spi_mode_config:0000000000000000 spi_mode_config
-     /tmp/cchrX2zG.s:322    .text.spi_mode_data:0000000000000000 spi_mode_data
-     /tmp/cchrX2zG.s:345    .text.fifo_read_safe:0000000000000000 fifo_read_safe
-     /tmp/cchrX2zG.s:386    .text.sx1212ReadRegister:0000000000000000 sx1212ReadRegister
-     /tmp/cchrX2zG.s:1395   .upper.rodata:00000000000000cd __func__.4968
-     /tmp/cchrX2zG.s:432    .text.sx1212SetBitrate:0000000000000000 sx1212SetBitrate
-     /tmp/cchrX2zG.s:1391   .upper.rodata:00000000000000bc __func__.5018
-     /tmp/cchrX2zG.s:474    .text.sx1212SetDeviation:0000000000000000 sx1212SetDeviation
-     /tmp/cchrX2zG.s:1383   .upper.rodata:0000000000000097 __func__.5024
-     /tmp/cchrX2zG.s:522    .text.sx1212SetFrequency:0000000000000000 sx1212SetFrequency
-     /tmp/cchrX2zG.s:564    .text.sx1212SetSync:0000000000000000 sx1212SetSync
-     /tmp/cchrX2zG.s:604    .text.sx1212SetRxBw:0000000000000000 sx1212SetRxBw
-     /tmp/cchrX2zG.s:1379   .upper.rodata:0000000000000089 __func__.5065
-     /tmp/cchrX2zG.s:634    .text.sx122ObjectInit:0000000000000000 sx122ObjectInit
-     /tmp/cchrX2zG.s:652    .text.sx1212Start:0000000000000000 sx1212Start
-     /tmp/cchrX2zG.s:1367   .upper.rodata:000000000000005a __func__.5070
-     /tmp/cchrX2zG.s:1375   .upper.rodata:000000000000007d __func__.5101
-     /tmp/cchrX2zG.s:807    .text.sx1212Stop:0000000000000000 sx1212Stop
-     /tmp/cchrX2zG.s:840    .text.sx1212ReceiveI:0000000000000000 sx1212ReceiveI
-     /tmp/cchrX2zG.s:1363   .upper.rodata:000000000000004b __func__.5115
-     /tmp/cchrX2zG.s:880    .text.sx1212StartReceive:0000000000000000 sx1212StartReceive
-     /tmp/cchrX2zG.s:956    .text.sx1212FifoReadAsync:0000000000000000 sx1212FifoReadAsync
-     /tmp/cchrX2zG.s:1355   .upper.rodata:0000000000000020 __func__.5122
-     /tmp/cchrX2zG.s:999    .text.sx1212FifoRead:0000000000000000 sx1212FifoRead
-     /tmp/cchrX2zG.s:1062   .text.sx1212StopReceive:0000000000000000 sx1212StopReceive
-     /tmp/cchrX2zG.s:1089   .text.sx1212StopReceiveI:0000000000000000 sx1212StopReceiveI
-     /tmp/cchrX2zG.s:1108   .text.sx1212ReceiveTimeout:0000000000000000 sx1212ReceiveTimeout
-     /tmp/cchrX2zG.s:1351   .upper.rodata:0000000000000011 __func__.5077
-     /tmp/cchrX2zG.s:1347   .upper.rodata:0000000000000000 __func__.4994
-     /tmp/cchrX2zG.s:1282   .text.sx1212RSSI:0000000000000000 sx1212RSSI
-     /tmp/cchrX2zG.s:1305   .text.sx1212CLKOUT:0000000000000000 sx1212CLKOUT
-     /tmp/cchrX2zG.s:1328   .text.sx1212TUNE:0000000000000000 sx1212TUNE
-     /tmp/cchrX2zG.s:1403   .upper.bss:0000000000000000 sending
-     /tmp/cchrX2zG.s:92     .text.sx1212SetRegister.isra.0:0000000000000046 .L4
-     /tmp/cchrX2zG.s:70     .text.sx1212SetRegister.isra.0:0000000000000018 .L5
-     /tmp/cchrX2zG.s:67     .text.sx1212SetRegister.isra.0:0000000000000010 .L6
-     /tmp/cchrX2zG.s:144    .text.sx1212SetFifoThreshold:0000000000000018 .L12
-     /tmp/cchrX2zG.s:176    .text.sx1212Reset.isra.1:0000000000000016 .L14
-     /tmp/cchrX2zG.s:287    .text.irq_block_with_timeout.isra.2:000000000000006e .L16
-     /tmp/cchrX2zG.s:273    .text.irq_block_with_timeout.isra.2:0000000000000056 .L17
-     /tmp/cchrX2zG.s:372    .text.fifo_read_safe:0000000000000026 .L22
-     /tmp/cchrX2zG.s:364    .text.fifo_read_safe:0000000000000014 .L21
-GAS LISTING /tmp/cchrX2zG.s 			page 29
+     /tmp/cc2DuFbP.s:5      .text.spi_end_cb:0000000000000000 spi_end_cb
+     /tmp/cc2DuFbP.s:1415   .upper.bss:0000000000000006 SX1212D1
+     /tmp/cc2DuFbP.s:30     .text.blockuntil_callback:0000000000000000 blockuntil_callback
+     /tmp/cc2DuFbP.s:1409   .upper.bss:0000000000000002 tr
+     /tmp/cc2DuFbP.s:50     .text.sx1212SetRegister.isra.0:0000000000000000 sx1212SetRegister.isra.0
+     /tmp/cc2DuFbP.s:1387   .upper.rodata:00000000000000aa __func__.4974
+     /tmp/cc2DuFbP.s:99     .text.sx1212SetMode:0000000000000000 sx1212SetMode
+     /tmp/cc2DuFbP.s:125    .text.sx1212SetFifoThreshold:0000000000000000 sx1212SetFifoThreshold
+     /tmp/cc2DuFbP.s:1359   .upper.rodata:0000000000000034 __func__.5059
+     /tmp/cc2DuFbP.s:159    .text.sx1212Reset.isra.1:0000000000000000 sx1212Reset.isra.1
+     /tmp/cc2DuFbP.s:1371   .upper.rodata:0000000000000071 __func__.5041
+     /tmp/cc2DuFbP.s:237    .text.irq_block_with_timeout.isra.2:0000000000000000 irq_block_with_timeout.isra.2
+     /tmp/cc2DuFbP.s:1398   .bss:0000000000000000 suspend_result
+     /tmp/cc2DuFbP.s:298    .text.spi_mode_config:0000000000000000 spi_mode_config
+     /tmp/cc2DuFbP.s:322    .text.spi_mode_data:0000000000000000 spi_mode_data
+     /tmp/cc2DuFbP.s:345    .text.fifo_read_safe:0000000000000000 fifo_read_safe
+     /tmp/cc2DuFbP.s:386    .text.sx1212ReadRegister:0000000000000000 sx1212ReadRegister
+     /tmp/cc2DuFbP.s:1395   .upper.rodata:00000000000000cd __func__.4968
+     /tmp/cc2DuFbP.s:432    .text.sx1212SetBitrate:0000000000000000 sx1212SetBitrate
+     /tmp/cc2DuFbP.s:1391   .upper.rodata:00000000000000bc __func__.5018
+     /tmp/cc2DuFbP.s:474    .text.sx1212SetDeviation:0000000000000000 sx1212SetDeviation
+     /tmp/cc2DuFbP.s:1383   .upper.rodata:0000000000000097 __func__.5024
+     /tmp/cc2DuFbP.s:522    .text.sx1212SetFrequency:0000000000000000 sx1212SetFrequency
+     /tmp/cc2DuFbP.s:564    .text.sx1212SetSync:0000000000000000 sx1212SetSync
+     /tmp/cc2DuFbP.s:604    .text.sx1212SetRxBw:0000000000000000 sx1212SetRxBw
+     /tmp/cc2DuFbP.s:1379   .upper.rodata:0000000000000089 __func__.5065
+     /tmp/cc2DuFbP.s:634    .text.sx122ObjectInit:0000000000000000 sx122ObjectInit
+     /tmp/cc2DuFbP.s:652    .text.sx1212Start:0000000000000000 sx1212Start
+     /tmp/cc2DuFbP.s:1367   .upper.rodata:000000000000005a __func__.5070
+     /tmp/cc2DuFbP.s:1375   .upper.rodata:000000000000007d __func__.5101
+     /tmp/cc2DuFbP.s:807    .text.sx1212Stop:0000000000000000 sx1212Stop
+     /tmp/cc2DuFbP.s:840    .text.sx1212ReceiveI:0000000000000000 sx1212ReceiveI
+     /tmp/cc2DuFbP.s:1363   .upper.rodata:000000000000004b __func__.5115
+     /tmp/cc2DuFbP.s:880    .text.sx1212StartReceive:0000000000000000 sx1212StartReceive
+     /tmp/cc2DuFbP.s:956    .text.sx1212FifoReadAsync:0000000000000000 sx1212FifoReadAsync
+     /tmp/cc2DuFbP.s:1355   .upper.rodata:0000000000000020 __func__.5122
+     /tmp/cc2DuFbP.s:999    .text.sx1212FifoRead:0000000000000000 sx1212FifoRead
+     /tmp/cc2DuFbP.s:1062   .text.sx1212StopReceive:0000000000000000 sx1212StopReceive
+     /tmp/cc2DuFbP.s:1089   .text.sx1212StopReceiveI:0000000000000000 sx1212StopReceiveI
+     /tmp/cc2DuFbP.s:1108   .text.sx1212ReceiveTimeout:0000000000000000 sx1212ReceiveTimeout
+     /tmp/cc2DuFbP.s:1351   .upper.rodata:0000000000000011 __func__.5077
+     /tmp/cc2DuFbP.s:1347   .upper.rodata:0000000000000000 __func__.4994
+     /tmp/cc2DuFbP.s:1282   .text.sx1212RSSI:0000000000000000 sx1212RSSI
+     /tmp/cc2DuFbP.s:1305   .text.sx1212CLKOUT:0000000000000000 sx1212CLKOUT
+     /tmp/cc2DuFbP.s:1328   .text.sx1212TUNE:0000000000000000 sx1212TUNE
+     /tmp/cc2DuFbP.s:1403   .upper.bss:0000000000000000 sending
+     /tmp/cc2DuFbP.s:92     .text.sx1212SetRegister.isra.0:0000000000000046 .L4
+     /tmp/cc2DuFbP.s:70     .text.sx1212SetRegister.isra.0:0000000000000018 .L5
+     /tmp/cc2DuFbP.s:67     .text.sx1212SetRegister.isra.0:0000000000000010 .L6
+     /tmp/cc2DuFbP.s:144    .text.sx1212SetFifoThreshold:0000000000000018 .L12
+     /tmp/cc2DuFbP.s:176    .text.sx1212Reset.isra.1:0000000000000016 .L14
+     /tmp/cc2DuFbP.s:287    .text.irq_block_with_timeout.isra.2:000000000000006e .L16
+     /tmp/cc2DuFbP.s:273    .text.irq_block_with_timeout.isra.2:0000000000000056 .L17
+     /tmp/cc2DuFbP.s:372    .text.fifo_read_safe:0000000000000026 .L22
+     /tmp/cc2DuFbP.s:364    .text.fifo_read_safe:0000000000000014 .L21
+GAS LISTING /tmp/cc2DuFbP.s 			page 29
 
 
-     /tmp/cchrX2zG.s:404    .text.sx1212ReadRegister:0000000000000016 .L24
-     /tmp/cchrX2zG.s:451    .text.sx1212SetBitrate:0000000000000018 .L28
-     /tmp/cchrX2zG.s:454    .text.sx1212SetBitrate:0000000000000020 .L26
-     /tmp/cchrX2zG.s:505    .text.sx1212SetDeviation:000000000000003e .L32
-     /tmp/cchrX2zG.s:508    .text.sx1212SetDeviation:0000000000000046 .L30
-     /tmp/cchrX2zG.s:582    .text.sx1212SetSync:0000000000000014 .L35
-     /tmp/cchrX2zG.s:621    .text.sx1212SetRxBw:0000000000000014 .L38
-     /tmp/cchrX2zG.s:798    .text.sx1212Start:000000000000019a .L41
-     /tmp/cchrX2zG.s:713    .text.sx1212Start:00000000000000aa .L42
-     /tmp/cchrX2zG.s:718    .text.sx1212Start:00000000000000ba .L43
-     /tmp/cchrX2zG.s:736    .text.sx1212Start:00000000000000f0 .L44
-     /tmp/cchrX2zG.s:743    .text.sx1212Start:0000000000000106 .L45
-     /tmp/cchrX2zG.s:795    .text.sx1212Start:0000000000000192 .L50
-     /tmp/cchrX2zG.s:773    .text.sx1212Start:0000000000000158 .L49
-     /tmp/cchrX2zG.s:746    .text.sx1212Start:000000000000010e .L46
-     /tmp/cchrX2zG.s:766    .text.sx1212Start:0000000000000142 .L55
-     /tmp/cchrX2zG.s:861    .text.sx1212ReceiveI:000000000000001c .L58
-     /tmp/cchrX2zG.s:942    .text.sx1212StartReceive:0000000000000086 .L60
-     /tmp/cchrX2zG.s:979    .text.sx1212FifoReadAsync:0000000000000022 .L62
-     /tmp/cchrX2zG.s:1024   .text.sx1212FifoRead:0000000000000024 .L65
-     /tmp/cchrX2zG.s:1018   .text.sx1212FifoRead:0000000000000014 .L64
-     /tmp/cchrX2zG.s:1186   .text.sx1212ReceiveTimeout:00000000000000c6 .L69
-     /tmp/cchrX2zG.s:1133   .text.sx1212ReceiveTimeout:0000000000000030 .L70
-     /tmp/cchrX2zG.s:1176   .text.sx1212ReceiveTimeout:00000000000000a6 .L71
-     /tmp/cchrX2zG.s:1169   .text.sx1212ReceiveTimeout:0000000000000098 .L72
-     /tmp/cchrX2zG.s:1164   .text.sx1212ReceiveTimeout:0000000000000090 .L74
-     /tmp/cchrX2zG.s:1152   .text.sx1212ReceiveTimeout:000000000000006c .L93
-     /tmp/cchrX2zG.s:1213   .text.sx1212ReceiveTimeout:0000000000000128 .L80
-     /tmp/cchrX2zG.s:1207   .text.sx1212ReceiveTimeout:0000000000000114 .L76
-     /tmp/cchrX2zG.s:1237   .text.sx1212ReceiveTimeout:0000000000000170 .L77
-     /tmp/cchrX2zG.s:1274   .text.sx1212ReceiveTimeout:00000000000001d8 .L83
-     /tmp/cchrX2zG.s:1246   .text.sx1212ReceiveTimeout:0000000000000184 .L82
-     /tmp/cchrX2zG.s:1201   .text.sx1212ReceiveTimeout:00000000000000fa .L75
-     /tmp/cchrX2zG.s:1271   .text.sx1212ReceiveTimeout:00000000000001d0 .L84
-     /tmp/cchrX2zG.s:1229   .text.sx1212ReceiveTimeout:0000000000000158 .L78
-     /tmp/cchrX2zG.s:1253   .text.sx1212ReceiveTimeout:000000000000019e .L81
+     /tmp/cc2DuFbP.s:404    .text.sx1212ReadRegister:0000000000000016 .L24
+     /tmp/cc2DuFbP.s:451    .text.sx1212SetBitrate:0000000000000018 .L28
+     /tmp/cc2DuFbP.s:454    .text.sx1212SetBitrate:0000000000000020 .L26
+     /tmp/cc2DuFbP.s:505    .text.sx1212SetDeviation:000000000000003e .L32
+     /tmp/cc2DuFbP.s:508    .text.sx1212SetDeviation:0000000000000046 .L30
+     /tmp/cc2DuFbP.s:582    .text.sx1212SetSync:0000000000000014 .L35
+     /tmp/cc2DuFbP.s:621    .text.sx1212SetRxBw:0000000000000014 .L38
+     /tmp/cc2DuFbP.s:798    .text.sx1212Start:000000000000019a .L41
+     /tmp/cc2DuFbP.s:713    .text.sx1212Start:00000000000000aa .L42
+     /tmp/cc2DuFbP.s:718    .text.sx1212Start:00000000000000ba .L43
+     /tmp/cc2DuFbP.s:736    .text.sx1212Start:00000000000000f0 .L44
+     /tmp/cc2DuFbP.s:743    .text.sx1212Start:0000000000000106 .L45
+     /tmp/cc2DuFbP.s:795    .text.sx1212Start:0000000000000192 .L50
+     /tmp/cc2DuFbP.s:773    .text.sx1212Start:0000000000000158 .L49
+     /tmp/cc2DuFbP.s:746    .text.sx1212Start:000000000000010e .L46
+     /tmp/cc2DuFbP.s:766    .text.sx1212Start:0000000000000142 .L55
+     /tmp/cc2DuFbP.s:861    .text.sx1212ReceiveI:000000000000001c .L58
+     /tmp/cc2DuFbP.s:942    .text.sx1212StartReceive:0000000000000086 .L60
+     /tmp/cc2DuFbP.s:979    .text.sx1212FifoReadAsync:0000000000000022 .L62
+     /tmp/cc2DuFbP.s:1024   .text.sx1212FifoRead:0000000000000024 .L65
+     /tmp/cc2DuFbP.s:1018   .text.sx1212FifoRead:0000000000000014 .L64
+     /tmp/cc2DuFbP.s:1186   .text.sx1212ReceiveTimeout:00000000000000c6 .L69
+     /tmp/cc2DuFbP.s:1133   .text.sx1212ReceiveTimeout:0000000000000030 .L70
+     /tmp/cc2DuFbP.s:1176   .text.sx1212ReceiveTimeout:00000000000000a6 .L71
+     /tmp/cc2DuFbP.s:1169   .text.sx1212ReceiveTimeout:0000000000000098 .L72
+     /tmp/cc2DuFbP.s:1164   .text.sx1212ReceiveTimeout:0000000000000090 .L74
+     /tmp/cc2DuFbP.s:1152   .text.sx1212ReceiveTimeout:000000000000006c .L93
+     /tmp/cc2DuFbP.s:1213   .text.sx1212ReceiveTimeout:0000000000000128 .L80
+     /tmp/cc2DuFbP.s:1207   .text.sx1212ReceiveTimeout:0000000000000114 .L76
+     /tmp/cc2DuFbP.s:1237   .text.sx1212ReceiveTimeout:0000000000000170 .L77
+     /tmp/cc2DuFbP.s:1274   .text.sx1212ReceiveTimeout:00000000000001d8 .L83
+     /tmp/cc2DuFbP.s:1246   .text.sx1212ReceiveTimeout:0000000000000184 .L82
+     /tmp/cc2DuFbP.s:1201   .text.sx1212ReceiveTimeout:00000000000000fa .L75
+     /tmp/cc2DuFbP.s:1271   .text.sx1212ReceiveTimeout:00000000000001d0 .L84
+     /tmp/cc2DuFbP.s:1229   .text.sx1212ReceiveTimeout:0000000000000158 .L78
+     /tmp/cc2DuFbP.s:1253   .text.sx1212ReceiveTimeout:000000000000019e .L81
 
 UNDEFINED SYMBOLS
 chThdResumeI
@@ -1733,7 +1733,7 @@ spiStart
 spiStop
 spiStartReceive
 __crt0_init_bss
-GAS LISTING /tmp/cchrX2zG.s 			page 30
+GAS LISTING /tmp/cc2DuFbP.s 			page 30
 
 
 __crt0_init_highbss

@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cct4x8pY.s 			page 1
+GAS LISTING /tmp/ccF89uC7.s 			page 1
 
 
    1               		.file	"mych.c"
@@ -51,14 +51,14 @@ GAS LISTING /tmp/cct4x8pY.s 			page 1
   47 0052 1001      		RETA
   48               		.size	chEvtWaitAnyTimeoutS, .-chEvtWaitAnyTimeoutS
   49               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/cct4x8pY.s 			page 2
+GAS LISTING /tmp/ccF89uC7.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 mych.c
-     /tmp/cct4x8pY.s:6      .text.chEvtWaitAnyTimeoutS:0000000000000000 chEvtWaitAnyTimeoutS
-     /tmp/cct4x8pY.s:39     .text.chEvtWaitAnyTimeoutS:0000000000000044 .L2
-     /tmp/cct4x8pY.s:42     .text.chEvtWaitAnyTimeoutS:000000000000004c .L1
+     /tmp/ccF89uC7.s:6      .text.chEvtWaitAnyTimeoutS:0000000000000000 chEvtWaitAnyTimeoutS
+     /tmp/ccF89uC7.s:39     .text.chEvtWaitAnyTimeoutS:0000000000000044 .L2
+     /tmp/ccF89uC7.s:42     .text.chEvtWaitAnyTimeoutS:000000000000004c .L1
 
 UNDEFINED SYMBOLS
 nil

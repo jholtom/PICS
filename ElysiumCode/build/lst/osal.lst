@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccPRm9ll.s 			page 1
+GAS LISTING /tmp/ccbzh6Hx.s 			page 1
 
 
    1               		.file	"osal.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccPRm9ll.s 			page 1
   52               		.global	osalThreadDequeueAllI
   53               		.type	osalThreadDequeueAllI, @function
   54               	osalThreadDequeueAllI:
-GAS LISTING /tmp/ccPRm9ll.s 			page 2
+GAS LISTING /tmp/ccbzh6Hx.s 			page 2
 
 
   55               	; start of function
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccPRm9ll.s 			page 1
  102               		.type	__func__.2715, @object
  103               		.size	__func__.2715, 23
  104               	__func__.2715:
-GAS LISTING /tmp/ccPRm9ll.s 			page 3
+GAS LISTING /tmp/ccbzh6Hx.s 			page 3
 
 
  105 0016 6F73 616C 		.string	"osalThreadDequeueNextI"
@@ -127,24 +127,24 @@ GAS LISTING /tmp/ccPRm9ll.s 			page 1
  105      7175 6575 
  105      654E 6578 
  106               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccPRm9ll.s 			page 4
+GAS LISTING /tmp/ccbzh6Hx.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 osal.c
-     /tmp/ccPRm9ll.s:6      .text.osalThreadDequeueNextI:0000000000000000 osalThreadDequeueNextI
-     /tmp/ccPRm9ll.s:104    .upper.rodata:0000000000000016 __func__.2715
-     /tmp/ccPRm9ll.s:54     .text.osalThreadDequeueAllI:0000000000000000 osalThreadDequeueAllI
-     /tmp/ccPRm9ll.s:100    .upper.rodata:0000000000000000 __func__.2724
-     /tmp/ccPRm9ll.s:37     .text.osalThreadDequeueNextI:0000000000000040 .L1
-     /tmp/ccPRm9ll.s:43     .text.osalThreadDequeueNextI:0000000000000048 .L4
-     /tmp/ccPRm9ll.s:33     .text.osalThreadDequeueNextI:0000000000000038 .L5
-     /tmp/ccPRm9ll.s:27     .text.osalThreadDequeueNextI:000000000000001c .L3
-     /tmp/ccPRm9ll.s:79     .text.osalThreadDequeueAllI:0000000000000024 .L12
-     /tmp/ccPRm9ll.s:83     .text.osalThreadDequeueAllI:000000000000002e .L9
-     /tmp/ccPRm9ll.s:93     .text.osalThreadDequeueAllI:000000000000004a .L10
-     /tmp/ccPRm9ll.s:88     .text.osalThreadDequeueAllI:0000000000000042 .L11
-     /tmp/ccPRm9ll.s:74     .text.osalThreadDequeueAllI:000000000000001c .L8
+     /tmp/ccbzh6Hx.s:6      .text.osalThreadDequeueNextI:0000000000000000 osalThreadDequeueNextI
+     /tmp/ccbzh6Hx.s:104    .upper.rodata:0000000000000016 __func__.2715
+     /tmp/ccbzh6Hx.s:54     .text.osalThreadDequeueAllI:0000000000000000 osalThreadDequeueAllI
+     /tmp/ccbzh6Hx.s:100    .upper.rodata:0000000000000000 __func__.2724
+     /tmp/ccbzh6Hx.s:37     .text.osalThreadDequeueNextI:0000000000000040 .L1
+     /tmp/ccbzh6Hx.s:43     .text.osalThreadDequeueNextI:0000000000000048 .L4
+     /tmp/ccbzh6Hx.s:33     .text.osalThreadDequeueNextI:0000000000000038 .L5
+     /tmp/ccbzh6Hx.s:27     .text.osalThreadDequeueNextI:000000000000001c .L3
+     /tmp/ccbzh6Hx.s:79     .text.osalThreadDequeueAllI:0000000000000024 .L12
+     /tmp/ccbzh6Hx.s:83     .text.osalThreadDequeueAllI:000000000000002e .L9
+     /tmp/ccbzh6Hx.s:93     .text.osalThreadDequeueAllI:000000000000004a .L10
+     /tmp/ccbzh6Hx.s:88     .text.osalThreadDequeueAllI:0000000000000042 .L11
+     /tmp/ccbzh6Hx.s:74     .text.osalThreadDequeueAllI:000000000000001c .L8
 
 UNDEFINED SYMBOLS
 nil

@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccglCWWX.s 			page 1
+GAS LISTING /tmp/ccXslHq4.s 			page 1
 
 
    1               		.file	"main.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccglCWWX.s 			page 1
   53      0000 
   54 0016 B013 0000 		CALLA	#elyNLToFW
   55 001a CE0C      		MOVA	R12, R14
-GAS LISTING /tmp/ccglCWWX.s 			page 2
+GAS LISTING /tmp/ccXslHq4.s 			page 2
 
 
   56               	.L4:
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccglCWWX.s 			page 1
  109 0004 8C00 0000 		MOVA	#fw_sem, R12
  110 0008 B013 0000 		CALLA	#chSemWaitTimeoutS
  111 000c 9C00 0000 		CMPA	#0, R12 { JNE	.L13
-GAS LISTING /tmp/ccglCWWX.s 			page 3
+GAS LISTING /tmp/ccXslHq4.s 			page 3
 
 
  111      0020 
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccglCWWX.s 			page 1
  164               	; saved regs:(none)
  165               		; start of prologue
  166               		; end of prologue
-GAS LISTING /tmp/ccglCWWX.s 			page 4
+GAS LISTING /tmp/ccXslHq4.s 			page 4
 
 
  167               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
@@ -236,28 +236,28 @@ GAS LISTING /tmp/ccglCWWX.s 			page 1
  211      0000 0000 
  211      0000 0000 
  212               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccglCWWX.s 			page 5
+GAS LISTING /tmp/ccXslHq4.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccglCWWX.s:6      .text.fw_allocator:0000000000000000 fw_allocator
-     /tmp/ccglCWWX.s:206    .persistent:000000000000000c curr_index.4765
-     /tmp/ccglCWWX.s:210    .persistent:0000000000000010 fw_storage
-     /tmp/ccglCWWX.s:38     .text.elyFWGetBufferI:0000000000000000 elyFWGetBufferI
-     /tmp/ccglCWWX.s:199    .persistent:0000000000000000 fw_mpool
-     /tmp/ccglCWWX.s:193    .upper.data:0000000000000000 fw_sem
-     /tmp/ccglCWWX.s:65     .text.elyFWGetBuffer:0000000000000000 elyFWGetBuffer
-     /tmp/ccglCWWX.s:96     .text.elyFWGetBufferTimeoutS:0000000000000000 elyFWGetBufferTimeoutS
-     /tmp/ccglCWWX.s:187    .upper.rodata:0000000000000000 __func__.4780
-     /tmp/ccglCWWX.s:133    .text.elyFWFreeBufferI:0000000000000000 elyFWFreeBufferI
-     /tmp/ccglCWWX.s:156    .text.elyFWFreeBuffer:0000000000000000 elyFWFreeBuffer
-     /tmp/ccglCWWX.s:30     .text.fw_allocator:0000000000000020 .L3
-     /tmp/ccglCWWX.s:26     .text.fw_allocator:000000000000001c .L1
-     /tmp/ccglCWWX.s:56     .text.elyFWGetBufferI:000000000000001c .L4
-     /tmp/ccglCWWX.s:125    .text.elyFWGetBufferTimeoutS:0000000000000034 .L13
-     /tmp/ccglCWWX.s:118    .text.elyFWGetBufferTimeoutS:000000000000002a .L12
-     /tmp/ccglCWWX.s:121    .text.elyFWGetBufferTimeoutS:0000000000000030 .L10
+     /tmp/ccXslHq4.s:6      .text.fw_allocator:0000000000000000 fw_allocator
+     /tmp/ccXslHq4.s:206    .persistent:000000000000000c curr_index.4765
+     /tmp/ccXslHq4.s:210    .persistent:0000000000000010 fw_storage
+     /tmp/ccXslHq4.s:38     .text.elyFWGetBufferI:0000000000000000 elyFWGetBufferI
+     /tmp/ccXslHq4.s:199    .persistent:0000000000000000 fw_mpool
+     /tmp/ccXslHq4.s:193    .upper.data:0000000000000000 fw_sem
+     /tmp/ccXslHq4.s:65     .text.elyFWGetBuffer:0000000000000000 elyFWGetBuffer
+     /tmp/ccXslHq4.s:96     .text.elyFWGetBufferTimeoutS:0000000000000000 elyFWGetBufferTimeoutS
+     /tmp/ccXslHq4.s:187    .upper.rodata:0000000000000000 __func__.4780
+     /tmp/ccXslHq4.s:133    .text.elyFWFreeBufferI:0000000000000000 elyFWFreeBufferI
+     /tmp/ccXslHq4.s:156    .text.elyFWFreeBuffer:0000000000000000 elyFWFreeBuffer
+     /tmp/ccXslHq4.s:30     .text.fw_allocator:0000000000000020 .L3
+     /tmp/ccXslHq4.s:26     .text.fw_allocator:000000000000001c .L1
+     /tmp/ccXslHq4.s:56     .text.elyFWGetBufferI:000000000000001c .L4
+     /tmp/ccXslHq4.s:125    .text.elyFWGetBufferTimeoutS:0000000000000034 .L13
+     /tmp/ccXslHq4.s:118    .text.elyFWGetBufferTimeoutS:000000000000002a .L12
+     /tmp/ccXslHq4.s:121    .text.elyFWGetBufferTimeoutS:0000000000000030 .L10
 
 UNDEFINED SYMBOLS
 chPoolAllocI

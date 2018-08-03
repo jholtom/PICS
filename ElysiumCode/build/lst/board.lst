@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccXgMpxs.s 			page 1
+GAS LISTING /tmp/cc1CytFG.s 			page 1
 
 
    1               		.file	"board.c"
@@ -45,12 +45,12 @@ GAS LISTING /tmp/ccXgMpxs.s 			page 1
   42 001a F000      		.short	240
   43 001c 0000      		.short	0
   44               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccXgMpxs.s 			page 2
+GAS LISTING /tmp/cc1CytFG.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 board.c
-     /tmp/ccXgMpxs.s:6      .text.boardInit:0000000000000000 boardInit
-     /tmp/ccXgMpxs.s:28     .upper.rodata:0000000000000000 pal_default_config
+     /tmp/cc1CytFG.s:6      .text.boardInit:0000000000000000 boardInit
+     /tmp/cc1CytFG.s:28     .upper.rodata:0000000000000000 pal_default_config
 
 NO UNDEFINED SYMBOLS

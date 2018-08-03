@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccKFr5Gw.s 			page 1
+GAS LISTING /tmp/ccE6EIlI.s 			page 1
 
 
    1               		.file	"sx1278.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
   50               	; framesize_locals:   0
   51               	; framesize_outgoing: 0
   52               	; framesize:          0
-GAS LISTING /tmp/ccKFr5Gw.s 			page 2
+GAS LISTING /tmp/ccE6EIlI.s 			page 2
 
 
   53               	; elim ap -> fp       4
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  101      FF0F 
  102 005a 194A 0200 		MOV.W	2(R10), R9
  103 005e 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
-GAS LISTING /tmp/ccKFr5Gw.s 			page 3
+GAS LISTING /tmp/ccE6EIlI.s 			page 3
 
 
  103      3C41 4018 
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  151 0006 39B0 7F00 		BIT.W	#127, R9 { JNE	.L10
  151      0020 
  152 000c 8C00 0000 		MOVA	#__func__.4986, R12
-GAS LISTING /tmp/ccKFr5Gw.s 			page 4
+GAS LISTING /tmp/ccE6EIlI.s 			page 4
 
 
  153 0010 B013 0000 		CALLA	#chSysHalt
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  199               	; start of function
  200               	; framesize_regs:     28
  201               	; framesize_locals:   4
-GAS LISTING /tmp/ccKFr5Gw.s 			page 5
+GAS LISTING /tmp/ccE6EIlI.s 			page 5
 
 
  202               	; framesize_outgoing: 0
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  253 008a 3A53      		ADD.W	#-1, R10
  254 008c 5A03 4D18 		rrum.w	#1, R10 { rpt	#14 { rrax.w	R10
  254      0A11 
-GAS LISTING /tmp/ccKFr5Gw.s 			page 6
+GAS LISTING /tmp/ccE6EIlI.s 			page 6
 
 
  255               	.L25:
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  303 0118 0018 7EF0 		ANDX.A	#4095, R14
  303      FF0F 
  304 011e 2A4E      		MOV.W	@R14, R10
-GAS LISTING /tmp/ccKFr5Gw.s 			page 7
+GAS LISTING /tmp/ccE6EIlI.s 			page 7
 
 
  305 0120 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  348               		.type	sx1278SetRegister, @function
  349               	sx1278SetRegister:
  350               	; start of function
-GAS LISTING /tmp/ccKFr5Gw.s 			page 8
+GAS LISTING /tmp/ccE6EIlI.s 			page 8
 
 
  351               	; framesize_regs:     24
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  397 007c 494C      		MOV.B	R12, R9
  398 007e 0C0A      		MOVA	@R10, R12
  399 0080 3C0C 2200 		MOVA	34(R12), R12
-GAS LISTING /tmp/ccKFr5Gw.s 			page 9
+GAS LISTING /tmp/ccE6EIlI.s 			page 9
 
 
  400 0084 CA0C      		MOVA	R12, R10
@@ -538,7 +538,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  450               	; framesize_outgoing: 0
  451               	; framesize:          20
  452               	; elim ap -> fp       24
-GAS LISTING /tmp/ccKFr5Gw.s 			page 10
+GAS LISTING /tmp/ccE6EIlI.s 			page 10
 
 
  453               	; elim fp -> sp       0
@@ -598,7 +598,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  507               	; elim ap -> fp       24
  508               	; elim fp -> sp       0
  509               	; saved regs: R6 R7 R8 R9 R10
-GAS LISTING /tmp/ccKFr5Gw.s 			page 11
+GAS LISTING /tmp/ccE6EIlI.s 			page 11
 
 
  510               		; start of prologue
@@ -658,7 +658,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  564               		; end of prologue
  565 0002 CA0C      		MOVA	R12, R10
  566 0004 084D      		MOV.W	R13, R8
-GAS LISTING /tmp/ccKFr5Gw.s 			page 12
+GAS LISTING /tmp/ccE6EIlI.s 			page 12
 
 
  567 0006 054E      		MOV.W	R14, R5
@@ -718,7 +718,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  620 00a2 CC0A      		MOVA	R10, R12
  621 00a4 4813      		CALLA	R8
  622 00a6 4E43      		MOV.B	#0, R14
-GAS LISTING /tmp/ccKFr5Gw.s 			page 13
+GAS LISTING /tmp/ccE6EIlI.s 			page 13
 
 
  623 00a8 7D42      		MOV.B	#8, R13
@@ -778,7 +778,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  677               	; elim fp -> sp       0
  678               	; saved regs: R8 R10
  679               		; start of prologue
-GAS LISTING /tmp/ccKFr5Gw.s 			page 14
+GAS LISTING /tmp/ccE6EIlI.s 			page 14
 
 
  680 0000 0A14      		PUSHM.A	#1, R10
@@ -838,7 +838,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  734 0036 0D47      		MOV.W	R7, R13
  735 0038 0E46 0F43 		MOV.W	R6,R14 { MOV.W	#0,R15
  736 003c B013 0000 		CALLA	#__mspabi_srll
-GAS LISTING /tmp/ccKFr5Gw.s 			page 15
+GAS LISTING /tmp/ccE6EIlI.s 			page 15
 
 
  737 0040 054C      		MOV.W	R12, R5
@@ -898,7 +898,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  789               	; saved regs: R6 R8 R9 R10
  790               		; start of prologue
  791 0000 2A14      		PUSHM.A	#3, R10
-GAS LISTING /tmp/ccKFr5Gw.s 			page 16
+GAS LISTING /tmp/ccE6EIlI.s 			page 16
 
 
  792 0002 0614      		PUSHM.A	#1, R6
@@ -958,7 +958,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  844 00aa 5D93 0024 		CMP.B	#1, R13 { JEQ	.L82
  845 00ae 4943      		MOV.B	#0, R9
  846               	.L72:
-GAS LISTING /tmp/ccKFr5Gw.s 			page 17
+GAS LISTING /tmp/ccE6EIlI.s 			page 17
 
 
  847 00b0 7CF0 0C00 		AND.B	#12, R12
@@ -1018,7 +1018,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  900 0150 7D40 4000 		MOV.B	#64, R13
  901 0154 CC0A      		MOVA	R10, R12
  902 0156 4613      		CALLA	R6
-GAS LISTING /tmp/ccKFr5Gw.s 			page 18
+GAS LISTING /tmp/ccE6EIlI.s 			page 18
 
 
  903 0158 7E40 4000 		MOV.B	#64, R14
@@ -1078,7 +1078,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  956               		.section	.text.sx1278Sleep,"ax",@progbits
  957               		.balign 2
  958               		.global	sx1278Sleep
-GAS LISTING /tmp/ccKFr5Gw.s 			page 19
+GAS LISTING /tmp/ccE6EIlI.s 			page 19
 
 
  959               		.type	sx1278Sleep, @function
@@ -1138,7 +1138,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  1009      0C16 
  1010 003c 4018 0D4C 		MOVX	R12, R13
  1011 0040 5C43      		MOV.B	#1, R12
-GAS LISTING /tmp/ccKFr5Gw.s 			page 20
+GAS LISTING /tmp/ccE6EIlI.s 			page 20
 
 
  1012 0042 B013 0000 		CALLA	#__mspabi_slli
@@ -1198,7 +1198,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  1062 0036 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
  1062      0C16 
  1063 003c 4018 0D4C 		MOVX	R12, R13
-GAS LISTING /tmp/ccKFr5Gw.s 			page 21
+GAS LISTING /tmp/ccE6EIlI.s 			page 21
 
 
  1064 0040 5C43      		MOV.B	#1, R12
@@ -1258,7 +1258,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  1116 0028 CC0A      		MOVA	R10, R12
  1117 002a 710F 0000 		MOVA	R15, @R1
  1118 002e 4813      		CALLA	R8
-GAS LISTING /tmp/ccKFr5Gw.s 			page 22
+GAS LISTING /tmp/ccE6EIlI.s 			page 22
 
 
  1119 0030 5E4A 0600 		MOV.B	6(R10), R14
@@ -1318,7 +1318,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  1165               	.L92:
  1166 00c0 3F01 2000 		MOVA	32(R1), R15
  1167 00c4 CE06      		MOVA	R6, R14
-GAS LISTING /tmp/ccKFr5Gw.s 			page 23
+GAS LISTING /tmp/ccE6EIlI.s 			page 23
 
 
  1168 00c6 CD04      		MOVA	R4, R13
@@ -1378,7 +1378,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  1220 004a 0E0A      		MOVA	@R10, R14
  1221 004c 3C0E 2600 		MOVA	38(R14), R12
  1222 0050 4018 FCB0 		BITX.B	#64, @R12 { JEQ	.L99
-GAS LISTING /tmp/ccKFr5Gw.s 			page 24
+GAS LISTING /tmp/ccE6EIlI.s 			page 24
 
 
  1222      4000 0000 
@@ -1438,7 +1438,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  1269 00f4 3C0E 2200 		MOVA	34(R14), R12
  1270 00f8 C40C      		MOVA	R12, R4
  1271 00fa 0018 74F0 		ANDX.A	#4095, R4
-GAS LISTING /tmp/ccKFr5Gw.s 			page 25
+GAS LISTING /tmp/ccE6EIlI.s 			page 25
 
 
  1271      FF0F 
@@ -1498,7 +1498,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  1317 01a4 4C93 0034 		CMP.B	#0, R12 { JGE	.L103
  1318 01a8 4018 3CB0 		BITX.W	#64, R12 { JEQ	.L104
  1318      4000 0024 
-GAS LISTING /tmp/ccKFr5Gw.s 			page 26
+GAS LISTING /tmp/ccE6EIlI.s 			page 26
 
 
  1319 01b0 8E93 2C00 		CMP.W	#0, 44(R14) { JNE	.L104
@@ -1558,7 +1558,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  1370 0000 7378 3132 		.string	"sx1278BlockTimeout"
  1370      3738 426C 
  1370      6F63 6B54 
-GAS LISTING /tmp/ccKFr5Gw.s 			page 27
+GAS LISTING /tmp/ccE6EIlI.s 			page 27
 
 
  1370      696D 656F 
@@ -1618,7 +1618,7 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  1401               	__func__.5020:
  1402 0086 7378 3132 		.string	"sx1278SetDeviation"
  1402      3738 5365 
-GAS LISTING /tmp/ccKFr5Gw.s 			page 28
+GAS LISTING /tmp/ccE6EIlI.s 			page 28
 
 
  1402      7444 6576 
@@ -1667,108 +1667,108 @@ GAS LISTING /tmp/ccKFr5Gw.s 			page 1
  1430      0000 0000 
  1430      0000 0000 
  1431               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccKFr5Gw.s 			page 29
+GAS LISTING /tmp/ccE6EIlI.s 			page 29
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sx1278.c
-     /tmp/ccKFr5Gw.s:6      .text.spi_callback:0000000000000000 spi_callback
-     /tmp/ccKFr5Gw.s:1429   .upper.bss:0000000000000000 SX1278D1
-     /tmp/ccKFr5Gw.s:47     .text.blocking_callback:0000000000000000 blocking_callback
-     /tmp/ccKFr5Gw.s:1423   .bss:0000000000000004 tr
-     /tmp/ccKFr5Gw.s:67     .text.sx1278Reset.isra.0:0000000000000000 sx1278Reset.isra.0
-     /tmp/ccKFr5Gw.s:1385   .upper.rodata:0000000000000043 __func__.5053
-     /tmp/ccKFr5Gw.s:137    .text.sx1278ReadRegister:0000000000000000 sx1278ReadRegister
-     /tmp/ccKFr5Gw.s:1413   .upper.rodata:00000000000000bc __func__.4986
-     /tmp/ccKFr5Gw.s:198    .text.sx1278BlockTimeout:0000000000000000 sx1278BlockTimeout
-     /tmp/ccKFr5Gw.s:1369   .upper.rodata:0000000000000000 __func__.5088
-     /tmp/ccKFr5Gw.s:1419   .upper.rodata:00000000000000cf irqbits
-     /tmp/ccKFr5Gw.s:1416   .bss:0000000000000000 suspend_result
-     /tmp/ccKFr5Gw.s:349    .text.sx1278SetRegister:0000000000000000 sx1278SetRegister
-     /tmp/ccKFr5Gw.s:1409   .upper.rodata:00000000000000aa __func__.4992
-     /tmp/ccKFr5Gw.s:419    .text.sx1278SetMode.constprop.3:0000000000000000 sx1278SetMode.constprop.3
-     /tmp/ccKFr5Gw.s:446    .text.sx1278SetBitrate:0000000000000000 sx1278SetBitrate
-     /tmp/ccKFr5Gw.s:1405   .upper.rodata:0000000000000099 __func__.5014
-     /tmp/ccKFr5Gw.s:501    .text.sx1278SetDeviation:0000000000000000 sx1278SetDeviation
-     /tmp/ccKFr5Gw.s:1401   .upper.rodata:0000000000000086 __func__.5020
-     /tmp/ccKFr5Gw.s:553    .text.sx1278SetFrequency:0000000000000000 sx1278SetFrequency
-     /tmp/ccKFr5Gw.s:1397   .upper.rodata:0000000000000073 __func__.5026
-     /tmp/ccKFr5Gw.s:649    .text.sx1278SetPower:0000000000000000 sx1278SetPower
-     /tmp/ccKFr5Gw.s:670    .text.sx1278SetFilterParams:0000000000000000 sx1278SetFilterParams
-     /tmp/ccKFr5Gw.s:1393   .upper.rodata:000000000000005d __func__.5035
-     /tmp/ccKFr5Gw.s:704    .text.sx1278SetSync:0000000000000000 sx1278SetSync
-     /tmp/ccKFr5Gw.s:1389   .upper.rodata:000000000000004f __func__.5045
-     /tmp/ccKFr5Gw.s:760    .text.sx1278ObjectInit:0000000000000000 sx1278ObjectInit
-     /tmp/ccKFr5Gw.s:781    .text.sx1278Start:0000000000000000 sx1278Start
-     /tmp/ccKFr5Gw.s:1381   .upper.rodata:000000000000002c __func__.5078
-     /tmp/ccKFr5Gw.s:1377   .upper.rodata:000000000000001e __func__.5066
-     /tmp/ccKFr5Gw.s:927    .text.sx1278Stop:0000000000000000 sx1278Stop
-     /tmp/ccKFr5Gw.s:960    .text.sx1278Sleep:0000000000000000 sx1278Sleep
-     /tmp/ccKFr5Gw.s:983    .text.sx1278FifoWriteAsync:0000000000000000 sx1278FifoWriteAsync
-     /tmp/ccKFr5Gw.s:1036   .text.sx1278FifoWriteAsyncS:0000000000000000 sx1278FifoWriteAsyncS
-     /tmp/ccKFr5Gw.s:1090   .text.sx1278StartTransmit:0000000000000000 sx1278StartTransmit
-     /tmp/ccKFr5Gw.s:1186   .text.sx1278Send:0000000000000000 sx1278Send
-     /tmp/ccKFr5Gw.s:1373   .upper.rodata:0000000000000013 __func__.5145
-     /tmp/ccKFr5Gw.s:38     .text.spi_callback:000000000000004e .L1
-     /tmp/ccKFr5Gw.s:84     .text.sx1278Reset.isra.0:0000000000000016 .L8
-     /tmp/ccKFr5Gw.s:154    .text.sx1278ReadRegister:0000000000000014 .L10
-     /tmp/ccKFr5Gw.s:219    .text.sx1278BlockTimeout:000000000000001c .L12
-     /tmp/ccKFr5Gw.s:238    .text.sx1278BlockTimeout:000000000000005c .L13
-     /tmp/ccKFr5Gw.s:283    .text.sx1278BlockTimeout:00000000000000de .L14
-     /tmp/ccKFr5Gw.s:270    .text.sx1278BlockTimeout:00000000000000ba .L21
-     /tmp/ccKFr5Gw.s:274    .text.sx1278BlockTimeout:00000000000000c4 .L18
-     /tmp/ccKFr5Gw.s:248    .text.sx1278BlockTimeout:000000000000007c .L15
-     /tmp/ccKFr5Gw.s:280    .text.sx1278BlockTimeout:00000000000000d6 .L23
-     /tmp/ccKFr5Gw.s:255    .text.sx1278BlockTimeout:0000000000000092 .L25
-     /tmp/ccKFr5Gw.s:265    .text.sx1278BlockTimeout:00000000000000b2 .L11
-     /tmp/ccKFr5Gw.s:338    .text.sx1278BlockTimeout:000000000000019e .L19
-     /tmp/ccKFr5Gw.s:313    .text.sx1278BlockTimeout:000000000000014a .L20
-     /tmp/ccKFr5Gw.s:367    .text.sx1278SetRegister:0000000000000016 .L28
-     /tmp/ccKFr5Gw.s:371    .text.sx1278SetRegister:0000000000000028 .L29
-     /tmp/ccKFr5Gw.s:374    .text.sx1278SetRegister:0000000000000030 .L30
-     /tmp/ccKFr5Gw.s:475    .text.sx1278SetBitrate:0000000000000036 .L41
-GAS LISTING /tmp/ccKFr5Gw.s 			page 30
+     /tmp/ccE6EIlI.s:6      .text.spi_callback:0000000000000000 spi_callback
+     /tmp/ccE6EIlI.s:1429   .upper.bss:0000000000000000 SX1278D1
+     /tmp/ccE6EIlI.s:47     .text.blocking_callback:0000000000000000 blocking_callback
+     /tmp/ccE6EIlI.s:1423   .bss:0000000000000004 tr
+     /tmp/ccE6EIlI.s:67     .text.sx1278Reset.isra.0:0000000000000000 sx1278Reset.isra.0
+     /tmp/ccE6EIlI.s:1385   .upper.rodata:0000000000000043 __func__.5053
+     /tmp/ccE6EIlI.s:137    .text.sx1278ReadRegister:0000000000000000 sx1278ReadRegister
+     /tmp/ccE6EIlI.s:1413   .upper.rodata:00000000000000bc __func__.4986
+     /tmp/ccE6EIlI.s:198    .text.sx1278BlockTimeout:0000000000000000 sx1278BlockTimeout
+     /tmp/ccE6EIlI.s:1369   .upper.rodata:0000000000000000 __func__.5088
+     /tmp/ccE6EIlI.s:1419   .upper.rodata:00000000000000cf irqbits
+     /tmp/ccE6EIlI.s:1416   .bss:0000000000000000 suspend_result
+     /tmp/ccE6EIlI.s:349    .text.sx1278SetRegister:0000000000000000 sx1278SetRegister
+     /tmp/ccE6EIlI.s:1409   .upper.rodata:00000000000000aa __func__.4992
+     /tmp/ccE6EIlI.s:419    .text.sx1278SetMode.constprop.3:0000000000000000 sx1278SetMode.constprop.3
+     /tmp/ccE6EIlI.s:446    .text.sx1278SetBitrate:0000000000000000 sx1278SetBitrate
+     /tmp/ccE6EIlI.s:1405   .upper.rodata:0000000000000099 __func__.5014
+     /tmp/ccE6EIlI.s:501    .text.sx1278SetDeviation:0000000000000000 sx1278SetDeviation
+     /tmp/ccE6EIlI.s:1401   .upper.rodata:0000000000000086 __func__.5020
+     /tmp/ccE6EIlI.s:553    .text.sx1278SetFrequency:0000000000000000 sx1278SetFrequency
+     /tmp/ccE6EIlI.s:1397   .upper.rodata:0000000000000073 __func__.5026
+     /tmp/ccE6EIlI.s:649    .text.sx1278SetPower:0000000000000000 sx1278SetPower
+     /tmp/ccE6EIlI.s:670    .text.sx1278SetFilterParams:0000000000000000 sx1278SetFilterParams
+     /tmp/ccE6EIlI.s:1393   .upper.rodata:000000000000005d __func__.5035
+     /tmp/ccE6EIlI.s:704    .text.sx1278SetSync:0000000000000000 sx1278SetSync
+     /tmp/ccE6EIlI.s:1389   .upper.rodata:000000000000004f __func__.5045
+     /tmp/ccE6EIlI.s:760    .text.sx1278ObjectInit:0000000000000000 sx1278ObjectInit
+     /tmp/ccE6EIlI.s:781    .text.sx1278Start:0000000000000000 sx1278Start
+     /tmp/ccE6EIlI.s:1381   .upper.rodata:000000000000002c __func__.5078
+     /tmp/ccE6EIlI.s:1377   .upper.rodata:000000000000001e __func__.5066
+     /tmp/ccE6EIlI.s:927    .text.sx1278Stop:0000000000000000 sx1278Stop
+     /tmp/ccE6EIlI.s:960    .text.sx1278Sleep:0000000000000000 sx1278Sleep
+     /tmp/ccE6EIlI.s:983    .text.sx1278FifoWriteAsync:0000000000000000 sx1278FifoWriteAsync
+     /tmp/ccE6EIlI.s:1036   .text.sx1278FifoWriteAsyncS:0000000000000000 sx1278FifoWriteAsyncS
+     /tmp/ccE6EIlI.s:1090   .text.sx1278StartTransmit:0000000000000000 sx1278StartTransmit
+     /tmp/ccE6EIlI.s:1186   .text.sx1278Send:0000000000000000 sx1278Send
+     /tmp/ccE6EIlI.s:1373   .upper.rodata:0000000000000013 __func__.5145
+     /tmp/ccE6EIlI.s:38     .text.spi_callback:000000000000004e .L1
+     /tmp/ccE6EIlI.s:84     .text.sx1278Reset.isra.0:0000000000000016 .L8
+     /tmp/ccE6EIlI.s:154    .text.sx1278ReadRegister:0000000000000014 .L10
+     /tmp/ccE6EIlI.s:219    .text.sx1278BlockTimeout:000000000000001c .L12
+     /tmp/ccE6EIlI.s:238    .text.sx1278BlockTimeout:000000000000005c .L13
+     /tmp/ccE6EIlI.s:283    .text.sx1278BlockTimeout:00000000000000de .L14
+     /tmp/ccE6EIlI.s:270    .text.sx1278BlockTimeout:00000000000000ba .L21
+     /tmp/ccE6EIlI.s:274    .text.sx1278BlockTimeout:00000000000000c4 .L18
+     /tmp/ccE6EIlI.s:248    .text.sx1278BlockTimeout:000000000000007c .L15
+     /tmp/ccE6EIlI.s:280    .text.sx1278BlockTimeout:00000000000000d6 .L23
+     /tmp/ccE6EIlI.s:255    .text.sx1278BlockTimeout:0000000000000092 .L25
+     /tmp/ccE6EIlI.s:265    .text.sx1278BlockTimeout:00000000000000b2 .L11
+     /tmp/ccE6EIlI.s:338    .text.sx1278BlockTimeout:000000000000019e .L19
+     /tmp/ccE6EIlI.s:313    .text.sx1278BlockTimeout:000000000000014a .L20
+     /tmp/ccE6EIlI.s:367    .text.sx1278SetRegister:0000000000000016 .L28
+     /tmp/ccE6EIlI.s:371    .text.sx1278SetRegister:0000000000000028 .L29
+     /tmp/ccE6EIlI.s:374    .text.sx1278SetRegister:0000000000000030 .L30
+     /tmp/ccE6EIlI.s:475    .text.sx1278SetBitrate:0000000000000036 .L41
+GAS LISTING /tmp/ccE6EIlI.s 			page 30
 
 
-     /tmp/ccKFr5Gw.s:478    .text.sx1278SetBitrate:000000000000003e .L39
-     /tmp/ccKFr5Gw.s:531    .text.sx1278SetDeviation:0000000000000038 .L45
-     /tmp/ccKFr5Gw.s:534    .text.sx1278SetDeviation:0000000000000040 .L43
-     /tmp/ccKFr5Gw.s:588    .text.sx1278SetFrequency:0000000000000046 .L56
-     /tmp/ccKFr5Gw.s:598    .text.sx1278SetFrequency:0000000000000066 .L47
-     /tmp/ccKFr5Gw.s:629    .text.sx1278SetFrequency:00000000000000b2 .L49
-     /tmp/ccKFr5Gw.s:604    .text.sx1278SetFrequency:0000000000000078 .L54
-     /tmp/ccKFr5Gw.s:640    .text.sx1278SetFrequency:00000000000000d6 .L52
-     /tmp/ccKFr5Gw.s:637    .text.sx1278SetFrequency:00000000000000ce .L57
-     /tmp/ccKFr5Gw.s:600    .text.sx1278SetFrequency:000000000000006a .L51
-     /tmp/ccKFr5Gw.s:689    .text.sx1278SetFilterParams:0000000000000018 .L63
-     /tmp/ccKFr5Gw.s:751    .text.sx1278SetSync:0000000000000066 .L64
-     /tmp/ccKFr5Gw.s:741    .text.sx1278SetSync:000000000000004c .L66
-     /tmp/ccKFr5Gw.s:732    .text.sx1278SetSync:0000000000000034 .L67
-     /tmp/ccKFr5Gw.s:912    .text.sx1278Start:000000000000016e .L82
-     /tmp/ccKFr5Gw.s:851    .text.sx1278Start:00000000000000c2 .L73
-     /tmp/ccKFr5Gw.s:915    .text.sx1278Start:0000000000000176 .L74
-     /tmp/ccKFr5Gw.s:891    .text.sx1278Start:0000000000000136 .L76
-     /tmp/ccKFr5Gw.s:898    .text.sx1278Start:000000000000014e .L79
-     /tmp/ccKFr5Gw.s:846    .text.sx1278Start:00000000000000b0 .L72
-     /tmp/ccKFr5Gw.s:880    .text.sx1278Start:0000000000000114 .L85
-     /tmp/ccKFr5Gw.s:1178   .text.sx1278StartTransmit:00000000000000dc .L93
-     /tmp/ccKFr5Gw.s:1165   .text.sx1278StartTransmit:00000000000000c0 .L92
-     /tmp/ccKFr5Gw.s:1113   .text.sx1278StartTransmit:0000000000000020 .L91
-     /tmp/ccKFr5Gw.s:1208   .text.sx1278Send:0000000000000024 .L95
-     /tmp/ccKFr5Gw.s:1225   .text.sx1278Send:0000000000000064 .L96
-     /tmp/ccKFr5Gw.s:1219   .text.sx1278Send:000000000000004a .L103
-     /tmp/ccKFr5Gw.s:1239   .text.sx1278Send:0000000000000096 .L99
-     /tmp/ccKFr5Gw.s:1315   .text.sx1278Send:00000000000001a0 .L100
-     /tmp/ccKFr5Gw.s:1231   .text.sx1278Send:0000000000000078 .L101
-     /tmp/ccKFr5Gw.s:1336   .text.sx1278Send:00000000000001e8 .L110
-     /tmp/ccKFr5Gw.s:1339   .text.sx1278Send:00000000000001f0 .L111
-     /tmp/ccKFr5Gw.s:1342   .text.sx1278Send:00000000000001f8 .L107
-     /tmp/ccKFr5Gw.s:1350   .text.sx1278Send:0000000000000210 .L108
-     /tmp/ccKFr5Gw.s:1322   .text.sx1278Send:00000000000001be .L104
-     /tmp/ccKFr5Gw.s:1245   .text.sx1278Send:00000000000000a6 .L105
-     /tmp/ccKFr5Gw.s:1264   .text.sx1278Send:00000000000000e8 .L106
-     /tmp/ccKFr5Gw.s:1258   .text.sx1278Send:00000000000000cc .L109
-     /tmp/ccKFr5Gw.s:1312   .text.sx1278Send:0000000000000198 .L131
+     /tmp/ccE6EIlI.s:478    .text.sx1278SetBitrate:000000000000003e .L39
+     /tmp/ccE6EIlI.s:531    .text.sx1278SetDeviation:0000000000000038 .L45
+     /tmp/ccE6EIlI.s:534    .text.sx1278SetDeviation:0000000000000040 .L43
+     /tmp/ccE6EIlI.s:588    .text.sx1278SetFrequency:0000000000000046 .L56
+     /tmp/ccE6EIlI.s:598    .text.sx1278SetFrequency:0000000000000066 .L47
+     /tmp/ccE6EIlI.s:629    .text.sx1278SetFrequency:00000000000000b2 .L49
+     /tmp/ccE6EIlI.s:604    .text.sx1278SetFrequency:0000000000000078 .L54
+     /tmp/ccE6EIlI.s:640    .text.sx1278SetFrequency:00000000000000d6 .L52
+     /tmp/ccE6EIlI.s:637    .text.sx1278SetFrequency:00000000000000ce .L57
+     /tmp/ccE6EIlI.s:600    .text.sx1278SetFrequency:000000000000006a .L51
+     /tmp/ccE6EIlI.s:689    .text.sx1278SetFilterParams:0000000000000018 .L63
+     /tmp/ccE6EIlI.s:751    .text.sx1278SetSync:0000000000000066 .L64
+     /tmp/ccE6EIlI.s:741    .text.sx1278SetSync:000000000000004c .L66
+     /tmp/ccE6EIlI.s:732    .text.sx1278SetSync:0000000000000034 .L67
+     /tmp/ccE6EIlI.s:912    .text.sx1278Start:000000000000016e .L82
+     /tmp/ccE6EIlI.s:851    .text.sx1278Start:00000000000000c2 .L73
+     /tmp/ccE6EIlI.s:915    .text.sx1278Start:0000000000000176 .L74
+     /tmp/ccE6EIlI.s:891    .text.sx1278Start:0000000000000136 .L76
+     /tmp/ccE6EIlI.s:898    .text.sx1278Start:000000000000014e .L79
+     /tmp/ccE6EIlI.s:846    .text.sx1278Start:00000000000000b0 .L72
+     /tmp/ccE6EIlI.s:880    .text.sx1278Start:0000000000000114 .L85
+     /tmp/ccE6EIlI.s:1178   .text.sx1278StartTransmit:00000000000000dc .L93
+     /tmp/ccE6EIlI.s:1165   .text.sx1278StartTransmit:00000000000000c0 .L92
+     /tmp/ccE6EIlI.s:1113   .text.sx1278StartTransmit:0000000000000020 .L91
+     /tmp/ccE6EIlI.s:1208   .text.sx1278Send:0000000000000024 .L95
+     /tmp/ccE6EIlI.s:1225   .text.sx1278Send:0000000000000064 .L96
+     /tmp/ccE6EIlI.s:1219   .text.sx1278Send:000000000000004a .L103
+     /tmp/ccE6EIlI.s:1239   .text.sx1278Send:0000000000000096 .L99
+     /tmp/ccE6EIlI.s:1315   .text.sx1278Send:00000000000001a0 .L100
+     /tmp/ccE6EIlI.s:1231   .text.sx1278Send:0000000000000078 .L101
+     /tmp/ccE6EIlI.s:1336   .text.sx1278Send:00000000000001e8 .L110
+     /tmp/ccE6EIlI.s:1339   .text.sx1278Send:00000000000001f0 .L111
+     /tmp/ccE6EIlI.s:1342   .text.sx1278Send:00000000000001f8 .L107
+     /tmp/ccE6EIlI.s:1350   .text.sx1278Send:0000000000000210 .L108
+     /tmp/ccE6EIlI.s:1322   .text.sx1278Send:00000000000001be .L104
+     /tmp/ccE6EIlI.s:1245   .text.sx1278Send:00000000000000a6 .L105
+     /tmp/ccE6EIlI.s:1264   .text.sx1278Send:00000000000000e8 .L106
+     /tmp/ccE6EIlI.s:1258   .text.sx1278Send:00000000000000cc .L109
+     /tmp/ccE6EIlI.s:1312   .text.sx1278Send:0000000000000198 .L131
 
 UNDEFINED SYMBOLS
 __mspabi_srll_12
@@ -1787,7 +1787,7 @@ __mspabi_divul
 __mspabi_srll_4
 __mspabi_slll_11
 __mspabi_slll_8
-GAS LISTING /tmp/ccKFr5Gw.s 			page 31
+GAS LISTING /tmp/ccE6EIlI.s 			page 31
 
 
 __mspabi_srll

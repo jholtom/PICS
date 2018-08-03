@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccIQjPwn.s 			page 1
+GAS LISTING /tmp/ccsPsyqs.s 			page 1
 
 
    1               		.file	"chmempools.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccIQjPwn.s 			page 1
   52               	; framesize_regs:     4
   53               	; framesize_locals:   0
   54               	; framesize_outgoing: 0
-GAS LISTING /tmp/ccIQjPwn.s 			page 2
+GAS LISTING /tmp/ccsPsyqs.s 			page 2
 
 
   55               	; framesize:          4
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccIQjPwn.s 			page 1
  105 000a 0343      		nop
  106               	 ; 0 "" 2
  107               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
-GAS LISTING /tmp/ccIQjPwn.s 			page 3
+GAS LISTING /tmp/ccsPsyqs.s 			page 3
 
 
  108 000c 0343 32D2 		nop { eint { nop
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccIQjPwn.s 			page 1
  158               		; start of prologue
  159               		; end of prologue
  160               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
-GAS LISTING /tmp/ccIQjPwn.s 			page 4
+GAS LISTING /tmp/ccsPsyqs.s 			page 4
 
 
  161 0000 32C2 0343 		dint { nop
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccIQjPwn.s 			page 1
  211 0032 0A16      		POPM.A	#1, r10
  212 0034 1001      		RETA
  213               	.L25:
-GAS LISTING /tmp/ccIQjPwn.s 			page 5
+GAS LISTING /tmp/ccsPsyqs.s 			page 5
 
 
  214 0036 CD04      		MOVA	R4, R13
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccIQjPwn.s 			page 1
  266 0010 AC00 0200 		ADDA	#2, R12
  267 0014 B013 0000 		CALLA	#chPoolAllocI
  268               	.L30:
-GAS LISTING /tmp/ccIQjPwn.s 			page 6
+GAS LISTING /tmp/ccsPsyqs.s 			page 6
 
 
  269               		; start of epilogue
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccIQjPwn.s 			page 1
  322               		; end of prologue
  323 0002 CA0C      		MOVA	R12, R10
  324 0004 AC00 0200 		ADDA	#2, R12
-GAS LISTING /tmp/ccIQjPwn.s 			page 7
+GAS LISTING /tmp/ccsPsyqs.s 			page 7
 
 
  325 0008 B013 0000 		CALLA	#chPoolFreeI
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccIQjPwn.s 			page 1
  378 0000 0A14      		PUSHM.A	#1, R10
  379 0002 0814      		PUSHM.A	#1, R8
  380 0004 0614      		PUSHM.A	#1, R6
-GAS LISTING /tmp/ccIQjPwn.s 			page 8
+GAS LISTING /tmp/ccsPsyqs.s 			page 8
 
 
  381 0006 0414      		PUSHM.A	#1, R4
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccIQjPwn.s 			page 1
  422               		.type	__func__.2601, @object
  423               		.size	__func__.2601, 16
  424               	__func__.2601:
-GAS LISTING /tmp/ccIQjPwn.s 			page 9
+GAS LISTING /tmp/ccsPsyqs.s 			page 9
 
 
  425 0030 6368 506F 		.string	"chPoolLoadArray"
@@ -494,45 +494,45 @@ GAS LISTING /tmp/ccIQjPwn.s 			page 1
  429      496E 6974 
  429      00
  430               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccIQjPwn.s 			page 10
+GAS LISTING /tmp/ccsPsyqs.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 chmempools.c
-     /tmp/ccIQjPwn.s:6      .text.chPoolObjectInit:0000000000000000 chPoolObjectInit
-     /tmp/ccIQjPwn.s:428    .upper.rodata:0000000000000040 __func__.2595
-     /tmp/ccIQjPwn.s:50     .text.chPoolAllocI:0000000000000000 chPoolAllocI
-     /tmp/ccIQjPwn.s:420    .upper.rodata:0000000000000023 __func__.2609
-     /tmp/ccIQjPwn.s:86     .text.chPoolAlloc:0000000000000000 chPoolAlloc
-     /tmp/ccIQjPwn.s:117    .text.chPoolFreeI:0000000000000000 chPoolFreeI
-     /tmp/ccIQjPwn.s:416    .upper.rodata:0000000000000017 __func__.2619
-     /tmp/ccIQjPwn.s:149    .text.chPoolFree:0000000000000000 chPoolFree
-     /tmp/ccIQjPwn.s:180    .text.chPoolLoadArray:0000000000000000 chPoolLoadArray
-     /tmp/ccIQjPwn.s:424    .upper.rodata:0000000000000030 __func__.2601
-     /tmp/ccIQjPwn.s:225    .text.chGuardedPoolObjectInit:0000000000000000 chGuardedPoolObjectInit
-     /tmp/ccIQjPwn.s:250    .text.chGuardedPoolAllocTimeoutS:0000000000000000 chGuardedPoolAllocTimeoutS
-     /tmp/ccIQjPwn.s:280    .text.chGuardedPoolAllocTimeout:0000000000000000 chGuardedPoolAllocTimeout
-     /tmp/ccIQjPwn.s:311    .text.chGuardedPoolFreeI:0000000000000000 chGuardedPoolFreeI
-     /tmp/ccIQjPwn.s:336    .text.chGuardedPoolFree:0000000000000000 chGuardedPoolFree
-     /tmp/ccIQjPwn.s:368    .text.chGuardedPoolLoadArray:0000000000000000 chGuardedPoolLoadArray
-     /tmp/ccIQjPwn.s:412    .upper.rodata:0000000000000000 __func__.2633
-     /tmp/ccIQjPwn.s:26     .text.chPoolObjectInit:000000000000001e .L2
-     /tmp/ccIQjPwn.s:29     .text.chPoolObjectInit:0000000000000026 .L3
-     /tmp/ccIQjPwn.s:66     .text.chPoolAllocI:0000000000000012 .L8
-     /tmp/ccIQjPwn.s:74     .text.chPoolAllocI:0000000000000024 .L9
-     /tmp/ccIQjPwn.s:70     .text.chPoolAllocI:0000000000000020 .L7
-     /tmp/ccIQjPwn.s:134    .text.chPoolFreeI:0000000000000014 .L15
-     /tmp/ccIQjPwn.s:137    .text.chPoolFreeI:000000000000001c .L16
-     /tmp/ccIQjPwn.s:200    .text.chPoolLoadArray:000000000000001a .L22
-     /tmp/ccIQjPwn.s:203    .text.chPoolLoadArray:0000000000000022 .L23
-     /tmp/ccIQjPwn.s:213    .text.chPoolLoadArray:0000000000000036 .L25
-     /tmp/ccIQjPwn.s:205    .text.chPoolLoadArray:0000000000000026 .L24
-     /tmp/ccIQjPwn.s:272    .text.chGuardedPoolAllocTimeoutS:000000000000001c .L32
-     /tmp/ccIQjPwn.s:268    .text.chGuardedPoolAllocTimeoutS:0000000000000018 .L30
-     /tmp/ccIQjPwn.s:388    .text.chGuardedPoolLoadArray:000000000000001a .L37
-     /tmp/ccIQjPwn.s:391    .text.chGuardedPoolLoadArray:0000000000000022 .L38
-     /tmp/ccIQjPwn.s:401    .text.chGuardedPoolLoadArray:0000000000000036 .L40
-     /tmp/ccIQjPwn.s:393    .text.chGuardedPoolLoadArray:0000000000000026 .L39
+     /tmp/ccsPsyqs.s:6      .text.chPoolObjectInit:0000000000000000 chPoolObjectInit
+     /tmp/ccsPsyqs.s:428    .upper.rodata:0000000000000040 __func__.2595
+     /tmp/ccsPsyqs.s:50     .text.chPoolAllocI:0000000000000000 chPoolAllocI
+     /tmp/ccsPsyqs.s:420    .upper.rodata:0000000000000023 __func__.2609
+     /tmp/ccsPsyqs.s:86     .text.chPoolAlloc:0000000000000000 chPoolAlloc
+     /tmp/ccsPsyqs.s:117    .text.chPoolFreeI:0000000000000000 chPoolFreeI
+     /tmp/ccsPsyqs.s:416    .upper.rodata:0000000000000017 __func__.2619
+     /tmp/ccsPsyqs.s:149    .text.chPoolFree:0000000000000000 chPoolFree
+     /tmp/ccsPsyqs.s:180    .text.chPoolLoadArray:0000000000000000 chPoolLoadArray
+     /tmp/ccsPsyqs.s:424    .upper.rodata:0000000000000030 __func__.2601
+     /tmp/ccsPsyqs.s:225    .text.chGuardedPoolObjectInit:0000000000000000 chGuardedPoolObjectInit
+     /tmp/ccsPsyqs.s:250    .text.chGuardedPoolAllocTimeoutS:0000000000000000 chGuardedPoolAllocTimeoutS
+     /tmp/ccsPsyqs.s:280    .text.chGuardedPoolAllocTimeout:0000000000000000 chGuardedPoolAllocTimeout
+     /tmp/ccsPsyqs.s:311    .text.chGuardedPoolFreeI:0000000000000000 chGuardedPoolFreeI
+     /tmp/ccsPsyqs.s:336    .text.chGuardedPoolFree:0000000000000000 chGuardedPoolFree
+     /tmp/ccsPsyqs.s:368    .text.chGuardedPoolLoadArray:0000000000000000 chGuardedPoolLoadArray
+     /tmp/ccsPsyqs.s:412    .upper.rodata:0000000000000000 __func__.2633
+     /tmp/ccsPsyqs.s:26     .text.chPoolObjectInit:000000000000001e .L2
+     /tmp/ccsPsyqs.s:29     .text.chPoolObjectInit:0000000000000026 .L3
+     /tmp/ccsPsyqs.s:66     .text.chPoolAllocI:0000000000000012 .L8
+     /tmp/ccsPsyqs.s:74     .text.chPoolAllocI:0000000000000024 .L9
+     /tmp/ccsPsyqs.s:70     .text.chPoolAllocI:0000000000000020 .L7
+     /tmp/ccsPsyqs.s:134    .text.chPoolFreeI:0000000000000014 .L15
+     /tmp/ccsPsyqs.s:137    .text.chPoolFreeI:000000000000001c .L16
+     /tmp/ccsPsyqs.s:200    .text.chPoolLoadArray:000000000000001a .L22
+     /tmp/ccsPsyqs.s:203    .text.chPoolLoadArray:0000000000000022 .L23
+     /tmp/ccsPsyqs.s:213    .text.chPoolLoadArray:0000000000000036 .L25
+     /tmp/ccsPsyqs.s:205    .text.chPoolLoadArray:0000000000000026 .L24
+     /tmp/ccsPsyqs.s:272    .text.chGuardedPoolAllocTimeoutS:000000000000001c .L32
+     /tmp/ccsPsyqs.s:268    .text.chGuardedPoolAllocTimeoutS:0000000000000018 .L30
+     /tmp/ccsPsyqs.s:388    .text.chGuardedPoolLoadArray:000000000000001a .L37
+     /tmp/ccsPsyqs.s:391    .text.chGuardedPoolLoadArray:0000000000000022 .L38
+     /tmp/ccsPsyqs.s:401    .text.chGuardedPoolLoadArray:0000000000000036 .L40
+     /tmp/ccsPsyqs.s:393    .text.chGuardedPoolLoadArray:0000000000000026 .L39
 
 UNDEFINED SYMBOLS
 chSysHalt

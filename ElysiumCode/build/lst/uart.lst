@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccN1btZR.s 			page 1
+GAS LISTING /tmp/ccJWDdzY.s 			page 1
 
 
    1               		.file	"uart.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccN1btZR.s 			page 1
   48      0000 0000 
   48      0020 
   49 000a 8C00 0000 		MOVA	#__func__.4768, R12
-GAS LISTING /tmp/ccN1btZR.s 			page 2
+GAS LISTING /tmp/ccJWDdzY.s 			page 2
 
 
   50 000e B013 0000 		CALLA	#chSysHalt
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccN1btZR.s 			page 1
  102 0004 8C00 0000 		MOVA	#uart_mbox, R12
  103 0008 B013 0000 		CALLA	#chMBPostI
  104 000c CA0C      		MOVA	R12, R10
-GAS LISTING /tmp/ccN1btZR.s 			page 3
+GAS LISTING /tmp/ccJWDdzY.s 			page 3
 
 
  105 000e 9C00 0000 		CMPA	#0, R12 { JNE	.L9
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccN1btZR.s 			page 1
  157 002a CC0A      		MOVA	R10, R12
  158               		; start of epilogue
  159 002c 0A16      		POPM.A	#1, r10
-GAS LISTING /tmp/ccN1btZR.s 			page 4
+GAS LISTING /tmp/ccJWDdzY.s 			page 4
 
 
  160 002e 1001      		RETA
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccN1btZR.s 			page 1
  211 0024 4018 1C42 		MOVX.W	&uart_mbox+16, R12
  211      0000 
  212 002a 4D43      		MOV.B	#0, R13
-GAS LISTING /tmp/ccN1btZR.s 			page 5
+GAS LISTING /tmp/ccJWDdzY.s 			page 5
 
 
  213 002c 0D9C 0034 		CMP.W	R12, R13 { JGE	.L15
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccN1btZR.s 			page 1
  261 00b6 5C4A 2500 		MOV.B	37(R10), R12
  262 00ba 4718 0C5C 		rpt	#8 { rlax.w	R12
  263 00be 5E4A 2400 		MOV.B	36(R10), R14
-GAS LISTING /tmp/ccN1btZR.s 			page 6
+GAS LISTING /tmp/ccJWDdzY.s 			page 6
 
 
  264 00c2 0CDE      		BIS.W	R14, R12
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccN1btZR.s 			page 1
  308      0343 
  309               	 ; 0 "" 2
  310               	.L21:
-GAS LISTING /tmp/ccN1btZR.s 			page 7
+GAS LISTING /tmp/ccJWDdzY.s 			page 7
 
 
  311 013c 2D00 0000 		MOVA	&tx_active_buffer, R13
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccN1btZR.s 			page 1
  345               		.balign 2
  346               		.type	waUARTThd, @object
  347               		.size	waUARTThd, 320
-GAS LISTING /tmp/ccN1btZR.s 			page 8
+GAS LISTING /tmp/ccJWDdzY.s 			page 8
 
 
  348               	waUARTThd:
@@ -478,48 +478,48 @@ GAS LISTING /tmp/ccN1btZR.s 			page 1
  396      0000 0000 
  396      0000 0000 
  396      0000 0000 
-GAS LISTING /tmp/ccN1btZR.s 			page 9
+GAS LISTING /tmp/ccJWDdzY.s 			page 9
 
 
  397               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccN1btZR.s 			page 10
+GAS LISTING /tmp/ccJWDdzY.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 uart.c
-     /tmp/ccN1btZR.s:6      .text.send_complete_cb:0000000000000000 send_complete_cb
-     /tmp/ccN1btZR.s:380    .persistent:000000000000001a tx_active_buffer
-     /tmp/ccN1btZR.s:374    .bss:0000000000000008 UARTEvtMask
-     /tmp/ccN1btZR.s:385    .persistent:000000000000001e uart_mbox
-     /tmp/ccN1btZR.s:374    .bss:0000000000000004 events
-     /tmp/ccN1btZR.s:372    .bss:0000000000000000 uart_thd
-     /tmp/ccN1btZR.s:37     .text.elyUARTCfgMarkDirtyI:0000000000000000 elyUARTCfgMarkDirtyI
-     /tmp/ccN1btZR.s:341    .upper.rodata:0000000000000021 __func__.4768
-     /tmp/ccN1btZR.s:63     .text.elyUARTCfgMarkDirty:0000000000000000 elyUARTCfgMarkDirty
-     /tmp/ccN1btZR.s:337    .upper.rodata:000000000000000d __func__.4771
-     /tmp/ccN1btZR.s:89     .text.elyUARTPostI:0000000000000000 elyUARTPostI
-     /tmp/ccN1btZR.s:333    .upper.rodata:0000000000000000 __func__.4776
-     /tmp/ccN1btZR.s:124    .text.elyUARTPost:0000000000000000 elyUARTPost
-     /tmp/ccN1btZR.s:166    .text.elyUARTRxBufReadyI:0000000000000000 elyUARTRxBufReadyI
-     /tmp/ccN1btZR.s:188    .text.UARTThd:0000000000000000 UARTThd
-     /tmp/ccN1btZR.s:354    .upper.rodata:0000000000000036 uart_timer_cfg
-     /tmp/ccN1btZR.s:362    .persistent:0000000000000000 A1_cfg
-     /tmp/ccN1btZR.s:348    .upper.bss:0000000000000000 waUARTThd
-     /tmp/ccN1btZR.s:395    .persistent:0000000000000032 uart_buffer
-     /tmp/ccN1btZR.s:24     .text.send_complete_cb:0000000000000026 .L2
-     /tmp/ccN1btZR.s:29     .text.send_complete_cb:0000000000000038 .L1
-     /tmp/ccN1btZR.s:51     .text.elyUARTCfgMarkDirtyI:0000000000000012 .L5
-     /tmp/ccN1btZR.s:77     .text.elyUARTCfgMarkDirty:0000000000000012 .L7
-     /tmp/ccN1btZR.s:115    .text.elyUARTPostI:0000000000000026 .L9
-     /tmp/ccN1btZR.s:110    .text.elyUARTPostI:0000000000000020 .L8
-     /tmp/ccN1btZR.s:214    .text.UARTThd:0000000000000030 .L14
-     /tmp/ccN1btZR.s:217    .text.UARTThd:000000000000003c .L15
-     /tmp/ccN1btZR.s:280    .text.UARTThd:00000000000000f2 .L17
-     /tmp/ccN1btZR.s:317    .text.UARTThd:000000000000015c .L19
-     /tmp/ccN1btZR.s:310    .text.UARTThd:000000000000013c .L21
-     /tmp/ccN1btZR.s:303    .text.UARTThd:0000000000000134 .L22
-     /tmp/ccN1btZR.s:234    .text.UARTThd:0000000000000070 .L16
-     /tmp/ccN1btZR.s:322    .text.UARTThd:0000000000000174 .L24
+     /tmp/ccJWDdzY.s:6      .text.send_complete_cb:0000000000000000 send_complete_cb
+     /tmp/ccJWDdzY.s:380    .persistent:000000000000001a tx_active_buffer
+     /tmp/ccJWDdzY.s:374    .bss:0000000000000008 UARTEvtMask
+     /tmp/ccJWDdzY.s:385    .persistent:000000000000001e uart_mbox
+     /tmp/ccJWDdzY.s:374    .bss:0000000000000004 events
+     /tmp/ccJWDdzY.s:372    .bss:0000000000000000 uart_thd
+     /tmp/ccJWDdzY.s:37     .text.elyUARTCfgMarkDirtyI:0000000000000000 elyUARTCfgMarkDirtyI
+     /tmp/ccJWDdzY.s:341    .upper.rodata:0000000000000021 __func__.4768
+     /tmp/ccJWDdzY.s:63     .text.elyUARTCfgMarkDirty:0000000000000000 elyUARTCfgMarkDirty
+     /tmp/ccJWDdzY.s:337    .upper.rodata:000000000000000d __func__.4771
+     /tmp/ccJWDdzY.s:89     .text.elyUARTPostI:0000000000000000 elyUARTPostI
+     /tmp/ccJWDdzY.s:333    .upper.rodata:0000000000000000 __func__.4776
+     /tmp/ccJWDdzY.s:124    .text.elyUARTPost:0000000000000000 elyUARTPost
+     /tmp/ccJWDdzY.s:166    .text.elyUARTRxBufReadyI:0000000000000000 elyUARTRxBufReadyI
+     /tmp/ccJWDdzY.s:188    .text.UARTThd:0000000000000000 UARTThd
+     /tmp/ccJWDdzY.s:354    .upper.rodata:0000000000000036 uart_timer_cfg
+     /tmp/ccJWDdzY.s:362    .persistent:0000000000000000 A1_cfg
+     /tmp/ccJWDdzY.s:348    .upper.bss:0000000000000000 waUARTThd
+     /tmp/ccJWDdzY.s:395    .persistent:0000000000000032 uart_buffer
+     /tmp/ccJWDdzY.s:24     .text.send_complete_cb:0000000000000026 .L2
+     /tmp/ccJWDdzY.s:29     .text.send_complete_cb:0000000000000038 .L1
+     /tmp/ccJWDdzY.s:51     .text.elyUARTCfgMarkDirtyI:0000000000000012 .L5
+     /tmp/ccJWDdzY.s:77     .text.elyUARTCfgMarkDirty:0000000000000012 .L7
+     /tmp/ccJWDdzY.s:115    .text.elyUARTPostI:0000000000000026 .L9
+     /tmp/ccJWDdzY.s:110    .text.elyUARTPostI:0000000000000020 .L8
+     /tmp/ccJWDdzY.s:214    .text.UARTThd:0000000000000030 .L14
+     /tmp/ccJWDdzY.s:217    .text.UARTThd:000000000000003c .L15
+     /tmp/ccJWDdzY.s:280    .text.UARTThd:00000000000000f2 .L17
+     /tmp/ccJWDdzY.s:317    .text.UARTThd:000000000000015c .L19
+     /tmp/ccJWDdzY.s:310    .text.UARTThd:000000000000013c .L21
+     /tmp/ccJWDdzY.s:303    .text.UARTThd:0000000000000134 .L22
+     /tmp/ccJWDdzY.s:234    .text.UARTThd:0000000000000070 .L16
+     /tmp/ccJWDdzY.s:322    .text.UARTThd:0000000000000174 .L24
 
 UNDEFINED SYMBOLS
 chSchReadyI
@@ -542,7 +542,7 @@ chEvtWaitAnyTimeout
 __crt0_init_highbss
 elyUARTDLLTimeoutCB
 elyUARTDLLTxCB
-GAS LISTING /tmp/ccN1btZR.s 			page 11
+GAS LISTING /tmp/ccJWDdzY.s 			page 11
 
 
 elyUARTDLLRxCB

@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccSVMnQ2.s 			page 1
+GAS LISTING /tmp/ccqVmvo9.s 			page 1
 
 
    1               		.file	"cmds.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
   54               	; framesize_locals:   0
   55               	; framesize_outgoing: 0
   56               	; framesize:          0
-GAS LISTING /tmp/ccSVMnQ2.s 			page 2
+GAS LISTING /tmp/ccqVmvo9.s 			page 2
 
 
   57               	; elim ap -> fp       4
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  107               		.balign 2
  108               		.type	store_telem, @function
  109               	store_telem:
-GAS LISTING /tmp/ccSVMnQ2.s 			page 3
+GAS LISTING /tmp/ccqVmvo9.s 			page 3
 
 
  110               	; start of function
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  161 0066 CE04      		MOVA	R4, R14
  162 0068 ED08      		ADDA	R8, R13
  163 006a CC0A      		MOVA	R10, R12
-GAS LISTING /tmp/ccSVMnQ2.s 			page 4
+GAS LISTING /tmp/ccqVmvo9.s 			page 4
 
 
  164 006c AC00 0500 		ADDA	#5, R12
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  214               	; framesize_regs:     0
  215               	; framesize_locals:   0
  216               	; framesize_outgoing: 0
-GAS LISTING /tmp/ccSVMnQ2.s 			page 5
+GAS LISTING /tmp/ccqVmvo9.s 			page 5
 
 
  217               	; framesize:          0
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  267 005a 4613      		CALLA	R6
  268 005c 0C01      		MOVA	@R1, R12
  269 005e BC40 0004 		MOV.W	#1024, @R12
-GAS LISTING /tmp/ccSVMnQ2.s 			page 6
+GAS LISTING /tmp/ccqVmvo9.s 			page 6
 
 
  269      0000 
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  319      0300 
  320 0020 DC43 0400 		MOV.B	#1, 4(R12)
  321 0024 4018 1DB3 		BITX.W	#1, R13 { JEQ	.L26
-GAS LISTING /tmp/ccSVMnQ2.s 			page 7
+GAS LISTING /tmp/ccqVmvo9.s 			page 7
 
 
  321      0024 
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  373 0004 8C00 0000 		MOVA	#main_mbox, R12
  374 0008 B013 0000 		CALLA	#chMBPost
  375               		; start of epilogue
-GAS LISTING /tmp/ccSVMnQ2.s 			page 8
+GAS LISTING /tmp/ccqVmvo9.s 			page 8
 
 
  376 000c 1001      		RETA
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  430               	; framesize:          12
  431               	; elim ap -> fp       16
  432               	; elim fp -> sp       0
-GAS LISTING /tmp/ccSVMnQ2.s 			page 9
+GAS LISTING /tmp/ccqVmvo9.s 			page 9
 
 
  433               	; saved regs: R8 R9 R10
@@ -538,7 +538,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  487 0008 5C07      		rrum.w	#2, R12
  488 000a 7CF0 3F00 		AND.B	#63, R12
  489 000e 0849      		MOV.W	R9, R8
-GAS LISTING /tmp/ccSVMnQ2.s 			page 10
+GAS LISTING /tmp/ccqVmvo9.s 			page 10
 
 
  490 0010 580F 580F 		rrum.w	#4, R8 { rrum.w	#4, R8 
@@ -598,7 +598,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  537 00b0 7F42      		MOV.B	#8, R15
  538 00b2 4F9C 0028 		CMP.B	R12, R15 { JLO	.L52
  539 00b6 7C90 0600 		CMP.B	#6, R12 { JEQ	.L53
-GAS LISTING /tmp/ccSVMnQ2.s 			page 11
+GAS LISTING /tmp/ccqVmvo9.s 			page 11
 
 
  539      0024 
@@ -658,7 +658,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  579 0154 8000 0000 		BRA	#.L43
  580               	.L45:
  581 0158 7F40 2600 		MOV.B	#38, R15
-GAS LISTING /tmp/ccSVMnQ2.s 			page 12
+GAS LISTING /tmp/ccqVmvo9.s 			page 12
 
 
  582 015c 4F9C 0028 		CMP.B	R12, R15 { JLO	.L58
@@ -718,7 +718,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  621 01fa 8000 0000 		BRA	#.L43
  622               	.L64:
  623 01fe 7C90 2E00 		CMP.B	#46, R12 { JEQ	.L51
-GAS LISTING /tmp/ccSVMnQ2.s 			page 13
+GAS LISTING /tmp/ccqVmvo9.s 			page 13
 
 
  623      0024 
@@ -778,7 +778,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  673               	; start of function
  674               	; framesize_regs:     4
  675               	; framesize_locals:   8
-GAS LISTING /tmp/ccSVMnQ2.s 			page 14
+GAS LISTING /tmp/ccqVmvo9.s 			page 14
 
 
  676               	; framesize_outgoing: 0
@@ -838,7 +838,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  727 000c CA0C      		MOVA	R12, R10
  728 000e 0E49      		MOV.W	R9, R14
  729 0010 0D48      		MOV.W	R8, R13
-GAS LISTING /tmp/ccSVMnQ2.s 			page 15
+GAS LISTING /tmp/ccqVmvo9.s 			page 15
 
 
  730 0012 2D52      		ADD.W	#4, R13
@@ -898,7 +898,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  783 001c 0A16      		POPM.A	#1, r10
  784 001e 1001      		RETA
  785               		.size	store_telem_reply_cb, .-store_telem_reply_cb
-GAS LISTING /tmp/ccSVMnQ2.s 			page 16
+GAS LISTING /tmp/ccqVmvo9.s 			page 16
 
 
  786               		.section	.text.verify_fw_cb,"ax",@progbits
@@ -958,7 +958,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  838 0000 0A14      		PUSHM.A	#1, R10
  839 0002 0814      		PUSHM.A	#1, R8
  840               		; end of prologue
-GAS LISTING /tmp/ccSVMnQ2.s 			page 17
+GAS LISTING /tmp/ccqVmvo9.s 			page 17
 
 
  841 0004 C80C      		MOVA	R12, R8
@@ -1018,7 +1018,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  895 0002 C80C      		MOVA	R12, R8
  896 0004 274D      		MOV.W	@R13, R7
  897 0006 194D 0200 		MOV.W	2(R13), R9
-GAS LISTING /tmp/ccSVMnQ2.s 			page 18
+GAS LISTING /tmp/ccqVmvo9.s 			page 18
 
 
  898 000a 0547      		MOV.W	R7, R5
@@ -1078,7 +1078,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  947               	; framesize_regs:     12
  948               	; framesize_locals:   4
  949               	; framesize_outgoing: 0
-GAS LISTING /tmp/ccSVMnQ2.s 			page 19
+GAS LISTING /tmp/ccqVmvo9.s 			page 19
 
 
  950               	; framesize:          16
@@ -1138,7 +1138,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1002 0022 0F93 0024 		CMP.W	#0, R15 { JEQ	.L231
  1003 0026 6F42      		MOV.B	#4, R15
  1004               	.L222:
-GAS LISTING /tmp/ccSVMnQ2.s 			page 20
+GAS LISTING /tmp/ccqVmvo9.s 			page 20
 
 
  1005 0028 4018 1CB3 		BITX.W	#1, R12 { JEQ	.L232
@@ -1198,7 +1198,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1054 00b8 0E4F      		MOV.W	R15, R14
  1055 00ba 3E50 0B00 		ADD.W	#11, R14
  1056 00be 4E0E 4E0D 		RLAM.A #4, R14 { RRAM.A #4, R14
-GAS LISTING /tmp/ccSVMnQ2.s 			page 21
+GAS LISTING /tmp/ccqVmvo9.s 			page 21
 
 
  1057 00c2 EE06      		ADDA	R6, R14
@@ -1258,7 +1258,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1107 0156 09DC      		BIS.W	R12, R9
  1108 0158 1C41 0400 		MOV.W	4(R1), R12
  1109 015c 0D44      		MOV.W	R4, R13
-GAS LISTING /tmp/ccSVMnQ2.s 			page 22
+GAS LISTING /tmp/ccqVmvo9.s 			page 22
 
 
  1110 015e B013 0000 		CALLA	#__mspabi_slli
@@ -1318,7 +1318,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1159 0046 4616      		POPM.A	#5, r10
  1160 0048 1001      		RETA
  1161               	.L241:
-GAS LISTING /tmp/ccSVMnQ2.s 			page 23
+GAS LISTING /tmp/ccqVmvo9.s 			page 23
 
 
  1162 004a CC06      		MOVA	R6, R12
@@ -1378,7 +1378,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1213 0072 4413      		CALLA	R4
  1214 0074 3C01 0400 		MOVA	4(R1), R12
  1215 0078 B013 0000 		CALLA	#elyFramPostRequestS
-GAS LISTING /tmp/ccSVMnQ2.s 			page 24
+GAS LISTING /tmp/ccqVmvo9.s 			page 24
 
 
  1216 007c 4613      		CALLA	R6
@@ -1438,7 +1438,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1268 0038 1001      		RETA
  1269               		.size	reset_event, .-reset_event
  1270               		.section	.text.reset_chan,"ax",@progbits
-GAS LISTING /tmp/ccSVMnQ2.s 			page 25
+GAS LISTING /tmp/ccqVmvo9.s 			page 25
 
 
  1271               		.balign 2
@@ -1498,7 +1498,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1324 0010 CA0C      		MOVA	R12, R10
  1325 0012 9C00 0000 		CMPA	#0, R12 { JEQ	.L260
  1325      0024 
-GAS LISTING /tmp/ccSVMnQ2.s 			page 26
+GAS LISTING /tmp/ccqVmvo9.s 			page 26
 
 
  1326 0018 8148 0000 		MOV.W	R8, @R1
@@ -1558,7 +1558,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1378 0048 B013 0000 		CALLA	#__mspabi_slll
  1379 004c 0CD4      		BIS.W	R4, R12
  1380 004e 0DD9      		BIS.W	R9, R13
-GAS LISTING /tmp/ccSVMnQ2.s 			page 27
+GAS LISTING /tmp/ccqVmvo9.s 			page 27
 
 
  1381 0050 044C      		MOV.W	R12, R4
@@ -1618,7 +1618,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1431 00e6 0C8A      		SUB.W	R10, R12
  1432 00e8 3C50 FCFF 		ADD.W	#-4, R12
  1433 00ec 0A4C      		MOV.W	R12, R10
-GAS LISTING /tmp/ccSVMnQ2.s 			page 28
+GAS LISTING /tmp/ccqVmvo9.s 			page 28
 
 
  1434 00ee 4A0E 4A0D 		RLAM.A #4, R10 { RRAM.A #4, R10
@@ -1678,7 +1678,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1483 019e 8000 0000 		BRA	#.L275
  1484               		.size	upload_fw, .-upload_fw
  1485               		.section	.text.set_log,"ax",@progbits
-GAS LISTING /tmp/ccSVMnQ2.s 			page 29
+GAS LISTING /tmp/ccqVmvo9.s 			page 29
 
 
  1486               		.balign 2
@@ -1738,7 +1738,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1540 0074 0993 0024 		CMP.W	#0, R9 { JEQ	.L284
  1541 0078 814A 0000 		MOV.W	R10, @R1
  1542 007c 8148 0200 		MOV.W	R8, 2(R1)
-GAS LISTING /tmp/ccSVMnQ2.s 			page 30
+GAS LISTING /tmp/ccqVmvo9.s 			page 30
 
 
  1543 0080 CC01      		MOVA	R1, R12
@@ -1798,7 +1798,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1597 0062 CC47 4C00 		MOV.B	R7, 76(R12)
  1598 0066 B013 0000 		CALLA	#port_lock
  1599 006a 4C47      		MOV.B	R7, R12
-GAS LISTING /tmp/ccSVMnQ2.s 			page 31
+GAS LISTING /tmp/ccqVmvo9.s 			page 31
 
 
  1600 006c B013 0000 		CALLA	#elyErrorSetRptLvlS
@@ -1858,7 +1858,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1653 004c 8146 0200 		MOV.W	R6, 2(R1)
  1654 0050 CC01      		MOVA	R1, R12
  1655 0052 B013 0000 		CALLA	#gen_success
-GAS LISTING /tmp/ccSVMnQ2.s 			page 32
+GAS LISTING /tmp/ccqVmvo9.s 			page 32
 
 
  1656 0056 8000 0000 		BRA	#.L313
@@ -1918,7 +1918,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1709               		; end of prologue
  1710 0006 C80C      		MOVA	R12, R8
  1711 0008 294D      		MOV.W	@R13, R9
-GAS LISTING /tmp/ccSVMnQ2.s 			page 33
+GAS LISTING /tmp/ccqVmvo9.s 			page 33
 
 
  1712 000a 154D 0200 		MOV.W	2(R13), R5
@@ -1978,7 +1978,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1765 009e 8145 0600 		MOV.W	R5, 6(R1)
  1766 00a2 CC01      		MOVA	R1, R12
  1767 00a4 AC00 0400 		ADDA	#4, R12
-GAS LISTING /tmp/ccSVMnQ2.s 			page 34
+GAS LISTING /tmp/ccqVmvo9.s 			page 34
 
 
  1768 00a8 B013 0000 		CALLA	#gen_failure
@@ -2038,7 +2038,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1821 0024 458E      		SUB.B	R14, R5
  1822 0026 35F0 FF00 		AND	#0xff, R5
  1823 002a 0793 0024 		CMP.W	#0, R7 { JEQ	.L350
-GAS LISTING /tmp/ccSVMnQ2.s 			page 35
+GAS LISTING /tmp/ccqVmvo9.s 			page 35
 
 
  1824 002e 6A42      		MOV.B	#4, R10
@@ -2098,7 +2098,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1877               		.size	event_unsub, .-event_unsub
  1878               		.section	.text.event_sub,"ax",@progbits
  1879               		.balign 2
-GAS LISTING /tmp/ccSVMnQ2.s 			page 36
+GAS LISTING /tmp/ccqVmvo9.s 			page 36
 
 
  1880               		.type	event_sub, @function
@@ -2158,7 +2158,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1933               	.L369:
  1934 0070 4D43      		MOV.B	#0, R13
  1935 0072 8000 0000 		BRA	#.L355
-GAS LISTING /tmp/ccSVMnQ2.s 			page 37
+GAS LISTING /tmp/ccqVmvo9.s 			page 37
 
 
  1936               	.L370:
@@ -2218,7 +2218,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  1990               		.balign 2
  1991               		.type	unlog_chan, @function
  1992               	unlog_chan:
-GAS LISTING /tmp/ccSVMnQ2.s 			page 38
+GAS LISTING /tmp/ccqVmvo9.s 			page 38
 
 
  1993               	; start of function
@@ -2278,7 +2278,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2046 0072 074D      		MOV.W	R13, R7
  2047 0074 8000 0000 		BRA	#.L376
  2048               	.L388:
-GAS LISTING /tmp/ccSVMnQ2.s 			page 39
+GAS LISTING /tmp/ccqVmvo9.s 			page 39
 
 
  2049 0078 6C43      		MOV.B	#2, R12
@@ -2338,7 +2338,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2102 0018 4018 1CB3 		BITX.W	#1, R12 { JEQ	.L405
  2102      0024 
  2103 001e 6D43      		MOV.B	#2, R13
-GAS LISTING /tmp/ccSVMnQ2.s 			page 40
+GAS LISTING /tmp/ccqVmvo9.s 			page 40
 
 
  2104               	.L393:
@@ -2398,7 +2398,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2157 00a2 0D64      		ADDC	R4, R13
  2158 00a4 1B41 0600 		MOV.W	6(R1), R11
  2159 00a8 1C41 0800 		MOV.W	8(R1), R12
-GAS LISTING /tmp/ccSVMnQ2.s 			page 41
+GAS LISTING /tmp/ccqVmvo9.s 			page 41
 
 
  2160 00ac 0C12 0B12 		PUSH.W	R12 { PUSH.W	R11 { POPM.A	#1, R4
@@ -2458,7 +2458,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2211               	.L398:
  2212 0148 7C40 8CFF 		MOV.B	#-116, R12
  2213 014c B013 0000 		CALLA	#elyErrorSignal
-GAS LISTING /tmp/ccSVMnQ2.s 			page 42
+GAS LISTING /tmp/ccqVmvo9.s 			page 42
 
 
  2214 0150 8000 0000 		BRA	#.L404
@@ -2518,7 +2518,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2267               	.L413:
  2268 0038 0C9F 0038 		CMP.W	R15, R12 { JL	.L418
  2269 003c CC06      		MOVA	R6, R12
-GAS LISTING /tmp/ccSVMnQ2.s 			page 43
+GAS LISTING /tmp/ccqVmvo9.s 			page 43
 
 
  2270 003e B013 0000 		CALLA	#elyChanUnsubscribe
@@ -2578,7 +2578,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2324 0002 B100 1400 		SUBA	#20, R1
  2325               		; end of prologue
  2326 0006 C50C      		MOVA	R12, R5
-GAS LISTING /tmp/ccSVMnQ2.s 			page 44
+GAS LISTING /tmp/ccqVmvo9.s 			page 44
 
 
  2327 0008 294D      		MOV.W	@R13, R9
@@ -2638,7 +2638,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2378 008c 0E56      		ADD	R6, R14 ; cy
  2379 008e 044D      		MOV.W	R13, R4
  2380 0090 0468      		ADDC	R8, R4
-GAS LISTING /tmp/ccSVMnQ2.s 			page 45
+GAS LISTING /tmp/ccqVmvo9.s 			page 45
 
 
  2381 0092 0C4E      		MOV.W	R14, R12
@@ -2698,7 +2698,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2432 0132 B013 0000 		CALLA	#gen_failure
  2433               	.L437:
  2434 0136 CC05      		MOVA	R5, R12
-GAS LISTING /tmp/ccSVMnQ2.s 			page 46
+GAS LISTING /tmp/ccqVmvo9.s 			page 46
 
 
  2435 0138 B013 0000 		CALLA	#elyNLFromFW
@@ -2758,7 +2758,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2489 002a 4C49      		MOV.B	R9, R12
  2490 002c 7C53      		ADD.B	#-1, R12
  2491 002e 7D40 0300 		MOV.B	#3, R13
-GAS LISTING /tmp/ccSVMnQ2.s 			page 47
+GAS LISTING /tmp/ccqVmvo9.s 			page 47
 
 
  2492 0032 4D9C 002C 		CMP.B	R12, R13 { JHS	.L445
@@ -2818,7 +2818,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2544               	; elim ap -> fp       32
  2545               	; elim fp -> sp       20
  2546               	; saved regs: R4 R5 R6 R7 R8 R9 R10
-GAS LISTING /tmp/ccSVMnQ2.s 			page 48
+GAS LISTING /tmp/ccqVmvo9.s 			page 48
 
 
  2547               		; start of prologue
@@ -2878,7 +2878,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2594      002C 
  2595               	.L452:
  2596 00a4 0993 0024 		CMP.W	#0, R9 { JEQ	.L456
-GAS LISTING /tmp/ccSVMnQ2.s 			page 49
+GAS LISTING /tmp/ccqVmvo9.s 			page 49
 
 
  2597 00a8 814A 1000 		MOV.W	R10, 16(R1)
@@ -2938,7 +2938,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2642               		; start of prologue
  2643 0000 0A14      		PUSHM.A	#1, R10
  2644 0002 B100 0A00 		SUBA	#10, R1
-GAS LISTING /tmp/ccSVMnQ2.s 			page 50
+GAS LISTING /tmp/ccqVmvo9.s 			page 50
 
 
  2645               		; end of prologue
@@ -2998,7 +2998,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2694 0032 B013 0000 		CALLA	#set_u32
  2695 0036 CC0A      		MOVA	R10, R12
  2696 0038 B013 0000 		CALLA	#elyNLFromFW
-GAS LISTING /tmp/ccSVMnQ2.s 			page 51
+GAS LISTING /tmp/ccqVmvo9.s 			page 51
 
 
  2697 003c B013 0000 		CALLA	#elyNLFreeBuffer
@@ -3058,7 +3058,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2748               		.size	set_tx_dev, .-set_tx_dev
  2749               		.section	.text.set_rx_br,"ax",@progbits
  2750               		.balign 2
-GAS LISTING /tmp/ccSVMnQ2.s 			page 52
+GAS LISTING /tmp/ccqVmvo9.s 			page 52
 
 
  2751               		.type	set_rx_br, @function
@@ -3118,7 +3118,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2803 0000 0A14      		PUSHM.A	#1, R10
  2804 0002 B100 0A00 		SUBA	#10, R1
  2805               		; end of prologue
-GAS LISTING /tmp/ccSVMnQ2.s 			page 53
+GAS LISTING /tmp/ccqVmvo9.s 			page 53
 
 
  2806 0006 CA0C      		MOVA	R12, R10
@@ -3178,7 +3178,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2854 0028 CE01      		MOVA	R1, R14
  2855 002a AE00 0600 		ADDA	#6, R14
  2856 002e CD0C      		MOVA	R12, R13
-GAS LISTING /tmp/ccSVMnQ2.s 			page 54
+GAS LISTING /tmp/ccqVmvo9.s 			page 54
 
 
  2857 0030 6C42      		MOV.B	#4, R12
@@ -3238,7 +3238,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2907 004c B013 0000 		CALLA	#elyEventSignal
  2908               		; start of epilogue
  2909 0050 A100 0A00 		ADDA	#10, R1
-GAS LISTING /tmp/ccSVMnQ2.s 			page 55
+GAS LISTING /tmp/ccqVmvo9.s 			page 55
 
 
  2910 0054 0A16      		POPM.A	#1, r10
@@ -3298,7 +3298,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  2964 0062 8000 0000 		BRA	#.L477
  2965               	.L473:
  2966 0066 2C00 0000 		MOVA	&bank0w, R12
-GAS LISTING /tmp/ccSVMnQ2.s 			page 56
+GAS LISTING /tmp/ccqVmvo9.s 			page 56
 
 
  2967 006a CC4D 2100 		MOV.B	R13, 33(R12)
@@ -3358,7 +3358,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3021               	.L485:
  3022 004c 7C40 8CFF 		MOV.B	#-116, R12
  3023 0050 B013 0000 		CALLA	#elyErrorSignal
-GAS LISTING /tmp/ccSVMnQ2.s 			page 57
+GAS LISTING /tmp/ccqVmvo9.s 			page 57
 
 
  3024 0054 8000 0000 		BRA	#.L482
@@ -3418,7 +3418,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3074 0028 B013 0000 		CALLA	#elyFWGetBuffer
  3075 002c C40C      		MOVA	R12, R4
  3076 002e 9C00 0000 		CMPA	#0, R12 { JNE	.L494
-GAS LISTING /tmp/ccSVMnQ2.s 			page 58
+GAS LISTING /tmp/ccqVmvo9.s 			page 58
 
 
  3076      0020 
@@ -3478,7 +3478,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3125 0016 8A00 0000 		MOVA	#elyNLFromFW, R10
  3126 001a 4018 25B3 		BITX.W	#2, R5 { JEQ	.L501
  3126      0024 
-GAS LISTING /tmp/ccSVMnQ2.s 			page 59
+GAS LISTING /tmp/ccqVmvo9.s 			page 59
 
 
  3127 0020 B013 0000 		CALLA	#elyFWGetBuffer
@@ -3538,7 +3538,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3175 000c 78F0 3F00 		AND.B	#63, R8
  3176 0010 0647      		MOV.W	R7, R6
  3177 0012 560F 560F 		rrum.w	#4, R6 { rrum.w	#4, R6 
-GAS LISTING /tmp/ccSVMnQ2.s 			page 60
+GAS LISTING /tmp/ccqVmvo9.s 			page 60
 
 
  3178 0016 B013 0000 		CALLA	#elyNLFromFW
@@ -3598,7 +3598,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3227               	; saved regs: R5 R6 R7 R8 R9 R10
  3228               		; start of prologue
  3229 0000 5A14      		PUSHM.A	#6, R10
-GAS LISTING /tmp/ccSVMnQ2.s 			page 61
+GAS LISTING /tmp/ccqVmvo9.s 			page 61
 
 
  3230               		; end of prologue
@@ -3658,7 +3658,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3277               	.L528:
  3278 009a 6E43      		MOV.B	#2, R14
  3279 009c 8000 0000 		BRA	#.L523
-GAS LISTING /tmp/ccSVMnQ2.s 			page 62
+GAS LISTING /tmp/ccqVmvo9.s 			page 62
 
 
  3280               		.size	set_time, .-set_time
@@ -3718,7 +3718,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3332      0024 
  3333 0074 CC49 0000 		MOV.B	R9, @R12
  3334 0078 2C00 0000 		MOVA	&bank0p, R12
-GAS LISTING /tmp/ccSVMnQ2.s 			page 63
+GAS LISTING /tmp/ccqVmvo9.s 			page 63
 
 
  3335 007c D44C 5100 		MOV.B	81(R12), 2(R4)
@@ -3778,7 +3778,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3384 0008 2C4D      		MOV.W	@R13, R12
  3385 000a 914D 0200 		MOV.W	2(R13), 12(R1)
  3385      0C00 
-GAS LISTING /tmp/ccSVMnQ2.s 			page 64
+GAS LISTING /tmp/ccqVmvo9.s 			page 64
 
 
  3386 0010 074E      		MOV.W	R14, R7
@@ -3838,7 +3838,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3432 00a8 0E49 0F43 		MOV.W	R9,R14 { MOV.W	#0,R15
  3433 00ac B013 0000 		CALLA	#__mspabi_srll
  3434 00b0 C64C 0000 		MOV.B	R12, @R6
-GAS LISTING /tmp/ccSVMnQ2.s 			page 65
+GAS LISTING /tmp/ccqVmvo9.s 			page 65
 
 
  3435 00b4 3952      		ADD.W	#8, R9
@@ -3898,7 +3898,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3484 014a 3952      		ADD.W	#8, R9
  3485 014c A600 0100 		ADDA	#1, R6
  3486 0150 3990 2000 		CMP.W	#32, R9 { JNE	.L554
-GAS LISTING /tmp/ccSVMnQ2.s 			page 66
+GAS LISTING /tmp/ccqVmvo9.s 			page 66
 
 
  3486      0020 
@@ -3958,7 +3958,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3540               	; saved regs: R8 R9
  3541               		; start of prologue
  3542 0000 1914      		PUSHM.A	#2, R9
-GAS LISTING /tmp/ccSVMnQ2.s 			page 67
+GAS LISTING /tmp/ccqVmvo9.s 			page 67
 
 
  3543 0002 B100 0800 		SUBA	#8, R1
@@ -4018,7 +4018,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3595 003a A100 0800 		ADDA	#8, R1
  3596 003e 1816      		POPM.A	#2, r9
  3597 0040 1001      		RETA
-GAS LISTING /tmp/ccSVMnQ2.s 			page 68
+GAS LISTING /tmp/ccqVmvo9.s 			page 68
 
 
  3598               		.size	get_tx_dev, .-get_tx_dev
@@ -4078,7 +4078,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3651 0008 194D 0200 		MOV.W	2(R13), R9
  3652 000c B013 0000 		CALLA	#elyNLFromFW
  3653 0010 B013 0000 		CALLA	#elyNLFreeBuffer
-GAS LISTING /tmp/ccSVMnQ2.s 			page 69
+GAS LISTING /tmp/ccqVmvo9.s 			page 69
 
 
  3654 0014 8148 0400 		MOV.W	R8, 4(R1)
@@ -4138,7 +4138,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3705               		.balign 2
  3706               		.type	get_tx_freq, @function
  3707               	get_tx_freq:
-GAS LISTING /tmp/ccSVMnQ2.s 			page 70
+GAS LISTING /tmp/ccqVmvo9.s 			page 70
 
 
  3708               	; start of function
@@ -4198,7 +4198,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3760 0012 B013 0000 		CALLA	#elyNLFromFW
  3761 0016 B013 0000 		CALLA	#elyNLFreeBuffer
  3762 001a 39F0 FF00 		AND	#0xff, R9
-GAS LISTING /tmp/ccSVMnQ2.s 			page 71
+GAS LISTING /tmp/ccqVmvo9.s 			page 71
 
 
  3763 001e 4018 29B3 		BITX.W	#2, R9 { JEQ	.L572
@@ -4258,7 +4258,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3810 0016 4F45      		MOV.B	R5, R15
  3811 0018 4B4F      		MOV.B	R15, R11
  3812 001a 6BF3      		AND.B	#2, R11
-GAS LISTING /tmp/ccSVMnQ2.s 			page 72
+GAS LISTING /tmp/ccqVmvo9.s 			page 72
 
 
  3813 001c 474B      		MOV.B	R11, R7
@@ -4318,7 +4318,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3862 00ac 4018 3D40 		MOVX.W	#139, R13 { SUBX.W	R12, R13
  3862      8B00 4018 
  3862      0D8C 
-GAS LISTING /tmp/ccSVMnQ2.s 			page 73
+GAS LISTING /tmp/ccqVmvo9.s 			page 73
 
 
  3863 00b6 0A9D 0038 		CMP.W	R13, R10 { JL	.L588
@@ -4378,7 +4378,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3914               	.L591:
  3915 0160 CC04      		MOVA	R4, R12
  3916 0162 4613      		CALLA	R6
-GAS LISTING /tmp/ccSVMnQ2.s 			page 74
+GAS LISTING /tmp/ccqVmvo9.s 			page 74
 
 
  3917 0164 B013 0000 		CALLA	#elyFWFreeBuffer
@@ -4438,7 +4438,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  3969 006c 4018 3C40 		MOVX.W	#87, R12 { SUBX.W	R9, R12
  3969      5700 4018 
  3969      0C89 
-GAS LISTING /tmp/ccSVMnQ2.s 			page 75
+GAS LISTING /tmp/ccqVmvo9.s 			page 75
 
 
  3970 0076 0D9C 0038 		CMP.W	R12, R13 { JL	.L602
@@ -4498,7 +4498,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  4016 010a 0D49      		MOV.W	R9, R13
  4017 010c 3D50 0600 		ADD.W	#6, R13
  4018 0110 4D0E 4D0D 		RLAM.A #4, R13 { RRAM.A #4, R13
-GAS LISTING /tmp/ccSVMnQ2.s 			page 76
+GAS LISTING /tmp/ccqVmvo9.s 			page 76
 
 
  4019 0114 CC0A      		MOVA	R10, R12
@@ -4558,7 +4558,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  4070 005a 1641 0A00 		MOV.W	10(R1), R6
  4071 005e 76F0 FF00 		AND.B	#255, R6
  4072 0062 0656      		ADD.W	R6, R6
-GAS LISTING /tmp/ccSVMnQ2.s 			page 77
+GAS LISTING /tmp/ccqVmvo9.s 			page 77
 
 
  4073 0064 8146 0C00 		MOV.W	R6, 12(R1)
@@ -4618,7 +4618,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  4124 0104 4F9E 002C 		CMP.B	R14, R15 { JHS	.L614
  4125 0108 A600 0200 		ADDA	#2, R6
  4126 010c 7E40 D4FF 		MOV.B	#-44, R14
-GAS LISTING /tmp/ccSVMnQ2.s 			page 78
+GAS LISTING /tmp/ccqVmvo9.s 			page 78
 
 
  4127 0110 4E9C 002C 		CMP.B	R12, R14 { JHS	.L615
@@ -4678,7 +4678,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  4180 0010 5D07      		rrum.w	#2, R13
  4181 0012 7DF0 3F00 		AND.B	#63, R13
  4182 0016 C14D 0900 		MOV.B	R13, 9(R1)
-GAS LISTING /tmp/ccSVMnQ2.s 			page 79
+GAS LISTING /tmp/ccqVmvo9.s 			page 79
 
 
  4183 001a 0549      		MOV.W	R9, R5
@@ -4738,7 +4738,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  4231 00b0 5F41 0800 		MOV.B	8(R1), R15
  4232 00b4 7F53      		ADD.B	#-1, R15
  4233 00b6 CA4F 0100 		MOV.B	R15, 1(R10)
-GAS LISTING /tmp/ccSVMnQ2.s 			page 80
+GAS LISTING /tmp/ccqVmvo9.s 			page 80
 
 
  4234 00ba 1D41 0200 		MOV.W	2(R1), R13
@@ -4798,7 +4798,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  4288               		.size	get_regs, .-get_regs
  4289               		.section	.text.get_active_bank,"ax",@progbits
  4290               		.balign 2
-GAS LISTING /tmp/ccSVMnQ2.s 			page 81
+GAS LISTING /tmp/ccqVmvo9.s 			page 81
 
 
  4291               		.type	get_active_bank, @function
@@ -4858,7 +4858,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  4339               		.balign 2
  4340               		.type	get_gpo, @function
  4341               	get_gpo:
-GAS LISTING /tmp/ccSVMnQ2.s 			page 82
+GAS LISTING /tmp/ccqVmvo9.s 			page 82
 
 
  4342               	; start of function
@@ -4918,7 +4918,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  4390               		.type	CmdThd, @function
  4391               	CmdThd:
  4392               	; start of function
-GAS LISTING /tmp/ccSVMnQ2.s 			page 83
+GAS LISTING /tmp/ccqVmvo9.s 			page 83
 
 
  4393               	; framesize_regs:     20
@@ -4978,7 +4978,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  4444      6D64 5365 
  4444      6E64 5265 
  4444      706C 7949 
-GAS LISTING /tmp/ccSVMnQ2.s 			page 84
+GAS LISTING /tmp/ccqVmvo9.s 			page 84
 
 
  4444      00
@@ -5038,7 +5038,7 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  4491 0090 0000 0000 		.long	unlog_chan
  4492 0094 0000 0000 		.long	get_chan
  4493 0098 0000 0000 		.long	reset_chan
-GAS LISTING /tmp/ccSVMnQ2.s 			page 85
+GAS LISTING /tmp/ccqVmvo9.s 			page 85
 
 
  4494 009c 0000 0000 		.long	event_sub
@@ -5085,427 +5085,427 @@ GAS LISTING /tmp/ccSVMnQ2.s 			page 1
  4535               		.local	main_buffer
  4536               		.comm	main_buffer,48,2
  4537               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccSVMnQ2.s 			page 86
+GAS LISTING /tmp/ccqVmvo9.s 			page 86
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 cmds.c
-     /tmp/ccSVMnQ2.s:5      .text.port_lock:0000000000000000 port_lock
-     /tmp/ccSVMnQ2.s:28     .text.port_unlock:0000000000000000 port_unlock
-     /tmp/ccSVMnQ2.s:51     .text.reset:0000000000000000 reset
-     /tmp/ccSVMnQ2.s:4523   .bss:0000000000000012 active_buffer
-     /tmp/ccSVMnQ2.s:72     .text.write_failure:0000000000000000 write_failure
-     /tmp/ccSVMnQ2.s:109    .text.store_telem:0000000000000000 store_telem
-     /tmp/ccSVMnQ2.s:4517   .bss:0000000000000006 telem_stored_hdr
-     /tmp/ccSVMnQ2.s:761    .text.store_telem_reply_cb:0000000000000000 store_telem_reply_cb
-     /tmp/ccSVMnQ2.s:193    .text.store_telem_noreply_cb:0000000000000000 store_telem_noreply_cb
-     /tmp/ccSVMnQ2.s:212    .text.upload_fw_noreply_cb:0000000000000000 upload_fw_noreply_cb
-     /tmp/ccSVMnQ2.s:230    .text.verify_fw:0000000000000000 verify_fw
-     /tmp/ccSVMnQ2.s:4515   .bss:0000000000000004 verify_crc
-     /tmp/ccSVMnQ2.s:4519   .bss:000000000000000a verify_stored_hdr
-     /tmp/ccSVMnQ2.s:789    .text.verify_fw_cb:0000000000000000 verify_fw_cb
-     /tmp/ccSVMnQ2.s:300    .text.write_success:0000000000000000 write_success
-     /tmp/ccSVMnQ2.s:336    .text.cancel_fw_eeprom_cb:0000000000000000 cancel_fw_eeprom_cb
-     /tmp/ccSVMnQ2.s:4513   .bss:0000000000000002 cancel_sem
-     /tmp/ccSVMnQ2.s:360    .text.elyMainMBPost:0000000000000000 elyMainMBPost
-     /tmp/ccSVMnQ2.s:4528   .upper.data:0000000000000000 main_mbox
-     /tmp/ccSVMnQ2.s:382    .text.elyMainMBPostS:0000000000000000 elyMainMBPostS
-     /tmp/ccSVMnQ2.s:404    .text.elyMainMBPostI:0000000000000000 elyMainMBPostI
-     /tmp/ccSVMnQ2.s:425    .text.elyCmdParse:0000000000000000 elyCmdParse
-     /tmp/ccSVMnQ2.s:472    .text.elyCmdValidate:0000000000000000 elyCmdValidate
-     /tmp/ccSVMnQ2.s:4449   .upper.rodata:0000000000000011 __func__.5633
-     /tmp/ccSVMnQ2.s:672    .text.elyCmdDispatch:0000000000000000 elyCmdDispatch
-     /tmp/ccSVMnQ2.s:4462   .upper.rodata:0000000000000020 handlers
-     /tmp/ccSVMnQ2.s:712    .text.elyCmdSendReplyI:0000000000000000 elyCmdSendReplyI
-     /tmp/ccSVMnQ2.s:4443   .upper.rodata:0000000000000000 __func__.5649
-     /tmp/ccSVMnQ2.s:4521   .bss:000000000000000e stored_hdr
-     /tmp/ccSVMnQ2.s:828    .text.upload_fw_reply_cb:0000000000000000 upload_fw_reply_cb
-     /tmp/ccSVMnQ2.s:857    .text.elyCmdSendReply:0000000000000000 elyCmdSendReply
-     /tmp/ccSVMnQ2.s:883    .text.get_sx1212_reg:0000000000000000 get_sx1212_reg
-     /tmp/ccSVMnQ2.s:945    .text.gen_success:0000000000000000 gen_success
-     /tmp/ccSVMnQ2.s:979    .text.get_telem:0000000000000000 get_telem
-     /tmp/ccSVMnQ2.s:1126   .text.install_fw:0000000000000000 install_fw
-     /tmp/ccSVMnQ2.s:1170   .text.cancel_fw:0000000000000000 cancel_fw
+     /tmp/ccqVmvo9.s:5      .text.port_lock:0000000000000000 port_lock
+     /tmp/ccqVmvo9.s:28     .text.port_unlock:0000000000000000 port_unlock
+     /tmp/ccqVmvo9.s:51     .text.reset:0000000000000000 reset
+     /tmp/ccqVmvo9.s:4523   .bss:0000000000000012 active_buffer
+     /tmp/ccqVmvo9.s:72     .text.write_failure:0000000000000000 write_failure
+     /tmp/ccqVmvo9.s:109    .text.store_telem:0000000000000000 store_telem
+     /tmp/ccqVmvo9.s:4517   .bss:0000000000000006 telem_stored_hdr
+     /tmp/ccqVmvo9.s:761    .text.store_telem_reply_cb:0000000000000000 store_telem_reply_cb
+     /tmp/ccqVmvo9.s:193    .text.store_telem_noreply_cb:0000000000000000 store_telem_noreply_cb
+     /tmp/ccqVmvo9.s:212    .text.upload_fw_noreply_cb:0000000000000000 upload_fw_noreply_cb
+     /tmp/ccqVmvo9.s:230    .text.verify_fw:0000000000000000 verify_fw
+     /tmp/ccqVmvo9.s:4515   .bss:0000000000000004 verify_crc
+     /tmp/ccqVmvo9.s:4519   .bss:000000000000000a verify_stored_hdr
+     /tmp/ccqVmvo9.s:789    .text.verify_fw_cb:0000000000000000 verify_fw_cb
+     /tmp/ccqVmvo9.s:300    .text.write_success:0000000000000000 write_success
+     /tmp/ccqVmvo9.s:336    .text.cancel_fw_eeprom_cb:0000000000000000 cancel_fw_eeprom_cb
+     /tmp/ccqVmvo9.s:4513   .bss:0000000000000002 cancel_sem
+     /tmp/ccqVmvo9.s:360    .text.elyMainMBPost:0000000000000000 elyMainMBPost
+     /tmp/ccqVmvo9.s:4528   .upper.data:0000000000000000 main_mbox
+     /tmp/ccqVmvo9.s:382    .text.elyMainMBPostS:0000000000000000 elyMainMBPostS
+     /tmp/ccqVmvo9.s:404    .text.elyMainMBPostI:0000000000000000 elyMainMBPostI
+     /tmp/ccqVmvo9.s:425    .text.elyCmdParse:0000000000000000 elyCmdParse
+     /tmp/ccqVmvo9.s:472    .text.elyCmdValidate:0000000000000000 elyCmdValidate
+     /tmp/ccqVmvo9.s:4449   .upper.rodata:0000000000000011 __func__.5633
+     /tmp/ccqVmvo9.s:672    .text.elyCmdDispatch:0000000000000000 elyCmdDispatch
+     /tmp/ccqVmvo9.s:4462   .upper.rodata:0000000000000020 handlers
+     /tmp/ccqVmvo9.s:712    .text.elyCmdSendReplyI:0000000000000000 elyCmdSendReplyI
+     /tmp/ccqVmvo9.s:4443   .upper.rodata:0000000000000000 __func__.5649
+     /tmp/ccqVmvo9.s:4521   .bss:000000000000000e stored_hdr
+     /tmp/ccqVmvo9.s:828    .text.upload_fw_reply_cb:0000000000000000 upload_fw_reply_cb
+     /tmp/ccqVmvo9.s:857    .text.elyCmdSendReply:0000000000000000 elyCmdSendReply
+     /tmp/ccqVmvo9.s:883    .text.get_sx1212_reg:0000000000000000 get_sx1212_reg
+     /tmp/ccqVmvo9.s:945    .text.gen_success:0000000000000000 gen_success
+     /tmp/ccqVmvo9.s:979    .text.get_telem:0000000000000000 get_telem
+     /tmp/ccqVmvo9.s:1126   .text.install_fw:0000000000000000 install_fw
+     /tmp/ccqVmvo9.s:1170   .text.cancel_fw:0000000000000000 cancel_fw
                              .bss:0000000000000000 fill_value.5526
-     /tmp/ccSVMnQ2.s:1238   .text.reset_event:0000000000000000 reset_event
-     /tmp/ccSVMnQ2.s:1273   .text.reset_chan:0000000000000000 reset_chan
-     /tmp/ccSVMnQ2.s:1308   .text.gen_failure:0000000000000000 gen_failure
-     /tmp/ccSVMnQ2.s:1342   .text.upload_fw:0000000000000000 upload_fw
-     /tmp/ccSVMnQ2.s:1488   .text.set_log:0000000000000000 set_log
-     /tmp/ccSVMnQ2.s:1550   .text.set_err:0000000000000000 set_err
-     /tmp/ccSVMnQ2.s:1612   .text.unlog_event:0000000000000000 unlog_event
-     /tmp/ccSVMnQ2.s:1697   .text.log_event:0000000000000000 log_event
-     /tmp/ccSVMnQ2.s:1796   .text.event_unsub:0000000000000000 event_unsub
-     /tmp/ccSVMnQ2.s:1881   .text.event_sub:0000000000000000 event_sub
-     /tmp/ccSVMnQ2.s:1992   .text.unlog_chan:0000000000000000 unlog_chan
-     /tmp/ccSVMnQ2.s:2083   .text.log_chan:0000000000000000 log_chan
-     /tmp/ccSVMnQ2.s:2233   .text.channel_unsub:0000000000000000 channel_unsub
-     /tmp/ccSVMnQ2.s:2313   .text.channel_sub:0000000000000000 channel_sub
-     /tmp/ccSVMnQ2.s:2463   .text.reload_config:0000000000000000 reload_config
-     /tmp/ccSVMnQ2.s:2538   .text.set_u32:0000000000000000 set_u32
-     /tmp/ccSVMnQ2.s:2633   .text.set_baud:0000000000000000 set_baud
-     /tmp/ccSVMnQ2.s:2670   .text.set_rx_dev:0000000000000000 set_rx_dev
-GAS LISTING /tmp/ccSVMnQ2.s 			page 87
+     /tmp/ccqVmvo9.s:1238   .text.reset_event:0000000000000000 reset_event
+     /tmp/ccqVmvo9.s:1273   .text.reset_chan:0000000000000000 reset_chan
+     /tmp/ccqVmvo9.s:1308   .text.gen_failure:0000000000000000 gen_failure
+     /tmp/ccqVmvo9.s:1342   .text.upload_fw:0000000000000000 upload_fw
+     /tmp/ccqVmvo9.s:1488   .text.set_log:0000000000000000 set_log
+     /tmp/ccqVmvo9.s:1550   .text.set_err:0000000000000000 set_err
+     /tmp/ccqVmvo9.s:1612   .text.unlog_event:0000000000000000 unlog_event
+     /tmp/ccqVmvo9.s:1697   .text.log_event:0000000000000000 log_event
+     /tmp/ccqVmvo9.s:1796   .text.event_unsub:0000000000000000 event_unsub
+     /tmp/ccqVmvo9.s:1881   .text.event_sub:0000000000000000 event_sub
+     /tmp/ccqVmvo9.s:1992   .text.unlog_chan:0000000000000000 unlog_chan
+     /tmp/ccqVmvo9.s:2083   .text.log_chan:0000000000000000 log_chan
+     /tmp/ccqVmvo9.s:2233   .text.channel_unsub:0000000000000000 channel_unsub
+     /tmp/ccqVmvo9.s:2313   .text.channel_sub:0000000000000000 channel_sub
+     /tmp/ccqVmvo9.s:2463   .text.reload_config:0000000000000000 reload_config
+     /tmp/ccqVmvo9.s:2538   .text.set_u32:0000000000000000 set_u32
+     /tmp/ccqVmvo9.s:2633   .text.set_baud:0000000000000000 set_baud
+     /tmp/ccqVmvo9.s:2670   .text.set_rx_dev:0000000000000000 set_rx_dev
+GAS LISTING /tmp/ccqVmvo9.s 			page 87
 
 
-     /tmp/ccSVMnQ2.s:2711   .text.set_tx_dev:0000000000000000 set_tx_dev
-     /tmp/ccSVMnQ2.s:2752   .text.set_rx_br:0000000000000000 set_rx_br
-     /tmp/ccSVMnQ2.s:2793   .text.set_tx_br:0000000000000000 set_tx_br
-     /tmp/ccSVMnQ2.s:2834   .text.set_rx_freq:0000000000000000 set_rx_freq
-     /tmp/ccSVMnQ2.s:2875   .text.set_tx_freq:0000000000000000 set_tx_freq
-     /tmp/ccSVMnQ2.s:2916   .text.set_tx_pow:0000000000000000 set_tx_pow
-     /tmp/ccSVMnQ2.s:2981   .text.set_gpo:0000000000000000 set_gpo
-     /tmp/ccSVMnQ2.s:3050   .text.get_log:0000000000000000 get_log
-     /tmp/ccSVMnQ2.s:3106   .text.get_err:0000000000000000 get_err
-     /tmp/ccSVMnQ2.s:3159   .text.get_time:0000000000000000 get_time
-     /tmp/ccSVMnQ2.s:3219   .text.set_time:0000000000000000 set_time
-     /tmp/ccSVMnQ2.s:3284   .text.get_chan:0000000000000000 get_chan
-     /tmp/ccSVMnQ2.s:3370   .text.get_u32:0000000000000000 get_u32
-     /tmp/ccSVMnQ2.s:3497   .text.get_baud:0000000000000000 get_baud
-     /tmp/ccSVMnQ2.s:3532   .text.get_rx_dev:0000000000000000 get_rx_dev
-     /tmp/ccSVMnQ2.s:3567   .text.get_tx_dev:0000000000000000 get_tx_dev
-     /tmp/ccSVMnQ2.s:3602   .text.get_rx_br:0000000000000000 get_rx_br
-     /tmp/ccSVMnQ2.s:3637   .text.get_tx_br:0000000000000000 get_tx_br
-     /tmp/ccSVMnQ2.s:3672   .text.get_rx_freq:0000000000000000 get_rx_freq
-     /tmp/ccSVMnQ2.s:3707   .text.get_tx_freq:0000000000000000 get_tx_freq
-     /tmp/ccSVMnQ2.s:3742   .text.get_tx_pow:0000000000000000 get_tx_pow
-     /tmp/ccSVMnQ2.s:3792   .text.set_block:0000000000000000 set_block
-     /tmp/ccSVMnQ2.s:3923   .text.get_block:0000000000000000 get_block
-     /tmp/ccSVMnQ2.s:4029   .text.set_regs:0000000000000000 set_regs
-     /tmp/ccSVMnQ2.s:4163   .text.get_regs:0000000000000000 get_regs
-     /tmp/ccSVMnQ2.s:4292   .text.get_active_bank:0000000000000000 get_active_bank
-     /tmp/ccSVMnQ2.s:4341   .text.get_gpo:0000000000000000 get_gpo
-     /tmp/ccSVMnQ2.s:4391   .text.CmdThd:0000000000000000 CmdThd
-     /tmp/ccSVMnQ2.s:4456   .upper.bss:0000000000000000 waCmdThd
-     /tmp/ccSVMnQ2.s:4536   .bss:0000000000000016 main_buffer
-     /tmp/ccSVMnQ2.s:102    .text.write_failure:0000000000000038 .L7
-     /tmp/ccSVMnQ2.s:99     .text.write_failure:0000000000000036 .L4
-     /tmp/ccSVMnQ2.s:91     .text.write_failure:0000000000000016 .L5
-     /tmp/ccSVMnQ2.s:151    .text.store_telem:0000000000000050 .L17
-     /tmp/ccSVMnQ2.s:154    .text.store_telem:0000000000000056 .L18
-     /tmp/ccSVMnQ2.s:157    .text.store_telem:000000000000005c .L14
-     /tmp/ccSVMnQ2.s:133    .text.store_telem:0000000000000024 .L12
-     /tmp/ccSVMnQ2.s:136    .text.store_telem:000000000000002c .L13
-     /tmp/ccSVMnQ2.s:186    .text.store_telem:00000000000000c0 .L19
-     /tmp/ccSVMnQ2.s:146    .text.store_telem:0000000000000048 .L11
-     /tmp/ccSVMnQ2.s:181    .text.store_telem:00000000000000b2 .L16
-     /tmp/ccSVMnQ2.s:292    .text.verify_fw:00000000000000ac .L23
-     /tmp/ccSVMnQ2.s:286    .text.verify_fw:00000000000000a2 .L22
-     /tmp/ccSVMnQ2.s:329    .text.write_success:000000000000003c .L26
-     /tmp/ccSVMnQ2.s:325    .text.write_success:0000000000000038 .L25
-     /tmp/ccSVMnQ2.s:352    .text.cancel_fw_eeprom_cb:0000000000000014 .L28
-     /tmp/ccSVMnQ2.s:452    .text.elyCmdParse:0000000000000030 .L34
-     /tmp/ccSVMnQ2.s:499    .text.elyCmdValidate:000000000000002a .L39
-     /tmp/ccSVMnQ2.s:634    .text.elyCmdValidate:0000000000000224 .L40
-     /tmp/ccSVMnQ2.s:507    .text.elyCmdValidate:000000000000004a .L41
-     /tmp/ccSVMnQ2.s:496    .text.elyCmdValidate:0000000000000024 .L70
-     /tmp/ccSVMnQ2.s:532    .text.elyCmdValidate:00000000000000a6 .L71
-     /tmp/ccSVMnQ2.s:562    .text.elyCmdValidate:0000000000000112 .L181
-     /tmp/ccSVMnQ2.s:580    .text.elyCmdValidate:0000000000000158 .L45
-     /tmp/ccSVMnQ2.s:553    .text.elyCmdValidate:00000000000000ea .L46
-     /tmp/ccSVMnQ2.s:649    .text.elyCmdValidate:0000000000000246 .L47
-     /tmp/ccSVMnQ2.s:535    .text.elyCmdValidate:00000000000000ac .L48
-GAS LISTING /tmp/ccSVMnQ2.s 			page 88
+     /tmp/ccqVmvo9.s:2711   .text.set_tx_dev:0000000000000000 set_tx_dev
+     /tmp/ccqVmvo9.s:2752   .text.set_rx_br:0000000000000000 set_rx_br
+     /tmp/ccqVmvo9.s:2793   .text.set_tx_br:0000000000000000 set_tx_br
+     /tmp/ccqVmvo9.s:2834   .text.set_rx_freq:0000000000000000 set_rx_freq
+     /tmp/ccqVmvo9.s:2875   .text.set_tx_freq:0000000000000000 set_tx_freq
+     /tmp/ccqVmvo9.s:2916   .text.set_tx_pow:0000000000000000 set_tx_pow
+     /tmp/ccqVmvo9.s:2981   .text.set_gpo:0000000000000000 set_gpo
+     /tmp/ccqVmvo9.s:3050   .text.get_log:0000000000000000 get_log
+     /tmp/ccqVmvo9.s:3106   .text.get_err:0000000000000000 get_err
+     /tmp/ccqVmvo9.s:3159   .text.get_time:0000000000000000 get_time
+     /tmp/ccqVmvo9.s:3219   .text.set_time:0000000000000000 set_time
+     /tmp/ccqVmvo9.s:3284   .text.get_chan:0000000000000000 get_chan
+     /tmp/ccqVmvo9.s:3370   .text.get_u32:0000000000000000 get_u32
+     /tmp/ccqVmvo9.s:3497   .text.get_baud:0000000000000000 get_baud
+     /tmp/ccqVmvo9.s:3532   .text.get_rx_dev:0000000000000000 get_rx_dev
+     /tmp/ccqVmvo9.s:3567   .text.get_tx_dev:0000000000000000 get_tx_dev
+     /tmp/ccqVmvo9.s:3602   .text.get_rx_br:0000000000000000 get_rx_br
+     /tmp/ccqVmvo9.s:3637   .text.get_tx_br:0000000000000000 get_tx_br
+     /tmp/ccqVmvo9.s:3672   .text.get_rx_freq:0000000000000000 get_rx_freq
+     /tmp/ccqVmvo9.s:3707   .text.get_tx_freq:0000000000000000 get_tx_freq
+     /tmp/ccqVmvo9.s:3742   .text.get_tx_pow:0000000000000000 get_tx_pow
+     /tmp/ccqVmvo9.s:3792   .text.set_block:0000000000000000 set_block
+     /tmp/ccqVmvo9.s:3923   .text.get_block:0000000000000000 get_block
+     /tmp/ccqVmvo9.s:4029   .text.set_regs:0000000000000000 set_regs
+     /tmp/ccqVmvo9.s:4163   .text.get_regs:0000000000000000 get_regs
+     /tmp/ccqVmvo9.s:4292   .text.get_active_bank:0000000000000000 get_active_bank
+     /tmp/ccqVmvo9.s:4341   .text.get_gpo:0000000000000000 get_gpo
+     /tmp/ccqVmvo9.s:4391   .text.CmdThd:0000000000000000 CmdThd
+     /tmp/ccqVmvo9.s:4456   .upper.bss:0000000000000000 waCmdThd
+     /tmp/ccqVmvo9.s:4536   .bss:0000000000000016 main_buffer
+     /tmp/ccqVmvo9.s:102    .text.write_failure:0000000000000038 .L7
+     /tmp/ccqVmvo9.s:99     .text.write_failure:0000000000000036 .L4
+     /tmp/ccqVmvo9.s:91     .text.write_failure:0000000000000016 .L5
+     /tmp/ccqVmvo9.s:151    .text.store_telem:0000000000000050 .L17
+     /tmp/ccqVmvo9.s:154    .text.store_telem:0000000000000056 .L18
+     /tmp/ccqVmvo9.s:157    .text.store_telem:000000000000005c .L14
+     /tmp/ccqVmvo9.s:133    .text.store_telem:0000000000000024 .L12
+     /tmp/ccqVmvo9.s:136    .text.store_telem:000000000000002c .L13
+     /tmp/ccqVmvo9.s:186    .text.store_telem:00000000000000c0 .L19
+     /tmp/ccqVmvo9.s:146    .text.store_telem:0000000000000048 .L11
+     /tmp/ccqVmvo9.s:181    .text.store_telem:00000000000000b2 .L16
+     /tmp/ccqVmvo9.s:292    .text.verify_fw:00000000000000ac .L23
+     /tmp/ccqVmvo9.s:286    .text.verify_fw:00000000000000a2 .L22
+     /tmp/ccqVmvo9.s:329    .text.write_success:000000000000003c .L26
+     /tmp/ccqVmvo9.s:325    .text.write_success:0000000000000038 .L25
+     /tmp/ccqVmvo9.s:352    .text.cancel_fw_eeprom_cb:0000000000000014 .L28
+     /tmp/ccqVmvo9.s:452    .text.elyCmdParse:0000000000000030 .L34
+     /tmp/ccqVmvo9.s:499    .text.elyCmdValidate:000000000000002a .L39
+     /tmp/ccqVmvo9.s:634    .text.elyCmdValidate:0000000000000224 .L40
+     /tmp/ccqVmvo9.s:507    .text.elyCmdValidate:000000000000004a .L41
+     /tmp/ccqVmvo9.s:496    .text.elyCmdValidate:0000000000000024 .L70
+     /tmp/ccqVmvo9.s:532    .text.elyCmdValidate:00000000000000a6 .L71
+     /tmp/ccqVmvo9.s:562    .text.elyCmdValidate:0000000000000112 .L181
+     /tmp/ccqVmvo9.s:580    .text.elyCmdValidate:0000000000000158 .L45
+     /tmp/ccqVmvo9.s:553    .text.elyCmdValidate:00000000000000ea .L46
+     /tmp/ccqVmvo9.s:649    .text.elyCmdValidate:0000000000000246 .L47
+     /tmp/ccqVmvo9.s:535    .text.elyCmdValidate:00000000000000ac .L48
+GAS LISTING /tmp/ccqVmvo9.s 			page 88
 
 
-     /tmp/ccSVMnQ2.s:628    .text.elyCmdValidate:000000000000021a .L49
-     /tmp/ccSVMnQ2.s:548    .text.elyCmdValidate:00000000000000de .L50
-     /tmp/ccSVMnQ2.s:599    .text.elyCmdValidate:00000000000001a6 .L51
-     /tmp/ccSVMnQ2.s:630    .text.elyCmdValidate:000000000000021e .L66
-     /tmp/ccSVMnQ2.s:511    .text.elyCmdValidate:0000000000000052 .L42
-     /tmp/ccSVMnQ2.s:545    .text.elyCmdValidate:00000000000000d2 .L52
-     /tmp/ccSVMnQ2.s:642    .text.elyCmdValidate:0000000000000232 .L53
-     /tmp/ccSVMnQ2.s:528    .text.elyCmdValidate:000000000000009a .L43
-     /tmp/ccSVMnQ2.s:550    .text.elyCmdValidate:00000000000000e2 .L67
-     /tmp/ccSVMnQ2.s:494    .text.elyCmdValidate:0000000000000020 .L184
-     /tmp/ccSVMnQ2.s:569    .text.elyCmdValidate:000000000000012a .L55
-     /tmp/ccSVMnQ2.s:565    .text.elyCmdValidate:000000000000011a .L56
-     /tmp/ccSVMnQ2.s:576    .text.elyCmdValidate:0000000000000148 .L57
-     /tmp/ccSVMnQ2.s:613    .text.elyCmdValidate:00000000000001d4 .L58
-     /tmp/ccSVMnQ2.s:604    .text.elyCmdValidate:00000000000001b2 .L59
-     /tmp/ccSVMnQ2.s:596    .text.elyCmdValidate:000000000000019a .L60
-     /tmp/ccSVMnQ2.s:601    .text.elyCmdValidate:00000000000001aa .L183
-     /tmp/ccSVMnQ2.s:592    .text.elyCmdValidate:000000000000018e .L61
-     /tmp/ccSVMnQ2.s:609    .text.elyCmdValidate:00000000000001c4 .L62
-     /tmp/ccSVMnQ2.s:639    .text.elyCmdValidate:000000000000022a .L63
-     /tmp/ccSVMnQ2.s:622    .text.elyCmdValidate:00000000000001fe .L64
-     /tmp/ccSVMnQ2.s:645    .text.elyCmdValidate:000000000000023c .L65
-     /tmp/ccSVMnQ2.s:656    .text.elyCmdValidate:000000000000025a .L68
-     /tmp/ccSVMnQ2.s:632    .text.elyCmdValidate:0000000000000222 .L69
-     /tmp/ccSVMnQ2.s:749    .text.elyCmdSendReplyI:0000000000000046 .L188
-     /tmp/ccSVMnQ2.s:753    .text.elyCmdSendReplyI:0000000000000050 .L196
-     /tmp/ccSVMnQ2.s:745    .text.elyCmdSendReplyI:0000000000000042 .L186
-     /tmp/ccSVMnQ2.s:739    .text.elyCmdSendReplyI:000000000000002e .L199
-     /tmp/ccSVMnQ2.s:816    .text.verify_fw_cb:0000000000000036 .L201
-     /tmp/ccSVMnQ2.s:821    .text.verify_fw_cb:000000000000003c .L203
-     /tmp/ccSVMnQ2.s:812    .text.verify_fw_cb:000000000000002e .L207
-     /tmp/ccSVMnQ2.s:909    .text.get_sx1212_reg:0000000000000032 .L211
-     /tmp/ccSVMnQ2.s:913    .text.get_sx1212_reg:000000000000003a .L212
-     /tmp/ccSVMnQ2.s:934    .text.get_sx1212_reg:000000000000007e .L210
-     /tmp/ccSVMnQ2.s:938    .text.get_sx1212_reg:0000000000000082 .L214
-     /tmp/ccSVMnQ2.s:930    .text.get_sx1212_reg:0000000000000076 .L215
-     /tmp/ccSVMnQ2.s:970    .text.gen_success:000000000000002e .L216
-     /tmp/ccSVMnQ2.s:1046   .text.get_telem:00000000000000a8 .L231
-     /tmp/ccSVMnQ2.s:1049   .text.get_telem:00000000000000ae .L232
-     /tmp/ccSVMnQ2.s:1085   .text.get_telem:0000000000000116 .L224
-     /tmp/ccSVMnQ2.s:1052   .text.get_telem:00000000000000b4 .L225
-     /tmp/ccSVMnQ2.s:1041   .text.get_telem:00000000000000a0 .L221
-     /tmp/ccSVMnQ2.s:1004   .text.get_telem:0000000000000028 .L222
-     /tmp/ccSVMnQ2.s:1007   .text.get_telem:0000000000000030 .L223
-     /tmp/ccSVMnQ2.s:1064   .text.get_telem:00000000000000d6 .L227
-     /tmp/ccSVMnQ2.s:1019   .text.get_telem:0000000000000054 .L238
-     /tmp/ccSVMnQ2.s:1119   .text.get_telem:000000000000017c .L239
-     /tmp/ccSVMnQ2.s:1099   .text.get_telem:0000000000000140 .L228
-     /tmp/ccSVMnQ2.s:1021   .text.get_telem:0000000000000056 .L226
-     /tmp/ccSVMnQ2.s:1161   .text.install_fw:000000000000004a .L241
-     /tmp/ccSVMnQ2.s:1153   .text.install_fw:0000000000000032 .L242
-     /tmp/ccSVMnQ2.s:1191   .text.cancel_fw:0000000000000022 .L248
-     /tmp/ccSVMnQ2.s:1229   .text.cancel_fw:00000000000000aa .L243
-     /tmp/ccSVMnQ2.s:1261   .text.reset_event:0000000000000028 .L251
-     /tmp/ccSVMnQ2.s:1296   .text.reset_chan:0000000000000028 .L256
-     /tmp/ccSVMnQ2.s:1333   .text.gen_failure:000000000000002e .L260
-     /tmp/ccSVMnQ2.s:1408   .text.upload_fw:00000000000000a0 .L277
-GAS LISTING /tmp/ccSVMnQ2.s 			page 89
+     /tmp/ccqVmvo9.s:628    .text.elyCmdValidate:000000000000021a .L49
+     /tmp/ccqVmvo9.s:548    .text.elyCmdValidate:00000000000000de .L50
+     /tmp/ccqVmvo9.s:599    .text.elyCmdValidate:00000000000001a6 .L51
+     /tmp/ccqVmvo9.s:630    .text.elyCmdValidate:000000000000021e .L66
+     /tmp/ccqVmvo9.s:511    .text.elyCmdValidate:0000000000000052 .L42
+     /tmp/ccqVmvo9.s:545    .text.elyCmdValidate:00000000000000d2 .L52
+     /tmp/ccqVmvo9.s:642    .text.elyCmdValidate:0000000000000232 .L53
+     /tmp/ccqVmvo9.s:528    .text.elyCmdValidate:000000000000009a .L43
+     /tmp/ccqVmvo9.s:550    .text.elyCmdValidate:00000000000000e2 .L67
+     /tmp/ccqVmvo9.s:494    .text.elyCmdValidate:0000000000000020 .L184
+     /tmp/ccqVmvo9.s:569    .text.elyCmdValidate:000000000000012a .L55
+     /tmp/ccqVmvo9.s:565    .text.elyCmdValidate:000000000000011a .L56
+     /tmp/ccqVmvo9.s:576    .text.elyCmdValidate:0000000000000148 .L57
+     /tmp/ccqVmvo9.s:613    .text.elyCmdValidate:00000000000001d4 .L58
+     /tmp/ccqVmvo9.s:604    .text.elyCmdValidate:00000000000001b2 .L59
+     /tmp/ccqVmvo9.s:596    .text.elyCmdValidate:000000000000019a .L60
+     /tmp/ccqVmvo9.s:601    .text.elyCmdValidate:00000000000001aa .L183
+     /tmp/ccqVmvo9.s:592    .text.elyCmdValidate:000000000000018e .L61
+     /tmp/ccqVmvo9.s:609    .text.elyCmdValidate:00000000000001c4 .L62
+     /tmp/ccqVmvo9.s:639    .text.elyCmdValidate:000000000000022a .L63
+     /tmp/ccqVmvo9.s:622    .text.elyCmdValidate:00000000000001fe .L64
+     /tmp/ccqVmvo9.s:645    .text.elyCmdValidate:000000000000023c .L65
+     /tmp/ccqVmvo9.s:656    .text.elyCmdValidate:000000000000025a .L68
+     /tmp/ccqVmvo9.s:632    .text.elyCmdValidate:0000000000000222 .L69
+     /tmp/ccqVmvo9.s:749    .text.elyCmdSendReplyI:0000000000000046 .L188
+     /tmp/ccqVmvo9.s:753    .text.elyCmdSendReplyI:0000000000000050 .L196
+     /tmp/ccqVmvo9.s:745    .text.elyCmdSendReplyI:0000000000000042 .L186
+     /tmp/ccqVmvo9.s:739    .text.elyCmdSendReplyI:000000000000002e .L199
+     /tmp/ccqVmvo9.s:816    .text.verify_fw_cb:0000000000000036 .L201
+     /tmp/ccqVmvo9.s:821    .text.verify_fw_cb:000000000000003c .L203
+     /tmp/ccqVmvo9.s:812    .text.verify_fw_cb:000000000000002e .L207
+     /tmp/ccqVmvo9.s:909    .text.get_sx1212_reg:0000000000000032 .L211
+     /tmp/ccqVmvo9.s:913    .text.get_sx1212_reg:000000000000003a .L212
+     /tmp/ccqVmvo9.s:934    .text.get_sx1212_reg:000000000000007e .L210
+     /tmp/ccqVmvo9.s:938    .text.get_sx1212_reg:0000000000000082 .L214
+     /tmp/ccqVmvo9.s:930    .text.get_sx1212_reg:0000000000000076 .L215
+     /tmp/ccqVmvo9.s:970    .text.gen_success:000000000000002e .L216
+     /tmp/ccqVmvo9.s:1046   .text.get_telem:00000000000000a8 .L231
+     /tmp/ccqVmvo9.s:1049   .text.get_telem:00000000000000ae .L232
+     /tmp/ccqVmvo9.s:1085   .text.get_telem:0000000000000116 .L224
+     /tmp/ccqVmvo9.s:1052   .text.get_telem:00000000000000b4 .L225
+     /tmp/ccqVmvo9.s:1041   .text.get_telem:00000000000000a0 .L221
+     /tmp/ccqVmvo9.s:1004   .text.get_telem:0000000000000028 .L222
+     /tmp/ccqVmvo9.s:1007   .text.get_telem:0000000000000030 .L223
+     /tmp/ccqVmvo9.s:1064   .text.get_telem:00000000000000d6 .L227
+     /tmp/ccqVmvo9.s:1019   .text.get_telem:0000000000000054 .L238
+     /tmp/ccqVmvo9.s:1119   .text.get_telem:000000000000017c .L239
+     /tmp/ccqVmvo9.s:1099   .text.get_telem:0000000000000140 .L228
+     /tmp/ccqVmvo9.s:1021   .text.get_telem:0000000000000056 .L226
+     /tmp/ccqVmvo9.s:1161   .text.install_fw:000000000000004a .L241
+     /tmp/ccqVmvo9.s:1153   .text.install_fw:0000000000000032 .L242
+     /tmp/ccqVmvo9.s:1191   .text.cancel_fw:0000000000000022 .L248
+     /tmp/ccqVmvo9.s:1229   .text.cancel_fw:00000000000000aa .L243
+     /tmp/ccqVmvo9.s:1261   .text.reset_event:0000000000000028 .L251
+     /tmp/ccqVmvo9.s:1296   .text.reset_chan:0000000000000028 .L256
+     /tmp/ccqVmvo9.s:1333   .text.gen_failure:000000000000002e .L260
+     /tmp/ccqVmvo9.s:1408   .text.upload_fw:00000000000000a0 .L277
+GAS LISTING /tmp/ccqVmvo9.s 			page 89
 
 
-     /tmp/ccSVMnQ2.s:1375   .text.upload_fw:0000000000000040 .L267
-     /tmp/ccSVMnQ2.s:1392   .text.upload_fw:0000000000000076 .L280
-     /tmp/ccSVMnQ2.s:1415   .text.upload_fw:00000000000000b2 .L282
-     /tmp/ccSVMnQ2.s:1411   .text.upload_fw:00000000000000a6 .L270
-     /tmp/ccSVMnQ2.s:1368   .text.upload_fw:000000000000002c .L266
-     /tmp/ccSVMnQ2.s:1399   .text.upload_fw:000000000000008e .L283
-     /tmp/ccSVMnQ2.s:1430   .text.upload_fw:00000000000000e6 .L274
-     /tmp/ccSVMnQ2.s:1481   .text.upload_fw:000000000000019a .L279
-     /tmp/ccSVMnQ2.s:1403   .text.upload_fw:0000000000000098 .L265
-     /tmp/ccSVMnQ2.s:1474   .text.upload_fw:0000000000000182 .L275
-     /tmp/ccSVMnQ2.s:1526   .text.set_log:000000000000004c .L289
-     /tmp/ccSVMnQ2.s:1533   .text.set_log:000000000000005e .L286
-     /tmp/ccSVMnQ2.s:1529   .text.set_log:0000000000000052 .L287
-     /tmp/ccSVMnQ2.s:1508   .text.set_log:000000000000001a .L285
-     /tmp/ccSVMnQ2.s:1521   .text.set_log:0000000000000044 .L284
-     /tmp/ccSVMnQ2.s:1588   .text.set_err:000000000000004c .L298
-     /tmp/ccSVMnQ2.s:1595   .text.set_err:000000000000005e .L295
-     /tmp/ccSVMnQ2.s:1591   .text.set_err:0000000000000052 .L296
-     /tmp/ccSVMnQ2.s:1570   .text.set_err:000000000000001a .L294
-     /tmp/ccSVMnQ2.s:1583   .text.set_err:0000000000000044 .L293
-     /tmp/ccSVMnQ2.s:1657   .text.unlog_event:000000000000005a .L314
-     /tmp/ccSVMnQ2.s:1660   .text.unlog_event:0000000000000060 .L315
-     /tmp/ccSVMnQ2.s:1663   .text.unlog_event:0000000000000066 .L310
-     /tmp/ccSVMnQ2.s:1687   .text.unlog_event:00000000000000aa .L312
-     /tmp/ccSVMnQ2.s:1672   .text.unlog_event:0000000000000086 .L313
-     /tmp/ccSVMnQ2.s:1633   .text.unlog_event:000000000000001e .L303
-     /tmp/ccSVMnQ2.s:1641   .text.unlog_event:0000000000000030 .L304
-     /tmp/ccSVMnQ2.s:1684   .text.unlog_event:00000000000000a4 .L306
-     /tmp/ccSVMnQ2.s:1680   .text.unlog_event:0000000000000098 .L307
-     /tmp/ccSVMnQ2.s:1647   .text.unlog_event:000000000000003c .L305
-     /tmp/ccSVMnQ2.s:1649   .text.unlog_event:0000000000000040 .L311
-     /tmp/ccSVMnQ2.s:1744   .text.log_event:0000000000000062 .L332
-     /tmp/ccSVMnQ2.s:1747   .text.log_event:0000000000000068 .L333
-     /tmp/ccSVMnQ2.s:1750   .text.log_event:000000000000006e .L328
-     /tmp/ccSVMnQ2.s:1784   .text.log_event:00000000000000d0 .L330
-     /tmp/ccSVMnQ2.s:1769   .text.log_event:00000000000000ac .L331
-     /tmp/ccSVMnQ2.s:1718   .text.log_event:000000000000001e .L320
-     /tmp/ccSVMnQ2.s:1726   .text.log_event:0000000000000030 .L321
-     /tmp/ccSVMnQ2.s:1762   .text.log_event:0000000000000096 .L323
-     /tmp/ccSVMnQ2.s:1781   .text.log_event:00000000000000ca .L324
-     /tmp/ccSVMnQ2.s:1777   .text.log_event:00000000000000be .L325
-     /tmp/ccSVMnQ2.s:1732   .text.log_event:000000000000003c .L322
-     /tmp/ccSVMnQ2.s:1735   .text.log_event:0000000000000044 .L329
-     /tmp/ccSVMnQ2.s:1841   .text.event_unsub:000000000000005a .L349
-     /tmp/ccSVMnQ2.s:1844   .text.event_unsub:0000000000000060 .L350
-     /tmp/ccSVMnQ2.s:1847   .text.event_unsub:0000000000000066 .L345
-     /tmp/ccSVMnQ2.s:1871   .text.event_unsub:00000000000000aa .L347
-     /tmp/ccSVMnQ2.s:1856   .text.event_unsub:0000000000000086 .L348
-     /tmp/ccSVMnQ2.s:1817   .text.event_unsub:000000000000001e .L338
-     /tmp/ccSVMnQ2.s:1825   .text.event_unsub:0000000000000030 .L339
-     /tmp/ccSVMnQ2.s:1868   .text.event_unsub:00000000000000a4 .L341
-     /tmp/ccSVMnQ2.s:1864   .text.event_unsub:0000000000000098 .L342
-     /tmp/ccSVMnQ2.s:1831   .text.event_unsub:000000000000003c .L340
-     /tmp/ccSVMnQ2.s:1833   .text.event_unsub:0000000000000040 .L346
-     /tmp/ccSVMnQ2.s:1933   .text.event_sub:0000000000000070 .L369
-     /tmp/ccSVMnQ2.s:1936   .text.event_sub:0000000000000076 .L370
-     /tmp/ccSVMnQ2.s:1939   .text.event_sub:000000000000007c .L363
-GAS LISTING /tmp/ccSVMnQ2.s 			page 90
+     /tmp/ccqVmvo9.s:1375   .text.upload_fw:0000000000000040 .L267
+     /tmp/ccqVmvo9.s:1392   .text.upload_fw:0000000000000076 .L280
+     /tmp/ccqVmvo9.s:1415   .text.upload_fw:00000000000000b2 .L282
+     /tmp/ccqVmvo9.s:1411   .text.upload_fw:00000000000000a6 .L270
+     /tmp/ccqVmvo9.s:1368   .text.upload_fw:000000000000002c .L266
+     /tmp/ccqVmvo9.s:1399   .text.upload_fw:000000000000008e .L283
+     /tmp/ccqVmvo9.s:1430   .text.upload_fw:00000000000000e6 .L274
+     /tmp/ccqVmvo9.s:1481   .text.upload_fw:000000000000019a .L279
+     /tmp/ccqVmvo9.s:1403   .text.upload_fw:0000000000000098 .L265
+     /tmp/ccqVmvo9.s:1474   .text.upload_fw:0000000000000182 .L275
+     /tmp/ccqVmvo9.s:1526   .text.set_log:000000000000004c .L289
+     /tmp/ccqVmvo9.s:1533   .text.set_log:000000000000005e .L286
+     /tmp/ccqVmvo9.s:1529   .text.set_log:0000000000000052 .L287
+     /tmp/ccqVmvo9.s:1508   .text.set_log:000000000000001a .L285
+     /tmp/ccqVmvo9.s:1521   .text.set_log:0000000000000044 .L284
+     /tmp/ccqVmvo9.s:1588   .text.set_err:000000000000004c .L298
+     /tmp/ccqVmvo9.s:1595   .text.set_err:000000000000005e .L295
+     /tmp/ccqVmvo9.s:1591   .text.set_err:0000000000000052 .L296
+     /tmp/ccqVmvo9.s:1570   .text.set_err:000000000000001a .L294
+     /tmp/ccqVmvo9.s:1583   .text.set_err:0000000000000044 .L293
+     /tmp/ccqVmvo9.s:1657   .text.unlog_event:000000000000005a .L314
+     /tmp/ccqVmvo9.s:1660   .text.unlog_event:0000000000000060 .L315
+     /tmp/ccqVmvo9.s:1663   .text.unlog_event:0000000000000066 .L310
+     /tmp/ccqVmvo9.s:1687   .text.unlog_event:00000000000000aa .L312
+     /tmp/ccqVmvo9.s:1672   .text.unlog_event:0000000000000086 .L313
+     /tmp/ccqVmvo9.s:1633   .text.unlog_event:000000000000001e .L303
+     /tmp/ccqVmvo9.s:1641   .text.unlog_event:0000000000000030 .L304
+     /tmp/ccqVmvo9.s:1684   .text.unlog_event:00000000000000a4 .L306
+     /tmp/ccqVmvo9.s:1680   .text.unlog_event:0000000000000098 .L307
+     /tmp/ccqVmvo9.s:1647   .text.unlog_event:000000000000003c .L305
+     /tmp/ccqVmvo9.s:1649   .text.unlog_event:0000000000000040 .L311
+     /tmp/ccqVmvo9.s:1744   .text.log_event:0000000000000062 .L332
+     /tmp/ccqVmvo9.s:1747   .text.log_event:0000000000000068 .L333
+     /tmp/ccqVmvo9.s:1750   .text.log_event:000000000000006e .L328
+     /tmp/ccqVmvo9.s:1784   .text.log_event:00000000000000d0 .L330
+     /tmp/ccqVmvo9.s:1769   .text.log_event:00000000000000ac .L331
+     /tmp/ccqVmvo9.s:1718   .text.log_event:000000000000001e .L320
+     /tmp/ccqVmvo9.s:1726   .text.log_event:0000000000000030 .L321
+     /tmp/ccqVmvo9.s:1762   .text.log_event:0000000000000096 .L323
+     /tmp/ccqVmvo9.s:1781   .text.log_event:00000000000000ca .L324
+     /tmp/ccqVmvo9.s:1777   .text.log_event:00000000000000be .L325
+     /tmp/ccqVmvo9.s:1732   .text.log_event:000000000000003c .L322
+     /tmp/ccqVmvo9.s:1735   .text.log_event:0000000000000044 .L329
+     /tmp/ccqVmvo9.s:1841   .text.event_unsub:000000000000005a .L349
+     /tmp/ccqVmvo9.s:1844   .text.event_unsub:0000000000000060 .L350
+     /tmp/ccqVmvo9.s:1847   .text.event_unsub:0000000000000066 .L345
+     /tmp/ccqVmvo9.s:1871   .text.event_unsub:00000000000000aa .L347
+     /tmp/ccqVmvo9.s:1856   .text.event_unsub:0000000000000086 .L348
+     /tmp/ccqVmvo9.s:1817   .text.event_unsub:000000000000001e .L338
+     /tmp/ccqVmvo9.s:1825   .text.event_unsub:0000000000000030 .L339
+     /tmp/ccqVmvo9.s:1868   .text.event_unsub:00000000000000a4 .L341
+     /tmp/ccqVmvo9.s:1864   .text.event_unsub:0000000000000098 .L342
+     /tmp/ccqVmvo9.s:1831   .text.event_unsub:000000000000003c .L340
+     /tmp/ccqVmvo9.s:1833   .text.event_unsub:0000000000000040 .L346
+     /tmp/ccqVmvo9.s:1933   .text.event_sub:0000000000000070 .L369
+     /tmp/ccqVmvo9.s:1936   .text.event_sub:0000000000000076 .L370
+     /tmp/ccqVmvo9.s:1939   .text.event_sub:000000000000007c .L363
+GAS LISTING /tmp/ccqVmvo9.s 			page 90
 
 
-     /tmp/ccSVMnQ2.s:1973   .text.event_sub:00000000000000de .L364
-     /tmp/ccSVMnQ2.s:1979   .text.event_sub:00000000000000f2 .L367
-     /tmp/ccSVMnQ2.s:1958   .text.event_sub:00000000000000ba .L368
-     /tmp/ccSVMnQ2.s:1902   .text.event_sub:000000000000001e .L355
-     /tmp/ccSVMnQ2.s:1910   .text.event_sub:0000000000000030 .L356
-     /tmp/ccSVMnQ2.s:1951   .text.event_sub:00000000000000a4 .L358
-     /tmp/ccSVMnQ2.s:1970   .text.event_sub:00000000000000d8 .L359
-     /tmp/ccSVMnQ2.s:1966   .text.event_sub:00000000000000cc .L360
-     /tmp/ccSVMnQ2.s:1916   .text.event_sub:000000000000003c .L357
-     /tmp/ccSVMnQ2.s:1922   .text.event_sub:0000000000000050 .L374
-     /tmp/ccSVMnQ2.s:1924   .text.event_sub:0000000000000052 .L366
-     /tmp/ccSVMnQ2.s:2045   .text.unlog_chan:0000000000000072 .L387
-     /tmp/ccSVMnQ2.s:2048   .text.unlog_chan:0000000000000078 .L388
-     /tmp/ccSVMnQ2.s:2026   .text.unlog_chan:0000000000000036 .L379
-     /tmp/ccSVMnQ2.s:2051   .text.unlog_chan:000000000000007e .L385
-     /tmp/ccSVMnQ2.s:2063   .text.unlog_chan:00000000000000a6 .L386
-     /tmp/ccSVMnQ2.s:2015   .text.unlog_chan:0000000000000020 .L376
-     /tmp/ccSVMnQ2.s:2020   .text.unlog_chan:000000000000002a .L377
-     /tmp/ccSVMnQ2.s:2075   .text.unlog_chan:00000000000000c4 .L381
-     /tmp/ccSVMnQ2.s:2071   .text.unlog_chan:00000000000000b8 .L382
-     /tmp/ccSVMnQ2.s:2032   .text.unlog_chan:0000000000000044 .L380
-     /tmp/ccSVMnQ2.s:2177   .text.log_chan:00000000000000e6 .L405
-     /tmp/ccSVMnQ2.s:2180   .text.log_chan:00000000000000ec .L406
-     /tmp/ccSVMnQ2.s:2183   .text.log_chan:00000000000000f2 .L401
-     /tmp/ccSVMnQ2.s:2218   .text.log_chan:000000000000015a .L403
-     /tmp/ccSVMnQ2.s:2203   .text.log_chan:0000000000000136 .L404
-     /tmp/ccSVMnQ2.s:2104   .text.log_chan:0000000000000020 .L393
-     /tmp/ccSVMnQ2.s:2112   .text.log_chan:0000000000000030 .L394
-     /tmp/ccSVMnQ2.s:2196   .text.log_chan:000000000000011e .L396
-     /tmp/ccSVMnQ2.s:2215   .text.log_chan:0000000000000154 .L397
-     /tmp/ccSVMnQ2.s:2211   .text.log_chan:0000000000000148 .L398
-     /tmp/ccSVMnQ2.s:2120   .text.log_chan:0000000000000040 .L395
-     /tmp/ccSVMnQ2.s:2135   .text.log_chan:000000000000006e .L402
-     /tmp/ccSVMnQ2.s:2277   .text.channel_unsub:0000000000000058 .L420
-     /tmp/ccSVMnQ2.s:2280   .text.channel_unsub:000000000000005e .L421
-     /tmp/ccSVMnQ2.s:2283   .text.channel_unsub:0000000000000064 .L418
-     /tmp/ccSVMnQ2.s:2294   .text.channel_unsub:0000000000000088 .L419
-     /tmp/ccSVMnQ2.s:2254   .text.channel_unsub:000000000000001e .L411
-     /tmp/ccSVMnQ2.s:2262   .text.channel_unsub:000000000000002e .L412
-     /tmp/ccSVMnQ2.s:2306   .text.channel_unsub:00000000000000a6 .L414
-     /tmp/ccSVMnQ2.s:2302   .text.channel_unsub:000000000000009a .L415
-     /tmp/ccSVMnQ2.s:2267   .text.channel_unsub:0000000000000038 .L413
-     /tmp/ccSVMnQ2.s:2407   .text.channel_sub:00000000000000e6 .L438
-     /tmp/ccSVMnQ2.s:2410   .text.channel_sub:00000000000000ec .L439
-     /tmp/ccSVMnQ2.s:2413   .text.channel_sub:00000000000000f2 .L434
-     /tmp/ccSVMnQ2.s:2448   .text.channel_sub:000000000000015a .L436
-     /tmp/ccSVMnQ2.s:2433   .text.channel_sub:0000000000000136 .L437
-     /tmp/ccSVMnQ2.s:2334   .text.channel_sub:0000000000000020 .L426
-     /tmp/ccSVMnQ2.s:2342   .text.channel_sub:0000000000000030 .L427
-     /tmp/ccSVMnQ2.s:2426   .text.channel_sub:000000000000011e .L429
-     /tmp/ccSVMnQ2.s:2445   .text.channel_sub:0000000000000154 .L430
-     /tmp/ccSVMnQ2.s:2441   .text.channel_sub:0000000000000148 .L431
-     /tmp/ccSVMnQ2.s:2350   .text.channel_sub:0000000000000040 .L428
-     /tmp/ccSVMnQ2.s:2365   .text.channel_sub:000000000000006e .L435
-     /tmp/ccSVMnQ2.s:2503   .text.reload_config:0000000000000050 .L448
-     /tmp/ccSVMnQ2.s:2510   .text.reload_config:0000000000000062 .L445
-     /tmp/ccSVMnQ2.s:2506   .text.reload_config:0000000000000056 .L446
-GAS LISTING /tmp/ccSVMnQ2.s 			page 91
+     /tmp/ccqVmvo9.s:1973   .text.event_sub:00000000000000de .L364
+     /tmp/ccqVmvo9.s:1979   .text.event_sub:00000000000000f2 .L367
+     /tmp/ccqVmvo9.s:1958   .text.event_sub:00000000000000ba .L368
+     /tmp/ccqVmvo9.s:1902   .text.event_sub:000000000000001e .L355
+     /tmp/ccqVmvo9.s:1910   .text.event_sub:0000000000000030 .L356
+     /tmp/ccqVmvo9.s:1951   .text.event_sub:00000000000000a4 .L358
+     /tmp/ccqVmvo9.s:1970   .text.event_sub:00000000000000d8 .L359
+     /tmp/ccqVmvo9.s:1966   .text.event_sub:00000000000000cc .L360
+     /tmp/ccqVmvo9.s:1916   .text.event_sub:000000000000003c .L357
+     /tmp/ccqVmvo9.s:1922   .text.event_sub:0000000000000050 .L374
+     /tmp/ccqVmvo9.s:1924   .text.event_sub:0000000000000052 .L366
+     /tmp/ccqVmvo9.s:2045   .text.unlog_chan:0000000000000072 .L387
+     /tmp/ccqVmvo9.s:2048   .text.unlog_chan:0000000000000078 .L388
+     /tmp/ccqVmvo9.s:2026   .text.unlog_chan:0000000000000036 .L379
+     /tmp/ccqVmvo9.s:2051   .text.unlog_chan:000000000000007e .L385
+     /tmp/ccqVmvo9.s:2063   .text.unlog_chan:00000000000000a6 .L386
+     /tmp/ccqVmvo9.s:2015   .text.unlog_chan:0000000000000020 .L376
+     /tmp/ccqVmvo9.s:2020   .text.unlog_chan:000000000000002a .L377
+     /tmp/ccqVmvo9.s:2075   .text.unlog_chan:00000000000000c4 .L381
+     /tmp/ccqVmvo9.s:2071   .text.unlog_chan:00000000000000b8 .L382
+     /tmp/ccqVmvo9.s:2032   .text.unlog_chan:0000000000000044 .L380
+     /tmp/ccqVmvo9.s:2177   .text.log_chan:00000000000000e6 .L405
+     /tmp/ccqVmvo9.s:2180   .text.log_chan:00000000000000ec .L406
+     /tmp/ccqVmvo9.s:2183   .text.log_chan:00000000000000f2 .L401
+     /tmp/ccqVmvo9.s:2218   .text.log_chan:000000000000015a .L403
+     /tmp/ccqVmvo9.s:2203   .text.log_chan:0000000000000136 .L404
+     /tmp/ccqVmvo9.s:2104   .text.log_chan:0000000000000020 .L393
+     /tmp/ccqVmvo9.s:2112   .text.log_chan:0000000000000030 .L394
+     /tmp/ccqVmvo9.s:2196   .text.log_chan:000000000000011e .L396
+     /tmp/ccqVmvo9.s:2215   .text.log_chan:0000000000000154 .L397
+     /tmp/ccqVmvo9.s:2211   .text.log_chan:0000000000000148 .L398
+     /tmp/ccqVmvo9.s:2120   .text.log_chan:0000000000000040 .L395
+     /tmp/ccqVmvo9.s:2135   .text.log_chan:000000000000006e .L402
+     /tmp/ccqVmvo9.s:2277   .text.channel_unsub:0000000000000058 .L420
+     /tmp/ccqVmvo9.s:2280   .text.channel_unsub:000000000000005e .L421
+     /tmp/ccqVmvo9.s:2283   .text.channel_unsub:0000000000000064 .L418
+     /tmp/ccqVmvo9.s:2294   .text.channel_unsub:0000000000000088 .L419
+     /tmp/ccqVmvo9.s:2254   .text.channel_unsub:000000000000001e .L411
+     /tmp/ccqVmvo9.s:2262   .text.channel_unsub:000000000000002e .L412
+     /tmp/ccqVmvo9.s:2306   .text.channel_unsub:00000000000000a6 .L414
+     /tmp/ccqVmvo9.s:2302   .text.channel_unsub:000000000000009a .L415
+     /tmp/ccqVmvo9.s:2267   .text.channel_unsub:0000000000000038 .L413
+     /tmp/ccqVmvo9.s:2407   .text.channel_sub:00000000000000e6 .L438
+     /tmp/ccqVmvo9.s:2410   .text.channel_sub:00000000000000ec .L439
+     /tmp/ccqVmvo9.s:2413   .text.channel_sub:00000000000000f2 .L434
+     /tmp/ccqVmvo9.s:2448   .text.channel_sub:000000000000015a .L436
+     /tmp/ccqVmvo9.s:2433   .text.channel_sub:0000000000000136 .L437
+     /tmp/ccqVmvo9.s:2334   .text.channel_sub:0000000000000020 .L426
+     /tmp/ccqVmvo9.s:2342   .text.channel_sub:0000000000000030 .L427
+     /tmp/ccqVmvo9.s:2426   .text.channel_sub:000000000000011e .L429
+     /tmp/ccqVmvo9.s:2445   .text.channel_sub:0000000000000154 .L430
+     /tmp/ccqVmvo9.s:2441   .text.channel_sub:0000000000000148 .L431
+     /tmp/ccqVmvo9.s:2350   .text.channel_sub:0000000000000040 .L428
+     /tmp/ccqVmvo9.s:2365   .text.channel_sub:000000000000006e .L435
+     /tmp/ccqVmvo9.s:2503   .text.reload_config:0000000000000050 .L448
+     /tmp/ccqVmvo9.s:2510   .text.reload_config:0000000000000062 .L445
+     /tmp/ccqVmvo9.s:2506   .text.reload_config:0000000000000056 .L446
+GAS LISTING /tmp/ccqVmvo9.s 			page 91
 
 
-     /tmp/ccSVMnQ2.s:2483   .text.reload_config:000000000000001a .L444
-     /tmp/ccSVMnQ2.s:2498   .text.reload_config:0000000000000048 .L443
-     /tmp/ccSVMnQ2.s:2608   .text.set_u32:00000000000000ce .L458
-     /tmp/ccSVMnQ2.s:2574   .text.set_u32:000000000000005a .L451
-     /tmp/ccSVMnQ2.s:2595   .text.set_u32:00000000000000a4 .L452
-     /tmp/ccSVMnQ2.s:2591   .text.set_u32:0000000000000096 .L459
-     /tmp/ccSVMnQ2.s:2615   .text.set_u32:00000000000000e0 .L454
-     /tmp/ccSVMnQ2.s:2611   .text.set_u32:00000000000000d4 .L456
-     /tmp/ccSVMnQ2.s:2567   .text.set_u32:0000000000000048 .L450
-     /tmp/ccSVMnQ2.s:2602   .text.set_u32:00000000000000bc .L449
-     /tmp/ccSVMnQ2.s:2958   .text.set_tx_pow:0000000000000054 .L478
-     /tmp/ccSVMnQ2.s:2965   .text.set_tx_pow:0000000000000066 .L473
-     /tmp/ccSVMnQ2.s:2961   .text.set_tx_pow:000000000000005a .L474
-     /tmp/ccSVMnQ2.s:2937   .text.set_tx_pow:000000000000001c .L472
-     /tmp/ccSVMnQ2.s:2950   .text.set_tx_pow:0000000000000046 .L477
-     /tmp/ccSVMnQ2.s:3018   .text.set_gpo:0000000000000046 .L488
-     /tmp/ccSVMnQ2.s:3025   .text.set_gpo:0000000000000058 .L484
-     /tmp/ccSVMnQ2.s:3021   .text.set_gpo:000000000000004c .L485
-     /tmp/ccSVMnQ2.s:3001   .text.set_gpo:000000000000001a .L483
-     /tmp/ccSVMnQ2.s:3013   .text.set_gpo:000000000000003e .L482
-     /tmp/ccSVMnQ2.s:3039   .text.set_gpo:000000000000008e .L487
-     /tmp/ccSVMnQ2.s:3080   .text.get_log:000000000000003a .L492
-     /tmp/ccSVMnQ2.s:3084   .text.get_log:000000000000003e .L494
-     /tmp/ccSVMnQ2.s:3099   .text.get_log:0000000000000078 .L495
-     /tmp/ccSVMnQ2.s:3094   .text.get_log:000000000000006c .L496
-     /tmp/ccSVMnQ2.s:3130   .text.get_err:000000000000002c .L501
-     /tmp/ccSVMnQ2.s:3137   .text.get_err:0000000000000038 .L502
-     /tmp/ccSVMnQ2.s:3152   .text.get_err:0000000000000072 .L504
-     /tmp/ccSVMnQ2.s:3147   .text.get_err:0000000000000066 .L505
-     /tmp/ccSVMnQ2.s:3211   .text.get_time:000000000000008c .L509
-     /tmp/ccSVMnQ2.s:3196   .text.get_time:000000000000005e .L513
-     /tmp/ccSVMnQ2.s:3207   .text.get_time:0000000000000084 .L514
-     /tmp/ccSVMnQ2.s:3277   .text.set_time:000000000000009a .L528
-     /tmp/ccSVMnQ2.s:3273   .text.set_time:0000000000000096 .L522
-     /tmp/ccSVMnQ2.s:3269   .text.set_time:000000000000008e .L527
-     /tmp/ccSVMnQ2.s:3244   .text.set_time:0000000000000028 .L523
-     /tmp/ccSVMnQ2.s:3325   .text.get_chan:0000000000000060 .L536
-     /tmp/ccSVMnQ2.s:3318   .text.get_chan:0000000000000050 .L537
-     /tmp/ccSVMnQ2.s:3329   .text.get_chan:0000000000000068 .L538
-     /tmp/ccSVMnQ2.s:3357   .text.get_chan:00000000000000ca .L535
-     /tmp/ccSVMnQ2.s:3323   .text.get_chan:000000000000005e .L543
-     /tmp/ccSVMnQ2.s:3362   .text.get_chan:00000000000000d2 .L541
-     /tmp/ccSVMnQ2.s:3353   .text.get_chan:00000000000000c2 .L542
-     /tmp/ccSVMnQ2.s:3465   .text.get_u32:0000000000000116 .L544
-     /tmp/ccSVMnQ2.s:3409   .text.get_u32:0000000000000066 .L548
-     /tmp/ccSVMnQ2.s:3425   .text.get_u32:0000000000000098 .L557
-     /tmp/ccSVMnQ2.s:3470   .text.get_u32:000000000000011e .L549
-     /tmp/ccSVMnQ2.s:3429   .text.get_u32:00000000000000a4 .L551
-     /tmp/ccSVMnQ2.s:3490   .text.get_u32:0000000000000160 .L555
-     /tmp/ccSVMnQ2.s:3474   .text.get_u32:000000000000012c .L558
-     /tmp/ccSVMnQ2.s:3440   .text.get_u32:00000000000000c4 .L552
-     /tmp/ccSVMnQ2.s:3478   .text.get_u32:0000000000000138 .L554
-     /tmp/ccSVMnQ2.s:3461   .text.get_u32:000000000000010c .L556
-     /tmp/ccSVMnQ2.s:3781   .text.get_tx_pow:0000000000000068 .L572
-     /tmp/ccSVMnQ2.s:3785   .text.get_tx_pow:000000000000006c .L576
-     /tmp/ccSVMnQ2.s:3777   .text.get_tx_pow:0000000000000060 .L577
-     /tmp/ccSVMnQ2.s:3843   .text.set_block:0000000000000070 .L592
-GAS LISTING /tmp/ccSVMnQ2.s 			page 92
+     /tmp/ccqVmvo9.s:2483   .text.reload_config:000000000000001a .L444
+     /tmp/ccqVmvo9.s:2498   .text.reload_config:0000000000000048 .L443
+     /tmp/ccqVmvo9.s:2608   .text.set_u32:00000000000000ce .L458
+     /tmp/ccqVmvo9.s:2574   .text.set_u32:000000000000005a .L451
+     /tmp/ccqVmvo9.s:2595   .text.set_u32:00000000000000a4 .L452
+     /tmp/ccqVmvo9.s:2591   .text.set_u32:0000000000000096 .L459
+     /tmp/ccqVmvo9.s:2615   .text.set_u32:00000000000000e0 .L454
+     /tmp/ccqVmvo9.s:2611   .text.set_u32:00000000000000d4 .L456
+     /tmp/ccqVmvo9.s:2567   .text.set_u32:0000000000000048 .L450
+     /tmp/ccqVmvo9.s:2602   .text.set_u32:00000000000000bc .L449
+     /tmp/ccqVmvo9.s:2958   .text.set_tx_pow:0000000000000054 .L478
+     /tmp/ccqVmvo9.s:2965   .text.set_tx_pow:0000000000000066 .L473
+     /tmp/ccqVmvo9.s:2961   .text.set_tx_pow:000000000000005a .L474
+     /tmp/ccqVmvo9.s:2937   .text.set_tx_pow:000000000000001c .L472
+     /tmp/ccqVmvo9.s:2950   .text.set_tx_pow:0000000000000046 .L477
+     /tmp/ccqVmvo9.s:3018   .text.set_gpo:0000000000000046 .L488
+     /tmp/ccqVmvo9.s:3025   .text.set_gpo:0000000000000058 .L484
+     /tmp/ccqVmvo9.s:3021   .text.set_gpo:000000000000004c .L485
+     /tmp/ccqVmvo9.s:3001   .text.set_gpo:000000000000001a .L483
+     /tmp/ccqVmvo9.s:3013   .text.set_gpo:000000000000003e .L482
+     /tmp/ccqVmvo9.s:3039   .text.set_gpo:000000000000008e .L487
+     /tmp/ccqVmvo9.s:3080   .text.get_log:000000000000003a .L492
+     /tmp/ccqVmvo9.s:3084   .text.get_log:000000000000003e .L494
+     /tmp/ccqVmvo9.s:3099   .text.get_log:0000000000000078 .L495
+     /tmp/ccqVmvo9.s:3094   .text.get_log:000000000000006c .L496
+     /tmp/ccqVmvo9.s:3130   .text.get_err:000000000000002c .L501
+     /tmp/ccqVmvo9.s:3137   .text.get_err:0000000000000038 .L502
+     /tmp/ccqVmvo9.s:3152   .text.get_err:0000000000000072 .L504
+     /tmp/ccqVmvo9.s:3147   .text.get_err:0000000000000066 .L505
+     /tmp/ccqVmvo9.s:3211   .text.get_time:000000000000008c .L509
+     /tmp/ccqVmvo9.s:3196   .text.get_time:000000000000005e .L513
+     /tmp/ccqVmvo9.s:3207   .text.get_time:0000000000000084 .L514
+     /tmp/ccqVmvo9.s:3277   .text.set_time:000000000000009a .L528
+     /tmp/ccqVmvo9.s:3273   .text.set_time:0000000000000096 .L522
+     /tmp/ccqVmvo9.s:3269   .text.set_time:000000000000008e .L527
+     /tmp/ccqVmvo9.s:3244   .text.set_time:0000000000000028 .L523
+     /tmp/ccqVmvo9.s:3325   .text.get_chan:0000000000000060 .L536
+     /tmp/ccqVmvo9.s:3318   .text.get_chan:0000000000000050 .L537
+     /tmp/ccqVmvo9.s:3329   .text.get_chan:0000000000000068 .L538
+     /tmp/ccqVmvo9.s:3357   .text.get_chan:00000000000000ca .L535
+     /tmp/ccqVmvo9.s:3323   .text.get_chan:000000000000005e .L543
+     /tmp/ccqVmvo9.s:3362   .text.get_chan:00000000000000d2 .L541
+     /tmp/ccqVmvo9.s:3353   .text.get_chan:00000000000000c2 .L542
+     /tmp/ccqVmvo9.s:3465   .text.get_u32:0000000000000116 .L544
+     /tmp/ccqVmvo9.s:3409   .text.get_u32:0000000000000066 .L548
+     /tmp/ccqVmvo9.s:3425   .text.get_u32:0000000000000098 .L557
+     /tmp/ccqVmvo9.s:3470   .text.get_u32:000000000000011e .L549
+     /tmp/ccqVmvo9.s:3429   .text.get_u32:00000000000000a4 .L551
+     /tmp/ccqVmvo9.s:3490   .text.get_u32:0000000000000160 .L555
+     /tmp/ccqVmvo9.s:3474   .text.get_u32:000000000000012c .L558
+     /tmp/ccqVmvo9.s:3440   .text.get_u32:00000000000000c4 .L552
+     /tmp/ccqVmvo9.s:3478   .text.get_u32:0000000000000138 .L554
+     /tmp/ccqVmvo9.s:3461   .text.get_u32:000000000000010c .L556
+     /tmp/ccqVmvo9.s:3781   .text.get_tx_pow:0000000000000068 .L572
+     /tmp/ccqVmvo9.s:3785   .text.get_tx_pow:000000000000006c .L576
+     /tmp/ccqVmvo9.s:3777   .text.get_tx_pow:0000000000000060 .L577
+     /tmp/ccqVmvo9.s:3843   .text.set_block:0000000000000070 .L592
+GAS LISTING /tmp/ccqVmvo9.s 			page 92
 
 
-     /tmp/ccSVMnQ2.s:3846   .text.set_block:0000000000000076 .L593
-     /tmp/ccSVMnQ2.s:3849   .text.set_block:000000000000007c .L584
-     /tmp/ccSVMnQ2.s:3816   .text.set_block:0000000000000024 .L582
-     /tmp/ccSVMnQ2.s:3825   .text.set_block:0000000000000040 .L583
-     /tmp/ccSVMnQ2.s:3869   .text.set_block:00000000000000d0 .L586
-     /tmp/ccSVMnQ2.s:3861   .text.set_block:00000000000000ac .L587
-     /tmp/ccSVMnQ2.s:3866   .text.set_block:00000000000000c2 .L588
-     /tmp/ccSVMnQ2.s:3883   .text.set_block:00000000000000fc .L589
-     /tmp/ccSVMnQ2.s:3834   .text.set_block:000000000000005e .L590
-     /tmp/ccSVMnQ2.s:3914   .text.set_block:0000000000000160 .L591
-     /tmp/ccSVMnQ2.s:3838   .text.set_block:0000000000000068 .L581
-     /tmp/ccSVMnQ2.s:3954   .text.get_block:0000000000000044 .L598
-     /tmp/ccSVMnQ2.s:3958   .text.get_block:000000000000004c .L599
-     /tmp/ccSVMnQ2.s:3996   .text.get_block:00000000000000ce .L597
-     /tmp/ccSVMnQ2.s:3985   .text.get_block:00000000000000b2 .L601
-     /tmp/ccSVMnQ2.s:3973   .text.get_block:0000000000000082 .L602
-     /tmp/ccSVMnQ2.s:3982   .text.get_block:00000000000000a4 .L603
-     /tmp/ccSVMnQ2.s:4001   .text.get_block:00000000000000d6 .L604
-     /tmp/ccSVMnQ2.s:4022   .text.get_block:000000000000011e .L605
-     /tmp/ccSVMnQ2.s:3992   .text.get_block:00000000000000c6 .L606
-     /tmp/ccSVMnQ2.s:4107   .text.set_regs:00000000000000d0 .L608
-     /tmp/ccSVMnQ2.s:4111   .text.set_regs:00000000000000dc .L619
-     /tmp/ccSVMnQ2.s:4139   .text.set_regs:0000000000000134 .L616
-     /tmp/ccSVMnQ2.s:4114   .text.set_regs:00000000000000e2 .L617
-     /tmp/ccSVMnQ2.s:4154   .text.set_regs:000000000000015a .L618
-     /tmp/ccSVMnQ2.s:4143   .text.set_regs:000000000000013e .L607
-     /tmp/ccSVMnQ2.s:4054   .text.set_regs:000000000000002a .L609
-     /tmp/ccSVMnQ2.s:4057   .text.set_regs:0000000000000032 .L610
-     /tmp/ccSVMnQ2.s:4128   .text.set_regs:0000000000000114 .L614
-     /tmp/ccSVMnQ2.s:4148   .text.set_regs:0000000000000146 .L615
-     /tmp/ccSVMnQ2.s:4083   .text.set_regs:0000000000000084 .L612
-     /tmp/ccSVMnQ2.s:4192   .text.get_regs:0000000000000036 .L624
-     /tmp/ccSVMnQ2.s:4196   .text.get_regs:0000000000000042 .L625
-     /tmp/ccSVMnQ2.s:4243   .text.get_regs:00000000000000d4 .L623
-     /tmp/ccSVMnQ2.s:4248   .text.get_regs:00000000000000dc .L634
-     /tmp/ccSVMnQ2.s:4251   .text.get_regs:00000000000000e2 .L631
-     /tmp/ccSVMnQ2.s:4285   .text.get_regs:000000000000014a .L632
-     /tmp/ccSVMnQ2.s:4202   .text.get_regs:0000000000000052 .L627
-     /tmp/ccSVMnQ2.s:4269   .text.get_regs:000000000000011c .L629
-     /tmp/ccSVMnQ2.s:4280   .text.get_regs:000000000000013c .L630
-     /tmp/ccSVMnQ2.s:4190   .text.get_regs:0000000000000034 .L635
-     /tmp/ccSVMnQ2.s:4216   .text.get_regs:0000000000000078 .L628
-     /tmp/ccSVMnQ2.s:4239   .text.get_regs:00000000000000cc .L633
-     /tmp/ccSVMnQ2.s:4333   .text.get_active_bank:000000000000006a .L636
-     /tmp/ccSVMnQ2.s:4329   .text.get_active_bank:0000000000000062 .L640
-     /tmp/ccSVMnQ2.s:4382   .text.get_gpo:000000000000006a .L647
-     /tmp/ccSVMnQ2.s:4378   .text.get_gpo:0000000000000062 .L651
-     /tmp/ccSVMnQ2.s:4414   .text.CmdThd:0000000000000026 .L659
-     /tmp/ccSVMnQ2.s:4435   .text.CmdThd:0000000000000062 .L660
-     /tmp/ccSVMnQ2.s:4408   .text.CmdThd:0000000000000012 .L662
-     /tmp/ccSVMnQ2.s:4432   .text.CmdThd:0000000000000058 .L661
+     /tmp/ccqVmvo9.s:3846   .text.set_block:0000000000000076 .L593
+     /tmp/ccqVmvo9.s:3849   .text.set_block:000000000000007c .L584
+     /tmp/ccqVmvo9.s:3816   .text.set_block:0000000000000024 .L582
+     /tmp/ccqVmvo9.s:3825   .text.set_block:0000000000000040 .L583
+     /tmp/ccqVmvo9.s:3869   .text.set_block:00000000000000d0 .L586
+     /tmp/ccqVmvo9.s:3861   .text.set_block:00000000000000ac .L587
+     /tmp/ccqVmvo9.s:3866   .text.set_block:00000000000000c2 .L588
+     /tmp/ccqVmvo9.s:3883   .text.set_block:00000000000000fc .L589
+     /tmp/ccqVmvo9.s:3834   .text.set_block:000000000000005e .L590
+     /tmp/ccqVmvo9.s:3914   .text.set_block:0000000000000160 .L591
+     /tmp/ccqVmvo9.s:3838   .text.set_block:0000000000000068 .L581
+     /tmp/ccqVmvo9.s:3954   .text.get_block:0000000000000044 .L598
+     /tmp/ccqVmvo9.s:3958   .text.get_block:000000000000004c .L599
+     /tmp/ccqVmvo9.s:3996   .text.get_block:00000000000000ce .L597
+     /tmp/ccqVmvo9.s:3985   .text.get_block:00000000000000b2 .L601
+     /tmp/ccqVmvo9.s:3973   .text.get_block:0000000000000082 .L602
+     /tmp/ccqVmvo9.s:3982   .text.get_block:00000000000000a4 .L603
+     /tmp/ccqVmvo9.s:4001   .text.get_block:00000000000000d6 .L604
+     /tmp/ccqVmvo9.s:4022   .text.get_block:000000000000011e .L605
+     /tmp/ccqVmvo9.s:3992   .text.get_block:00000000000000c6 .L606
+     /tmp/ccqVmvo9.s:4107   .text.set_regs:00000000000000d0 .L608
+     /tmp/ccqVmvo9.s:4111   .text.set_regs:00000000000000dc .L619
+     /tmp/ccqVmvo9.s:4139   .text.set_regs:0000000000000134 .L616
+     /tmp/ccqVmvo9.s:4114   .text.set_regs:00000000000000e2 .L617
+     /tmp/ccqVmvo9.s:4154   .text.set_regs:000000000000015a .L618
+     /tmp/ccqVmvo9.s:4143   .text.set_regs:000000000000013e .L607
+     /tmp/ccqVmvo9.s:4054   .text.set_regs:000000000000002a .L609
+     /tmp/ccqVmvo9.s:4057   .text.set_regs:0000000000000032 .L610
+     /tmp/ccqVmvo9.s:4128   .text.set_regs:0000000000000114 .L614
+     /tmp/ccqVmvo9.s:4148   .text.set_regs:0000000000000146 .L615
+     /tmp/ccqVmvo9.s:4083   .text.set_regs:0000000000000084 .L612
+     /tmp/ccqVmvo9.s:4192   .text.get_regs:0000000000000036 .L624
+     /tmp/ccqVmvo9.s:4196   .text.get_regs:0000000000000042 .L625
+     /tmp/ccqVmvo9.s:4243   .text.get_regs:00000000000000d4 .L623
+     /tmp/ccqVmvo9.s:4248   .text.get_regs:00000000000000dc .L634
+     /tmp/ccqVmvo9.s:4251   .text.get_regs:00000000000000e2 .L631
+     /tmp/ccqVmvo9.s:4285   .text.get_regs:000000000000014a .L632
+     /tmp/ccqVmvo9.s:4202   .text.get_regs:0000000000000052 .L627
+     /tmp/ccqVmvo9.s:4269   .text.get_regs:000000000000011c .L629
+     /tmp/ccqVmvo9.s:4280   .text.get_regs:000000000000013c .L630
+     /tmp/ccqVmvo9.s:4190   .text.get_regs:0000000000000034 .L635
+     /tmp/ccqVmvo9.s:4216   .text.get_regs:0000000000000078 .L628
+     /tmp/ccqVmvo9.s:4239   .text.get_regs:00000000000000cc .L633
+     /tmp/ccqVmvo9.s:4333   .text.get_active_bank:000000000000006a .L636
+     /tmp/ccqVmvo9.s:4329   .text.get_active_bank:0000000000000062 .L640
+     /tmp/ccqVmvo9.s:4382   .text.get_gpo:000000000000006a .L647
+     /tmp/ccqVmvo9.s:4378   .text.get_gpo:0000000000000062 .L651
+     /tmp/ccqVmvo9.s:4414   .text.CmdThd:0000000000000026 .L659
+     /tmp/ccqVmvo9.s:4435   .text.CmdThd:0000000000000062 .L660
+     /tmp/ccqVmvo9.s:4408   .text.CmdThd:0000000000000012 .L662
+     /tmp/ccqVmvo9.s:4432   .text.CmdThd:0000000000000058 .L661
 
 UNDEFINED SYMBOLS
 elyNLFromFW
 elyNLFreeBuffer
 PMMCTL0
 bank0p
-GAS LISTING /tmp/ccSVMnQ2.s 			page 93
+GAS LISTING /tmp/ccqVmvo9.s 			page 93
 
 
 crcGenX25
@@ -5565,7 +5565,7 @@ elyRegSet
 elyRegGet
 chMBFetch
 elyNLToFW
-GAS LISTING /tmp/ccSVMnQ2.s 			page 94
+GAS LISTING /tmp/ccqVmvo9.s 			page 94
 
 
 __crt0_init_bss

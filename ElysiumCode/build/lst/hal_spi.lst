@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccDCMiaO.s 			page 1
+GAS LISTING /tmp/ccUT3Hg0.s 			page 1
 
 
    1               		.file	"hal_spi.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccDCMiaO.s 			page 1
   54               	; framesize_locals:   0
   55               	; framesize_outgoing: 0
   56               	; framesize:          0
-GAS LISTING /tmp/ccDCMiaO.s 			page 2
+GAS LISTING /tmp/ccUT3Hg0.s 			page 2
 
 
   57               	; elim ap -> fp       4
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccDCMiaO.s 			page 1
  109               		.balign 2
  110               		.global	spiStart
  111               		.type	spiStart, @function
-GAS LISTING /tmp/ccDCMiaO.s 			page 3
+GAS LISTING /tmp/ccUT3Hg0.s 			page 3
 
 
  112               	spiStart:
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccDCMiaO.s 			page 1
  164               		; start of prologue
  165 0000 0A14      		PUSHM.A	#1, R10
  166               		; end of prologue
-GAS LISTING /tmp/ccDCMiaO.s 			page 4
+GAS LISTING /tmp/ccUT3Hg0.s 			page 4
 
 
  167 0002 CA0C      		MOVA	R12, R10
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccDCMiaO.s 			page 1
  217 002a B013 0000 		CALLA	#port_unlock
  218               		; start of epilogue
  219 002e 0A16      		POPM.A	#1, r10
-GAS LISTING /tmp/ccDCMiaO.s 			page 5
+GAS LISTING /tmp/ccUT3Hg0.s 			page 5
 
 
  220 0030 1001      		RETA
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccDCMiaO.s 			page 1
  272 0004 CA0C      		MOVA	R12, R10
  273 0006 C80D      		MOVA	R13, R8
  274 0008 9C00 0000 		CMPA	#0, R12 { JEQ	.L23
-GAS LISTING /tmp/ccDCMiaO.s 			page 6
+GAS LISTING /tmp/ccUT3Hg0.s 			page 6
 
 
  274      0024 
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccDCMiaO.s 			page 1
  321      0020 
  322               	.L30:
  323 0028 8C00 0000 		MOVA	#__func__.3727, R12
-GAS LISTING /tmp/ccDCMiaO.s 			page 7
+GAS LISTING /tmp/ccUT3Hg0.s 			page 7
 
 
  324 002c B013 0000 		CALLA	#chSysHalt
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccDCMiaO.s 			page 1
  373 0026 B013 0000 		CALLA	#port_lock
  374 002a EA93 0000 		CMP.B	#2, @R10 { JEQ	.L43
  374      0024 
-GAS LISTING /tmp/ccDCMiaO.s 			page 8
+GAS LISTING /tmp/ccUT3Hg0.s 			page 8
 
 
  375 0030 8C00 0000 		MOVA	#__func__.3733, R12
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccDCMiaO.s 			page 1
  423      0000 
  424 003e CE08      		MOVA	R8, R14
  425 0040 CD06      		MOVA	R6, R13
-GAS LISTING /tmp/ccDCMiaO.s 			page 9
+GAS LISTING /tmp/ccUT3Hg0.s 			page 9
 
 
  426 0042 CC0A      		MOVA	R10, R12
@@ -538,7 +538,7 @@ GAS LISTING /tmp/ccDCMiaO.s 			page 1
  475 0052 AC00 0600 		ADDA	#6, R12
  476 0056 B013 0000 		CALLA	#osalThreadSuspendS
  477 005a B013 0000 		CALLA	#port_unlock
-GAS LISTING /tmp/ccDCMiaO.s 			page 10
+GAS LISTING /tmp/ccUT3Hg0.s 			page 10
 
 
  478               		; start of epilogue
@@ -598,7 +598,7 @@ GAS LISTING /tmp/ccDCMiaO.s 			page 1
  525 005c CF08      		MOVA	R8, R15
  526 005e CE06      		MOVA	R6, R14
  527 0060 CD04      		MOVA	R4, R13
-GAS LISTING /tmp/ccDCMiaO.s 			page 11
+GAS LISTING /tmp/ccUT3Hg0.s 			page 11
 
 
  528 0062 CC0A      		MOVA	R10, R12
@@ -658,7 +658,7 @@ GAS LISTING /tmp/ccDCMiaO.s 			page 1
  577 0048 B013 0000 		CALLA	#chSysHalt
  578               	.L82:
  579 004c FA40 0300 		MOV.B	#3, @R10
-GAS LISTING /tmp/ccDCMiaO.s 			page 12
+GAS LISTING /tmp/ccUT3Hg0.s 			page 12
 
 
  579      0000 
@@ -718,7 +718,7 @@ GAS LISTING /tmp/ccDCMiaO.s 			page 1
  628      0000 0024 
  629 0044 8C00 0000 		MOVA	#__func__.3763, R12
  630 0048 B013 0000 		CALLA	#chSysHalt
-GAS LISTING /tmp/ccDCMiaO.s 			page 13
+GAS LISTING /tmp/ccUT3Hg0.s 			page 13
 
 
  631               	.L92:
@@ -778,7 +778,7 @@ GAS LISTING /tmp/ccDCMiaO.s 			page 1
  683               	; framesize_locals:   0
  684               	; framesize_outgoing: 0
  685               	; framesize:          4
-GAS LISTING /tmp/ccDCMiaO.s 			page 14
+GAS LISTING /tmp/ccUT3Hg0.s 			page 14
 
 
  686               	; elim ap -> fp       8
@@ -838,7 +838,7 @@ GAS LISTING /tmp/ccDCMiaO.s 			page 1
  728 003b 7370 6949 		.string	"spiIgnore"
  728      676E 6F72 
  728      6500 
-GAS LISTING /tmp/ccDCMiaO.s 			page 15
+GAS LISTING /tmp/ccUT3Hg0.s 			page 15
 
 
  729               		.type	__func__.3739, @object
@@ -894,86 +894,86 @@ GAS LISTING /tmp/ccDCMiaO.s 			page 1
  760      7461 7274 
  760      00
  761               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccDCMiaO.s 			page 16
+GAS LISTING /tmp/ccUT3Hg0.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_spi.c
-     /tmp/ccDCMiaO.s:5      .text.port_lock:0000000000000000 port_lock
-     /tmp/ccDCMiaO.s:28     .text.port_unlock:0000000000000000 port_unlock
-     /tmp/ccDCMiaO.s:51     .text.osalThreadSuspendS:0000000000000000 osalThreadSuspendS
-     /tmp/ccDCMiaO.s:71     .text.spiInit:0000000000000000 spiInit
-     /tmp/ccDCMiaO.s:90     .text.spiObjectInit:0000000000000000 spiObjectInit
-     /tmp/ccDCMiaO.s:112    .text.spiStart:0000000000000000 spiStart
-     /tmp/ccDCMiaO.s:759    .upper.rodata:00000000000000a0 __func__.3703
-     /tmp/ccDCMiaO.s:155    .text.spiStop:0000000000000000 spiStop
-     /tmp/ccDCMiaO.s:755    .upper.rodata:0000000000000098 __func__.3707
-     /tmp/ccDCMiaO.s:193    .text.spiSelect:0000000000000000 spiSelect
-     /tmp/ccDCMiaO.s:751    .upper.rodata:000000000000008e __func__.3711
-     /tmp/ccDCMiaO.s:226    .text.spiUnselect:0000000000000000 spiUnselect
-     /tmp/ccDCMiaO.s:747    .upper.rodata:0000000000000082 __func__.3715
-     /tmp/ccDCMiaO.s:259    .text.spiStartIgnore:0000000000000000 spiStartIgnore
-     /tmp/ccDCMiaO.s:743    .upper.rodata:0000000000000073 __func__.3720
-     /tmp/ccDCMiaO.s:299    .text.spiStartExchange:0000000000000000 spiStartExchange
-     /tmp/ccDCMiaO.s:739    .upper.rodata:0000000000000062 __func__.3727
-     /tmp/ccDCMiaO.s:349    .text.spiStartSend:0000000000000000 spiStartSend
-     /tmp/ccDCMiaO.s:735    .upper.rodata:0000000000000055 __func__.3733
-     /tmp/ccDCMiaO.s:394    .text.spiStartReceive:0000000000000000 spiStartReceive
-     /tmp/ccDCMiaO.s:731    .upper.rodata:0000000000000045 __func__.3739
-     /tmp/ccDCMiaO.s:439    .text.spiIgnore:0000000000000000 spiIgnore
-     /tmp/ccDCMiaO.s:727    .upper.rodata:000000000000003b __func__.3744
-     /tmp/ccDCMiaO.s:487    .text.spiExchange:0000000000000000 spiExchange
-     /tmp/ccDCMiaO.s:723    .upper.rodata:000000000000002f __func__.3751
-     /tmp/ccDCMiaO.s:545    .text.spiSend:0000000000000000 spiSend
-     /tmp/ccDCMiaO.s:719    .upper.rodata:0000000000000027 __func__.3757
-     /tmp/ccDCMiaO.s:598    .text.spiReceive:0000000000000000 spiReceive
-     /tmp/ccDCMiaO.s:715    .upper.rodata:000000000000001c __func__.3763
-     /tmp/ccDCMiaO.s:651    .text.spiAcquireBus:0000000000000000 spiAcquireBus
-     /tmp/ccDCMiaO.s:711    .upper.rodata:000000000000000e __func__.3767
-     /tmp/ccDCMiaO.s:680    .text.spiReleaseBus:0000000000000000 spiReleaseBus
-     /tmp/ccDCMiaO.s:707    .upper.rodata:0000000000000000 __func__.3771
-     /tmp/ccDCMiaO.s:129    .text.spiStart:0000000000000014 .L7
-     /tmp/ccDCMiaO.s:132    .text.spiStart:000000000000001c .L8
-     /tmp/ccDCMiaO.s:140    .text.spiStart:0000000000000032 .L9
-     /tmp/ccDCMiaO.s:171    .text.spiStop:0000000000000012 .L14
-     /tmp/ccDCMiaO.s:179    .text.spiStop:0000000000000028 .L15
-     /tmp/ccDCMiaO.s:209    .text.spiSelect:0000000000000012 .L17
-     /tmp/ccDCMiaO.s:214    .text.spiSelect:0000000000000024 .L18
-     /tmp/ccDCMiaO.s:242    .text.spiUnselect:0000000000000012 .L20
-     /tmp/ccDCMiaO.s:247    .text.spiUnselect:0000000000000024 .L21
-     /tmp/ccDCMiaO.s:276    .text.spiStartIgnore:0000000000000014 .L23
-     /tmp/ccDCMiaO.s:279    .text.spiStartIgnore:000000000000001c .L24
-     /tmp/ccDCMiaO.s:284    .text.spiStartIgnore:000000000000002e .L25
-     /tmp/ccDCMiaO.s:322    .text.spiStartExchange:0000000000000028 .L30
-     /tmp/ccDCMiaO.s:325    .text.spiStartExchange:0000000000000030 .L31
-     /tmp/ccDCMiaO.s:330    .text.spiStartExchange:0000000000000042 .L32
-     /tmp/ccDCMiaO.s:369    .text.spiStartSend:000000000000001e .L41
-     /tmp/ccDCMiaO.s:372    .text.spiStartSend:0000000000000026 .L42
-     /tmp/ccDCMiaO.s:377    .text.spiStartSend:0000000000000038 .L43
-     /tmp/ccDCMiaO.s:414    .text.spiStartReceive:000000000000001e .L50
-     /tmp/ccDCMiaO.s:417    .text.spiStartReceive:0000000000000026 .L51
-     /tmp/ccDCMiaO.s:422    .text.spiStartReceive:0000000000000038 .L52
-     /tmp/ccDCMiaO.s:456    .text.spiIgnore:0000000000000014 .L59
-GAS LISTING /tmp/ccDCMiaO.s 			page 17
+     /tmp/ccUT3Hg0.s:5      .text.port_lock:0000000000000000 port_lock
+     /tmp/ccUT3Hg0.s:28     .text.port_unlock:0000000000000000 port_unlock
+     /tmp/ccUT3Hg0.s:51     .text.osalThreadSuspendS:0000000000000000 osalThreadSuspendS
+     /tmp/ccUT3Hg0.s:71     .text.spiInit:0000000000000000 spiInit
+     /tmp/ccUT3Hg0.s:90     .text.spiObjectInit:0000000000000000 spiObjectInit
+     /tmp/ccUT3Hg0.s:112    .text.spiStart:0000000000000000 spiStart
+     /tmp/ccUT3Hg0.s:759    .upper.rodata:00000000000000a0 __func__.3703
+     /tmp/ccUT3Hg0.s:155    .text.spiStop:0000000000000000 spiStop
+     /tmp/ccUT3Hg0.s:755    .upper.rodata:0000000000000098 __func__.3707
+     /tmp/ccUT3Hg0.s:193    .text.spiSelect:0000000000000000 spiSelect
+     /tmp/ccUT3Hg0.s:751    .upper.rodata:000000000000008e __func__.3711
+     /tmp/ccUT3Hg0.s:226    .text.spiUnselect:0000000000000000 spiUnselect
+     /tmp/ccUT3Hg0.s:747    .upper.rodata:0000000000000082 __func__.3715
+     /tmp/ccUT3Hg0.s:259    .text.spiStartIgnore:0000000000000000 spiStartIgnore
+     /tmp/ccUT3Hg0.s:743    .upper.rodata:0000000000000073 __func__.3720
+     /tmp/ccUT3Hg0.s:299    .text.spiStartExchange:0000000000000000 spiStartExchange
+     /tmp/ccUT3Hg0.s:739    .upper.rodata:0000000000000062 __func__.3727
+     /tmp/ccUT3Hg0.s:349    .text.spiStartSend:0000000000000000 spiStartSend
+     /tmp/ccUT3Hg0.s:735    .upper.rodata:0000000000000055 __func__.3733
+     /tmp/ccUT3Hg0.s:394    .text.spiStartReceive:0000000000000000 spiStartReceive
+     /tmp/ccUT3Hg0.s:731    .upper.rodata:0000000000000045 __func__.3739
+     /tmp/ccUT3Hg0.s:439    .text.spiIgnore:0000000000000000 spiIgnore
+     /tmp/ccUT3Hg0.s:727    .upper.rodata:000000000000003b __func__.3744
+     /tmp/ccUT3Hg0.s:487    .text.spiExchange:0000000000000000 spiExchange
+     /tmp/ccUT3Hg0.s:723    .upper.rodata:000000000000002f __func__.3751
+     /tmp/ccUT3Hg0.s:545    .text.spiSend:0000000000000000 spiSend
+     /tmp/ccUT3Hg0.s:719    .upper.rodata:0000000000000027 __func__.3757
+     /tmp/ccUT3Hg0.s:598    .text.spiReceive:0000000000000000 spiReceive
+     /tmp/ccUT3Hg0.s:715    .upper.rodata:000000000000001c __func__.3763
+     /tmp/ccUT3Hg0.s:651    .text.spiAcquireBus:0000000000000000 spiAcquireBus
+     /tmp/ccUT3Hg0.s:711    .upper.rodata:000000000000000e __func__.3767
+     /tmp/ccUT3Hg0.s:680    .text.spiReleaseBus:0000000000000000 spiReleaseBus
+     /tmp/ccUT3Hg0.s:707    .upper.rodata:0000000000000000 __func__.3771
+     /tmp/ccUT3Hg0.s:129    .text.spiStart:0000000000000014 .L7
+     /tmp/ccUT3Hg0.s:132    .text.spiStart:000000000000001c .L8
+     /tmp/ccUT3Hg0.s:140    .text.spiStart:0000000000000032 .L9
+     /tmp/ccUT3Hg0.s:171    .text.spiStop:0000000000000012 .L14
+     /tmp/ccUT3Hg0.s:179    .text.spiStop:0000000000000028 .L15
+     /tmp/ccUT3Hg0.s:209    .text.spiSelect:0000000000000012 .L17
+     /tmp/ccUT3Hg0.s:214    .text.spiSelect:0000000000000024 .L18
+     /tmp/ccUT3Hg0.s:242    .text.spiUnselect:0000000000000012 .L20
+     /tmp/ccUT3Hg0.s:247    .text.spiUnselect:0000000000000024 .L21
+     /tmp/ccUT3Hg0.s:276    .text.spiStartIgnore:0000000000000014 .L23
+     /tmp/ccUT3Hg0.s:279    .text.spiStartIgnore:000000000000001c .L24
+     /tmp/ccUT3Hg0.s:284    .text.spiStartIgnore:000000000000002e .L25
+     /tmp/ccUT3Hg0.s:322    .text.spiStartExchange:0000000000000028 .L30
+     /tmp/ccUT3Hg0.s:325    .text.spiStartExchange:0000000000000030 .L31
+     /tmp/ccUT3Hg0.s:330    .text.spiStartExchange:0000000000000042 .L32
+     /tmp/ccUT3Hg0.s:369    .text.spiStartSend:000000000000001e .L41
+     /tmp/ccUT3Hg0.s:372    .text.spiStartSend:0000000000000026 .L42
+     /tmp/ccUT3Hg0.s:377    .text.spiStartSend:0000000000000038 .L43
+     /tmp/ccUT3Hg0.s:414    .text.spiStartReceive:000000000000001e .L50
+     /tmp/ccUT3Hg0.s:417    .text.spiStartReceive:0000000000000026 .L51
+     /tmp/ccUT3Hg0.s:422    .text.spiStartReceive:0000000000000038 .L52
+     /tmp/ccUT3Hg0.s:456    .text.spiIgnore:0000000000000014 .L59
+GAS LISTING /tmp/ccUT3Hg0.s 			page 17
 
 
-     /tmp/ccDCMiaO.s:459    .text.spiIgnore:000000000000001c .L60
-     /tmp/ccDCMiaO.s:464    .text.spiIgnore:000000000000002e .L61
-     /tmp/ccDCMiaO.s:469    .text.spiIgnore:0000000000000042 .L62
-     /tmp/ccDCMiaO.s:510    .text.spiExchange:0000000000000028 .L67
-     /tmp/ccDCMiaO.s:513    .text.spiExchange:0000000000000030 .L68
-     /tmp/ccDCMiaO.s:518    .text.spiExchange:0000000000000042 .L69
-     /tmp/ccDCMiaO.s:523    .text.spiExchange:0000000000000056 .L70
-     /tmp/ccDCMiaO.s:565    .text.spiSend:000000000000001e .L79
-     /tmp/ccDCMiaO.s:568    .text.spiSend:0000000000000026 .L80
-     /tmp/ccDCMiaO.s:573    .text.spiSend:0000000000000038 .L81
-     /tmp/ccDCMiaO.s:578    .text.spiSend:000000000000004c .L82
-     /tmp/ccDCMiaO.s:618    .text.spiReceive:000000000000001e .L89
-     /tmp/ccDCMiaO.s:621    .text.spiReceive:0000000000000026 .L90
-     /tmp/ccDCMiaO.s:626    .text.spiReceive:0000000000000038 .L91
-     /tmp/ccDCMiaO.s:631    .text.spiReceive:000000000000004c .L92
-     /tmp/ccDCMiaO.s:667    .text.spiAcquireBus:0000000000000012 .L99
-     /tmp/ccDCMiaO.s:696    .text.spiReleaseBus:0000000000000012 .L101
+     /tmp/ccUT3Hg0.s:459    .text.spiIgnore:000000000000001c .L60
+     /tmp/ccUT3Hg0.s:464    .text.spiIgnore:000000000000002e .L61
+     /tmp/ccUT3Hg0.s:469    .text.spiIgnore:0000000000000042 .L62
+     /tmp/ccUT3Hg0.s:510    .text.spiExchange:0000000000000028 .L67
+     /tmp/ccUT3Hg0.s:513    .text.spiExchange:0000000000000030 .L68
+     /tmp/ccUT3Hg0.s:518    .text.spiExchange:0000000000000042 .L69
+     /tmp/ccUT3Hg0.s:523    .text.spiExchange:0000000000000056 .L70
+     /tmp/ccUT3Hg0.s:565    .text.spiSend:000000000000001e .L79
+     /tmp/ccUT3Hg0.s:568    .text.spiSend:0000000000000026 .L80
+     /tmp/ccUT3Hg0.s:573    .text.spiSend:0000000000000038 .L81
+     /tmp/ccUT3Hg0.s:578    .text.spiSend:000000000000004c .L82
+     /tmp/ccUT3Hg0.s:618    .text.spiReceive:000000000000001e .L89
+     /tmp/ccUT3Hg0.s:621    .text.spiReceive:0000000000000026 .L90
+     /tmp/ccUT3Hg0.s:626    .text.spiReceive:0000000000000038 .L91
+     /tmp/ccUT3Hg0.s:631    .text.spiReceive:000000000000004c .L92
+     /tmp/ccUT3Hg0.s:667    .text.spiAcquireBus:0000000000000012 .L99
+     /tmp/ccUT3Hg0.s:696    .text.spiReleaseBus:0000000000000012 .L101
 
 UNDEFINED SYMBOLS
 chThdSuspendTimeoutS
