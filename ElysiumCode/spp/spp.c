@@ -167,7 +167,6 @@ static void nl_route(uint8_t * buffer,
     elyNLFreeBuffer(buffer);
     return;
   }
-
   /* TODO Don't use constants for register shifts.  Write a macro or function to handle these operations */
   uint16_t apid = ( ((buffer[0] & 0x07) << 8) | (buffer[1]) );
   uint16_t elysium_apid = ( ((bank0p[RegSrcAddrMsb] << 8) |
