@@ -281,6 +281,7 @@ void elyRFDLLBuildFrame(void) {
     /* add CRC */
     crcGenSDLP(tf_buffer, tf_len);
   }
+  /* Put R=1/2 K=7 CCSDS Convolutional Code Here - bdamitz */
   /* Frame is ready */
   chEvtSignal(rf_thd, RFTxFrameReady);
 }
