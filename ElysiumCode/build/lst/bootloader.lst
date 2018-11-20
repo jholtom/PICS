@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccSNOGX8.s 			page 1
+GAS LISTING /tmp/ccm1Uw1v.s 			page 1
 
 
    1               	# 1 ".//core/bootloader/bootloader.S"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccSNOGX8.s 			page 1
   39               	  ; STATW is read-only
   40               	  ; not using TBCNT
   41               	  ; 7-bit slave address for upper half
-GAS LISTING /tmp/ccSNOGX8.s 			page 2
+GAS LISTING /tmp/ccm1Uw1v.s 			page 2
 
 
   42 005a B240 5100 	  mov.w #0x51, &UCB0I2CSA
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccSNOGX8.s 			page 1
   90               	
   91               	  ; nack/stop
   92 00ae A2D2 0000 	  bis #0x0004, &UCB0CTLW0
-GAS LISTING /tmp/ccSNOGX8.s 			page 3
+GAS LISTING /tmp/ccm1Uw1v.s 			page 3
 
 
   93               	
@@ -135,7 +135,7 @@ GAS LISTING /tmp/ccSNOGX8.s 			page 1
  103               	  ; reset
  104 00c2 B240 48A5 	  mov.w #0xA548, &PMMCTL0
  104      0000 
-GAS LISTING /tmp/ccSNOGX8.s 			page 4
+GAS LISTING /tmp/ccm1Uw1v.s 			page 4
 
 
 DEFINED SYMBOLS

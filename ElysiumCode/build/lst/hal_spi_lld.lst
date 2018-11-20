@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccR65OTh.s 			page 1
+GAS LISTING /tmp/cc7otatM.s 			page 1
 
 
    1               		.file	"hal_spi_lld.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccR65OTh.s 			page 1
   49 0068 4413      		CALLA	R4
   50 006a 3C0A 1000 		MOVA	16(R10), R12
   51 006e ACD3 0000 		BIS.W	#2, @R12
-GAS LISTING /tmp/ccR65OTh.s 			page 2
+GAS LISTING /tmp/cc7otatM.s 			page 2
 
 
   52               		; start of epilogue
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccR65OTh.s 			page 1
  103 0054 1001      		RETA
  104               		.size	spi_lld_end_of_transfer, .-spi_lld_end_of_transfer
  105               		.section	.text.spi_lld_init,"ax",@progbits
-GAS LISTING /tmp/ccR65OTh.s 			page 3
+GAS LISTING /tmp/cc7otatM.s 			page 3
 
 
  106               		.balign 2
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccR65OTh.s 			page 1
  149               	; framesize_locals:   0
  150               	; framesize_outgoing: 0
  151               	; framesize:          0
-GAS LISTING /tmp/ccR65OTh.s 			page 4
+GAS LISTING /tmp/cc7otatM.s 			page 4
 
 
  152               	; elim ap -> fp       4
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccR65OTh.s 			page 1
  200               		.balign 2
  201               		.global	spi_lld_unselect
  202               		.type	spi_lld_unselect, @function
-GAS LISTING /tmp/ccR65OTh.s 			page 5
+GAS LISTING /tmp/cc7otatM.s 			page 5
 
 
  203               	spi_lld_unselect:
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccR65OTh.s 			page 1
  252 0004 CA0C      		MOVA	R12, R10
  253 0006 9C00 0000 		CMPA	#SPIDA0, R12 { JNE	.L39
  253      0020 
-GAS LISTING /tmp/ccR65OTh.s 			page 6
+GAS LISTING /tmp/cc7otatM.s 			page 6
 
 
  254 000c 3C0C 0200 		MOVA	2(R12), R12
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccR65OTh.s 			page 1
  307               	; framesize:          0
  308               	; elim ap -> fp       4
  309               	; elim fp -> sp       0
-GAS LISTING /tmp/ccR65OTh.s 			page 7
+GAS LISTING /tmp/cc7otatM.s 			page 7
 
 
  310               	; saved regs:(none)
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccR65OTh.s 			page 1
  360               	; framesize:          4
  361               	; elim ap -> fp       8
  362               	; elim fp -> sp       0
-GAS LISTING /tmp/ccR65OTh.s 			page 8
+GAS LISTING /tmp/cc7otatM.s 			page 8
 
 
  363               	; saved regs: R10
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccR65OTh.s 			page 1
  413               	; framesize_regs:     8
  414               	; framesize_locals:   0
  415               	; framesize_outgoing: 0
-GAS LISTING /tmp/ccR65OTh.s 			page 9
+GAS LISTING /tmp/cc7otatM.s 			page 9
 
 
  416               	; framesize:          8
@@ -536,43 +536,43 @@ GAS LISTING /tmp/ccR65OTh.s 			page 1
  458      0000 0000 
  458      0000 0000 
  459               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccR65OTh.s 			page 10
+GAS LISTING /tmp/cc7otatM.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_spi_lld.c
-     /tmp/ccR65OTh.s:5      .text.init_transfer:0000000000000000 init_transfer
-     /tmp/ccR65OTh.s:62     .text.spi_lld_end_of_transfer:0000000000000000 spi_lld_end_of_transfer
-     /tmp/ccR65OTh.s:109    .text.spi_lld_init:0000000000000000 spi_lld_init
-     /tmp/ccR65OTh.s:457    .upper.bss:0000000000000000 SPIDA0
-     /tmp/ccR65OTh.s:146    .text.spi_lld_stop:0000000000000000 spi_lld_stop
-     /tmp/ccR65OTh.s:168    .text.spi_lld_select:0000000000000000 spi_lld_select
-     /tmp/ccR65OTh.s:203    .text.spi_lld_unselect:0000000000000000 spi_lld_unselect
-     /tmp/ccR65OTh.s:239    .text.spi_lld_start:0000000000000000 spi_lld_start
-     /tmp/ccR65OTh.s:302    .text.spi_lld_ignore:0000000000000000 spi_lld_ignore
-     /tmp/ccR65OTh.s:450    .upper.rodata:0000000000000018 dummytx
-     /tmp/ccR65OTh.s:446    .bss:0000000000000000 dummyrx
-     /tmp/ccR65OTh.s:327    .text.spi_lld_exchange:0000000000000000 spi_lld_exchange
-     /tmp/ccR65OTh.s:355    .text.spi_lld_send:0000000000000000 spi_lld_send
-     /tmp/ccR65OTh.s:383    .text.spi_lld_receive:0000000000000000 spi_lld_receive
-     /tmp/ccR65OTh.s:411    .text.spi_lld_polled_exchange:0000000000000000 spi_lld_polled_exchange
-     /tmp/ccR65OTh.s:443    .upper.rodata:0000000000000000 __func__.3744
-     /tmp/ccR65OTh.s:27     .text.init_transfer:0000000000000028 .L2
-     /tmp/ccR65OTh.s:30     .text.init_transfer:000000000000002e .L3
-     /tmp/ccR65OTh.s:37     .text.init_transfer:000000000000004c .L4
-     /tmp/ccR65OTh.s:40     .text.init_transfer:0000000000000052 .L5
-     /tmp/ccR65OTh.s:84     .text.spi_lld_end_of_transfer:0000000000000026 .L17
-     /tmp/ccR65OTh.s:86     .text.spi_lld_end_of_transfer:000000000000002a .L18
-     /tmp/ccR65OTh.s:99     .text.spi_lld_end_of_transfer:0000000000000050 .L16
-     /tmp/ccR65OTh.s:160    .text.spi_lld_stop:000000000000000e .L24
-     /tmp/ccR65OTh.s:194    .text.spi_lld_select:0000000000000040 .L26
-     /tmp/ccR65OTh.s:229    .text.spi_lld_unselect:0000000000000040 .L31
-     /tmp/ccR65OTh.s:290    .text.spi_lld_start:0000000000000080 .L39
-     /tmp/ccR65OTh.s:294    .text.spi_lld_start:0000000000000088 .L40
-     /tmp/ccR65OTh.s:261    .text.spi_lld_start:0000000000000028 .L37
-     /tmp/ccR65OTh.s:276    .text.spi_lld_start:000000000000005e .L38
-     /tmp/ccR65OTh.s:428    .text.spi_lld_polled_exchange:0000000000000014 .L46
-     /tmp/ccR65OTh.s:432    .text.spi_lld_polled_exchange:0000000000000020 .L47
+     /tmp/cc7otatM.s:5      .text.init_transfer:0000000000000000 init_transfer
+     /tmp/cc7otatM.s:62     .text.spi_lld_end_of_transfer:0000000000000000 spi_lld_end_of_transfer
+     /tmp/cc7otatM.s:109    .text.spi_lld_init:0000000000000000 spi_lld_init
+     /tmp/cc7otatM.s:457    .upper.bss:0000000000000000 SPIDA0
+     /tmp/cc7otatM.s:146    .text.spi_lld_stop:0000000000000000 spi_lld_stop
+     /tmp/cc7otatM.s:168    .text.spi_lld_select:0000000000000000 spi_lld_select
+     /tmp/cc7otatM.s:203    .text.spi_lld_unselect:0000000000000000 spi_lld_unselect
+     /tmp/cc7otatM.s:239    .text.spi_lld_start:0000000000000000 spi_lld_start
+     /tmp/cc7otatM.s:302    .text.spi_lld_ignore:0000000000000000 spi_lld_ignore
+     /tmp/cc7otatM.s:450    .upper.rodata:0000000000000018 dummytx
+     /tmp/cc7otatM.s:446    .bss:0000000000000000 dummyrx
+     /tmp/cc7otatM.s:327    .text.spi_lld_exchange:0000000000000000 spi_lld_exchange
+     /tmp/cc7otatM.s:355    .text.spi_lld_send:0000000000000000 spi_lld_send
+     /tmp/cc7otatM.s:383    .text.spi_lld_receive:0000000000000000 spi_lld_receive
+     /tmp/cc7otatM.s:411    .text.spi_lld_polled_exchange:0000000000000000 spi_lld_polled_exchange
+     /tmp/cc7otatM.s:443    .upper.rodata:0000000000000000 __func__.3744
+     /tmp/cc7otatM.s:27     .text.init_transfer:0000000000000028 .L2
+     /tmp/cc7otatM.s:30     .text.init_transfer:000000000000002e .L3
+     /tmp/cc7otatM.s:37     .text.init_transfer:000000000000004c .L4
+     /tmp/cc7otatM.s:40     .text.init_transfer:0000000000000052 .L5
+     /tmp/cc7otatM.s:84     .text.spi_lld_end_of_transfer:0000000000000026 .L17
+     /tmp/cc7otatM.s:86     .text.spi_lld_end_of_transfer:000000000000002a .L18
+     /tmp/cc7otatM.s:99     .text.spi_lld_end_of_transfer:0000000000000050 .L16
+     /tmp/cc7otatM.s:160    .text.spi_lld_stop:000000000000000e .L24
+     /tmp/cc7otatM.s:194    .text.spi_lld_select:0000000000000040 .L26
+     /tmp/cc7otatM.s:229    .text.spi_lld_unselect:0000000000000040 .L31
+     /tmp/cc7otatM.s:290    .text.spi_lld_start:0000000000000080 .L39
+     /tmp/cc7otatM.s:294    .text.spi_lld_start:0000000000000088 .L40
+     /tmp/cc7otatM.s:261    .text.spi_lld_start:0000000000000028 .L37
+     /tmp/cc7otatM.s:276    .text.spi_lld_start:000000000000005e .L38
+     /tmp/cc7otatM.s:428    .text.spi_lld_polled_exchange:0000000000000014 .L46
+     /tmp/cc7otatM.s:432    .text.spi_lld_polled_exchange:0000000000000020 .L47
 
 UNDEFINED SYMBOLS
 dmaAcquireI

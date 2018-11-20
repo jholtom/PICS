@@ -123,7 +123,7 @@ void elyUARTDLLStartTx(UARTDriver * uartp, uint8_t * buffer) {
   static const uint8_t END = SLIP_END;
   /* Calculate the length of the packet - store it in n */
   tx_n = elyNLGetLength(buffer);
-  chDbgAssert(tx_n != 0 && tx_n <= elyNLMaxLen, "invalid packet length");
+  chDbgAssert(tx_n != 0 && tx_n >= elyNLMaxLen, "invalid packet length");
   /* The below should be impossible and should be deleted if Assert is Abort */
   if (tx_n == 0 || tx_n > elyNLMaxLen) {
     /* TODO signal an error here */

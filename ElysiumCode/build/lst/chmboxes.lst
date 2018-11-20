@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccMWAEcf.s 			page 1
+GAS LISTING /tmp/ccbAOiuD.s 			page 1
 
 
    1               		.file	"chmboxes.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccMWAEcf.s 			page 1
   50               		.section	.text.chMBResetI,"ax",@progbits
   51               		.balign 2
   52               		.global	chMBResetI
-GAS LISTING /tmp/ccMWAEcf.s 			page 2
+GAS LISTING /tmp/ccbAOiuD.s 			page 2
 
 
   53               		.type	chMBResetI, @function
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccMWAEcf.s 			page 1
  103               	; framesize:          0
  104               	; elim ap -> fp       4
  105               	; elim fp -> sp       0
-GAS LISTING /tmp/ccMWAEcf.s 			page 3
+GAS LISTING /tmp/ccbAOiuD.s 			page 3
 
 
  106               	; saved regs:(none)
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccMWAEcf.s 			page 1
  157 002e 3E0A 0800 		MOVA	8(R10), R14
  158 0032 CC0E      		MOVA	R14, R12
  159 0034 AC00 0400 		ADDA	#4, R12
-GAS LISTING /tmp/ccMWAEcf.s 			page 4
+GAS LISTING /tmp/ccbAOiuD.s 			page 4
 
 
  160 0038 7A0C 0800 		MOVA	R12, 8(R10)
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccMWAEcf.s 			page 1
  211               		.type	chMBPostI, @function
  212               	chMBPostI:
  213               	; start of function
-GAS LISTING /tmp/ccMWAEcf.s 			page 5
+GAS LISTING /tmp/ccbAOiuD.s 			page 5
 
 
  214               	; framesize_regs:     8
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccMWAEcf.s 			page 1
  265               	; framesize:          12
  266               	; elim ap -> fp       16
  267               	; elim fp -> sp       0
-GAS LISTING /tmp/ccMWAEcf.s 			page 6
+GAS LISTING /tmp/ccbAOiuD.s 			page 6
 
 
  268               	; saved regs: R6 R8 R10
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccMWAEcf.s 			page 1
  319               	; elim ap -> fp       4
  320               	; elim fp -> sp       0
  321               	; saved regs:(none)
-GAS LISTING /tmp/ccMWAEcf.s 			page 7
+GAS LISTING /tmp/ccbAOiuD.s 			page 7
 
 
  322               		; start of prologue
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccMWAEcf.s 			page 1
  373 003e 7A0C 0C00 		MOVA	R12, 12(R10)
  374               	.L30:
  375 0042 3C0A 0C00 		MOVA	12(R10), R12
-GAS LISTING /tmp/ccMWAEcf.s 			page 8
+GAS LISTING /tmp/ccbAOiuD.s 			page 8
 
 
  376 0046 7C08 0000 		MOVA	R8, @R12
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccMWAEcf.s 			page 1
  427 0042 0018 E84C 		MOVX.A	@R12, @R8
  427      0000 
  428 0048 0018 5E9A 		CMPX.A	4(R10), R14 { JLO	.L36
-GAS LISTING /tmp/ccMWAEcf.s 			page 9
+GAS LISTING /tmp/ccbAOiuD.s 			page 9
 
 
  428      0400 0028 
@@ -538,7 +538,7 @@ GAS LISTING /tmp/ccMWAEcf.s 			page 1
  480               	; framesize_regs:     8
  481               	; framesize_locals:   0
  482               	; framesize_outgoing: 0
-GAS LISTING /tmp/ccMWAEcf.s 			page 10
+GAS LISTING /tmp/ccbAOiuD.s 			page 10
 
 
  483               	; framesize:          8
@@ -598,7 +598,7 @@ GAS LISTING /tmp/ccMWAEcf.s 			page 1
  530               		.size	__func__.2651, 11
  531               	__func__.2651:
  532 000b 6368 4D42 		.string	"chMBFetchS"
-GAS LISTING /tmp/ccMWAEcf.s 			page 11
+GAS LISTING /tmp/ccbAOiuD.s 			page 11
 
 
  532      4665 7463 
@@ -643,57 +643,57 @@ GAS LISTING /tmp/ccMWAEcf.s 			page 1
  556      6374 496E 
  556      6974 00
  557               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccMWAEcf.s 			page 12
+GAS LISTING /tmp/ccbAOiuD.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 chmboxes.c
-     /tmp/ccMWAEcf.s:6      .text.chMBObjectInit:0000000000000000 chMBObjectInit
-     /tmp/ccMWAEcf.s:555    .upper.rodata:0000000000000053 __func__.2595
-     /tmp/ccMWAEcf.s:54     .text.chMBResetI:0000000000000000 chMBResetI
-     /tmp/ccMWAEcf.s:551    .upper.rodata:0000000000000048 __func__.2602
-     /tmp/ccMWAEcf.s:98     .text.chMBReset:0000000000000000 chMBReset
-     /tmp/ccMWAEcf.s:130    .text.chMBPostS:0000000000000000 chMBPostS
-     /tmp/ccMWAEcf.s:547    .upper.rodata:000000000000003e __func__.2615
-     /tmp/ccMWAEcf.s:181    .text.chMBPost:0000000000000000 chMBPost
-     /tmp/ccMWAEcf.s:212    .text.chMBPostI:0000000000000000 chMBPostI
-     /tmp/ccMWAEcf.s:543    .upper.rodata:0000000000000034 __func__.2620
-     /tmp/ccMWAEcf.s:260    .text.chMBPostAheadS:0000000000000000 chMBPostAheadS
-     /tmp/ccMWAEcf.s:539    .upper.rodata:0000000000000025 __func__.2633
-     /tmp/ccMWAEcf.s:313    .text.chMBPostAhead:0000000000000000 chMBPostAhead
-     /tmp/ccMWAEcf.s:344    .text.chMBPostAheadI:0000000000000000 chMBPostAheadI
-     /tmp/ccMWAEcf.s:535    .upper.rodata:0000000000000016 __func__.2638
-     /tmp/ccMWAEcf.s:394    .text.chMBFetchS:0000000000000000 chMBFetchS
-     /tmp/ccMWAEcf.s:531    .upper.rodata:000000000000000b __func__.2651
-     /tmp/ccMWAEcf.s:447    .text.chMBFetch:0000000000000000 chMBFetch
-     /tmp/ccMWAEcf.s:478    .text.chMBFetchI:0000000000000000 chMBFetchI
-     /tmp/ccMWAEcf.s:527    .upper.rodata:0000000000000000 __func__.2656
-     /tmp/ccMWAEcf.s:26     .text.chMBObjectInit:000000000000001e .L2
-     /tmp/ccMWAEcf.s:29     .text.chMBObjectInit:0000000000000026 .L3
-     /tmp/ccMWAEcf.s:71     .text.chMBResetI:0000000000000014 .L10
-     /tmp/ccMWAEcf.s:150    .text.chMBPostS:000000000000001a .L13
-     /tmp/ccMWAEcf.s:169    .text.chMBPostS:000000000000005c .L12
-     /tmp/ccMWAEcf.s:164    .text.chMBPostS:000000000000004e .L15
-     /tmp/ccMWAEcf.s:230    .text.chMBPostI:0000000000000016 .L18
-     /tmp/ccMWAEcf.s:252    .text.chMBPostI:0000000000000056 .L21
-     /tmp/ccMWAEcf.s:242    .text.chMBPostI:0000000000000044 .L20
-     /tmp/ccMWAEcf.s:247    .text.chMBPostI:0000000000000050 .L17
-     /tmp/ccMWAEcf.s:280    .text.chMBPostAheadS:000000000000001a .L23
-     /tmp/ccMWAEcf.s:301    .text.chMBPostAheadS:0000000000000062 .L22
-     /tmp/ccMWAEcf.s:294    .text.chMBPostAheadS:000000000000004c .L25
-     /tmp/ccMWAEcf.s:362    .text.chMBPostAheadI:0000000000000016 .L28
-     /tmp/ccMWAEcf.s:386    .text.chMBPostAheadI:000000000000005c .L31
-     /tmp/ccMWAEcf.s:374    .text.chMBPostAheadI:0000000000000042 .L30
-     /tmp/ccMWAEcf.s:381    .text.chMBPostAheadI:0000000000000056 .L27
-     /tmp/ccMWAEcf.s:413    .text.chMBFetchS:0000000000000018 .L33
-     /tmp/ccMWAEcf.s:416    .text.chMBFetchS:0000000000000020 .L34
-     /tmp/ccMWAEcf.s:435    .text.chMBFetchS:0000000000000064 .L32
-     /tmp/ccMWAEcf.s:430    .text.chMBFetchS:0000000000000056 .L36
-     /tmp/ccMWAEcf.s:495    .text.chMBFetchI:0000000000000014 .L42
-     /tmp/ccMWAEcf.s:498    .text.chMBFetchI:000000000000001c .L43
-     /tmp/ccMWAEcf.s:520    .text.chMBFetchI:000000000000005e .L46
-     /tmp/ccMWAEcf.s:510    .text.chMBFetchI:000000000000004c .L45
-     /tmp/ccMWAEcf.s:515    .text.chMBFetchI:0000000000000058 .L41
+     /tmp/ccbAOiuD.s:6      .text.chMBObjectInit:0000000000000000 chMBObjectInit
+     /tmp/ccbAOiuD.s:555    .upper.rodata:0000000000000053 __func__.2595
+     /tmp/ccbAOiuD.s:54     .text.chMBResetI:0000000000000000 chMBResetI
+     /tmp/ccbAOiuD.s:551    .upper.rodata:0000000000000048 __func__.2602
+     /tmp/ccbAOiuD.s:98     .text.chMBReset:0000000000000000 chMBReset
+     /tmp/ccbAOiuD.s:130    .text.chMBPostS:0000000000000000 chMBPostS
+     /tmp/ccbAOiuD.s:547    .upper.rodata:000000000000003e __func__.2615
+     /tmp/ccbAOiuD.s:181    .text.chMBPost:0000000000000000 chMBPost
+     /tmp/ccbAOiuD.s:212    .text.chMBPostI:0000000000000000 chMBPostI
+     /tmp/ccbAOiuD.s:543    .upper.rodata:0000000000000034 __func__.2620
+     /tmp/ccbAOiuD.s:260    .text.chMBPostAheadS:0000000000000000 chMBPostAheadS
+     /tmp/ccbAOiuD.s:539    .upper.rodata:0000000000000025 __func__.2633
+     /tmp/ccbAOiuD.s:313    .text.chMBPostAhead:0000000000000000 chMBPostAhead
+     /tmp/ccbAOiuD.s:344    .text.chMBPostAheadI:0000000000000000 chMBPostAheadI
+     /tmp/ccbAOiuD.s:535    .upper.rodata:0000000000000016 __func__.2638
+     /tmp/ccbAOiuD.s:394    .text.chMBFetchS:0000000000000000 chMBFetchS
+     /tmp/ccbAOiuD.s:531    .upper.rodata:000000000000000b __func__.2651
+     /tmp/ccbAOiuD.s:447    .text.chMBFetch:0000000000000000 chMBFetch
+     /tmp/ccbAOiuD.s:478    .text.chMBFetchI:0000000000000000 chMBFetchI
+     /tmp/ccbAOiuD.s:527    .upper.rodata:0000000000000000 __func__.2656
+     /tmp/ccbAOiuD.s:26     .text.chMBObjectInit:000000000000001e .L2
+     /tmp/ccbAOiuD.s:29     .text.chMBObjectInit:0000000000000026 .L3
+     /tmp/ccbAOiuD.s:71     .text.chMBResetI:0000000000000014 .L10
+     /tmp/ccbAOiuD.s:150    .text.chMBPostS:000000000000001a .L13
+     /tmp/ccbAOiuD.s:169    .text.chMBPostS:000000000000005c .L12
+     /tmp/ccbAOiuD.s:164    .text.chMBPostS:000000000000004e .L15
+     /tmp/ccbAOiuD.s:230    .text.chMBPostI:0000000000000016 .L18
+     /tmp/ccbAOiuD.s:252    .text.chMBPostI:0000000000000056 .L21
+     /tmp/ccbAOiuD.s:242    .text.chMBPostI:0000000000000044 .L20
+     /tmp/ccbAOiuD.s:247    .text.chMBPostI:0000000000000050 .L17
+     /tmp/ccbAOiuD.s:280    .text.chMBPostAheadS:000000000000001a .L23
+     /tmp/ccbAOiuD.s:301    .text.chMBPostAheadS:0000000000000062 .L22
+     /tmp/ccbAOiuD.s:294    .text.chMBPostAheadS:000000000000004c .L25
+     /tmp/ccbAOiuD.s:362    .text.chMBPostAheadI:0000000000000016 .L28
+     /tmp/ccbAOiuD.s:386    .text.chMBPostAheadI:000000000000005c .L31
+     /tmp/ccbAOiuD.s:374    .text.chMBPostAheadI:0000000000000042 .L30
+     /tmp/ccbAOiuD.s:381    .text.chMBPostAheadI:0000000000000056 .L27
+     /tmp/ccbAOiuD.s:413    .text.chMBFetchS:0000000000000018 .L33
+     /tmp/ccbAOiuD.s:416    .text.chMBFetchS:0000000000000020 .L34
+     /tmp/ccbAOiuD.s:435    .text.chMBFetchS:0000000000000064 .L32
+     /tmp/ccbAOiuD.s:430    .text.chMBFetchS:0000000000000056 .L36
+     /tmp/ccbAOiuD.s:495    .text.chMBFetchI:0000000000000014 .L42
+     /tmp/ccbAOiuD.s:498    .text.chMBFetchI:000000000000001c .L43
+     /tmp/ccbAOiuD.s:520    .text.chMBFetchI:000000000000005e .L46
+     /tmp/ccbAOiuD.s:510    .text.chMBFetchI:000000000000004c .L45
+     /tmp/ccbAOiuD.s:515    .text.chMBFetchI:0000000000000058 .L41
 
 UNDEFINED SYMBOLS
 chSysHalt

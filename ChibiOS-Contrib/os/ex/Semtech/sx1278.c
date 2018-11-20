@@ -245,8 +245,10 @@ void sx1278SetPower(SX1278Driver * devp, uint8_t pow) {
 */
 void sx1278SetFilterParams(SX1278Driver *devp, sx1278_filter_t filter) {
   osalDbgAssert(filter < 4, "I miss real enums...");
-  
-  sx1278SetRegister(devp, RegPaRamp, (filter << 5));
+ 
+  //sx1278SetRegister(devp, RegPaRamp, (filter << 5));
+  //Build my own PaRamp setting, because why not do it right???
+  sx1278SetRegister(devp, RegPaRamp, 111);
 }
 
 /**

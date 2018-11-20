@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cc0toj7B.s 			page 1
+GAS LISTING /tmp/ccRRNpX1.s 			page 1
 
 
    1               		.file	"hal_buffers.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
   54               	; start of function
   55               	; framesize_regs:     16
   56               	; framesize_locals:   4
-GAS LISTING /tmp/cc0toj7B.s 			page 2
+GAS LISTING /tmp/ccRRNpX1.s 			page 2
 
 
   57               	; framesize_outgoing: 0
@@ -118,7 +118,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  102 0092 9A41 1800 		MOV.W	24(R1), 24(R10)
  102      1800 
  103 0098 3D01 1800 		MOVA	24(R1), R13
-GAS LISTING /tmp/cc0toj7B.s 			page 3
+GAS LISTING /tmp/ccRRNpX1.s 			page 3
 
 
  104 009c 0D14 0C17 		PUSHM.A	#1,R13 { POPM.W	#1,R12 { POPM.W	#1,R12
@@ -178,7 +178,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  150               		.section	.text.ibqGetEmptyBufferI,"ax",@progbits
  151               		.balign 2
  152               		.global	ibqGetEmptyBufferI
-GAS LISTING /tmp/cc0toj7B.s 			page 4
+GAS LISTING /tmp/ccRRNpX1.s 			page 4
 
 
  153               		.type	ibqGetEmptyBufferI, @function
@@ -238,7 +238,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  204 0022 B013 0000 		CALLA	#chSysHalt
  205               	.L20:
  206 0026 0018 DA9A 		CMPX.A	12(R10), 8(R10) { JNE	.L21
-GAS LISTING /tmp/cc0toj7B.s 			page 5
+GAS LISTING /tmp/ccRRNpX1.s 			page 5
 
 
  206      0C00 0800 
@@ -298,7 +298,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  255               		; end of prologue
  256 0002 CA0C      		MOVA	R12, R10
  257 0004 094D      		MOV.W	R13, R9
-GAS LISTING /tmp/cc0toj7B.s 			page 6
+GAS LISTING /tmp/ccRRNpX1.s 			page 6
 
 
  258 0006 8800 0000 		MOVA	#chSemWaitTimeoutS, R8
@@ -358,7 +358,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  308 0010 3D01 0400 		MOVA	4(R1), R13
  309 0014 0C01      		MOVA	@R1, R12
  310 0016 B013 0000 		CALLA	#ibqGetFullBufferTimeoutS
-GAS LISTING /tmp/cc0toj7B.s 			page 7
+GAS LISTING /tmp/ccRRNpX1.s 			page 7
 
 
  311 001a 710C 0000 		MOVA	R12, @R1
@@ -418,7 +418,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  359      0024 
  360 006e CC0A      		MOVA	R10, R12
  361 0070 4E13      		CALLA	R14
-GAS LISTING /tmp/cc0toj7B.s 			page 8
+GAS LISTING /tmp/ccRRNpX1.s 			page 8
 
 
  362               	.L35:
@@ -478,7 +478,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  416 0018 0D01      		MOVA	@R1, R13
  417 001a 0018 C693 		CMPX.A	#0, 32(R6) { JNE	.L44
  417      2000 0020 
-GAS LISTING /tmp/cc0toj7B.s 			page 9
+GAS LISTING /tmp/ccRRNpX1.s 			page 9
 
 
  418 0022 CC06      		MOVA	R6, R12
@@ -538,7 +538,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  469 0024 0D49      		MOV.W	R9, R13
  470 0026 1D5C 0800 		ADD.W	8(R12), R13
  471 002a 814D 0000 		MOV.W	R13, @R1
-GAS LISTING /tmp/cc0toj7B.s 			page 10
+GAS LISTING /tmp/ccRRNpX1.s 			page 10
 
 
  472 002e 4643      		MOV.B	#0, R6
@@ -598,7 +598,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  519               		; start of epilogue
  520 00c0 A100 0200 		ADDA	#2, R1
  521 00c4 6416      		POPM.A	#7, r10
-GAS LISTING /tmp/cc0toj7B.s 			page 11
+GAS LISTING /tmp/ccRRNpX1.s 			page 11
 
 
  522 00c6 1001      		RETA
@@ -658,7 +658,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  572 0052 7A08 0800 		MOVA	R8, 8(R10)
  573 0056 A600 0400 		ADDA	#4, R6
  574 005a 7106 0000 		MOVA	R6, @R1
-GAS LISTING /tmp/cc0toj7B.s 			page 12
+GAS LISTING /tmp/ccRRNpX1.s 			page 12
 
 
  575 005e 0614 4018 		PUSHM.A	#1, R6 { POPX.W	R14 { POPX.W	R15 ; move pointer in R6 into reg-pair R14:R15
@@ -718,7 +718,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  618               	; elim fp -> sp       0
  619               	; saved regs: R10
  620               		; start of prologue
-GAS LISTING /tmp/cc0toj7B.s 			page 13
+GAS LISTING /tmp/ccRRNpX1.s 			page 13
 
 
  621 0000 0A14      		PUSHM.A	#1, R10
@@ -778,7 +778,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  669               		.size	obqGetFullBufferI, .-obqGetFullBufferI
  670               		.section	.text.obqReleaseEmptyBufferI,"ax",@progbits
  671               		.balign 2
-GAS LISTING /tmp/cc0toj7B.s 			page 14
+GAS LISTING /tmp/ccRRNpX1.s 			page 14
 
 
  672               		.global	obqReleaseEmptyBufferI
@@ -838,7 +838,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  720               		.section	.text.obqGetEmptyBufferTimeoutS,"ax",@progbits
  721               		.balign 2
  722               		.global	obqGetEmptyBufferTimeoutS
-GAS LISTING /tmp/cc0toj7B.s 			page 15
+GAS LISTING /tmp/ccRRNpX1.s 			page 15
 
 
  723               		.type	obqGetEmptyBufferTimeoutS, @function
@@ -898,7 +898,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  772               		.type	obqGetEmptyBufferTimeout, @function
  773               	obqGetEmptyBufferTimeout:
  774               	; start of function
-GAS LISTING /tmp/cc0toj7B.s 			page 16
+GAS LISTING /tmp/ccRRNpX1.s 			page 16
 
 
  775               	; framesize_regs:     0
@@ -958,7 +958,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  827      0020 
  828 0030 8C00 0000 		MOVA	#__func__.4125, R12
  829 0034 B013 0000 		CALLA	#chSysHalt
-GAS LISTING /tmp/cc0toj7B.s 			page 17
+GAS LISTING /tmp/ccRRNpX1.s 			page 17
 
 
  830               	.L95:
@@ -1018,7 +1018,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  879 000c B013 0000 		CALLA	#port_lock
  880 0010 CD0A      		MOVA	R10, R13
  881 0012 0C01      		MOVA	@R1, R12
-GAS LISTING /tmp/cc0toj7B.s 			page 18
+GAS LISTING /tmp/ccRRNpX1.s 			page 18
 
 
  882 0014 B013 0000 		CALLA	#obqPostFullBufferS
@@ -1078,7 +1078,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  933 005e CC0A      		MOVA	R10, R12
  934 0060 B013 0000 		CALLA	#obqPostFullBufferS
  935               	.L108:
-GAS LISTING /tmp/cc0toj7B.s 			page 19
+GAS LISTING /tmp/ccRRNpX1.s 			page 19
 
 
  936 0064 4813      		CALLA	R8
@@ -1138,7 +1138,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  987 005e 0018 4845 		MOVX.A	R5, R8 { SUBX.A	R6, R8
  987      0018 4886 
  988 0066 DE08 002C 		CMPA	R8, R14 { JHS	.L118
-GAS LISTING /tmp/cc0toj7B.s 			page 20
+GAS LISTING /tmp/ccRRNpX1.s 			page 20
 
 
  989 006a C80E      		MOVA	R14, R8
@@ -1198,7 +1198,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  1038               	; framesize_regs:     4
  1039               	; framesize_locals:   4
  1040               	; framesize_outgoing: 0
-GAS LISTING /tmp/cc0toj7B.s 			page 21
+GAS LISTING /tmp/ccRRNpX1.s 			page 21
 
 
  1041               	; framesize:          8
@@ -1258,7 +1258,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  1087               		.balign 2
  1088               		.global	obqFlush
  1089               		.type	obqFlush, @function
-GAS LISTING /tmp/cc0toj7B.s 			page 22
+GAS LISTING /tmp/ccRRNpX1.s 			page 22
 
 
  1090               	obqFlush:
@@ -1318,7 +1318,7 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  1129      7254 696D 
  1130               		.type	__func__.4102, @object
  1131               		.size	__func__.4102, 23
-GAS LISTING /tmp/cc0toj7B.s 			page 23
+GAS LISTING /tmp/ccRRNpX1.s 			page 23
 
 
  1132               	__func__.4102:
@@ -1373,114 +1373,114 @@ GAS LISTING /tmp/cc0toj7B.s 			page 1
  1157      7449 6E69 
  1157      7400 
  1158               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/cc0toj7B.s 			page 24
+GAS LISTING /tmp/ccRRNpX1.s 			page 24
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_buffers.c
-     /tmp/cc0toj7B.s:5      .text.port_lock:0000000000000000 port_lock
-     /tmp/cc0toj7B.s:28     .text.port_unlock:0000000000000000 port_unlock
-     /tmp/cc0toj7B.s:53     .text.ibqObjectInit:0000000000000000 ibqObjectInit
-     /tmp/cc0toj7B.s:1156   .upper.rodata:00000000000000b4 __func__.4031
-     /tmp/cc0toj7B.s:125    .text.ibqResetI:0000000000000000 ibqResetI
-     /tmp/cc0toj7B.s:154    .text.ibqGetEmptyBufferI:0000000000000000 ibqGetEmptyBufferI
-     /tmp/cc0toj7B.s:182    .text.ibqPostFullBufferI:0000000000000000 ibqPostFullBufferI
-     /tmp/cc0toj7B.s:1152   .upper.rodata:00000000000000a1 __func__.4042
-     /tmp/cc0toj7B.s:244    .text.ibqGetFullBufferTimeoutS:0000000000000000 ibqGetFullBufferTimeoutS
-     /tmp/cc0toj7B.s:1148   .upper.rodata:0000000000000088 __func__.4056
-     /tmp/cc0toj7B.s:293    .text.ibqGetFullBufferTimeout:0000000000000000 ibqGetFullBufferTimeout
-     /tmp/cc0toj7B.s:322    .text.ibqReleaseEmptyBufferS:0000000000000000 ibqReleaseEmptyBufferS
-     /tmp/cc0toj7B.s:1144   .upper.rodata:0000000000000071 __func__.4063
-     /tmp/cc0toj7B.s:372    .text.ibqReleaseEmptyBuffer:0000000000000000 ibqReleaseEmptyBuffer
-     /tmp/cc0toj7B.s:397    .text.ibqGetTimeout:0000000000000000 ibqGetTimeout
-     /tmp/cc0toj7B.s:446    .text.ibqReadTimeout:0000000000000000 ibqReadTimeout
-     /tmp/cc0toj7B.s:1140   .upper.rodata:0000000000000062 __func__.4077
-     /tmp/cc0toj7B.s:536    .text.obqObjectInit:0000000000000000 obqObjectInit
-     /tmp/cc0toj7B.s:1136   .upper.rodata:0000000000000054 __func__.4091
-     /tmp/cc0toj7B.s:611    .text.obqResetI:0000000000000000 obqResetI
-     /tmp/cc0toj7B.s:645    .text.obqGetFullBufferI:0000000000000000 obqGetFullBufferI
-     /tmp/cc0toj7B.s:674    .text.obqReleaseEmptyBufferI:0000000000000000 obqReleaseEmptyBufferI
-     /tmp/cc0toj7B.s:1132   .upper.rodata:000000000000003d __func__.4102
-     /tmp/cc0toj7B.s:724    .text.obqGetEmptyBufferTimeoutS:0000000000000000 obqGetEmptyBufferTimeoutS
-     /tmp/cc0toj7B.s:1128   .upper.rodata:0000000000000023 __func__.4116
-     /tmp/cc0toj7B.s:773    .text.obqGetEmptyBufferTimeout:0000000000000000 obqGetEmptyBufferTimeout
-     /tmp/cc0toj7B.s:802    .text.obqPostFullBufferS:0000000000000000 obqPostFullBufferS
-     /tmp/cc0toj7B.s:1124   .upper.rodata:0000000000000010 __func__.4125
-     /tmp/cc0toj7B.s:864    .text.obqPostFullBuffer:0000000000000000 obqPostFullBuffer
-     /tmp/cc0toj7B.s:893    .text.obqPutTimeout:0000000000000000 obqPutTimeout
-     /tmp/cc0toj7B.s:944    .text.obqWriteTimeout:0000000000000000 obqWriteTimeout
-     /tmp/cc0toj7B.s:1120   .upper.rodata:0000000000000000 __func__.4140
-     /tmp/cc0toj7B.s:1036   .text.obqTryFlushI:0000000000000000 obqTryFlushI
-     /tmp/cc0toj7B.s:1090   .text.obqFlush:0000000000000000 obqFlush
-     /tmp/cc0toj7B.s:75     .text.ibqObjectInit:0000000000000022 .L4
-     /tmp/cc0toj7B.s:78     .text.ibqObjectInit:000000000000002a .L5
-     /tmp/cc0toj7B.s:173    .text.ibqGetEmptyBufferI:000000000000001a .L13
-     /tmp/cc0toj7B.s:170    .text.ibqGetEmptyBufferI:0000000000000018 .L12
-     /tmp/cc0toj7B.s:202    .text.ibqPostFullBufferI:000000000000001e .L19
-     /tmp/cc0toj7B.s:205    .text.ibqPostFullBufferI:0000000000000026 .L20
-     /tmp/cc0toj7B.s:209    .text.ibqPostFullBufferI:000000000000003a .L21
-     /tmp/cc0toj7B.s:235    .text.ibqPostFullBufferI:0000000000000094 .L22
-     /tmp/cc0toj7B.s:226    .text.ibqPostFullBufferI:0000000000000082 .L23
-     /tmp/cc0toj7B.s:275    .text.ibqGetFullBufferTimeoutS:0000000000000042 .L31
-     /tmp/cc0toj7B.s:266    .text.ibqGetFullBufferTimeoutS:0000000000000026 .L32
-     /tmp/cc0toj7B.s:281    .text.ibqGetFullBufferTimeoutS:0000000000000054 .L28
-     /tmp/cc0toj7B.s:285    .text.ibqGetFullBufferTimeoutS:0000000000000058 .L33
-     /tmp/cc0toj7B.s:259    .text.ibqGetFullBufferTimeoutS:000000000000000a .L29
-     /tmp/cc0toj7B.s:340    .text.ibqReleaseEmptyBufferS:000000000000001a .L36
-     /tmp/cc0toj7B.s:356    .text.ibqReleaseEmptyBufferS:000000000000005e .L37
-     /tmp/cc0toj7B.s:362    .text.ibqReleaseEmptyBufferS:0000000000000072 .L35
-     /tmp/cc0toj7B.s:431    .text.ibqGetTimeout:0000000000000040 .L44
-     /tmp/cc0toj7B.s:422    .text.ibqGetTimeout:0000000000000030 .L46
-     /tmp/cc0toj7B.s:466    .text.ibqReadTimeout:000000000000001c .L50
-     /tmp/cc0toj7B.s:485    .text.ibqReadTimeout:0000000000000054 .L51
-GAS LISTING /tmp/cc0toj7B.s 			page 25
+     /tmp/ccRRNpX1.s:5      .text.port_lock:0000000000000000 port_lock
+     /tmp/ccRRNpX1.s:28     .text.port_unlock:0000000000000000 port_unlock
+     /tmp/ccRRNpX1.s:53     .text.ibqObjectInit:0000000000000000 ibqObjectInit
+     /tmp/ccRRNpX1.s:1156   .upper.rodata:00000000000000b4 __func__.4031
+     /tmp/ccRRNpX1.s:125    .text.ibqResetI:0000000000000000 ibqResetI
+     /tmp/ccRRNpX1.s:154    .text.ibqGetEmptyBufferI:0000000000000000 ibqGetEmptyBufferI
+     /tmp/ccRRNpX1.s:182    .text.ibqPostFullBufferI:0000000000000000 ibqPostFullBufferI
+     /tmp/ccRRNpX1.s:1152   .upper.rodata:00000000000000a1 __func__.4042
+     /tmp/ccRRNpX1.s:244    .text.ibqGetFullBufferTimeoutS:0000000000000000 ibqGetFullBufferTimeoutS
+     /tmp/ccRRNpX1.s:1148   .upper.rodata:0000000000000088 __func__.4056
+     /tmp/ccRRNpX1.s:293    .text.ibqGetFullBufferTimeout:0000000000000000 ibqGetFullBufferTimeout
+     /tmp/ccRRNpX1.s:322    .text.ibqReleaseEmptyBufferS:0000000000000000 ibqReleaseEmptyBufferS
+     /tmp/ccRRNpX1.s:1144   .upper.rodata:0000000000000071 __func__.4063
+     /tmp/ccRRNpX1.s:372    .text.ibqReleaseEmptyBuffer:0000000000000000 ibqReleaseEmptyBuffer
+     /tmp/ccRRNpX1.s:397    .text.ibqGetTimeout:0000000000000000 ibqGetTimeout
+     /tmp/ccRRNpX1.s:446    .text.ibqReadTimeout:0000000000000000 ibqReadTimeout
+     /tmp/ccRRNpX1.s:1140   .upper.rodata:0000000000000062 __func__.4077
+     /tmp/ccRRNpX1.s:536    .text.obqObjectInit:0000000000000000 obqObjectInit
+     /tmp/ccRRNpX1.s:1136   .upper.rodata:0000000000000054 __func__.4091
+     /tmp/ccRRNpX1.s:611    .text.obqResetI:0000000000000000 obqResetI
+     /tmp/ccRRNpX1.s:645    .text.obqGetFullBufferI:0000000000000000 obqGetFullBufferI
+     /tmp/ccRRNpX1.s:674    .text.obqReleaseEmptyBufferI:0000000000000000 obqReleaseEmptyBufferI
+     /tmp/ccRRNpX1.s:1132   .upper.rodata:000000000000003d __func__.4102
+     /tmp/ccRRNpX1.s:724    .text.obqGetEmptyBufferTimeoutS:0000000000000000 obqGetEmptyBufferTimeoutS
+     /tmp/ccRRNpX1.s:1128   .upper.rodata:0000000000000023 __func__.4116
+     /tmp/ccRRNpX1.s:773    .text.obqGetEmptyBufferTimeout:0000000000000000 obqGetEmptyBufferTimeout
+     /tmp/ccRRNpX1.s:802    .text.obqPostFullBufferS:0000000000000000 obqPostFullBufferS
+     /tmp/ccRRNpX1.s:1124   .upper.rodata:0000000000000010 __func__.4125
+     /tmp/ccRRNpX1.s:864    .text.obqPostFullBuffer:0000000000000000 obqPostFullBuffer
+     /tmp/ccRRNpX1.s:893    .text.obqPutTimeout:0000000000000000 obqPutTimeout
+     /tmp/ccRRNpX1.s:944    .text.obqWriteTimeout:0000000000000000 obqWriteTimeout
+     /tmp/ccRRNpX1.s:1120   .upper.rodata:0000000000000000 __func__.4140
+     /tmp/ccRRNpX1.s:1036   .text.obqTryFlushI:0000000000000000 obqTryFlushI
+     /tmp/ccRRNpX1.s:1090   .text.obqFlush:0000000000000000 obqFlush
+     /tmp/ccRRNpX1.s:75     .text.ibqObjectInit:0000000000000022 .L4
+     /tmp/ccRRNpX1.s:78     .text.ibqObjectInit:000000000000002a .L5
+     /tmp/ccRRNpX1.s:173    .text.ibqGetEmptyBufferI:000000000000001a .L13
+     /tmp/ccRRNpX1.s:170    .text.ibqGetEmptyBufferI:0000000000000018 .L12
+     /tmp/ccRRNpX1.s:202    .text.ibqPostFullBufferI:000000000000001e .L19
+     /tmp/ccRRNpX1.s:205    .text.ibqPostFullBufferI:0000000000000026 .L20
+     /tmp/ccRRNpX1.s:209    .text.ibqPostFullBufferI:000000000000003a .L21
+     /tmp/ccRRNpX1.s:235    .text.ibqPostFullBufferI:0000000000000094 .L22
+     /tmp/ccRRNpX1.s:226    .text.ibqPostFullBufferI:0000000000000082 .L23
+     /tmp/ccRRNpX1.s:275    .text.ibqGetFullBufferTimeoutS:0000000000000042 .L31
+     /tmp/ccRRNpX1.s:266    .text.ibqGetFullBufferTimeoutS:0000000000000026 .L32
+     /tmp/ccRRNpX1.s:281    .text.ibqGetFullBufferTimeoutS:0000000000000054 .L28
+     /tmp/ccRRNpX1.s:285    .text.ibqGetFullBufferTimeoutS:0000000000000058 .L33
+     /tmp/ccRRNpX1.s:259    .text.ibqGetFullBufferTimeoutS:000000000000000a .L29
+     /tmp/ccRRNpX1.s:340    .text.ibqReleaseEmptyBufferS:000000000000001a .L36
+     /tmp/ccRRNpX1.s:356    .text.ibqReleaseEmptyBufferS:000000000000005e .L37
+     /tmp/ccRRNpX1.s:362    .text.ibqReleaseEmptyBufferS:0000000000000072 .L35
+     /tmp/ccRRNpX1.s:431    .text.ibqGetTimeout:0000000000000040 .L44
+     /tmp/ccRRNpX1.s:422    .text.ibqGetTimeout:0000000000000030 .L46
+     /tmp/ccRRNpX1.s:466    .text.ibqReadTimeout:000000000000001c .L50
+     /tmp/ccRRNpX1.s:485    .text.ibqReadTimeout:0000000000000054 .L51
+GAS LISTING /tmp/ccRRNpX1.s 			page 25
 
 
-     /tmp/cc0toj7B.s:510    .text.ibqReadTimeout:00000000000000ac .L52
-     /tmp/cc0toj7B.s:515    .text.ibqReadTimeout:00000000000000ba .L64
-     /tmp/cc0toj7B.s:492    .text.ibqReadTimeout:000000000000006c .L56
-     /tmp/cc0toj7B.s:523    .text.ibqReadTimeout:00000000000000c8 .L57
-     /tmp/cc0toj7B.s:505    .text.ibqReadTimeout:000000000000009c .L59
-     /tmp/cc0toj7B.s:517    .text.ibqReadTimeout:00000000000000be .L49
-     /tmp/cc0toj7B.s:474    .text.ibqReadTimeout:0000000000000034 .L60
-     /tmp/cc0toj7B.s:481    .text.ibqReadTimeout:000000000000004a .L54
-     /tmp/cc0toj7B.s:501    .text.ibqReadTimeout:000000000000008c .L58
-     /tmp/cc0toj7B.s:558    .text.obqObjectInit:0000000000000022 .L66
-     /tmp/cc0toj7B.s:561    .text.obqObjectInit:000000000000002a .L67
-     /tmp/cc0toj7B.s:664    .text.obqGetFullBufferI:000000000000001a .L75
-     /tmp/cc0toj7B.s:661    .text.obqGetFullBufferI:0000000000000018 .L74
-     /tmp/cc0toj7B.s:691    .text.obqReleaseEmptyBufferI:000000000000001c .L81
-     /tmp/cc0toj7B.s:715    .text.obqReleaseEmptyBufferI:0000000000000070 .L82
-     /tmp/cc0toj7B.s:707    .text.obqReleaseEmptyBufferI:0000000000000060 .L83
-     /tmp/cc0toj7B.s:755    .text.obqGetEmptyBufferTimeoutS:0000000000000044 .L88
-     /tmp/cc0toj7B.s:746    .text.obqGetEmptyBufferTimeoutS:0000000000000026 .L89
-     /tmp/cc0toj7B.s:761    .text.obqGetEmptyBufferTimeoutS:0000000000000056 .L85
-     /tmp/cc0toj7B.s:765    .text.obqGetEmptyBufferTimeoutS:000000000000005a .L90
-     /tmp/cc0toj7B.s:739    .text.obqGetEmptyBufferTimeoutS:000000000000000a .L86
-     /tmp/cc0toj7B.s:822    .text.obqPostFullBufferS:000000000000001e .L93
-     /tmp/cc0toj7B.s:825    .text.obqPostFullBufferS:0000000000000026 .L94
-     /tmp/cc0toj7B.s:830    .text.obqPostFullBufferS:0000000000000038 .L95
-     /tmp/cc0toj7B.s:847    .text.obqPostFullBufferS:0000000000000080 .L96
-     /tmp/cc0toj7B.s:853    .text.obqPostFullBufferS:0000000000000094 .L92
-     /tmp/cc0toj7B.s:924    .text.obqPutTimeout:000000000000003a .L106
-     /tmp/cc0toj7B.s:935    .text.obqPutTimeout:0000000000000064 .L108
-     /tmp/cc0toj7B.s:919    .text.obqPutTimeout:0000000000000032 .L105
-     /tmp/cc0toj7B.s:964    .text.obqWriteTimeout:000000000000001c .L112
-     /tmp/cc0toj7B.s:983    .text.obqWriteTimeout:0000000000000054 .L113
-     /tmp/cc0toj7B.s:1010   .text.obqWriteTimeout:00000000000000b4 .L114
-     /tmp/cc0toj7B.s:1015   .text.obqWriteTimeout:00000000000000c2 .L126
-     /tmp/cc0toj7B.s:990    .text.obqWriteTimeout:000000000000006c .L118
-     /tmp/cc0toj7B.s:1023   .text.obqWriteTimeout:00000000000000d0 .L119
-     /tmp/cc0toj7B.s:1005   .text.obqWriteTimeout:00000000000000a4 .L121
-     /tmp/cc0toj7B.s:1017   .text.obqWriteTimeout:00000000000000c6 .L111
-     /tmp/cc0toj7B.s:972    .text.obqWriteTimeout:0000000000000034 .L122
-     /tmp/cc0toj7B.s:979    .text.obqWriteTimeout:000000000000004a .L116
-     /tmp/cc0toj7B.s:999    .text.obqWriteTimeout:000000000000008c .L120
-     /tmp/cc0toj7B.s:1053   .text.obqTryFlushI:000000000000001c .L135
-     /tmp/cc0toj7B.s:1056   .text.obqTryFlushI:0000000000000022 .L129
-     /tmp/cc0toj7B.s:1080   .text.obqTryFlushI:0000000000000084 .L134
-     /tmp/cc0toj7B.s:1077   .text.obqTryFlushI:000000000000007c .L130
-     /tmp/cc0toj7B.s:1111   .text.obqFlush:0000000000000030 .L137
+     /tmp/ccRRNpX1.s:510    .text.ibqReadTimeout:00000000000000ac .L52
+     /tmp/ccRRNpX1.s:515    .text.ibqReadTimeout:00000000000000ba .L64
+     /tmp/ccRRNpX1.s:492    .text.ibqReadTimeout:000000000000006c .L56
+     /tmp/ccRRNpX1.s:523    .text.ibqReadTimeout:00000000000000c8 .L57
+     /tmp/ccRRNpX1.s:505    .text.ibqReadTimeout:000000000000009c .L59
+     /tmp/ccRRNpX1.s:517    .text.ibqReadTimeout:00000000000000be .L49
+     /tmp/ccRRNpX1.s:474    .text.ibqReadTimeout:0000000000000034 .L60
+     /tmp/ccRRNpX1.s:481    .text.ibqReadTimeout:000000000000004a .L54
+     /tmp/ccRRNpX1.s:501    .text.ibqReadTimeout:000000000000008c .L58
+     /tmp/ccRRNpX1.s:558    .text.obqObjectInit:0000000000000022 .L66
+     /tmp/ccRRNpX1.s:561    .text.obqObjectInit:000000000000002a .L67
+     /tmp/ccRRNpX1.s:664    .text.obqGetFullBufferI:000000000000001a .L75
+     /tmp/ccRRNpX1.s:661    .text.obqGetFullBufferI:0000000000000018 .L74
+     /tmp/ccRRNpX1.s:691    .text.obqReleaseEmptyBufferI:000000000000001c .L81
+     /tmp/ccRRNpX1.s:715    .text.obqReleaseEmptyBufferI:0000000000000070 .L82
+     /tmp/ccRRNpX1.s:707    .text.obqReleaseEmptyBufferI:0000000000000060 .L83
+     /tmp/ccRRNpX1.s:755    .text.obqGetEmptyBufferTimeoutS:0000000000000044 .L88
+     /tmp/ccRRNpX1.s:746    .text.obqGetEmptyBufferTimeoutS:0000000000000026 .L89
+     /tmp/ccRRNpX1.s:761    .text.obqGetEmptyBufferTimeoutS:0000000000000056 .L85
+     /tmp/ccRRNpX1.s:765    .text.obqGetEmptyBufferTimeoutS:000000000000005a .L90
+     /tmp/ccRRNpX1.s:739    .text.obqGetEmptyBufferTimeoutS:000000000000000a .L86
+     /tmp/ccRRNpX1.s:822    .text.obqPostFullBufferS:000000000000001e .L93
+     /tmp/ccRRNpX1.s:825    .text.obqPostFullBufferS:0000000000000026 .L94
+     /tmp/ccRRNpX1.s:830    .text.obqPostFullBufferS:0000000000000038 .L95
+     /tmp/ccRRNpX1.s:847    .text.obqPostFullBufferS:0000000000000080 .L96
+     /tmp/ccRRNpX1.s:853    .text.obqPostFullBufferS:0000000000000094 .L92
+     /tmp/ccRRNpX1.s:924    .text.obqPutTimeout:000000000000003a .L106
+     /tmp/ccRRNpX1.s:935    .text.obqPutTimeout:0000000000000064 .L108
+     /tmp/ccRRNpX1.s:919    .text.obqPutTimeout:0000000000000032 .L105
+     /tmp/ccRRNpX1.s:964    .text.obqWriteTimeout:000000000000001c .L112
+     /tmp/ccRRNpX1.s:983    .text.obqWriteTimeout:0000000000000054 .L113
+     /tmp/ccRRNpX1.s:1010   .text.obqWriteTimeout:00000000000000b4 .L114
+     /tmp/ccRRNpX1.s:1015   .text.obqWriteTimeout:00000000000000c2 .L126
+     /tmp/ccRRNpX1.s:990    .text.obqWriteTimeout:000000000000006c .L118
+     /tmp/ccRRNpX1.s:1023   .text.obqWriteTimeout:00000000000000d0 .L119
+     /tmp/ccRRNpX1.s:1005   .text.obqWriteTimeout:00000000000000a4 .L121
+     /tmp/ccRRNpX1.s:1017   .text.obqWriteTimeout:00000000000000c6 .L111
+     /tmp/ccRRNpX1.s:972    .text.obqWriteTimeout:0000000000000034 .L122
+     /tmp/ccRRNpX1.s:979    .text.obqWriteTimeout:000000000000004a .L116
+     /tmp/ccRRNpX1.s:999    .text.obqWriteTimeout:000000000000008c .L120
+     /tmp/ccRRNpX1.s:1053   .text.obqTryFlushI:000000000000001c .L135
+     /tmp/ccRRNpX1.s:1056   .text.obqTryFlushI:0000000000000022 .L129
+     /tmp/ccRRNpX1.s:1080   .text.obqTryFlushI:0000000000000084 .L134
+     /tmp/ccRRNpX1.s:1077   .text.obqTryFlushI:000000000000007c .L130
+     /tmp/ccRRNpX1.s:1111   .text.obqFlush:0000000000000030 .L137
 
 UNDEFINED SYMBOLS
 __mulsi2_f5

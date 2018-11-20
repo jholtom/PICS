@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccav7hp9.s 			page 1
+GAS LISTING /tmp/ccDpedAw.s 			page 1
 
 
    1               		.file	"ch.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
   53               	; elim fp -> sp       0
   54               	; saved regs:(none)
   55               		; start of prologue
-GAS LISTING /tmp/ccav7hp9.s 			page 2
+GAS LISTING /tmp/ccDpedAw.s 			page 2
 
 
   56               		; end of prologue
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  104 0034 3D01 0C00 		MOVA	12(R1), R13
  105 0038 3D0D 0C00 		MOVA	12(R13), R13
  106 003c 710D 0800 		MOVA	R13, 8(R1)
-GAS LISTING /tmp/ccav7hp9.s 			page 3
+GAS LISTING /tmp/ccDpedAw.s 			page 3
 
 
  107 0040 9C41 0800 		MOV.W	8(R1), @R12
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  150 00fc 3D01 1000 		MOVA	16(R1), R13
  151 0100 B013 0000 		CALLA	#_port_switch
  152 0104 B013 0000 		CALLA	#port_unlock
-GAS LISTING /tmp/ccav7hp9.s 			page 4
+GAS LISTING /tmp/ccDpedAw.s 			page 4
 
 
  153 0108 0343      		NOP
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  207 0024 0D93 0024 		CMP.W	#0, R13 { JEQ	.L11
  208 0028 5D48 FEFF 		MOV.B	-2(R8), R13
  209 002c 0D93 0020 		CMP.W	#0, R13 { JNE	.L12
-GAS LISTING /tmp/ccav7hp9.s 			page 5
+GAS LISTING /tmp/ccDpedAw.s 			page 5
 
 
  210 0030 B013 0000 		CALLA	#port_disable
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  260 0000 0C42      		mov SR, R12
  261               	 ; 0 "" 2
  262 0002 4018 3CB2 		BITX.W	#8, R12 { JEQ	.L19
-GAS LISTING /tmp/ccav7hp9.s 			page 6
+GAS LISTING /tmp/ccDpedAw.s 			page 6
 
 
  262      0024 
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  314               	.L27:
  315 0016 0C4A      		MOV.W	R10, R12
  316               		; start of epilogue
-GAS LISTING /tmp/ccav7hp9.s 			page 7
+GAS LISTING /tmp/ccDpedAw.s 			page 7
 
 
  317 0018 0A16      		POPM.A	#1, r10
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  366               	.L39:
  367 0022 8000 0000 		BRA	#.L39
  368               	.L38:
-GAS LISTING /tmp/ccav7hp9.s 			page 8
+GAS LISTING /tmp/ccDpedAw.s 			page 8
 
 
  369 0026 CC93 0400 		CMP.B	#0, 4(R12) { JNE	.L40
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  417      0000 0000 
  417      0020 
  418 000c 4C43      		MOV.B	#0, R12
-GAS LISTING /tmp/ccav7hp9.s 			page 9
+GAS LISTING /tmp/ccDpedAw.s 			page 9
 
 
  419               	.L46:
@@ -538,7 +538,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  471               	chSchGoSleepTimeoutS:
  472               	; start of function
  473               	; framesize_regs:     4
-GAS LISTING /tmp/ccav7hp9.s 			page 10
+GAS LISTING /tmp/ccDpedAw.s 			page 10
 
 
  474               	; framesize_locals:   0
@@ -598,7 +598,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  524               	; framesize_outgoing: 0
  525               	; framesize:          0
  526               	; elim ap -> fp       4
-GAS LISTING /tmp/ccav7hp9.s 			page 11
+GAS LISTING /tmp/ccDpedAw.s 			page 11
 
 
  527               	; elim fp -> sp       0
@@ -658,7 +658,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  574 002a 1001      		RETA
  575               		.size	chThdResumeI, .-chThdResumeI
  576               		.section	.text.chThdSleep,"ax",@progbits
-GAS LISTING /tmp/ccav7hp9.s 			page 12
+GAS LISTING /tmp/ccDpedAw.s 			page 12
 
 
  577               		.balign 2
@@ -718,7 +718,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  630               		.section	.text.chSemWaitTimeout,"ax",@progbits
  631               		.balign 2
  632               		.global	chSemWaitTimeout
-GAS LISTING /tmp/ccav7hp9.s 			page 13
+GAS LISTING /tmp/ccDpedAw.s 			page 13
 
 
  633               		.type	chSemWaitTimeout, @function
@@ -778,7 +778,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  685 0024 3E53      		ADD.W	#-1, R14
  686 0026 8C4E 0000 		MOV.W	R14, @R12
  687 002a 2E00 0000 		MOVA	&nil, R14
-GAS LISTING /tmp/ccav7hp9.s 			page 14
+GAS LISTING /tmp/ccDpedAw.s 			page 14
 
 
  688 002e 7E0C 0600 		MOVA	R12, 6(R14)
@@ -838,7 +838,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  742               	; saved regs:(none)
  743               		; start of prologue
  744               		; end of prologue
-GAS LISTING /tmp/ccav7hp9.s 			page 15
+GAS LISTING /tmp/ccDpedAw.s 			page 15
 
 
  745 0000 CE0C      		MOVA	R12, R14
@@ -898,7 +898,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  792               		; start of prologue
  793 0000 B100 0800 		SUBA	#8, R1
  794               		; end of prologue
-GAS LISTING /tmp/ccav7hp9.s 			page 16
+GAS LISTING /tmp/ccDpedAw.s 			page 16
 
 
  795 0004 710C 0400 		MOVA	R12, 4(R1)
@@ -958,7 +958,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  847               	.L99:
  848 0044 3790 0300 		CMP.W	#3, R7 { JNE	.L94
  848      0020 
-GAS LISTING /tmp/ccav7hp9.s 			page 17
+GAS LISTING /tmp/ccDpedAw.s 			page 17
 
 
  849 004a B013 0000 		CALLA	#port_disable
@@ -1018,7 +1018,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  899 002a 1001      		RETA
  900               		.size	chEvtSignal, .-chEvtSignal
  901               		.section	.text.chEvtSignalI,"ax",@progbits
-GAS LISTING /tmp/ccav7hp9.s 			page 18
+GAS LISTING /tmp/ccDpedAw.s 			page 18
 
 
  902               		.balign 2
@@ -1078,7 +1078,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  953               		; start of prologue
  954 0000 6A14      		PUSHM.A	#7, R10
  955               		; end of prologue
-GAS LISTING /tmp/ccav7hp9.s 			page 19
+GAS LISTING /tmp/ccDpedAw.s 			page 19
 
 
  956 0002 064C      		MOV.W	R12, R6
@@ -1138,7 +1138,7 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  1003               		.size	__func__.2644, 21
  1004               	__func__.2644:
  1005 001f 6368 5363 		.string	"chSchGoSleepTimeoutS"
-GAS LISTING /tmp/ccav7hp9.s 			page 20
+GAS LISTING /tmp/ccDpedAw.s 			page 20
 
 
  1005      6847 6F53 
@@ -1189,117 +1189,117 @@ GAS LISTING /tmp/ccav7hp9.s 			page 1
  1029      6E61 6C49 
  1029      00
  1030               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccav7hp9.s 			page 21
+GAS LISTING /tmp/ccDpedAw.s 			page 21
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 ch.c
-     /tmp/ccav7hp9.s:5      .text.port_init:0000000000000000 port_init
-     /tmp/ccav7hp9.s:23     .text.port_unlock:0000000000000000 port_unlock
-     /tmp/ccav7hp9.s:46     .text.port_suspend:0000000000000000 port_suspend
-     /tmp/ccav7hp9.s:46     .text.port_suspend:0000000000000000 port_lock
-     /tmp/ccav7hp9.s:46     .text.port_suspend:0000000000000000 port_disable
-     /tmp/ccav7hp9.s:73     .upper.bss:0000000000000000 nil
-     /tmp/ccav7hp9.s:79     .text.chSysInit:0000000000000000 chSysInit
-     /tmp/ccav7hp9.s:162    .text.chSysHalt:0000000000000000 chSysHalt
-     /tmp/ccav7hp9.s:184    .text.chSysTimerHandlerI:0000000000000000 chSysTimerHandlerI
-     /tmp/ccav7hp9.s:347    .text.chSchReadyI:0000000000000000 chSchReadyI
-     /tmp/ccav7hp9.s:996    .upper.rodata:0000000000000000 __func__.2607
-     /tmp/ccav7hp9.s:248    .text.chSysUnconditionalLock:0000000000000000 chSysUnconditionalLock
-     /tmp/ccav7hp9.s:272    .text.chSysUnconditionalUnlock:0000000000000000 chSysUnconditionalUnlock
-     /tmp/ccav7hp9.s:296    .text.chSysGetStatusAndLockX:0000000000000000 chSysGetStatusAndLockX
-     /tmp/ccav7hp9.s:324    .text.chSysRestoreStatusX:0000000000000000 chSysRestoreStatusX
-     /tmp/ccav7hp9.s:450    .text.chSchRescheduleS:0000000000000000 chSchRescheduleS
-     /tmp/ccav7hp9.s:1000   .upper.rodata:0000000000000013 __func__.2627
-     /tmp/ccav7hp9.s:405    .text.chSchIsPreemptionRequired:0000000000000000 chSchIsPreemptionRequired
-     /tmp/ccav7hp9.s:427    .text.chSchDoReschedule:0000000000000000 chSchDoReschedule
-     /tmp/ccav7hp9.s:471    .text.chSchGoSleepTimeoutS:0000000000000000 chSchGoSleepTimeoutS
-     /tmp/ccav7hp9.s:1004   .upper.rodata:000000000000001f __func__.2644
-     /tmp/ccav7hp9.s:520    .text.chThdSuspendTimeoutS:0000000000000000 chThdSuspendTimeoutS
-     /tmp/ccav7hp9.s:1008   .upper.rodata:0000000000000034 __func__.2650
-     /tmp/ccav7hp9.s:550    .text.chThdResumeI:0000000000000000 chThdResumeI
-     /tmp/ccav7hp9.s:1012   .upper.rodata:0000000000000049 __func__.2656
-     /tmp/ccav7hp9.s:580    .text.chThdSleep:0000000000000000 chThdSleep
-     /tmp/ccav7hp9.s:606    .text.chThdSleepUntil:0000000000000000 chThdSleepUntil
-     /tmp/ccav7hp9.s:634    .text.chSemWaitTimeout:0000000000000000 chSemWaitTimeout
-     /tmp/ccav7hp9.s:663    .text.chSemWaitTimeoutS:0000000000000000 chSemWaitTimeoutS
-     /tmp/ccav7hp9.s:1016   .upper.rodata:0000000000000056 __func__.2672
-     /tmp/ccav7hp9.s:708    .text.chSemSignal:0000000000000000 chSemSignal
-     /tmp/ccav7hp9.s:734    .text.chSemSignalI:0000000000000000 chSemSignalI
-     /tmp/ccav7hp9.s:1020   .upper.rodata:0000000000000068 __func__.2680
-     /tmp/ccav7hp9.s:783    .text.chSemReset:0000000000000000 chSemReset
-     /tmp/ccav7hp9.s:811    .text.chSemResetI:0000000000000000 chSemResetI
-     /tmp/ccav7hp9.s:1024   .upper.rodata:0000000000000075 __func__.2693
-     /tmp/ccav7hp9.s:873    .text.chEvtSignal:0000000000000000 chEvtSignal
-     /tmp/ccav7hp9.s:905    .text.chEvtSignalI:0000000000000000 chEvtSignalI
-     /tmp/ccav7hp9.s:1028   .upper.rodata:0000000000000081 __func__.2705
-     /tmp/ccav7hp9.s:944    .text.chEvtWaitAnyTimeout:0000000000000000 chEvtWaitAnyTimeout
-     /tmp/ccav7hp9.s:141    .text.chSysInit:00000000000000d2 .L5
-     /tmp/ccav7hp9.s:95     .text.chSysInit:0000000000000018 .L6
-     /tmp/ccav7hp9.s:177    .text.chSysHalt:000000000000000c .L8
-     /tmp/ccav7hp9.s:228    .text.chSysTimerHandlerI:0000000000000064 .L11
-     /tmp/ccav7hp9.s:217    .text.chSysTimerHandlerI:0000000000000046 .L12
-     /tmp/ccav7hp9.s:212    .text.chSysTimerHandlerI:000000000000003c .L13
-     /tmp/ccav7hp9.s:203    .text.chSysTimerHandlerI:000000000000001a .L17
-     /tmp/ccav7hp9.s:238    .text.chSysTimerHandlerI:000000000000007c .L15
-     /tmp/ccav7hp9.s:214    .text.chSysTimerHandlerI:0000000000000040 .L18
-     /tmp/ccav7hp9.s:225    .text.chSysTimerHandlerI:0000000000000060 .L16
-     /tmp/ccav7hp9.s:264    .text.chSysUnconditionalLock:000000000000000c .L19
-     /tmp/ccav7hp9.s:288    .text.chSysUnconditionalUnlock:000000000000000a .L24
-     /tmp/ccav7hp9.s:314    .text.chSysGetStatusAndLockX:0000000000000016 .L27
-     /tmp/ccav7hp9.s:339    .text.chSysRestoreStatusX:0000000000000016 .L31
-     /tmp/ccav7hp9.s:363    .text.chSchReadyI:0000000000000016 .L37
-GAS LISTING /tmp/ccav7hp9.s 			page 22
+     /tmp/ccDpedAw.s:5      .text.port_init:0000000000000000 port_init
+     /tmp/ccDpedAw.s:23     .text.port_unlock:0000000000000000 port_unlock
+     /tmp/ccDpedAw.s:46     .text.port_suspend:0000000000000000 port_suspend
+     /tmp/ccDpedAw.s:46     .text.port_suspend:0000000000000000 port_lock
+     /tmp/ccDpedAw.s:46     .text.port_suspend:0000000000000000 port_disable
+     /tmp/ccDpedAw.s:73     .upper.bss:0000000000000000 nil
+     /tmp/ccDpedAw.s:79     .text.chSysInit:0000000000000000 chSysInit
+     /tmp/ccDpedAw.s:162    .text.chSysHalt:0000000000000000 chSysHalt
+     /tmp/ccDpedAw.s:184    .text.chSysTimerHandlerI:0000000000000000 chSysTimerHandlerI
+     /tmp/ccDpedAw.s:347    .text.chSchReadyI:0000000000000000 chSchReadyI
+     /tmp/ccDpedAw.s:996    .upper.rodata:0000000000000000 __func__.2607
+     /tmp/ccDpedAw.s:248    .text.chSysUnconditionalLock:0000000000000000 chSysUnconditionalLock
+     /tmp/ccDpedAw.s:272    .text.chSysUnconditionalUnlock:0000000000000000 chSysUnconditionalUnlock
+     /tmp/ccDpedAw.s:296    .text.chSysGetStatusAndLockX:0000000000000000 chSysGetStatusAndLockX
+     /tmp/ccDpedAw.s:324    .text.chSysRestoreStatusX:0000000000000000 chSysRestoreStatusX
+     /tmp/ccDpedAw.s:450    .text.chSchRescheduleS:0000000000000000 chSchRescheduleS
+     /tmp/ccDpedAw.s:1000   .upper.rodata:0000000000000013 __func__.2627
+     /tmp/ccDpedAw.s:405    .text.chSchIsPreemptionRequired:0000000000000000 chSchIsPreemptionRequired
+     /tmp/ccDpedAw.s:427    .text.chSchDoReschedule:0000000000000000 chSchDoReschedule
+     /tmp/ccDpedAw.s:471    .text.chSchGoSleepTimeoutS:0000000000000000 chSchGoSleepTimeoutS
+     /tmp/ccDpedAw.s:1004   .upper.rodata:000000000000001f __func__.2644
+     /tmp/ccDpedAw.s:520    .text.chThdSuspendTimeoutS:0000000000000000 chThdSuspendTimeoutS
+     /tmp/ccDpedAw.s:1008   .upper.rodata:0000000000000034 __func__.2650
+     /tmp/ccDpedAw.s:550    .text.chThdResumeI:0000000000000000 chThdResumeI
+     /tmp/ccDpedAw.s:1012   .upper.rodata:0000000000000049 __func__.2656
+     /tmp/ccDpedAw.s:580    .text.chThdSleep:0000000000000000 chThdSleep
+     /tmp/ccDpedAw.s:606    .text.chThdSleepUntil:0000000000000000 chThdSleepUntil
+     /tmp/ccDpedAw.s:634    .text.chSemWaitTimeout:0000000000000000 chSemWaitTimeout
+     /tmp/ccDpedAw.s:663    .text.chSemWaitTimeoutS:0000000000000000 chSemWaitTimeoutS
+     /tmp/ccDpedAw.s:1016   .upper.rodata:0000000000000056 __func__.2672
+     /tmp/ccDpedAw.s:708    .text.chSemSignal:0000000000000000 chSemSignal
+     /tmp/ccDpedAw.s:734    .text.chSemSignalI:0000000000000000 chSemSignalI
+     /tmp/ccDpedAw.s:1020   .upper.rodata:0000000000000068 __func__.2680
+     /tmp/ccDpedAw.s:783    .text.chSemReset:0000000000000000 chSemReset
+     /tmp/ccDpedAw.s:811    .text.chSemResetI:0000000000000000 chSemResetI
+     /tmp/ccDpedAw.s:1024   .upper.rodata:0000000000000075 __func__.2693
+     /tmp/ccDpedAw.s:873    .text.chEvtSignal:0000000000000000 chEvtSignal
+     /tmp/ccDpedAw.s:905    .text.chEvtSignalI:0000000000000000 chEvtSignalI
+     /tmp/ccDpedAw.s:1028   .upper.rodata:0000000000000081 __func__.2705
+     /tmp/ccDpedAw.s:944    .text.chEvtWaitAnyTimeout:0000000000000000 chEvtWaitAnyTimeout
+     /tmp/ccDpedAw.s:141    .text.chSysInit:00000000000000d2 .L5
+     /tmp/ccDpedAw.s:95     .text.chSysInit:0000000000000018 .L6
+     /tmp/ccDpedAw.s:177    .text.chSysHalt:000000000000000c .L8
+     /tmp/ccDpedAw.s:228    .text.chSysTimerHandlerI:0000000000000064 .L11
+     /tmp/ccDpedAw.s:217    .text.chSysTimerHandlerI:0000000000000046 .L12
+     /tmp/ccDpedAw.s:212    .text.chSysTimerHandlerI:000000000000003c .L13
+     /tmp/ccDpedAw.s:203    .text.chSysTimerHandlerI:000000000000001a .L17
+     /tmp/ccDpedAw.s:238    .text.chSysTimerHandlerI:000000000000007c .L15
+     /tmp/ccDpedAw.s:214    .text.chSysTimerHandlerI:0000000000000040 .L18
+     /tmp/ccDpedAw.s:225    .text.chSysTimerHandlerI:0000000000000060 .L16
+     /tmp/ccDpedAw.s:264    .text.chSysUnconditionalLock:000000000000000c .L19
+     /tmp/ccDpedAw.s:288    .text.chSysUnconditionalUnlock:000000000000000a .L24
+     /tmp/ccDpedAw.s:314    .text.chSysGetStatusAndLockX:0000000000000016 .L27
+     /tmp/ccDpedAw.s:339    .text.chSysRestoreStatusX:0000000000000016 .L31
+     /tmp/ccDpedAw.s:363    .text.chSchReadyI:0000000000000016 .L37
+GAS LISTING /tmp/ccDpedAw.s 			page 22
 
 
-     /tmp/ccav7hp9.s:368    .text.chSchReadyI:0000000000000026 .L38
-     /tmp/ccav7hp9.s:366    .text.chSchReadyI:0000000000000022 .L39
-     /tmp/ccav7hp9.s:374    .text.chSchReadyI:000000000000003c .L40
-     /tmp/ccav7hp9.s:372    .text.chSchReadyI:0000000000000038 .L41
-     /tmp/ccav7hp9.s:382    .text.chSchReadyI:000000000000005c .L42
-     /tmp/ccav7hp9.s:380    .text.chSchReadyI:0000000000000058 .L43
-     /tmp/ccav7hp9.s:395    .text.chSchReadyI:000000000000008a .L44
-     /tmp/ccav7hp9.s:419    .text.chSchIsPreemptionRequired:000000000000000e .L46
-     /tmp/ccav7hp9.s:463    .text.chSchRescheduleS:000000000000000e .L48
-     /tmp/ccav7hp9.s:491    .text.chSchGoSleepTimeoutS:0000000000000022 .L51
-     /tmp/ccav7hp9.s:489    .text.chSchGoSleepTimeoutS:000000000000001e .L52
-     /tmp/ccav7hp9.s:507    .text.chSchGoSleepTimeoutS:000000000000004e .L53
-     /tmp/ccav7hp9.s:496    .text.chSchGoSleepTimeoutS:0000000000000030 .L54
-     /tmp/ccav7hp9.s:513    .text.chSchGoSleepTimeoutS:0000000000000066 .L55
-     /tmp/ccav7hp9.s:536    .text.chThdSuspendTimeoutS:0000000000000018 .L59
-     /tmp/ccav7hp9.s:534    .text.chThdSuspendTimeoutS:0000000000000014 .L60
-     /tmp/ccav7hp9.s:572    .text.chThdResumeI:000000000000002a .L61
-     /tmp/ccav7hp9.s:569    .text.chThdResumeI:0000000000000020 .L63
-     /tmp/ccav7hp9.s:567    .text.chThdResumeI:000000000000001c .L64
-     /tmp/ccav7hp9.s:680    .text.chSemWaitTimeoutS:0000000000000018 .L72
-     /tmp/ccav7hp9.s:678    .text.chSemWaitTimeoutS:0000000000000014 .L73
-     /tmp/ccav7hp9.s:695    .text.chSemWaitTimeoutS:000000000000003e .L74
-     /tmp/ccav7hp9.s:700    .text.chSemWaitTimeoutS:000000000000004a .L76
-     /tmp/ccav7hp9.s:691    .text.chSemWaitTimeoutS:000000000000003a .L71
-     /tmp/ccav7hp9.s:751    .text.chSemSignalI:0000000000000018 .L79
-     /tmp/ccav7hp9.s:749    .text.chSemSignalI:0000000000000014 .L80
-     /tmp/ccav7hp9.s:768    .text.chSemSignalI:0000000000000050 .L78
-     /tmp/ccav7hp9.s:771    .text.chSemSignalI:0000000000000052 .L82
-     /tmp/ccav7hp9.s:765    .text.chSemSignalI:000000000000004a .L83
-     /tmp/ccav7hp9.s:763    .text.chSemSignalI:0000000000000046 .L84
-     /tmp/ccav7hp9.s:758    .text.chSemSignalI:000000000000002a .L85
-     /tmp/ccav7hp9.s:776    .text.chSemSignalI:0000000000000068 .L86
-     /tmp/ccav7hp9.s:827    .text.chSemResetI:0000000000000010 .L90
-     /tmp/ccav7hp9.s:832    .text.chSemResetI:0000000000000020 .L91
-     /tmp/ccav7hp9.s:830    .text.chSemResetI:000000000000001c .L92
-     /tmp/ccav7hp9.s:847    .text.chSemResetI:0000000000000044 .L99
-     /tmp/ccav7hp9.s:853    .text.chSemResetI:000000000000005a .L94
-     /tmp/ccav7hp9.s:851    .text.chSemResetI:0000000000000056 .L95
-     /tmp/ccav7hp9.s:864    .text.chSemResetI:0000000000000080 .L96
-     /tmp/ccav7hp9.s:860    .text.chSemResetI:000000000000007a .L97
-     /tmp/ccav7hp9.s:858    .text.chSemResetI:0000000000000076 .L98
-     /tmp/ccav7hp9.s:839    .text.chSemResetI:0000000000000034 .L93
-     /tmp/ccav7hp9.s:923    .text.chEvtSignalI:000000000000001a .L105
-     /tmp/ccav7hp9.s:921    .text.chEvtSignalI:0000000000000016 .L106
-     /tmp/ccav7hp9.s:935    .text.chEvtSignalI:0000000000000044 .L104
-     /tmp/ccav7hp9.s:988    .text.chEvtWaitAnyTimeout:0000000000000058 .L113
-     /tmp/ccav7hp9.s:977    .text.chEvtWaitAnyTimeout:0000000000000036 .L114
-     /tmp/ccav7hp9.s:970    .text.chEvtWaitAnyTimeout:000000000000002c .L117
+     /tmp/ccDpedAw.s:368    .text.chSchReadyI:0000000000000026 .L38
+     /tmp/ccDpedAw.s:366    .text.chSchReadyI:0000000000000022 .L39
+     /tmp/ccDpedAw.s:374    .text.chSchReadyI:000000000000003c .L40
+     /tmp/ccDpedAw.s:372    .text.chSchReadyI:0000000000000038 .L41
+     /tmp/ccDpedAw.s:382    .text.chSchReadyI:000000000000005c .L42
+     /tmp/ccDpedAw.s:380    .text.chSchReadyI:0000000000000058 .L43
+     /tmp/ccDpedAw.s:395    .text.chSchReadyI:000000000000008a .L44
+     /tmp/ccDpedAw.s:419    .text.chSchIsPreemptionRequired:000000000000000e .L46
+     /tmp/ccDpedAw.s:463    .text.chSchRescheduleS:000000000000000e .L48
+     /tmp/ccDpedAw.s:491    .text.chSchGoSleepTimeoutS:0000000000000022 .L51
+     /tmp/ccDpedAw.s:489    .text.chSchGoSleepTimeoutS:000000000000001e .L52
+     /tmp/ccDpedAw.s:507    .text.chSchGoSleepTimeoutS:000000000000004e .L53
+     /tmp/ccDpedAw.s:496    .text.chSchGoSleepTimeoutS:0000000000000030 .L54
+     /tmp/ccDpedAw.s:513    .text.chSchGoSleepTimeoutS:0000000000000066 .L55
+     /tmp/ccDpedAw.s:536    .text.chThdSuspendTimeoutS:0000000000000018 .L59
+     /tmp/ccDpedAw.s:534    .text.chThdSuspendTimeoutS:0000000000000014 .L60
+     /tmp/ccDpedAw.s:572    .text.chThdResumeI:000000000000002a .L61
+     /tmp/ccDpedAw.s:569    .text.chThdResumeI:0000000000000020 .L63
+     /tmp/ccDpedAw.s:567    .text.chThdResumeI:000000000000001c .L64
+     /tmp/ccDpedAw.s:680    .text.chSemWaitTimeoutS:0000000000000018 .L72
+     /tmp/ccDpedAw.s:678    .text.chSemWaitTimeoutS:0000000000000014 .L73
+     /tmp/ccDpedAw.s:695    .text.chSemWaitTimeoutS:000000000000003e .L74
+     /tmp/ccDpedAw.s:700    .text.chSemWaitTimeoutS:000000000000004a .L76
+     /tmp/ccDpedAw.s:691    .text.chSemWaitTimeoutS:000000000000003a .L71
+     /tmp/ccDpedAw.s:751    .text.chSemSignalI:0000000000000018 .L79
+     /tmp/ccDpedAw.s:749    .text.chSemSignalI:0000000000000014 .L80
+     /tmp/ccDpedAw.s:768    .text.chSemSignalI:0000000000000050 .L78
+     /tmp/ccDpedAw.s:771    .text.chSemSignalI:0000000000000052 .L82
+     /tmp/ccDpedAw.s:765    .text.chSemSignalI:000000000000004a .L83
+     /tmp/ccDpedAw.s:763    .text.chSemSignalI:0000000000000046 .L84
+     /tmp/ccDpedAw.s:758    .text.chSemSignalI:000000000000002a .L85
+     /tmp/ccDpedAw.s:776    .text.chSemSignalI:0000000000000068 .L86
+     /tmp/ccDpedAw.s:827    .text.chSemResetI:0000000000000010 .L90
+     /tmp/ccDpedAw.s:832    .text.chSemResetI:0000000000000020 .L91
+     /tmp/ccDpedAw.s:830    .text.chSemResetI:000000000000001c .L92
+     /tmp/ccDpedAw.s:847    .text.chSemResetI:0000000000000044 .L99
+     /tmp/ccDpedAw.s:853    .text.chSemResetI:000000000000005a .L94
+     /tmp/ccDpedAw.s:851    .text.chSemResetI:0000000000000056 .L95
+     /tmp/ccDpedAw.s:864    .text.chSemResetI:0000000000000080 .L96
+     /tmp/ccDpedAw.s:860    .text.chSemResetI:000000000000007a .L97
+     /tmp/ccDpedAw.s:858    .text.chSemResetI:0000000000000076 .L98
+     /tmp/ccDpedAw.s:839    .text.chSemResetI:0000000000000034 .L93
+     /tmp/ccDpedAw.s:923    .text.chEvtSignalI:000000000000001a .L105
+     /tmp/ccDpedAw.s:921    .text.chEvtSignalI:0000000000000016 .L106
+     /tmp/ccDpedAw.s:935    .text.chEvtSignalI:0000000000000044 .L104
+     /tmp/ccDpedAw.s:988    .text.chEvtWaitAnyTimeout:0000000000000058 .L113
+     /tmp/ccDpedAw.s:977    .text.chEvtWaitAnyTimeout:0000000000000036 .L114
+     /tmp/ccDpedAw.s:970    .text.chEvtWaitAnyTimeout:000000000000002c .L117
 
 UNDEFINED SYMBOLS
 __msp430x_in_isr

@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccIaP0Zt.s 			page 1
+GAS LISTING /tmp/ccAypoM0.s 			page 1
 
 
    1               		.file	"hal_uart_lld.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
   55 009c 0D9C 002C 		CMP.W	R12, R13 { JHS	.L22
   56 00a0 3D40 6D18 		MOV.W	#6253, R13
   57 00a4 0D9C 002C 		CMP.W	R12, R13 { JHS	.L23
-GAS LISTING /tmp/ccIaP0Zt.s 			page 2
+GAS LISTING /tmp/ccAypoM0.s 			page 2
 
 
   58 00a8 3D40 1F19 		MOV.W	#6431, R13
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
  112 014c 7C40 1100 		MOV.B	#17, R12
  113 0150 8000 0000 		BRA	#.L2
  114               	.L11:
-GAS LISTING /tmp/ccIaP0Zt.s 			page 3
+GAS LISTING /tmp/ccAypoM0.s 			page 3
 
 
  115 0154 7C40 2100 		MOV.B	#33, R12
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
  169 01e4 7C40 DD00 		MOV.B	#221, R12
  170 01e8 8000 0000 		BRA	#.L2
  171               	.L30:
-GAS LISTING /tmp/ccIaP0Zt.s 			page 4
+GAS LISTING /tmp/ccAypoM0.s 			page 4
 
 
  172 01ec 7C40 ED00 		MOV.B	#237, R12
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
  224 002c CC0A      		MOVA	R10, R12
  225 002e AC00 0A00 		ADDA	#10, R12
  226 0032 B013 0000 		CALLA	#chThdResumeI
-GAS LISTING /tmp/ccIaP0Zt.s 			page 5
+GAS LISTING /tmp/ccAypoM0.s 			page 5
 
 
  227 0036 CA93 0200 		CMP.B	#0, 2(R10) { JNE	.L38
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
  274      1C00 0024 
  275 0044 BCC2 1C00 		BIC.W	#8, 28(R12)
  276 0048 BCD2 1A00 		BIS.W	#8, 26(R12)
-GAS LISTING /tmp/ccIaP0Zt.s 			page 6
+GAS LISTING /tmp/ccAypoM0.s 			page 6
 
 
  277 004c 3C0A 0400 		MOVA	4(R10), R12
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
  327      0024 
  328 0038 3C92 0020 		CMP.W	#8, R12 { JNE	.L59
  329 003c 8C00 0000 		MOVA	#UARTDA1, R12
-GAS LISTING /tmp/ccIaP0Zt.s 			page 7
+GAS LISTING /tmp/ccAypoM0.s 			page 7
 
 
  330 0040 3E0C 0400 		MOVA	4(R12), R14
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
  371 00da 9E00 0000 		CMPA	#0, R14 { JEQ	.L70
  371      0024 
  372 00e0 4018 1D42 		MOVX.W	&UCA1RXBUF, R13
-GAS LISTING /tmp/ccIaP0Zt.s 			page 8
+GAS LISTING /tmp/ccAypoM0.s 			page 8
 
 
  372      0000 
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
  416      3E00 
  417 004c BA40 C000 		MOV.W	#192, 64(R10)
  417      4000 
-GAS LISTING /tmp/ccIaP0Zt.s 			page 9
+GAS LISTING /tmp/ccAypoM0.s 			page 9
 
 
  418 0052 8A43 4200 		MOV.W	#0, 66(R10)
@@ -538,7 +538,7 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
  464 0058 9145 1600 		MOV.W	22(R5), 8(R1)
  464      0800 
  465 005e 8B00 0000 		MOVA	#__mspabi_divul, R11
-GAS LISTING /tmp/ccIaP0Zt.s 			page 10
+GAS LISTING /tmp/ccAypoM0.s 			page 10
 
 
  466 0062 1E41 0600 		MOV.W	6(R1), R14
@@ -598,7 +598,7 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
  519 010e 9C00 0000 		CMPA	#0, R12 { JEQ	.L112
  519      0024 
  520 0114 8C00 0000 		MOVA	#__func__.3742, R12
-GAS LISTING /tmp/ccIaP0Zt.s 			page 11
+GAS LISTING /tmp/ccAypoM0.s 			page 11
 
 
  521 0118 B013 0000 		CALLA	#chSysHalt
@@ -658,7 +658,7 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
  569 01b4 0DD9      		BIS.W	R9, R13
  570 01b6 4618 0E5E 		rpt	#7 { rlax.w	R14
  571 01ba 3EF0 0008 		AND.W	#2048, R14
-GAS LISTING /tmp/ccIaP0Zt.s 			page 12
+GAS LISTING /tmp/ccAypoM0.s 			page 12
 
 
  572 01be 0DDE      		BIS.W	R14, R13
@@ -718,7 +718,7 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
  625 0022 9C43 0000 		MOV.W	#1, @R12
  626               	.L134:
  627               		; start of epilogue
-GAS LISTING /tmp/ccIaP0Zt.s 			page 13
+GAS LISTING /tmp/ccAypoM0.s 			page 13
 
 
  628 0026 0816      		POPM.A	#1, r8
@@ -778,7 +778,7 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
  680               		.type	uart_lld_stop_send, @function
  681               	uart_lld_stop_send:
  682               	; start of function
-GAS LISTING /tmp/ccIaP0Zt.s 			page 14
+GAS LISTING /tmp/ccAypoM0.s 			page 14
 
 
  683               	; framesize_regs:     8
@@ -838,7 +838,7 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
  737               		; end of prologue
  738 0006 CA0C      		MOVA	R12, R10
  739 0008 7C0E 3800 		MOVA	R14, 56(R12)
-GAS LISTING /tmp/ccIaP0Zt.s 			page 15
+GAS LISTING /tmp/ccAypoM0.s 			page 15
 
 
  740 000c 8C4D 3C00 		MOV.W	R13, 60(R12)
@@ -898,7 +898,7 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
  791 001e 3C06 0400 		MOVA	4(R6), R12
  792 0022 7D40 2F00 		MOV.B	#47, R13
  793 0026 5D9C 1900 		CMP.B	25(R12), R13 { JHS	.L150
-GAS LISTING /tmp/ccIaP0Zt.s 			page 16
+GAS LISTING /tmp/ccAypoM0.s 			page 16
 
 
  793      002C 
@@ -944,108 +944,108 @@ GAS LISTING /tmp/ccIaP0Zt.s 			page 1
  823      0000 0000 
  823      0000 0000 
  824               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccIaP0Zt.s 			page 17
+GAS LISTING /tmp/ccAypoM0.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_uart_lld.c
-     /tmp/ccIaP0Zt.s:5      .text.UCBRS:0000000000000000 UCBRS
-     /tmp/ccIaP0Zt.s:199    .text.rx_cb:0000000000000000 rx_cb
-     /tmp/ccIaP0Zt.s:243    .text.tx_cb:0000000000000000 tx_cb
-     /tmp/ccIaP0Zt.s:298    .lower.lowtext:0000000000000000 ISR_USCI_A1_VECTOR
-     /tmp/ccIaP0Zt.s:822    .upper.bss:0000000000000000 UARTDA1
-     /tmp/ccIaP0Zt.s:815    .upper.rodata:000000000000000f __func__.3730
-     /tmp/ccIaP0Zt.s:392    .text.uart_lld_init:0000000000000000 uart_lld_init
-     /tmp/ccIaP0Zt.s:430    .text.uart_lld_start:0000000000000000 uart_lld_start
-     /tmp/ccIaP0Zt.s:811    .upper.rodata:0000000000000000 __func__.3742
-     /tmp/ccIaP0Zt.s:603    .text.uart_lld_stop:0000000000000000 uart_lld_stop
-     /tmp/ccIaP0Zt.s:636    .text.uart_lld_start_send:0000000000000000 uart_lld_start_send
-     /tmp/ccIaP0Zt.s:681    .text.uart_lld_stop_send:0000000000000000 uart_lld_stop_send
-     /tmp/ccIaP0Zt.s:724    .text.uart_lld_start_receive:0000000000000000 uart_lld_start_receive
-     /tmp/ccIaP0Zt.s:770    .text.uart_lld_stop_receive:0000000000000000 uart_lld_stop_receive
-     /tmp/ccIaP0Zt.s:90     .text.UCBRS:000000000000011e .L3
-     /tmp/ccIaP0Zt.s:93     .text.UCBRS:0000000000000124 .L4
-     /tmp/ccIaP0Zt.s:96     .text.UCBRS:000000000000012a .L5
-     /tmp/ccIaP0Zt.s:99     .text.UCBRS:0000000000000130 .L6
-     /tmp/ccIaP0Zt.s:102    .text.UCBRS:0000000000000136 .L7
-     /tmp/ccIaP0Zt.s:105    .text.UCBRS:000000000000013c .L8
-     /tmp/ccIaP0Zt.s:108    .text.UCBRS:0000000000000144 .L9
-     /tmp/ccIaP0Zt.s:111    .text.UCBRS:000000000000014c .L10
-     /tmp/ccIaP0Zt.s:114    .text.UCBRS:0000000000000154 .L11
-     /tmp/ccIaP0Zt.s:117    .text.UCBRS:000000000000015c .L12
-     /tmp/ccIaP0Zt.s:120    .text.UCBRS:0000000000000164 .L13
-     /tmp/ccIaP0Zt.s:123    .text.UCBRS:000000000000016c .L14
-     /tmp/ccIaP0Zt.s:126    .text.UCBRS:0000000000000174 .L15
-     /tmp/ccIaP0Zt.s:129    .text.UCBRS:000000000000017c .L16
-     /tmp/ccIaP0Zt.s:132    .text.UCBRS:0000000000000184 .L17
-     /tmp/ccIaP0Zt.s:135    .text.UCBRS:000000000000018c .L18
-     /tmp/ccIaP0Zt.s:138    .text.UCBRS:0000000000000194 .L19
-     /tmp/ccIaP0Zt.s:141    .text.UCBRS:000000000000019c .L20
-     /tmp/ccIaP0Zt.s:144    .text.UCBRS:00000000000001a4 .L21
-     /tmp/ccIaP0Zt.s:147    .text.UCBRS:00000000000001ac .L22
-     /tmp/ccIaP0Zt.s:150    .text.UCBRS:00000000000001b4 .L23
-     /tmp/ccIaP0Zt.s:153    .text.UCBRS:00000000000001bc .L24
-     /tmp/ccIaP0Zt.s:156    .text.UCBRS:00000000000001c4 .L25
-     /tmp/ccIaP0Zt.s:159    .text.UCBRS:00000000000001cc .L26
-     /tmp/ccIaP0Zt.s:162    .text.UCBRS:00000000000001d4 .L27
-     /tmp/ccIaP0Zt.s:165    .text.UCBRS:00000000000001dc .L28
-     /tmp/ccIaP0Zt.s:168    .text.UCBRS:00000000000001e4 .L29
-     /tmp/ccIaP0Zt.s:171    .text.UCBRS:00000000000001ec .L30
-     /tmp/ccIaP0Zt.s:174    .text.UCBRS:00000000000001f4 .L31
-     /tmp/ccIaP0Zt.s:177    .text.UCBRS:00000000000001fc .L32
-     /tmp/ccIaP0Zt.s:180    .text.UCBRS:0000000000000204 .L33
-     /tmp/ccIaP0Zt.s:183    .text.UCBRS:000000000000020c .L34
-     /tmp/ccIaP0Zt.s:186    .text.UCBRS:0000000000000214 .L35
-     /tmp/ccIaP0Zt.s:189    .text.UCBRS:000000000000021c .L36
-     /tmp/ccIaP0Zt.s:192    .text.UCBRS:0000000000000224 .L37
-     /tmp/ccIaP0Zt.s:87     .text.UCBRS:000000000000011c .L2
-     /tmp/ccIaP0Zt.s:217    .text.rx_cb:0000000000000018 .L39
-     /tmp/ccIaP0Zt.s:222    .text.rx_cb:000000000000002a .L40
-     /tmp/ccIaP0Zt.s:235    .text.rx_cb:0000000000000058 .L38
-     /tmp/ccIaP0Zt.s:261    .text.tx_cb:0000000000000016 .L46
-     /tmp/ccIaP0Zt.s:264    .text.tx_cb:0000000000000020 .L47
-GAS LISTING /tmp/ccIaP0Zt.s 			page 18
+     /tmp/ccAypoM0.s:5      .text.UCBRS:0000000000000000 UCBRS
+     /tmp/ccAypoM0.s:199    .text.rx_cb:0000000000000000 rx_cb
+     /tmp/ccAypoM0.s:243    .text.tx_cb:0000000000000000 tx_cb
+     /tmp/ccAypoM0.s:298    .lower.lowtext:0000000000000000 ISR_USCI_A1_VECTOR
+     /tmp/ccAypoM0.s:822    .upper.bss:0000000000000000 UARTDA1
+     /tmp/ccAypoM0.s:815    .upper.rodata:000000000000000f __func__.3730
+     /tmp/ccAypoM0.s:392    .text.uart_lld_init:0000000000000000 uart_lld_init
+     /tmp/ccAypoM0.s:430    .text.uart_lld_start:0000000000000000 uart_lld_start
+     /tmp/ccAypoM0.s:811    .upper.rodata:0000000000000000 __func__.3742
+     /tmp/ccAypoM0.s:603    .text.uart_lld_stop:0000000000000000 uart_lld_stop
+     /tmp/ccAypoM0.s:636    .text.uart_lld_start_send:0000000000000000 uart_lld_start_send
+     /tmp/ccAypoM0.s:681    .text.uart_lld_stop_send:0000000000000000 uart_lld_stop_send
+     /tmp/ccAypoM0.s:724    .text.uart_lld_start_receive:0000000000000000 uart_lld_start_receive
+     /tmp/ccAypoM0.s:770    .text.uart_lld_stop_receive:0000000000000000 uart_lld_stop_receive
+     /tmp/ccAypoM0.s:90     .text.UCBRS:000000000000011e .L3
+     /tmp/ccAypoM0.s:93     .text.UCBRS:0000000000000124 .L4
+     /tmp/ccAypoM0.s:96     .text.UCBRS:000000000000012a .L5
+     /tmp/ccAypoM0.s:99     .text.UCBRS:0000000000000130 .L6
+     /tmp/ccAypoM0.s:102    .text.UCBRS:0000000000000136 .L7
+     /tmp/ccAypoM0.s:105    .text.UCBRS:000000000000013c .L8
+     /tmp/ccAypoM0.s:108    .text.UCBRS:0000000000000144 .L9
+     /tmp/ccAypoM0.s:111    .text.UCBRS:000000000000014c .L10
+     /tmp/ccAypoM0.s:114    .text.UCBRS:0000000000000154 .L11
+     /tmp/ccAypoM0.s:117    .text.UCBRS:000000000000015c .L12
+     /tmp/ccAypoM0.s:120    .text.UCBRS:0000000000000164 .L13
+     /tmp/ccAypoM0.s:123    .text.UCBRS:000000000000016c .L14
+     /tmp/ccAypoM0.s:126    .text.UCBRS:0000000000000174 .L15
+     /tmp/ccAypoM0.s:129    .text.UCBRS:000000000000017c .L16
+     /tmp/ccAypoM0.s:132    .text.UCBRS:0000000000000184 .L17
+     /tmp/ccAypoM0.s:135    .text.UCBRS:000000000000018c .L18
+     /tmp/ccAypoM0.s:138    .text.UCBRS:0000000000000194 .L19
+     /tmp/ccAypoM0.s:141    .text.UCBRS:000000000000019c .L20
+     /tmp/ccAypoM0.s:144    .text.UCBRS:00000000000001a4 .L21
+     /tmp/ccAypoM0.s:147    .text.UCBRS:00000000000001ac .L22
+     /tmp/ccAypoM0.s:150    .text.UCBRS:00000000000001b4 .L23
+     /tmp/ccAypoM0.s:153    .text.UCBRS:00000000000001bc .L24
+     /tmp/ccAypoM0.s:156    .text.UCBRS:00000000000001c4 .L25
+     /tmp/ccAypoM0.s:159    .text.UCBRS:00000000000001cc .L26
+     /tmp/ccAypoM0.s:162    .text.UCBRS:00000000000001d4 .L27
+     /tmp/ccAypoM0.s:165    .text.UCBRS:00000000000001dc .L28
+     /tmp/ccAypoM0.s:168    .text.UCBRS:00000000000001e4 .L29
+     /tmp/ccAypoM0.s:171    .text.UCBRS:00000000000001ec .L30
+     /tmp/ccAypoM0.s:174    .text.UCBRS:00000000000001f4 .L31
+     /tmp/ccAypoM0.s:177    .text.UCBRS:00000000000001fc .L32
+     /tmp/ccAypoM0.s:180    .text.UCBRS:0000000000000204 .L33
+     /tmp/ccAypoM0.s:183    .text.UCBRS:000000000000020c .L34
+     /tmp/ccAypoM0.s:186    .text.UCBRS:0000000000000214 .L35
+     /tmp/ccAypoM0.s:189    .text.UCBRS:000000000000021c .L36
+     /tmp/ccAypoM0.s:192    .text.UCBRS:0000000000000224 .L37
+     /tmp/ccAypoM0.s:87     .text.UCBRS:000000000000011c .L2
+     /tmp/ccAypoM0.s:217    .text.rx_cb:0000000000000018 .L39
+     /tmp/ccAypoM0.s:222    .text.rx_cb:000000000000002a .L40
+     /tmp/ccAypoM0.s:235    .text.rx_cb:0000000000000058 .L38
+     /tmp/ccAypoM0.s:261    .text.tx_cb:0000000000000016 .L46
+     /tmp/ccAypoM0.s:264    .text.tx_cb:0000000000000020 .L47
+GAS LISTING /tmp/ccAypoM0.s 			page 18
 
 
-     /tmp/ccIaP0Zt.s:270    .text.tx_cb:0000000000000032 .L48
-     /tmp/ccIaP0Zt.s:286    .text.tx_cb:000000000000006c .L45
-     /tmp/ccIaP0Zt.s:273    .text.tx_cb:000000000000003c .L51
-     /tmp/ccIaP0Zt.s:383    .lower.lowtext:0000000000000102 .L60
-     /tmp/ccIaP0Zt.s:326    .lower.lowtext:0000000000000032 .L61
-     /tmp/ccIaP0Zt.s:343    .lower.lowtext:0000000000000072 .L62
-     /tmp/ccIaP0Zt.s:322    .lower.lowtext:000000000000002e .L58
-     /tmp/ccIaP0Zt.s:317    .lower.lowtext:000000000000001c .L59
-     /tmp/ccIaP0Zt.s:334    .lower.lowtext:0000000000000050 .L71
-     /tmp/ccIaP0Zt.s:339    .lower.lowtext:0000000000000062 .L72
-     /tmp/ccIaP0Zt.s:368    .lower.lowtext:00000000000000d2 .L64
-     /tmp/ccIaP0Zt.s:376    .lower.lowtext:00000000000000f0 .L74
-     /tmp/ccIaP0Zt.s:352    .lower.lowtext:000000000000009a .L66
-     /tmp/ccIaP0Zt.s:355    .lower.lowtext:00000000000000a6 .L67
-     /tmp/ccIaP0Zt.s:358    .lower.lowtext:00000000000000b2 .L68
-     /tmp/ccIaP0Zt.s:364    .lower.lowtext:00000000000000c6 .L69
-     /tmp/ccIaP0Zt.s:380    .lower.lowtext:00000000000000f8 .L70
-     /tmp/ccIaP0Zt.s:349    .lower.lowtext:000000000000008c .L65
-     /tmp/ccIaP0Zt.s:457    .text.uart_lld_start:000000000000003a .L105
-     /tmp/ccIaP0Zt.s:446    .text.uart_lld_start:0000000000000012 .L106
-     /tmp/ccIaP0Zt.s:452    .text.uart_lld_start:000000000000002a .L107
-     /tmp/ccIaP0Zt.s:586    .text.uart_lld_start:00000000000001e2 .L109
-     /tmp/ccIaP0Zt.s:592    .text.uart_lld_start:00000000000001f4 .L111
-     /tmp/ccIaP0Zt.s:522    .text.uart_lld_start:000000000000011c .L112
-     /tmp/ccIaP0Zt.s:526    .text.uart_lld_start:0000000000000126 .L113
-     /tmp/ccIaP0Zt.s:595    .text.uart_lld_start:00000000000001fc .L115
-     /tmp/ccIaP0Zt.s:541    .text.uart_lld_start:0000000000000154 .L116
-     /tmp/ccIaP0Zt.s:545    .text.uart_lld_start:000000000000015e .L117
-     /tmp/ccIaP0Zt.s:579    .text.uart_lld_start:00000000000001d2 .L119
-     /tmp/ccIaP0Zt.s:505    .text.uart_lld_start:00000000000000e2 .L110
-     /tmp/ccIaP0Zt.s:528    .text.uart_lld_start:000000000000012a .L114
-     /tmp/ccIaP0Zt.s:547    .text.uart_lld_start:0000000000000162 .L118
-     /tmp/ccIaP0Zt.s:626    .text.uart_lld_stop:0000000000000026 .L134
-     /tmp/ccIaP0Zt.s:654    .text.uart_lld_start_send:0000000000000014 .L137
-     /tmp/ccIaP0Zt.s:665    .text.uart_lld_start_send:000000000000003c .L138
-     /tmp/ccIaP0Zt.s:707    .text.uart_lld_stop_send:000000000000002e .L142
-     /tmp/ccIaP0Zt.s:751    .text.uart_lld_start_receive:0000000000000034 .L144
-     /tmp/ccIaP0Zt.s:759    .text.uart_lld_start_receive:0000000000000050 .L143
-     /tmp/ccIaP0Zt.s:797    .text.uart_lld_stop_receive:0000000000000036 .L150
+     /tmp/ccAypoM0.s:270    .text.tx_cb:0000000000000032 .L48
+     /tmp/ccAypoM0.s:286    .text.tx_cb:000000000000006c .L45
+     /tmp/ccAypoM0.s:273    .text.tx_cb:000000000000003c .L51
+     /tmp/ccAypoM0.s:383    .lower.lowtext:0000000000000102 .L60
+     /tmp/ccAypoM0.s:326    .lower.lowtext:0000000000000032 .L61
+     /tmp/ccAypoM0.s:343    .lower.lowtext:0000000000000072 .L62
+     /tmp/ccAypoM0.s:322    .lower.lowtext:000000000000002e .L58
+     /tmp/ccAypoM0.s:317    .lower.lowtext:000000000000001c .L59
+     /tmp/ccAypoM0.s:334    .lower.lowtext:0000000000000050 .L71
+     /tmp/ccAypoM0.s:339    .lower.lowtext:0000000000000062 .L72
+     /tmp/ccAypoM0.s:368    .lower.lowtext:00000000000000d2 .L64
+     /tmp/ccAypoM0.s:376    .lower.lowtext:00000000000000f0 .L74
+     /tmp/ccAypoM0.s:352    .lower.lowtext:000000000000009a .L66
+     /tmp/ccAypoM0.s:355    .lower.lowtext:00000000000000a6 .L67
+     /tmp/ccAypoM0.s:358    .lower.lowtext:00000000000000b2 .L68
+     /tmp/ccAypoM0.s:364    .lower.lowtext:00000000000000c6 .L69
+     /tmp/ccAypoM0.s:380    .lower.lowtext:00000000000000f8 .L70
+     /tmp/ccAypoM0.s:349    .lower.lowtext:000000000000008c .L65
+     /tmp/ccAypoM0.s:457    .text.uart_lld_start:000000000000003a .L105
+     /tmp/ccAypoM0.s:446    .text.uart_lld_start:0000000000000012 .L106
+     /tmp/ccAypoM0.s:452    .text.uart_lld_start:000000000000002a .L107
+     /tmp/ccAypoM0.s:586    .text.uart_lld_start:00000000000001e2 .L109
+     /tmp/ccAypoM0.s:592    .text.uart_lld_start:00000000000001f4 .L111
+     /tmp/ccAypoM0.s:522    .text.uart_lld_start:000000000000011c .L112
+     /tmp/ccAypoM0.s:526    .text.uart_lld_start:0000000000000126 .L113
+     /tmp/ccAypoM0.s:595    .text.uart_lld_start:00000000000001fc .L115
+     /tmp/ccAypoM0.s:541    .text.uart_lld_start:0000000000000154 .L116
+     /tmp/ccAypoM0.s:545    .text.uart_lld_start:000000000000015e .L117
+     /tmp/ccAypoM0.s:579    .text.uart_lld_start:00000000000001d2 .L119
+     /tmp/ccAypoM0.s:505    .text.uart_lld_start:00000000000000e2 .L110
+     /tmp/ccAypoM0.s:528    .text.uart_lld_start:000000000000012a .L114
+     /tmp/ccAypoM0.s:547    .text.uart_lld_start:0000000000000162 .L118
+     /tmp/ccAypoM0.s:626    .text.uart_lld_stop:0000000000000026 .L134
+     /tmp/ccAypoM0.s:654    .text.uart_lld_start_send:0000000000000014 .L137
+     /tmp/ccAypoM0.s:665    .text.uart_lld_start_send:000000000000003c .L138
+     /tmp/ccAypoM0.s:707    .text.uart_lld_stop_send:000000000000002e .L142
+     /tmp/ccAypoM0.s:751    .text.uart_lld_start_receive:0000000000000034 .L144
+     /tmp/ccAypoM0.s:759    .text.uart_lld_start_receive:0000000000000050 .L143
+     /tmp/ccAypoM0.s:797    .text.uart_lld_stop_receive:0000000000000036 .L150
 
 UNDEFINED SYMBOLS
 chThdResumeI
@@ -1064,7 +1064,7 @@ UCA1CTLW0
 UCA1TXBUF
 __mspabi_divul
 __mulsi2_f5
-GAS LISTING /tmp/ccIaP0Zt.s 			page 19
+GAS LISTING /tmp/ccAypoM0.s 			page 19
 
 
 dmaClaimI

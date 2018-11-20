@@ -9,8 +9,8 @@
 OPTIMIZE = s
 
 # Debugging format.
-DEBUG = 
-#DEBUG = stabs
+#DEBUG =
+DEBUG = stabs
 
 # Memory/data model
 MODEL = large
@@ -30,13 +30,13 @@ CSTANDARD = -std=gnu11
 # Compiler options here.
 ifeq ($(USE_OPT),)
   USE_OPT = -O$(OPTIMIZE)
-#-g$(DEBUG) 
-  USE_OPT += -fsigned-char -fshort-enums 
+#-g$(DEBUG)
+  USE_OPT += -fsigned-char -fshort-enums
 endif
 
 # C specific options here (added to USE_OPT).
 ifeq ($(USE_COPT),)
-  USE_COPT = 
+  USE_COPT =
 endif
 
 # C++ specific options here (added to USE_OPT).
@@ -122,7 +122,7 @@ include $(CHIBIOS_CONTRIB)/os/ex/Semtech/sx1212.mk
 # Define linker script file here
 LDSCRIPT = $(PROJECT_ROOT)/lib/msp430fr5969.ld
 
-# C sources 
+# C sources
 CSRC = $(STARTUPSRC) \
        $(KERNSRC) \
        $(PORTSRC) \
@@ -137,7 +137,7 @@ CSRC = $(STARTUPSRC) \
        msp_vectors.c \
        init.c
 
-# C++ sources 
+# C++ sources
 CPPSRC =
 
 # List ASM source files here
@@ -179,7 +179,7 @@ BIN  = $(CP) -O binary
 MOPT = -m$(MODEL) -mdata-region=upper
 
 # Define C warning options here
-CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes -fmax-errors=5 
+CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes -fmax-errors=5
 
 # Define C++ warning options here
 CPPWARN = -Wall -Wextra -Wundef

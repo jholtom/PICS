@@ -61,15 +61,15 @@ build/obj/sdlp.o: ccsds/sdlp.c ccsds/sdlp.h core/core.h \
  ../ChibiOS-RT/os/hal/include/hal_mmc_spi.h \
  ../ChibiOS-RT/os/hal/include/hal_serial_usb.h core/cfg.h \
  core/constants.h spp/nl_constants.h ccsds/dll_constants.h core/mych.h \
- ../ChibiOS-Contrib/os/ex/Semtech/sx1278.h core/nl.h core/core.h \
+ ../ChibiOS-Contrib/os/ex/Semtech/sx1278.h \
+ ../ChibiOS-Contrib/os/ex/Semtech/sx1212.h core/nl.h core/core.h \
  spp/nl_errors.h spp/nl_registers.h core/registers.h \
  ccsds/dll_registers.h core/nl.h core/errors.h core/registers.h \
- core/rf_admin.h core/rf.h ../ChibiOS-Contrib/os/ex/Semtech/sx1212.h \
- core/rf_dll.h core/main.h core/cmds.h core/crc_x25.h \
- ../ChibiOS-Contrib/os/hal/ports/MSP430X/hal_dma_lld.h core/events.h \
- spp/nl_events.h ccsds/dll_events.h core/uart.h core/uart_dll.h \
- core/channels.h spp/nl_channels.h ccsds/dll_channels.h core/fram.h \
- core/queues.h ../ChibiOS-RT/os/common/oslib/include/chbsem.h \
+ core/rf_admin.h core/rf.h core/rf_dll.h core/main.h core/cmds.h \
+ core/crc_x25.h ../ChibiOS-Contrib/os/hal/ports/MSP430X/hal_dma_lld.h \
+ core/events.h spp/nl_events.h ccsds/dll_events.h core/uart.h \
+ core/uart_dll.h core/channels.h spp/nl_channels.h ccsds/dll_channels.h \
+ core/fram.h core/queues.h ../ChibiOS-RT/os/common/oslib/include/chbsem.h \
  core/telem.h ccsds/crc_sdlp.h core/main.h core/rf_dll.h \
  /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/msp430-elf/include/string.h \
  /root/ti-tools/part2/msp430-gcc-6.2.1.16_linux64/msp430-elf/include/_ansi.h \
@@ -232,6 +232,8 @@ core/mych.h:
 
 ../ChibiOS-Contrib/os/ex/Semtech/sx1278.h:
 
+../ChibiOS-Contrib/os/ex/Semtech/sx1212.h:
+
 core/nl.h:
 
 core/core.h:
@@ -253,8 +255,6 @@ core/registers.h:
 core/rf_admin.h:
 
 core/rf.h:
-
-../ChibiOS-Contrib/os/ex/Semtech/sx1212.h:
 
 core/rf_dll.h:
 

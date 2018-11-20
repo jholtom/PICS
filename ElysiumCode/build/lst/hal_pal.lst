@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cctftY2X.s 			page 1
+GAS LISTING /tmp/ccORMlFp.s 			page 1
 
 
    1               		.file	"hal_pal.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/cctftY2X.s 			page 1
   53 0006 9C00 0000 		CMPA	#0, R12 { JEQ	.L8
   53      0024 
   54 000c 7C40 0F00 		MOV.B	#15, R12
-GAS LISTING /tmp/cctftY2X.s 			page 2
+GAS LISTING /tmp/ccORMlFp.s 			page 2
 
 
   55 0010 1C9A 0600 		CMP.W	6(R10), R12 { JHS	.L9
@@ -118,7 +118,7 @@ GAS LISTING /tmp/cctftY2X.s 			page 1
  106 002a 0E49      		MOV.W	R9, R14
  107 002c 0D4C      		MOV.W	R12, R13
  108 002e 0C0A      		MOVA	@R10, R12
-GAS LISTING /tmp/cctftY2X.s 			page 3
+GAS LISTING /tmp/ccORMlFp.s 			page 3
 
 
  109 0030 B013 0000 		CALLA	#_pal_lld_setgroupmode
@@ -147,23 +147,23 @@ GAS LISTING /tmp/cctftY2X.s 			page 1
  126      6561 6442 
  126      7573 00
  127               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/cctftY2X.s 			page 4
+GAS LISTING /tmp/ccORMlFp.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_pal.c
-     /tmp/cctftY2X.s:6      .text.palReadBus:0000000000000000 palReadBus
-     /tmp/cctftY2X.s:125    .upper.rodata:000000000000001a __func__.3696
-     /tmp/cctftY2X.s:39     .text.palWriteBus:0000000000000000 palWriteBus
-     /tmp/cctftY2X.s:121    .upper.rodata:000000000000000e __func__.3701
-     /tmp/cctftY2X.s:82     .text.palSetBusMode:0000000000000000 palSetBusMode
-     /tmp/cctftY2X.s:117    .upper.rodata:0000000000000000 __func__.3706
-     /tmp/cctftY2X.s:22     .text.palReadBus:0000000000000014 .L2
-     /tmp/cctftY2X.s:25     .text.palReadBus:000000000000001c .L3
-     /tmp/cctftY2X.s:56     .text.palWriteBus:0000000000000016 .L8
-     /tmp/cctftY2X.s:59     .text.palWriteBus:000000000000001e .L9
-     /tmp/cctftY2X.s:99     .text.palSetBusMode:0000000000000016 .L14
-     /tmp/cctftY2X.s:102    .text.palSetBusMode:000000000000001e .L15
+     /tmp/ccORMlFp.s:6      .text.palReadBus:0000000000000000 palReadBus
+     /tmp/ccORMlFp.s:125    .upper.rodata:000000000000001a __func__.3696
+     /tmp/ccORMlFp.s:39     .text.palWriteBus:0000000000000000 palWriteBus
+     /tmp/ccORMlFp.s:121    .upper.rodata:000000000000000e __func__.3701
+     /tmp/ccORMlFp.s:82     .text.palSetBusMode:0000000000000000 palSetBusMode
+     /tmp/ccORMlFp.s:117    .upper.rodata:0000000000000000 __func__.3706
+     /tmp/ccORMlFp.s:22     .text.palReadBus:0000000000000014 .L2
+     /tmp/ccORMlFp.s:25     .text.palReadBus:000000000000001c .L3
+     /tmp/ccORMlFp.s:56     .text.palWriteBus:0000000000000016 .L8
+     /tmp/ccORMlFp.s:59     .text.palWriteBus:000000000000001e .L9
+     /tmp/ccORMlFp.s:99     .text.palSetBusMode:0000000000000016 .L14
+     /tmp/ccORMlFp.s:102    .text.palSetBusMode:000000000000001e .L15
 
 UNDEFINED SYMBOLS
 chSysHalt

@@ -4,6 +4,7 @@
 
 #include "core.h"
 #include "sx1278.h"
+#include "sx1212.h"
 #include "nl.h"
 #include "registers.h"
 #include "errors.h"

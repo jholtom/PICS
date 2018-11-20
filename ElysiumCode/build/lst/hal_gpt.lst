@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccEiKzGT.s 			page 1
+GAS LISTING /tmp/ccab8Fgj.s 			page 1
 
 
    1               		.file	"hal_gpt.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccEiKzGT.s 			page 1
   54               	; framesize_regs:     0
   55               	; framesize_locals:   0
   56               	; framesize_outgoing: 0
-GAS LISTING /tmp/ccEiKzGT.s 			page 2
+GAS LISTING /tmp/ccab8Fgj.s 			page 2
 
 
   57               	; framesize:          0
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccEiKzGT.s 			page 1
  108               	.L6:
  109 0014 8C00 0000 		MOVA	#__func__.3703, R12
  110 0018 B013 0000 		CALLA	#chSysHalt
-GAS LISTING /tmp/ccEiKzGT.s 			page 3
+GAS LISTING /tmp/ccab8Fgj.s 			page 3
 
 
  111               	.L7:
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccEiKzGT.s 			page 1
  163 0038 B013 0000 		CALLA	#port_unlock
  164               		; start of epilogue
  165 003c 0A16      		POPM.A	#1, r10
-GAS LISTING /tmp/ccEiKzGT.s 			page 4
+GAS LISTING /tmp/ccab8Fgj.s 			page 4
 
 
  166 003e 1001      		RETA
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccEiKzGT.s 			page 1
  217      0020 
  218 000c 8C00 0000 		MOVA	#__func__.3721, R12
  219 0010 B013 0000 		CALLA	#chSysHalt
-GAS LISTING /tmp/ccEiKzGT.s 			page 5
+GAS LISTING /tmp/ccab8Fgj.s 			page 5
 
 
  220               	.L19:
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccEiKzGT.s 			page 1
  272               	; saved regs: R9 R10
  273               		; start of prologue
  274 0000 1A14      		PUSHM.A	#2, R10
-GAS LISTING /tmp/ccEiKzGT.s 			page 6
+GAS LISTING /tmp/ccab8Fgj.s 			page 6
 
 
  275               		; end of prologue
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccEiKzGT.s 			page 1
  326               		.section	.text.gptStopTimerI,"ax",@progbits
  327               		.balign 2
  328               		.global	gptStopTimerI
-GAS LISTING /tmp/ccEiKzGT.s 			page 7
+GAS LISTING /tmp/ccab8Fgj.s 			page 7
 
 
  329               		.type	gptStopTimerI, @function
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccEiKzGT.s 			page 1
  382               		; start of epilogue
  383 0016 A100 0400 		ADDA	#4, R1
  384 001a 1001      		RETA
-GAS LISTING /tmp/ccEiKzGT.s 			page 8
+GAS LISTING /tmp/ccab8Fgj.s 			page 8
 
 
  385               		.size	gptStopTimer, .-gptStopTimer
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccEiKzGT.s 			page 1
  431      7461 7274 
  431      4F6E 6553 
  431      686F 7449 
-GAS LISTING /tmp/ccEiKzGT.s 			page 9
+GAS LISTING /tmp/ccab8Fgj.s 			page 9
 
 
  431      00
@@ -510,47 +510,47 @@ GAS LISTING /tmp/ccEiKzGT.s 			page 1
  447      7461 7274 
  447      00
  448               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccEiKzGT.s 			page 10
+GAS LISTING /tmp/ccab8Fgj.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_gpt.c
-     /tmp/ccEiKzGT.s:5      .text.port_lock:0000000000000000 port_lock
-     /tmp/ccEiKzGT.s:28     .text.port_unlock:0000000000000000 port_unlock
-     /tmp/ccEiKzGT.s:52     .text.gptInit:0000000000000000 gptInit
-     /tmp/ccEiKzGT.s:71     .text.gptObjectInit:0000000000000000 gptObjectInit
-     /tmp/ccEiKzGT.s:91     .text.gptStart:0000000000000000 gptStart
-     /tmp/ccEiKzGT.s:446    .upper.rodata:000000000000005c __func__.3703
-     /tmp/ccEiKzGT.s:134    .text.gptStop:0000000000000000 gptStop
-     /tmp/ccEiKzGT.s:442    .upper.rodata:0000000000000054 __func__.3707
-     /tmp/ccEiKzGT.s:172    .text.gptChangeInterval:0000000000000000 gptChangeInterval
-     /tmp/ccEiKzGT.s:438    .upper.rodata:0000000000000042 __func__.3712
-     /tmp/ccEiKzGT.s:203    .text.gptStartContinuousI:0000000000000000 gptStartContinuousI
-     /tmp/ccEiKzGT.s:434    .upper.rodata:000000000000002e __func__.3721
-     /tmp/ccEiKzGT.s:237    .text.gptStartContinuous:0000000000000000 gptStartContinuous
-     /tmp/ccEiKzGT.s:264    .text.gptStartOneShotI:0000000000000000 gptStartOneShotI
-     /tmp/ccEiKzGT.s:430    .upper.rodata:000000000000001d __func__.3730
-     /tmp/ccEiKzGT.s:303    .text.gptStartOneShot:0000000000000000 gptStartOneShot
-     /tmp/ccEiKzGT.s:330    .text.gptStopTimerI:0000000000000000 gptStopTimerI
-     /tmp/ccEiKzGT.s:426    .upper.rodata:000000000000000f __func__.3737
-     /tmp/ccEiKzGT.s:365    .text.gptStopTimer:0000000000000000 gptStopTimer
-     /tmp/ccEiKzGT.s:390    .text.gptPolledDelay:0000000000000000 gptPolledDelay
-     /tmp/ccEiKzGT.s:422    .upper.rodata:0000000000000000 __func__.3742
-     /tmp/ccEiKzGT.s:108    .text.gptStart:0000000000000014 .L6
-     /tmp/ccEiKzGT.s:111    .text.gptStart:000000000000001c .L7
-     /tmp/ccEiKzGT.s:119    .text.gptStart:0000000000000032 .L8
-     /tmp/ccEiKzGT.s:150    .text.gptStop:0000000000000012 .L13
-     /tmp/ccEiKzGT.s:158    .text.gptStop:0000000000000028 .L14
-     /tmp/ccEiKzGT.s:188    .text.gptChangeInterval:0000000000000012 .L16
-     /tmp/ccEiKzGT.s:193    .text.gptChangeInterval:0000000000000026 .L17
-     /tmp/ccEiKzGT.s:220    .text.gptStartContinuousI:0000000000000014 .L19
-     /tmp/ccEiKzGT.s:224    .text.gptStartContinuousI:0000000000000022 .L20
-     /tmp/ccEiKzGT.s:281    .text.gptStartOneShotI:0000000000000014 .L23
-     /tmp/ccEiKzGT.s:286    .text.gptStartOneShotI:0000000000000028 .L24
-     /tmp/ccEiKzGT.s:290    .text.gptStartOneShotI:0000000000000036 .L25
-     /tmp/ccEiKzGT.s:346    .text.gptStopTimerI:0000000000000012 .L28
-     /tmp/ccEiKzGT.s:353    .text.gptStopTimerI:0000000000000026 .L29
-     /tmp/ccEiKzGT.s:409    .text.gptPolledDelay:000000000000001c .L32
+     /tmp/ccab8Fgj.s:5      .text.port_lock:0000000000000000 port_lock
+     /tmp/ccab8Fgj.s:28     .text.port_unlock:0000000000000000 port_unlock
+     /tmp/ccab8Fgj.s:52     .text.gptInit:0000000000000000 gptInit
+     /tmp/ccab8Fgj.s:71     .text.gptObjectInit:0000000000000000 gptObjectInit
+     /tmp/ccab8Fgj.s:91     .text.gptStart:0000000000000000 gptStart
+     /tmp/ccab8Fgj.s:446    .upper.rodata:000000000000005c __func__.3703
+     /tmp/ccab8Fgj.s:134    .text.gptStop:0000000000000000 gptStop
+     /tmp/ccab8Fgj.s:442    .upper.rodata:0000000000000054 __func__.3707
+     /tmp/ccab8Fgj.s:172    .text.gptChangeInterval:0000000000000000 gptChangeInterval
+     /tmp/ccab8Fgj.s:438    .upper.rodata:0000000000000042 __func__.3712
+     /tmp/ccab8Fgj.s:203    .text.gptStartContinuousI:0000000000000000 gptStartContinuousI
+     /tmp/ccab8Fgj.s:434    .upper.rodata:000000000000002e __func__.3721
+     /tmp/ccab8Fgj.s:237    .text.gptStartContinuous:0000000000000000 gptStartContinuous
+     /tmp/ccab8Fgj.s:264    .text.gptStartOneShotI:0000000000000000 gptStartOneShotI
+     /tmp/ccab8Fgj.s:430    .upper.rodata:000000000000001d __func__.3730
+     /tmp/ccab8Fgj.s:303    .text.gptStartOneShot:0000000000000000 gptStartOneShot
+     /tmp/ccab8Fgj.s:330    .text.gptStopTimerI:0000000000000000 gptStopTimerI
+     /tmp/ccab8Fgj.s:426    .upper.rodata:000000000000000f __func__.3737
+     /tmp/ccab8Fgj.s:365    .text.gptStopTimer:0000000000000000 gptStopTimer
+     /tmp/ccab8Fgj.s:390    .text.gptPolledDelay:0000000000000000 gptPolledDelay
+     /tmp/ccab8Fgj.s:422    .upper.rodata:0000000000000000 __func__.3742
+     /tmp/ccab8Fgj.s:108    .text.gptStart:0000000000000014 .L6
+     /tmp/ccab8Fgj.s:111    .text.gptStart:000000000000001c .L7
+     /tmp/ccab8Fgj.s:119    .text.gptStart:0000000000000032 .L8
+     /tmp/ccab8Fgj.s:150    .text.gptStop:0000000000000012 .L13
+     /tmp/ccab8Fgj.s:158    .text.gptStop:0000000000000028 .L14
+     /tmp/ccab8Fgj.s:188    .text.gptChangeInterval:0000000000000012 .L16
+     /tmp/ccab8Fgj.s:193    .text.gptChangeInterval:0000000000000026 .L17
+     /tmp/ccab8Fgj.s:220    .text.gptStartContinuousI:0000000000000014 .L19
+     /tmp/ccab8Fgj.s:224    .text.gptStartContinuousI:0000000000000022 .L20
+     /tmp/ccab8Fgj.s:281    .text.gptStartOneShotI:0000000000000014 .L23
+     /tmp/ccab8Fgj.s:286    .text.gptStartOneShotI:0000000000000028 .L24
+     /tmp/ccab8Fgj.s:290    .text.gptStartOneShotI:0000000000000036 .L25
+     /tmp/ccab8Fgj.s:346    .text.gptStopTimerI:0000000000000012 .L28
+     /tmp/ccab8Fgj.s:353    .text.gptStopTimerI:0000000000000026 .L29
+     /tmp/ccab8Fgj.s:409    .text.gptPolledDelay:000000000000001c .L32
 
 UNDEFINED SYMBOLS
 gpt_lld_init

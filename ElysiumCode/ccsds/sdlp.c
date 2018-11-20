@@ -363,29 +363,29 @@ void elyRFDLLHandleRxFifo(SX1212Driver * devp) {
     sx1212FifoRead(devp, SDLP_TC_PH_LEN, tc_hdr_buff);
     /* Header integrity checks */
     /* PVN and CCSDS Reserved bits */
-    if (tc_hdr_buff[0] & 0xCC) {
+//    if (tc_hdr_buff[0] & 0xCC) {
+      /* Restart state machine */
+//      elyRFDLLRxInit(devp);
+//      return;
+//    }
+    /* SCID */
+    if (((tc_hdr_buff[0] & 0x03) != (bank0p[RegDLLIDsMSB] & 0x03)) ||
+        (tc_hdr_buff[1] != bank0p[RegDLLIDsLSB])) {
       /* Restart state machine */
       elyRFDLLRxInit(devp);
       return;
     }
-    /* SCID */
-//    if (((tc_hdr_buff[0] & 0x03) != (bank0p[RegDLLIDsMSB] & 0x03)) ||
-//        (tc_hdr_buff[1] != bank0p[RegDLLIDsLSB])) {
-//      /* Restart state machine */
-//      elyRFDLLRxInit(devp);
-//      return;
-//    }
-//    /* VCID */
+    /* VCID */
 //    if ((tc_hdr_buff[2] & 0xFC) != (bank0p[RegDLLIDsMSB] & 0xFC)) {
-//      /* Restart state machine */
+      /* Restart state machine */
 //      elyRFDLLRxInit(devp);
 //      return;
 //    }
-//
+
     /* Pull out header length */
     rx_pkt_len = (((tc_hdr_buff[2] & 0x03) << 8) | (tc_hdr_buff[3]))+1;
 //    if (rx_pkt_len > SDLP_TC_MAX_TF_LEN) {
-//      /* Restart state machine */
+      /* Restart state machine */
 //      elyRFDLLRxInit(devp);
 //      return;
 //    }
@@ -421,7 +421,8 @@ void elyRFDLLHandleRxFifo(SX1212Driver * devp) {
     rx_idx += curr_threshold;
     if (rx_idx < rx_pkt_len) {
       chSysLock();
-      curr_threshold = (rx_pkt_len < 64 ? rx_pkt_len : 48);
+      uint16_t temp = rx_pkt_len - rx_idx; // Find how much of the frame we have left to read
+      curr_threshold = (temp < 64 ? temp : 48);
       /* Keep receiving */
       sx1212ReceiveI(devp, curr_threshold, rxfifothresh_callback);
       chEvtSignalI(rf_thd, RFSpiAvailable);

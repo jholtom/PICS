@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccvRuUJK.s 			page 1
+GAS LISTING /tmp/cclk7HOm.s 			page 1
 
 
    1               		.file	"crc_sdlp.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccvRuUJK.s 			page 1
   50               		.global	crcCheckSDLP
   51               		.type	crcCheckSDLP, @function
   52               	crcCheckSDLP:
-GAS LISTING /tmp/ccvRuUJK.s 			page 2
+GAS LISTING /tmp/cclk7HOm.s 			page 2
 
 
   53               	; start of function
@@ -117,21 +117,21 @@ GAS LISTING /tmp/ccvRuUJK.s 			page 1
   98      656E 5344 
   98      4C50 00
   99               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccvRuUJK.s 			page 3
+GAS LISTING /tmp/cclk7HOm.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 crc_sdlp.c
-     /tmp/ccvRuUJK.s:6      .text.crcGenSDLP:0000000000000000 crcGenSDLP
-     /tmp/ccvRuUJK.s:97     .upper.rodata:0000000000000000 __func__.3703
-     /tmp/ccvRuUJK.s:52     .text.crcCheckSDLP:0000000000000000 crcCheckSDLP
-     /tmp/ccvRuUJK.s:26     .text.crcGenSDLP:0000000000000018 .L2
-     /tmp/ccvRuUJK.s:43     .text.crcGenSDLP:000000000000004e .L4
-     /tmp/ccvRuUJK.s:31     .text.crcGenSDLP:0000000000000026 .L3
-     /tmp/ccvRuUJK.s:86     .text.crcCheckSDLP:000000000000004a .L7
-     /tmp/ccvRuUJK.s:90     .text.crcCheckSDLP:0000000000000058 .L9
-     /tmp/ccvRuUJK.s:69     .text.crcCheckSDLP:0000000000000012 .L6
-     /tmp/ccvRuUJK.s:81     .text.crcCheckSDLP:0000000000000044 .L8
+     /tmp/cclk7HOm.s:6      .text.crcGenSDLP:0000000000000000 crcGenSDLP
+     /tmp/cclk7HOm.s:97     .upper.rodata:0000000000000000 __func__.3703
+     /tmp/cclk7HOm.s:52     .text.crcCheckSDLP:0000000000000000 crcCheckSDLP
+     /tmp/cclk7HOm.s:26     .text.crcGenSDLP:0000000000000018 .L2
+     /tmp/cclk7HOm.s:43     .text.crcGenSDLP:000000000000004e .L4
+     /tmp/cclk7HOm.s:31     .text.crcGenSDLP:0000000000000026 .L3
+     /tmp/cclk7HOm.s:86     .text.crcCheckSDLP:000000000000004a .L7
+     /tmp/cclk7HOm.s:90     .text.crcCheckSDLP:0000000000000058 .L9
+     /tmp/cclk7HOm.s:69     .text.crcCheckSDLP:0000000000000012 .L6
+     /tmp/cclk7HOm.s:81     .text.crcCheckSDLP:0000000000000044 .L8
 
 UNDEFINED SYMBOLS
 chSysHalt

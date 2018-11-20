@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cchSEGv3.s 			page 1
+GAS LISTING /tmp/ccMspO3H.s 			page 1
 
 
    1               		.file	"msp_vectors.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
   55               	; framesize_locals:   0
   56               	; framesize_outgoing: 0
   57               	; framesize:          0
-GAS LISTING /tmp/cchSEGv3.s 			page 2
+GAS LISTING /tmp/ccMspO3H.s 			page 2
 
 
   58               	; elim ap -> fp       4
@@ -118,7 +118,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  112               			.section	.lowtext
  113               		.type	Vector6, @function
  114               	Vector6:
-GAS LISTING /tmp/cchSEGv3.s 			page 3
+GAS LISTING /tmp/ccMspO3H.s 			page 3
 
 
  115               	; start of function
@@ -178,7 +178,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  169 001c 8000 0000 		BRA	#.L16
  170               		.size	Vector8, .-Vector8
  171               		.balign 2
-GAS LISTING /tmp/cchSEGv3.s 			page 4
+GAS LISTING /tmp/ccMspO3H.s 			page 4
 
 
  172               		.global	Vector9
@@ -238,7 +238,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  226               	; elim ap -> fp       4
  227               	; elim fp -> sp       0
  228               	; saved regs:(none)
-GAS LISTING /tmp/cchSEGv3.s 			page 5
+GAS LISTING /tmp/ccMspO3H.s 			page 5
 
 
  229               		; start of prologue
@@ -298,7 +298,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  283               	; start of function
  284               	; attributes: interrupt 
  285               	; framesize_regs:     0
-GAS LISTING /tmp/cchSEGv3.s 			page 6
+GAS LISTING /tmp/ccMspO3H.s 			page 6
 
 
  286               	; framesize_locals:   0
@@ -358,7 +358,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  340               		.global	Vector17
  341               		.section	__interrupt_vector_17,"ax",@progbits
  342 0000 0000      		.word	Vector17
-GAS LISTING /tmp/cchSEGv3.s 			page 7
+GAS LISTING /tmp/ccMspO3H.s 			page 7
 
 
  343               			.section	.lowtext
@@ -418,7 +418,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  397               		; start of prologue
  398               		; end of prologue
  399               	.L38:
-GAS LISTING /tmp/cchSEGv3.s 			page 8
+GAS LISTING /tmp/ccMspO3H.s 			page 8
 
 
  400 0048 8000 0000 		BRA	#.L38
@@ -478,7 +478,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  454               	; framesize_locals:   0
  455               	; framesize_outgoing: 0
  456               	; framesize:          0
-GAS LISTING /tmp/cchSEGv3.s 			page 9
+GAS LISTING /tmp/ccMspO3H.s 			page 9
 
 
  457               	; elim ap -> fp       4
@@ -538,7 +538,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  511               			.section	.lowtext
  512               		.type	Vector25, @function
  513               	Vector25:
-GAS LISTING /tmp/cchSEGv3.s 			page 10
+GAS LISTING /tmp/ccMspO3H.s 			page 10
 
 
  514               	; start of function
@@ -598,7 +598,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  568 0068 8000 0000 		BRA	#.L54
  569               		.size	Vector27, .-Vector27
  570               		.balign 2
-GAS LISTING /tmp/cchSEGv3.s 			page 11
+GAS LISTING /tmp/ccMspO3H.s 			page 11
 
 
  571               		.global	Vector28
@@ -658,7 +658,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  625               	; elim ap -> fp       4
  626               	; elim fp -> sp       0
  627               	; saved regs:(none)
-GAS LISTING /tmp/cchSEGv3.s 			page 12
+GAS LISTING /tmp/ccMspO3H.s 			page 12
 
 
  628               		; start of prologue
@@ -718,7 +718,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  682               	; start of function
  683               	; attributes: interrupt 
  684               	; framesize_regs:     0
-GAS LISTING /tmp/cchSEGv3.s 			page 13
+GAS LISTING /tmp/ccMspO3H.s 			page 13
 
 
  685               	; framesize_locals:   0
@@ -778,7 +778,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  739               		.global	Vector39
  740               		.section	__interrupt_vector_39,"ax",@progbits
  741 0000 0000      		.word	Vector39
-GAS LISTING /tmp/cchSEGv3.s 			page 14
+GAS LISTING /tmp/ccMspO3H.s 			page 14
 
 
  742               			.section	.lowtext
@@ -838,7 +838,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  796               		; start of prologue
  797               		; end of prologue
  798               	.L76:
-GAS LISTING /tmp/cchSEGv3.s 			page 15
+GAS LISTING /tmp/ccMspO3H.s 			page 15
 
 
  799 0094 8000 0000 		BRA	#.L76
@@ -898,7 +898,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  853               	; framesize_locals:   0
  854               	; framesize_outgoing: 0
  855               	; framesize:          0
-GAS LISTING /tmp/cchSEGv3.s 			page 16
+GAS LISTING /tmp/ccMspO3H.s 			page 16
 
 
  856               	; elim ap -> fp       4
@@ -958,7 +958,7 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  910               			.section	.lowtext
  911               		.type	Vector54, @function
  912               	Vector54:
-GAS LISTING /tmp/cchSEGv3.s 			page 17
+GAS LISTING /tmp/ccMspO3H.s 			page 17
 
 
  913               	; start of function
@@ -997,103 +997,103 @@ GAS LISTING /tmp/cchSEGv3.s 			page 1
  946 00b0 8000 0000 		BRA	#.L90
  947               		.size	Vector55, .-Vector55
  948               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/cchSEGv3.s 			page 18
+GAS LISTING /tmp/ccMspO3H.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 msp_vectors.c
-     /tmp/cchSEGv3.s:9      .lowtext:0000000000000000 Vector1
-     /tmp/cchSEGv3.s:30     .lowtext:0000000000000004 Vector2
-     /tmp/cchSEGv3.s:51     .lowtext:0000000000000008 Vector3
-     /tmp/cchSEGv3.s:72     .lowtext:000000000000000c Vector4
-     /tmp/cchSEGv3.s:93     .lowtext:0000000000000010 Vector5
-     /tmp/cchSEGv3.s:114    .lowtext:0000000000000014 Vector6
-     /tmp/cchSEGv3.s:135    .lowtext:0000000000000018 Vector7
-     /tmp/cchSEGv3.s:156    .lowtext:000000000000001c Vector8
-     /tmp/cchSEGv3.s:177    .lowtext:0000000000000020 Vector9
-     /tmp/cchSEGv3.s:198    .lowtext:0000000000000024 Vector10
-     /tmp/cchSEGv3.s:219    .lowtext:0000000000000028 Vector11
-     /tmp/cchSEGv3.s:240    .lowtext:000000000000002c Vector12
-     /tmp/cchSEGv3.s:261    .lowtext:0000000000000030 Vector13
-     /tmp/cchSEGv3.s:282    .lowtext:0000000000000034 Vector14
-     /tmp/cchSEGv3.s:303    .lowtext:0000000000000038 Vector15
-     /tmp/cchSEGv3.s:324    .lowtext:000000000000003c Vector16
-     /tmp/cchSEGv3.s:345    .lowtext:0000000000000040 Vector17
-     /tmp/cchSEGv3.s:366    .lowtext:0000000000000044 Vector18
-     /tmp/cchSEGv3.s:387    .lowtext:0000000000000048 Vector19
-     /tmp/cchSEGv3.s:408    .lowtext:000000000000004c Vector20
-     /tmp/cchSEGv3.s:429    .lowtext:0000000000000050 Vector21
-     /tmp/cchSEGv3.s:450    .lowtext:0000000000000054 Vector22
-     /tmp/cchSEGv3.s:471    .lowtext:0000000000000058 Vector23
-     /tmp/cchSEGv3.s:492    .lowtext:000000000000005c Vector24
-     /tmp/cchSEGv3.s:513    .lowtext:0000000000000060 Vector25
-     /tmp/cchSEGv3.s:534    .lowtext:0000000000000064 Vector26
-     /tmp/cchSEGv3.s:555    .lowtext:0000000000000068 Vector27
-     /tmp/cchSEGv3.s:576    .lowtext:000000000000006c Vector28
-     /tmp/cchSEGv3.s:597    .lowtext:0000000000000070 Vector29
-     /tmp/cchSEGv3.s:618    .lowtext:0000000000000074 Vector30
-     /tmp/cchSEGv3.s:639    .lowtext:0000000000000078 Vector31
-     /tmp/cchSEGv3.s:660    .lowtext:000000000000007c Vector32
-     /tmp/cchSEGv3.s:681    .lowtext:0000000000000080 Vector35
-     /tmp/cchSEGv3.s:702    .lowtext:0000000000000084 Vector36
-     /tmp/cchSEGv3.s:723    .lowtext:0000000000000088 Vector38
-     /tmp/cchSEGv3.s:744    .lowtext:000000000000008c Vector39
-     /tmp/cchSEGv3.s:765    .lowtext:0000000000000090 Vector42
-     /tmp/cchSEGv3.s:786    .lowtext:0000000000000094 Vector45
-     /tmp/cchSEGv3.s:807    .lowtext:0000000000000098 Vector46
-     /tmp/cchSEGv3.s:828    .lowtext:000000000000009c Vector47
-     /tmp/cchSEGv3.s:849    .lowtext:00000000000000a0 Vector50
-     /tmp/cchSEGv3.s:870    .lowtext:00000000000000a4 Vector51
-     /tmp/cchSEGv3.s:891    .lowtext:00000000000000a8 Vector53
-     /tmp/cchSEGv3.s:912    .lowtext:00000000000000ac Vector54
-     /tmp/cchSEGv3.s:933    .lowtext:00000000000000b0 Vector55
-     /tmp/cchSEGv3.s:21     .lowtext:0000000000000000 .L2
-     /tmp/cchSEGv3.s:42     .lowtext:0000000000000004 .L4
-     /tmp/cchSEGv3.s:63     .lowtext:0000000000000008 .L6
-     /tmp/cchSEGv3.s:84     .lowtext:000000000000000c .L8
-     /tmp/cchSEGv3.s:105    .lowtext:0000000000000010 .L10
-     /tmp/cchSEGv3.s:126    .lowtext:0000000000000014 .L12
-     /tmp/cchSEGv3.s:147    .lowtext:0000000000000018 .L14
-     /tmp/cchSEGv3.s:168    .lowtext:000000000000001c .L16
-     /tmp/cchSEGv3.s:189    .lowtext:0000000000000020 .L18
-     /tmp/cchSEGv3.s:210    .lowtext:0000000000000024 .L20
-GAS LISTING /tmp/cchSEGv3.s 			page 19
+     /tmp/ccMspO3H.s:9      .lowtext:0000000000000000 Vector1
+     /tmp/ccMspO3H.s:30     .lowtext:0000000000000004 Vector2
+     /tmp/ccMspO3H.s:51     .lowtext:0000000000000008 Vector3
+     /tmp/ccMspO3H.s:72     .lowtext:000000000000000c Vector4
+     /tmp/ccMspO3H.s:93     .lowtext:0000000000000010 Vector5
+     /tmp/ccMspO3H.s:114    .lowtext:0000000000000014 Vector6
+     /tmp/ccMspO3H.s:135    .lowtext:0000000000000018 Vector7
+     /tmp/ccMspO3H.s:156    .lowtext:000000000000001c Vector8
+     /tmp/ccMspO3H.s:177    .lowtext:0000000000000020 Vector9
+     /tmp/ccMspO3H.s:198    .lowtext:0000000000000024 Vector10
+     /tmp/ccMspO3H.s:219    .lowtext:0000000000000028 Vector11
+     /tmp/ccMspO3H.s:240    .lowtext:000000000000002c Vector12
+     /tmp/ccMspO3H.s:261    .lowtext:0000000000000030 Vector13
+     /tmp/ccMspO3H.s:282    .lowtext:0000000000000034 Vector14
+     /tmp/ccMspO3H.s:303    .lowtext:0000000000000038 Vector15
+     /tmp/ccMspO3H.s:324    .lowtext:000000000000003c Vector16
+     /tmp/ccMspO3H.s:345    .lowtext:0000000000000040 Vector17
+     /tmp/ccMspO3H.s:366    .lowtext:0000000000000044 Vector18
+     /tmp/ccMspO3H.s:387    .lowtext:0000000000000048 Vector19
+     /tmp/ccMspO3H.s:408    .lowtext:000000000000004c Vector20
+     /tmp/ccMspO3H.s:429    .lowtext:0000000000000050 Vector21
+     /tmp/ccMspO3H.s:450    .lowtext:0000000000000054 Vector22
+     /tmp/ccMspO3H.s:471    .lowtext:0000000000000058 Vector23
+     /tmp/ccMspO3H.s:492    .lowtext:000000000000005c Vector24
+     /tmp/ccMspO3H.s:513    .lowtext:0000000000000060 Vector25
+     /tmp/ccMspO3H.s:534    .lowtext:0000000000000064 Vector26
+     /tmp/ccMspO3H.s:555    .lowtext:0000000000000068 Vector27
+     /tmp/ccMspO3H.s:576    .lowtext:000000000000006c Vector28
+     /tmp/ccMspO3H.s:597    .lowtext:0000000000000070 Vector29
+     /tmp/ccMspO3H.s:618    .lowtext:0000000000000074 Vector30
+     /tmp/ccMspO3H.s:639    .lowtext:0000000000000078 Vector31
+     /tmp/ccMspO3H.s:660    .lowtext:000000000000007c Vector32
+     /tmp/ccMspO3H.s:681    .lowtext:0000000000000080 Vector35
+     /tmp/ccMspO3H.s:702    .lowtext:0000000000000084 Vector36
+     /tmp/ccMspO3H.s:723    .lowtext:0000000000000088 Vector38
+     /tmp/ccMspO3H.s:744    .lowtext:000000000000008c Vector39
+     /tmp/ccMspO3H.s:765    .lowtext:0000000000000090 Vector42
+     /tmp/ccMspO3H.s:786    .lowtext:0000000000000094 Vector45
+     /tmp/ccMspO3H.s:807    .lowtext:0000000000000098 Vector46
+     /tmp/ccMspO3H.s:828    .lowtext:000000000000009c Vector47
+     /tmp/ccMspO3H.s:849    .lowtext:00000000000000a0 Vector50
+     /tmp/ccMspO3H.s:870    .lowtext:00000000000000a4 Vector51
+     /tmp/ccMspO3H.s:891    .lowtext:00000000000000a8 Vector53
+     /tmp/ccMspO3H.s:912    .lowtext:00000000000000ac Vector54
+     /tmp/ccMspO3H.s:933    .lowtext:00000000000000b0 Vector55
+     /tmp/ccMspO3H.s:21     .lowtext:0000000000000000 .L2
+     /tmp/ccMspO3H.s:42     .lowtext:0000000000000004 .L4
+     /tmp/ccMspO3H.s:63     .lowtext:0000000000000008 .L6
+     /tmp/ccMspO3H.s:84     .lowtext:000000000000000c .L8
+     /tmp/ccMspO3H.s:105    .lowtext:0000000000000010 .L10
+     /tmp/ccMspO3H.s:126    .lowtext:0000000000000014 .L12
+     /tmp/ccMspO3H.s:147    .lowtext:0000000000000018 .L14
+     /tmp/ccMspO3H.s:168    .lowtext:000000000000001c .L16
+     /tmp/ccMspO3H.s:189    .lowtext:0000000000000020 .L18
+     /tmp/ccMspO3H.s:210    .lowtext:0000000000000024 .L20
+GAS LISTING /tmp/ccMspO3H.s 			page 19
 
 
-     /tmp/cchSEGv3.s:231    .lowtext:0000000000000028 .L22
-     /tmp/cchSEGv3.s:252    .lowtext:000000000000002c .L24
-     /tmp/cchSEGv3.s:273    .lowtext:0000000000000030 .L26
-     /tmp/cchSEGv3.s:294    .lowtext:0000000000000034 .L28
-     /tmp/cchSEGv3.s:315    .lowtext:0000000000000038 .L30
-     /tmp/cchSEGv3.s:336    .lowtext:000000000000003c .L32
-     /tmp/cchSEGv3.s:357    .lowtext:0000000000000040 .L34
-     /tmp/cchSEGv3.s:378    .lowtext:0000000000000044 .L36
-     /tmp/cchSEGv3.s:399    .lowtext:0000000000000048 .L38
-     /tmp/cchSEGv3.s:420    .lowtext:000000000000004c .L40
-     /tmp/cchSEGv3.s:441    .lowtext:0000000000000050 .L42
-     /tmp/cchSEGv3.s:462    .lowtext:0000000000000054 .L44
-     /tmp/cchSEGv3.s:483    .lowtext:0000000000000058 .L46
-     /tmp/cchSEGv3.s:504    .lowtext:000000000000005c .L48
-     /tmp/cchSEGv3.s:525    .lowtext:0000000000000060 .L50
-     /tmp/cchSEGv3.s:546    .lowtext:0000000000000064 .L52
-     /tmp/cchSEGv3.s:567    .lowtext:0000000000000068 .L54
-     /tmp/cchSEGv3.s:588    .lowtext:000000000000006c .L56
-     /tmp/cchSEGv3.s:609    .lowtext:0000000000000070 .L58
-     /tmp/cchSEGv3.s:630    .lowtext:0000000000000074 .L60
-     /tmp/cchSEGv3.s:651    .lowtext:0000000000000078 .L62
-     /tmp/cchSEGv3.s:672    .lowtext:000000000000007c .L64
-     /tmp/cchSEGv3.s:693    .lowtext:0000000000000080 .L66
-     /tmp/cchSEGv3.s:714    .lowtext:0000000000000084 .L68
-     /tmp/cchSEGv3.s:735    .lowtext:0000000000000088 .L70
-     /tmp/cchSEGv3.s:756    .lowtext:000000000000008c .L72
-     /tmp/cchSEGv3.s:777    .lowtext:0000000000000090 .L74
-     /tmp/cchSEGv3.s:798    .lowtext:0000000000000094 .L76
-     /tmp/cchSEGv3.s:819    .lowtext:0000000000000098 .L78
-     /tmp/cchSEGv3.s:840    .lowtext:000000000000009c .L80
-     /tmp/cchSEGv3.s:861    .lowtext:00000000000000a0 .L82
-     /tmp/cchSEGv3.s:882    .lowtext:00000000000000a4 .L84
-     /tmp/cchSEGv3.s:903    .lowtext:00000000000000a8 .L86
-     /tmp/cchSEGv3.s:924    .lowtext:00000000000000ac .L88
-     /tmp/cchSEGv3.s:945    .lowtext:00000000000000b0 .L90
+     /tmp/ccMspO3H.s:231    .lowtext:0000000000000028 .L22
+     /tmp/ccMspO3H.s:252    .lowtext:000000000000002c .L24
+     /tmp/ccMspO3H.s:273    .lowtext:0000000000000030 .L26
+     /tmp/ccMspO3H.s:294    .lowtext:0000000000000034 .L28
+     /tmp/ccMspO3H.s:315    .lowtext:0000000000000038 .L30
+     /tmp/ccMspO3H.s:336    .lowtext:000000000000003c .L32
+     /tmp/ccMspO3H.s:357    .lowtext:0000000000000040 .L34
+     /tmp/ccMspO3H.s:378    .lowtext:0000000000000044 .L36
+     /tmp/ccMspO3H.s:399    .lowtext:0000000000000048 .L38
+     /tmp/ccMspO3H.s:420    .lowtext:000000000000004c .L40
+     /tmp/ccMspO3H.s:441    .lowtext:0000000000000050 .L42
+     /tmp/ccMspO3H.s:462    .lowtext:0000000000000054 .L44
+     /tmp/ccMspO3H.s:483    .lowtext:0000000000000058 .L46
+     /tmp/ccMspO3H.s:504    .lowtext:000000000000005c .L48
+     /tmp/ccMspO3H.s:525    .lowtext:0000000000000060 .L50
+     /tmp/ccMspO3H.s:546    .lowtext:0000000000000064 .L52
+     /tmp/ccMspO3H.s:567    .lowtext:0000000000000068 .L54
+     /tmp/ccMspO3H.s:588    .lowtext:000000000000006c .L56
+     /tmp/ccMspO3H.s:609    .lowtext:0000000000000070 .L58
+     /tmp/ccMspO3H.s:630    .lowtext:0000000000000074 .L60
+     /tmp/ccMspO3H.s:651    .lowtext:0000000000000078 .L62
+     /tmp/ccMspO3H.s:672    .lowtext:000000000000007c .L64
+     /tmp/ccMspO3H.s:693    .lowtext:0000000000000080 .L66
+     /tmp/ccMspO3H.s:714    .lowtext:0000000000000084 .L68
+     /tmp/ccMspO3H.s:735    .lowtext:0000000000000088 .L70
+     /tmp/ccMspO3H.s:756    .lowtext:000000000000008c .L72
+     /tmp/ccMspO3H.s:777    .lowtext:0000000000000090 .L74
+     /tmp/ccMspO3H.s:798    .lowtext:0000000000000094 .L76
+     /tmp/ccMspO3H.s:819    .lowtext:0000000000000098 .L78
+     /tmp/ccMspO3H.s:840    .lowtext:000000000000009c .L80
+     /tmp/ccMspO3H.s:861    .lowtext:00000000000000a0 .L82
+     /tmp/ccMspO3H.s:882    .lowtext:00000000000000a4 .L84
+     /tmp/ccMspO3H.s:903    .lowtext:00000000000000a8 .L86
+     /tmp/ccMspO3H.s:924    .lowtext:00000000000000ac .L88
+     /tmp/ccMspO3H.s:945    .lowtext:00000000000000b0 .L90
 
 NO UNDEFINED SYMBOLS

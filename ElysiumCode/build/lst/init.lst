@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccoIBlk6.s 			page 1
+GAS LISTING /tmp/ccmDpq6N.s 			page 1
 
 
    1               		.file	"init.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccoIBlk6.s 			page 1
   47      6400 
   48               	.LC3:
   49 001e 6964 6C65 		.string	"idle"
-GAS LISTING /tmp/ccoIBlk6.s 			page 2
+GAS LISTING /tmp/ccmDpq6N.s 			page 2
 
 
   49      00
@@ -88,15 +88,15 @@ GAS LISTING /tmp/ccoIBlk6.s 			page 1
   73 0048 0000 0000 		.long	0
   74 004c 0000 0000 		.long	0
   75               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccoIBlk6.s 			page 3
+GAS LISTING /tmp/ccmDpq6N.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 init.c
-     /tmp/ccoIBlk6.s:5      .crt_0042disable_watchdog:0000000000000000 disable_watchdog
-     /tmp/ccoIBlk6.s:21     .text.startup.main:0000000000000000 main
-     /tmp/ccoIBlk6.s:54     .upper.rodata:0000000000000000 nil_thd_configs
-     /tmp/ccoIBlk6.s:37     .text.startup.main:0000000000000018 .L3
+     /tmp/ccmDpq6N.s:5      .crt_0042disable_watchdog:0000000000000000 disable_watchdog
+     /tmp/ccmDpq6N.s:21     .text.startup.main:0000000000000000 main
+     /tmp/ccmDpq6N.s:54     .upper.rodata:0000000000000000 nil_thd_configs
+     /tmp/ccmDpq6N.s:37     .text.startup.main:0000000000000018 .L3
 
 UNDEFINED SYMBOLS
 WDTCTL

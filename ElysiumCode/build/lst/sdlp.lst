@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccWEUqiN.s 			page 1
+GAS LISTING /tmp/cc65NKcs.s 			page 1
 
 
    1               		.file	"sdlp.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccWEUqiN.s 			page 1
   55               	; framesize:          8
   56               	; elim ap -> fp       12
   57               	; elim fp -> sp       0
-GAS LISTING /tmp/ccWEUqiN.s 			page 2
+GAS LISTING /tmp/cc65NKcs.s 			page 2
 
 
   58               	; saved regs: R9 R10
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccWEUqiN.s 			page 1
  104               	; framesize_locals:   0
  105               	; framesize_outgoing: 0
  106               	; framesize:          4
-GAS LISTING /tmp/ccWEUqiN.s 			page 3
+GAS LISTING /tmp/cc65NKcs.s 			page 3
 
 
  107               	; elim ap -> fp       8
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccWEUqiN.s 			page 1
  159 0026 4D99 0028 		CMP.B	R9, R13 { JLO	.L12
  160 002a 7990 C1FF 		CMP.B	#-63, R9 { JEQ	.L13
  160      0024 
-GAS LISTING /tmp/ccWEUqiN.s 			page 4
+GAS LISTING /tmp/cc65NKcs.s 			page 4
 
 
  161 0030 7D40 C1FF 		MOV.B	#-63, R13
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccWEUqiN.s 			page 1
  209 00d0 4C4A      		MOV.B	R10, R12
  210 00d2 7CF0 0300 		AND.B	#3, R12
  211 00d6 7C90 0300 		CMP.B	#3, R12 { JNE	.L10
-GAS LISTING /tmp/ccWEUqiN.s 			page 5
+GAS LISTING /tmp/cc65NKcs.s 			page 5
 
 
  211      0020 
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccWEUqiN.s 			page 1
  260               	; elim ap -> fp       32
  261               	; elim fp -> sp       0
  262               	; saved regs: R4 R5 R6 R7 R8 R9 R10
-GAS LISTING /tmp/ccWEUqiN.s 			page 6
+GAS LISTING /tmp/cc65NKcs.s 			page 6
 
 
  263               		; start of prologue
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccWEUqiN.s 			page 1
  312 00a8 2C00 0000 		MOVA	&active_packet.5204, R12
  313 00ac B013 0000 		CALLA	#elyNLGetLength
  314 00b0 600C 0000 		MOVA	R12, &pkt_len.5205
-GAS LISTING /tmp/ccWEUqiN.s 			page 7
+GAS LISTING /tmp/cc65NKcs.s 			page 7
 
 
  315 00b4 F6F0 F8FF 		AND.B	#-8, 4(R6)
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccWEUqiN.s 			page 1
  356 014c 0018 D292 		CMPX.A	&pkt_len.5205, &pkt_idx.5206 { JNE	.L68
  356      0000 0000 
  356      0020 
-GAS LISTING /tmp/ccWEUqiN.s 			page 8
+GAS LISTING /tmp/cc65NKcs.s 			page 8
 
 
  357 0156 0018 C243 		MOVX.A	#0, &pkt_idx.5206
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccWEUqiN.s 			page 1
  400               	.L70:
  401 0206 2C00 0000 		MOVA	&active_packet.5204, R12
  402 020a B013 0000 		CALLA	#elyNLGetLength
-GAS LISTING /tmp/ccWEUqiN.s 			page 9
+GAS LISTING /tmp/cc65NKcs.s 			page 9
 
 
  403 020e 600C 0000 		MOVA	R12, &pkt_len.5205
@@ -538,7 +538,7 @@ GAS LISTING /tmp/ccWEUqiN.s 			page 1
  449               		.section	.text.packet_callback,"ax",@progbits
  450               		.balign 2
  451               		.global	packet_callback
-GAS LISTING /tmp/ccWEUqiN.s 			page 10
+GAS LISTING /tmp/cc65NKcs.s 			page 10
 
 
  452               		.type	packet_callback, @function
@@ -598,7 +598,7 @@ GAS LISTING /tmp/ccWEUqiN.s 			page 1
  502 0072 3D40 0060 		MOV.W	#24576, R13
  503 0076 8000 0000 		BRA	#.L88
  504               		.size	packet_callback, .-packet_callback
-GAS LISTING /tmp/ccWEUqiN.s 			page 11
+GAS LISTING /tmp/cc65NKcs.s 			page 11
 
 
  505               		.section	.text.header_callback,"ax",@progbits
@@ -658,7 +658,7 @@ GAS LISTING /tmp/ccWEUqiN.s 			page 1
  553 007a 0A16      		POPM.A	#1, r10
  554 007c 1001      		RETA
  555               		.size	header_callback, .-header_callback
-GAS LISTING /tmp/ccWEUqiN.s 			page 12
+GAS LISTING /tmp/cc65NKcs.s 			page 12
 
 
  556               		.section	.text.elyRFDLLRxInit,"ax",@progbits
@@ -718,533 +718,540 @@ GAS LISTING /tmp/ccWEUqiN.s 			page 1
  608 0014 8800 0000 		MOVA	#tc_hdr_buff, R8
  609 0018 CE08      		MOVA	R8, R14
  610 001a 7D40 0500 		MOV.B	#5, R13
-GAS LISTING /tmp/ccWEUqiN.s 			page 13
+GAS LISTING /tmp/cc65NKcs.s 			page 13
 
 
  611 001e 4613      		CALLA	R6
- 612 0020 F8B0 CCFF 		BIT.B	#-52, @R8 { JEQ	.L98
- 612      0000 0024 
- 613               	.L100:
- 614 0028 CC0A      		MOVA	R10, R12
- 615 002a B013 0000 		CALLA	#elyRFDLLRxInit
- 616               	.L96:
- 617               		; start of epilogue
- 618 002e 0616      		POPM.A	#1, r6
- 619 0030 0816      		POPM.A	#1, r8
- 620 0032 0A16      		POPM.A	#1, r10
- 621 0034 1001      		RETA
- 622               	.L98:
- 623 0036 5C48 0200 		MOV.B	2(R8), R12
- 624 003a 4718 0C5C 		rpt	#8 { rlax.w	R12
- 625 003e 3CF0 0003 		AND.W	#768, R12
- 626 0042 5848 0300 		MOV.B	3(R8), R8
- 627 0046 0CD8      		BIS.W	R8, R12
- 628 0048 3C50 FCFF 		ADD.W	#-4, R12
- 629 004c 4018 824C 		MOVX.W	R12, &rx_pkt_len
- 629      0000 
- 630               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 631 0052 32C2 0343 		dint { nop
- 632               	 ; 0 "" 2
- 633               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 634 0056 0343      		nop
- 635               	 ; 0 "" 2
- 636 0058 B013 0000 		CALLA	#elyNLGetBufferI
- 637 005c 600C 0000 		MOVA	R12, &rx_active_buffer
- 638 0060 9C00 0000 		CMPA	#0, R12 { JEQ	.L100
- 638      0024 
- 639 0066 4018 1D42 		MOVX.W	&rx_pkt_len, R13
- 639      0000 
- 640 006c 7C40 3F00 		MOV.B	#63, R12
- 641 0070 0C9D 002C 		CMP.W	R13, R12 { JHS	.L101
- 642 0074 7D40 2000 		MOV.B	#32, R13
- 643               	.L101:
- 644 0078 4018 C24D 		MOVX.B	R13, &curr_threshold
- 644      0000 
- 645 007e 4018 8243 		MOVX.W	#0, &rx_idx
- 645      0000 
- 646 0084 8E00 0000 		MOVA	#rxfifothresh_callback, R14
- 647 0088 4018 0D4D 		MOVX	R13, R13
- 648 008c CC0A      		MOVA	R10, R12
- 649 008e B013 0000 		CALLA	#sx1212ReceiveI
- 650 0092 3D40 0020 		MOV.W	#8192, R13
- 651 0096 4E43      		MOV.B	#0, R14
- 652 0098 2C00 0000 		MOVA	&rf_thd, R12
- 653 009c B013 0000 		CALLA	#chEvtSignalI
- 654 00a0 4018 D243 		MOVX.B	#1, &dll_state
- 654      0000 
- 655               	.L107:
- 656               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 657 00a6 0343      		nop
- 658               	 ; 0 "" 2
- 659               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 660 00a8 0343 32D2 		nop { eint { nop
-GAS LISTING /tmp/ccWEUqiN.s 			page 14
+ 612 0020 2C00 0000 		MOVA	&bank0p, R12
+ 613 0024 6D48      		MOV.B	@R8, R13
+ 614 0026 5DEC CA00 		XOR.B	202(R12), R13
+ 615 002a 3DB0 0300 		BIT.W	#3, R13 { JNE	.L98
+ 615      0020 
+ 616 0030 4018 D29C 		CMPX.B	201(R12), &tc_hdr_buff+1 { JEQ	.L99
+ 616      C900 0000 
+ 616      0024 
+ 617               	.L98:
+ 618 003a CC0A      		MOVA	R10, R12
+ 619 003c B013 0000 		CALLA	#elyRFDLLRxInit
+ 620               	.L96:
+ 621               		; start of epilogue
+ 622 0040 0616      		POPM.A	#1, r6
+ 623 0042 0816      		POPM.A	#1, r8
+ 624 0044 0A16      		POPM.A	#1, r10
+ 625 0046 1001      		RETA
+ 626               	.L99:
+ 627 0048 5C48 0200 		MOV.B	2(R8), R12
+ 628 004c 4718 0C5C 		rpt	#8 { rlax.w	R12
+ 629 0050 3CF0 0003 		AND.W	#768, R12
+ 630 0054 5848 0300 		MOV.B	3(R8), R8
+ 631 0058 0CD8      		BIS.W	R8, R12
+ 632 005a 3C50 FCFF 		ADD.W	#-4, R12
+ 633 005e 4018 824C 		MOVX.W	R12, &rx_pkt_len
+ 633      0000 
+ 634               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 635 0064 32C2 0343 		dint { nop
+ 636               	 ; 0 "" 2
+ 637               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 638 0068 0343      		nop
+ 639               	 ; 0 "" 2
+ 640 006a B013 0000 		CALLA	#elyNLGetBufferI
+ 641 006e 600C 0000 		MOVA	R12, &rx_active_buffer
+ 642 0072 9C00 0000 		CMPA	#0, R12 { JEQ	.L98
+ 642      0024 
+ 643 0078 4018 1D42 		MOVX.W	&rx_pkt_len, R13
+ 643      0000 
+ 644 007e 7C40 3F00 		MOV.B	#63, R12
+ 645 0082 0C9D 002C 		CMP.W	R13, R12 { JHS	.L101
+ 646 0086 7D40 2000 		MOV.B	#32, R13
+ 647               	.L101:
+ 648 008a 4018 C24D 		MOVX.B	R13, &curr_threshold
+ 648      0000 
+ 649 0090 4018 8243 		MOVX.W	#0, &rx_idx
+ 649      0000 
+ 650 0096 8E00 0000 		MOVA	#rxfifothresh_callback, R14
+ 651 009a 4018 0D4D 		MOVX	R13, R13
+ 652 009e CC0A      		MOVA	R10, R12
+ 653 00a0 B013 0000 		CALLA	#sx1212ReceiveI
+ 654 00a4 3D40 0020 		MOV.W	#8192, R13
+ 655 00a8 4E43      		MOV.B	#0, R14
+ 656 00aa 2C00 0000 		MOVA	&rf_thd, R12
+ 657 00ae B013 0000 		CALLA	#chEvtSignalI
+ 658 00b2 4018 D243 		MOVX.B	#1, &dll_state
+ 658      0000 
+GAS LISTING /tmp/cc65NKcs.s 			page 14
 
 
- 660      0343 
- 661               	 ; 0 "" 2
- 662 00ae 8000 0000 		BRA	#.L96
- 663               	.L97:
- 664 00b2 4018 1E42 		MOVX	&rx_idx, R14
- 664      0000 
- 665 00b8 0018 5E52 		ADDX.A	&rx_active_buffer, R14
- 665      0000 
- 666 00be 4018 5F42 		MOVX.B	&curr_threshold, R15
- 666      0000 
- 667 00c4 4018 0D4F 		MOVX	R15, R13
- 668 00c8 4613      		CALLA	R6
- 669 00ca 4018 5C42 		MOVX.B	&curr_threshold, R12
+ 659               	.L107:
+ 660               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 661 00b8 0343      		nop
+ 662               	 ; 0 "" 2
+ 663               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 664 00ba 0343 32D2 		nop { eint { nop
+ 664      0343 
+ 665               	 ; 0 "" 2
+ 666 00c0 8000 0000 		BRA	#.L96
+ 667               	.L97:
+ 668 00c4 4018 1E42 		MOVX	&rx_idx, R14
+ 668      0000 
+ 669 00ca 0018 5E52 		ADDX.A	&rx_active_buffer, R14
  669      0000 
- 670 00d0 4018 1C52 		ADDX.W	&rx_idx, R12
+ 670 00d0 4018 5F42 		MOVX.B	&curr_threshold, R15
  670      0000 
- 671 00d6 4018 824C 		MOVX.W	R12, &rx_idx
- 671      0000 
- 672 00dc 4018 1D42 		MOVX.W	&rx_pkt_len, R13
- 672      0000 
- 673 00e2 0C9D 002C 		CMP.W	R13, R12 { JHS	.L102
- 674               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 675 00e6 32C2 0343 		dint { nop
- 676               	 ; 0 "" 2
- 677               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 678 00ea 0343      		nop
- 679               	 ; 0 "" 2
- 680 00ec 7C40 3F00 		MOV.B	#63, R12
- 681 00f0 0C9D 002C 		CMP.W	R13, R12 { JHS	.L103
- 682 00f4 7D40 3000 		MOV.B	#48, R13
- 683               	.L103:
- 684 00f8 4018 C24D 		MOVX.B	R13, &curr_threshold
- 684      0000 
- 685 00fe 8E00 0000 		MOVA	#rxfifothresh_callback, R14
- 686 0102 4018 0D4D 		MOVX	R13, R13
- 687 0106 CC0A      		MOVA	R10, R12
- 688 0108 B013 0000 		CALLA	#sx1212ReceiveI
- 689 010c 3D40 0020 		MOV.W	#8192, R13
- 690 0110 4E43      		MOV.B	#0, R14
- 691 0112 2C00 0000 		MOVA	&rf_thd, R12
- 692 0116 B013 0000 		CALLA	#chEvtSignalI
- 693 011a 8000 0000 		BRA	#.L107
- 694               	.L102:
- 695 011e 2C00 0000 		MOVA	&rx_active_buffer, R12
- 696 0122 B013 0000 		CALLA	#elyNLRouteRF
- 697 0126 CC0A      		MOVA	R10, R12
- 698 0128 B013 0000 		CALLA	#elyRFDLLRxInit
- 699 012c 3D40 0020 		MOV.W	#8192, R13
- 700 0130 4E43      		MOV.B	#0, R14
- 701 0132 2C00 0000 		MOVA	&rf_thd, R12
- 702 0136 B013 0000 		CALLA	#chEvtSignal
- 703 013a 8000 0000 		BRA	#.L96
- 704               		.size	elyRFDLLHandleRxFifo, .-elyRFDLLHandleRxFifo
- 705               		.section	.text.elyRFDLLTxInit,"ax",@progbits
- 706               		.balign 2
- 707               		.global	elyRFDLLTxInit
- 708               		.type	elyRFDLLTxInit, @function
-GAS LISTING /tmp/ccWEUqiN.s 			page 15
+ 671 00d6 4018 0D4F 		MOVX	R15, R13
+ 672 00da 4613      		CALLA	R6
+ 673 00dc 4018 5C42 		MOVX.B	&curr_threshold, R12
+ 673      0000 
+ 674 00e2 4018 1C52 		ADDX.W	&rx_idx, R12
+ 674      0000 
+ 675 00e8 4018 824C 		MOVX.W	R12, &rx_idx
+ 675      0000 
+ 676 00ee 4018 1D42 		MOVX.W	&rx_pkt_len, R13
+ 676      0000 
+ 677 00f4 0C9D 002C 		CMP.W	R13, R12 { JHS	.L102
+ 678               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 679 00f8 32C2 0343 		dint { nop
+ 680               	 ; 0 "" 2
+ 681               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 682 00fc 0343      		nop
+ 683               	 ; 0 "" 2
+ 684 00fe 0D8C      		SUB.W	R12, R13
+ 685 0100 7C40 3F00 		MOV.B	#63, R12
+ 686 0104 0C9D 002C 		CMP.W	R13, R12 { JHS	.L103
+ 687 0108 7D40 3000 		MOV.B	#48, R13
+ 688               	.L103:
+ 689 010c 4018 C24D 		MOVX.B	R13, &curr_threshold
+ 689      0000 
+ 690 0112 8E00 0000 		MOVA	#rxfifothresh_callback, R14
+ 691 0116 4018 0D4D 		MOVX	R13, R13
+ 692 011a CC0A      		MOVA	R10, R12
+ 693 011c B013 0000 		CALLA	#sx1212ReceiveI
+ 694 0120 3D40 0020 		MOV.W	#8192, R13
+ 695 0124 4E43      		MOV.B	#0, R14
+ 696 0126 2C00 0000 		MOVA	&rf_thd, R12
+ 697 012a B013 0000 		CALLA	#chEvtSignalI
+ 698 012e 8000 0000 		BRA	#.L107
+ 699               	.L102:
+ 700 0132 2C00 0000 		MOVA	&rx_active_buffer, R12
+ 701 0136 B013 0000 		CALLA	#elyNLRouteRF
+ 702 013a CC0A      		MOVA	R10, R12
+ 703 013c B013 0000 		CALLA	#elyRFDLLRxInit
+ 704 0140 3D40 0020 		MOV.W	#8192, R13
+ 705 0144 4E43      		MOV.B	#0, R14
+ 706 0146 2C00 0000 		MOVA	&rf_thd, R12
+GAS LISTING /tmp/cc65NKcs.s 			page 15
 
 
- 709               	elyRFDLLTxInit:
- 710               	; start of function
- 711               	; framesize_regs:     0
- 712               	; framesize_locals:   0
- 713               	; framesize_outgoing: 0
- 714               	; framesize:          0
- 715               	; elim ap -> fp       4
- 716               	; elim fp -> sp       0
- 717               	; saved regs:(none)
- 718               		; start of prologue
- 719               		; end of prologue
- 720               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 721 0000 32C2 0343 		dint { nop
- 722               	 ; 0 "" 2
- 723               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 724 0004 0343      		nop
- 725               	 ; 0 "" 2
- 726 0006 2E00 0000 		MOVA	&bank0p, R14
- 727 000a 5D4E C100 		MOV.B	193(R14), R13
- 728 000e 4718 0D5D 		rpt	#8 { rlax.w	R13
- 729 0012 5F4E C000 		MOV.B	192(R14), R15
- 730 0016 0DDF      		BIS.W	R15, R13
- 731 0018 4018 824D 		MOVX.W	R13, &tf_len
- 731      0000 
- 732 001e 5E4E C400 		MOV.B	196(R14), R14
- 733 0022 4018 3EB0 		BITX.W	#32, R14 { JEQ	.L109
- 733      2000 0024 
- 734 002a 3D50 FCFF 		ADD.W	#-4, R13
- 735               	.L109:
- 736 002e 0018 C24D 		MOVX.A	R13, &tf_data_len
+ 707 014a B013 0000 		CALLA	#chEvtSignal
+ 708 014e 8000 0000 		BRA	#.L96
+ 709               		.size	elyRFDLLHandleRxFifo, .-elyRFDLLHandleRxFifo
+ 710               		.section	.text.elyRFDLLTxInit,"ax",@progbits
+ 711               		.balign 2
+ 712               		.global	elyRFDLLTxInit
+ 713               		.type	elyRFDLLTxInit, @function
+ 714               	elyRFDLLTxInit:
+ 715               	; start of function
+ 716               	; framesize_regs:     0
+ 717               	; framesize_locals:   0
+ 718               	; framesize_outgoing: 0
+ 719               	; framesize:          0
+ 720               	; elim ap -> fp       4
+ 721               	; elim fp -> sp       0
+ 722               	; saved regs:(none)
+ 723               		; start of prologue
+ 724               		; end of prologue
+ 725               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 726 0000 32C2 0343 		dint { nop
+ 727               	 ; 0 "" 2
+ 728               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 729 0004 0343      		nop
+ 730               	 ; 0 "" 2
+ 731 0006 2E00 0000 		MOVA	&bank0p, R14
+ 732 000a 5D4E C100 		MOV.B	193(R14), R13
+ 733 000e 4718 0D5D 		rpt	#8 { rlax.w	R13
+ 734 0012 5F4E C000 		MOV.B	192(R14), R15
+ 735 0016 0DDF      		BIS.W	R15, R13
+ 736 0018 4018 824D 		MOVX.W	R13, &tf_len
  736      0000 
- 737 0034 4018 2EB2 		BITX.W	#4, R14 { JEQ	.L111
- 737      0024 
- 738 003a 3D40 1DFC 		MOV.W	#-995, R13
- 739 003e 3E40 CF1A 		MOV.W	#6863, R14
- 740 0042 B013 0000 		CALLA	#sx1278SetSync
- 741               	.L111:
- 742               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 743 0046 0343      		nop
- 744               	 ; 0 "" 2
- 745               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 746 0048 0343 32D2 		nop { eint { nop
- 746      0343 
- 747               	 ; 0 "" 2
- 748               		; start of epilogue
- 749 004e 1001      		RETA
- 750               		.size	elyRFDLLTxInit, .-elyRFDLLTxInit
- 751               		.section	.text.elyRFDLLInitiateTransmit,"ax",@progbits
- 752               		.balign 2
- 753               		.global	elyRFDLLInitiateTransmit
- 754               		.type	elyRFDLLInitiateTransmit, @function
- 755               	elyRFDLLInitiateTransmit:
- 756               	; start of function
- 757               	; framesize_regs:     0
- 758               	; framesize_locals:   0
- 759               	; framesize_outgoing: 4
- 760               	; framesize:          4
-GAS LISTING /tmp/ccWEUqiN.s 			page 16
+ 737 001e 5E4E C400 		MOV.B	196(R14), R14
+ 738 0022 4018 3EB0 		BITX.W	#32, R14 { JEQ	.L109
+ 738      2000 0024 
+ 739 002a 3D50 FCFF 		ADD.W	#-4, R13
+ 740               	.L109:
+ 741 002e 0018 C24D 		MOVX.A	R13, &tf_data_len
+ 741      0000 
+ 742 0034 4018 2EB2 		BITX.W	#4, R14 { JEQ	.L111
+ 742      0024 
+ 743 003a 3D40 1DFC 		MOV.W	#-995, R13
+ 744 003e 3E40 CF1A 		MOV.W	#6863, R14
+ 745 0042 B013 0000 		CALLA	#sx1278SetSync
+ 746               	.L111:
+ 747               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 748 0046 0343      		nop
+ 749               	 ; 0 "" 2
+ 750               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 751 0048 0343 32D2 		nop { eint { nop
+ 751      0343 
+ 752               	 ; 0 "" 2
+ 753               		; start of epilogue
+ 754 004e 1001      		RETA
+ 755               		.size	elyRFDLLTxInit, .-elyRFDLLTxInit
+ 756               		.section	.text.elyRFDLLInitiateTransmit,"ax",@progbits
+ 757               		.balign 2
+ 758               		.global	elyRFDLLInitiateTransmit
+GAS LISTING /tmp/cc65NKcs.s 			page 16
 
 
- 761               	; elim ap -> fp       4
- 762               	; elim fp -> sp       4
- 763               	; saved regs:(none)
- 764               		; start of prologue
- 765 0000 B100 0400 		SUBA	#4, R1
- 766               		; end of prologue
- 767 0004 4018 B2D0 		BISX.W	#4096, &546
- 767      0010 2202 
- 768 000c 4018 1D42 		MOVX	&tf_len, R13
- 768      0000 
- 769 0012 0018 F140 		MOVX.A	#write_cb, @R1
- 769      0000 0000 
- 770 001a 8F00 0000 		MOVA	#txlvl_callback, R15
- 771 001e 8E00 0000 		MOVA	#tf_buffer, R14
- 772 0022 B013 0000 		CALLA	#sx1278StartTransmit
- 773 0026 4018 824C 		MOVX.W	R12, &tf_idx
+ 759               		.type	elyRFDLLInitiateTransmit, @function
+ 760               	elyRFDLLInitiateTransmit:
+ 761               	; start of function
+ 762               	; framesize_regs:     0
+ 763               	; framesize_locals:   0
+ 764               	; framesize_outgoing: 4
+ 765               	; framesize:          4
+ 766               	; elim ap -> fp       4
+ 767               	; elim fp -> sp       4
+ 768               	; saved regs:(none)
+ 769               		; start of prologue
+ 770 0000 B100 0400 		SUBA	#4, R1
+ 771               		; end of prologue
+ 772 0004 4018 B2D0 		BISX.W	#4096, &546
+ 772      0010 2202 
+ 773 000c 4018 1D42 		MOVX	&tf_len, R13
  773      0000 
- 774               		; start of epilogue
- 775 002c A100 0400 		ADDA	#4, R1
- 776 0030 1001      		RETA
- 777               		.size	elyRFDLLInitiateTransmit, .-elyRFDLLInitiateTransmit
- 778               		.section	.text.elyRFDLLHandleTxFifo,"ax",@progbits
- 779               		.balign 2
- 780               		.global	elyRFDLLHandleTxFifo
- 781               		.type	elyRFDLLHandleTxFifo, @function
- 782               	elyRFDLLHandleTxFifo:
- 783               	; start of function
- 784               	; framesize_regs:     4
- 785               	; framesize_locals:   0
- 786               	; framesize_outgoing: 0
- 787               	; framesize:          4
- 788               	; elim ap -> fp       8
- 789               	; elim fp -> sp       0
- 790               	; saved regs: R10
- 791               		; start of prologue
- 792 0000 0A14      		PUSHM.A	#1, R10
- 793               		; end of prologue
- 794 0002 4018 1E42 		MOVX.W	&tf_idx, R14
- 794      0000 
- 795 0008 4018 1A42 		MOVX.W	&tf_len, R10
- 795      0000 
- 796 000e 0A8E      		SUB.W	R14, R10
- 797 0010 7D40 1F00 		MOV.B	#31, R13
- 798 0014 0D9A 002C 		CMP.W	R10, R13 { JHS	.L117
- 799 0018 0A4D      		MOV.W	R13, R10
- 800               	.L117:
- 801               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 802 001a 32C2 0343 		dint { nop
- 803               	 ; 0 "" 2
- 804               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 805 001e 0343      		nop
- 806               	 ; 0 "" 2
- 807 0020 4018 0E4E 		MOVX	R14, R14
- 808 0024 8F00 0000 		MOVA	#write_cb, R15
- 809 0028 AE00 0000 		ADDA	#tf_buffer, R14
- 810 002c 4018 0D4A 		MOVX	R10, R13
- 811 0030 B013 0000 		CALLA	#sx1278FifoWriteAsyncS
-GAS LISTING /tmp/ccWEUqiN.s 			page 17
+ 774 0012 0018 F140 		MOVX.A	#write_cb, @R1
+ 774      0000 0000 
+ 775 001a 8F00 0000 		MOVA	#txlvl_callback, R15
+ 776 001e 8E00 0000 		MOVA	#tf_buffer, R14
+ 777 0022 B013 0000 		CALLA	#sx1278StartTransmit
+ 778 0026 4018 824C 		MOVX.W	R12, &tf_idx
+ 778      0000 
+ 779               		; start of epilogue
+ 780 002c A100 0400 		ADDA	#4, R1
+ 781 0030 1001      		RETA
+ 782               		.size	elyRFDLLInitiateTransmit, .-elyRFDLLInitiateTransmit
+ 783               		.section	.text.elyRFDLLHandleTxFifo,"ax",@progbits
+ 784               		.balign 2
+ 785               		.global	elyRFDLLHandleTxFifo
+ 786               		.type	elyRFDLLHandleTxFifo, @function
+ 787               	elyRFDLLHandleTxFifo:
+ 788               	; start of function
+ 789               	; framesize_regs:     4
+ 790               	; framesize_locals:   0
+ 791               	; framesize_outgoing: 0
+ 792               	; framesize:          4
+ 793               	; elim ap -> fp       8
+ 794               	; elim fp -> sp       0
+ 795               	; saved regs: R10
+ 796               		; start of prologue
+ 797 0000 0A14      		PUSHM.A	#1, R10
+ 798               		; end of prologue
+ 799 0002 4018 1E42 		MOVX.W	&tf_idx, R14
+ 799      0000 
+ 800 0008 4018 1A42 		MOVX.W	&tf_len, R10
+ 800      0000 
+ 801 000e 0A8E      		SUB.W	R14, R10
+ 802 0010 7D40 1F00 		MOV.B	#31, R13
+ 803 0014 0D9A 002C 		CMP.W	R10, R13 { JHS	.L117
+ 804 0018 0A4D      		MOV.W	R13, R10
+ 805               	.L117:
+ 806               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 807 001a 32C2 0343 		dint { nop
+ 808               	 ; 0 "" 2
+ 809               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+GAS LISTING /tmp/cc65NKcs.s 			page 17
 
 
- 812 0034 4018 825A 		ADDX.W	R10, &tf_idx
- 812      0000 
- 813               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 814 003a 0343      		nop
- 815               	 ; 0 "" 2
- 816               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 817 003c 0343 32D2 		nop { eint { nop
- 817      0343 
- 818               	 ; 0 "" 2
- 819               		; start of epilogue
- 820 0042 0A16      		POPM.A	#1, r10
- 821 0044 1001      		RETA
- 822               		.size	elyRFDLLHandleTxFifo, .-elyRFDLLHandleTxFifo
- 823               		.section	.upper.rodata,"a",@progbits
- 824               		.type	__func__.5230, @object
- 825               		.size	__func__.5230, 16
- 826               	__func__.5230:
- 827 0000 6865 6164 		.string	"header_callback"
- 827      6572 5F63 
- 827      616C 6C62 
- 827      6163 6B00 
- 828               		.local	pkt_idx.5206
- 829               		.comm	pkt_idx.5206,4,2
- 830               		.local	idle_idx.5201
- 831               		.comm	idle_idx.5201,4,2
- 832               		.local	idle_len.5200
- 833               		.comm	idle_len.5200,4,2
- 834               		.local	pkt_len.5205
- 835               		.comm	pkt_len.5205,4,2
- 836               		.type	__func__.5207, @object
- 837               		.size	__func__.5207, 19
- 838               	__func__.5207:
- 839 0010 656C 7952 		.string	"elyRFDLLBuildFrame"
- 839      4644 4C4C 
- 839      4275 696C 
- 839      6446 7261 
- 839      6D65 00
- 840               		.local	active_packet.5204
- 841               		.comm	active_packet.5204,4,2
- 842               		.local	state.5199
- 843               		.comm	state.5199,1,1
- 844               		.type	__func__.5179, @object
- 845               		.size	__func__.5179, 17
- 846               	__func__.5179:
- 847 0023 656C 7952 		.string	"elyRFDLLClampReg"
- 847      4644 4C4C 
- 847      436C 616D 
- 847      7052 6567 
- 847      00
- 848               		.global	DLLRxPktCfg
- 849               		.section	.persistent,"aw"
- 850               		.type	DLLRxPktCfg, @object
- 851               		.size	DLLRxPktCfg, 1
- 852               	DLLRxPktCfg:
- 853 0000 01        		.byte	1
- 854               		.global	DLLTxPktCfg
- 855               		.type	DLLTxPktCfg, @object
-GAS LISTING /tmp/ccWEUqiN.s 			page 18
+ 810 001e 0343      		nop
+ 811               	 ; 0 "" 2
+ 812 0020 4018 0E4E 		MOVX	R14, R14
+ 813 0024 8F00 0000 		MOVA	#write_cb, R15
+ 814 0028 AE00 0000 		ADDA	#tf_buffer, R14
+ 815 002c 4018 0D4A 		MOVX	R10, R13
+ 816 0030 B013 0000 		CALLA	#sx1278FifoWriteAsyncS
+ 817 0034 4018 825A 		ADDX.W	R10, &tf_idx
+ 817      0000 
+ 818               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 819 003a 0343      		nop
+ 820               	 ; 0 "" 2
+ 821               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 822 003c 0343 32D2 		nop { eint { nop
+ 822      0343 
+ 823               	 ; 0 "" 2
+ 824               		; start of epilogue
+ 825 0042 0A16      		POPM.A	#1, r10
+ 826 0044 1001      		RETA
+ 827               		.size	elyRFDLLHandleTxFifo, .-elyRFDLLHandleTxFifo
+ 828               		.section	.upper.rodata,"a",@progbits
+ 829               		.type	__func__.5230, @object
+ 830               		.size	__func__.5230, 16
+ 831               	__func__.5230:
+ 832 0000 6865 6164 		.string	"header_callback"
+ 832      6572 5F63 
+ 832      616C 6C62 
+ 832      6163 6B00 
+ 833               		.local	pkt_idx.5206
+ 834               		.comm	pkt_idx.5206,4,2
+ 835               		.local	idle_idx.5201
+ 836               		.comm	idle_idx.5201,4,2
+ 837               		.local	idle_len.5200
+ 838               		.comm	idle_len.5200,4,2
+ 839               		.local	pkt_len.5205
+ 840               		.comm	pkt_len.5205,4,2
+ 841               		.type	__func__.5207, @object
+ 842               		.size	__func__.5207, 19
+ 843               	__func__.5207:
+ 844 0010 656C 7952 		.string	"elyRFDLLBuildFrame"
+ 844      4644 4C4C 
+ 844      4275 696C 
+ 844      6446 7261 
+ 844      6D65 00
+ 845               		.local	active_packet.5204
+ 846               		.comm	active_packet.5204,4,2
+ 847               		.local	state.5199
+ 848               		.comm	state.5199,1,1
+ 849               		.type	__func__.5179, @object
+ 850               		.size	__func__.5179, 17
+ 851               	__func__.5179:
+ 852 0023 656C 7952 		.string	"elyRFDLLClampReg"
+ 852      4644 4C4C 
+ 852      436C 616D 
+ 852      7052 6567 
+ 852      00
+ 853               		.global	DLLRxPktCfg
+GAS LISTING /tmp/cc65NKcs.s 			page 18
 
 
- 856               		.size	DLLTxPktCfg, 1
- 857               	DLLTxPktCfg:
- 858 0001 A2        		.byte	162
- 859               		.type	idle_header, @object
- 860               		.size	idle_header, 7
- 861               	idle_header:
- 862 0002 03        		.byte	3
- 863 0003 FF        		.byte	-1
- 864 0004 C0        		.byte	-64
- 865 0005 00        		.byte	0
- 866 0006 00        		.byte	0
- 867 0007 00        		.byte	0
- 868 0008 AA        		.byte	-86
- 869               		.global	b_frames
- 870               		.type	b_frames, @object
- 871               		.size	b_frames, 1
- 872               	b_frames:
- 873 0009 00        		.zero	1
- 874               		.global	a_frames
- 875               		.type	a_frames, @object
- 876               		.size	a_frames, 1
- 877               	a_frames:
- 878 000a 00        		.zero	1
- 879               		.global	double_frames
- 880               		.type	double_frames, @object
- 881               		.size	double_frames, 1
- 882               	double_frames:
- 883 000b 00        		.zero	1
- 884               		.global	missed_frames
- 885               		.type	missed_frames, @object
- 886               		.size	missed_frames, 1
- 887               	missed_frames:
- 888 000c 00        		.zero	1
- 889               		.global	seq_no
- 890               		.type	seq_no, @object
- 891               		.size	seq_no, 1
- 892               	seq_no:
- 893 000d 00        		.zero	1
- 894               		.global	fecf
- 895               		.type	fecf, @object
- 896               		.size	fecf, 1
- 897               	fecf:
- 898 000e 00        		.zero	1
- 899               		.global	fec
- 900               		.type	fec, @object
- 901               		.size	fec, 1
- 902               	fec:
- 903 000f 00        		.zero	1
- 904               		.type	curr_threshold, @object
- 905               		.size	curr_threshold, 1
- 906               	curr_threshold:
- 907 0010 00        		.zero	1
- 908 0011 00        		.balign 2
- 909               		.type	rx_pkt_len, @object
- 910               		.size	rx_pkt_len, 2
- 911               	rx_pkt_len:
- 912 0012 0000      		.zero	2
-GAS LISTING /tmp/ccWEUqiN.s 			page 19
+ 854               		.section	.persistent,"aw"
+ 855               		.type	DLLRxPktCfg, @object
+ 856               		.size	DLLRxPktCfg, 1
+ 857               	DLLRxPktCfg:
+ 858 0000 01        		.byte	1
+ 859               		.global	DLLTxPktCfg
+ 860               		.type	DLLTxPktCfg, @object
+ 861               		.size	DLLTxPktCfg, 1
+ 862               	DLLTxPktCfg:
+ 863 0001 A2        		.byte	162
+ 864               		.type	idle_header, @object
+ 865               		.size	idle_header, 7
+ 866               	idle_header:
+ 867 0002 03        		.byte	3
+ 868 0003 FF        		.byte	-1
+ 869 0004 C0        		.byte	-64
+ 870 0005 00        		.byte	0
+ 871 0006 00        		.byte	0
+ 872 0007 00        		.byte	0
+ 873 0008 AA        		.byte	-86
+ 874               		.global	b_frames
+ 875               		.type	b_frames, @object
+ 876               		.size	b_frames, 1
+ 877               	b_frames:
+ 878 0009 00        		.zero	1
+ 879               		.global	a_frames
+ 880               		.type	a_frames, @object
+ 881               		.size	a_frames, 1
+ 882               	a_frames:
+ 883 000a 00        		.zero	1
+ 884               		.global	double_frames
+ 885               		.type	double_frames, @object
+ 886               		.size	double_frames, 1
+ 887               	double_frames:
+ 888 000b 00        		.zero	1
+ 889               		.global	missed_frames
+ 890               		.type	missed_frames, @object
+ 891               		.size	missed_frames, 1
+ 892               	missed_frames:
+ 893 000c 00        		.zero	1
+ 894               		.global	seq_no
+ 895               		.type	seq_no, @object
+ 896               		.size	seq_no, 1
+ 897               	seq_no:
+ 898 000d 00        		.zero	1
+ 899               		.global	fecf
+ 900               		.type	fecf, @object
+ 901               		.size	fecf, 1
+ 902               	fecf:
+ 903 000e 00        		.zero	1
+ 904               		.global	fec
+ 905               		.type	fec, @object
+ 906               		.size	fec, 1
+ 907               	fec:
+ 908 000f 00        		.zero	1
+ 909               		.type	curr_threshold, @object
+ 910               		.size	curr_threshold, 1
+GAS LISTING /tmp/cc65NKcs.s 			page 19
 
 
- 913               		.balign 2
- 914               		.type	rx_idx, @object
- 915               		.size	rx_idx, 2
- 916               	rx_idx:
- 917 0014 0000      		.zero	2
+ 911               	curr_threshold:
+ 912 0010 00        		.zero	1
+ 913 0011 00        		.balign 2
+ 914               		.type	rx_pkt_len, @object
+ 915               		.size	rx_pkt_len, 2
+ 916               	rx_pkt_len:
+ 917 0012 0000      		.zero	2
  918               		.balign 2
- 919               		.type	rx_active_buffer, @object
- 920               		.size	rx_active_buffer, 4
- 921               	rx_active_buffer:
- 922 0016 0000 0000 		.zero	4
- 923               		.type	tc_hdr_buff, @object
- 924               		.size	tc_hdr_buff, 5
- 925               	tc_hdr_buff:
- 926 001a 0000 0000 		.zero	5
- 926      00
- 927               		.type	dll_state, @object
- 928               		.size	dll_state, 1
- 929               	dll_state:
- 930 001f 00        		.zero	1
- 931               		.type	vcfc, @object
- 932               		.size	vcfc, 2
- 933               	vcfc:
- 934 0020 0000      		.zero	2
- 935               		.type	mcfc, @object
- 936               		.size	mcfc, 1
- 937               	mcfc:
- 938 0022 00        		.zero	1
- 939 0023 00        		.balign 2
- 940               		.type	tf_data_len, @object
- 941               		.size	tf_data_len, 4
- 942               	tf_data_len:
- 943 0024 0008 0000 		.long	2048
- 944               		.balign 2
- 945               		.type	tf_idx, @object
- 946               		.size	tf_idx, 2
- 947               	tf_idx:
- 948 0028 0000      		.zero	2
+ 919               		.type	rx_idx, @object
+ 920               		.size	rx_idx, 2
+ 921               	rx_idx:
+ 922 0014 0000      		.zero	2
+ 923               		.balign 2
+ 924               		.type	rx_active_buffer, @object
+ 925               		.size	rx_active_buffer, 4
+ 926               	rx_active_buffer:
+ 927 0016 0000 0000 		.zero	4
+ 928               		.type	tc_hdr_buff, @object
+ 929               		.size	tc_hdr_buff, 5
+ 930               	tc_hdr_buff:
+ 931 001a 0000 0000 		.zero	5
+ 931      00
+ 932               		.type	dll_state, @object
+ 933               		.size	dll_state, 1
+ 934               	dll_state:
+ 935 001f 00        		.zero	1
+ 936               		.type	vcfc, @object
+ 937               		.size	vcfc, 2
+ 938               	vcfc:
+ 939 0020 0000      		.zero	2
+ 940               		.type	mcfc, @object
+ 941               		.size	mcfc, 1
+ 942               	mcfc:
+ 943 0022 00        		.zero	1
+ 944 0023 00        		.balign 2
+ 945               		.type	tf_data_len, @object
+ 946               		.size	tf_data_len, 4
+ 947               	tf_data_len:
+ 948 0024 0008 0000 		.long	2048
  949               		.balign 2
- 950               		.type	tf_len, @object
- 951               		.size	tf_len, 2
- 952               	tf_len:
- 953 002a 0008      		.short	2048
- 954               		.section	.upper.data,"aw",@progbits
- 955               		.type	tf_buffer, @object
- 956               		.size	tf_buffer, 2048
- 957               	tf_buffer:
- 958 0000 02        		.byte	2
- 959 0001 F0        		.byte	-16
- 960 0002 00        		.byte	0
- 961 0003 00        		.byte	0
- 962 0004 18        		.byte	24
- 963 0005 00        		.byte	0
- 964 0006 0000 0000 		.zero	2042
- 964      0000 0000 
- 964      0000 0000 
- 964      0000 0000 
- 964      0000 0000 
-GAS LISTING /tmp/ccWEUqiN.s 			page 20
+ 950               		.type	tf_idx, @object
+ 951               		.size	tf_idx, 2
+ 952               	tf_idx:
+ 953 0028 0000      		.zero	2
+ 954               		.balign 2
+ 955               		.type	tf_len, @object
+ 956               		.size	tf_len, 2
+ 957               	tf_len:
+ 958 002a 0008      		.short	2048
+ 959               		.section	.upper.data,"aw",@progbits
+ 960               		.type	tf_buffer, @object
+ 961               		.size	tf_buffer, 2048
+ 962               	tf_buffer:
+ 963 0000 02        		.byte	2
+ 964 0001 F0        		.byte	-16
+ 965 0002 00        		.byte	0
+ 966 0003 00        		.byte	0
+GAS LISTING /tmp/cc65NKcs.s 			page 20
 
 
- 965               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccWEUqiN.s 			page 21
+ 967 0004 18        		.byte	24
+ 968 0005 00        		.byte	0
+ 969 0006 0000 0000 		.zero	2042
+ 969      0000 0000 
+ 969      0000 0000 
+ 969      0000 0000 
+ 969      0000 0000 
+ 970               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/cc65NKcs.s 			page 21
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sdlp.c
-     /tmp/ccWEUqiN.s:6      .text.rxfifothresh_callback:0000000000000000 rxfifothresh_callback
-     /tmp/ccWEUqiN.s:28     .text.txlvl_callback:0000000000000000 txlvl_callback
-     /tmp/ccWEUqiN.s:50     .text.write_cb:0000000000000000 write_cb
-     /tmp/ccWEUqiN.s:952    .persistent:000000000000002a tf_len
-     /tmp/ccWEUqiN.s:947    .persistent:0000000000000028 tf_idx
-     /tmp/ccWEUqiN.s:101    .text.elyRFChangeTxSyncS:0000000000000000 elyRFChangeTxSyncS
-     /tmp/ccWEUqiN.s:136    .text.elyRFDLLClampReg:0000000000000000 elyRFDLLClampReg
-     /tmp/ccWEUqiN.s:846    .upper.rodata:0000000000000023 __func__.5179
-     /tmp/ccWEUqiN.s:254    .text.elyRFDLLBuildFrame:0000000000000000 elyRFDLLBuildFrame
-     /tmp/ccWEUqiN.s:957    .upper.data:0000000000000000 tf_buffer
-     /tmp/ccWEUqiN.s:937    .persistent:0000000000000022 mcfc
-     /tmp/ccWEUqiN.s:933    .persistent:0000000000000020 vcfc
-     /tmp/ccWEUqiN.s:841    .bss:0000000000000014 state.5199
-     /tmp/ccWEUqiN.s:841    .bss:0000000000000010 active_packet.5204
-     /tmp/ccWEUqiN.s:838    .upper.rodata:0000000000000010 __func__.5207
-     /tmp/ccWEUqiN.s:835    .bss:000000000000000c pkt_len.5205
-     /tmp/ccWEUqiN.s:833    .bss:0000000000000008 idle_len.5200
-     /tmp/ccWEUqiN.s:831    .bss:0000000000000004 idle_idx.5201
-     /tmp/ccWEUqiN.s:829    .bss:0000000000000000 pkt_idx.5206
-     /tmp/ccWEUqiN.s:942    .persistent:0000000000000024 tf_data_len
-     /tmp/ccWEUqiN.s:861    .persistent:0000000000000002 idle_header
-     /tmp/ccWEUqiN.s:453    .text.packet_callback:0000000000000000 packet_callback
-     /tmp/ccWEUqiN.s:916    .persistent:0000000000000014 rx_idx
-     /tmp/ccWEUqiN.s:911    .persistent:0000000000000012 rx_pkt_len
-     /tmp/ccWEUqiN.s:906    .persistent:0000000000000010 curr_threshold
-     /tmp/ccWEUqiN.s:921    .persistent:0000000000000016 rx_active_buffer
-     /tmp/ccWEUqiN.s:509    .text.header_callback:0000000000000000 header_callback
-     /tmp/ccWEUqiN.s:826    .upper.rodata:0000000000000000 __func__.5230
-     /tmp/ccWEUqiN.s:925    .persistent:000000000000001a tc_hdr_buff
-     /tmp/ccWEUqiN.s:929    .persistent:000000000000001f dll_state
-     /tmp/ccWEUqiN.s:560    .text.elyRFDLLRxInit:0000000000000000 elyRFDLLRxInit
-     /tmp/ccWEUqiN.s:591    .text.elyRFDLLHandleRxFifo:0000000000000000 elyRFDLLHandleRxFifo
-     /tmp/ccWEUqiN.s:709    .text.elyRFDLLTxInit:0000000000000000 elyRFDLLTxInit
-     /tmp/ccWEUqiN.s:755    .text.elyRFDLLInitiateTransmit:0000000000000000 elyRFDLLInitiateTransmit
-     /tmp/ccWEUqiN.s:782    .text.elyRFDLLHandleTxFifo:0000000000000000 elyRFDLLHandleTxFifo
-     /tmp/ccWEUqiN.s:852    .persistent:0000000000000000 DLLRxPktCfg
-     /tmp/ccWEUqiN.s:857    .persistent:0000000000000001 DLLTxPktCfg
-     /tmp/ccWEUqiN.s:872    .persistent:0000000000000009 b_frames
-     /tmp/ccWEUqiN.s:877    .persistent:000000000000000a a_frames
-     /tmp/ccWEUqiN.s:882    .persistent:000000000000000b double_frames
-     /tmp/ccWEUqiN.s:887    .persistent:000000000000000c missed_frames
-     /tmp/ccWEUqiN.s:892    .persistent:000000000000000d seq_no
-     /tmp/ccWEUqiN.s:897    .persistent:000000000000000e fecf
-     /tmp/ccWEUqiN.s:902    .persistent:000000000000000f fec
-     /tmp/ccWEUqiN.s:90     .text.write_cb:0000000000000070 .L4
-     /tmp/ccWEUqiN.s:86     .text.write_cb:000000000000006c .L3
-     /tmp/ccWEUqiN.s:127    .text.elyRFChangeTxSyncS:0000000000000038 .L6
-     /tmp/ccWEUqiN.s:156    .text.elyRFDLLClampReg:000000000000001c .L9
-     /tmp/ccWEUqiN.s:208    .text.elyRFDLLClampReg:00000000000000d0 .L11
-     /tmp/ccWEUqiN.s:169    .text.elyRFDLLClampReg:0000000000000044 .L12
-     /tmp/ccWEUqiN.s:188    .text.elyRFDLLClampReg:0000000000000090 .L13
-     /tmp/ccWEUqiN.s:195    .text.elyRFDLLClampReg:00000000000000a8 .L14
-     /tmp/ccWEUqiN.s:181    .text.elyRFDLLClampReg:0000000000000078 .L15
-     /tmp/ccWEUqiN.s:212    .text.elyRFDLLClampReg:00000000000000dc .L16
-     /tmp/ccWEUqiN.s:164    .text.elyRFDLLClampReg:000000000000003e .L10
-GAS LISTING /tmp/ccWEUqiN.s 			page 22
+     /tmp/cc65NKcs.s:6      .text.rxfifothresh_callback:0000000000000000 rxfifothresh_callback
+     /tmp/cc65NKcs.s:28     .text.txlvl_callback:0000000000000000 txlvl_callback
+     /tmp/cc65NKcs.s:50     .text.write_cb:0000000000000000 write_cb
+     /tmp/cc65NKcs.s:957    .persistent:000000000000002a tf_len
+     /tmp/cc65NKcs.s:952    .persistent:0000000000000028 tf_idx
+     /tmp/cc65NKcs.s:101    .text.elyRFChangeTxSyncS:0000000000000000 elyRFChangeTxSyncS
+     /tmp/cc65NKcs.s:136    .text.elyRFDLLClampReg:0000000000000000 elyRFDLLClampReg
+     /tmp/cc65NKcs.s:851    .upper.rodata:0000000000000023 __func__.5179
+     /tmp/cc65NKcs.s:254    .text.elyRFDLLBuildFrame:0000000000000000 elyRFDLLBuildFrame
+     /tmp/cc65NKcs.s:962    .upper.data:0000000000000000 tf_buffer
+     /tmp/cc65NKcs.s:942    .persistent:0000000000000022 mcfc
+     /tmp/cc65NKcs.s:938    .persistent:0000000000000020 vcfc
+     /tmp/cc65NKcs.s:846    .bss:0000000000000014 state.5199
+     /tmp/cc65NKcs.s:846    .bss:0000000000000010 active_packet.5204
+     /tmp/cc65NKcs.s:843    .upper.rodata:0000000000000010 __func__.5207
+     /tmp/cc65NKcs.s:840    .bss:000000000000000c pkt_len.5205
+     /tmp/cc65NKcs.s:838    .bss:0000000000000008 idle_len.5200
+     /tmp/cc65NKcs.s:836    .bss:0000000000000004 idle_idx.5201
+     /tmp/cc65NKcs.s:834    .bss:0000000000000000 pkt_idx.5206
+     /tmp/cc65NKcs.s:947    .persistent:0000000000000024 tf_data_len
+     /tmp/cc65NKcs.s:866    .persistent:0000000000000002 idle_header
+     /tmp/cc65NKcs.s:453    .text.packet_callback:0000000000000000 packet_callback
+     /tmp/cc65NKcs.s:921    .persistent:0000000000000014 rx_idx
+     /tmp/cc65NKcs.s:916    .persistent:0000000000000012 rx_pkt_len
+     /tmp/cc65NKcs.s:911    .persistent:0000000000000010 curr_threshold
+     /tmp/cc65NKcs.s:926    .persistent:0000000000000016 rx_active_buffer
+     /tmp/cc65NKcs.s:509    .text.header_callback:0000000000000000 header_callback
+     /tmp/cc65NKcs.s:831    .upper.rodata:0000000000000000 __func__.5230
+     /tmp/cc65NKcs.s:930    .persistent:000000000000001a tc_hdr_buff
+     /tmp/cc65NKcs.s:934    .persistent:000000000000001f dll_state
+     /tmp/cc65NKcs.s:560    .text.elyRFDLLRxInit:0000000000000000 elyRFDLLRxInit
+     /tmp/cc65NKcs.s:591    .text.elyRFDLLHandleRxFifo:0000000000000000 elyRFDLLHandleRxFifo
+     /tmp/cc65NKcs.s:714    .text.elyRFDLLTxInit:0000000000000000 elyRFDLLTxInit
+     /tmp/cc65NKcs.s:760    .text.elyRFDLLInitiateTransmit:0000000000000000 elyRFDLLInitiateTransmit
+     /tmp/cc65NKcs.s:787    .text.elyRFDLLHandleTxFifo:0000000000000000 elyRFDLLHandleTxFifo
+     /tmp/cc65NKcs.s:857    .persistent:0000000000000000 DLLRxPktCfg
+     /tmp/cc65NKcs.s:862    .persistent:0000000000000001 DLLTxPktCfg
+     /tmp/cc65NKcs.s:877    .persistent:0000000000000009 b_frames
+     /tmp/cc65NKcs.s:882    .persistent:000000000000000a a_frames
+     /tmp/cc65NKcs.s:887    .persistent:000000000000000b double_frames
+     /tmp/cc65NKcs.s:892    .persistent:000000000000000c missed_frames
+     /tmp/cc65NKcs.s:897    .persistent:000000000000000d seq_no
+     /tmp/cc65NKcs.s:902    .persistent:000000000000000e fecf
+     /tmp/cc65NKcs.s:907    .persistent:000000000000000f fec
+     /tmp/cc65NKcs.s:90     .text.write_cb:0000000000000070 .L4
+     /tmp/cc65NKcs.s:86     .text.write_cb:000000000000006c .L3
+     /tmp/cc65NKcs.s:127    .text.elyRFChangeTxSyncS:0000000000000038 .L6
+     /tmp/cc65NKcs.s:156    .text.elyRFDLLClampReg:000000000000001c .L9
+     /tmp/cc65NKcs.s:208    .text.elyRFDLLClampReg:00000000000000d0 .L11
+     /tmp/cc65NKcs.s:169    .text.elyRFDLLClampReg:0000000000000044 .L12
+     /tmp/cc65NKcs.s:188    .text.elyRFDLLClampReg:0000000000000090 .L13
+     /tmp/cc65NKcs.s:195    .text.elyRFDLLClampReg:00000000000000a8 .L14
+     /tmp/cc65NKcs.s:181    .text.elyRFDLLClampReg:0000000000000078 .L15
+     /tmp/cc65NKcs.s:212    .text.elyRFDLLClampReg:00000000000000dc .L16
+     /tmp/cc65NKcs.s:164    .text.elyRFDLLClampReg:000000000000003e .L10
+GAS LISTING /tmp/cc65NKcs.s 			page 22
 
 
-     /tmp/ccWEUqiN.s:215    .text.elyRFDLLClampReg:00000000000000e4 .L19
-     /tmp/ccWEUqiN.s:200    .text.elyRFDLLClampReg:00000000000000b8 .L18
-     /tmp/ccWEUqiN.s:222    .text.elyRFDLLClampReg:00000000000000fc .L20
-     /tmp/ccWEUqiN.s:229    .text.elyRFDLLClampReg:0000000000000114 .L21
-     /tmp/ccWEUqiN.s:236    .text.elyRFDLLClampReg:000000000000012c .L22
-     /tmp/ccWEUqiN.s:243    .text.elyRFDLLClampReg:0000000000000144 .L23
-     /tmp/ccWEUqiN.s:341    .text.elyRFDLLBuildFrame:0000000000000114 .L78
-     /tmp/ccWEUqiN.s:311    .text.elyRFDLLBuildFrame:00000000000000a8 .L60
-     /tmp/ccWEUqiN.s:344    .text.elyRFDLLBuildFrame:000000000000011a .L76
-     /tmp/ccWEUqiN.s:333    .text.elyRFDLLBuildFrame:0000000000000102 .L77
-     /tmp/ccWEUqiN.s:321    .text.elyRFDLLBuildFrame:00000000000000d4 .L59
-     /tmp/ccWEUqiN.s:355    .text.elyRFDLLBuildFrame:000000000000014c .L63
-     /tmp/ccWEUqiN.s:414    .text.elyRFDLLBuildFrame:0000000000000236 .L64
-     /tmp/ccWEUqiN.s:444    .text.elyRFDLLBuildFrame:00000000000002a4 .L82
-     /tmp/ccWEUqiN.s:352    .text.elyRFDLLBuildFrame:0000000000000142 .L66
-     /tmp/ccWEUqiN.s:326    .text.elyRFDLLBuildFrame:00000000000000e6 .L61
-     /tmp/ccWEUqiN.s:405    .text.elyRFDLLBuildFrame:0000000000000214 .L68
-     /tmp/ccWEUqiN.s:370    .text.elyRFDLLBuildFrame:000000000000018e .L69
-     /tmp/ccWEUqiN.s:400    .text.elyRFDLLBuildFrame:0000000000000206 .L70
-     /tmp/ccWEUqiN.s:396    .text.elyRFDLLBuildFrame:00000000000001fc .L71
-     /tmp/ccWEUqiN.s:381    .text.elyRFDLLBuildFrame:00000000000001ba .L72
-     /tmp/ccWEUqiN.s:439    .text.elyRFDLLBuildFrame:0000000000000292 .L73
-     /tmp/ccWEUqiN.s:431    .text.elyRFDLLBuildFrame:0000000000000276 .L75
-     /tmp/ccWEUqiN.s:425    .text.elyRFDLLBuildFrame:000000000000025e .L83
-     /tmp/ccWEUqiN.s:493    .text.packet_callback:0000000000000058 .L85
-     /tmp/ccWEUqiN.s:477    .text.packet_callback:0000000000000032 .L86
-     /tmp/ccWEUqiN.s:484    .text.packet_callback:0000000000000048 .L88
-     /tmp/ccWEUqiN.s:525    .text.header_callback:0000000000000012 .L90
-     /tmp/ccWEUqiN.s:540    .text.header_callback:000000000000004c .L91
-     /tmp/ccWEUqiN.s:663    .text.elyRFDLLHandleRxFifo:00000000000000b2 .L97
-     /tmp/ccWEUqiN.s:622    .text.elyRFDLLHandleRxFifo:0000000000000036 .L98
-     /tmp/ccWEUqiN.s:613    .text.elyRFDLLHandleRxFifo:0000000000000028 .L100
-     /tmp/ccWEUqiN.s:643    .text.elyRFDLLHandleRxFifo:0000000000000078 .L101
-     /tmp/ccWEUqiN.s:616    .text.elyRFDLLHandleRxFifo:000000000000002e .L96
-     /tmp/ccWEUqiN.s:694    .text.elyRFDLLHandleRxFifo:000000000000011e .L102
-     /tmp/ccWEUqiN.s:683    .text.elyRFDLLHandleRxFifo:00000000000000f8 .L103
-     /tmp/ccWEUqiN.s:655    .text.elyRFDLLHandleRxFifo:00000000000000a6 .L107
-     /tmp/ccWEUqiN.s:735    .text.elyRFDLLTxInit:000000000000002e .L109
-     /tmp/ccWEUqiN.s:741    .text.elyRFDLLTxInit:0000000000000046 .L111
-     /tmp/ccWEUqiN.s:800    .text.elyRFDLLHandleTxFifo:000000000000001a .L117
+     /tmp/cc65NKcs.s:215    .text.elyRFDLLClampReg:00000000000000e4 .L19
+     /tmp/cc65NKcs.s:200    .text.elyRFDLLClampReg:00000000000000b8 .L18
+     /tmp/cc65NKcs.s:222    .text.elyRFDLLClampReg:00000000000000fc .L20
+     /tmp/cc65NKcs.s:229    .text.elyRFDLLClampReg:0000000000000114 .L21
+     /tmp/cc65NKcs.s:236    .text.elyRFDLLClampReg:000000000000012c .L22
+     /tmp/cc65NKcs.s:243    .text.elyRFDLLClampReg:0000000000000144 .L23
+     /tmp/cc65NKcs.s:341    .text.elyRFDLLBuildFrame:0000000000000114 .L78
+     /tmp/cc65NKcs.s:311    .text.elyRFDLLBuildFrame:00000000000000a8 .L60
+     /tmp/cc65NKcs.s:344    .text.elyRFDLLBuildFrame:000000000000011a .L76
+     /tmp/cc65NKcs.s:333    .text.elyRFDLLBuildFrame:0000000000000102 .L77
+     /tmp/cc65NKcs.s:321    .text.elyRFDLLBuildFrame:00000000000000d4 .L59
+     /tmp/cc65NKcs.s:355    .text.elyRFDLLBuildFrame:000000000000014c .L63
+     /tmp/cc65NKcs.s:414    .text.elyRFDLLBuildFrame:0000000000000236 .L64
+     /tmp/cc65NKcs.s:444    .text.elyRFDLLBuildFrame:00000000000002a4 .L82
+     /tmp/cc65NKcs.s:352    .text.elyRFDLLBuildFrame:0000000000000142 .L66
+     /tmp/cc65NKcs.s:326    .text.elyRFDLLBuildFrame:00000000000000e6 .L61
+     /tmp/cc65NKcs.s:405    .text.elyRFDLLBuildFrame:0000000000000214 .L68
+     /tmp/cc65NKcs.s:370    .text.elyRFDLLBuildFrame:000000000000018e .L69
+     /tmp/cc65NKcs.s:400    .text.elyRFDLLBuildFrame:0000000000000206 .L70
+     /tmp/cc65NKcs.s:396    .text.elyRFDLLBuildFrame:00000000000001fc .L71
+     /tmp/cc65NKcs.s:381    .text.elyRFDLLBuildFrame:00000000000001ba .L72
+     /tmp/cc65NKcs.s:439    .text.elyRFDLLBuildFrame:0000000000000292 .L73
+     /tmp/cc65NKcs.s:431    .text.elyRFDLLBuildFrame:0000000000000276 .L75
+     /tmp/cc65NKcs.s:425    .text.elyRFDLLBuildFrame:000000000000025e .L83
+     /tmp/cc65NKcs.s:493    .text.packet_callback:0000000000000058 .L85
+     /tmp/cc65NKcs.s:477    .text.packet_callback:0000000000000032 .L86
+     /tmp/cc65NKcs.s:484    .text.packet_callback:0000000000000048 .L88
+     /tmp/cc65NKcs.s:525    .text.header_callback:0000000000000012 .L90
+     /tmp/cc65NKcs.s:540    .text.header_callback:000000000000004c .L91
+     /tmp/cc65NKcs.s:667    .text.elyRFDLLHandleRxFifo:00000000000000c4 .L97
+     /tmp/cc65NKcs.s:617    .text.elyRFDLLHandleRxFifo:000000000000003a .L98
+     /tmp/cc65NKcs.s:626    .text.elyRFDLLHandleRxFifo:0000000000000048 .L99
+     /tmp/cc65NKcs.s:647    .text.elyRFDLLHandleRxFifo:000000000000008a .L101
+     /tmp/cc65NKcs.s:620    .text.elyRFDLLHandleRxFifo:0000000000000040 .L96
+     /tmp/cc65NKcs.s:699    .text.elyRFDLLHandleRxFifo:0000000000000132 .L102
+     /tmp/cc65NKcs.s:688    .text.elyRFDLLHandleRxFifo:000000000000010c .L103
+     /tmp/cc65NKcs.s:659    .text.elyRFDLLHandleRxFifo:00000000000000b8 .L107
+     /tmp/cc65NKcs.s:740    .text.elyRFDLLTxInit:000000000000002e .L109
+     /tmp/cc65NKcs.s:746    .text.elyRFDLLTxInit:0000000000000046 .L111
+     /tmp/cc65NKcs.s:805    .text.elyRFDLLHandleTxFifo:000000000000001a .L117
 
 UNDEFINED SYMBOLS
 rf_thd
@@ -1262,7 +1269,7 @@ rf_mbox
 chMBFetch
 elyNLGetLength
 elyNLFreeBufferChecked
-GAS LISTING /tmp/ccWEUqiN.s 			page 23
+GAS LISTING /tmp/cc65NKcs.s 			page 23
 
 
 crcGenSDLP

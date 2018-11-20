@@ -248,10 +248,13 @@ uint8_t rfic_pow_to_reg(int16_t pow) {
 
 void __attribute__((weak)) elyRFChangeTxPowerS(SX1278Config * cfg) {
 
-  int16_t prog_pow = 100 + 2 * bank0p[RegOutputPower];
+  /*int16_t prog_pow = 100 + 2 * bank0p[RegOutputPower];
   int16_t rfic_pow = prog_pow - 300 + (FIXED_ATTEN*10);
   cfg->pow = rfic_pow_to_reg(rfic_pow);
-
+  What the actual heck....*/
+  //cfg->pow = 0;
+  //cfg->pow = 68; //0b010001011: bit7 = 0, RFO pins, bit6-4 = 0b100 = 4, MaxPower of 13.2, bit3-0: 0b1011 = 11, Sets Pout to about 9
+  cfg->pow = 127; //Maxed everything out...
   /* This is reasonably fast because I made it kind of sloppy */
   sx1278SetPower(&SX1278D1, cfg->pow);
 }

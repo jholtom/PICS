@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccE6EIlI.s 			page 1
+GAS LISTING /tmp/ccTYDOZd.s 			page 1
 
 
    1               		.file	"sx1278.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccE6EIlI.s 			page 1
   50               	; framesize_locals:   0
   51               	; framesize_outgoing: 0
   52               	; framesize:          0
-GAS LISTING /tmp/ccE6EIlI.s 			page 2
+GAS LISTING /tmp/ccTYDOZd.s 			page 2
 
 
   53               	; elim ap -> fp       4
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccE6EIlI.s 			page 1
  101      FF0F 
  102 005a 194A 0200 		MOV.W	2(R10), R9
  103 005e 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
-GAS LISTING /tmp/ccE6EIlI.s 			page 3
+GAS LISTING /tmp/ccTYDOZd.s 			page 3
 
 
  103      3C41 4018 
@@ -178,7 +178,7 @@ GAS LISTING /tmp/ccE6EIlI.s 			page 1
  151 0006 39B0 7F00 		BIT.W	#127, R9 { JNE	.L10
  151      0020 
  152 000c 8C00 0000 		MOVA	#__func__.4986, R12
-GAS LISTING /tmp/ccE6EIlI.s 			page 4
+GAS LISTING /tmp/ccTYDOZd.s 			page 4
 
 
  153 0010 B013 0000 		CALLA	#chSysHalt
@@ -238,7 +238,7 @@ GAS LISTING /tmp/ccE6EIlI.s 			page 1
  199               	; start of function
  200               	; framesize_regs:     28
  201               	; framesize_locals:   4
-GAS LISTING /tmp/ccE6EIlI.s 			page 5
+GAS LISTING /tmp/ccTYDOZd.s 			page 5
 
 
  202               	; framesize_outgoing: 0
@@ -298,7 +298,7 @@ GAS LISTING /tmp/ccE6EIlI.s 			page 1
  253 008a 3A53      		ADD.W	#-1, R10
  254 008c 5A03 4D18 		rrum.w	#1, R10 { rpt	#14 { rrax.w	R10
  254      0A11 
-GAS LISTING /tmp/ccE6EIlI.s 			page 6
+GAS LISTING /tmp/ccTYDOZd.s 			page 6
 
 
  255               	.L25:
@@ -358,7 +358,7 @@ GAS LISTING /tmp/ccE6EIlI.s 			page 1
  303 0118 0018 7EF0 		ANDX.A	#4095, R14
  303      FF0F 
  304 011e 2A4E      		MOV.W	@R14, R10
-GAS LISTING /tmp/ccE6EIlI.s 			page 7
+GAS LISTING /tmp/ccTYDOZd.s 			page 7
 
 
  305 0120 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
@@ -418,7 +418,7 @@ GAS LISTING /tmp/ccE6EIlI.s 			page 1
  348               		.type	sx1278SetRegister, @function
  349               	sx1278SetRegister:
  350               	; start of function
-GAS LISTING /tmp/ccE6EIlI.s 			page 8
+GAS LISTING /tmp/ccTYDOZd.s 			page 8
 
 
  351               	; framesize_regs:     24
@@ -478,7 +478,7 @@ GAS LISTING /tmp/ccE6EIlI.s 			page 1
  397 007c 494C      		MOV.B	R12, R9
  398 007e 0C0A      		MOVA	@R10, R12
  399 0080 3C0C 2200 		MOVA	34(R12), R12
-GAS LISTING /tmp/ccE6EIlI.s 			page 9
+GAS LISTING /tmp/ccTYDOZd.s 			page 9
 
 
  400 0084 CA0C      		MOVA	R12, R10
@@ -538,7 +538,7 @@ GAS LISTING /tmp/ccE6EIlI.s 			page 1
  450               	; framesize_outgoing: 0
  451               	; framesize:          20
  452               	; elim ap -> fp       24
-GAS LISTING /tmp/ccE6EIlI.s 			page 10
+GAS LISTING /tmp/ccTYDOZd.s 			page 10
 
 
  453               	; elim fp -> sp       0
@@ -598,7 +598,7 @@ GAS LISTING /tmp/ccE6EIlI.s 			page 1
  507               	; elim ap -> fp       24
  508               	; elim fp -> sp       0
  509               	; saved regs: R6 R7 R8 R9 R10
-GAS LISTING /tmp/ccE6EIlI.s 			page 11
+GAS LISTING /tmp/ccTYDOZd.s 			page 11
 
 
  510               		; start of prologue
@@ -658,7 +658,7 @@ GAS LISTING /tmp/ccE6EIlI.s 			page 1
  564               		; end of prologue
  565 0002 CA0C      		MOVA	R12, R10
  566 0004 084D      		MOV.W	R13, R8
-GAS LISTING /tmp/ccE6EIlI.s 			page 12
+GAS LISTING /tmp/ccTYDOZd.s 			page 12
 
 
  567 0006 054E      		MOV.W	R14, R5
@@ -718,7 +718,7 @@ GAS LISTING /tmp/ccE6EIlI.s 			page 1
  620 00a2 CC0A      		MOVA	R10, R12
  621 00a4 4813      		CALLA	R8
  622 00a6 4E43      		MOV.B	#0, R14
-GAS LISTING /tmp/ccE6EIlI.s 			page 13
+GAS LISTING /tmp/ccTYDOZd.s 			page 13
 
 
  623 00a8 7D42      		MOV.B	#8, R13
@@ -770,1005 +770,1001 @@ GAS LISTING /tmp/ccE6EIlI.s 			page 1
  669               		.type	sx1278SetFilterParams, @function
  670               	sx1278SetFilterParams:
  671               	; start of function
- 672               	; framesize_regs:     8
+ 672               	; framesize_regs:     4
  673               	; framesize_locals:   0
  674               	; framesize_outgoing: 0
- 675               	; framesize:          8
- 676               	; elim ap -> fp       12
+ 675               	; framesize:          4
+ 676               	; elim ap -> fp       8
  677               	; elim fp -> sp       0
- 678               	; saved regs: R8 R10
+ 678               	; saved regs: R10
  679               		; start of prologue
-GAS LISTING /tmp/ccE6EIlI.s 			page 14
+GAS LISTING /tmp/ccTYDOZd.s 			page 14
 
 
  680 0000 0A14      		PUSHM.A	#1, R10
- 681 0002 0814      		PUSHM.A	#1, R8
- 682               		; end of prologue
- 683 0004 C80C      		MOVA	R12, R8
- 684 0006 4A4D      		MOV.B	R13, R10
- 685 0008 7C40 0300 		MOV.B	#3, R12
- 686 000c 4C9A 002C 		CMP.B	R10, R12 { JHS	.L63
- 687 0010 8C00 0000 		MOVA	#__func__.5035, R12
- 688 0014 B013 0000 		CALLA	#chSysHalt
- 689               	.L63:
- 690 0018 0E4A      		MOV.W	R10, R14
- 691 001a 4418 0E5E 		rpt	#5 { rlax.w	R14
- 692 001e 7D40 0A00 		MOV.B	#10, R13
- 693 0022 CC08      		MOVA	R8, R12
- 694 0024 B013 0000 		CALLA	#sx1278SetRegister
- 695               		; start of epilogue
- 696 0028 0816      		POPM.A	#1, r8
- 697 002a 0A16      		POPM.A	#1, r10
- 698 002c 1001      		RETA
- 699               		.size	sx1278SetFilterParams, .-sx1278SetFilterParams
- 700               		.section	.text.sx1278SetSync,"ax",@progbits
- 701               		.balign 2
- 702               		.global	sx1278SetSync
- 703               		.type	sx1278SetSync, @function
- 704               	sx1278SetSync:
- 705               	; start of function
- 706               	; framesize_regs:     28
- 707               	; framesize_locals:   0
- 708               	; framesize_outgoing: 0
- 709               	; framesize:          28
- 710               	; elim ap -> fp       32
- 711               	; elim fp -> sp       0
- 712               	; saved regs: R4 R5 R6 R7 R8 R9 R10
- 713               		; start of prologue
- 714 0000 6A14      		PUSHM.A	#7, R10
- 715               		; end of prologue
- 716 0002 C40C      		MOVA	R12, R4
- 717 0004 094D      		MOV.W	R13, R9
- 718 0006 074E      		MOV.W	R14, R7
- 719 0008 0DDE      		BIS.W	R14, R13
- 720 000a 0D93 0024 		CMP.W	#0, R13 { JEQ	.L64
- 721 000e 0E0C      		MOVA	@R12, R14
- 722 0010 3E0E 2600 		MOVA	38(R14), R14
- 723 0014 6E4E      		MOV.B	@R14, R14
- 724 0016 7EF0 2000 		AND.B	#32, R14
- 725 001a 8800 0000 		MOVA	#sx1278SetRegister, R8
- 726 001e 7ED0 93FF 		BIS.B	#-109, R14
- 727 0022 7D40 2700 		MOV.B	#39, R13
- 728 0026 4813      		CALLA	R8
- 729 0028 7A40 2800 		MOV.B	#40, R10
- 730 002c 7640 1800 		MOV.B	#24, R6
- 731 0030 8800 0000 		MOVA	#chSysHalt, R8
- 732               	.L67:
- 733 0034 0C49      		MOV.W	R9, R12
- 734 0036 0D47      		MOV.W	R7, R13
- 735 0038 0E46 0F43 		MOV.W	R6,R14 { MOV.W	#0,R15
- 736 003c B013 0000 		CALLA	#__mspabi_srll
-GAS LISTING /tmp/ccE6EIlI.s 			page 15
+ 681               		; end of prologue
+ 682 0002 CA0C      		MOVA	R12, R10
+ 683 0004 7C40 0300 		MOV.B	#3, R12
+ 684 0008 4C9D 002C 		CMP.B	R13, R12 { JHS	.L63
+ 685 000c 8C00 0000 		MOVA	#__func__.5035, R12
+ 686 0010 B013 0000 		CALLA	#chSysHalt
+ 687               	.L63:
+ 688 0014 7E40 6F00 		MOV.B	#111, R14
+ 689 0018 7D40 0A00 		MOV.B	#10, R13
+ 690 001c CC0A      		MOVA	R10, R12
+ 691 001e B013 0000 		CALLA	#sx1278SetRegister
+ 692               		; start of epilogue
+ 693 0022 0A16      		POPM.A	#1, r10
+ 694 0024 1001      		RETA
+ 695               		.size	sx1278SetFilterParams, .-sx1278SetFilterParams
+ 696               		.section	.text.sx1278SetSync,"ax",@progbits
+ 697               		.balign 2
+ 698               		.global	sx1278SetSync
+ 699               		.type	sx1278SetSync, @function
+ 700               	sx1278SetSync:
+ 701               	; start of function
+ 702               	; framesize_regs:     28
+ 703               	; framesize_locals:   0
+ 704               	; framesize_outgoing: 0
+ 705               	; framesize:          28
+ 706               	; elim ap -> fp       32
+ 707               	; elim fp -> sp       0
+ 708               	; saved regs: R4 R5 R6 R7 R8 R9 R10
+ 709               		; start of prologue
+ 710 0000 6A14      		PUSHM.A	#7, R10
+ 711               		; end of prologue
+ 712 0002 C40C      		MOVA	R12, R4
+ 713 0004 094D      		MOV.W	R13, R9
+ 714 0006 074E      		MOV.W	R14, R7
+ 715 0008 0DDE      		BIS.W	R14, R13
+ 716 000a 0D93 0024 		CMP.W	#0, R13 { JEQ	.L64
+ 717 000e 0E0C      		MOVA	@R12, R14
+ 718 0010 3E0E 2600 		MOVA	38(R14), R14
+ 719 0014 6E4E      		MOV.B	@R14, R14
+ 720 0016 7EF0 2000 		AND.B	#32, R14
+ 721 001a 8800 0000 		MOVA	#sx1278SetRegister, R8
+ 722 001e 7ED0 93FF 		BIS.B	#-109, R14
+ 723 0022 7D40 2700 		MOV.B	#39, R13
+ 724 0026 4813      		CALLA	R8
+ 725 0028 7A40 2800 		MOV.B	#40, R10
+ 726 002c 7640 1800 		MOV.B	#24, R6
+ 727 0030 8800 0000 		MOVA	#chSysHalt, R8
+ 728               	.L67:
+ 729 0034 0C49      		MOV.W	R9, R12
+ 730 0036 0D47      		MOV.W	R7, R13
+ 731 0038 0E46 0F43 		MOV.W	R6,R14 { MOV.W	#0,R15
+ 732 003c B013 0000 		CALLA	#__mspabi_srll
+ 733 0040 054C      		MOV.W	R12, R5
+ 734 0042 4C93 0020 		CMP.B	#0, R12 { JNE	.L66
+ 735 0046 8C00 0000 		MOVA	#__func__.5045, R12
+ 736 004a 4813      		CALLA	R8
+GAS LISTING /tmp/ccTYDOZd.s 			page 15
 
 
- 737 0040 054C      		MOV.W	R12, R5
- 738 0042 4C93 0020 		CMP.B	#0, R12 { JNE	.L66
- 739 0046 8C00 0000 		MOVA	#__func__.5045, R12
- 740 004a 4813      		CALLA	R8
- 741               	.L66:
- 742 004c 4E45      		MOV.B	R5, R14
- 743 004e 4D4A      		MOV.B	R10, R13
- 744 0050 CC04      		MOVA	R4, R12
- 745 0052 B013 0000 		CALLA	#sx1278SetRegister
- 746 0056 3650 F8FF 		ADD.W	#-8, R6
- 747 005a 4C4A      		MOV.B	R10, R12
- 748 005c 5C53      		ADD.B	#1, R12
- 749 005e 4A4C      		MOV.B	R12, R10
- 750 0060 7C90 2C00 		CMP.B	#44, R12 { JNE	.L67
- 750      0020 
- 751               	.L64:
- 752               		; start of epilogue
- 753 0066 6416      		POPM.A	#7, r10
- 754 0068 1001      		RETA
- 755               		.size	sx1278SetSync, .-sx1278SetSync
- 756               		.section	.text.sx1278ObjectInit,"ax",@progbits
- 757               		.balign 2
- 758               		.global	sx1278ObjectInit
- 759               		.type	sx1278ObjectInit, @function
- 760               	sx1278ObjectInit:
- 761               	; start of function
- 762               	; framesize_regs:     0
- 763               	; framesize_locals:   0
- 764               	; framesize_outgoing: 0
- 765               	; framesize:          0
- 766               	; elim ap -> fp       4
- 767               	; elim fp -> sp       0
- 768               	; saved regs:(none)
- 769               		; start of prologue
- 770               		; end of prologue
- 771 0000 FC40 0900 		MOV.B	#9, 5(R12)
- 771      0500 
- 772 0006 CC43 0600 		MOV.B	#0, 6(R12)
- 773 000a DC43 0400 		MOV.B	#1, 4(R12)
- 774               		; start of epilogue
- 775 000e 1001      		RETA
- 776               		.size	sx1278ObjectInit, .-sx1278ObjectInit
- 777               		.section	.text.sx1278Start,"ax",@progbits
- 778               		.balign 2
- 779               		.global	sx1278Start
- 780               		.type	sx1278Start, @function
- 781               	sx1278Start:
- 782               	; start of function
- 783               	; framesize_regs:     16
- 784               	; framesize_locals:   0
- 785               	; framesize_outgoing: 0
- 786               	; framesize:          16
- 787               	; elim ap -> fp       20
- 788               	; elim fp -> sp       0
- 789               	; saved regs: R6 R8 R9 R10
- 790               		; start of prologue
- 791 0000 2A14      		PUSHM.A	#3, R10
-GAS LISTING /tmp/ccE6EIlI.s 			page 16
+ 737               	.L66:
+ 738 004c 4E45      		MOV.B	R5, R14
+ 739 004e 4D4A      		MOV.B	R10, R13
+ 740 0050 CC04      		MOVA	R4, R12
+ 741 0052 B013 0000 		CALLA	#sx1278SetRegister
+ 742 0056 3650 F8FF 		ADD.W	#-8, R6
+ 743 005a 4C4A      		MOV.B	R10, R12
+ 744 005c 5C53      		ADD.B	#1, R12
+ 745 005e 4A4C      		MOV.B	R12, R10
+ 746 0060 7C90 2C00 		CMP.B	#44, R12 { JNE	.L67
+ 746      0020 
+ 747               	.L64:
+ 748               		; start of epilogue
+ 749 0066 6416      		POPM.A	#7, r10
+ 750 0068 1001      		RETA
+ 751               		.size	sx1278SetSync, .-sx1278SetSync
+ 752               		.section	.text.sx1278ObjectInit,"ax",@progbits
+ 753               		.balign 2
+ 754               		.global	sx1278ObjectInit
+ 755               		.type	sx1278ObjectInit, @function
+ 756               	sx1278ObjectInit:
+ 757               	; start of function
+ 758               	; framesize_regs:     0
+ 759               	; framesize_locals:   0
+ 760               	; framesize_outgoing: 0
+ 761               	; framesize:          0
+ 762               	; elim ap -> fp       4
+ 763               	; elim fp -> sp       0
+ 764               	; saved regs:(none)
+ 765               		; start of prologue
+ 766               		; end of prologue
+ 767 0000 FC40 0900 		MOV.B	#9, 5(R12)
+ 767      0500 
+ 768 0006 CC43 0600 		MOV.B	#0, 6(R12)
+ 769 000a DC43 0400 		MOV.B	#1, 4(R12)
+ 770               		; start of epilogue
+ 771 000e 1001      		RETA
+ 772               		.size	sx1278ObjectInit, .-sx1278ObjectInit
+ 773               		.section	.text.sx1278Start,"ax",@progbits
+ 774               		.balign 2
+ 775               		.global	sx1278Start
+ 776               		.type	sx1278Start, @function
+ 777               	sx1278Start:
+ 778               	; start of function
+ 779               	; framesize_regs:     16
+ 780               	; framesize_locals:   0
+ 781               	; framesize_outgoing: 0
+ 782               	; framesize:          16
+ 783               	; elim ap -> fp       20
+ 784               	; elim fp -> sp       0
+ 785               	; saved regs: R6 R8 R9 R10
+ 786               		; start of prologue
+ 787 0000 2A14      		PUSHM.A	#3, R10
+ 788 0002 0614      		PUSHM.A	#1, R6
+ 789               		; end of prologue
+ 790 0004 CA0C      		MOVA	R12, R10
+ 791 0006 C80D      		MOVA	R13, R8
+GAS LISTING /tmp/ccTYDOZd.s 			page 16
 
 
- 792 0002 0614      		PUSHM.A	#1, R6
- 793               		; end of prologue
- 794 0004 CA0C      		MOVA	R12, R10
- 795 0006 C80D      		MOVA	R13, R8
- 796 0008 7A0D 0000 		MOVA	R13, @R10
- 797 000c B013 0000 		CALLA	#sx1278Reset.isra.0
- 798 0010 3D08 0400 		MOVA	4(R8), R13
- 799 0014 0018 FD40 		MOVX.A	#spi_callback, @R13
- 799      0000 0000 
- 800 001c 0C08      		MOVA	@R8, R12
- 801 001e B013 0000 		CALLA	#spiStart
- 802 0022 CC0A      		MOVA	R10, R12
- 803 0024 B013 0000 		CALLA	#sx1278SetMode.constprop.3
- 804 0028 1D48 0C00 		MOV.W	12(R8), R13
- 805 002c 1E48 0E00 		MOV.W	14(R8), R14
- 806 0030 CC0A      		MOVA	R10, R12
- 807 0032 B013 0000 		CALLA	#sx1278SetFrequency
- 808 0036 1D48 1000 		MOV.W	16(R8), R13
- 809 003a 1E48 1200 		MOV.W	18(R8), R14
- 810 003e CC0A      		MOVA	R10, R12
- 811 0040 B013 0000 		CALLA	#sx1278SetDeviation
- 812 0044 1D48 0800 		MOV.W	8(R8), R13
- 813 0048 1E48 0A00 		MOV.W	10(R8), R14
- 814 004c CC0A      		MOVA	R10, R12
- 815 004e B013 0000 		CALLA	#sx1278SetBitrate
- 816 0052 5D48 1500 		MOV.B	21(R8), R13
- 817 0056 CC0A      		MOVA	R10, R12
- 818 0058 B013 0000 		CALLA	#sx1278SetPower
- 819 005c 1948 1600 		MOV.W	22(R8), R9
- 820 0060 8600 0000 		MOVA	#sx1278SetRegister, R6
- 821 0064 0E49      		MOV.W	R9, R14
- 822 0066 5E0F 5E0F 		rrum.w	#4, R14 { rrum.w	#4, R14 
- 823 006a 7D40 2500 		MOV.B	#37, R13
- 824 006e CC0A      		MOVA	R10, R12
- 825 0070 4613      		CALLA	R6
- 826 0072 4E49      		MOV.B	R9, R14
- 827 0074 7D40 2600 		MOV.B	#38, R13
- 828 0078 CC0A      		MOVA	R10, R12
- 829 007a 4613      		CALLA	R6
- 830 007c 1D48 1800 		MOV.W	24(R8), R13
- 831 0080 1E48 1A00 		MOV.W	26(R8), R14
- 832 0084 CC0A      		MOVA	R10, R12
- 833 0086 B013 0000 		CALLA	#sx1278SetSync
- 834 008a FA40 1800 		MOV.B	#24, 6(R10)
- 834      0600 
- 835 0090 7E40 1800 		MOV.B	#24, R14
- 836 0094 7D40 3600 		MOV.B	#54, R13
- 837 0098 CC0A      		MOVA	R10, R12
- 838 009a 4613      		CALLA	R6
- 839 009c 0C0A      		MOVA	@R10, R12
- 840 009e 380C 2600 		MOVA	38(R12), R8
- 841 00a2 6C48      		MOV.B	@R8, R12
- 842 00a4 4D4C      		MOV.B	R12, R13
- 843 00a6 7DF0 0300 		AND.B	#3, R13
- 844 00aa 5D93 0024 		CMP.B	#1, R13 { JEQ	.L82
- 845 00ae 4943      		MOV.B	#0, R9
- 846               	.L72:
-GAS LISTING /tmp/ccE6EIlI.s 			page 17
+ 792 0008 7A0D 0000 		MOVA	R13, @R10
+ 793 000c B013 0000 		CALLA	#sx1278Reset.isra.0
+ 794 0010 3D08 0400 		MOVA	4(R8), R13
+ 795 0014 0018 FD40 		MOVX.A	#spi_callback, @R13
+ 795      0000 0000 
+ 796 001c 0C08      		MOVA	@R8, R12
+ 797 001e B013 0000 		CALLA	#spiStart
+ 798 0022 CC0A      		MOVA	R10, R12
+ 799 0024 B013 0000 		CALLA	#sx1278SetMode.constprop.3
+ 800 0028 1D48 0C00 		MOV.W	12(R8), R13
+ 801 002c 1E48 0E00 		MOV.W	14(R8), R14
+ 802 0030 CC0A      		MOVA	R10, R12
+ 803 0032 B013 0000 		CALLA	#sx1278SetFrequency
+ 804 0036 1D48 1000 		MOV.W	16(R8), R13
+ 805 003a 1E48 1200 		MOV.W	18(R8), R14
+ 806 003e CC0A      		MOVA	R10, R12
+ 807 0040 B013 0000 		CALLA	#sx1278SetDeviation
+ 808 0044 1D48 0800 		MOV.W	8(R8), R13
+ 809 0048 1E48 0A00 		MOV.W	10(R8), R14
+ 810 004c CC0A      		MOVA	R10, R12
+ 811 004e B013 0000 		CALLA	#sx1278SetBitrate
+ 812 0052 5D48 1500 		MOV.B	21(R8), R13
+ 813 0056 CC0A      		MOVA	R10, R12
+ 814 0058 B013 0000 		CALLA	#sx1278SetPower
+ 815 005c 1948 1600 		MOV.W	22(R8), R9
+ 816 0060 8600 0000 		MOVA	#sx1278SetRegister, R6
+ 817 0064 0E49      		MOV.W	R9, R14
+ 818 0066 5E0F 5E0F 		rrum.w	#4, R14 { rrum.w	#4, R14 
+ 819 006a 7D40 2500 		MOV.B	#37, R13
+ 820 006e CC0A      		MOVA	R10, R12
+ 821 0070 4613      		CALLA	R6
+ 822 0072 4E49      		MOV.B	R9, R14
+ 823 0074 7D40 2600 		MOV.B	#38, R13
+ 824 0078 CC0A      		MOVA	R10, R12
+ 825 007a 4613      		CALLA	R6
+ 826 007c 1D48 1800 		MOV.W	24(R8), R13
+ 827 0080 1E48 1A00 		MOV.W	26(R8), R14
+ 828 0084 CC0A      		MOVA	R10, R12
+ 829 0086 B013 0000 		CALLA	#sx1278SetSync
+ 830 008a FA40 1800 		MOV.B	#24, 6(R10)
+ 830      0600 
+ 831 0090 7E40 1800 		MOV.B	#24, R14
+ 832 0094 7D40 3600 		MOV.B	#54, R13
+ 833 0098 CC0A      		MOVA	R10, R12
+ 834 009a 4613      		CALLA	R6
+ 835 009c 0C0A      		MOVA	@R10, R12
+ 836 009e 380C 2600 		MOVA	38(R12), R8
+ 837 00a2 6C48      		MOV.B	@R8, R12
+ 838 00a4 4D4C      		MOV.B	R12, R13
+ 839 00a6 7DF0 0300 		AND.B	#3, R13
+ 840 00aa 5D93 0024 		CMP.B	#1, R13 { JEQ	.L82
+ 841 00ae 4943      		MOV.B	#0, R9
+ 842               	.L72:
+ 843 00b0 7CF0 0C00 		AND.B	#12, R12
+ 844 00b4 7C90 0C00 		CMP.B	#12, R12 { JNE	.L73
+ 844      0020 
+ 845 00ba 8C00 0000 		MOVA	#__func__.5078, R12
+GAS LISTING /tmp/ccTYDOZd.s 			page 17
 
 
- 847 00b0 7CF0 0C00 		AND.B	#12, R12
- 848 00b4 7C90 0C00 		CMP.B	#12, R12 { JNE	.L73
- 848      0020 
- 849 00ba 8C00 0000 		MOVA	#__func__.5078, R12
- 850 00be B013 0000 		CALLA	#chSysHalt
- 851               	.L73:
- 852 00c2 6D48      		MOV.B	@R8, R13
- 853 00c4 0C4D      		MOV.W	R13, R12
- 854 00c6 4318 0C5C 		rpt	#4 { rlax.w	R12
- 855 00ca 7CF0 4000 		AND.B	#64, R12
- 856 00ce 0E4D      		MOV.W	R13, R14
- 857 00d0 4118 0E5E 		rpt	#2 { rlax.w	R14
- 858 00d4 7EF0 2000 		AND.B	#32, R14
- 859 00d8 4CDE      		BIS.B	R14, R12
- 860 00da 0E4D      		MOV.W	R13, R14
- 861 00dc 7EF0 1000 		AND.B	#16, R14
- 862 00e0 4EDC      		BIS.B	R12, R14
- 863 00e2 4ED9      		BIS.B	R9, R14
- 864 00e4 7D40 3000 		MOV.B	#48, R13
- 865 00e8 CC0A      		MOVA	R10, R12
- 866 00ea 4613      		CALLA	R6
- 867 00ec 6C48      		MOV.B	@R8, R12
- 868 00ee 7CF0 0300 		AND.B	#3, R12
- 869 00f2 4C93 0020 		CMP.B	#0, R12 { JNE	.L74
- 870 00f6 0C0A      		MOVA	@R10, R12
- 871 00f8 1C4C 2C00 		MOV.W	44(R12), R12
- 872 00fc B013 0000 		CALLA	#__mspabi_srli_8
- 873 0100 4E4C      		MOV.B	R12, R14
- 874 0102 7ED0 4000 		BIS.B	#64, R14
- 875 0106 7D40 3100 		MOV.B	#49, R13
- 876 010a CC0A      		MOVA	R10, R12
- 877 010c 4613      		CALLA	R6
- 878 010e 0C0A      		MOVA	@R10, R12
- 879 0110 5E4C 2C00 		MOV.B	44(R12), R14
- 880               	.L85:
- 881 0114 7D40 3200 		MOV.B	#50, R13
- 882 0118 CC0A      		MOVA	R10, R12
- 883 011a 4613      		CALLA	R6
- 884 011c 080A      		MOVA	@R10, R8
- 885 011e 5C48 1C00 		MOV.B	28(R8), R12
- 886 0122 7D40 0500 		MOV.B	#5, R13
- 887 0126 4D9C 0028 		CMP.B	R12, R13 { JLO	.L76
- 888 012a 0C93 0024 		CMP.W	#0, R12 { JEQ	.L76
- 889 012e 8C00 0000 		MOVA	#__func__.5066, R12
- 890 0132 B013 0000 		CALLA	#chSysHalt
- 891               	.L76:
- 892 0136 5C48 1D00 		MOV.B	29(R8), R12
- 893 013a 7D40 0500 		MOV.B	#5, R13
- 894 013e 4D9C 0028 		CMP.B	R12, R13 { JLO	.L79
- 895 0142 1C93 0024 		CMP.W	#1, R12 { JEQ	.L79
- 896 0146 8C00 0000 		MOVA	#__func__.5066, R12
- 897 014a B013 0000 		CALLA	#chSysHalt
- 898               	.L79:
- 899 014e 4E43      		MOV.B	#0, R14
- 900 0150 7D40 4000 		MOV.B	#64, R13
- 901 0154 CC0A      		MOVA	R10, R12
- 902 0156 4613      		CALLA	R6
-GAS LISTING /tmp/ccE6EIlI.s 			page 18
+ 846 00be B013 0000 		CALLA	#chSysHalt
+ 847               	.L73:
+ 848 00c2 6D48      		MOV.B	@R8, R13
+ 849 00c4 0C4D      		MOV.W	R13, R12
+ 850 00c6 4318 0C5C 		rpt	#4 { rlax.w	R12
+ 851 00ca 7CF0 4000 		AND.B	#64, R12
+ 852 00ce 0E4D      		MOV.W	R13, R14
+ 853 00d0 4118 0E5E 		rpt	#2 { rlax.w	R14
+ 854 00d4 7EF0 2000 		AND.B	#32, R14
+ 855 00d8 4CDE      		BIS.B	R14, R12
+ 856 00da 0E4D      		MOV.W	R13, R14
+ 857 00dc 7EF0 1000 		AND.B	#16, R14
+ 858 00e0 4EDC      		BIS.B	R12, R14
+ 859 00e2 4ED9      		BIS.B	R9, R14
+ 860 00e4 7D40 3000 		MOV.B	#48, R13
+ 861 00e8 CC0A      		MOVA	R10, R12
+ 862 00ea 4613      		CALLA	R6
+ 863 00ec 6C48      		MOV.B	@R8, R12
+ 864 00ee 7CF0 0300 		AND.B	#3, R12
+ 865 00f2 4C93 0020 		CMP.B	#0, R12 { JNE	.L74
+ 866 00f6 0C0A      		MOVA	@R10, R12
+ 867 00f8 1C4C 2C00 		MOV.W	44(R12), R12
+ 868 00fc B013 0000 		CALLA	#__mspabi_srli_8
+ 869 0100 4E4C      		MOV.B	R12, R14
+ 870 0102 7ED0 4000 		BIS.B	#64, R14
+ 871 0106 7D40 3100 		MOV.B	#49, R13
+ 872 010a CC0A      		MOVA	R10, R12
+ 873 010c 4613      		CALLA	R6
+ 874 010e 0C0A      		MOVA	@R10, R12
+ 875 0110 5E4C 2C00 		MOV.B	44(R12), R14
+ 876               	.L85:
+ 877 0114 7D40 3200 		MOV.B	#50, R13
+ 878 0118 CC0A      		MOVA	R10, R12
+ 879 011a 4613      		CALLA	R6
+ 880 011c 080A      		MOVA	@R10, R8
+ 881 011e 5C48 1C00 		MOV.B	28(R8), R12
+ 882 0122 7D40 0500 		MOV.B	#5, R13
+ 883 0126 4D9C 0028 		CMP.B	R12, R13 { JLO	.L76
+ 884 012a 0C93 0024 		CMP.W	#0, R12 { JEQ	.L76
+ 885 012e 8C00 0000 		MOVA	#__func__.5066, R12
+ 886 0132 B013 0000 		CALLA	#chSysHalt
+ 887               	.L76:
+ 888 0136 5C48 1D00 		MOV.B	29(R8), R12
+ 889 013a 7D40 0500 		MOV.B	#5, R13
+ 890 013e 4D9C 0028 		CMP.B	R12, R13 { JLO	.L79
+ 891 0142 1C93 0024 		CMP.W	#1, R12 { JEQ	.L79
+ 892 0146 8C00 0000 		MOVA	#__func__.5066, R12
+ 893 014a B013 0000 		CALLA	#chSysHalt
+ 894               	.L79:
+ 895 014e 4E43      		MOV.B	#0, R14
+ 896 0150 7D40 4000 		MOV.B	#64, R13
+ 897 0154 CC0A      		MOVA	R10, R12
+ 898 0156 4613      		CALLA	R6
+ 899 0158 7E40 4000 		MOV.B	#64, R14
+ 900 015c 7D40 4100 		MOV.B	#65, R13
+ 901 0160 CC0A      		MOVA	R10, R12
+ 902 0162 4613      		CALLA	R6
+GAS LISTING /tmp/ccTYDOZd.s 			page 18
 
 
- 903 0158 7E40 4000 		MOV.B	#64, R14
- 904 015c 7D40 4100 		MOV.B	#65, R13
- 905 0160 CC0A      		MOVA	R10, R12
- 906 0162 4613      		CALLA	R6
- 907 0164 EA43 0400 		MOV.B	#2, 4(R10)
- 908               		; start of epilogue
- 909 0168 0616      		POPM.A	#1, r6
- 910 016a 2816      		POPM.A	#3, r10
- 911 016c 1001      		RETA
- 912               	.L82:
- 913 016e 7940 8000 		MOV.B	#128, R9
- 914 0172 8000 0000 		BRA	#.L72
- 915               	.L74:
- 916 0176 7E40 4000 		MOV.B	#64, R14
- 917 017a 7D40 3100 		MOV.B	#49, R13
- 918 017e CC0A      		MOVA	R10, R12
- 919 0180 4613      		CALLA	R6
- 920 0182 4E43      		MOV.B	#0, R14
- 921 0184 8000 0000 		BRA	#.L85
- 922               		.size	sx1278Start, .-sx1278Start
- 923               		.section	.text.sx1278Stop,"ax",@progbits
- 924               		.balign 2
- 925               		.global	sx1278Stop
- 926               		.type	sx1278Stop, @function
- 927               	sx1278Stop:
- 928               	; start of function
- 929               	; framesize_regs:     4
- 930               	; framesize_locals:   0
- 931               	; framesize_outgoing: 0
- 932               	; framesize:          4
- 933               	; elim ap -> fp       8
- 934               	; elim fp -> sp       0
- 935               	; saved regs: R10
- 936               		; start of prologue
- 937 0000 0A14      		PUSHM.A	#1, R10
- 938               		; end of prologue
- 939 0002 CA0C      		MOVA	R12, R10
- 940 0004 B013 0000 		CALLA	#sx1278Reset.isra.0
- 941 0008 0C0A      		MOVA	@R10, R12
- 942 000a 3D0C 0400 		MOVA	4(R12), R13
- 943 000e 0C0C      		MOVA	@R12, R12
- 944 0010 B013 0000 		CALLA	#spiStart
- 945 0014 CC0A      		MOVA	R10, R12
- 946 0016 B013 0000 		CALLA	#sx1278SetMode.constprop.3
- 947 001a FA40 0900 		MOV.B	#9, 5(R10)
- 947      0500 
- 948 0020 0C0A      		MOVA	@R10, R12
- 949 0022 0C0C      		MOVA	@R12, R12
- 950 0024 B013 0000 		CALLA	#spiStop
- 951 0028 DA43 0400 		MOV.B	#1, 4(R10)
- 952               		; start of epilogue
- 953 002c 0A16      		POPM.A	#1, r10
- 954 002e 1001      		RETA
- 955               		.size	sx1278Stop, .-sx1278Stop
- 956               		.section	.text.sx1278Sleep,"ax",@progbits
- 957               		.balign 2
- 958               		.global	sx1278Sleep
-GAS LISTING /tmp/ccE6EIlI.s 			page 19
+ 903 0164 EA43 0400 		MOV.B	#2, 4(R10)
+ 904               		; start of epilogue
+ 905 0168 0616      		POPM.A	#1, r6
+ 906 016a 2816      		POPM.A	#3, r10
+ 907 016c 1001      		RETA
+ 908               	.L82:
+ 909 016e 7940 8000 		MOV.B	#128, R9
+ 910 0172 8000 0000 		BRA	#.L72
+ 911               	.L74:
+ 912 0176 7E40 4000 		MOV.B	#64, R14
+ 913 017a 7D40 3100 		MOV.B	#49, R13
+ 914 017e CC0A      		MOVA	R10, R12
+ 915 0180 4613      		CALLA	R6
+ 916 0182 4E43      		MOV.B	#0, R14
+ 917 0184 8000 0000 		BRA	#.L85
+ 918               		.size	sx1278Start, .-sx1278Start
+ 919               		.section	.text.sx1278Stop,"ax",@progbits
+ 920               		.balign 2
+ 921               		.global	sx1278Stop
+ 922               		.type	sx1278Stop, @function
+ 923               	sx1278Stop:
+ 924               	; start of function
+ 925               	; framesize_regs:     4
+ 926               	; framesize_locals:   0
+ 927               	; framesize_outgoing: 0
+ 928               	; framesize:          4
+ 929               	; elim ap -> fp       8
+ 930               	; elim fp -> sp       0
+ 931               	; saved regs: R10
+ 932               		; start of prologue
+ 933 0000 0A14      		PUSHM.A	#1, R10
+ 934               		; end of prologue
+ 935 0002 CA0C      		MOVA	R12, R10
+ 936 0004 B013 0000 		CALLA	#sx1278Reset.isra.0
+ 937 0008 0C0A      		MOVA	@R10, R12
+ 938 000a 3D0C 0400 		MOVA	4(R12), R13
+ 939 000e 0C0C      		MOVA	@R12, R12
+ 940 0010 B013 0000 		CALLA	#spiStart
+ 941 0014 CC0A      		MOVA	R10, R12
+ 942 0016 B013 0000 		CALLA	#sx1278SetMode.constprop.3
+ 943 001a FA40 0900 		MOV.B	#9, 5(R10)
+ 943      0500 
+ 944 0020 0C0A      		MOVA	@R10, R12
+ 945 0022 0C0C      		MOVA	@R12, R12
+ 946 0024 B013 0000 		CALLA	#spiStop
+ 947 0028 DA43 0400 		MOV.B	#1, 4(R10)
+ 948               		; start of epilogue
+ 949 002c 0A16      		POPM.A	#1, r10
+ 950 002e 1001      		RETA
+ 951               		.size	sx1278Stop, .-sx1278Stop
+ 952               		.section	.text.sx1278Sleep,"ax",@progbits
+ 953               		.balign 2
+ 954               		.global	sx1278Sleep
+ 955               		.type	sx1278Sleep, @function
+ 956               	sx1278Sleep:
+ 957               	; start of function
+ 958               	; framesize_regs:     4
+GAS LISTING /tmp/ccTYDOZd.s 			page 19
 
 
- 959               		.type	sx1278Sleep, @function
- 960               	sx1278Sleep:
- 961               	; start of function
- 962               	; framesize_regs:     4
- 963               	; framesize_locals:   0
- 964               	; framesize_outgoing: 0
- 965               	; framesize:          4
- 966               	; elim ap -> fp       8
- 967               	; elim fp -> sp       0
- 968               	; saved regs: R10
- 969               		; start of prologue
- 970 0000 0A14      		PUSHM.A	#1, R10
- 971               		; end of prologue
- 972 0002 CA0C      		MOVA	R12, R10
- 973 0004 B013 0000 		CALLA	#sx1278SetMode.constprop.3
- 974 0008 EA42 0400 		MOV.B	#4, 4(R10)
- 975               		; start of epilogue
- 976 000c 0A16      		POPM.A	#1, r10
- 977 000e 1001      		RETA
- 978               		.size	sx1278Sleep, .-sx1278Sleep
- 979               		.section	.text.sx1278FifoWriteAsync,"ax",@progbits
- 980               		.balign 2
- 981               		.global	sx1278FifoWriteAsync
- 982               		.type	sx1278FifoWriteAsync, @function
- 983               	sx1278FifoWriteAsync:
- 984               	; start of function
- 985               	; framesize_regs:     20
- 986               	; framesize_locals:   4
- 987               	; framesize_outgoing: 0
- 988               	; framesize:          24
- 989               	; elim ap -> fp       24
- 990               	; elim fp -> sp       4
- 991               	; saved regs: R4 R6 R8 R9 R10
- 992               		; start of prologue
- 993 0000 2A14      		PUSHM.A	#3, R10
- 994 0002 0614      		PUSHM.A	#1, R6
- 995 0004 0414      		PUSHM.A	#1, R4
- 996 0006 B100 0400 		SUBA	#4, R1
- 997               		; end of prologue
- 998 000a CA0C      		MOVA	R12, R10
- 999 000c C80D      		MOVA	R13, R8
- 1000 000e 7C0F 0800 		MOVA	R15, 8(R12)
- 1001 0012 060C      		MOVA	@R12, R6
- 1002 0014 3C06 2200 		MOVA	34(R6), R12
- 1003 0018 C40C      		MOVA	R12, R4
- 1004 001a 0018 74F0 		ANDX.A	#4095, R4
- 1004      FF0F 
- 1005 0020 1944 0200 		MOV.W	2(R4), R9
- 1006 0024 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
- 1006      3C41 4018 
- 1006      3D41 
- 1007 002e 710E 0000 		MOVA	R14, @R1
- 1008 0032 B013 0000 		CALLA	#__mspabi_srll_12
- 1009 0036 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
- 1009      0C16 
- 1010 003c 4018 0D4C 		MOVX	R12, R13
- 1011 0040 5C43      		MOV.B	#1, R12
-GAS LISTING /tmp/ccE6EIlI.s 			page 20
+ 959               	; framesize_locals:   0
+ 960               	; framesize_outgoing: 0
+ 961               	; framesize:          4
+ 962               	; elim ap -> fp       8
+ 963               	; elim fp -> sp       0
+ 964               	; saved regs: R10
+ 965               		; start of prologue
+ 966 0000 0A14      		PUSHM.A	#1, R10
+ 967               		; end of prologue
+ 968 0002 CA0C      		MOVA	R12, R10
+ 969 0004 B013 0000 		CALLA	#sx1278SetMode.constprop.3
+ 970 0008 EA42 0400 		MOV.B	#4, 4(R10)
+ 971               		; start of epilogue
+ 972 000c 0A16      		POPM.A	#1, r10
+ 973 000e 1001      		RETA
+ 974               		.size	sx1278Sleep, .-sx1278Sleep
+ 975               		.section	.text.sx1278FifoWriteAsync,"ax",@progbits
+ 976               		.balign 2
+ 977               		.global	sx1278FifoWriteAsync
+ 978               		.type	sx1278FifoWriteAsync, @function
+ 979               	sx1278FifoWriteAsync:
+ 980               	; start of function
+ 981               	; framesize_regs:     20
+ 982               	; framesize_locals:   4
+ 983               	; framesize_outgoing: 0
+ 984               	; framesize:          24
+ 985               	; elim ap -> fp       24
+ 986               	; elim fp -> sp       4
+ 987               	; saved regs: R4 R6 R8 R9 R10
+ 988               		; start of prologue
+ 989 0000 2A14      		PUSHM.A	#3, R10
+ 990 0002 0614      		PUSHM.A	#1, R6
+ 991 0004 0414      		PUSHM.A	#1, R4
+ 992 0006 B100 0400 		SUBA	#4, R1
+ 993               		; end of prologue
+ 994 000a CA0C      		MOVA	R12, R10
+ 995 000c C80D      		MOVA	R13, R8
+ 996 000e 7C0F 0800 		MOVA	R15, 8(R12)
+ 997 0012 060C      		MOVA	@R12, R6
+ 998 0014 3C06 2200 		MOVA	34(R6), R12
+ 999 0018 C40C      		MOVA	R12, R4
+ 1000 001a 0018 74F0 		ANDX.A	#4095, R4
+ 1000      FF0F 
+ 1001 0020 1944 0200 		MOV.W	2(R4), R9
+ 1002 0024 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 1002      3C41 4018 
+ 1002      3D41 
+ 1003 002e 710E 0000 		MOVA	R14, @R1
+ 1004 0032 B013 0000 		CALLA	#__mspabi_srll_12
+ 1005 0036 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 1005      0C16 
+ 1006 003c 4018 0D4C 		MOVX	R12, R13
+ 1007 0040 5C43      		MOV.B	#1, R12
+ 1008 0042 B013 0000 		CALLA	#__mspabi_slli
+ 1009 0046 09CC      		BIC.W	R12, R9
+ 1010 0048 8449 0200 		MOV.W	R9, 2(R4)
+ 1011 004c 7D40 80FF 		MOV.B	#-128, R13
+GAS LISTING /tmp/ccTYDOZd.s 			page 20
 
 
- 1012 0042 B013 0000 		CALLA	#__mspabi_slli
- 1013 0046 09CC      		BIC.W	R12, R9
- 1014 0048 8449 0200 		MOV.W	R9, 2(R4)
- 1015 004c 7D40 80FF 		MOV.B	#-128, R13
- 1016 0050 0C06      		MOVA	@R6, R12
- 1017 0052 B013 0000 		CALLA	#spi_lld_polled_exchange
- 1018 0056 0A0A      		MOVA	@R10, R10
- 1019 0058 3C0A 0400 		MOVA	4(R10), R12
- 1020 005c 0018 FC40 		MOVX.A	#spi_callback, @R12
- 1020      0000 0000 
- 1021 0064 0E01      		MOVA	@R1, R14
- 1022 0066 CD08      		MOVA	R8, R13
- 1023 0068 0C0A      		MOVA	@R10, R12
- 1024 006a B013 0000 		CALLA	#spiStartSend
- 1025               		; start of epilogue
- 1026 006e A100 0400 		ADDA	#4, R1
- 1027 0072 0416      		POPM.A	#1, r4
- 1028 0074 0616      		POPM.A	#1, r6
- 1029 0076 2816      		POPM.A	#3, r10
- 1030 0078 1001      		RETA
- 1031               		.size	sx1278FifoWriteAsync, .-sx1278FifoWriteAsync
- 1032               		.section	.text.sx1278FifoWriteAsyncS,"ax",@progbits
- 1033               		.balign 2
- 1034               		.global	sx1278FifoWriteAsyncS
- 1035               		.type	sx1278FifoWriteAsyncS, @function
- 1036               	sx1278FifoWriteAsyncS:
- 1037               	; start of function
- 1038               	; framesize_regs:     20
- 1039               	; framesize_locals:   4
- 1040               	; framesize_outgoing: 0
- 1041               	; framesize:          24
- 1042               	; elim ap -> fp       24
- 1043               	; elim fp -> sp       4
- 1044               	; saved regs: R4 R6 R8 R9 R10
- 1045               		; start of prologue
- 1046 0000 2A14      		PUSHM.A	#3, R10
- 1047 0002 0614      		PUSHM.A	#1, R6
- 1048 0004 0414      		PUSHM.A	#1, R4
- 1049 0006 B100 0400 		SUBA	#4, R1
- 1050               		; end of prologue
- 1051 000a CA0C      		MOVA	R12, R10
- 1052 000c C80D      		MOVA	R13, R8
- 1053 000e 7C0F 0800 		MOVA	R15, 8(R12)
- 1054 0012 060C      		MOVA	@R12, R6
- 1055 0014 3C06 2200 		MOVA	34(R6), R12
- 1056 0018 C40C      		MOVA	R12, R4
- 1057 001a 0018 74F0 		ANDX.A	#4095, R4
- 1057      FF0F 
- 1058 0020 1944 0200 		MOV.W	2(R4), R9
- 1059 0024 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
- 1059      3C41 4018 
- 1059      3D41 
- 1060 002e 710E 0000 		MOVA	R14, @R1
- 1061 0032 B013 0000 		CALLA	#__mspabi_srll_12
- 1062 0036 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
- 1062      0C16 
- 1063 003c 4018 0D4C 		MOVX	R12, R13
-GAS LISTING /tmp/ccE6EIlI.s 			page 21
+ 1012 0050 0C06      		MOVA	@R6, R12
+ 1013 0052 B013 0000 		CALLA	#spi_lld_polled_exchange
+ 1014 0056 0A0A      		MOVA	@R10, R10
+ 1015 0058 3C0A 0400 		MOVA	4(R10), R12
+ 1016 005c 0018 FC40 		MOVX.A	#spi_callback, @R12
+ 1016      0000 0000 
+ 1017 0064 0E01      		MOVA	@R1, R14
+ 1018 0066 CD08      		MOVA	R8, R13
+ 1019 0068 0C0A      		MOVA	@R10, R12
+ 1020 006a B013 0000 		CALLA	#spiStartSend
+ 1021               		; start of epilogue
+ 1022 006e A100 0400 		ADDA	#4, R1
+ 1023 0072 0416      		POPM.A	#1, r4
+ 1024 0074 0616      		POPM.A	#1, r6
+ 1025 0076 2816      		POPM.A	#3, r10
+ 1026 0078 1001      		RETA
+ 1027               		.size	sx1278FifoWriteAsync, .-sx1278FifoWriteAsync
+ 1028               		.section	.text.sx1278FifoWriteAsyncS,"ax",@progbits
+ 1029               		.balign 2
+ 1030               		.global	sx1278FifoWriteAsyncS
+ 1031               		.type	sx1278FifoWriteAsyncS, @function
+ 1032               	sx1278FifoWriteAsyncS:
+ 1033               	; start of function
+ 1034               	; framesize_regs:     20
+ 1035               	; framesize_locals:   4
+ 1036               	; framesize_outgoing: 0
+ 1037               	; framesize:          24
+ 1038               	; elim ap -> fp       24
+ 1039               	; elim fp -> sp       4
+ 1040               	; saved regs: R4 R6 R8 R9 R10
+ 1041               		; start of prologue
+ 1042 0000 2A14      		PUSHM.A	#3, R10
+ 1043 0002 0614      		PUSHM.A	#1, R6
+ 1044 0004 0414      		PUSHM.A	#1, R4
+ 1045 0006 B100 0400 		SUBA	#4, R1
+ 1046               		; end of prologue
+ 1047 000a CA0C      		MOVA	R12, R10
+ 1048 000c C80D      		MOVA	R13, R8
+ 1049 000e 7C0F 0800 		MOVA	R15, 8(R12)
+ 1050 0012 060C      		MOVA	@R12, R6
+ 1051 0014 3C06 2200 		MOVA	34(R6), R12
+ 1052 0018 C40C      		MOVA	R12, R4
+ 1053 001a 0018 74F0 		ANDX.A	#4095, R4
+ 1053      FF0F 
+ 1054 0020 1944 0200 		MOV.W	2(R4), R9
+ 1055 0024 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 1055      3C41 4018 
+ 1055      3D41 
+ 1056 002e 710E 0000 		MOVA	R14, @R1
+ 1057 0032 B013 0000 		CALLA	#__mspabi_srll_12
+ 1058 0036 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 1058      0C16 
+ 1059 003c 4018 0D4C 		MOVX	R12, R13
+ 1060 0040 5C43      		MOV.B	#1, R12
+ 1061 0042 B013 0000 		CALLA	#__mspabi_slli
+ 1062 0046 09CC      		BIC.W	R12, R9
+ 1063 0048 8449 0200 		MOV.W	R9, 2(R4)
+GAS LISTING /tmp/ccTYDOZd.s 			page 21
 
 
- 1064 0040 5C43      		MOV.B	#1, R12
- 1065 0042 B013 0000 		CALLA	#__mspabi_slli
- 1066 0046 09CC      		BIC.W	R12, R9
- 1067 0048 8449 0200 		MOV.W	R9, 2(R4)
- 1068 004c 7D40 80FF 		MOV.B	#-128, R13
- 1069 0050 0C06      		MOVA	@R6, R12
- 1070 0052 B013 0000 		CALLA	#spi_lld_polled_exchange
- 1071 0056 0A0A      		MOVA	@R10, R10
- 1072 0058 3C0A 0400 		MOVA	4(R10), R12
- 1073 005c 0018 FC40 		MOVX.A	#spi_callback, @R12
- 1073      0000 0000 
- 1074 0064 0C0A      		MOVA	@R10, R12
- 1075 0066 FC40 0300 		MOV.B	#3, @R12
- 1075      0000 
- 1076 006c 0E01      		MOVA	@R1, R14
- 1077 006e CD08      		MOVA	R8, R13
- 1078 0070 B013 0000 		CALLA	#spi_lld_send
- 1079               		; start of epilogue
- 1080 0074 A100 0400 		ADDA	#4, R1
- 1081 0078 0416      		POPM.A	#1, r4
- 1082 007a 0616      		POPM.A	#1, r6
- 1083 007c 2816      		POPM.A	#3, r10
- 1084 007e 1001      		RETA
- 1085               		.size	sx1278FifoWriteAsyncS, .-sx1278FifoWriteAsyncS
- 1086               		.section	.text.sx1278StartTransmit,"ax",@progbits
- 1087               		.balign 2
- 1088               		.global	sx1278StartTransmit
- 1089               		.type	sx1278StartTransmit, @function
- 1090               	sx1278StartTransmit:
- 1091               	; start of function
- 1092               	; framesize_regs:     20
- 1093               	; framesize_locals:   8
- 1094               	; framesize_outgoing: 0
- 1095               	; framesize:          28
- 1096               	; elim ap -> fp       24
- 1097               	; elim fp -> sp       8
- 1098               	; saved regs: R4 R6 R8 R9 R10
- 1099               		; start of prologue
- 1100 0000 2A14      		PUSHM.A	#3, R10
- 1101 0002 0614      		PUSHM.A	#1, R6
- 1102 0004 0414      		PUSHM.A	#1, R4
- 1103 0006 B100 0800 		SUBA	#8, R1
- 1104               		; end of prologue
- 1105 000a CA0C      		MOVA	R12, R10
- 1106 000c C40D      		MOVA	R13, R4
- 1107 000e C60E      		MOVA	R14, R6
- 1108 0010 7840 1800 		MOV.B	#24, R8
- 1109 0014 D80D 0028 		CMPA	R13, R8 { JLO	.L93
- 1110 0018 4E4D      		MOV.B	R13, R14
- 1111 001a 7E53      		ADD.B	#-1, R14
- 1112 001c 3EF0 FF00 		AND	#0xff, R14
- 1113               	.L91:
- 1114 0020 8800 0000 		MOVA	#sx1278SetRegister, R8
- 1115 0024 7D40 3500 		MOV.B	#53, R13
- 1116 0028 CC0A      		MOVA	R10, R12
- 1117 002a 710F 0000 		MOVA	R15, @R1
- 1118 002e 4813      		CALLA	R8
-GAS LISTING /tmp/ccE6EIlI.s 			page 22
+ 1064 004c 7D40 80FF 		MOV.B	#-128, R13
+ 1065 0050 0C06      		MOVA	@R6, R12
+ 1066 0052 B013 0000 		CALLA	#spi_lld_polled_exchange
+ 1067 0056 0A0A      		MOVA	@R10, R10
+ 1068 0058 3C0A 0400 		MOVA	4(R10), R12
+ 1069 005c 0018 FC40 		MOVX.A	#spi_callback, @R12
+ 1069      0000 0000 
+ 1070 0064 0C0A      		MOVA	@R10, R12
+ 1071 0066 FC40 0300 		MOV.B	#3, @R12
+ 1071      0000 
+ 1072 006c 0E01      		MOVA	@R1, R14
+ 1073 006e CD08      		MOVA	R8, R13
+ 1074 0070 B013 0000 		CALLA	#spi_lld_send
+ 1075               		; start of epilogue
+ 1076 0074 A100 0400 		ADDA	#4, R1
+ 1077 0078 0416      		POPM.A	#1, r4
+ 1078 007a 0616      		POPM.A	#1, r6
+ 1079 007c 2816      		POPM.A	#3, r10
+ 1080 007e 1001      		RETA
+ 1081               		.size	sx1278FifoWriteAsyncS, .-sx1278FifoWriteAsyncS
+ 1082               		.section	.text.sx1278StartTransmit,"ax",@progbits
+ 1083               		.balign 2
+ 1084               		.global	sx1278StartTransmit
+ 1085               		.type	sx1278StartTransmit, @function
+ 1086               	sx1278StartTransmit:
+ 1087               	; start of function
+ 1088               	; framesize_regs:     20
+ 1089               	; framesize_locals:   8
+ 1090               	; framesize_outgoing: 0
+ 1091               	; framesize:          28
+ 1092               	; elim ap -> fp       24
+ 1093               	; elim fp -> sp       8
+ 1094               	; saved regs: R4 R6 R8 R9 R10
+ 1095               		; start of prologue
+ 1096 0000 2A14      		PUSHM.A	#3, R10
+ 1097 0002 0614      		PUSHM.A	#1, R6
+ 1098 0004 0414      		PUSHM.A	#1, R4
+ 1099 0006 B100 0800 		SUBA	#8, R1
+ 1100               		; end of prologue
+ 1101 000a CA0C      		MOVA	R12, R10
+ 1102 000c C40D      		MOVA	R13, R4
+ 1103 000e C60E      		MOVA	R14, R6
+ 1104 0010 7840 1800 		MOV.B	#24, R8
+ 1105 0014 D80D 0028 		CMPA	R13, R8 { JLO	.L93
+ 1106 0018 4E4D      		MOV.B	R13, R14
+ 1107 001a 7E53      		ADD.B	#-1, R14
+ 1108 001c 3EF0 FF00 		AND	#0xff, R14
+ 1109               	.L91:
+ 1110 0020 8800 0000 		MOVA	#sx1278SetRegister, R8
+ 1111 0024 7D40 3500 		MOV.B	#53, R13
+ 1112 0028 CC0A      		MOVA	R10, R12
+ 1113 002a 710F 0000 		MOVA	R15, @R1
+ 1114 002e 4813      		CALLA	R8
+ 1115 0030 5E4A 0600 		MOV.B	6(R10), R14
+ 1116 0034 7EF0 7F00 		AND.B	#127, R14
+ 1117 0038 CA4E 0600 		MOV.B	R14, 6(R10)
+ 1118 003c 7ED0 4000 		BIS.B	#64, R14
+GAS LISTING /tmp/ccTYDOZd.s 			page 22
 
 
- 1119 0030 5E4A 0600 		MOV.B	6(R10), R14
- 1120 0034 7EF0 7F00 		AND.B	#127, R14
- 1121 0038 CA4E 0600 		MOV.B	R14, 6(R10)
- 1122 003c 7ED0 4000 		BIS.B	#64, R14
- 1123 0040 7D40 3600 		MOV.B	#54, R13
- 1124 0044 CC0A      		MOVA	R10, R12
- 1125 0046 4813      		CALLA	R8
- 1126 0048 5E4A 0600 		MOV.B	6(R10), R14
- 1127 004c 7ED0 80FF 		BIS.B	#-128, R14
- 1128 0050 CA4E 0600 		MOV.B	R14, 6(R10)
- 1129 0054 7D40 3600 		MOV.B	#54, R13
- 1130 0058 CC0A      		MOVA	R10, R12
- 1131 005a 4813      		CALLA	R8
- 1132               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 1133 005c 32C2 0343 		dint { nop
- 1134               	 ; 0 "" 2
- 1135               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 1136 0060 0343      		nop
- 1137               	 ; 0 "" 2
- 1138 0062 0E0A      		MOVA	@R10, R14
- 1139 0064 5C4E 1D00 		MOV.B	29(R14),R12 { CLR	R13
- 1139      0D43 
- 1140 006a 084C      		MOV.W	R12, R8
- 1141 006c 094D      		MOV.W	R13, R9
- 1142 006e 0858 0969 		RLA.W	R8 { RLC.W	R9 { RLA.W	R8 { RLC.W	R9
- 1142      0858 0969 
- 1143 0076 8148 0400 		MOV.W	R8, 4(R1)
- 1144 007a 8149 0600 		MOV.W	R9, 6(R1)
- 1145 007e 0018 5E51 		ADDX.A	4(R1), R14
- 1145      0400 
- 1146 0084 380E 2E00 		MOVA	46(R14), R8
- 1147 0088 0814 4018 		PUSHM.A	#1, R8 { POPX.W	R12 { POPX.W	R13 ; move pointer in R8 into reg-pair R12:R13
- 1147      3C41 4018 
- 1147      3D41 
- 1148 0092 B013 0000 		CALLA	#__mspabi_srll_12
- 1149 0096 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
- 1149      0C16 
- 1150 009c 0F01      		MOVA	@R1, R15
- 1151 009e 6E43      		MOV.B	#2, R14
- 1152 00a0 4D4C      		MOV.B	R12, R13
- 1153 00a2 CC08      		MOVA	R8, R12
- 1154 00a4 0018 7CF0 		ANDX.A	#4095, R12
- 1154      FF0F 
- 1155 00aa B013 0000 		CALLA	#_pal_lld_enablepadevent
- 1156               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 1157 00ae 0343      		nop
- 1158               	 ; 0 "" 2
- 1159               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
- 1160 00b0 0343 32D2 		nop { eint { nop
- 1160      0343 
- 1161               	 ; 0 "" 2
- 1162 00b6 7940 2F00 		MOV.B	#47, R9
- 1163 00ba D904 002C 		CMPA	R4, R9 { JHS	.L92
- 1164 00be C409      		MOVA	R9, R4
- 1165               	.L92:
- 1166 00c0 3F01 2000 		MOVA	32(R1), R15
- 1167 00c4 CE06      		MOVA	R6, R14
-GAS LISTING /tmp/ccE6EIlI.s 			page 23
+ 1119 0040 7D40 3600 		MOV.B	#54, R13
+ 1120 0044 CC0A      		MOVA	R10, R12
+ 1121 0046 4813      		CALLA	R8
+ 1122 0048 5E4A 0600 		MOV.B	6(R10), R14
+ 1123 004c 7ED0 80FF 		BIS.B	#-128, R14
+ 1124 0050 CA4E 0600 		MOV.B	R14, 6(R10)
+ 1125 0054 7D40 3600 		MOV.B	#54, R13
+ 1126 0058 CC0A      		MOVA	R10, R12
+ 1127 005a 4813      		CALLA	R8
+ 1128               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 1129 005c 32C2 0343 		dint { nop
+ 1130               	 ; 0 "" 2
+ 1131               	 ; 348 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 1132 0060 0343      		nop
+ 1133               	 ; 0 "" 2
+ 1134 0062 0E0A      		MOVA	@R10, R14
+ 1135 0064 5C4E 1D00 		MOV.B	29(R14),R12 { CLR	R13
+ 1135      0D43 
+ 1136 006a 084C      		MOV.W	R12, R8
+ 1137 006c 094D      		MOV.W	R13, R9
+ 1138 006e 0858 0969 		RLA.W	R8 { RLC.W	R9 { RLA.W	R8 { RLC.W	R9
+ 1138      0858 0969 
+ 1139 0076 8148 0400 		MOV.W	R8, 4(R1)
+ 1140 007a 8149 0600 		MOV.W	R9, 6(R1)
+ 1141 007e 0018 5E51 		ADDX.A	4(R1), R14
+ 1141      0400 
+ 1142 0084 380E 2E00 		MOVA	46(R14), R8
+ 1143 0088 0814 4018 		PUSHM.A	#1, R8 { POPX.W	R12 { POPX.W	R13 ; move pointer in R8 into reg-pair R12:R13
+ 1143      3C41 4018 
+ 1143      3D41 
+ 1144 0092 B013 0000 		CALLA	#__mspabi_srll_12
+ 1145 0096 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 1145      0C16 
+ 1146 009c 0F01      		MOVA	@R1, R15
+ 1147 009e 6E43      		MOV.B	#2, R14
+ 1148 00a0 4D4C      		MOV.B	R12, R13
+ 1149 00a2 CC08      		MOVA	R8, R12
+ 1150 00a4 0018 7CF0 		ANDX.A	#4095, R12
+ 1150      FF0F 
+ 1151 00aa B013 0000 		CALLA	#_pal_lld_enablepadevent
+ 1152               	 ; 355 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 1153 00ae 0343      		nop
+ 1154               	 ; 0 "" 2
+ 1155               	 ; 356 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
+ 1156 00b0 0343 32D2 		nop { eint { nop
+ 1156      0343 
+ 1157               	 ; 0 "" 2
+ 1158 00b6 7940 2F00 		MOV.B	#47, R9
+ 1159 00ba D904 002C 		CMPA	R4, R9 { JHS	.L92
+ 1160 00be C409      		MOVA	R9, R4
+ 1161               	.L92:
+ 1162 00c0 3F01 2000 		MOVA	32(R1), R15
+ 1163 00c4 CE06      		MOVA	R6, R14
+ 1164 00c6 CD04      		MOVA	R4, R13
+ 1165 00c8 CC0A      		MOVA	R10, R12
+ 1166 00ca B013 0000 		CALLA	#sx1278FifoWriteAsync
+ 1167 00ce CC04      		MOVA	R4, R12
+GAS LISTING /tmp/ccTYDOZd.s 			page 23
 
 
- 1168 00c6 CD04      		MOVA	R4, R13
- 1169 00c8 CC0A      		MOVA	R10, R12
- 1170 00ca B013 0000 		CALLA	#sx1278FifoWriteAsync
- 1171 00ce CC04      		MOVA	R4, R12
- 1172               		; start of epilogue
- 1173 00d0 A100 0800 		ADDA	#8, R1
- 1174 00d4 0416      		POPM.A	#1, r4
- 1175 00d6 0616      		POPM.A	#1, r6
- 1176 00d8 2816      		POPM.A	#3, r10
- 1177 00da 1001      		RETA
- 1178               	.L93:
- 1179 00dc 7E40 1700 		MOV.B	#23, R14
- 1180 00e0 8000 0000 		BRA	#.L91
- 1181               		.size	sx1278StartTransmit, .-sx1278StartTransmit
- 1182               		.section	.text.sx1278Send,"ax",@progbits
- 1183               		.balign 2
- 1184               		.global	sx1278Send
- 1185               		.type	sx1278Send, @function
- 1186               	sx1278Send:
- 1187               	; start of function
- 1188               	; framesize_regs:     28
- 1189               	; framesize_locals:   10
- 1190               	; framesize_outgoing: 0
- 1191               	; framesize:          38
- 1192               	; elim ap -> fp       32
- 1193               	; elim fp -> sp       10
- 1194               	; saved regs: R4 R5 R6 R7 R8 R9 R10
- 1195               		; start of prologue
- 1196 0000 6A14      		PUSHM.A	#7, R10
- 1197 0002 B100 0A00 		SUBA	#10, R1
- 1198               		; end of prologue
- 1199 0006 CA0C      		MOVA	R12, R10
- 1200 0008 C70D      		MOVA	R13, R7
- 1201 000a 094E      		MOV.W	R14, R9
- 1202 000c 814F 0400 		MOV.W	R15, 4(R1)
- 1203 0010 5C4C 0400 		MOV.B	4(R12), R12
- 1204 0014 6C93 0024 		CMP.B	#2, R12 { JEQ	.L95
- 1205 0018 6C92 0024 		CMP.B	#4, R12 { JEQ	.L95
- 1206 001c 8C00 0000 		MOVA	#__func__.5145, R12
- 1207 0020 B013 0000 		CALLA	#chSysHalt
- 1208               	.L95:
- 1209 0024 FA40 0300 		MOV.B	#3, 4(R10)
- 1209      0400 
- 1210 002a 0E0A      		MOVA	@R10, R14
- 1211 002c 3C0E 2600 		MOVA	38(R14), R12
- 1212 0030 6C4C      		MOV.B	@R12, R12
- 1213 0032 4D4C      		MOV.B	R12, R13
- 1214 0034 7DF0 0300 		AND.B	#3, R13
- 1215 0038 4D93 0020 		CMP.B	#0, R13 { JNE	.L96
- 1216 003c 8E99 2C00 		CMP.W	R9, 44(R14) { JEQ	.L103
- 1216      0024 
- 1217 0042 8C00 0000 		MOVA	#__func__.5145, R12
- 1218 0046 B013 0000 		CALLA	#chSysHalt
- 1219               	.L103:
- 1220 004a 0E0A      		MOVA	@R10, R14
- 1221 004c 3C0E 2600 		MOVA	38(R14), R12
- 1222 0050 4018 FCB0 		BITX.B	#64, @R12 { JEQ	.L99
-GAS LISTING /tmp/ccE6EIlI.s 			page 24
+ 1168               		; start of epilogue
+ 1169 00d0 A100 0800 		ADDA	#8, R1
+ 1170 00d4 0416      		POPM.A	#1, r4
+ 1171 00d6 0616      		POPM.A	#1, r6
+ 1172 00d8 2816      		POPM.A	#3, r10
+ 1173 00da 1001      		RETA
+ 1174               	.L93:
+ 1175 00dc 7E40 1700 		MOV.B	#23, R14
+ 1176 00e0 8000 0000 		BRA	#.L91
+ 1177               		.size	sx1278StartTransmit, .-sx1278StartTransmit
+ 1178               		.section	.text.sx1278Send,"ax",@progbits
+ 1179               		.balign 2
+ 1180               		.global	sx1278Send
+ 1181               		.type	sx1278Send, @function
+ 1182               	sx1278Send:
+ 1183               	; start of function
+ 1184               	; framesize_regs:     28
+ 1185               	; framesize_locals:   10
+ 1186               	; framesize_outgoing: 0
+ 1187               	; framesize:          38
+ 1188               	; elim ap -> fp       32
+ 1189               	; elim fp -> sp       10
+ 1190               	; saved regs: R4 R5 R6 R7 R8 R9 R10
+ 1191               		; start of prologue
+ 1192 0000 6A14      		PUSHM.A	#7, R10
+ 1193 0002 B100 0A00 		SUBA	#10, R1
+ 1194               		; end of prologue
+ 1195 0006 CA0C      		MOVA	R12, R10
+ 1196 0008 C70D      		MOVA	R13, R7
+ 1197 000a 094E      		MOV.W	R14, R9
+ 1198 000c 814F 0400 		MOV.W	R15, 4(R1)
+ 1199 0010 5C4C 0400 		MOV.B	4(R12), R12
+ 1200 0014 6C93 0024 		CMP.B	#2, R12 { JEQ	.L95
+ 1201 0018 6C92 0024 		CMP.B	#4, R12 { JEQ	.L95
+ 1202 001c 8C00 0000 		MOVA	#__func__.5145, R12
+ 1203 0020 B013 0000 		CALLA	#chSysHalt
+ 1204               	.L95:
+ 1205 0024 FA40 0300 		MOV.B	#3, 4(R10)
+ 1205      0400 
+ 1206 002a 0E0A      		MOVA	@R10, R14
+ 1207 002c 3C0E 2600 		MOVA	38(R14), R12
+ 1208 0030 6C4C      		MOV.B	@R12, R12
+ 1209 0032 4D4C      		MOV.B	R12, R13
+ 1210 0034 7DF0 0300 		AND.B	#3, R13
+ 1211 0038 4D93 0020 		CMP.B	#0, R13 { JNE	.L96
+ 1212 003c 8E99 2C00 		CMP.W	R9, 44(R14) { JEQ	.L103
+ 1212      0024 
+ 1213 0042 8C00 0000 		MOVA	#__func__.5145, R12
+ 1214 0046 B013 0000 		CALLA	#chSysHalt
+ 1215               	.L103:
+ 1216 004a 0E0A      		MOVA	@R10, R14
+ 1217 004c 3C0E 2600 		MOVA	38(R14), R12
+ 1218 0050 4018 FCB0 		BITX.B	#64, @R12 { JEQ	.L99
+ 1218      4000 0000 
+ 1218      0024 
+ 1219 005a D74E 2A00 		MOV.B	42(R14), @R7
+ 1219      0000 
+GAS LISTING /tmp/ccTYDOZd.s 			page 24
 
 
- 1222      4000 0000 
- 1222      0024 
- 1223 005a D74E 2A00 		MOV.B	42(R14), @R7
- 1223      0000 
- 1224 0060 8000 0000 		BRA	#.L99
- 1225               	.L96:
- 1226 0064 5D93 0020 		CMP.B	#1, R13 { JNE	.L100
- 1227 0068 3C40 0001 		MOV.W	#256, R12
- 1228 006c 0C99 002C 		CMP.W	R9, R12 { JHS	.L101
- 1229 0070 8C00 0000 		MOVA	#__func__.5145, R12
- 1230 0074 B013 0000 		CALLA	#chSysHalt
- 1231               	.L101:
- 1232 0078 4D49      		MOV.B	R9, R13
- 1233 007a 7D53      		ADD.B	#-1, R13
- 1234 007c C74D 0000 		MOV.B	R13, @R7
- 1235 0080 0E0A      		MOVA	@R10, R14
- 1236 0082 3C0E 2600 		MOVA	38(R14), R12
- 1237 0086 4018 FCB0 		BITX.B	#64, @R12 { JEQ	.L99
- 1237      4000 0000 
- 1237      0024 
- 1238 0090 D74E 2A00 		MOV.B	42(R14), 1(R7)
- 1238      0100 
- 1239               	.L99:
- 1240 0096 7C40 1000 		MOV.B	#16, R12
- 1241 009a 0C99 0028 		CMP.W	R9, R12 { JLO	.L110
- 1242 009e 4E49      		MOV.B	R9, R14
- 1243 00a0 7E53      		ADD.B	#-1, R14
- 1244 00a2 3EF0 FF00 		AND	#0xff, R14
- 1245               	.L105:
- 1246 00a6 8800 0000 		MOVA	#sx1278SetRegister, R8
- 1247 00aa 7D40 3500 		MOV.B	#53, R13
- 1248 00ae CC0A      		MOVA	R10, R12
- 1249 00b0 4813      		CALLA	R8
- 1250 00b2 5E4A 0600 		MOV.B	6(R10), R14
- 1251 00b6 7EF0 BFFF 		AND.B	#-65, R14
- 1252 00ba 7ED0 80FF 		BIS.B	#-128, R14
- 1253 00be CA4E 0600 		MOV.B	R14, 6(R10)
- 1254 00c2 7D40 3600 		MOV.B	#54, R13
- 1255 00c6 CC0A      		MOVA	R10, R12
- 1256 00c8 4813      		CALLA	R8
- 1257 00ca 4643      		MOV.B	#0, R6
- 1258               	.L109:
- 1259 00cc 4018 0C49 		MOVX.W	R9, R12 { SUBX.W	R6, R12
- 1259      4018 0C86 
- 1260 00d4 7D40 4000 		MOV.B	#64, R13
- 1261 00d8 0D9C 0028 		CMP.W	R12, R13 { JLO	.L111
- 1262 00dc 4018 4849 		MOVX.B	R9, R8 { SUBX.B	R6, R8
- 1262      4018 4886 
- 1263 00e4 38F0 FF00 		AND	#0xff, R8
- 1264               	.L106:
- 1265 00e8 4018 0E46 		MOVX	R6, R14
- 1266 00ec EE07      		ADDA	R7, R14
- 1267 00ee 710E 0600 		MOVA	R14, 6(R1)
- 1268 00f2 0E0A      		MOVA	@R10, R14
- 1269 00f4 3C0E 2200 		MOVA	34(R14), R12
- 1270 00f8 C40C      		MOVA	R12, R4
- 1271 00fa 0018 74F0 		ANDX.A	#4095, R4
-GAS LISTING /tmp/ccE6EIlI.s 			page 25
+ 1220 0060 8000 0000 		BRA	#.L99
+ 1221               	.L96:
+ 1222 0064 5D93 0020 		CMP.B	#1, R13 { JNE	.L100
+ 1223 0068 3C40 0001 		MOV.W	#256, R12
+ 1224 006c 0C99 002C 		CMP.W	R9, R12 { JHS	.L101
+ 1225 0070 8C00 0000 		MOVA	#__func__.5145, R12
+ 1226 0074 B013 0000 		CALLA	#chSysHalt
+ 1227               	.L101:
+ 1228 0078 4D49      		MOV.B	R9, R13
+ 1229 007a 7D53      		ADD.B	#-1, R13
+ 1230 007c C74D 0000 		MOV.B	R13, @R7
+ 1231 0080 0E0A      		MOVA	@R10, R14
+ 1232 0082 3C0E 2600 		MOVA	38(R14), R12
+ 1233 0086 4018 FCB0 		BITX.B	#64, @R12 { JEQ	.L99
+ 1233      4000 0000 
+ 1233      0024 
+ 1234 0090 D74E 2A00 		MOV.B	42(R14), 1(R7)
+ 1234      0100 
+ 1235               	.L99:
+ 1236 0096 7C40 1000 		MOV.B	#16, R12
+ 1237 009a 0C99 0028 		CMP.W	R9, R12 { JLO	.L110
+ 1238 009e 4E49      		MOV.B	R9, R14
+ 1239 00a0 7E53      		ADD.B	#-1, R14
+ 1240 00a2 3EF0 FF00 		AND	#0xff, R14
+ 1241               	.L105:
+ 1242 00a6 8800 0000 		MOVA	#sx1278SetRegister, R8
+ 1243 00aa 7D40 3500 		MOV.B	#53, R13
+ 1244 00ae CC0A      		MOVA	R10, R12
+ 1245 00b0 4813      		CALLA	R8
+ 1246 00b2 5E4A 0600 		MOV.B	6(R10), R14
+ 1247 00b6 7EF0 BFFF 		AND.B	#-65, R14
+ 1248 00ba 7ED0 80FF 		BIS.B	#-128, R14
+ 1249 00be CA4E 0600 		MOV.B	R14, 6(R10)
+ 1250 00c2 7D40 3600 		MOV.B	#54, R13
+ 1251 00c6 CC0A      		MOVA	R10, R12
+ 1252 00c8 4813      		CALLA	R8
+ 1253 00ca 4643      		MOV.B	#0, R6
+ 1254               	.L109:
+ 1255 00cc 4018 0C49 		MOVX.W	R9, R12 { SUBX.W	R6, R12
+ 1255      4018 0C86 
+ 1256 00d4 7D40 4000 		MOV.B	#64, R13
+ 1257 00d8 0D9C 0028 		CMP.W	R12, R13 { JLO	.L111
+ 1258 00dc 4018 4849 		MOVX.B	R9, R8 { SUBX.B	R6, R8
+ 1258      4018 4886 
+ 1259 00e4 38F0 FF00 		AND	#0xff, R8
+ 1260               	.L106:
+ 1261 00e8 4018 0E46 		MOVX	R6, R14
+ 1262 00ec EE07      		ADDA	R7, R14
+ 1263 00ee 710E 0600 		MOVA	R14, 6(R1)
+ 1264 00f2 0E0A      		MOVA	@R10, R14
+ 1265 00f4 3C0E 2200 		MOVA	34(R14), R12
+ 1266 00f8 C40C      		MOVA	R12, R4
+ 1267 00fa 0018 74F0 		ANDX.A	#4095, R4
+ 1267      FF0F 
+ 1268 0100 1544 0200 		MOV.W	2(R4), R5
+ 1269 0104 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 1269      3C41 4018 
+GAS LISTING /tmp/ccTYDOZd.s 			page 25
 
 
- 1271      FF0F 
- 1272 0100 1544 0200 		MOV.W	2(R4), R5
- 1273 0104 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
- 1273      3C41 4018 
- 1273      3D41 
- 1274 010e 710E 0000 		MOVA	R14, @R1
- 1275 0112 B013 0000 		CALLA	#__mspabi_srll_12
- 1276 0116 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
- 1276      0C16 
- 1277 011c 4018 0D4C 		MOVX	R12, R13
- 1278 0120 5C43      		MOV.B	#1, R12
- 1279 0122 B013 0000 		CALLA	#__mspabi_slli
- 1280 0126 05CC      		BIC.W	R12, R5
- 1281 0128 8445 0200 		MOV.W	R5, 2(R4)
- 1282 012c 7D40 80FF 		MOV.B	#-128, R13
- 1283 0130 0E01      		MOVA	@R1, R14
- 1284 0132 0C0E      		MOVA	@R14, R12
- 1285 0134 B013 0000 		CALLA	#spi_lld_polled_exchange
- 1286 0138 0C0A      		MOVA	@R10, R12
- 1287 013a 3E01 0600 		MOVA	6(R1), R14
- 1288 013e 4018 0D48 		MOVX	R8, R13
- 1289 0142 0C0C      		MOVA	@R12, R12
- 1290 0144 B013 0000 		CALLA	#spiSend
- 1291 0148 0C0A      		MOVA	@R10, R12
- 1292 014a 3C0C 2200 		MOVA	34(R12), R12
- 1293 014e C40C      		MOVA	R12, R4
- 1294 0150 0018 74F0 		ANDX.A	#4095, R4
- 1294      FF0F 
- 1295 0156 1544 0200 		MOV.W	2(R4), R5
- 1296 015a 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
- 1296      3C41 4018 
- 1296      3D41 
- 1297 0164 B013 0000 		CALLA	#__mspabi_srll_12
- 1298 0168 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
- 1298      0C16 
- 1299 016e 4018 0D4C 		MOVX	R12, R13
- 1300 0172 5C43      		MOV.B	#1, R12
- 1301 0174 B013 0000 		CALLA	#__mspabi_slli
- 1302 0178 0CD5      		BIS.W	R5, R12
- 1303 017a 844C 0200 		MOV.W	R12, 2(R4)
- 1304 017e 0658      		ADD.W	R8, R6
- 1305 0180 1F41 0400 		MOV.W	4(R1), R15
- 1306 0184 6E43      		MOV.B	#2, R14
- 1307 0186 5D43      		MOV.B	#1, R13
- 1308 0188 CC0A      		MOVA	R10, R12
- 1309 018a B013 0000 		CALLA	#sx1278BlockTimeout
- 1310 018e 600C 0000 		MOVA	R12, &suspend_result
- 1311 0192 9C00 0000 		CMPA	#0, R12 { JEQ	.L107
- 1311      0024 
- 1312               	.L131:
- 1313 0198 EA43 0400 		MOV.B	#2, 4(R10)
- 1314 019c 8000 0000 		BRA	#.L108
- 1315               	.L100:
- 1316 01a0 6D93 0020 		CMP.B	#2, R13 { JNE	.L99
- 1317 01a4 4C93 0034 		CMP.B	#0, R12 { JGE	.L103
- 1318 01a8 4018 3CB0 		BITX.W	#64, R12 { JEQ	.L104
- 1318      4000 0024 
-GAS LISTING /tmp/ccE6EIlI.s 			page 26
+ 1269      3D41 
+ 1270 010e 710E 0000 		MOVA	R14, @R1
+ 1271 0112 B013 0000 		CALLA	#__mspabi_srll_12
+ 1272 0116 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 1272      0C16 
+ 1273 011c 4018 0D4C 		MOVX	R12, R13
+ 1274 0120 5C43      		MOV.B	#1, R12
+ 1275 0122 B013 0000 		CALLA	#__mspabi_slli
+ 1276 0126 05CC      		BIC.W	R12, R5
+ 1277 0128 8445 0200 		MOV.W	R5, 2(R4)
+ 1278 012c 7D40 80FF 		MOV.B	#-128, R13
+ 1279 0130 0E01      		MOVA	@R1, R14
+ 1280 0132 0C0E      		MOVA	@R14, R12
+ 1281 0134 B013 0000 		CALLA	#spi_lld_polled_exchange
+ 1282 0138 0C0A      		MOVA	@R10, R12
+ 1283 013a 3E01 0600 		MOVA	6(R1), R14
+ 1284 013e 4018 0D48 		MOVX	R8, R13
+ 1285 0142 0C0C      		MOVA	@R12, R12
+ 1286 0144 B013 0000 		CALLA	#spiSend
+ 1287 0148 0C0A      		MOVA	@R10, R12
+ 1288 014a 3C0C 2200 		MOVA	34(R12), R12
+ 1289 014e C40C      		MOVA	R12, R4
+ 1290 0150 0018 74F0 		ANDX.A	#4095, R4
+ 1290      FF0F 
+ 1291 0156 1544 0200 		MOV.W	2(R4), R5
+ 1292 015a 0C14 4018 		PUSHM.A	#1, R12 { POPX.W	R12 { POPX.W	R13 ; move pointer in R12 into reg-pair R12:R13
+ 1292      3C41 4018 
+ 1292      3D41 
+ 1293 0164 B013 0000 		CALLA	#__mspabi_srll_12
+ 1294 0168 0D12 0C12 		PUSH.W	R13 { PUSH.W	R12 { POPM.A	#1, R12
+ 1294      0C16 
+ 1295 016e 4018 0D4C 		MOVX	R12, R13
+ 1296 0172 5C43      		MOV.B	#1, R12
+ 1297 0174 B013 0000 		CALLA	#__mspabi_slli
+ 1298 0178 0CD5      		BIS.W	R5, R12
+ 1299 017a 844C 0200 		MOV.W	R12, 2(R4)
+ 1300 017e 0658      		ADD.W	R8, R6
+ 1301 0180 1F41 0400 		MOV.W	4(R1), R15
+ 1302 0184 6E43      		MOV.B	#2, R14
+ 1303 0186 5D43      		MOV.B	#1, R13
+ 1304 0188 CC0A      		MOVA	R10, R12
+ 1305 018a B013 0000 		CALLA	#sx1278BlockTimeout
+ 1306 018e 600C 0000 		MOVA	R12, &suspend_result
+ 1307 0192 9C00 0000 		CMPA	#0, R12 { JEQ	.L107
+ 1307      0024 
+ 1308               	.L131:
+ 1309 0198 EA43 0400 		MOV.B	#2, 4(R10)
+ 1310 019c 8000 0000 		BRA	#.L108
+ 1311               	.L100:
+ 1312 01a0 6D93 0020 		CMP.B	#2, R13 { JNE	.L99
+ 1313 01a4 4C93 0034 		CMP.B	#0, R12 { JGE	.L103
+ 1314 01a8 4018 3CB0 		BITX.W	#64, R12 { JEQ	.L104
+ 1314      4000 0024 
+ 1315 01b0 8E93 2C00 		CMP.W	#0, 44(R14) { JNE	.L104
+ 1315      0020 
+ 1316 01b6 8C00 0000 		MOVA	#__func__.5145, R12
+ 1317 01ba B013 0000 		CALLA	#chSysHalt
+GAS LISTING /tmp/ccTYDOZd.s 			page 26
 
 
- 1319 01b0 8E93 2C00 		CMP.W	#0, 44(R14) { JNE	.L104
- 1319      0020 
- 1320 01b6 8C00 0000 		MOVA	#__func__.5145, R12
- 1321 01ba B013 0000 		CALLA	#chSysHalt
- 1322               	.L104:
- 1323 01be 0C0A      		MOVA	@R10, R12
- 1324 01c0 1C4C 2C00 		MOV.W	44(R12), R12
- 1325 01c4 1C53      		ADD.W	#1, R12
- 1326 01c6 4018 0C4C 		MOVX	R12, R12
- 1327 01ca EC07      		ADDA	R7, R12
- 1328 01cc 0D49      		MOV.W	R9, R13
- 1329 01ce 5D0F 5D0F 		rrum.w	#4, R13 { rrum.w	#4, R13 
- 1330 01d2 CC4D 0000 		MOV.B	R13, @R12
- 1331 01d6 0C0A      		MOVA	@R10, R12
- 1332 01d8 4018 1C4C 		MOVX	44(R12), R12
- 1332      2C00 
- 1333 01de EC07      		ADDA	R7, R12
- 1334 01e0 CC49 0000 		MOV.B	R9, @R12
- 1335 01e4 8000 0000 		BRA	#.L103
- 1336               	.L110:
- 1337 01e8 7E40 0F00 		MOV.B	#15, R14
- 1338 01ec 8000 0000 		BRA	#.L105
- 1339               	.L111:
- 1340 01f0 7840 3000 		MOV.B	#48, R8
- 1341 01f4 8000 0000 		BRA	#.L106
- 1342               	.L107:
- 1343 01f8 0699 0028 		CMP.W	R9, R6 { JLO	.L109
- 1344 01fc 1F41 0400 		MOV.W	4(R1), R15
- 1345 0200 5E43      		MOV.B	#1, R14
- 1346 0202 4D43      		MOV.B	#0, R13
- 1347 0204 CC0A      		MOVA	R10, R12
- 1348 0206 B013 0000 		CALLA	#sx1278BlockTimeout
- 1349 020a 9C00 0000 		CMPA	#0, R12 { JNE	.L131
- 1349      0020 
- 1350               	.L108:
- 1351 0210 600C 0000 		MOVA	R12, &suspend_result
- 1352 0214 5E4A 0600 		MOV.B	6(R10), R14
- 1353 0218 7EF0 7F00 		AND.B	#127, R14
- 1354 021c 7ED0 4000 		BIS.B	#64, R14
- 1355 0220 CA4E 0600 		MOV.B	R14, 6(R10)
- 1356 0224 7D40 3600 		MOV.B	#54, R13
- 1357 0228 CC0A      		MOVA	R10, R12
- 1358 022a B013 0000 		CALLA	#sx1278SetRegister
- 1359 022e EA43 0400 		MOV.B	#2, 4(R10)
- 1360 0232 2C00 0000 		MOVA	&suspend_result, R12
- 1361               		; start of epilogue
- 1362 0236 A100 0A00 		ADDA	#10, R1
- 1363 023a 6416      		POPM.A	#7, r10
- 1364 023c 1001      		RETA
- 1365               		.size	sx1278Send, .-sx1278Send
- 1366               		.section	.upper.rodata,"a",@progbits
- 1367               		.type	__func__.5088, @object
- 1368               		.size	__func__.5088, 19
- 1369               	__func__.5088:
- 1370 0000 7378 3132 		.string	"sx1278BlockTimeout"
- 1370      3738 426C 
- 1370      6F63 6B54 
-GAS LISTING /tmp/ccE6EIlI.s 			page 27
+ 1318               	.L104:
+ 1319 01be 0C0A      		MOVA	@R10, R12
+ 1320 01c0 1C4C 2C00 		MOV.W	44(R12), R12
+ 1321 01c4 1C53      		ADD.W	#1, R12
+ 1322 01c6 4018 0C4C 		MOVX	R12, R12
+ 1323 01ca EC07      		ADDA	R7, R12
+ 1324 01cc 0D49      		MOV.W	R9, R13
+ 1325 01ce 5D0F 5D0F 		rrum.w	#4, R13 { rrum.w	#4, R13 
+ 1326 01d2 CC4D 0000 		MOV.B	R13, @R12
+ 1327 01d6 0C0A      		MOVA	@R10, R12
+ 1328 01d8 4018 1C4C 		MOVX	44(R12), R12
+ 1328      2C00 
+ 1329 01de EC07      		ADDA	R7, R12
+ 1330 01e0 CC49 0000 		MOV.B	R9, @R12
+ 1331 01e4 8000 0000 		BRA	#.L103
+ 1332               	.L110:
+ 1333 01e8 7E40 0F00 		MOV.B	#15, R14
+ 1334 01ec 8000 0000 		BRA	#.L105
+ 1335               	.L111:
+ 1336 01f0 7840 3000 		MOV.B	#48, R8
+ 1337 01f4 8000 0000 		BRA	#.L106
+ 1338               	.L107:
+ 1339 01f8 0699 0028 		CMP.W	R9, R6 { JLO	.L109
+ 1340 01fc 1F41 0400 		MOV.W	4(R1), R15
+ 1341 0200 5E43      		MOV.B	#1, R14
+ 1342 0202 4D43      		MOV.B	#0, R13
+ 1343 0204 CC0A      		MOVA	R10, R12
+ 1344 0206 B013 0000 		CALLA	#sx1278BlockTimeout
+ 1345 020a 9C00 0000 		CMPA	#0, R12 { JNE	.L131
+ 1345      0020 
+ 1346               	.L108:
+ 1347 0210 600C 0000 		MOVA	R12, &suspend_result
+ 1348 0214 5E4A 0600 		MOV.B	6(R10), R14
+ 1349 0218 7EF0 7F00 		AND.B	#127, R14
+ 1350 021c 7ED0 4000 		BIS.B	#64, R14
+ 1351 0220 CA4E 0600 		MOV.B	R14, 6(R10)
+ 1352 0224 7D40 3600 		MOV.B	#54, R13
+ 1353 0228 CC0A      		MOVA	R10, R12
+ 1354 022a B013 0000 		CALLA	#sx1278SetRegister
+ 1355 022e EA43 0400 		MOV.B	#2, 4(R10)
+ 1356 0232 2C00 0000 		MOVA	&suspend_result, R12
+ 1357               		; start of epilogue
+ 1358 0236 A100 0A00 		ADDA	#10, R1
+ 1359 023a 6416      		POPM.A	#7, r10
+ 1360 023c 1001      		RETA
+ 1361               		.size	sx1278Send, .-sx1278Send
+ 1362               		.section	.upper.rodata,"a",@progbits
+ 1363               		.type	__func__.5088, @object
+ 1364               		.size	__func__.5088, 19
+ 1365               	__func__.5088:
+ 1366 0000 7378 3132 		.string	"sx1278BlockTimeout"
+ 1366      3738 426C 
+ 1366      6F63 6B54 
+ 1366      696D 656F 
+ 1366      7574 00
+ 1367               		.type	__func__.5145, @object
+ 1368               		.size	__func__.5145, 11
+GAS LISTING /tmp/ccTYDOZd.s 			page 27
 
 
- 1370      696D 656F 
- 1370      7574 00
- 1371               		.type	__func__.5145, @object
- 1372               		.size	__func__.5145, 11
- 1373               	__func__.5145:
- 1374 0013 7378 3132 		.string	"sx1278Send"
- 1374      3738 5365 
- 1374      6E64 00
- 1375               		.type	__func__.5066, @object
- 1376               		.size	__func__.5066, 14
- 1377               	__func__.5066:
- 1378 001e 7378 3132 		.string	"sx1278MapIRQs"
- 1378      3738 4D61 
- 1378      7049 5251 
- 1378      7300 
- 1379               		.type	__func__.5078, @object
- 1380               		.size	__func__.5078, 23
- 1381               	__func__.5078:
- 1382 002c 7378 3132 		.string	"sx1278ConfigurePackets"
- 1382      3738 436F 
- 1382      6E66 6967 
- 1382      7572 6550 
- 1382      6163 6B65 
- 1383               		.type	__func__.5053, @object
- 1384               		.size	__func__.5053, 12
- 1385               	__func__.5053:
- 1386 0043 7378 3132 		.string	"sx1278Reset"
- 1386      3738 5265 
- 1386      7365 7400 
- 1387               		.type	__func__.5045, @object
- 1388               		.size	__func__.5045, 14
- 1389               	__func__.5045:
- 1390 004f 7378 3132 		.string	"sx1278SetSync"
+ 1369               	__func__.5145:
+ 1370 0013 7378 3132 		.string	"sx1278Send"
+ 1370      3738 5365 
+ 1370      6E64 00
+ 1371               		.type	__func__.5066, @object
+ 1372               		.size	__func__.5066, 14
+ 1373               	__func__.5066:
+ 1374 001e 7378 3132 		.string	"sx1278MapIRQs"
+ 1374      3738 4D61 
+ 1374      7049 5251 
+ 1374      7300 
+ 1375               		.type	__func__.5078, @object
+ 1376               		.size	__func__.5078, 23
+ 1377               	__func__.5078:
+ 1378 002c 7378 3132 		.string	"sx1278ConfigurePackets"
+ 1378      3738 436F 
+ 1378      6E66 6967 
+ 1378      7572 6550 
+ 1378      6163 6B65 
+ 1379               		.type	__func__.5053, @object
+ 1380               		.size	__func__.5053, 12
+ 1381               	__func__.5053:
+ 1382 0043 7378 3132 		.string	"sx1278Reset"
+ 1382      3738 5265 
+ 1382      7365 7400 
+ 1383               		.type	__func__.5045, @object
+ 1384               		.size	__func__.5045, 14
+ 1385               	__func__.5045:
+ 1386 004f 7378 3132 		.string	"sx1278SetSync"
+ 1386      3738 5365 
+ 1386      7453 796E 
+ 1386      6300 
+ 1387               		.type	__func__.5035, @object
+ 1388               		.size	__func__.5035, 22
+ 1389               	__func__.5035:
+ 1390 005d 7378 3132 		.string	"sx1278SetFilterParams"
  1390      3738 5365 
- 1390      7453 796E 
- 1390      6300 
- 1391               		.type	__func__.5035, @object
- 1392               		.size	__func__.5035, 22
- 1393               	__func__.5035:
- 1394 005d 7378 3132 		.string	"sx1278SetFilterParams"
+ 1390      7446 696C 
+ 1390      7465 7250 
+ 1390      6172 616D 
+ 1391               		.type	__func__.5026, @object
+ 1392               		.size	__func__.5026, 19
+ 1393               	__func__.5026:
+ 1394 0073 7378 3132 		.string	"sx1278SetFrequency"
  1394      3738 5365 
- 1394      7446 696C 
- 1394      7465 7250 
- 1394      6172 616D 
- 1395               		.type	__func__.5026, @object
- 1396               		.size	__func__.5026, 19
- 1397               	__func__.5026:
- 1398 0073 7378 3132 		.string	"sx1278SetFrequency"
+ 1394      7446 7265 
+ 1394      7175 656E 
+ 1394      6379 00
+ 1395               		.type	__func__.5020, @object
+ 1396               		.size	__func__.5020, 19
+ 1397               	__func__.5020:
+ 1398 0086 7378 3132 		.string	"sx1278SetDeviation"
  1398      3738 5365 
- 1398      7446 7265 
- 1398      7175 656E 
- 1398      6379 00
- 1399               		.type	__func__.5020, @object
- 1400               		.size	__func__.5020, 19
- 1401               	__func__.5020:
- 1402 0086 7378 3132 		.string	"sx1278SetDeviation"
+ 1398      7444 6576 
+ 1398      6961 7469 
+ 1398      6F6E 00
+ 1399               		.type	__func__.5014, @object
+GAS LISTING /tmp/ccTYDOZd.s 			page 28
+
+
+ 1400               		.size	__func__.5014, 17
+ 1401               	__func__.5014:
+ 1402 0099 7378 3132 		.string	"sx1278SetBitrate"
  1402      3738 5365 
-GAS LISTING /tmp/ccE6EIlI.s 			page 28
-
-
- 1402      7444 6576 
- 1402      6961 7469 
- 1402      6F6E 00
- 1403               		.type	__func__.5014, @object
- 1404               		.size	__func__.5014, 17
- 1405               	__func__.5014:
- 1406 0099 7378 3132 		.string	"sx1278SetBitrate"
+ 1402      7442 6974 
+ 1402      7261 7465 
+ 1402      00
+ 1403               		.type	__func__.4992, @object
+ 1404               		.size	__func__.4992, 18
+ 1405               	__func__.4992:
+ 1406 00aa 7378 3132 		.string	"sx1278SetRegister"
  1406      3738 5365 
- 1406      7442 6974 
- 1406      7261 7465 
- 1406      00
- 1407               		.type	__func__.4992, @object
- 1408               		.size	__func__.4992, 18
- 1409               	__func__.4992:
- 1410 00aa 7378 3132 		.string	"sx1278SetRegister"
- 1410      3738 5365 
- 1410      7452 6567 
- 1410      6973 7465 
- 1410      7200 
- 1411               		.type	__func__.4986, @object
- 1412               		.size	__func__.4986, 19
- 1413               	__func__.4986:
- 1414 00bc 7378 3132 		.string	"sx1278ReadRegister"
- 1414      3738 5265 
- 1414      6164 5265 
- 1414      6769 7374 
- 1414      6572 00
- 1415               		.local	suspend_result
- 1416               		.comm	suspend_result,4,2
- 1417               		.type	irqbits, @object
- 1418               		.size	irqbits, 2
- 1419               	irqbits:
- 1420 00cf 0A        		.byte	10
- 1421 00d0 0C        		.byte	12
- 1422               		.local	tr
- 1423               		.comm	tr,4,2
- 1424               		.global	SX1278D1
- 1425               		.section	.upper.bss,"aw",@nobits
- 1426               		.balign 2
- 1427               		.type	SX1278D1, @object
- 1428               		.size	SX1278D1, 12
- 1429               	SX1278D1:
- 1430 0000 0000 0000 		.zero	12
- 1430      0000 0000 
- 1430      0000 0000 
- 1431               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccE6EIlI.s 			page 29
+ 1406      7452 6567 
+ 1406      6973 7465 
+ 1406      7200 
+ 1407               		.type	__func__.4986, @object
+ 1408               		.size	__func__.4986, 19
+ 1409               	__func__.4986:
+ 1410 00bc 7378 3132 		.string	"sx1278ReadRegister"
+ 1410      3738 5265 
+ 1410      6164 5265 
+ 1410      6769 7374 
+ 1410      6572 00
+ 1411               		.local	suspend_result
+ 1412               		.comm	suspend_result,4,2
+ 1413               		.type	irqbits, @object
+ 1414               		.size	irqbits, 2
+ 1415               	irqbits:
+ 1416 00cf 0A        		.byte	10
+ 1417 00d0 0C        		.byte	12
+ 1418               		.local	tr
+ 1419               		.comm	tr,4,2
+ 1420               		.global	SX1278D1
+ 1421               		.section	.upper.bss,"aw",@nobits
+ 1422               		.balign 2
+ 1423               		.type	SX1278D1, @object
+ 1424               		.size	SX1278D1, 12
+ 1425               	SX1278D1:
+ 1426 0000 0000 0000 		.zero	12
+ 1426      0000 0000 
+ 1426      0000 0000 
+ 1427               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
+GAS LISTING /tmp/ccTYDOZd.s 			page 29
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sx1278.c
-     /tmp/ccE6EIlI.s:6      .text.spi_callback:0000000000000000 spi_callback
-     /tmp/ccE6EIlI.s:1429   .upper.bss:0000000000000000 SX1278D1
-     /tmp/ccE6EIlI.s:47     .text.blocking_callback:0000000000000000 blocking_callback
-     /tmp/ccE6EIlI.s:1423   .bss:0000000000000004 tr
-     /tmp/ccE6EIlI.s:67     .text.sx1278Reset.isra.0:0000000000000000 sx1278Reset.isra.0
-     /tmp/ccE6EIlI.s:1385   .upper.rodata:0000000000000043 __func__.5053
-     /tmp/ccE6EIlI.s:137    .text.sx1278ReadRegister:0000000000000000 sx1278ReadRegister
-     /tmp/ccE6EIlI.s:1413   .upper.rodata:00000000000000bc __func__.4986
-     /tmp/ccE6EIlI.s:198    .text.sx1278BlockTimeout:0000000000000000 sx1278BlockTimeout
-     /tmp/ccE6EIlI.s:1369   .upper.rodata:0000000000000000 __func__.5088
-     /tmp/ccE6EIlI.s:1419   .upper.rodata:00000000000000cf irqbits
-     /tmp/ccE6EIlI.s:1416   .bss:0000000000000000 suspend_result
-     /tmp/ccE6EIlI.s:349    .text.sx1278SetRegister:0000000000000000 sx1278SetRegister
-     /tmp/ccE6EIlI.s:1409   .upper.rodata:00000000000000aa __func__.4992
-     /tmp/ccE6EIlI.s:419    .text.sx1278SetMode.constprop.3:0000000000000000 sx1278SetMode.constprop.3
-     /tmp/ccE6EIlI.s:446    .text.sx1278SetBitrate:0000000000000000 sx1278SetBitrate
-     /tmp/ccE6EIlI.s:1405   .upper.rodata:0000000000000099 __func__.5014
-     /tmp/ccE6EIlI.s:501    .text.sx1278SetDeviation:0000000000000000 sx1278SetDeviation
-     /tmp/ccE6EIlI.s:1401   .upper.rodata:0000000000000086 __func__.5020
-     /tmp/ccE6EIlI.s:553    .text.sx1278SetFrequency:0000000000000000 sx1278SetFrequency
-     /tmp/ccE6EIlI.s:1397   .upper.rodata:0000000000000073 __func__.5026
-     /tmp/ccE6EIlI.s:649    .text.sx1278SetPower:0000000000000000 sx1278SetPower
-     /tmp/ccE6EIlI.s:670    .text.sx1278SetFilterParams:0000000000000000 sx1278SetFilterParams
-     /tmp/ccE6EIlI.s:1393   .upper.rodata:000000000000005d __func__.5035
-     /tmp/ccE6EIlI.s:704    .text.sx1278SetSync:0000000000000000 sx1278SetSync
-     /tmp/ccE6EIlI.s:1389   .upper.rodata:000000000000004f __func__.5045
-     /tmp/ccE6EIlI.s:760    .text.sx1278ObjectInit:0000000000000000 sx1278ObjectInit
-     /tmp/ccE6EIlI.s:781    .text.sx1278Start:0000000000000000 sx1278Start
-     /tmp/ccE6EIlI.s:1381   .upper.rodata:000000000000002c __func__.5078
-     /tmp/ccE6EIlI.s:1377   .upper.rodata:000000000000001e __func__.5066
-     /tmp/ccE6EIlI.s:927    .text.sx1278Stop:0000000000000000 sx1278Stop
-     /tmp/ccE6EIlI.s:960    .text.sx1278Sleep:0000000000000000 sx1278Sleep
-     /tmp/ccE6EIlI.s:983    .text.sx1278FifoWriteAsync:0000000000000000 sx1278FifoWriteAsync
-     /tmp/ccE6EIlI.s:1036   .text.sx1278FifoWriteAsyncS:0000000000000000 sx1278FifoWriteAsyncS
-     /tmp/ccE6EIlI.s:1090   .text.sx1278StartTransmit:0000000000000000 sx1278StartTransmit
-     /tmp/ccE6EIlI.s:1186   .text.sx1278Send:0000000000000000 sx1278Send
-     /tmp/ccE6EIlI.s:1373   .upper.rodata:0000000000000013 __func__.5145
-     /tmp/ccE6EIlI.s:38     .text.spi_callback:000000000000004e .L1
-     /tmp/ccE6EIlI.s:84     .text.sx1278Reset.isra.0:0000000000000016 .L8
-     /tmp/ccE6EIlI.s:154    .text.sx1278ReadRegister:0000000000000014 .L10
-     /tmp/ccE6EIlI.s:219    .text.sx1278BlockTimeout:000000000000001c .L12
-     /tmp/ccE6EIlI.s:238    .text.sx1278BlockTimeout:000000000000005c .L13
-     /tmp/ccE6EIlI.s:283    .text.sx1278BlockTimeout:00000000000000de .L14
-     /tmp/ccE6EIlI.s:270    .text.sx1278BlockTimeout:00000000000000ba .L21
-     /tmp/ccE6EIlI.s:274    .text.sx1278BlockTimeout:00000000000000c4 .L18
-     /tmp/ccE6EIlI.s:248    .text.sx1278BlockTimeout:000000000000007c .L15
-     /tmp/ccE6EIlI.s:280    .text.sx1278BlockTimeout:00000000000000d6 .L23
-     /tmp/ccE6EIlI.s:255    .text.sx1278BlockTimeout:0000000000000092 .L25
-     /tmp/ccE6EIlI.s:265    .text.sx1278BlockTimeout:00000000000000b2 .L11
-     /tmp/ccE6EIlI.s:338    .text.sx1278BlockTimeout:000000000000019e .L19
-     /tmp/ccE6EIlI.s:313    .text.sx1278BlockTimeout:000000000000014a .L20
-     /tmp/ccE6EIlI.s:367    .text.sx1278SetRegister:0000000000000016 .L28
-     /tmp/ccE6EIlI.s:371    .text.sx1278SetRegister:0000000000000028 .L29
-     /tmp/ccE6EIlI.s:374    .text.sx1278SetRegister:0000000000000030 .L30
-     /tmp/ccE6EIlI.s:475    .text.sx1278SetBitrate:0000000000000036 .L41
-GAS LISTING /tmp/ccE6EIlI.s 			page 30
+     /tmp/ccTYDOZd.s:6      .text.spi_callback:0000000000000000 spi_callback
+     /tmp/ccTYDOZd.s:1425   .upper.bss:0000000000000000 SX1278D1
+     /tmp/ccTYDOZd.s:47     .text.blocking_callback:0000000000000000 blocking_callback
+     /tmp/ccTYDOZd.s:1419   .bss:0000000000000004 tr
+     /tmp/ccTYDOZd.s:67     .text.sx1278Reset.isra.0:0000000000000000 sx1278Reset.isra.0
+     /tmp/ccTYDOZd.s:1381   .upper.rodata:0000000000000043 __func__.5053
+     /tmp/ccTYDOZd.s:137    .text.sx1278ReadRegister:0000000000000000 sx1278ReadRegister
+     /tmp/ccTYDOZd.s:1409   .upper.rodata:00000000000000bc __func__.4986
+     /tmp/ccTYDOZd.s:198    .text.sx1278BlockTimeout:0000000000000000 sx1278BlockTimeout
+     /tmp/ccTYDOZd.s:1365   .upper.rodata:0000000000000000 __func__.5088
+     /tmp/ccTYDOZd.s:1415   .upper.rodata:00000000000000cf irqbits
+     /tmp/ccTYDOZd.s:1412   .bss:0000000000000000 suspend_result
+     /tmp/ccTYDOZd.s:349    .text.sx1278SetRegister:0000000000000000 sx1278SetRegister
+     /tmp/ccTYDOZd.s:1405   .upper.rodata:00000000000000aa __func__.4992
+     /tmp/ccTYDOZd.s:419    .text.sx1278SetMode.constprop.3:0000000000000000 sx1278SetMode.constprop.3
+     /tmp/ccTYDOZd.s:446    .text.sx1278SetBitrate:0000000000000000 sx1278SetBitrate
+     /tmp/ccTYDOZd.s:1401   .upper.rodata:0000000000000099 __func__.5014
+     /tmp/ccTYDOZd.s:501    .text.sx1278SetDeviation:0000000000000000 sx1278SetDeviation
+     /tmp/ccTYDOZd.s:1397   .upper.rodata:0000000000000086 __func__.5020
+     /tmp/ccTYDOZd.s:553    .text.sx1278SetFrequency:0000000000000000 sx1278SetFrequency
+     /tmp/ccTYDOZd.s:1393   .upper.rodata:0000000000000073 __func__.5026
+     /tmp/ccTYDOZd.s:649    .text.sx1278SetPower:0000000000000000 sx1278SetPower
+     /tmp/ccTYDOZd.s:670    .text.sx1278SetFilterParams:0000000000000000 sx1278SetFilterParams
+     /tmp/ccTYDOZd.s:1389   .upper.rodata:000000000000005d __func__.5035
+     /tmp/ccTYDOZd.s:700    .text.sx1278SetSync:0000000000000000 sx1278SetSync
+     /tmp/ccTYDOZd.s:1385   .upper.rodata:000000000000004f __func__.5045
+     /tmp/ccTYDOZd.s:756    .text.sx1278ObjectInit:0000000000000000 sx1278ObjectInit
+     /tmp/ccTYDOZd.s:777    .text.sx1278Start:0000000000000000 sx1278Start
+     /tmp/ccTYDOZd.s:1377   .upper.rodata:000000000000002c __func__.5078
+     /tmp/ccTYDOZd.s:1373   .upper.rodata:000000000000001e __func__.5066
+     /tmp/ccTYDOZd.s:923    .text.sx1278Stop:0000000000000000 sx1278Stop
+     /tmp/ccTYDOZd.s:956    .text.sx1278Sleep:0000000000000000 sx1278Sleep
+     /tmp/ccTYDOZd.s:979    .text.sx1278FifoWriteAsync:0000000000000000 sx1278FifoWriteAsync
+     /tmp/ccTYDOZd.s:1032   .text.sx1278FifoWriteAsyncS:0000000000000000 sx1278FifoWriteAsyncS
+     /tmp/ccTYDOZd.s:1086   .text.sx1278StartTransmit:0000000000000000 sx1278StartTransmit
+     /tmp/ccTYDOZd.s:1182   .text.sx1278Send:0000000000000000 sx1278Send
+     /tmp/ccTYDOZd.s:1369   .upper.rodata:0000000000000013 __func__.5145
+     /tmp/ccTYDOZd.s:38     .text.spi_callback:000000000000004e .L1
+     /tmp/ccTYDOZd.s:84     .text.sx1278Reset.isra.0:0000000000000016 .L8
+     /tmp/ccTYDOZd.s:154    .text.sx1278ReadRegister:0000000000000014 .L10
+     /tmp/ccTYDOZd.s:219    .text.sx1278BlockTimeout:000000000000001c .L12
+     /tmp/ccTYDOZd.s:238    .text.sx1278BlockTimeout:000000000000005c .L13
+     /tmp/ccTYDOZd.s:283    .text.sx1278BlockTimeout:00000000000000de .L14
+     /tmp/ccTYDOZd.s:270    .text.sx1278BlockTimeout:00000000000000ba .L21
+     /tmp/ccTYDOZd.s:274    .text.sx1278BlockTimeout:00000000000000c4 .L18
+     /tmp/ccTYDOZd.s:248    .text.sx1278BlockTimeout:000000000000007c .L15
+     /tmp/ccTYDOZd.s:280    .text.sx1278BlockTimeout:00000000000000d6 .L23
+     /tmp/ccTYDOZd.s:255    .text.sx1278BlockTimeout:0000000000000092 .L25
+     /tmp/ccTYDOZd.s:265    .text.sx1278BlockTimeout:00000000000000b2 .L11
+     /tmp/ccTYDOZd.s:338    .text.sx1278BlockTimeout:000000000000019e .L19
+     /tmp/ccTYDOZd.s:313    .text.sx1278BlockTimeout:000000000000014a .L20
+     /tmp/ccTYDOZd.s:367    .text.sx1278SetRegister:0000000000000016 .L28
+     /tmp/ccTYDOZd.s:371    .text.sx1278SetRegister:0000000000000028 .L29
+     /tmp/ccTYDOZd.s:374    .text.sx1278SetRegister:0000000000000030 .L30
+     /tmp/ccTYDOZd.s:475    .text.sx1278SetBitrate:0000000000000036 .L41
+GAS LISTING /tmp/ccTYDOZd.s 			page 30
 
 
-     /tmp/ccE6EIlI.s:478    .text.sx1278SetBitrate:000000000000003e .L39
-     /tmp/ccE6EIlI.s:531    .text.sx1278SetDeviation:0000000000000038 .L45
-     /tmp/ccE6EIlI.s:534    .text.sx1278SetDeviation:0000000000000040 .L43
-     /tmp/ccE6EIlI.s:588    .text.sx1278SetFrequency:0000000000000046 .L56
-     /tmp/ccE6EIlI.s:598    .text.sx1278SetFrequency:0000000000000066 .L47
-     /tmp/ccE6EIlI.s:629    .text.sx1278SetFrequency:00000000000000b2 .L49
-     /tmp/ccE6EIlI.s:604    .text.sx1278SetFrequency:0000000000000078 .L54
-     /tmp/ccE6EIlI.s:640    .text.sx1278SetFrequency:00000000000000d6 .L52
-     /tmp/ccE6EIlI.s:637    .text.sx1278SetFrequency:00000000000000ce .L57
-     /tmp/ccE6EIlI.s:600    .text.sx1278SetFrequency:000000000000006a .L51
-     /tmp/ccE6EIlI.s:689    .text.sx1278SetFilterParams:0000000000000018 .L63
-     /tmp/ccE6EIlI.s:751    .text.sx1278SetSync:0000000000000066 .L64
-     /tmp/ccE6EIlI.s:741    .text.sx1278SetSync:000000000000004c .L66
-     /tmp/ccE6EIlI.s:732    .text.sx1278SetSync:0000000000000034 .L67
-     /tmp/ccE6EIlI.s:912    .text.sx1278Start:000000000000016e .L82
-     /tmp/ccE6EIlI.s:851    .text.sx1278Start:00000000000000c2 .L73
-     /tmp/ccE6EIlI.s:915    .text.sx1278Start:0000000000000176 .L74
-     /tmp/ccE6EIlI.s:891    .text.sx1278Start:0000000000000136 .L76
-     /tmp/ccE6EIlI.s:898    .text.sx1278Start:000000000000014e .L79
-     /tmp/ccE6EIlI.s:846    .text.sx1278Start:00000000000000b0 .L72
-     /tmp/ccE6EIlI.s:880    .text.sx1278Start:0000000000000114 .L85
-     /tmp/ccE6EIlI.s:1178   .text.sx1278StartTransmit:00000000000000dc .L93
-     /tmp/ccE6EIlI.s:1165   .text.sx1278StartTransmit:00000000000000c0 .L92
-     /tmp/ccE6EIlI.s:1113   .text.sx1278StartTransmit:0000000000000020 .L91
-     /tmp/ccE6EIlI.s:1208   .text.sx1278Send:0000000000000024 .L95
-     /tmp/ccE6EIlI.s:1225   .text.sx1278Send:0000000000000064 .L96
-     /tmp/ccE6EIlI.s:1219   .text.sx1278Send:000000000000004a .L103
-     /tmp/ccE6EIlI.s:1239   .text.sx1278Send:0000000000000096 .L99
-     /tmp/ccE6EIlI.s:1315   .text.sx1278Send:00000000000001a0 .L100
-     /tmp/ccE6EIlI.s:1231   .text.sx1278Send:0000000000000078 .L101
-     /tmp/ccE6EIlI.s:1336   .text.sx1278Send:00000000000001e8 .L110
-     /tmp/ccE6EIlI.s:1339   .text.sx1278Send:00000000000001f0 .L111
-     /tmp/ccE6EIlI.s:1342   .text.sx1278Send:00000000000001f8 .L107
-     /tmp/ccE6EIlI.s:1350   .text.sx1278Send:0000000000000210 .L108
-     /tmp/ccE6EIlI.s:1322   .text.sx1278Send:00000000000001be .L104
-     /tmp/ccE6EIlI.s:1245   .text.sx1278Send:00000000000000a6 .L105
-     /tmp/ccE6EIlI.s:1264   .text.sx1278Send:00000000000000e8 .L106
-     /tmp/ccE6EIlI.s:1258   .text.sx1278Send:00000000000000cc .L109
-     /tmp/ccE6EIlI.s:1312   .text.sx1278Send:0000000000000198 .L131
+     /tmp/ccTYDOZd.s:478    .text.sx1278SetBitrate:000000000000003e .L39
+     /tmp/ccTYDOZd.s:531    .text.sx1278SetDeviation:0000000000000038 .L45
+     /tmp/ccTYDOZd.s:534    .text.sx1278SetDeviation:0000000000000040 .L43
+     /tmp/ccTYDOZd.s:588    .text.sx1278SetFrequency:0000000000000046 .L56
+     /tmp/ccTYDOZd.s:598    .text.sx1278SetFrequency:0000000000000066 .L47
+     /tmp/ccTYDOZd.s:629    .text.sx1278SetFrequency:00000000000000b2 .L49
+     /tmp/ccTYDOZd.s:604    .text.sx1278SetFrequency:0000000000000078 .L54
+     /tmp/ccTYDOZd.s:640    .text.sx1278SetFrequency:00000000000000d6 .L52
+     /tmp/ccTYDOZd.s:637    .text.sx1278SetFrequency:00000000000000ce .L57
+     /tmp/ccTYDOZd.s:600    .text.sx1278SetFrequency:000000000000006a .L51
+     /tmp/ccTYDOZd.s:687    .text.sx1278SetFilterParams:0000000000000014 .L63
+     /tmp/ccTYDOZd.s:747    .text.sx1278SetSync:0000000000000066 .L64
+     /tmp/ccTYDOZd.s:737    .text.sx1278SetSync:000000000000004c .L66
+     /tmp/ccTYDOZd.s:728    .text.sx1278SetSync:0000000000000034 .L67
+     /tmp/ccTYDOZd.s:908    .text.sx1278Start:000000000000016e .L82
+     /tmp/ccTYDOZd.s:847    .text.sx1278Start:00000000000000c2 .L73
+     /tmp/ccTYDOZd.s:911    .text.sx1278Start:0000000000000176 .L74
+     /tmp/ccTYDOZd.s:887    .text.sx1278Start:0000000000000136 .L76
+     /tmp/ccTYDOZd.s:894    .text.sx1278Start:000000000000014e .L79
+     /tmp/ccTYDOZd.s:842    .text.sx1278Start:00000000000000b0 .L72
+     /tmp/ccTYDOZd.s:876    .text.sx1278Start:0000000000000114 .L85
+     /tmp/ccTYDOZd.s:1174   .text.sx1278StartTransmit:00000000000000dc .L93
+     /tmp/ccTYDOZd.s:1161   .text.sx1278StartTransmit:00000000000000c0 .L92
+     /tmp/ccTYDOZd.s:1109   .text.sx1278StartTransmit:0000000000000020 .L91
+     /tmp/ccTYDOZd.s:1204   .text.sx1278Send:0000000000000024 .L95
+     /tmp/ccTYDOZd.s:1221   .text.sx1278Send:0000000000000064 .L96
+     /tmp/ccTYDOZd.s:1215   .text.sx1278Send:000000000000004a .L103
+     /tmp/ccTYDOZd.s:1235   .text.sx1278Send:0000000000000096 .L99
+     /tmp/ccTYDOZd.s:1311   .text.sx1278Send:00000000000001a0 .L100
+     /tmp/ccTYDOZd.s:1227   .text.sx1278Send:0000000000000078 .L101
+     /tmp/ccTYDOZd.s:1332   .text.sx1278Send:00000000000001e8 .L110
+     /tmp/ccTYDOZd.s:1335   .text.sx1278Send:00000000000001f0 .L111
+     /tmp/ccTYDOZd.s:1338   .text.sx1278Send:00000000000001f8 .L107
+     /tmp/ccTYDOZd.s:1346   .text.sx1278Send:0000000000000210 .L108
+     /tmp/ccTYDOZd.s:1318   .text.sx1278Send:00000000000001be .L104
+     /tmp/ccTYDOZd.s:1241   .text.sx1278Send:00000000000000a6 .L105
+     /tmp/ccTYDOZd.s:1260   .text.sx1278Send:00000000000000e8 .L106
+     /tmp/ccTYDOZd.s:1254   .text.sx1278Send:00000000000000cc .L109
+     /tmp/ccTYDOZd.s:1308   .text.sx1278Send:0000000000000198 .L131
 
 UNDEFINED SYMBOLS
 __mspabi_srll_12
@@ -1787,7 +1783,7 @@ __mspabi_divul
 __mspabi_srll_4
 __mspabi_slll_11
 __mspabi_slll_8
-GAS LISTING /tmp/ccE6EIlI.s 			page 31
+GAS LISTING /tmp/ccTYDOZd.s 			page 31
 
 
 __mspabi_srll

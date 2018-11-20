@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccSJb14j.s 			page 1
+GAS LISTING /tmp/cc3BNmFE.s 			page 1
 
 
    1               		.file	"chmemcore.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccSJb14j.s 			page 1
   52 002a 0018 4A43 		MOVX.A	#0, R10 { SUBA	R8, R10
   52      FA08 
   53 0030 0018 4EFA 		ANDX.A	R10, R14
-GAS LISTING /tmp/ccSJb14j.s 			page 2
+GAS LISTING /tmp/cc3BNmFE.s 			page 2
 
 
   54 0034 2C00 0000 		MOVA	&nextmem, R12
@@ -118,7 +118,7 @@ GAS LISTING /tmp/ccSJb14j.s 			page 1
  107               	chCoreGetStatusX:
  108               	; start of function
  109               	; framesize_regs:     0
-GAS LISTING /tmp/ccSJb14j.s 			page 3
+GAS LISTING /tmp/cc3BNmFE.s 			page 3
 
 
  110               	; framesize_locals:   0
@@ -149,22 +149,22 @@ GAS LISTING /tmp/ccSJb14j.s 			page 1
  130               		.local	nextmem
  131               		.comm	nextmem,4,2
  132               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccSJb14j.s 			page 4
+GAS LISTING /tmp/cc3BNmFE.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 chmemcore.c
-     /tmp/ccSJb14j.s:6      .text._core_init:0000000000000000 _core_init
-     /tmp/ccSJb14j.s:131    .bss:0000000000000004 nextmem
-     /tmp/ccSJb14j.s:129    .bss:0000000000000000 endmem
-     /tmp/ccSJb14j.s:26     .text.chCoreAllocAlignedI:0000000000000000 chCoreAllocAlignedI
-     /tmp/ccSJb14j.s:126    .upper.rodata:0000000000000000 __func__.2604
-     /tmp/ccSJb14j.s:76     .text.chCoreAllocAligned:0000000000000000 chCoreAllocAligned
-     /tmp/ccSJb14j.s:107    .text.chCoreGetStatusX:0000000000000000 chCoreGetStatusX
-     /tmp/ccSJb14j.s:45     .text.chCoreAllocAlignedI:000000000000001a .L3
-     /tmp/ccSJb14j.s:48     .text.chCoreAllocAlignedI:0000000000000022 .L4
-     /tmp/ccSJb14j.s:68     .text.chCoreAllocAlignedI:0000000000000058 .L6
-     /tmp/ccSJb14j.s:63     .text.chCoreAllocAlignedI:0000000000000052 .L2
+     /tmp/cc3BNmFE.s:6      .text._core_init:0000000000000000 _core_init
+     /tmp/cc3BNmFE.s:131    .bss:0000000000000004 nextmem
+     /tmp/cc3BNmFE.s:129    .bss:0000000000000000 endmem
+     /tmp/cc3BNmFE.s:26     .text.chCoreAllocAlignedI:0000000000000000 chCoreAllocAlignedI
+     /tmp/cc3BNmFE.s:126    .upper.rodata:0000000000000000 __func__.2604
+     /tmp/cc3BNmFE.s:76     .text.chCoreAllocAligned:0000000000000000 chCoreAllocAligned
+     /tmp/cc3BNmFE.s:107    .text.chCoreGetStatusX:0000000000000000 chCoreGetStatusX
+     /tmp/cc3BNmFE.s:45     .text.chCoreAllocAlignedI:000000000000001a .L3
+     /tmp/cc3BNmFE.s:48     .text.chCoreAllocAlignedI:0000000000000022 .L4
+     /tmp/cc3BNmFE.s:68     .text.chCoreAllocAlignedI:0000000000000058 .L6
+     /tmp/cc3BNmFE.s:63     .text.chCoreAllocAlignedI:0000000000000052 .L2
 
 UNDEFINED SYMBOLS
 __heap_base__

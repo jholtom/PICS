@@ -1,4 +1,4 @@
-GAS LISTING /tmp/cc4jZbaV.s 			page 1
+GAS LISTING /tmp/ccBNIznk.s 			page 1
 
 
    1               		.file	"hal_i2c.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/cc4jZbaV.s 			page 1
   54               		; start of prologue
   55 0000 0A14      		PUSHM.A	#1, R10
   56 0002 0814      		PUSHM.A	#1, R8
-GAS LISTING /tmp/cc4jZbaV.s 			page 2
+GAS LISTING /tmp/ccBNIznk.s 			page 2
 
 
   57               		; end of prologue
@@ -118,7 +118,7 @@ GAS LISTING /tmp/cc4jZbaV.s 			page 1
  107               	; elim fp -> sp       0
  108               	; saved regs: R10
  109               		; start of prologue
-GAS LISTING /tmp/cc4jZbaV.s 			page 3
+GAS LISTING /tmp/ccBNIznk.s 			page 3
 
 
  110 0000 0A14      		PUSHM.A	#1, R10
@@ -178,7 +178,7 @@ GAS LISTING /tmp/cc4jZbaV.s 			page 1
  160 0000 0A14      		PUSHM.A	#1, R10
  161               		; end of prologue
  162 0002 CA0C      		MOVA	R12, R10
-GAS LISTING /tmp/cc4jZbaV.s 			page 4
+GAS LISTING /tmp/ccBNIznk.s 			page 4
 
 
  163 0004 9C00 0000 		CMPA	#0, R12 { JNE	.L20
@@ -238,7 +238,7 @@ GAS LISTING /tmp/cc4jZbaV.s 			page 1
  210 0052 B013 0000 		CALLA	#chSysHalt
  211               	.L25:
  212               	 ; 347 "../ChibiOS-Contrib/os/common/ports/MSP430X/chcore.h" 1
-GAS LISTING /tmp/cc4jZbaV.s 			page 5
+GAS LISTING /tmp/ccBNIznk.s 			page 5
 
 
  213 0056 32C2 0343 		dint { nop
@@ -298,7 +298,7 @@ GAS LISTING /tmp/cc4jZbaV.s 			page 1
  262               		; end of prologue
  263 0006 CA0C      		MOVA	R12, R10
  264 0008 494D      		MOV.B	R13, R9
-GAS LISTING /tmp/cc4jZbaV.s 			page 6
+GAS LISTING /tmp/ccBNIznk.s 			page 6
 
 
  265 000a C60E      		MOVA	R14, R6
@@ -358,7 +358,7 @@ GAS LISTING /tmp/cc4jZbaV.s 			page 1
  312               		.section	.upper.rodata,"a",@progbits
  313               		.type	__func__.3731, @object
  314               		.size	__func__.3731, 24
-GAS LISTING /tmp/cc4jZbaV.s 			page 7
+GAS LISTING /tmp/ccBNIznk.s 			page 7
 
 
  315               	__func__.3731:
@@ -394,40 +394,40 @@ GAS LISTING /tmp/cc4jZbaV.s 			page 1
  332      7461 7274 
  332      00
  333               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/cc4jZbaV.s 			page 8
+GAS LISTING /tmp/ccBNIznk.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 hal_i2c.c
-     /tmp/cc4jZbaV.s:6      .text.i2cInit:0000000000000000 i2cInit
-     /tmp/cc4jZbaV.s:25     .text.i2cObjectInit:0000000000000000 i2cObjectInit
-     /tmp/cc4jZbaV.s:45     .text.i2cStart:0000000000000000 i2cStart
-     /tmp/cc4jZbaV.s:331    .upper.rodata:0000000000000046 __func__.3703
-     /tmp/cc4jZbaV.s:100    .text.i2cStop:0000000000000000 i2cStop
-     /tmp/cc4jZbaV.s:327    .upper.rodata:000000000000003e __func__.3707
-     /tmp/cc4jZbaV.s:150    .text.i2cGetErrors:0000000000000000 i2cGetErrors
-     /tmp/cc4jZbaV.s:323    .upper.rodata:0000000000000031 __func__.3711
-     /tmp/cc4jZbaV.s:176    .text.i2cMasterTransmitTimeout:0000000000000000 i2cMasterTransmitTimeout
-     /tmp/cc4jZbaV.s:319    .upper.rodata:0000000000000018 __func__.3722
-     /tmp/cc4jZbaV.s:250    .text.i2cMasterReceiveTimeout:0000000000000000 i2cMasterReceiveTimeout
-     /tmp/cc4jZbaV.s:315    .upper.rodata:0000000000000000 __func__.3731
-     /tmp/cc4jZbaV.s:62     .text.i2cStart:0000000000000014 .L4
-     /tmp/cc4jZbaV.s:65     .text.i2cStart:000000000000001c .L5
-     /tmp/cc4jZbaV.s:74     .text.i2cStart:0000000000000036 .L6
-     /tmp/cc4jZbaV.s:116    .text.i2cStop:0000000000000012 .L14
-     /tmp/cc4jZbaV.s:131    .text.i2cStop:0000000000000032 .L15
-     /tmp/cc4jZbaV.s:166    .text.i2cGetErrors:0000000000000012 .L20
-     /tmp/cc4jZbaV.s:204    .text.i2cMasterTransmitTimeout:0000000000000040 .L22
-     /tmp/cc4jZbaV.s:202    .text.i2cMasterTransmitTimeout:000000000000003c .L23
-     /tmp/cc4jZbaV.s:207    .text.i2cMasterTransmitTimeout:0000000000000048 .L24
-     /tmp/cc4jZbaV.s:211    .text.i2cMasterTransmitTimeout:0000000000000056 .L25
-     /tmp/cc4jZbaV.s:242    .text.i2cMasterTransmitTimeout:00000000000000a0 .L26
-     /tmp/cc4jZbaV.s:230    .text.i2cMasterTransmitTimeout:000000000000008e .L27
-     /tmp/cc4jZbaV.s:273    .text.i2cMasterReceiveTimeout:000000000000002c .L43
-     /tmp/cc4jZbaV.s:276    .text.i2cMasterReceiveTimeout:0000000000000034 .L44
-     /tmp/cc4jZbaV.s:280    .text.i2cMasterReceiveTimeout:0000000000000042 .L45
-     /tmp/cc4jZbaV.s:308    .text.i2cMasterReceiveTimeout:000000000000007c .L46
-     /tmp/cc4jZbaV.s:297    .text.i2cMasterReceiveTimeout:000000000000006c .L47
+     /tmp/ccBNIznk.s:6      .text.i2cInit:0000000000000000 i2cInit
+     /tmp/ccBNIznk.s:25     .text.i2cObjectInit:0000000000000000 i2cObjectInit
+     /tmp/ccBNIznk.s:45     .text.i2cStart:0000000000000000 i2cStart
+     /tmp/ccBNIznk.s:331    .upper.rodata:0000000000000046 __func__.3703
+     /tmp/ccBNIznk.s:100    .text.i2cStop:0000000000000000 i2cStop
+     /tmp/ccBNIznk.s:327    .upper.rodata:000000000000003e __func__.3707
+     /tmp/ccBNIznk.s:150    .text.i2cGetErrors:0000000000000000 i2cGetErrors
+     /tmp/ccBNIznk.s:323    .upper.rodata:0000000000000031 __func__.3711
+     /tmp/ccBNIznk.s:176    .text.i2cMasterTransmitTimeout:0000000000000000 i2cMasterTransmitTimeout
+     /tmp/ccBNIznk.s:319    .upper.rodata:0000000000000018 __func__.3722
+     /tmp/ccBNIznk.s:250    .text.i2cMasterReceiveTimeout:0000000000000000 i2cMasterReceiveTimeout
+     /tmp/ccBNIznk.s:315    .upper.rodata:0000000000000000 __func__.3731
+     /tmp/ccBNIznk.s:62     .text.i2cStart:0000000000000014 .L4
+     /tmp/ccBNIznk.s:65     .text.i2cStart:000000000000001c .L5
+     /tmp/ccBNIznk.s:74     .text.i2cStart:0000000000000036 .L6
+     /tmp/ccBNIznk.s:116    .text.i2cStop:0000000000000012 .L14
+     /tmp/ccBNIznk.s:131    .text.i2cStop:0000000000000032 .L15
+     /tmp/ccBNIznk.s:166    .text.i2cGetErrors:0000000000000012 .L20
+     /tmp/ccBNIznk.s:204    .text.i2cMasterTransmitTimeout:0000000000000040 .L22
+     /tmp/ccBNIznk.s:202    .text.i2cMasterTransmitTimeout:000000000000003c .L23
+     /tmp/ccBNIznk.s:207    .text.i2cMasterTransmitTimeout:0000000000000048 .L24
+     /tmp/ccBNIznk.s:211    .text.i2cMasterTransmitTimeout:0000000000000056 .L25
+     /tmp/ccBNIznk.s:242    .text.i2cMasterTransmitTimeout:00000000000000a0 .L26
+     /tmp/ccBNIznk.s:230    .text.i2cMasterTransmitTimeout:000000000000008e .L27
+     /tmp/ccBNIznk.s:273    .text.i2cMasterReceiveTimeout:000000000000002c .L43
+     /tmp/ccBNIznk.s:276    .text.i2cMasterReceiveTimeout:0000000000000034 .L44
+     /tmp/ccBNIznk.s:280    .text.i2cMasterReceiveTimeout:0000000000000042 .L45
+     /tmp/ccBNIznk.s:308    .text.i2cMasterReceiveTimeout:000000000000007c .L46
+     /tmp/ccBNIznk.s:297    .text.i2cMasterReceiveTimeout:000000000000006c .L47
 
 UNDEFINED SYMBOLS
 i2c_lld_init

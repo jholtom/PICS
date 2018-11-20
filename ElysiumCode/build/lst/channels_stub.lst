@@ -1,4 +1,4 @@
-GAS LISTING /tmp/ccgkUoBy.s 			page 1
+GAS LISTING /tmp/ccK7hE9a.s 			page 1
 
 
    1               		.file	"channels_stub.c"
@@ -58,7 +58,7 @@ GAS LISTING /tmp/ccgkUoBy.s 			page 1
   55               		.size	elyChanLog, .-elyChanLog
   56               		.section	.text.elyChanUnlog,"ax",@progbits
   57               		.balign 2
-GAS LISTING /tmp/ccgkUoBy.s 			page 2
+GAS LISTING /tmp/ccK7hE9a.s 			page 2
 
 
   58               		.global	elyChanUnlog
@@ -115,16 +115,16 @@ GAS LISTING /tmp/ccgkUoBy.s 			page 1
  109 0000 1001      		RETA
  110               		.size	elyChanReset, .-elyChanReset
  111               		.ident	"GCC: (SOMNIUM Technologies Limited - msp430-gcc 6.2.1.16) 6.2.1 20161212"
-GAS LISTING /tmp/ccgkUoBy.s 			page 3
+GAS LISTING /tmp/ccK7hE9a.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 channels_stub.c
-     /tmp/ccgkUoBy.s:6      .text.elyChanSubscribe:0000000000000000 elyChanSubscribe
-     /tmp/ccgkUoBy.s:24     .text.elyChanUnsubscribe:0000000000000000 elyChanUnsubscribe
-     /tmp/ccgkUoBy.s:42     .text.elyChanLog:0000000000000000 elyChanLog
-     /tmp/ccgkUoBy.s:60     .text.elyChanUnlog:0000000000000000 elyChanUnlog
-     /tmp/ccgkUoBy.s:78     .text.elyChanGetValue:0000000000000000 elyChanGetValue
-     /tmp/ccgkUoBy.s:97     .text.elyChanReset:0000000000000000 elyChanReset
+     /tmp/ccK7hE9a.s:6      .text.elyChanSubscribe:0000000000000000 elyChanSubscribe
+     /tmp/ccK7hE9a.s:24     .text.elyChanUnsubscribe:0000000000000000 elyChanUnsubscribe
+     /tmp/ccK7hE9a.s:42     .text.elyChanLog:0000000000000000 elyChanLog
+     /tmp/ccK7hE9a.s:60     .text.elyChanUnlog:0000000000000000 elyChanUnlog
+     /tmp/ccK7hE9a.s:78     .text.elyChanGetValue:0000000000000000 elyChanGetValue
+     /tmp/ccK7hE9a.s:97     .text.elyChanReset:0000000000000000 elyChanReset
 
 NO UNDEFINED SYMBOLS
