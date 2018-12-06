@@ -21,11 +21,11 @@ static uint8_t __attribute__((section(".persistent"))) bank0[256] = {
   TX_DEV_LSB, /* RegTXDevLsb */
   TX_DEV_LMB, /* RegTXDevLmb */
   TX_DEV_HMB, /* RegTXDevHmb */
-  TX_DEV_MSB, /* RegTXDevMsb */ /* 5 kHz */
+  TX_DEV_MSB, /* RegTXDevMsb */
   RX_DEV_LSB, /* RegRXDevLsb */
   RX_DEV_LMB, /* RegRXDevLmb */
   RX_DEV_HMB, /* RegRXDevHmb */
-  RX_DEV_MSB, /* RegRXDevMsb */ /* 50 kHz */
+  RX_DEV_MSB, /* RegRXDevMsb */
   TX_SYNC_LSB, /* RegTXSyncLsb */
   TX_SYNC_LMB, /* RegTXSyncLmb */
   TX_SYNC_HMB, /* RegTXSyncHmb */
@@ -37,11 +37,11 @@ static uint8_t __attribute__((section(".persistent"))) bank0[256] = {
   TX_BR_LSB, /* RegTXBRLsb */
   TX_BR_LMB, /* RegTXBRLmb */
   TX_BR_HMB, /* RegTXBRHmb */
-  TX_BR_MSB, /* RegTXBRMsb */ /* 4.8 kbps */
+  TX_BR_MSB, /* RegTXBRMsb */
   RX_BR_LSB, /* RegRXBRLsb */
   RX_BR_LMB, /* RegRXBRLmb */
   RX_BR_HMB, /* RegRXBRHmb */
-  RX_BR_MSB, /* RegRXBRMsb */ /* 25 kbps */
+  RX_BR_MSB, /* RegRXBRMsb */
   FILTER_DEFAULT, /* RegFilterParams */ /* No Gaussian, 100 kHz */
   TX_POW_MIN, /* RegOutputPower */
   0x00, /* RegUARTBaudLsb */
@@ -90,8 +90,8 @@ static uint8_t __attribute__((section(".persistent"))) bank0[256] = {
   0x18, /* RegErrLogLvl */ /* CRITICAL | ERROR */
   0xFF, /* RegErrRptAddrLsb */
   0xFF, /* RegErrRptAddrMsb */ /* Broadcast */
-  0x01, /* RegSrcAddrLsb */
-  0x00, /* RegSrcAddrMsb */ /* Invalid */ /* TODO give this a proper default */
+  ELY_SRCADDR_LSB, /* RegSrcAddrLsb */
+  ELY_SRCADDR_MSB, /* RegSrcAddrMsb */
   0xFF, /* RegChanDefaultAddrLsb */
   0xFF, /* RegChanDefaultAddrMsb */ /* Broadcast */
   0xFF, /* RegEventDefaultAddrLsb */
@@ -213,19 +213,19 @@ void fram_reg_cb(uint8_t * buffer) {
 
 void fram_reg(uint8_t read, uint8_t bank, uint8_t addr, uint8_t * valuep) {
   fram_req_t * req;
-  
+
   chSysLock();
   /* TODO timeout for safety */
   elyFramGetRequestTimeoutS(&req, TIME_INFINITE);
   chSysUnlock();
-  
+
   /* Fill out the request */
   req->address = FRAM_REG_BASE + ((bank-1) * 256) + addr;
   req->read = read;
   req->size = 1;
   req->buffer = valuep;
   req->callback = fram_reg_cb;
-  
+
   /* TODO handle failure */
   chSysLock();
   elyFramPostRequestS(req);
@@ -241,19 +241,19 @@ void fram_block_cb(uint8_t * buffer) {
 
 void fram_block(uint8_t read, uint8_t bank, uint8_t addr, uint8_t * buffer, uint8_t n) {
   fram_req_t * req;
-  
+
   chSysLock();
   /* TODO timeout for safety */
   elyFramGetRequestTimeoutS(&req, TIME_INFINITE);
   chSysUnlock();
-  
+
   /* Fill out the request */
   req->address = FRAM_REG_BASE + ((bank-1) * 256) + addr;
   req->read = read;
   req->size = n;
   req->buffer = buffer;
   req->callback = fram_block_cb;
-  
+
   /* TODO handle failure */
   chSysLock();
   elyFramPostRequestS(req);
@@ -330,7 +330,7 @@ uint8_t elyClampReg(uint8_t addr, uint8_t value) {
 
 void elyRegGet(uint8_t bank, uint8_t * buffer, uint8_t n) {
   regs_in_progress = n;
-  
+
   if (bank == 0) {
     for (int i = 0; i < n; i++) {
       uint8_t addr = buffer[i];
@@ -340,7 +340,7 @@ void elyRegGet(uint8_t bank, uint8_t * buffer, uint8_t n) {
   else {
     for (int i = 0; i < n; i++) {
       uint8_t addr = buffer[i];
-  
+
       /* Get the register */
       fram_reg(1, bank, addr, (buffer+i));
     }
@@ -352,23 +352,23 @@ void elyRegGet(uint8_t bank, uint8_t * buffer, uint8_t n) {
 
 void elyRegSet(uint8_t bank, uint8_t * buffer, uint8_t n) {
   regs_in_progress = n;
-  
+
   for (int i = 0; i < n * 2; i += 2) {
     uint8_t addr = buffer[i];
     uint8_t *valuep = &buffer[i+1];
     (*valuep) = elyClampReg(addr, (*valuep));
-  
+
     /* Write the register */
     fram_reg(0, bank, addr, valuep);
   }
-  
+
   /* Wait for all writes to complete */
   /* TODO timeout for safety */
   chBSemWaitTimeout(&regs_sem, TIME_INFINITE);
 }
 
 void elyRegGetBlock(uint8_t bank, uint8_t * buffer, uint8_t addr, uint8_t n) {
-  
+
   if (bank == 0) {
     memcpy(buffer, bank0p + addr, n);
   }
@@ -379,22 +379,22 @@ void elyRegGetBlock(uint8_t bank, uint8_t * buffer, uint8_t addr, uint8_t n) {
     /* TODO timeout for safety */
     chBSemWaitTimeout(&regs_sem, TIME_INFINITE);
   }
-  
+
 }
 
 void elyRegSetBlock(uint8_t bank, uint8_t * buffer, uint8_t addr, uint8_t n) {
-  
+
   for (int i = 0; i < n; i++) {
     buffer[i] = elyClampReg(addr + i, buffer[i]);
   }
-  
+
   /* Write the block */
   fram_block(0, bank, addr, buffer, n);
-  
+
   /* Wait for the write to complete */
   /* TODO timeout for safety */
   chBSemWaitTimeout(&regs_sem, TIME_INFINITE);
-  
+
 }
 
 

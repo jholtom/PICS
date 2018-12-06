@@ -24,6 +24,9 @@
 /* 80 kHz */
 #define RX_DEV 80000UL
 
+/* Elysium Source Address - PIC-A is 1020, PIC-B is 1120 */
+#define ELY_SRCADDR 1020
+
 /* Configuration for sync words dependent on FEC type */
 
 #define FEC_RS 1

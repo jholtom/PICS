@@ -135,4 +135,7 @@
 #define UART_BAUD_MAX_HMB ((UART_BAUD_MAX >> 16) & 0xFF)
 #define UART_BAUD_MAX_MSB (UART_BAUD_MAX >> 24)
 
+#define ELY_SRCADDR_LSB (ELY_SRCADDR & 0xFF)
+#define ELY_SRCADDR_MSB ((ELY_SRCADDR >> 8) & 0xFF)
+
 #endif
