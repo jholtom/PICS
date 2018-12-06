@@ -6,6 +6,8 @@
 #include "uart.h"
 #include "main.h"
 
+#define APID(x,y) (((x & 0x07) << 8) | (y))
+
 size_t PERSIST elyNLMaxLen = elyNLDefaultMaxLen;
 static uint8_t PERSIST mpool_storage[elyNLTotalBuffer];
 
@@ -167,8 +169,7 @@ static void nl_route(uint8_t * buffer,
     elyNLFreeBuffer(buffer);
     return;
   }
-  /* TODO Don't use constants for register shifts.  Write a macro or function to handle these operations */
-  uint16_t apid = ( ((buffer[0] & 0x07) << 8) | (buffer[1]) );
+  uint16_t apid = APID(buffer[0],buffer[1]);
   uint16_t elysium_apid = ( ((bank0p[RegSrcAddrMsb] << 8) |
         (bank0p[RegSrcAddrLsb])) );
   bool tc = buffer[0] & 0x10;
@@ -267,8 +268,7 @@ bool is_fw_buf(uint8_t * buffer) {
    * If (TC AND APID == Elysium) Coding error
    * Else NL packet */
 
-  /* TODO Don't use constants for register shifts.  Write a macro or function to handle these operations */
-  uint16_t apid = ( ((buffer[0] & 0x07) << 8) | (buffer[1]) );
+  uint16_t apid = APID(buffer[0],buffer[1]);
   uint16_t elysium_apid = ( ((bank0p[RegSrcAddrMsb] << 8) |
         (bank0p[RegSrcAddrLsb])) );
   bool tc = buffer[0] & 0x10;
