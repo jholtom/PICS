@@ -73,7 +73,7 @@
 #define RX_BAND_MIN 457000000UL
 #define RX_BAND_MAX 471000000UL
 
-/* TODO: This will change on a new revision of the board */
+/* TODO: This will change to 2 on a new revision of the board */
 #define FIXED_ATTEN 4
 
 #define UART_TIMEOUT_MS 1000
