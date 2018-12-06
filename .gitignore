@@ -1,3 +1,5 @@
 *.o
 *.swp
 *.swo
+ElysiumCode/build
+ElysiumCode/.dep
