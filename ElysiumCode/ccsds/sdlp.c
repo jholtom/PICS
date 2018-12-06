@@ -480,12 +480,7 @@ void elyRFDLLTxInit(SX1278Driver * devp) {
         tf_data_len = tf_len;
     }
     if (bank0p[RegDLLOptions] & BIT2) {
-        if(FEC_TYPE == FEC_TURBO){
-            sx1278SetSync(devp, TX_SYNC_TURBO);
-        }
-        else {
-            sx1278SetSync(devp, TX_SYNC_RS);
-        }
+        sx1278SetSync(devp, TX_SYNC);
     }
     /* TODO data whitening, FARM */
     chSysUnlock();

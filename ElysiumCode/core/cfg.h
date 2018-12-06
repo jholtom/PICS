@@ -35,6 +35,14 @@
 #define TX_SYNC_RS 0x1ACFFC1DUL
 #define TX_SYNC_TURBO 0x034776C7272895B0UL
 
+#if FEC_TYPE == FEC_RS
+#define TX_SYNC TX_SYNC_RS
+#elif FEC_TYPE == FEC_TURBO
+#define TX_SYNC TX_SYNC_TURBO
+#else
+#define TX_SYNC TX_SYNC_RS
+#endif
+
 /* This sync word is entirely arbitrary and has no bearing on any standard. */
 #define RX_SYNC 0x8AD8BB2AUL
 
