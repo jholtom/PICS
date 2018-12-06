@@ -35,7 +35,14 @@
 #define TX_SYNC_RS 0x1ACFFC1DUL
 #define TX_SYNC_TURBO 0x034776C7272895B0UL
 
+/* This sync word is entirely arbitrary and has no bearing on any standard. */
 #define RX_SYNC 0x8AD8BB2AUL
+
+/* TC Sync words as defined by CCSDS */
+
+#define RX_SYNC_BCH 0xEB90UL
+
+#define RX_SYNC_LDPC 0x034776C7272895B0UL
 
 /* No Gaussian, 100 kHz */
 #define FILTER_DEFAULT 0xC0
