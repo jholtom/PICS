@@ -69,6 +69,10 @@
 
 #define MAIN_BUF_LEN 8
 
+#define elyFWMaxSlots 4
+#define elyFWBufferMaxSize (255+4+6)
+#define elyFWTotalBuffer (elyFWBufferMaxSize * elyFWMaxSlots)
+
 #include "constants.h"
 
 #endif

@@ -7,11 +7,7 @@
 #include "nl.h"
 #include "uart.h"
 #include "rf.h"
-
-/* TODO this should be in config */
-#define elyFWMaxSlots 4
-#define elyFWBufferMaxSize (255+4+6)
-#define elyFWTotalBuffer (elyFWBufferMaxSize * elyFWMaxSlots)
+#include "cfg.h"
 
 #ifdef __cplusplus
 extern "C" {
