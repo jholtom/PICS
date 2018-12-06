@@ -12,19 +12,28 @@
 /* 1 Mbps - maximum rate for SX1212 */
 #define SPI_BR 1000000UL
 
-/* 4800 bps */
-#define TX_BR 4800UL
+/* 115200 bps */
+#define TX_BR 115200UL
 
-/* 25000 bps */
-#define RX_BR 25000UL
+/* 55555 bps */
+#define RX_BR 55555UL
 
-/* 5 kHz */
-#define TX_DEV 5000UL
+/* 28.8 kHz */
+#define TX_DEV 28800UL
 
-/* 50 kHz */
-#define RX_DEV 50000UL
+/* 80 kHz */
+#define RX_DEV 80000UL
 
-#define TX_SYNC 0x97E983EAUL
+/* Configuration for sync words dependent on FEC type */
+
+#define FEC_RS 1
+
+#define FEC_TURBO 2
+
+#define FEC_TYPE FEC_RS
+
+#define TX_SYNC_RS 0x1ACFFC1DUL
+#define TX_SYNC_TURBO 0x034776C7272895B0UL
 
 #define RX_SYNC 0x8AD8BB2AUL
 
@@ -40,13 +49,13 @@
 #define TX_POW_MAX 130
 #define TX_POW_MIN ((15.8 - FIXED_ATTEN)*5)
 
-/* TODO REV A CFG */
 #define TX_BAND_MIN 865000000UL
 #define TX_BAND_MAX 955000000UL
 
 #define RX_BAND_MIN 457000000UL
 #define RX_BAND_MAX 471000000UL
 
+/* TODO: This will change on a new revision of the board */
 #define FIXED_ATTEN 4
 
 #define UART_TIMEOUT_MS 1000

@@ -64,7 +64,6 @@ void addr_cb(I2CDriver * i2cp, uint8_t * buffer, uint16_t n) {
   fram_req_t * req = active_req;
 
   chSysLockFromISR();
-  /* TODO put in an assert in here for the Rev A crossing bank boundaries */
   if (req->read) {
     if (req->special) {
       i2cMSP430XStartReceiveToRegI(i2cp, req->device_id,
@@ -76,9 +75,6 @@ void addr_cb(I2CDriver * i2cp, uint8_t * buffer, uint16_t n) {
     }
   }
   else {
-#if ELY_REVISION == A
-    chDbgAssert(req->size <= 128 - (req->address & 0x7F), "crosses page boundaries");
-#endif
     if (req->special) {
       i2cMSP430XContinueTransmitMemsetI(i2cp, req->device_id,
           req->size, req->buffer, end_cb);
