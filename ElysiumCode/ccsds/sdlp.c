@@ -158,7 +158,6 @@ uint8_t elyRFDLLClampReg(uint8_t addr, uint8_t value) {
     return value;
 }
 
-/* TODO learn how to deal with non-SPP packets */
 void elyRFDLLBuildFrame(void) {
     static ely_framebuilder_state_t state = FB_STATE_UNINIT;
     static size_t idle_len = 0;
