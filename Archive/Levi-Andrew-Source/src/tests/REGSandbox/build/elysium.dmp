@@ -1,0 +1,988 @@
+
+build/elysium.elf:     file format elf32-msp430
+build/elysium.elf
+architecture: MSP430X, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00004400
+
+Program Header:
+    LOAD off    0x00000174 vaddr 0x0000ff90 paddr 0x0000ff90 align 2**2
+         filesz 0x00000070 memsz 0x00000070 flags r-x
+    LOAD off    0x000001e4 vaddr 0x00001800 paddr 0x00001800 align 2**2
+         filesz 0x0000b838 memsz 0x0000b838 flags rwx
+    LOAD off    0x0000ba1c vaddr 0x0000a098 paddr 0x0000a098 align 2**2
+         filesz 0x00000000 memsz 0x00000100 flags rw-
+    LOAD off    0x0000ba1c vaddr 0x0000a198 paddr 0x0000a198 align 2**2
+         filesz 0x00000064 memsz 0x00000064 flags rw-
+    LOAD off    0x0000ba80 vaddr 0x00000000 paddr 0x00000000 align 2**2
+         filesz 0x00000000 memsz 0x00000000 flags ---
+    LOAD off    0x0000ba80 vaddr 0x0000a1fc paddr 0x0000a1fc align 2**2
+         filesz 0x00002620 memsz 0x000028e0 flags rw-
+    LOAD off    0x0000e0a0 vaddr 0x00004400 paddr 0x00004400 align 2**2
+         filesz 0x00005c98 memsz 0x00005c98 flags r-x
+    LOAD off    0x00013d38 vaddr 0x00010000 paddr 0x00010000 align 2**2
+         filesz 0x000006e6 memsz 0x000006e6 flags r--
+    LOAD off    0x0001441e vaddr 0x000106e6 paddr 0x000106e6 align 2**2
+         filesz 0x0000001e memsz 0x00000416 flags rw-
+    LOAD off    0x0001443c vaddr 0x00000000 paddr 0x00000000 align 2**2
+         filesz 0x00000000 memsz 0x00000000 flags ---
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 __interrupt_vector_1 00000002  0000ff90  0000ff90  00000174  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 __interrupt_vector_2 00000002  0000ff92  0000ff92  00000176  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 __interrupt_vector_3 00000002  0000ff94  0000ff94  00000178  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  3 __interrupt_vector_4 00000002  0000ff96  0000ff96  0000017a  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  4 __interrupt_vector_5 00000002  0000ff98  0000ff98  0000017c  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  5 __interrupt_vector_6 00000002  0000ff9a  0000ff9a  0000017e  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 __interrupt_vector_7 00000002  0000ff9c  0000ff9c  00000180  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  7 __interrupt_vector_8 00000002  0000ff9e  0000ff9e  00000182  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  8 __interrupt_vector_9 00000002  0000ffa0  0000ffa0  00000184  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  9 __interrupt_vector_10 00000002  0000ffa2  0000ffa2  00000186  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 10 __interrupt_vector_11 00000002  0000ffa4  0000ffa4  00000188  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 11 __interrupt_vector_12 00000002  0000ffa6  0000ffa6  0000018a  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 __interrupt_vector_13 00000002  0000ffa8  0000ffa8  0000018c  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 __interrupt_vector_14 00000002  0000ffaa  0000ffaa  0000018e  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 __interrupt_vector_15 00000002  0000ffac  0000ffac  00000190  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 __interrupt_vector_16 00000002  0000ffae  0000ffae  00000192  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 __interrupt_vector_17 00000002  0000ffb0  0000ffb0  00000194  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 __interrupt_vector_18 00000002  0000ffb2  0000ffb2  00000196  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 __interrupt_vector_19 00000002  0000ffb4  0000ffb4  00000198  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 __interrupt_vector_20 00000002  0000ffb6  0000ffb6  0000019a  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 __interrupt_vector_21 00000002  0000ffb8  0000ffb8  0000019c  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 __interrupt_vector_22 00000002  0000ffba  0000ffba  0000019e  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 __interrupt_vector_23 00000002  0000ffbc  0000ffbc  000001a0  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 23 __interrupt_vector_24 00000002  0000ffbe  0000ffbe  000001a2  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 24 __interrupt_vector_25 00000002  0000ffc0  0000ffc0  000001a4  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 25 __interrupt_vector_26 00000002  0000ffc2  0000ffc2  000001a6  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 26 __interrupt_vector_27 00000002  0000ffc4  0000ffc4  000001a8  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 27 __interrupt_vector_28 00000002  0000ffc6  0000ffc6  000001aa  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 28 __interrupt_vector_29 00000002  0000ffc8  0000ffc8  000001ac  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 29 __interrupt_vector_30 00000002  0000ffca  0000ffca  000001ae  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 30 __interrupt_vector_31 00000002  0000ffcc  0000ffcc  000001b0  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 31 __interrupt_vector_32 00000002  0000ffce  0000ffce  000001b2  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 32 __interrupt_vector_33 00000002  0000ffd0  0000ffd0  000001b4  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 33 __interrupt_vector_34 00000002  0000ffd2  0000ffd2  000001b6  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 34 __interrupt_vector_35 00000002  0000ffd4  0000ffd4  000001b8  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 35 __interrupt_vector_36 00000002  0000ffd6  0000ffd6  000001ba  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 36 __interrupt_vector_37 00000002  0000ffd8  0000ffd8  000001bc  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 37 __interrupt_vector_38 00000002  0000ffda  0000ffda  000001be  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 38 __interrupt_vector_39 00000002  0000ffdc  0000ffdc  000001c0  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 39 __interrupt_vector_40 00000002  0000ffde  0000ffde  000001c2  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 40 __interrupt_vector_41 00000002  0000ffe0  0000ffe0  000001c4  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 41 __interrupt_vector_42 00000002  0000ffe2  0000ffe2  000001c6  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 42 __interrupt_vector_43 00000002  0000ffe4  0000ffe4  000001c8  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 43 __interrupt_vector_44 00000002  0000ffe6  0000ffe6  000001ca  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 44 __interrupt_vector_45 00000002  0000ffe8  0000ffe8  000001cc  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 45 __interrupt_vector_46 00000002  0000ffea  0000ffea  000001ce  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 46 __interrupt_vector_47 00000002  0000ffec  0000ffec  000001d0  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 47 __interrupt_vector_48 00000002  0000ffee  0000ffee  000001d2  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 48 __interrupt_vector_50 00000002  0000fff2  0000fff2  000001d6  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 49 __interrupt_vector_51 00000002  0000fff4  0000fff4  000001d8  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 50 __interrupt_vector_52 00000002  0000fff6  0000fff6  000001da  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 51 __interrupt_vector_53 00000002  0000fff8  0000fff8  000001dc  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 52 __interrupt_vector_54 00000002  0000fffa  0000fffa  000001de  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 53 __interrupt_vector_55 00000002  0000fffc  0000fffc  000001e0  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 54 __reset_vector 00000002  0000fffe  0000fffe  000001e2  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 55 .text         00005c98  00004400  00004400  0000e0a0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 56 .stack        00000100  0000a098  0000a098  0000ba1c  2**0
+                  ALLOC
+ 57 .rodata       0000001a  0000a198  0000a198  0000ba1c  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 58 .rodata2      00000048  0000a1b4  0000a1b4  0000ba38  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+ 59 .persistent   00002620  0000a1fc  0000a1fc  0000ba80  2**1
+                  CONTENTS, ALLOC, LOAD, DATA
+ 60 .data         00000000  00001c00  00001c00  0001443c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 61 .bss          000002c0  0000c81c  0000c81c  0000e0a0  2**1
+                  ALLOC
+ 62 .noinit       00000000  0000cadc  0000cadc  0001443c  2**0
+                  CONTENTS
+ 63 .upper.data   0000001e  000106e6  000106e6  0001441e  2**1
+                  CONTENTS, ALLOC, LOAD, DATA
+ 64 .upper.bss    000003f8  00010704  00010704  0001443c  2**1
+                  ALLOC
+ 65 .upper.text   00000000  00010afc  00010afc  0001443c  2**0
+                  CONTENTS
+ 66 .info         000000c8  00001800  00001800  000001e4  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 67 .bootloader.flag 00000002  000019fc  000019fc  000003e0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 68 .MP430.attributes 00000605  00000000  00000000  0001443c  2**0
+                  CONTENTS, READONLY
+ 69 .comment      00000011  00000000  00000000  00014a41  2**0
+                  CONTENTS, READONLY
+ 70 .debug_aranges 00001480  00000000  00000000  00014a58  2**3
+                  CONTENTS, READONLY, DEBUGGING
+ 71 .debug_info   000aa70e  00000000  00000000  00015ed8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 72 .debug_abbrev 0000881c  00000000  00000000  000c05e6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 73 .debug_line   0000ea83  00000000  00000000  000c8e02  2**0
+                  CONTENTS, DEBUGGING
+ 74 .debug_frame  00003940  00000000  00000000  000d7888  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 75 .debug_str    0000746c  00000000  00000000  000db1c8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 76 .debug_loc    0000a3d0  00000000  00000000  000e2634  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 77 .debug_ranges 00001700  00000000  00000000  000eca04  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 78 .upper.rodata 000006e6  00010000  00010000  00013d38  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 79 .lower.lowtext 0000055c  0000cadc  0000cadc  0000b4c0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+SYMBOL TABLE:
+0000ff90 l    d  __interrupt_vector_1	00000000 __interrupt_vector_1
+0000ff92 l    d  __interrupt_vector_2	00000000 __interrupt_vector_2
+0000ff94 l    d  __interrupt_vector_3	00000000 __interrupt_vector_3
+0000ff96 l    d  __interrupt_vector_4	00000000 __interrupt_vector_4
+0000ff98 l    d  __interrupt_vector_5	00000000 __interrupt_vector_5
+0000ff9a l    d  __interrupt_vector_6	00000000 __interrupt_vector_6
+0000ff9c l    d  __interrupt_vector_7	00000000 __interrupt_vector_7
+0000ff9e l    d  __interrupt_vector_8	00000000 __interrupt_vector_8
+0000ffa0 l    d  __interrupt_vector_9	00000000 __interrupt_vector_9
+0000ffa2 l    d  __interrupt_vector_10	00000000 __interrupt_vector_10
+0000ffa4 l    d  __interrupt_vector_11	00000000 __interrupt_vector_11
+0000ffa6 l    d  __interrupt_vector_12	00000000 __interrupt_vector_12
+0000ffa8 l    d  __interrupt_vector_13	00000000 __interrupt_vector_13
+0000ffaa l    d  __interrupt_vector_14	00000000 __interrupt_vector_14
+0000ffac l    d  __interrupt_vector_15	00000000 __interrupt_vector_15
+0000ffae l    d  __interrupt_vector_16	00000000 __interrupt_vector_16
+0000ffb0 l    d  __interrupt_vector_17	00000000 __interrupt_vector_17
+0000ffb2 l    d  __interrupt_vector_18	00000000 __interrupt_vector_18
+0000ffb4 l    d  __interrupt_vector_19	00000000 __interrupt_vector_19
+0000ffb6 l    d  __interrupt_vector_20	00000000 __interrupt_vector_20
+0000ffb8 l    d  __interrupt_vector_21	00000000 __interrupt_vector_21
+0000ffba l    d  __interrupt_vector_22	00000000 __interrupt_vector_22
+0000ffbc l    d  __interrupt_vector_23	00000000 __interrupt_vector_23
+0000ffbe l    d  __interrupt_vector_24	00000000 __interrupt_vector_24
+0000ffc0 l    d  __interrupt_vector_25	00000000 __interrupt_vector_25
+0000ffc2 l    d  __interrupt_vector_26	00000000 __interrupt_vector_26
+0000ffc4 l    d  __interrupt_vector_27	00000000 __interrupt_vector_27
+0000ffc6 l    d  __interrupt_vector_28	00000000 __interrupt_vector_28
+0000ffc8 l    d  __interrupt_vector_29	00000000 __interrupt_vector_29
+0000ffca l    d  __interrupt_vector_30	00000000 __interrupt_vector_30
+0000ffcc l    d  __interrupt_vector_31	00000000 __interrupt_vector_31
+0000ffce l    d  __interrupt_vector_32	00000000 __interrupt_vector_32
+0000ffd0 l    d  __interrupt_vector_33	00000000 __interrupt_vector_33
+0000ffd2 l    d  __interrupt_vector_34	00000000 __interrupt_vector_34
+0000ffd4 l    d  __interrupt_vector_35	00000000 __interrupt_vector_35
+0000ffd6 l    d  __interrupt_vector_36	00000000 __interrupt_vector_36
+0000ffd8 l    d  __interrupt_vector_37	00000000 __interrupt_vector_37
+0000ffda l    d  __interrupt_vector_38	00000000 __interrupt_vector_38
+0000ffdc l    d  __interrupt_vector_39	00000000 __interrupt_vector_39
+0000ffde l    d  __interrupt_vector_40	00000000 __interrupt_vector_40
+0000ffe0 l    d  __interrupt_vector_41	00000000 __interrupt_vector_41
+0000ffe2 l    d  __interrupt_vector_42	00000000 __interrupt_vector_42
+0000ffe4 l    d  __interrupt_vector_43	00000000 __interrupt_vector_43
+0000ffe6 l    d  __interrupt_vector_44	00000000 __interrupt_vector_44
+0000ffe8 l    d  __interrupt_vector_45	00000000 __interrupt_vector_45
+0000ffea l    d  __interrupt_vector_46	00000000 __interrupt_vector_46
+0000ffec l    d  __interrupt_vector_47	00000000 __interrupt_vector_47
+0000ffee l    d  __interrupt_vector_48	00000000 __interrupt_vector_48
+0000fff2 l    d  __interrupt_vector_50	00000000 __interrupt_vector_50
+0000fff4 l    d  __interrupt_vector_51	00000000 __interrupt_vector_51
+0000fff6 l    d  __interrupt_vector_52	00000000 __interrupt_vector_52
+0000fff8 l    d  __interrupt_vector_53	00000000 __interrupt_vector_53
+0000fffa l    d  __interrupt_vector_54	00000000 __interrupt_vector_54
+0000fffc l    d  __interrupt_vector_55	00000000 __interrupt_vector_55
+0000fffe l    d  __reset_vector	00000000 __reset_vector
+00004400 l    d  .text	00000000 .text
+0000a098 l    d  .stack	00000000 .stack
+0000a198 l    d  .rodata	00000000 .rodata
+0000a1b4 l    d  .rodata2	00000000 .rodata2
+0000a1fc l    d  .persistent	00000000 .persistent
+00001c00 l    d  .data	00000000 .data
+0000c81c l    d  .bss	00000000 .bss
+0000cadc l    d  .noinit	00000000 .noinit
+000106e6 l    d  .upper.data	00000000 .upper.data
+00010704 l    d  .upper.bss	00000000 .upper.bss
+00010afc l    d  .upper.text	00000000 .upper.text
+00001800 l    d  .info	00000000 .info
+000019fc l    d  .bootloader.flag	00000000 .bootloader.flag
+00000000 l    d  .MP430.attributes	00000000 .MP430.attributes
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00010000 l    d  .upper.rodata	00000000 .upper.rodata
+0000cadc l    d  .lower.lowtext	00000000 .lower.lowtext
+00000000 l    df *ABS*	00000000 msp_vectors.c
+00000000 l    df *ABS*	00000000 hal_pal_lld.c
+00000000 l    df *ABS*	00000000 hal_gpt_lld.c
+0001047c l     O .upper.rodata	0000000e __func__.3709
+00000000 l    df *ABS*	00000000 hal_dma_lld.c
+00005120 l     F .text	0000003c dma_trigger_set
+0000c834 l     O .bss	00000018 callbacks
+0000c832 l     O .bss	00000002 dma_queue
+00010313 l     O .upper.rodata	0000000a __func__.3729
+00010307 l     O .upper.rodata	0000000c __func__.3742
+000102fc l     O .upper.rodata	0000000b __func__.3746
+00000000 l    df *ABS*	00000000 hal_uart_lld.c
+000058ae l     F .text	0000022c UCBRS
+00005ada l     F .text	0000005c rx_cb
+00005b36 l     F .text	00000070 tx_cb
+00010469 l     O .upper.rodata	00000013 __func__.3734
+0001045a l     O .upper.rodata	0000000f __func__.3746
+00000000 l    df *ABS*	00000000 hal_i2c_lld.c
+0001043a l     O .upper.rodata	0000000d __func__.3744
+0001041d l     O .upper.rodata	0000001d __func__.3752
+00010405 l     O .upper.rodata	00000018 __func__.3763
+000103e9 l     O .upper.rodata	0000001c __func__.3774
+000103d0 l     O .upper.rodata	00000019 __func__.3782
+000103b1 l     O .upper.rodata	0000001f __func__.3790
+0001038f l     O .upper.rodata	00000022 __func__.3798
+00010373 l     O .upper.rodata	0000001c __func__.3806
+0001035c l     O .upper.rodata	00000017 __func__.3810
+00010447 l     O .upper.rodata	00000013 __func__.3718
+0001033d l     O .upper.rodata	0000001f __func__.3829
+0001031d l     O .upper.rodata	00000020 __func__.3845
+00000000 l    df *ABS*	00000000 hal_st_lld.c
+00000000 l    df *ABS*	00000000 build/obj/bootloader.o
+0000fffe l       __reset_vector	00000000 __msp430_resetvec_hook
+00001800 l       .info	00000000 _bootloader_start
+0000180c l       .info	00000000 _main
+00001884 l       .info	00000000 addr_loop_1
+0000188e l       .info	00000000 addr_loop_2
+00001898 l       .info	00000000 addr_loop_3
+000018a8 l       .info	00000000 dma_loop
+000018b8 l       .info	00000000 stop_loop
+00000000 l    df *ABS*	00000000 /home/awygle/toolchain/install/lib/gcc/msp430-elf/6.2.0/../../../../msp430-elf/lib/large/crt0-minrt.o
+00000000 l    df *ABS*	00000000 init.c
+00004404 l     F .text	00000008 disable_watchdog
+00000000 l    df *ABS*	00000000 crt_bss.o
+00000000 l    df *ABS*	00000000 crt_high_bss.o
+00000000 l    df *ABS*	00000000 crt_move_highdata.o
+00000000 l    df *ABS*	00000000 crt_main_minrt.o
+00000000 l    df *ABS*	00000000 ch.c
+00004518 l     F .text	00000008 port_init
+00004520 l     F .text	0000000a port_unlock
+0000452a l     F .text	00000008 port_suspend
+0000452a l     F .text	00000008 port_lock
+0000452a l     F .text	00000008 port_disable
+00010000 l     O .upper.rodata	00000013 __func__.2612
+00010013 l     O .upper.rodata	0000000c __func__.2632
+0001001f l     O .upper.rodata	00000015 __func__.2649
+00010034 l     O .upper.rodata	00000015 __func__.2655
+00010049 l     O .upper.rodata	0000000d __func__.2661
+00010056 l     O .upper.rodata	00000012 __func__.2677
+00010068 l     O .upper.rodata	0000000d __func__.2685
+00010075 l     O .upper.rodata	0000000c __func__.2698
+00010081 l     O .upper.rodata	0000000d __func__.2710
+00000000 l    df *ABS*	00000000 chmboxes.c
+000100e1 l     O .upper.rodata	0000000f __func__.2600
+000100d6 l     O .upper.rodata	0000000b __func__.2607
+000100cc l     O .upper.rodata	0000000a __func__.2620
+000100c2 l     O .upper.rodata	0000000a __func__.2625
+000100b3 l     O .upper.rodata	0000000f __func__.2638
+000100a4 l     O .upper.rodata	0000000f __func__.2643
+00010099 l     O .upper.rodata	0000000b __func__.2656
+0001008e l     O .upper.rodata	0000000b __func__.2661
+00000000 l    df *ABS*	00000000 chmemcore.c
+0000c820 l     O .bss	00000004 nextmem
+0000c81c l     O .bss	00000004 endmem
+000100f0 l     O .upper.rodata	00000014 __func__.2609
+00000000 l    df *ABS*	00000000 chheap.c
+0000c824 l     O .bss	0000000e default_heap
+00000000 l    df *ABS*	00000000 chmempools.c
+00010144 l     O .upper.rodata	00000011 __func__.2600
+00010127 l     O .upper.rodata	0000000d __func__.2614
+0001011b l     O .upper.rodata	0000000c __func__.2624
+00010134 l     O .upper.rodata	00000010 __func__.2606
+00010104 l     O .upper.rodata	00000017 __func__.2638
+00000000 l    df *ABS*	00000000 chcore.c
+00000000 l    df *ABS*	00000000 osal.c
+0001016b l     O .upper.rodata	00000017 __func__.2720
+00010155 l     O .upper.rodata	00000016 __func__.2729
+00000000 l    df *ABS*	00000000 hal.c
+00000000 l    df *ABS*	00000000 hal_st.c
+00000000 l    df *ABS*	00000000 hal_gpt.c
+00004d6a l     F .text	00000008 port_lock
+00004d72 l     F .text	0000000a port_unlock
+000101de l     O .upper.rodata	00000009 __func__.3707
+000101d6 l     O .upper.rodata	00000008 __func__.3711
+000101c4 l     O .upper.rodata	00000012 __func__.3716
+000101b0 l     O .upper.rodata	00000014 __func__.3725
+0001019f l     O .upper.rodata	00000011 __func__.3734
+00010191 l     O .upper.rodata	0000000e __func__.3741
+00010182 l     O .upper.rodata	0000000f __func__.3746
+00000000 l    df *ABS*	00000000 hal_i2c.c
+0001022d l     O .upper.rodata	00000009 __func__.3707
+00010225 l     O .upper.rodata	00000008 __func__.3711
+00010218 l     O .upper.rodata	0000000d __func__.3715
+000101ff l     O .upper.rodata	00000019 __func__.3726
+000101e7 l     O .upper.rodata	00000018 __func__.3735
+00000000 l    df *ABS*	00000000 hal_spi.c
+00000000 l    df *ABS*	00000000 hal_uart.c
+00004ec2 l     F .text	00000008 port_lock
+00004eca l     F .text	0000000a port_unlock
+000102f2 l     O .upper.rodata	0000000a __func__.3707
+000102e9 l     O .upper.rodata	00000009 __func__.3711
+000102db l     O .upper.rodata	0000000e __func__.3717
+000102cc l     O .upper.rodata	0000000f __func__.3723
+000102bf l     O .upper.rodata	0000000d __func__.3728
+000102b1 l     O .upper.rodata	0000000e __func__.3732
+000102a0 l     O .upper.rodata	00000011 __func__.3739
+0001028e l     O .upper.rodata	00000012 __func__.3745
+0001027e l     O .upper.rodata	00000010 __func__.3750
+0001026d l     O .upper.rodata	00000011 __func__.3754
+0001025d l     O .upper.rodata	00000010 __func__.3763
+00010249 l     O .upper.rodata	00000014 __func__.3771
+00010236 l     O .upper.rodata	00000013 __func__.3779
+00000000 l    df *ABS*	00000000 hal_lld.c
+00000000 l    df *ABS*	00000000 hal_spi_lld.c
+00000000 l    df *ABS*	00000000 board.c
+00000000 l    df *ABS*	00000000 uart.c
+0000a216 l     O .persistent	00000004 tx_active_buffer
+0000c854 l     O .bss	00000001 UARTEvtMask
+0000a21a l     O .persistent	00000014 uart_mbox
+0000c850 l     O .bss	00000004 events
+0000c84c l     O .bss	00000004 uart_thd
+000104c9 l     O .upper.rodata	00000015 __func__.4768
+000104b5 l     O .upper.rodata	00000014 __func__.4771
+000104a8 l     O .upper.rodata	0000000d __func__.4776
+000104de l     O .upper.rodata	00000008 uart_timer_cfg
+0000a22e l     O .persistent	00000030 uart_buffer
+00000000 l    df *ABS*	00000000 main.c
+0000a26a l     O .persistent	00000004 curr_index.4765
+0000a26e l     O .persistent	00000424 fw_storage
+0000a25e l     O .persistent	0000000c fw_mpool
+000106e8 l     O .upper.data	00000002 fw_sem
+00000000 l    df *ABS*	00000000 cmds.c
+000062e2 l     F .text	00000008 port_lock
+000062ea l     F .text	0000000a port_unlock
+000062f4 l     F .text	00000018 reset
+0000c868 l     O .bss	00000004 active_buffer
+0000630c l     F .text	0000003e write_failure
+0000634a l     F .text	000000e0 store_telem
+0000c85c l     O .bss	00000004 telem_stored_hdr
+0000642a l     F .text	0000000a store_telem_noreply_cb
+000068d0 l     F .text	00000020 store_telem_reply_cb
+00006434 l     F .text	00000006 upload_fw_noreply_cb
+0000643a l     F .text	000000b4 verify_fw
+0000c85a l     O .bss	00000002 verify_crc
+0000c860 l     O .bss	00000004 verify_stored_hdr
+000068f0 l     F .text	00000044 verify_fw_cb
+000064ee l     F .text	00000044 write_success
+00006532 l     F .text	00000016 cancel_fw_eeprom_cb
+0000c858 l     O .bss	00000002 cancel_sem
+000106ea l     O .upper.data	00000014 main_mbox
+000104f7 l     O .upper.rodata	0000000f __func__.5661
+00010506 l     O .upper.rodata	000000c0 handlers
+000104e6 l     O .upper.rodata	00000011 __func__.5677
+0000c864 l     O .bss	00000004 stored_hdr
+00006934 l     F .text	00000020 upload_fw_reply_cb
+00006978 l     F .text	00000036 gen_success
+000069ae l     F .text	00000196 get_telem
+00006b44 l     F .text	00000054 install_fw
+00006b98 l     F .text	000000b2 cancel_fw
+0000c856 l     O .bss	00000001 fill_value.5563
+00006c4a l     F .text	0000003a reset_event
+00006c84 l     F .text	0000003a reset_chan
+00006cbe l     F .text	00000036 gen_failure
+00006cf4 l     F .text	000001c0 upload_fw
+00006eb4 l     F .text	0000008a set_log
+00006f3e l     F .text	0000008a set_err
+00006fc8 l     F .text	000000ea unlog_event
+000070b2 l     F .text	00000114 log_event
+000071c6 l     F .text	000000ea event_unsub
+000072b0 l     F .text	00000136 event_sub
+000073e6 l     F .text	000000e0 unlog_chan
+000074c6 l     F .text	00000188 log_chan
+0000764e l     F .text	000000c4 channel_unsub
+00007712 l     F .text	00000188 channel_sub
+0000789a l     F .text	000000b0 reload_config
+0000794a l     F .text	0000011e set_u32
+00007a68 l     F .text	0000004a set_baud
+00007ab2 l     F .text	0000005a set_rx_dev
+00007b0c l     F .text	00000058 set_tx_dev
+00007b64 l     F .text	00000056 set_rx_br
+00007bba l     F .text	00000056 set_tx_br
+00007c10 l     F .text	00000058 set_rx_freq
+00007c68 l     F .text	00000058 set_tx_freq
+00007cc0 l     F .text	0000008e set_tx_pow
+00007d4e l     F .text	000000a4 set_gpo
+00007df2 l     F .text	00000088 get_log
+00007e7a l     F .text	00000086 get_err
+00007f00 l     F .text	00000098 get_time
+00007f98 l     F .text	000000ac set_time
+00008044 l     F .text	000000ec get_chan
+00008130 l     F .text	00000174 get_u32
+000082a4 l     F .text	00000042 get_baud
+000082e6 l     F .text	00000044 get_rx_dev
+0000832a l     F .text	00000042 get_tx_dev
+0000836c l     F .text	00000042 get_rx_br
+000083ae l     F .text	00000042 get_tx_br
+000083f0 l     F .text	00000044 get_rx_freq
+00008434 l     F .text	00000044 get_tx_freq
+00008478 l     F .text	0000007c get_tx_pow
+000084f4 l     F .text	00000180 set_block
+00008674 l     F .text	00000136 get_block
+000087aa l     F .text	0000017e set_regs
+00008928 l     F .text	00000178 get_regs
+00008aa0 l     F .text	0000007e get_active_bank
+00008b1e l     F .text	0000007e get_gpo
+0000c86c l     O .bss	00000030 main_buffer
+00000000 l    df *ABS*	00000000 registers.c
+00008c0a l     F .text	0000002e clamp
+0000c89c l     O .bss	00000001 regs_in_progress
+0000c89e l     O .bss	00000002 regs_sem
+0000a692 l     O .persistent	00000100 bank0
+00000000 l    df *ABS*	00000000 errors_stub.c
+00000000 l    df *ABS*	00000000 events_stub.c
+00000000 l    df *ABS*	00000000 channels_stub.c
+00000000 l    df *ABS*	00000000 telem_stub.c
+00000000 l    df *ABS*	00000000 rf_stub.c
+00000000 l    df *ABS*	00000000 rf_dll_stub.c
+00000000 l    df *ABS*	00000000 slip_uart_dll.c
+000106fe l     O .upper.data	00000001 tx_state
+0000c8b4 l     O .bss	00000004 tx_read_ptr
+0000c8ac l     O .bss	00000004 next_tx_ptr
+0000c8b0 l     O .bss	00000004 next_cnt
+0000c8b8 l     O .bss	00000004 tx_n
+00010614 l     O .upper.rodata	00000002 SLIP_ESC_ESC_ESC
+00010612 l     O .upper.rodata	00000002 SLIP_ESC_ESC_END
+00010603 l     O .upper.rodata	0000000f __func__.4813
+0000c8a6 l     O .bss	00000001 done.4818
+0000c8bc l     O .bss	00000004 tx_active_buffer
+00010602 l     O .upper.rodata	00000001 END.4819
+000105f0 l     O .upper.rodata	00000012 __func__.4825
+000105ef l     O .upper.rodata	00000001 END.4824
+0000c8a8 l     O .bss	00000004 uart_thd
+0000c8c0 l     O .bss	00000004 bytes_available
+0000c8ca l     O .bss	00000204 rx_buf
+0000a792 l     O .persistent	00000004 rx_active_buffer
+0000c8c8 l     O .bss	00000001 rx_state
+0000c8c4 l     O .bss	00000004 rx_write_ptr
+0000c8a2 l     O .bss	00000004 rx_n.4833
+0000c8a0 l     O .bss	00000001 header.4834
+000105e1 l     O .upper.rodata	0000000e __func__.4851
+000105ce l     O .upper.rodata	00000013 __func__.4864
+00000000 l    df *ABS*	00000000 crc_x25.c
+0000cace l     O .bss	00000001 crc_state
+00010633 l     O .upper.rodata	0000000a __func__.3715
+00010627 l     O .upper.rodata	0000000c __func__.3724
+0001061e l     O .upper.rodata	00000009 __func__.3731
+00010616 l     O .upper.rodata	00000008 __func__.3734
+00000000 l    df *ABS*	00000000 fram.c
+0000a7b6 l     O .persistent	00000004 curr_index.3827
+0000a7ba l     O .persistent	00000048 fram_storage
+0000cad4 l     O .bss	00000004 active_req
+0001067e l     O .upper.rodata	00000014 __func__.3854
+0000cad0 l     O .bss	00000002 counter.3853
+0000a7a4 l     O .persistent	00000001 fram_read_idx
+0000a798 l     O .persistent	0000000c fram_mpool
+0000a796 l     O .persistent	00000002 fram_pool_sem
+0000a7a5 l     O .persistent	00000001 fram_write_idx
+0000a7a6 l     O .persistent	00000010 fram_mbox_buffer
+0000cad2 l     O .bss	00000002 counter.3843
+0001066a l     O .upper.rodata	00000014 __func__.3858
+00010657 l     O .upper.rodata	00000013 __func__.3866
+0001063d l     O .upper.rodata	0000001a __func__.3872
+00010700 l     O .upper.data	00000004 cfg
+00000000 l    df *ABS*	00000000 spp.c
+0000a80e l     O .persistent	00000004 curr_index.4805
+0000a817 l     O .persistent	00002000 mpool_storage
+000099de l     F .text	0000002e clamp
+00009a0c l     F .text	00000008 uart_pass
+00009a14 l     F .text	00000008 fw
+00009a1c l     F .text	00000008 rf_pass
+0001069b l     O .upper.rodata	0000000e __func__.4820
+0000a802 l     O .persistent	0000000c main_mpool
+0000cad8 l     O .bss	00000004 sh_len
+00009d56 l     F .text	00000086 nl_route
+00010692 l     O .upper.rodata	00000009 __func__.4864
+00000000 l    df *ABS*	00000000 lib2divSI.c
+00000000 l    df *ABS*	00000000 slli.o
+00000000 l    df *ABS*	00000000 srli.o
+00000000 l    df *ABS*	00000000 lib2hw_mul_f5.o
+00000130 l       *ABS*	00000000 MPY_OP1
+00000132 l       *ABS*	00000000 MPY_OP1_S
+00000134 l       *ABS*	00000000 MAC_OP1
+00000138 l       *ABS*	00000000 MPY_OP2
+00000138 l       *ABS*	00000000 MAC_OP2
+0000013a l       *ABS*	00000000 RESULT_LO
+0000013c l       *ABS*	00000000 RESULT_HI
+00000000 l    df *ABS*	00000000 memcpy.c
+00000000 l    df *ABS*	00000000 memset.c
+00000000 l    df *ABS*	00000000 memmove.c
+00000000 l    df *ABS*	00000000 libgcc2.c
+00000000 l    df *ABS*	00000000 hal_buffers.c
+00000000 l    df *ABS*	00000000 hal_queues.c
+00000000 l    df *ABS*	00000000 hal_mmcsd.c
+00000000 l    df *ABS*	00000000 hal_pal.c
+00000000 l    df *ABS*	00000000 hal_serial_lld.c
+00000000 l    df *ABS*	00000000 hal_adc_lld.c
+00000000 l    df *ABS*	00000000 mych.c
+00000000 l    df *ABS*	00000000 queues.c
+00000000 l    df *ABS*	00000000 libgcc2.c
+00000000 l    df *ABS*	00000000 libgcc2.c
+00000000 l    df *ABS*	00000000 libgcc2.c
+00000000 l    df *ABS*	00000000 libgcc2.c
+00000000 l    df *ABS*	00000000 libgcc2.c
+00000000 l    df *ABS*	00000000 
+00004400 l       .text	00000000 _start
+0001048a g     O .upper.rodata	0000001e pal_default_config
+00004464 g     F .text	00000004 Vector1
+00009fe8 g     F .text	00000000 __mspabi_mpyl
+00009f02 g       .text	00000000 .hidden __mspabi_slll_9
+0000449c g     F .text	00000004 Vector15
+00000150 g       *ABS*	00000000 CRCDI_L
+0000022a g       *ABS*	00000000 PBSEL0
+00009ef2 g       .text	00000000 .hidden __mspabi_slll_13
+0000466c g     F .text	0000008c chSysTimerHandlerI
+000047f2 g     F .text	0000006a chSchGoSleepTimeoutS
+00004e52 g     F .text	00000006 i2cInit
+000096d4 g     F .text	00000020 crcStop
+00010750 g     O .upper.bss	00000080 port_callback_map
+00000161 g       *ABS*	00000000 CSCTL0_H
+00009f4c g       .text	00000000 .hidden __mspabi_srli_9
+00006874 g     F .text	0000005c elyCmdSendReplyI
+0000064c g       *ABS*	00000000 UCB0RXBUF_L
+0000021e g       *ABS*	00000000 P2IV
+00009f9c g       .text	00000000 .hidden __mspabi_srll_10
+00004508 g     F .text	00000004 Vector51
+00009bae g     F .text	00000020 elyNLFreeBufferChecked
+00004478 g     F .text	00000004 Vector6
+00004d82 g     F .text	0000000c gptObjectInit
+0000515c g     F .text	00000008 dmaInit
+00009f48 g       .text	00000000 .hidden __mspabi_srli_10
+00008c76 g     F .text	00000098 fram_reg
+000044d4 g     F .text	00000004 Vector29
+00005752 g     F .text	000000a8 i2cMSP430XContinueTransmitI
+000090d8 g     F .text	00000052 elyRegSetBlock
+00005f14 g     F .text	000000c6 gpt_lld_start
+00009168 g     F .text	00000006 elyRFPostI
+00009ecc g       .text	00000000 .hidden __mspabi_slli_9
+000003c2 g       *ABS*	00000000 TB0CCTL0
+00009f34 g       .text	00000000 .hidden __mspabi_srli_15
+00009bce g     F .text	00000020 elyNLFreeBufferCheckedI
+0000a042 g     F .text	00000056 memmove
+00000206 g       *ABS*	00000000 PAREN_L
+0000066a g       *ABS*	00000000 UCB0IE
+00009b72 g     F .text	0000003c is_fw_buf
+00000512 g       *ABS*	00000000 DMA0SA
+00009f60 g       .text	00000000 .hidden __mspabi_srli_4
+00009ec6 g       .text	00000000 .hidden __mspabi_slli_12
+00004480 g     F .text	00000004 Vector8
+000055f0 g     F .text	000000bc i2cMSP430XStartTransmitMSBI
+00009b4a g     F .text	0000000c elyNLFreeBufferI
+000106e8 g       .upper.data	00000000 __high_dataend
+00009fe8 g     F .text	00000000 __mspabi_mpyl_f5hw
+0000a812 g     O .persistent	00000001 packets_relayed
+0000020c g       *ABS*	00000000 PASEL1_L
+000044b4 g     F .text	00000004 Vector21
+0000cadc g     F .lower.lowtext	00000022 ISR_MSP430X_ST_ISR
+00008dde g     F .text	000001ec elyClampReg
+00000380 g       *ABS*	00000000 TA1CTL
+00000640 g       *ABS*	00000000 UCB0CTLW0
+0000a814 g     O .persistent	00000002 packets_sent
+00000204 g       *ABS*	00000000 PADIR
+00005e5e g     F .text	00000058 uart_lld_start_receive
+000044a0 g     F .text	00000004 Vector16
+00009f54 g       .text	00000000 .hidden __mspabi_srli_7
+00009fae g       .text	00000000 .hidden __mspabi_srll_7
+00009fc6 g       .text	00000000 .hidden __mspabi_srll_3
+000105c6 g     O .upper.rodata	00000004 bank0w
+00004494 g     F .text	00000004 Vector13
+00000168 g       *ABS*	00000000 CSCTL4
+00009bf6 g     F .text	000000ee elyNLSetHeader
+00009b3e g     F .text	0000000c elyNLFreeBuffer
+00005ffe g     F .text	0000000c gpt_lld_stop_timer
+00009dfa g     F .text	0000000e elyNLFromFW
+00005c06 g     F .text	00000204 uart_lld_start
+000044e8 g     F .text	00000004 Vector36
+000047e2 g     F .text	00000010 chSchRescheduleS
+00005eb6 g     F .text	0000004c uart_lld_stop_receive
+000044c8 g     F .text	00000004 Vector26
+000044f4 g     F .text	00000004 Vector42
+0000522a g     F .text	0000007c dmaTransferI
+00009872 g     F .text	0000007a end_cb
+00004efe g     F .text	0000004a uartStart
+00009176 g     F .text	00000004 elyRFDLLClampReg
+00005420 g     F .text	000000ea i2cMSP430XStartReceiveToRegI
+000056ac g     F .text	000000a6 i2cMSP430XContinueTransmitMemsetI
+0000a00a g     F .text	0000001e memcpy
+00005082 g     F .text	00000020 st_lld_init
+00009f8a g       .text	00000000 .hidden __mspabi_srll_13
+000065aa g     F .text	00000274 elyCmdValidate
+0001074e g     O .upper.bss	00000001 __msp430x_in_isr
+00000222 g       *ABS*	00000000 PBOUT
+000044e0 g     F .text	00000004 Vector32
+00000162 g       *ABS*	00000000 CSCTL1
+0000472c g     F .text	00000092 chSchReadyI
+0000023e g       *ABS*	00000000 P4IV
+00004e64 g     F .text	00000058 i2cStart
+0000a098 g       .stack	00000000 __main_thread_stack_end__
+00000164 g       *ABS*	00000000 CSCTL2
+0000022e g       *ABS*	00000000 P3IV
+00009f40 g       .text	00000000 .hidden __mspabi_srli_12
+00005886 g     F .text	00000028 rx_async_callback
+0000015c g       *ABS*	00000000 WDTCTL
+00004c14 g     F .text	00000022 _heap_init
+0000913e g     F .text	00000002 elyChanUnsubscribe
+00000140 g       *ABS*	00000000 FRCTL0
+00004d3e g     F .text	00000026 halInit
+00009648 g     F .text	0000006a crcCheckX25
+000062a2 g     F .text	00000014 elyFWGetBuffer
+00000500 g       *ABS*	00000000 DMACTL0
+000019fc g       .bootloader.flag	00000000 bootloader
+00005ba6 g     F .text	00000060 uart_lld_init
+00004400 g     F .text	00000004 __crt0_start
+00000226 g       *ABS*	00000000 PBREN
+00009efa g       .text	00000000 .hidden __mspabi_slll_11
+00009eea g       .text	00000000 .hidden __mspabi_slll_15
+0000924a g     F .text	00000062 elyUARTDLLTxCB
+00009ec2 g       .text	00000000 .hidden __mspabi_slli_14
+00009ed6 g       .text	00000000 .hidden __mspabi_slli_4
+0000440c g     F .text	00000010 __crt0_init_bss
+0000950a g     F .text	00000020 elyUARTDLLTimeoutCB
+00009136 g     F .text	00000002 elyEventLog
+000002c0 g       *ABS*	00000000 __bsssize
+00009f1e g       .text	00000000 .hidden __mspabi_slll_2
+0000917a g     F .text	000000d0 calc_next_buff
+00000510 g       *ABS*	00000000 DMA0CTL
+00004970 g     F .text	0000002c chEvtSignal
+00009ddc g     F .text	00000012 elyNLRouteUART
+00006010 g     F .text	0000003a send_complete_cb
+00005032 g     F .text	00000050 hal_lld_init
+00009ee4 g       .text	00000000 .hidden __mspabi_slli
+0000532a g     F .text	00000002 spi_lld_init
+000051d2 g     F .text	00000058 dmaClaimI
+000044cc g     F .text	00000004 Vector27
+00009fba g       .text	00000000 .hidden __mspabi_srll_5
+00010704 g       .upper.bss	00000000 __high_bssend
+00000141 g       *ABS*	00000000 FRCTL0_H
+0000064c g       *ABS*	00000000 UCB0RXBUF
+0000609c g     F .text	00000030 elyUARTPost
+00009f78 g       .text	00000000 .hidden __mspabi_srli
+0000912a g     F .text	00000002 elyErrorSignal
+00004468 g     F .text	00000004 Vector2
+00009576 g     F .text	0000005e elyUARTDLLRxCB
+00009132 g     F .text	00000002 elyEventSubscribe
+00004714 g     F .text	00000018 chSysRestoreStatusX
+0000cb5a g     F .lower.lowtext	0000006c ISR_PORT2_VECTOR
+000044ac g     F .text	00000004 Vector19
+0000020e g       *ABS*	00000000 P1IV
+0000022c g       *ABS*	00000000 PBSEL1
+00000206 g       *ABS*	00000000 PAREN
+00008b9c g     F .text	0000006e CmdThd
+0000550a g     F .text	000000e6 i2cMSP430XStartReceiveI
+0000050e g       *ABS*	00000000 DMAIV
+00000642 g       *ABS*	00000000 UCB0CTLW1
+0000465c g     F .text	00000010 chSysHalt
+0000441c g     F .text	00000012 __crt0_init_highbss
+00009f96 g       .text	00000000 .hidden __mspabi_srll_11
+00004498 g     F .text	00000004 Vector14
+00009f12 g       .text	00000000 .hidden __mspabi_slll_5
+0000914a g     F .text	00000002 elyTelemUpdateConfigS
+00004d64 g     F .text	00000006 stInit
+00009cfc g     F .text	0000005a elyNLValidate
+0000532c g     F .text	0000000a tx_complete
+00009ec8 g       .text	00000000 .hidden __mspabi_slli_11
+000052a6 g     F .text	00000046 dmaReleaseX
+0000cc9e g     F .lower.lowtext	00000092 ISR_DMA_VECTOR
+00010704 g     O .upper.bss	0000004a nil
+00004510 g     F .text	00000004 Vector54
+0000448c g     F .text	00000004 Vector11
+00009ed8 g       .text	00000000 .hidden __mspabi_slli_3
+00004a48 g     F .text	00000066 chMBPostS
+00009fe8 g     F .text	00000022 __mulsi2_f5
+00009f5c g       .text	00000000 .hidden __mspabi_srli_5
+0000a1fc g     O .persistent	0000001a A1_cfg
+0000952a g     F .text	0000004c elyUARTDLLRxCharCB
+00006282 g     F .text	00000020 elyFWGetBufferI
+0001080e g     O .upper.bss	00000064 UARTDA1
+00009352 g     F .text	0000000a elyUARTDLLRxInit
+000044c0 g     F .text	00000004 Vector24
+00000324 g       *ABS*	00000000 PJDIR
+000047ce g     F .text	00000014 chSchDoReschedule
+00004532 g     F .text	0000012a chSysInit
+00009a24 g     F .text	00000110 elyNLClampReg
+00009142 g     F .text	00000002 elyChanUnlog
+000003e0 g       *ABS*	00000000 TB0EX0
+000003c0 g       *ABS*	00000000 TB0CTL
+00000516 g       *ABS*	00000000 DMA0DA
+00000322 g       *ABS*	00000000 PJOUT
+00000202 g       *ABS*	00000000 PAOUT_L
+0000981c g     F .text	00000056 fram_handle_request
+000109bc g     O .upper.bss	00000140 waCmdThd
+0000c818 g     O .persistent	00000004 elyNLMaxLen
+00009eda g       .text	00000000 .hidden __mspabi_slli_2
+00004fa0 g     F .text	00000058 uartStartReceiveI
+000044d8 g     F .text	00000004 Vector30
+00009fb4 g       .text	00000000 .hidden __mspabi_srll_6
+0000916e g     F .text	00000006 elyRFPost
+000050a2 g     F .text	0000007e _pal_lld_init
+00004c36 g     F .text	0000003a chPoolAllocI
+00000156 g       *ABS*	00000000 CRCRESR
+00008c60 g     F .text	00000016 fram_block_cb
+00009e24 g     F .text	0000008a .hidden udivmodsi4
+00009f0e g       .text	00000000 .hidden __mspabi_slll_6
+00009948 g     F .text	00000024 elyFramPostRequestS
+00009f16 g       .text	00000000 .hidden __mspabi_slll_4
+00009f06 g       .text	00000000 .hidden __mspabi_slll_8
+0000066c g       *ABS*	00000000 UCB0IFG
+00004c70 g     F .text	00000014 chPoolAlloc
+00005164 g     F .text	0000006e dmaAcquireI
+00009f6c g       .text	00000000 .hidden __mspabi_srli_1
+00005fda g     F .text	00000024 gpt_lld_start_timer
+00004514 g     F .text	00000004 Vector55
+00004490 g     F .text	00000004 Vector12
+0000020a g       *ABS*	00000000 PASEL0_L
+00009f84 g       .text	00000000 .hidden __mspabi_srll_14
+00009ed2 g       .text	00000000 .hidden __mspabi_slli_6
+00004ed4 g     F .text	00000006 uartInit
+00004cc4 g     F .text	0000000c _port_switch
+0000914c g     F .text	0000001c elyTelemPostBufferS
+00009eae g     F .text	00000012 .hidden __mspabi_divul
+00004b20 g     F .text	0000006e chMBFetchS
+00000160 g       *ABS*	00000000 CSCTL0
+00004d7c g     F .text	00000006 gptInit
+000044e4 g     F .text	00000004 Vector35
+0000016c g       *ABS*	00000000 CSCTL6
+00009f38 g       .text	00000000 .hidden __mspabi_srli_14
+000044c4 g     F .text	00000004 Vector25
+0001087c g     O .upper.bss	00000140 waUARTThd
+000044f8 g     F .text	00000004 Vector45
+0000066e g       *ABS*	00000000 UCB0IV
+00004e1e g     F .text	00000034 gptStopTimerI
+00009130 g     F .text	00000002 elyEventSignal
+0000a816 g     O .persistent	00000001 packets_received
+000003ae g       *ABS*	00000000 TA1IV
+00000204 g       *ABS*	00000000 PADIR_L
+0000971a g     F .text	00000102 addr_cb
+0000606a g     F .text	00000032 elyUARTPostI
+000044dc g     F .text	00000004 Vector31
+00005f02 g     F .text	00000012 gpt_lld_init
+00009eee g       .text	00000000 .hidden __mspabi_slll_14
+00004500 g     F .text	00000004 Vector47
+000005fe g       *ABS*	00000000 UCA1IV
+00000166 g       *ABS*	00000000 CSCTL3
+0000913c g     F .text	00000002 elyChanSubscribe
+00009f44 g       .text	00000000 .hidden __mspabi_srli_11
+000062b6 g     F .text	00000014 elyFWFreeBufferI
+00009174 g     F .text	00000002 elyRFCfgMarkDirty
+00009f0a g       .text	00000000 .hidden __mspabi_slll_7
+000005fc g       *ABS*	00000000 UCA1IFG
+00004ac2 g     F .text	0000005e chMBPostI
+0000604a g     F .text	00000020 elyUARTCfgMarkDirty
+00009144 g     F .text	00000004 elyChanGetValue
+00009138 g     F .text	00000002 elyEventUnlog
+000092ac g     F .text	000000a6 elyUARTDLLStartTx
+0000001c g       *ABS*	00000000 __rom_highdatacopysize
+00004474 g     F .text	00000004 Vector5
+00000224 g       *ABS*	00000000 PBDIR
+0000020c g       *ABS*	00000000 PASEL1
+00010872 g     O .upper.bss	0000000a GPTDA1
+00009b56 g     F .text	0000001c elyNLGetDest
+00006954 g     F .text	00000024 elyCmdSendReply
+0000a028 g     F .text	0000001a memset
+00009ef6 g       .text	00000000 .hidden __mspabi_slll_12
+00009e08 g     F .text	0000001c main
+00004d8e g     F .text	0000004a gptStart
+0000cbc6 g     F .lower.lowtext	0000006c ISR_PORT3_VECTOR
+000005ea g       *ABS*	00000000 UCA1STATW
+00004ebc g     F .text	00000006 spiInit
+00009092 g     F .text	00000046 elyRegGetBlock
+0000032a g       *ABS*	00000000 PJSEL0
+00004b8e g     F .text	00000014 chMBFetch
+00004f48 g     F .text	00000058 uartStartSendI
+00009fc0 g       .text	00000000 .hidden __mspabi_srll_4
+00004484 g     F .text	00000004 Vector9
+00009f68 g       .text	00000000 .hidden __mspabi_srli_2
+00009bee g     F .text	00000008 elyNLInit
+000099b8 g     F .text	00000026 nl_allocator
+000057fa g     F .text	0000008c i2cMSP430XEndTransferI
+00008d0e g     F .text	000000d0 fram_block
+00009edc g       .text	00000000 .hidden __mspabi_slli_1
+000096b2 g     F .text	00000022 crcStart
+00010afc g       .upper.bss	00000000 __high_bsssize
+000005e0 g       *ABS*	00000000 UCA1CTLW0
+00009f1a g       .text	00000000 .hidden __mspabi_slll_3
+000106e8 g       *ABS*	00000000 __rom_highdatastart
+00000100 g       *ABS*	00000000 __idle_stack_size__
+00009134 g     F .text	00000002 elyEventUnsubscribe
+00009026 g     F .text	0000006c elyRegSet
+0000442e g     F .text	00000030 __crt0_move_highdata
+0000499c g     F .text	00000048 chEvtSignalI
+00009140 g     F .text	00000002 elyChanLog
+000096f4 g     F .text	00000026 fram_mpool_alloc
+000005ee g       *ABS*	00000000 UCA1TXBUF
+00004cd0 g     F .text	00000014 _port_thread_start
+0000064e g       *ABS*	00000000 UCB0TXBUF
+00004c84 g     F .text	0000002c chPoolFreeI
+00009f90 g       .text	00000000 .hidden __mspabi_srll_12
+00009148 g     F .text	00000002 elyChanReset
+00009ed4 g       .text	00000000 .hidden __mspabi_slli_5
+000044a8 g     F .text	00000004 Vector18
+00005336 g     F .text	00000038 i2c_lld_init
+00009ec4 g       .text	00000000 .hidden __mspabi_slli_13
+000060cc g     F .text	00000190 UARTThd
+000005fa g       *ABS*	00000000 UCA1IE
+000106aa g     O .upper.rodata	0000003c nil_thd_configs
+00008c38 g     F .text	00000028 fram_reg_cb
+00009f58 g       .text	00000000 .hidden __mspabi_srli_6
+0000051a g       *ABS*	00000000 DMA0SZ
+000044b8 g     F .text	00000004 Vector22
+0000cafe g     F .lower.lowtext	0000005c ISR_PORT1_VECTOR
+0000912c g     F .text	00000002 elyErrorSetRptLvlS
+00004e58 g     F .text	0000000c i2cObjectInit
+00004dd8 g     F .text	00000046 gptStartOneShotI
+000044a4 g     F .text	00000004 Vector17
+00009eca g       .text	00000000 .hidden __mspabi_slli_10
+00009f64 g       .text	00000000 .hidden __mspabi_srli_3
+00004cb0 g     F .text	00000014 chPoolFree
+000106e8 g       .upper.data	00000000 __high_datastart
+000106e6 g       *ABS*	00000000 __upper_data_init
+0000450c g     F .text	00000004 Vector53
+00004488 g     F .text	00000004 Vector10
+0000c81c g       .bss	00000000 __bssstart
+00004470 g     F .text	00000004 Vector4
+000005ec g       *ABS*	00000000 UCA1RXBUF
+00004eda g     F .text	00000024 uartObjectInit
+00000154 g       *ABS*	00000000 CRCINIRES
+0000485c g     F .text	0000002c chThdResumeI
+000095d4 g     F .text	00000074 crcGenX25
+00009f2e g       .text	00000000 .hidden __mspabi_slll
+0000681e g     F .text	00000056 elyCmdDispatch
+00000660 g       *ABS*	00000000 UCB0I2CSA
+000044bc g     F .text	00000004 Vector23
+00005e0a g     F .text	00000054 uart_lld_start_send
+0000912e g     F .text	00000002 elyErrorSetLogLvlS
+000049e4 g     F .text	00000064 chEvtWaitAnyTimeout
+0000a198 g       .stack	00000000 __stack
+00009fa2 g       .text	00000000 .hidden __mspabi_srll_9
+00000326 g       *ABS*	00000000 PJREN
+00009dee g     F .text	0000000c elyNLToFW
+000098ec g     F .text	0000005c elyFramPostRequestI
+00001c00 g       .data	00000000 _edata
+0000913a g     F .text	00000002 elyEventReset
+000107d0 g     O .upper.bss	0000003e I2CDB0
+00010000 g       __reset_vector	00000000 _end
+0000536e g     F .text	000000b2 i2c_lld_start
+0000935c g     F .text	000001ae elyUARTDLLRxHandleBuffer
+000105ca g     O .upper.rodata	00000004 bank0p
+00009fe2 g       .text	00000000 .hidden __mspabi_srll
+0000447c g     F .text	00000004 Vector7
+00004ff8 g     F .text	0000003a uartStopReceiveI
+00006548 g     F .text	0000000e elyMainMBPost
+00000130 g       *ABS*	00000000 PM5CTL0
+00004aae g     F .text	00000014 chMBPost
+0000cfd8 g     F .lower.lowtext	00000060 ISR_TIMER1_A1_VECTOR
+0000a198 g       .stack	00000000 __main_thread_stack_base__
+00010704 g       .upper.bss	00000000 __high_bssstart
+00009ece g       .text	00000000 .hidden __mspabi_slli_8
+00009f7e g       .text	00000000 .hidden __mspabi_srll_15
+000062ca g     F .text	00000018 elyFWFreeBuffer
+0000446c g     F .text	00000004 Vector3
+00009efe g       .text	00000000 .hidden __mspabi_slll_10
+00000156 g       *ABS*	00000000 CRCRESR_L
+00009ec0 g       .text	00000000 .hidden __mspabi_slli_15
+00009b34 g     F .text	0000000a elyNLGetBuffer
+00000120 g       *ABS*	00000000 PMMCTL0
+000044f0 g     F .text	00000004 Vector39
+00004c00 g     F .text	00000014 chCoreAllocAligned
+000046f8 g     F .text	0000001c chSysGetStatusAndLockX
+000047be g     F .text	00000010 chSchIsPreemptionRequired
+0000ceca g     F .lower.lowtext	0000010e ISR_USCI_A1_VECTOR
+0000cc32 g     F .lower.lowtext	0000006c ISR_PORT4_VECTOR
+00004504 g     F .text	00000004 Vector50
+0000996c g     F .text	0000003e elyFramGetRequestTimeoutS
+000003d2 g       *ABS*	00000000 TB0CCR0
+00009eae g     F .text	00000012 __mspabi_divlu
+000052ec g     F .text	0000003e dmaCancelI
+00000646 g       *ABS*	00000000 UCB0BRW
+00004ba2 g     F .text	0000005e chCoreAllocAlignedI
+000044ec g     F .text	00000004 Vector38
+00009f3c g       .text	00000000 .hidden __mspabi_srli_13
+00004888 g     F .text	0000002a chSemWaitTimeout
+000044d0 g     F .text	00000004 Vector28
+0000600a g     F .text	00000006 boardInit
+00009f22 g       .text	00000000 .hidden __mspabi_slll_1
+00004ce4 g     F .text	0000005a osalThreadDequeueNextI
+00000157 g       *ABS*	00000000 CRCRESR_H
+00009fa8 g       .text	00000000 .hidden __mspabi_srll_8
+00009fd2 g       .text	00000000 .hidden __mspabi_srll_1
+00009ed0 g       .text	00000000 .hidden __mspabi_slli_7
+0000445e g     F .text	00000006 __crt0_call_just_main
+0000020a g       *ABS*	00000000 PASEL0
+00000202 g       *ABS*	00000000 PAOUT
+000044fc g     F .text	00000004 Vector46
+00004904 g     F .text	0000006c chSemSignalI
+0000625c g     F .text	00000026 fw_allocator
+00008fca g     F .text	0000005c elyRegGet
+00009fcc g       .text	00000000 .hidden __mspabi_srll_2
+00006556 g     F .text	00000054 elyCmdParse
+0000032c g       *ABS*	00000000 PJSEL1
+00009f50 g       .text	00000000 .hidden __mspabi_srli_8
+000099aa g     F .text	0000000e elyFramInit
+000044b0 g     F .text	00000004 Vector20
+000048b2 g     F .text	00000052 chSemWaitTimeoutS
+00009ce4 g     F .text	00000018 elyNLGetLength
+0000cd30 g     F .lower.lowtext	0000019a ISR_USCI_B0_VECTOR
+
+
