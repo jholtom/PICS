@@ -1,0 +1,3 @@
+- Memo before Virgin Orbit and ATLAS - person
+- Inclination
+- Can support downlink only - uplink could be done...too but maybe not immediately
